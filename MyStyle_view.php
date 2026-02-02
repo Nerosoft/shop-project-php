@@ -5,7 +5,7 @@
         <thead>
             <tr>
                 <th><?php echo$view->getTableId()?></th>
-                <th><?php echo$view->getLanguageValue()?></th>
+                <th><?php echo$view->getNameLangaue()?></th>
                 <th><?php echo$view->getTabelEvent()?></th>
             </tr>
         </thead>
@@ -21,17 +21,23 @@
                                 <td>
                                 
                         HTML;
-                        $title = $view->getScreenModelEdit();
-                        $button = $view->getButtonModelEdit();
-                        $idModel = "editModel".$count;
-                        $idForm = "editForm".$count;
-                        $action = 'MyStyleEditPost.php';
-                        $myValue = $myObject->getName();
-                        include('modal_lang_page.php');
                         $action = 'ChangeStylePost.php';
                         include('modal_changelanguage_changestyle.php');
-                        echo '</td>
-                        </tr>';
+                        $title = $view->getScreenModelEdit();
+                        $button = $view->getButtonModelEdit();
+                        $idModel = "editModel".$index;
+                        $idForm = "editForm".$index;
+                        $action = 'MyStyleEditPost';
+                        include('modal_change_language.php');
+
+                     
+                        echo <<<HTML
+                                    <img class="style_icon_menu pointer"
+                                    src="./asset/lib/icons/wrench-adjustable.svg"
+                                    onclick="displayEditForm('#{$idModel}', '{$myObject->getName()}')"/>
+                                </td>
+                            </tr>
+                        HTML;
                         ++$count;
                     }
                 ?>
@@ -40,7 +46,7 @@
         <tfoot>
             <tr>
                 <th><?php echo$view->getTableId()?></th>
-                <th><?php echo$view->getLanguageValue()?></th>
+                <th><?php echo$view->getNameLangaue()?></th>
                 <th><?php echo$view->getTabelEvent()?></th>
             </tr>
         </tfoot>

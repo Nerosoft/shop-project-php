@@ -1,7 +1,7 @@
 <script type="text/javascript">
-    function displayForm(id, inputValue, value){
+    function displayEditForm(id, value){
         removeClass(id);
         openForm(id);
-        inputValue.val(value);
+        $(id).find('#lang_name').val(value);
     }
 </script>

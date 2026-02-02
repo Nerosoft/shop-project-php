@@ -8,7 +8,10 @@ class SystemLangEditPost extends MessageError{
     function __construct(){
         parent::__construct('SystemLang');
         $this->initErrorSystemlang($this->getModelPage());
-        $this->validStyleLang($this);
+        if(!isset($_POST['word']) || $_POST['word'] === '')
+            $this->setErrors($this->getTextRequired());
+        else if(strlen($_POST['word']) < 3 )
+            $this->setErrors($this->getTextLenght());
         if(!isset($_GET['lang']) || !isset($_GET['table']) || !isset($_GET['key']) || !isset($this->getObj()[$_GET['lang']][$_GET['table']][$_GET['key']]) && !isset($_GET['array']) || isset($_GET['array']) && !isset($this->getObj()[$_GET['lang']][$_GET['table']][$_GET['key']][$_GET['array']]))
             $this->setErrors($this->getModelPage()['ErrorFormInput']);
         if($this->isEmptyErrors()){

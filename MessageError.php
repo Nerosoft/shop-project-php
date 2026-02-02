@@ -132,12 +132,6 @@ class MessageError extends ModelJson{
         if(!isset($_POST['superId']) || !isset($this->getFile()[$_POST['superId']]))
             $this->setErrors($this->getModelPage()['DbIdInv']);
     }
-    function validStyleLang($obj){
-        if(!isset($_POST['word']) || $_POST['word'] === '')
-            $this->setErrors($obj->getTextRequired());
-        else if(strlen($_POST['word']) < 3 )
-            $this->setErrors($obj->getTextLenght());
-    }
     //------------------------------------------------------------------
     function saveProduct($keyId){
         $myData = $this->getObj();
@@ -171,9 +165,9 @@ class MessageError extends ModelJson{
         );
         $this->saveFile($file);
     }
-    function saveLanguageDatabase($newKey, &$myData, $obj, $nameKey = 'AllNamesLanguage', $nameInput = 'lang_name'){
+    function saveLanguageDatabase($newKey, &$myData, $obj, $nameKey = 'AllNamesLanguage'){
         foreach ($obj->getallNames() as $key=>$value)
-            $myData[$key][$nameKey][$newKey] = $_POST[$nameInput];
+            $myData[$key][$nameKey][$newKey] = $_POST['lang_name'];
     }
     function deleteItem($id){
         $myData = $this->getObj();

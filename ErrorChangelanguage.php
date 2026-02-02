@@ -4,10 +4,10 @@ trait ErrorChangelanguage{
     use ErrorChangelanguageAllNames;
     private $NewLangNameRequired;
     private $NewLangNameInvalid;
-    function initErrorChangelanguage($info){
-        $this->NewLangNameRequired = $info['ChangeLanguage']['NewLangNameRequired'];
-        $this->NewLangNameInvalid = $info['ChangeLanguage']['NewLangNameInvalid'];
-        $this->initErrorChangelanguageAllNames($info['AllNamesLanguage']);
+    function initErrorChangelanguage($info, $AllNamesLanguage){
+        $this->NewLangNameRequired = $info['NewLangNameRequired'];
+        $this->NewLangNameInvalid = $info['NewLangNameInvalid'];
+        $this->initErrorChangelanguageAllNames($AllNamesLanguage);
     }
     function getNewLangNameRequired(){
         return $this->NewLangNameRequired;

@@ -120,8 +120,12 @@
         { 'searchable': true, className: "text-left" },
         { 'searchable': false }
     ];
+    function displayForm(id, inputValue, value){
+        removeClass(id);
+        openForm(id);
+        inputValue.val(value);
+    }
 </script>
 
 <?php 
-include 'javascript_language_style.php';
 include 'end_html.php';?>

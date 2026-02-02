@@ -7,7 +7,7 @@ class ChangeLanguageCreatePost extends MessageError{
     use ErrorChangelanguage;
     function __construct(){
         parent::__construct('ChangeLanguage');
-        $this->initErrorChangelanguage($this->getModel2());
+        $this->initErrorChangelanguage($this->getModelPage(), $this->getModel2()['AllNamesLanguage']);
         $this->validChangeLanguage($this);
         if($this->isEmptyErrors()){
             $newKey = $this->getRandomId();

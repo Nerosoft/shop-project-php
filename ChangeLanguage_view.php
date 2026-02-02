@@ -70,10 +70,7 @@
         { 'searchable': true, className: "text-left" },
         { 'searchable': false }
     ];
-    function displayEditForm(id, value){
-        removeClass(id);
-        openForm(id);
-        $(id).find('#lang_name').val(value);
-    }
 </script>
-<?php include 'end_html.php'?>
+<?php 
+include 'javascript_language_style.php';
+include 'end_html.php'?>
