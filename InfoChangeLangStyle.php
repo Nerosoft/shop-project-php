@@ -1,5 +1,7 @@
 <?php
+require 'ErrorChangelanguage.php';
 trait InfoChangeLangStyle{
+    use ErrorChangelanguage;
     private $LabelChangeLanguageMessage;
     private $TitleChangeLanguageMessage;
     private $ButtonChangeLanguageMessage;
@@ -7,7 +9,8 @@ trait InfoChangeLangStyle{
     private $HintNewLangName;
     private $NameLangaue;
     private $DataView;
-    function InitInfoChangeLangStyle($obj, $DataView){
+    function InitInfoChangeLangStyle($obj, $DataView, $lang){
+        $this->initErrorChangelanguage($obj, $lang);
         $this->LabelChangeLanguageMessage = $obj['LabelChangeLanguageMessage'];
         $this->TitleChangeLanguageMessage = $obj['TitleChangeLanguageMessage'];
         $this->ButtonChangeLanguageMessage = $obj['ButtonChangeLanguageMessage'];
