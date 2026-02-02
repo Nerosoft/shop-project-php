@@ -15,7 +15,4 @@
     type="text" name="word" id="word" value="<?php echo $myValue?>" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
 </div>
 
-<?php 
-if($view->getUrlName2()==="MyStyle")
-    include('my_id.php');
-include('end_model.php');?>
+<?php include('end_model.php');?>
