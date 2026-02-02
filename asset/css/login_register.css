@@ -1,0 +1,34 @@
+body {
+    background-image: url('../img/login-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.register {
+    margin: 0;
+    background: #fafafa; /* Warna latar belakang abu-abu muda */
+    color: #333;
+    padding: 20px;
+    width: 55%;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:95%;
+}
+h4{
+    text-align: center;
+    color: #333;
+}
+
+.register button{
+    margin-top: 10px;
+}
+
+.flexCheck:checked {
+    background-color: #FF9800;
+    border-color: #FF9800;
+}

@@ -1,0 +1,85 @@
+body,
+.register{
+    background-color: currentcolor!important;
+}
+.register button,
+#register h4,
+#register label,
+div.dt-container div.dt-search label,
+div.dt-container div.dt-length label,
+.dt-info,
+th .dt-column-title,
+th span,
+tr td,
+.modal-title,
+.modal-content label,
+.pagination .page-link{
+    color: white!important;
+}
+th{
+    background-color: #212529!important;
+}
+tr td{
+    background-color: #383838!important;
+    border-color: #000000!important;
+}
+tr th,
+.modal-header,
+.modal-footer{
+    border-color: #000000;
+}
+.start-page button,
+.register button,
+#createModel button,
+#style_modal button,
+
+.button-select-branch,
+.dropdown-menu,
+.dropdown-item:focus, .dropdown-item:hover,
+.pagination .page-link{
+    background-color: #383838;
+    border-color: #383838;
+}
+.dropdown-item:focus, .dropdown-item:hover{
+    background-color: #383838;
+    border-color: #383838;
+}
+.dropdown-menu .btn-primary{
+    background-color: dimgrey;
+    border-color: dimgrey;
+}
+#createModel button:hover,
+#style_modal button:hover,
+.register button:hover,
+.start-page button:hover,
+.dropdown-menu .btn-primary:hover{
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+#example_wrapper select,
+.register select{
+    background-color: #383838;
+    color: white;
+    border-color: #000000;
+    cursor: pointer;
+}
+#example_wrapper select:hover,
+.register select:hover{
+    background-color: #dc3545;
+}
+#example_wrapper select option,
+.register select option{
+    background-color: #383838;
+}
+.offcanvas-body {
+    background-color: rgb(33 37 41) !important;
+}
+.modal-content{
+    background-color: #292929;
+}
+div.dt-scroll-body{
+    border-bottom-style:none!important;
+}
+.pagination .active button{
+    background-color: #dc3545;
+}

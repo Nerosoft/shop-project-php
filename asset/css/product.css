@@ -1,0 +1,27 @@
+.avatar-product{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+}
+.img-btn{
+    margin-top: 5px;
+}
+/* .error-message{
+    border: 2px solid #dc3545;
+} */
+.avatar{
+    width: 1px;
+    height: 1px;
+}
+.avatar-product-view{
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+}
+.table-avatar{
+    vertical-align: middle;
+}
+.product-img-view{
+    width: 100%;
+    height: 100%;
+}
