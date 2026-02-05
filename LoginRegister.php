@@ -107,7 +107,7 @@ class LoginRegister extends InformationPage{
                 }
             }
         include 'title_html.php';
-        $this->showToast($this->getModelPage()[$message], $type);
+        $this->showToast($this->getModelPage()[$message]??$message, $type);
         $this->initEvent('createModel', 'createForm', $this->getLanguage(), $this->getChangeLang(), $this->getModelTitle(), $this->getModelButton(), 'lang', $this->getMyLanguage());
         $this->initEvent('style_modal', 'style_form', $this->getStyleFile(), $this->getChangeStyle(), $this->getModalTitleStyle(), $this->getModalButtonStyle(), 'style', $this->getStyle());
     }

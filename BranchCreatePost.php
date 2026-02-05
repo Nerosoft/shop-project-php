@@ -2,26 +2,17 @@
 include 'SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
 require 'MyBranch.php';
-require 'MessageError.php';
-class BranchCreatePost extends MessageError{
+class BranchCreatePost extends ModelJson{
     use ErrorBranch;
     function __construct(){
         parent::__construct('Branches');
-        $this->initErrorBranch($this->getModelPage());
-        $this->ValidBranch($this);
-        if($this->isEmptyErrors()){
-            $file = $this->getFile();
-            $keyId = $this->getRandomId();
-            $obj = $this->getFileByFixedId();
-            unset($obj['Branches'], $obj['Users'], $obj['State']);
-            $file [$keyId] = $obj;
-            $this->saveBranch($keyId, $file);
-            $view = new MyBranch('MessageModelCreate');
-        }else{
-            $view = new MyBranch();
-            $this->displayErrors();
-        }  
-        include 'Branch_view.php';
+        $keyId = $this->getRandomId();
+        $file = $this->initErrorBranch2($this->getMyModal(), $keyId);
+        $obj = $this->getFileByFixedId();
+        unset($obj['Branches'], $obj['Users'], $obj['State']);
+        $file [$keyId] = $obj;
+        $this->saveFile($file);
+        MyBranch::initBranch('MessageModelCreate');
     }
 }
 

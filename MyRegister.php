@@ -15,6 +15,11 @@ class MyRegister extends LoginRegister{
         $this->LabelKeyPassword = $this->getModelPage()['LabelKeyPassword'];
         $this->HintKeyPassword = $this->getModelPage()['HintKeyPassword'];
     }
+    static function initMyRegister($message = 'LoadMessage', $type = 'success'){
+        $view = new MyRegister($message, $type);
+        include 'register_view.php';
+        exit;
+    }
     function getLabelConfirmPassword(){
         return $this->LabelConfirmPassword;
     }

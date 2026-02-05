@@ -26,6 +26,11 @@ class MySystemlang extends AdminMenu{
         else
             $this->DataView = array();
     }
+    static function initMySystemlang($message = 'LoadMessage', $type = 'success'){
+        $view = new MySystemlang($message, $type);
+        include 'SystemLang_view.php';
+        exit;
+    }
     function getLanguageName(){
         return $this->LanguageName;
     }

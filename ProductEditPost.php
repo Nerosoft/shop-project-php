@@ -7,16 +7,7 @@ class ProductEditPost extends ValidationId{
     use ErrorProduct;
     function __construct(){
         parent::__construct('Product');
-        $this->initErrorProduct($this->getModelPage());
-        $this->validProduct($this);
-        if($this->isEmptyErrors()){
-            $this->saveProduct($_POST['id']);
-            $view = new Product('MessageModelEdit');
-        }else{
-            $view = new Product();
-            $this->displayErrors();
-        }
-        include 'ProductView.php';
+        $this->initErrorProduct2($this->getMyModal(), $_POST['id'], 'MessageModelEdit');
     }
 }
 

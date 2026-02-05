@@ -14,6 +14,11 @@ class MyLogin extends LoginRegister{
         $this->LabelKeyPassword = $this->getModelPage()['LabelKeyPassword'];
         $this->HintKeyPassword = $this->getModelPage()['HintKeyPassword'];
     }
+    static function initMyLogin($message = 'LoadMessage', $type = 'success'){
+        $view = new MyLogin($message, $type);
+        include 'login_view.php';
+        exit;
+    }
     function getButtonForgetPassword(){
         return $this->ButtonForgetPassword;
     }

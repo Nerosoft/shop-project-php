@@ -10,7 +10,7 @@ class MyHome extends Page{
     private $LabelInputNumber;
     private $HintInputNumber;
     private $DataView;
-    function __construct($message = 'LoadMessage', $type = 'success'){
+    function __construct($message, $type){
         parent::__construct('Home', $message, $type);
         $this->initErrorsHome($this->getModelPage());
         $this->TableName = $this->getModelPage()['NameTable'];
@@ -37,5 +37,10 @@ class MyHome extends Page{
     }
     function getHintInputNumber(){
         return $this->HintInputNumber;
+    }
+    static function initHome($message = 'LoadMessage', $type = 'success'){
+        $view = new MyHome($message, $type);
+        include 'home_view.php';
+        exit;
     }
 }

@@ -7,16 +7,8 @@ class SettingUsersEditPost extends ValidationId{
     use ErrorsPassword;
     function __construct(){
         parent::__construct('SettingUsers');
-        $this->initErrorsPassword($this->getModelPage());
-        $this->validUsers($this);
-        if($this->isEmptyErrors()){
-            $this->saveUsers($_POST['id']);
-            $view = new MySettingUsers('MessageModelEdit');
-        }else{
-            $view = new MySettingUsers();
-            $this->displayErrors();
-        }
-        include 'SettingUsers_view.php';
+        $this->initErrorsPassword2($this->getMyModal(), $_POST['id']);
+        MySettingUsers::initMySettingUsers('MessageModelEdit');
     }
 }
 

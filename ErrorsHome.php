@@ -9,6 +9,10 @@ trait ErrorsHome{
         $this->InputNumberTableIsReq = $error['InputNumberTableIsReq'];
         $this->InputNumberTableIsInv = $error['InputNumberTableIsInv']; 
     }
+    function initErrorsHome2($modal){
+        $this->initErrorsHome($modal->getModelPage());
+        $this->validName($modal);
+    }
     function getInputNumberTableIsReq(){
         return $this->InputNumberTableIsReq;
     }

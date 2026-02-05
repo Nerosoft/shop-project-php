@@ -3,24 +3,19 @@ include 'SessionAuth.php';
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_POST['setup_project'] === 'Login' || $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_POST['setup_project'] === 'Register'){
     $_SERVER['SCRIPT_FILENAME'] = $_POST['setup_project'];
     require  $_POST['setup_project'] === 'Login'?'MyLogin.php':'MyRegister.php';
-    require 'MessageError.php';
-    class SetupProject extends MessageError{
+    class SetupProject extends ModelJson{
         use ErrorsHomeName;
         function __construct(){
             parent::__construct($_POST['setup_project']);
             $this->validStaticId();
-            $this->initErrorsHomeName($this->getModelPage());
-            $this->validCustomTable($this);
-            if($this->isEmptyErrors()){
-                $file = $this->getFile();
-                $file[$this->getRandomId()] = $this->getProject();
-                $this->saveFile($file);
-                $view = $_POST['setup_project'] === 'Login'?new MyLogin('MessageSetupProject'):new MyRegister('MessageSetupProject');
-            }else{
-                $view = $_POST['setup_project'] === 'Login'?new MyLogin():new MyRegister();
-                $this->displayErrors();
-            }
-            include $_POST['setup_project'] === 'Login'?'login_view.php':'register_view.php';
+            $this->initErrorsHomeName2($this->getMyModal());
+            $file = $this->getFile();
+            $file[$this->getRandomId()] = $this->getProject();
+            $this->saveFile($file);
+            if($_POST['setup_project'] === 'Login')
+                MyLogin::initMyLogin('MessageSetupProject');
+            else 
+                MyRegister::initMyRegister('MessageSetupProject');
         }
         function getProject(){
             return array(

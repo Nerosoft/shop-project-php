@@ -108,4 +108,9 @@ class MyBranch extends Page{
     function getselectBox1(){
         return $this->selectBox1;
     }
+    static function initBranch($message = 'LoadMessage', $type = 'success'){
+        $view = new MyBranch($message, $type);
+        include 'Branch_view.php';
+        exit;
+    }
 }

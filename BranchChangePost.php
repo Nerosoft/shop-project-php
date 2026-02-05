@@ -6,14 +6,8 @@ require 'ValidationId.php';
 class BranchChangePost extends ValidationId{
     function __construct(){
         parent::__construct('Branches');
-        if($this->isEmptyErrors()){
-            $this->resetId();
-            $view = new MyBranch('SuccessfullyChangeBranch');
-        }else{
-            $view = new MyBranch();
-            $this->displayErrors();
-        }  
-        include 'Branch_view.php';
+        $this->resetId();
+        MyBranch::initBranch('SuccessfullyChangeBranch');
     }
 }
 new BranchChangePost();

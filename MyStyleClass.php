@@ -7,4 +7,9 @@ class MyStyleClass extends AdminMenu{
         parent::__construct('MyStyle', $message, $type);
         $this->InitInfoChangeLangStyle($this->getModelPage(), MyLanguage::fromArray($this->getModel2()['Style']), $this->getModel2()['AllNamesLanguage']);
     }
+    static function initMyStyleClass($message = 'LoadMessage', $type = 'success'){
+        $view = new MyStyleClass($message, $type);
+        include 'MyStyle_view.php';
+        exit;
+    }
 }

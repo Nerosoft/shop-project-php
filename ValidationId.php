@@ -1,10 +1,9 @@
 <?php
-require 'MessageError.php';
-class ValidationId extends MessageError{
+class ValidationId extends ModelJson{
     function __construct($IdPage){
         parent::__construct($IdPage);
         if(!isset($_POST['id']) || $_POST['id'] === '')
-            $this->setErrors($this->getModelPage()['IdIsReq']);
+            $this->initViewPost($this->getModelPage()['IdIsReq']);
         else if(
         $this->getSCRIPTFILENAME() === 'BranchChangePost' && $_POST['id'] !== $this->getFixedId() && !isset($this->getBranch()[$_POST['id']])||
         !isset($this->getBranch()[$_POST['id']]) && $this->getUrlName2() === 'Branches' && $this->getSCRIPTFILENAME() !== 'BranchChangePost'||
@@ -21,7 +20,17 @@ class ValidationId extends MessageError{
         !isset($this->getModel2()['Style'][$_POST['id']]) && $this->getUrlName2() === 'Login' && $_POST['state'] ==='style'||
         !isset($this->getModel2()['Style'][$_POST['id']]) && $this->getUrlName2() === 'Register' && $_POST['state'] ==='style'||
 
-        !isset($this->getObj()['Users'][$_POST['id']]) && $this->getUrlName2() === 'SettingUsers')
-            $this->setErrors($this->getModelPage()['IdIsInv']);
+        !isset($this->getObj()['Users'][$_POST['id']]) && $this->getUrlName2() === 'SettingUsers'||
+        !isset($this->getObj()['Product'][$_POST['id']]) && $this->getUrlName2() === 'Product'
+        )
+            $this->initViewPost($this->getModelPage()['IdIsInv']);
+    }
+    function deleteItem($id){
+        $myData = $this->getObj();
+        if(count($myData[$id]) === 1)
+            unset($myData[$id]);
+        else
+            unset($myData[$id][$_POST['id']]);
+        $this->saveModel($myData);
     }
 }

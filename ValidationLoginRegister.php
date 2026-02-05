@@ -1,8 +1,7 @@
 <?php
 require 'DeleteInfoName.php';
 require 'Users.php';
-require 'MessageError.php';
-class ValidationLoginRegister extends MessageError{
+class ValidationLoginRegister extends ModelJson{
     use ErrorLoginRegister;
     private $users;
     function getUsers(){
@@ -23,17 +22,13 @@ class ValidationLoginRegister extends MessageError{
         $this->initErrorsLoginRegister($this->getModelPage());
         $this->users = isset($this->getObj()['Users']) ? Users::fromArray($this->getObj()['Users']):array();
         if(!isset($_POST['Email']) || $_POST['Email'] === '')
-            $this->setErrors($this->getRequiredEmail());
+            $this->initViewPost($this->getRequiredEmail());
         else if(!preg_match('/^[\w]+@[\w]+\.[a-zA-z]{2,6}$/', $_POST['Email']))
-            $this->setErrors($this->getInvalidEmail());
+            $this->initViewPost($this->getInvalidEmail());
         if(!isset($_POST['Password']) || $_POST['Password'] === '')
-            $this->setErrors($this->getRequiredPassword());
+            $this->initViewPost($this->getRequiredPassword());
         else if(strlen($_POST['Password']) < 8)
-            $this->setErrors($this->getInvalidPassword());
-    }
-    function getEmailExist(){
-        if(isset($_POST['Email']) && in_array($_POST['Email'], array_map(function($obj) {return $obj->getName();}, $this->getUsers())))
-            $this->setErrors($this->getModelPage()['EmailExist']);
+            $this->initViewPost($this->getInvalidPassword());
     }
 }
 ?>

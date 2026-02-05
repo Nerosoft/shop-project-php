@@ -2,18 +2,16 @@
 include 'SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
 require 'MyHome.php';
-require 'MessageError.php';
-class HomeCreatePost extends MessageError{
+class HomeCreatePost extends ModelJson{
     use ErrorsHome;
     function __construct(){
         parent::__construct('Home');
-        $this->initErrorsHome($this->getModelPage());
-        $this->validCustomTable($this);
+        $this->initErrorsHome2($this->getMyModal());
         if(!isset($_POST['input_number']) || $_POST['input_number'] === '')
-            $this->setErrors($this->getInputNumberTableIsReq());
+            MyHome::initHome($this->getInputNumberTableIsReq(), 'danger');
         else if(!is_numeric($_POST['input_number']) || $_POST['input_number'] > 8)
-            $this->setErrors($this->getInputNumberTableIsInv());
-        if($this->isEmptyErrors()){
+            MyHome::initHome($this->getInputNumberTableIsInv(), 'danger');
+        else{
             $key = $this->getRandomId();
             $myData = $this->getObj();
             foreach ($this->getModel2()['AllNamesLanguage'] as $code => $value) {
@@ -30,12 +28,8 @@ class HomeCreatePost extends MessageError{
                 }
             }
             $this->saveModel($myData);
-            $view = new MyHome('MessageModelCreate');
-        }else{
-            $view = new MyHome();
-            $this->displayErrors();
+            MyHome::initHome('MessageModelCreate');
         }
-        include 'home_view.php';
     }
 }
 

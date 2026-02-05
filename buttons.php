@@ -11,8 +11,8 @@
     echo '<input type="hidden" value="'.$view->getId().'"name="superId">
     <input type="hidden" name="setup_project" value="'.$view->getUrlName2().'">'?>
     <div class="form-group">
-        <label for="email"><?php echo $view->getNameLabel()?></label>
-        <input type="text" class="form-control" id="email" name="name"
+        <label for="name"><?php echo $view->getNameLabel()?></label>
+        <input type="text" class="form-control" name="name"
             placeholder="<?php echo $view->getNameHint()?>"
             title="<?php echo $view->getNameHint()?>"
             oninvalid="handleInput(this ,'<?php echo$view->getNameTableIsReq()?>', '<?php echo$view->getNameTableIsInv()?>')"

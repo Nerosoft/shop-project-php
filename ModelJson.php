@@ -21,6 +21,41 @@ class ModelJson{
         $this->Language = isset($_COOKIE[$this->getId().'lang']) && isset($this->getObj()[$_COOKIE[$this->getId().'lang']]) && !isset($_SESSION['staticId'])?$_COOKIE[$this->getId().'lang']:$this->getObj()['Setting']['Language'];
         $this->StyleFile = isset($_COOKIE[$this->getId().'style']) && isset($this->getObj()[$this->Language]['Style'][$_COOKIE[$this->getId().'style']]) && !isset($_SESSION['staticId'])?$_COOKIE[$this->getId().'style']:$this->getObj()['Setting']['Style'];
     }
+    function getRandomId(){
+        return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 2) . substr(uniqid(), -6);
+    }
+    function initViewPost($message){
+        switch ($this->getUrlName2()) {
+            case 'Product':
+                Product::initProduct($message, 'danger');
+            case 'Home':
+                MyHome::initHome($message, 'danger');
+            case 'Branches':
+                MyBranch::initBranch($message, 'danger');
+            case 'ChangeLanguage':
+                MyChangeLanguage::initMyChangeLanguage($message, 'danger');
+            case 'SettingUsers':
+                MySettingUsers::initMySettingUsers($message, 'danger');
+            case 'MyStyle':
+                MyStyleClass::initMyStyleClass($message, 'danger');
+            case 'Login':
+                MyLogin::initMyLogin($message, 'danger');
+            case 'Register':
+                MyRegister::initMyRegister($message, 'danger');
+            default:
+                MyFlexTablesView::initMyFlexTablesView($message, 'danger');
+        }
+    }
+    // function displayErrors(){
+    //     $this->showCustomeMessage(function($type = 'danger'){
+    //         foreach ($this->getErrors() as $key => $toast)
+    //             include 'toast_message.php'; 
+    //     }, '55px');
+    // }
+    function validStaticId(){
+        if(!isset($_POST['superId']) || !isset($this->getFile()[$_POST['superId']]))
+            $this->initViewPost($this->getModelPage()['DbIdInv']);
+    }
     function getStyleFile(){
         return $this->StyleFile;
     }
@@ -81,5 +116,8 @@ class ModelJson{
         $this->showCustomeMessage(function()use($toast, $type, $key){
             include 'toast_message.php';
         }, $top);
+    }
+    function getMyModal(){
+        return $this;
     }
 }

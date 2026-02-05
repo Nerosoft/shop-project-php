@@ -7,4 +7,9 @@ class MyChangeLanguage extends Page{
         parent::__construct('ChangeLanguage', $message, $type);
         $this->InitInfoChangeLangStyle($this->getModelPage(), array_reverse(MyLanguage::fromArray($this->getModel2()['AllNamesLanguage'])), $this->getModel2()['AllNamesLanguage']);
     }
+    static function initMyChangeLanguage($message = 'LoadMessage', $type = 'success'){
+        $view = new MyChangeLanguage($message, $type);
+        include 'ChangeLanguage_view.php';
+        exit;
+    }
 }

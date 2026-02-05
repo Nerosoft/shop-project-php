@@ -6,16 +6,10 @@ require 'ValidationId.php';
 class ChangeLanguagePost extends ValidationId{
     function __construct(){
         parent::__construct('ChangeLanguage');
-        if($this->isEmptyErrors()){
-            $myData = $this->getObj();
-            $myData['Setting']['Language'] = $_POST['id'];
-            $this->saveModel($myData);
-            $view = new MyChangeLanguage('ChangeLang');
-        }else{
-            $view = new MyChangeLanguage();
-            $this->displayErrors();
-        }
-        include 'ChangeLanguage_view.php';
+        $myData = $this->getObj();
+        $myData['Setting']['Language'] = $_POST['id'];
+        $this->saveModel($myData);
+        MyChangeLanguage::initMyChangeLanguage('ChangeLang');
     }
 }
 new ChangeLanguagePost();

@@ -21,7 +21,7 @@ class Product extends Page{
     private $TableProductImage;
     private $TitleViewImage;
     private $DataView = array();
-    function __construct($message = 'LoadMessage', $type = 'success'){
+    function __construct($message, $type){
         parent::__construct('Product', $message, $type);
         $this->initErrorProduct($this->getModelPage());
         $this->NameHeadTable = $this->getModelPage()['NameHeadTable'];
@@ -92,5 +92,10 @@ class Product extends Page{
     }
     function getMyDataView(){
         return $this->DataView;
+    }
+    static function initProduct($message = 'LoadMessage', $type = 'success'){
+        $view = new Product($message, $type);
+        include 'ProductView.php';
+        exit;
     }
 }

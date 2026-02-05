@@ -28,6 +28,11 @@ class MySettingUsers extends page{
         $this->HintForgetPassword = $this->getModelPage()['HintForgetPassword'];
         $this->DataView = isset($this->getObj()['Users']) ? array_reverse(Users::fromArray($this->getObj()['Users'])):array();
     }
+    static function initMySettingUsers($message = 'LoadMessage', $type = 'success'){
+        $view = new MySettingUsers($message, $type);
+        include 'SettingUsers_view.php';
+        exit;
+    }
     function getMyDataView(){
         return $this->DataView;
     }

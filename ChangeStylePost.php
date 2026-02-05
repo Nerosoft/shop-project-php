@@ -6,16 +6,10 @@ require 'ValidationId.php';
 class ChangeStylePost extends ValidationId{
     function __construct(){
         parent::__construct('MyStyle');
-        if($this->isEmptyErrors()){
-            $myData = $this->getObj();
-            $myData['Setting']['Style'] = $_POST['id'];
-            $this->saveModel($myData);
-            $view = new MyStyleClass('MessageStyle');
-        }else{
-            $view = new MyStyleClass();
-            $this->displayErrors();
-        }
-        include 'MyStyle_view.php';
+        $myData = $this->getObj();
+        $myData['Setting']['Style'] = $_POST['id'];
+        $this->saveModel($myData);
+        MyStyleClass::initMyStyleClass('MessageStyle');
     }
 }
 new ChangeStylePost();

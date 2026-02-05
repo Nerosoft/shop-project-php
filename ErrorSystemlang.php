@@ -6,7 +6,7 @@ trait ErrorSystemlang{
         $this->TextRequired = $error['TextRequired'];
         $this->TextLenght = $error['TextLenght'];
     }
-     function getTextRequired(){
+    function getTextRequired(){
         return $this->TextRequired;
     }
     function getTextLenght(){

@@ -57,7 +57,7 @@ class AdminMenu extends InformationPage
             unset($this->myMenuApp['MyFlexTables']);
         }        
         include 'admin_title.php';
-        $this->showToast($this->getModelPage()[$message], $type);
+        $this->showToast($this->getModelPage()[$message]??$message, $type);
     }
     function getIconByKey($key){
         if($key === 'Home')

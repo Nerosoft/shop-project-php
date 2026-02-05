@@ -2,31 +2,21 @@
 include 'SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
 require 'MyChangeLanguage.php';
-require 'MessageError.php';
-class ChangeLanguageCreatePost extends MessageError{
+class ChangeLanguageCreatePost extends ModelJson{
     use ErrorChangelanguage;
     function __construct(){
         parent::__construct('ChangeLanguage');
-        $this->initErrorChangelanguage($this->getModelPage(), $this->getModel2()['AllNamesLanguage']);
-        $this->validChangeLanguage($this);
-        if($this->isEmptyErrors()){
-            $newKey = $this->getRandomId();
-            $myData = $this->getObj();
-            $this->saveLanguageDatabase($newKey, $myData, $this);
-            $myData[$newKey] = $myData['MyLanguage'];
-            $myData[$newKey]['AllNamesLanguage'] = $myData[$this->getLanguage()]['AllNamesLanguage'];
-            if(isset($myData[$this->getLanguage()]['MyFlexTables']))
-                foreach ($myData[$this->getLanguage()]['MyFlexTables'] as $key => $value){ 
-                    $myData[$newKey]['MyFlexTables'][$key] = $value;
-                    $myData[$newKey][$key] = $myData[$this->getLanguage()][$key];   
-                }  
-            $this->saveModel($myData);
-            $view = new MyChangeLanguage('MessageModelCreate');
-        }else{
-            $view = new MyChangeLanguage();
-            $this->displayErrors();
-        }
-        include 'ChangeLanguage_view.php';
+        $newKey = $this->getRandomId();
+        $myData = $this->initErrorChangelanguage2($this->getMyModal(),  $newKey);
+        $myData[$newKey] = $myData['MyLanguage'];
+        $myData[$newKey]['AllNamesLanguage'] = $myData[$this->getLanguage()]['AllNamesLanguage'];
+        if(isset($myData[$this->getLanguage()]['MyFlexTables']))
+            foreach ($myData[$this->getLanguage()]['MyFlexTables'] as $key => $value){ 
+                $myData[$newKey]['MyFlexTables'][$key] = $value;
+                $myData[$newKey][$key] = $myData[$this->getLanguage()][$key];   
+            }  
+        $this->saveModel($myData);
+        MyChangeLanguage::initMyChangeLanguage('MessageModelCreate');
     }
 }
 
