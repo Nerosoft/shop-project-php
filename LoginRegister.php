@@ -1,9 +1,8 @@
 <?php
 require 'InformationPage.php';
-require 'ErrorsHomeName.php';
-require 'ErrorLoginRegister.php';
+require 'ErrorLangStyle.php';
 class LoginRegister extends InformationPage{
-    use ErrorLoginRegister, ErrorsHomeName;
+    use ErrorLangStyle;
     private $TitleForm;
     private $LabelEmail;
     private $HintEmail;
@@ -71,8 +70,7 @@ class LoginRegister extends InformationPage{
 
     function __construct($IdPage, $message, $type){
         parent::__construct($IdPage);
-        $this->initErrorsLoginRegister($this->getModelPage());
-        $this->initErrorsHomeName($this->getModelPage());
+        $this->initErrorLangStyle($this->getModelPage());
         $this->ModalTitleStyle = $this->getModelPage()['ModalTitleStyle'];
         $this->ModalButtonStyle = $this->getModelPage()['ModalButtonStyle'];
         $this->TitleForm = $this->getModelPage()['TitleForm'];

@@ -314,7 +314,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "NameHint"=> "enter your name project",
                         "NameTableIsReq"=> "reqired name project",
                         "NameTableIsInv"=> "invalid name project",
-                        "MessageSetupProject"=> "Successfully setup project"
+                        "MessageSetupProject"=> "Successfully setup project",
+                        "EmailExist"=> "invalid email",
+                        "NewPassword"=> "New password"
                     ],
                     "Home"=> [
                         "MYTITLE"=> "custom table",
@@ -751,7 +753,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "NameHint"=> "enter your name project",
                         "NameTableIsReq"=> "reqired name project",
                         "NameTableIsInv"=> "invalid name project",
-                        "MessageSetupProject"=> "Successfully setup project"
+                        "MessageSetupProject"=> "Successfully setup project",
+                        "EmailExist"=> "invalid email",
+                        "NewPassword"=> "New password"
                     ],
                     "Home"=> [
                         "MYTITLE"=> "custom table",

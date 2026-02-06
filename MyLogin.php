@@ -1,23 +1,31 @@
 <?php
 require 'LoginRegister.php';
+require 'ErrorsKeyPassword.php';
 class MyLogin extends LoginRegister{
+    use ErrorsKeyPassword;
     private $ButtonForgetPassword;
     private $ModalForgetPasswordTitle;
     private $ModalForgetPasswordButton;
     private $LabelKeyPassword;
     private $HintKeyPassword;
+    private $NewPassword;
     function __construct($message = 'LoadMessage', $type = 'success'){
         parent::__construct('Login', $message, $type);
+        $this->initErrorsKeyPassword($this->getModelPage());
         $this->ButtonForgetPassword = $this->getModelPage()['ButtonForgetPassword'];
         $this->ModalForgetPasswordTitle = $this->getModelPage()['ModalForgetPasswordTitle'];
         $this->ModalForgetPasswordButton = $this->getModelPage()['ModalForgetPasswordButton'];
         $this->LabelKeyPassword = $this->getModelPage()['LabelKeyPassword'];
         $this->HintKeyPassword = $this->getModelPage()['HintKeyPassword'];
+        $this->NewPassword = $this->getModelPage()['NewPassword'];
     }
     static function initMyLogin($message = 'LoadMessage', $type = 'success'){
         $view = new MyLogin($message, $type);
         include 'login_view.php';
         exit;
+    }
+    function getNewPassword(){
+        return $this->NewPassword;
     }
     function getButtonForgetPassword(){
         return $this->ButtonForgetPassword;

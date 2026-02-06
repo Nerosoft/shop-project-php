@@ -2,7 +2,7 @@
 require 'DeleteInfoName.php';
 require 'Users.php';
 class ValidationLoginRegister extends ModelJson{
-    use ErrorLoginRegister;
+    use ErrorsEmailPassword;
     private $users;
     function getUsers(){
         return $this->users;
@@ -19,16 +19,16 @@ class ValidationLoginRegister extends ModelJson{
     function __construct($IdPage){
         parent::__construct($IdPage);
         $this->validStaticId();
-        $this->initErrorsLoginRegister($this->getModelPage());
         $this->users = isset($this->getObj()['Users']) ? Users::fromArray($this->getObj()['Users']):array();
-        if(!isset($_POST['Email']) || $_POST['Email'] === '')
-            $this->initViewPost($this->getRequiredEmail());
-        else if(!preg_match('/^[\w]+@[\w]+\.[a-zA-z]{2,6}$/', $_POST['Email']))
-            $this->initViewPost($this->getInvalidEmail());
-        if(!isset($_POST['Password']) || $_POST['Password'] === '')
-            $this->initViewPost($this->getRequiredPassword());
-        else if(strlen($_POST['Password']) < 8)
-            $this->initViewPost($this->getInvalidPassword());
+        $this->initErrorsEmailPassword2($this->getMyModal(), $this->users);
+        // if(!isset($_POST['Email']) || $_POST['Email'] === '')
+        //     $this->initViewPost($this->getRequiredEmail());
+        // else if(!preg_match('/^[\w]+@[\w]+\.[a-zA-z]{2,6}$/', $_POST['Email']))
+        //     $this->initViewPost($this->getInvalidEmail());
+        // if(!isset($_POST['Password']) || $_POST['Password'] === '')
+        //     $this->initViewPost($this->getRequiredPassword());
+        // else if(strlen($_POST['Password']) < 8)
+        //     $this->initViewPost($this->getInvalidPassword());
     }
 }
 ?>

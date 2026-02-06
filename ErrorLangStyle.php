@@ -1,11 +1,13 @@
 <?php
-require 'ErrorsPassword.php';
-trait ErrorLoginRegister{
-    use ErrorsPassword;
+require 'ErrorsHomeName.php';
+require 'ErrorsEmailPassword.php';
+trait ErrorLangStyle{
+    use ErrorsEmailPassword, ErrorsHomeName;
     private $ChangeLang;
     private $ChangeStyle;
-    function initErrorsLoginRegister($error){
-        $this->initErrorsPassword($error);
+    function initErrorLangStyle($error){
+        $this->initErrorsEmailPassword($error);
+        $this->initErrorsHomeName($error);
         $this->ChangeLang = $error['UsedLanguage'];
         $this->ChangeStyle = $error['UsedStyle'];
     }

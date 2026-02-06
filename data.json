@@ -295,7 +295,9 @@
                 "NameHint": "enter your name project",
                 "NameTableIsReq": "reqired name project",
                 "NameTableIsInv": "invalid name project",
-                "MessageSetupProject": "Successfully setup project"
+                "MessageSetupProject": "Successfully setup project",
+                "EmailExist": "invalid email",
+                "NewPassword": "New password"
             },
             "Home": {
                 "MYTITLE": "custom table",
@@ -732,7 +734,9 @@
                 "NameHint": "enter your name project",
                 "NameTableIsReq": "reqired name project",
                 "NameTableIsInv": "invalid name project",
-                "MessageSetupProject": "Successfully setup project"
+                "MessageSetupProject": "Successfully setup project",
+                "EmailExist": "invalid email",
+                "NewPassword": "New password"
             },
             "Home": {
                 "MYTITLE": "custom table",

@@ -1,9 +1,10 @@
 <?php
 require 'page.php';
 require 'Users.php';
-require 'ErrorsPassword.php';
+require 'ErrorsKeyPassword.php';
+require 'ErrorsEmailPassword.php';
 class MySettingUsers extends page{
-    use ErrorsPassword;
+    use ErrorsKeyPassword, ErrorsEmailPassword;
     private $NameHeadTable;
     private $PasswordHeadTable;
     private $ForgetPasswordHeadTable;
@@ -16,7 +17,8 @@ class MySettingUsers extends page{
     private $DataView;
     function __construct($message = 'LoadMessage', $type = 'success'){
         parent::__construct('SettingUsers', $message, $type);
-        $this->initErrorsPassword($this->getModelPage());
+        $this->initErrorsKeyPassword($this->getModelPage());
+        $this->initErrorsEmailPassword($this->getModelPage());
         $this->NameHeadTable = $this->getModelPage()['NameHeadTable'];
         $this->PasswordHeadTable = $this->getModelPage()['PasswordHeadTable'];
         $this->ForgetPasswordHeadTable = $this->getModelPage()['ForgetPasswordHeadTable'];

@@ -6,6 +6,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     class LoginPost extends ValidationLoginRegister{
         function __construct(){
             parent::__construct('Login');
+            $this->initErrorsEmailPassword2($this->getMyModal(), $this->getUsers());
             foreach ($this->getUsers() as $key => $value)
                 if($value->getName() === $_POST['Email'] && $value->getPassword() === $_POST['Password'])
                     $this->redirectToAdminPage();
