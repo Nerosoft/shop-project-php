@@ -14,6 +14,8 @@ class ModelJson{
             $this->FixedId = $_SESSION['staticId'];
         }else if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['superId']) && isset($this->File[$_POST['superId']]))
             $this->id = $_POST['superId'];
+        else if($_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST['superId']) || $_SERVER["REQUEST_METHOD"] === "POST" && !isset($this->File[$_POST['superId']]))
+            header("Location: login.php");
         else if(isset($_GET['id']) && isset($this->File[$_GET['id']]))
             $this->id = $_GET['id'];
         else
@@ -45,10 +47,6 @@ class ModelJson{
             default:
                 MyFlexTablesView::initMyFlexTablesView($message, 'danger');
         }
-    }
-    function validStaticId(){
-        if(!isset($_POST['superId']) || !isset($this->getFile()[$_POST['superId']]))
-            $this->initViewPost($this->getModelPage()['DbIdInv']);
     }
     function getStyleFile(){
         return $this->StyleFile;

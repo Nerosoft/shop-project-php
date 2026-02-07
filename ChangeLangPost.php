@@ -11,7 +11,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['change_language']) && 
     class ChangeLangPost extends ValidationId{
         function __construct(){
             parent::__construct($_POST['change_language']);
-            $this->validStaticId();
             setcookie($this->getId().$_POST['state'], $_POST['id'], time()+2628000);
             $_COOKIE[$this->getId().$_POST['state']] = $_POST['id'];
             if($_POST['change_language'] === 'Login')

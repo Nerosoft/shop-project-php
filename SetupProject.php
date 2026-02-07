@@ -7,7 +7,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
         use ErrorsHomeName;
         function __construct(){
             parent::__construct($_POST['setup_project']);
-            $this->validStaticId();
             $this->initErrorsHomeName2($this->getMyModal());
             $file = $this->getFile();
             $file[$this->getRandomId()] = $this->getProject();
