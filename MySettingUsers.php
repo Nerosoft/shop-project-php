@@ -3,7 +3,9 @@ require 'page.php';
 require 'Users.php';
 require 'ErrorsKeyPassword.php';
 require 'ErrorsEmailPassword.php';
-class MySettingUsers extends page{
+require 'InterEmailPass.php';
+require 'InterKeyPassword.php';
+class MySettingUsers extends page implements EmailPassword, MyKeyPass{
     use ErrorsKeyPassword, ErrorsEmailPassword;
     private $NameHeadTable;
     private $PasswordHeadTable;
@@ -47,10 +49,10 @@ class MySettingUsers extends page{
     function getForgetPasswordHeadTable(){
         return $this->ForgetPasswordHeadTable;
     }
-    function getLabelName(){
+    function getLabelEmail(){
         return $this->LabelName;
     }
-    function getHintName(){
+    function getHintEmail(){
         return $this->HintName;
     }
     function getLabelPassword(){
@@ -59,10 +61,10 @@ class MySettingUsers extends page{
     function getHintPassword(){
         return $this->HintPassword;
     }
-    function getLabelForgetPassword(){
+    function getLabelKeyPassword(){
         return $this->LabelForgetPassword;
     }
-    function getHintForgetPassword(){
+    function getHintKeyPassword(){
         return $this->HintForgetPassword;
     }
 }

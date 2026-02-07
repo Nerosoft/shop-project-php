@@ -1,7 +1,8 @@
 <?php
 require 'InformationPage.php';
 require 'ErrorLangStyle.php';
-class LoginRegister extends InformationPage{
+require 'InterEmailPass.php';
+class LoginRegister extends InformationPage implements EmailPassword{
     use ErrorLangStyle;
     private $TitleForm;
     private $LabelEmail;

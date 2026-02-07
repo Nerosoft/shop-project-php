@@ -1,7 +1,8 @@
 <?php
 require 'LoginRegister.php';
 require 'ErrorRegister.php';
-class MyRegister extends LoginRegister{    
+require 'InterKeyPassword.php';
+class MyRegister extends LoginRegister implements MyKeyPass{    
     use ErrorRegister;
     private $LabelConfirmPassword;
     private $HintConfirmPassword;

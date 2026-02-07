@@ -5,9 +5,9 @@ if(isset($index))
     include('my_id.php');
 ?>
 <div class="form-group">
-    <label for="email" class="form-label"><?php echo$view->getLabelName()?></label>
+    <label for="email" class="form-label"><?php echo$view->getLabelEmail()?></label>
     <input required type="email" name="Email" id="email" 
-    value="<?php echo$myObject?->getName()??''?>" placeholder='<?php echo$view->getHintName()?>'
+    value="<?php echo$myObject?->getName()??''?>" placeholder='<?php echo$view->getHintEmail()?>'
     class="form-control">
 </div>
 <div class="form-group">
@@ -23,10 +23,10 @@ if(isset($index))
         >
 </div>
  <div class="form-group">
-    <label for="codePassword"><?php echo $view->getLabelForgetPassword()?></label>
+    <label for="codePassword"><?php echo $view->getLabelKeyPassword()?></label>
     <input type="text" class="form-control" id="codePassword" name="Key"
-    placeholder="<?php echo $view->getHintForgetPassword()?>"
-    title="<?php echo $view->getHintForgetPassword()?>"
+    placeholder="<?php echo $view->getHintKeyPassword()?>"
+    title="<?php echo $view->getHintKeyPassword()?>"
     value="<?php echo$myObject?->getKey()??''?>"
     minlength="8" 
     required

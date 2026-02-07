@@ -46,12 +46,6 @@ class ModelJson{
                 MyFlexTablesView::initMyFlexTablesView($message, 'danger');
         }
     }
-    // function displayErrors(){
-    //     $this->showCustomeMessage(function($type = 'danger'){
-    //         foreach ($this->getErrors() as $key => $toast)
-    //             include 'toast_message.php'; 
-    //     }, '55px');
-    // }
     function validStaticId(){
         if(!isset($_POST['superId']) || !isset($this->getFile()[$_POST['superId']]))
             $this->initViewPost($this->getModelPage()['DbIdInv']);
