@@ -5,7 +5,8 @@ require 'ErrorsKeyPassword.php';
 require 'ErrorsEmailPassword.php';
 require 'InterEmailPass.php';
 require 'InterKeyPassword.php';
-class MySettingUsers extends page implements EmailPassword, MyKeyPass{
+require 'InterCheckbooksState.php';
+class MySettingUsers extends page implements EmailPassword, MyKeyPass, CheckbooksState{
     use ErrorsKeyPassword, ErrorsEmailPassword;
     private $NameHeadTable;
     private $PasswordHeadTable;
@@ -16,6 +17,7 @@ class MySettingUsers extends page implements EmailPassword, MyKeyPass{
     private $HintPassword;
     private $LabelForgetPassword;
     private $HintForgetPassword;
+    private $CheckbooksState;
     private $DataView;
     function __construct($message = 'LoadMessage', $type = 'success'){
         parent::__construct('SettingUsers', $message, $type);
@@ -30,12 +32,16 @@ class MySettingUsers extends page implements EmailPassword, MyKeyPass{
         $this->HintPassword = $this->getModelPage()['HintPassword'];
         $this->LabelForgetPassword = $this->getModelPage()['LabelForgetPassword'];
         $this->HintForgetPassword = $this->getModelPage()['HintForgetPassword'];
+        $this->CheckbooksState = $this->getModelPage()['CheckbooksState'];
         $this->DataView = isset($this->getObj()['Users']) ? array_reverse(Users::fromArray($this->getObj()['Users'])):array();
     }
     static function initMySettingUsers($message = 'LoadMessage', $type = 'success'){
         $view = new MySettingUsers($message, $type);
         include 'SettingUsers_view.php';
         exit;
+    }
+    function getCheckbooksState(){
+        return $this->CheckbooksState;
     }
     function getMyDataView(){
         return $this->DataView;

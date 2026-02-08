@@ -83,6 +83,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "HintCategory"=> "enter Category"
                     ],
                     "SettingUsers"=> [
+                        "CheckbooksState"=>"change state input",
                         "MYTITLE"=> "user table",
                         "LoadMessage"=> "welcome in page user Table",
                         "ScreenModelDelete"=> "Screen delete user",
@@ -266,6 +267,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MessageSetupProject"=> "Successfully setup project"
                     ],
                     "Login"=> [
+                        "CheckbooksState"=>"change state input",
                         "UsedStyle"=> " style used",
                         "ModalTitleStyle"=> "title style",
                         "ModalButtonStyle"=> "save style",
@@ -519,6 +521,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "HintCategory"=> "enter Category"
                     ],
                     "SettingUsers"=> [
+                        "CheckbooksState"=>"change state input",
                         "MYTITLE"=> "user table",
                         "LoadMessage"=> "welcome in page user Table",
                         "ScreenModelDelete"=> "Screen delete user",
@@ -705,6 +708,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MessageSetupProject"=> "Successfully setup project"
                     ],
                     "Login"=> [
+                        "CheckbooksState"=>"change state input",
                         "UsedStyle"=> " style used",
                         "ModalTitleStyle"=> "title style",
                         "ModalButtonStyle"=> "save style",

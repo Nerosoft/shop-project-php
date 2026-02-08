@@ -1,7 +1,8 @@
 <?php
 require 'LoginRegister.php';
 require 'ErrorsKeyPassword.php';
-class MyLogin extends LoginRegister{
+require 'InterCheckbooksState.php';
+class MyLogin extends LoginRegister implements CheckbooksState{
     use ErrorsKeyPassword;
     private $ButtonForgetPassword;
     private $ModalForgetPasswordTitle;
@@ -9,6 +10,7 @@ class MyLogin extends LoginRegister{
     private $LabelKeyPassword;
     private $HintKeyPassword;
     private $NewPassword;
+    private $CheckbooksState;
     function __construct($message = 'LoadMessage', $type = 'success'){
         parent::__construct('Login', $message, $type);
         $this->initErrorsKeyPassword($this->getModelPage());
@@ -18,11 +20,15 @@ class MyLogin extends LoginRegister{
         $this->LabelKeyPassword = $this->getModelPage()['LabelKeyPassword'];
         $this->HintKeyPassword = $this->getModelPage()['HintKeyPassword'];
         $this->NewPassword = $this->getModelPage()['NewPassword'];
+        $this->CheckbooksState = $this->getModelPage()['CheckbooksState'];
     }
     static function initMyLogin($message = 'LoadMessage', $type = 'success'){
         $view = new MyLogin($message, $type);
         include 'login_view.php';
         exit;
+    }
+    function getCheckbooksState(){
+        return $this->CheckbooksState;
     }
     function getNewPassword(){
         return $this->NewPassword;

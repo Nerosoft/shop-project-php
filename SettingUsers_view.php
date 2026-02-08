@@ -28,8 +28,8 @@
                             <tr>
                                 <td>$count</td>
                                 <td>{$myObject->getName()}</td>
-                                <td>{$myObject->getPassword()}</td>
-                                <td>{$myObject->getKey()}</td>
+                                <td>***************</td>
+                                <td>***************</td>
                                 <td>
                             HTML;
                             $action = 'SettingUsersDeletePost.php';

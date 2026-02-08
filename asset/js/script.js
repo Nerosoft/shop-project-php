@@ -36,3 +36,8 @@ function handleInputSelect(event, error1) {
     else
         event.setCustomValidity('');
 }
+
+function changeInputState(codePassword, password){
+    codePassword.attr('type', codePassword.attr('type')==='text'?'password':'text');
+    password.attr('type', password.attr('type')==='text'?'password':'text');
+}
