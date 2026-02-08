@@ -20,11 +20,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
             return array(
                 "State"=> "admin",
                 "MyLanguage"=> [
-                    "Style"=> [
+                    "Style"=>[
                         "dark"=> "dark",
                         "default"=> "default"
                     ],
-                    "Menu"=> [
+                    "Menu"=>[
                         "SystemLang"=> "Edit my language",
                         "Home"=> "Home",
                         "Branches"=> "Branches",
@@ -34,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MyFlexTables"=> "flex table",
                         "MyStyle"=> "Style"
                     ],
-                    "Product"=> [
+                    "Product"=>[
                         "TitleViewImage"=> "view image product",
                         "UploadImgInv"=> "error upload image product",
                         "TableProductImage"=> "image product",
@@ -111,19 +111,19 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "RequiredPassword"=> "password Required",
                         "InvalidPassword"=> "password Invalid",
                         "PasswordHeadTable"=> "Password",
-                        "LabelPassword"=> "Password",
-                        "HintPassword"=> "enter Password user",
+                        "NewPassword"=> "Password",
+                        "NewHintPassword"=> "enter Password user",
                         "RequiredKeyPassword"=> "key Required",
                         "InvalidKeyPassword"=> "key Invalid",
                         "ForgetPasswordHeadTable"=> "Forget Password",
                         "LabelKeyPassword"=> "Key Password",
                         "HintKeyPassword"=> "enter key Password"
                     ],
-                    "SelectBranchBox"=> [
+                    "SelectBranchBox"=>[
                         "WithoutRays"=> "Without rays",
                         "WithRays"=> "With rays"
                     ],
-                    "Branches"=> [
+                    "Branches"=>[
                         "MYTITLE"=> "branch",
                         "SuccessfullyChangeBranch"=> "Successfully Changed Branch",
                         "ErrorChangeBranch"=> "Error Change Branch",
@@ -181,7 +181,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MessageModelEdit"=> "Seccessfully branch edit",
                         "Delete"=> "Seccessfully delete branch"
                     ],
-                    "ChangeLanguage"=> [
+                    "ChangeLanguage"=>[
                         "MYTITLE"=> "change language",
                         "Used"=> "language is used",
                         "LoadMessage"=> "welcome in Change Language",
@@ -216,7 +216,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MessageModelEdit"=> "Seccessfully edit language",
                         "Delete"=> "Seccessfully delete language-"
                     ],
-                    "Register"=> [
+                    "Register"=>[
                         "UsedStyle"=> " style used",
                         "ModalTitleStyle"=> "title style",
                         "ModalButtonStyle"=> "save style",
@@ -266,7 +266,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "NameTableIsInv"=> "invalid name project",
                         "MessageSetupProject"=> "Successfully setup project"
                     ],
-                    "Login"=> [
+                    "Login"=>[
                         "CheckbooksState"=> "change state input",
                         "UsedStyle"=> " style used",
                         "ModalTitleStyle"=> "title style",
@@ -317,10 +317,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "NameTableIsInv"=> "invalid name project",
                         "MessageSetupProject"=> "Successfully setup project",
                         "EmailExist"=> "invalid email",
-                        "NewPassword"=>"New Password",
-                        "NewHintPassword"=>"enter new password"
+                        "NewPassword"=> "New Password",
+                        "NewHintPassword"=> "enter new password"
                     ],
-                    "Home"=> [
+                    "Home"=>[
                         "MYTITLE"=> "custom table",
                         "LoadMessage"=> "welcome in page Custom Table",
                         "ScreenModelDelete"=> "Screen delete table",
@@ -349,7 +349,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "LabelInputNumber"=> "Input Numper",
                         "HintInputNumber"=> "enter Input Numper table"
                     ],
-                    "MyStyle"=> [
+                    "MyStyle"=>[
                         "MYTITLE"=> "style page",
                         "IdIsReq"=> "Id Required style",
                         "IdIsInv"=> "Id Invalid style",
@@ -370,7 +370,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MessageStyle"=> "successfully change style",
                         "MessageModelEdit"=> "Seccessfully style edit"
                     ],
-                    "AppSettingAdmin"=> [
+                    "AppSettingAdmin"=>[
                         "MYTITLE"=> "App setting",
                         "Menu"=> "Menu",
                         "Offcanvas"=> "Dark offcanvas",
@@ -391,7 +391,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "Style"=> "Style",
                         "SelectStyle"=> "Select style"
                     ],
-                    "TableInfo"=> [
+                    "TableInfo"=>[
                         "MYTITLE"=> "table info",
                         "Ssearch"=> "Quick Search=>",
                         "InfoEmpty"=> "No records available",
@@ -400,7 +400,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "LengthMenu"=> "records per page",
                         "InfoFiltered"=> "Showing"
                     ],
-                    "TablePage"=> [
+                    "TablePage"=>[
                         "MYTITLE"=> "Table page",
                         "LoadMessage"=> "welcome in page table",
                         "ScreenModelDelete"=> "Screen delete table",
@@ -420,7 +420,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "IdIsReq"=> "Id Required",
                         "IdIsInv"=> "Id Invalid"
                     ],
-                    "SystemLang"=> [
+                    "SystemLang"=>[
                         "ErrorFormInput"=> "Error server",
                         "MYTITLE"=> "system language",
                         "TextRequired"=> "Text Required",
@@ -459,11 +459,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                     "Style"=> "dark"
                 ],
                 "english"=>[
-                    "Style"=> [
+                    "Style"=>[
                         "dark"=> "dark",
                         "default"=> "default"
                     ],
-                    "Menu"=> [
+                    "Menu"=>[
                         "SystemLang"=> "Edit my language",
                         "Home"=> "Home",
                         "Branches"=> "Branches",
@@ -473,7 +473,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MyFlexTables"=> "flex table",
                         "MyStyle"=> "Style"
                     ],
-                    "Product"=> [
+                    "Product"=>[
                         "TitleViewImage"=> "view image product",
                         "UploadImgInv"=> "error upload image product",
                         "TableProductImage"=> "image product",
@@ -550,19 +550,19 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "RequiredPassword"=> "password Required",
                         "InvalidPassword"=> "password Invalid",
                         "PasswordHeadTable"=> "Password",
-                        "LabelPassword"=> "Password",
-                        "HintPassword"=> "enter Password user",
+                        "NewPassword"=> "Password",
+                        "NewHintPassword"=> "enter Password user",
                         "RequiredKeyPassword"=> "key Required",
                         "InvalidKeyPassword"=> "key Invalid",
                         "ForgetPasswordHeadTable"=> "Forget Password",
                         "LabelKeyPassword"=> "Key Password",
                         "HintKeyPassword"=> "enter key Password"
                     ],
-                    "SelectBranchBox"=> [
+                    "SelectBranchBox"=>[
                         "WithoutRays"=> "Without rays",
                         "WithRays"=> "With rays"
                     ],
-                    "Branches"=> [
+                    "Branches"=>[
                         "MYTITLE"=> "branch",
                         "SuccessfullyChangeBranch"=> "Successfully Changed Branch",
                         "ErrorChangeBranch"=> "Error Change Branch",
@@ -620,7 +620,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MessageModelEdit"=> "Seccessfully branch edit",
                         "Delete"=> "Seccessfully delete branch"
                     ],
-                    "ChangeLanguage"=> [
+                    "ChangeLanguage"=>[
                         "MYTITLE"=> "change language",
                         "Used"=> "language is used",
                         "LoadMessage"=> "welcome in Change Language",
@@ -655,10 +655,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MessageModelEdit"=> "Seccessfully edit language",
                         "Delete"=> "Seccessfully delete language-"
                     ],
-                    "AllNamesLanguage"=> [
+                    "AllNamesLanguage"=>[
                         "english"=> "engilsh"
                     ],
-                    "Register"=> [
+                    "Register"=>[
                         "UsedStyle"=> " style used",
                         "ModalTitleStyle"=> "title style",
                         "ModalButtonStyle"=> "save style",
@@ -708,7 +708,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "NameTableIsInv"=> "invalid name project",
                         "MessageSetupProject"=> "Successfully setup project"
                     ],
-                    "Login"=> [
+                    "Login"=>[
                         "CheckbooksState"=> "change state input",
                         "UsedStyle"=> " style used",
                         "ModalTitleStyle"=> "title style",
@@ -759,10 +759,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "NameTableIsInv"=> "invalid name project",
                         "MessageSetupProject"=> "Successfully setup project",
                         "EmailExist"=> "invalid email",
-                        "NewPassword"=>"New Password",
-                        "NewHintPassword"=>"enter new password"
+                        "NewPassword"=> "New Password",
+                        "NewHintPassword"=> "enter new password"
                     ],
-                    "Home"=> [
+                    "Home"=>[
                         "MYTITLE"=> "custom table",
                         "LoadMessage"=> "welcome in page Custom Table",
                         "ScreenModelDelete"=> "Screen delete table",
@@ -791,7 +791,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "LabelInputNumber"=> "Input Numper",
                         "HintInputNumber"=> "enter Input Numper table"
                     ],
-                    "MyStyle"=> [
+                    "MyStyle"=>[
                         "MYTITLE"=> "style page",
                         "IdIsReq"=> "Id Required style",
                         "IdIsInv"=> "Id Invalid style",
@@ -812,7 +812,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MessageStyle"=> "successfully change style",
                         "MessageModelEdit"=> "Seccessfully style edit"
                     ],
-                    "AppSettingAdmin"=> [
+                    "AppSettingAdmin"=>[
                         "MYTITLE"=> "App setting",
                         "Menu"=> "Menu",
                         "Offcanvas"=> "Dark offcanvas",
@@ -833,7 +833,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "Style"=> "Style",
                         "SelectStyle"=> "Select style"
                     ],
-                    "TableInfo"=> [
+                    "TableInfo"=>[
                         "MYTITLE"=> "table info",
                         "Ssearch"=> "Quick Search=>",
                         "InfoEmpty"=> "No records available",
@@ -842,7 +842,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "LengthMenu"=> "records per page",
                         "InfoFiltered"=> "Showing"
                     ],
-                    "TablePage"=> [
+                    "TablePage"=>[
                         "MYTITLE"=> "Table page",
                         "LoadMessage"=> "welcome in page table",
                         "ScreenModelDelete"=> "Screen delete table",
@@ -862,7 +862,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "IdIsReq"=> "Id Required",
                         "IdIsInv"=> "Id Invalid"
                     ],
-                    "SystemLang"=> [
+                    "SystemLang"=>[
                         "ErrorFormInput"=> "Error server",
                         "MYTITLE"=> "system language",
                         "TextRequired"=> "Text Required",

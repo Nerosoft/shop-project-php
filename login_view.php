@@ -11,8 +11,6 @@
         $action = 'LoginForgetPasswordPost.php';
         $idModel = "forgetpasswordmodal";
         $idForm = "forgetpasswordform";
-        $labelPassword = $view->getNewPassword();
-        $hintPassword = $view->getNewHintPassword();
         include('start_model.php');
         echo '<input type="hidden" value="'.$view->getId().'"name="superId">';
         include('Modal_setting_users_body.php');?>

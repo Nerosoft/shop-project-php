@@ -1,10 +1,9 @@
 <?php
 require 'InformationPage.php';
-require 'ErrorLangStyle.php';
+require 'ErrorsHomeName.php';
 require 'InterEmailPass.php';
-require 'ErrorsKeyPassword.php';
 class LoginRegister extends InformationPage{
-    use ErrorLangStyle, EmailPassword, ErrorsKeyPassword;
+    use ErrorsHomeName, EmailPassword;
     private $TitleForm;
     private $ButtonName;
     private $MyLanguage;
@@ -26,6 +25,9 @@ class LoginRegister extends InformationPage{
     private $ButtonSetupProject;
     private $ModalTitleStyle;
     private $ModalButtonStyle;
+    private $ChangeLang;
+    private $ChangeStyle;
+
     function getModalTitleStyle(){
         return $this->ModalTitleStyle;
     }
@@ -65,12 +67,18 @@ class LoginRegister extends InformationPage{
     function getDbBranchKeys(){
         return $this->dbBranchKeys;
     }
-
+    function getChangeLang(){
+        return $this->ChangeLang;
+    }
+    function getChangeStyle(){
+        return $this->ChangeStyle;
+    }
     function __construct($IdPage, $message, $type){
         parent::__construct($IdPage);
-        $this->initErrorLangStyle($this->getModelPage());
-        $this->initErrorsKeyPassword($this->getModelPage());
+        $this->initErrorsHomeName($this->getModelPage());
         $this->initEmailPassword($this->getModelPage());
+        $this->ChangeLang = $this->getModelPage()['UsedLanguage'];
+        $this->ChangeStyle = $this->getModelPage()['UsedStyle'];
         $this->ModalTitleStyle = $this->getModelPage()['ModalTitleStyle'];
         $this->ModalButtonStyle = $this->getModelPage()['ModalButtonStyle'];
         $this->TitleForm = $this->getModelPage()['TitleForm'];

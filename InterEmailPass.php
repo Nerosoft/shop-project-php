@@ -1,16 +1,19 @@
 <?php
+require 'ErrorsKeyPassword.php';
+require 'ErrorsEmailPassword.php';
 trait EmailPassword{
+    use ErrorsKeyPassword, ErrorsEmailPassword;
     private $LabelEmail;
     private $HintEmail;
-    private $LabelPassword;
-    private $HintPassword;
+    private $info;
     private $LabelKeyPassword;
     private $HintKeyPassword;
     function initEmailPassword($info){
+        $this->initErrorsKeyPassword($info);
+        $this->initErrorsEmailPassword($info);
         $this->LabelEmail = $info['LabelEmail'];
         $this->HintEmail = $info['HintEmail'];
-        $this->LabelPassword = $info['LabelPassword'];
-        $this->HintPassword = $info['HintPassword'];
+        $this->info = $info;
         $this->LabelKeyPassword = $info['LabelKeyPassword'];
         $this->HintKeyPassword = $info['HintKeyPassword'];
     }
@@ -26,10 +29,10 @@ trait EmailPassword{
     function getHintEmail(){
         return $this->HintEmail;
     }
-    function getLabelPassword(){
-        return $this->LabelPassword;
+    function getLabelPassword($key = 'LabelPassword'){
+        return $this->info[$key];
     }
-    function getHintPassword(){
-        return $this->HintPassword;
+    function getHintPassword($key = 'HintPassword'){
+        return $this->info[$key];
     }
 }

@@ -1,12 +1,10 @@
 <?php
 require 'page.php';
 require 'Users.php';
-require 'ErrorsKeyPassword.php';
-require 'ErrorsEmailPassword.php';
 require 'InterEmailPass.php';
 require 'InterCheckbooksState.php';
 class MySettingUsers extends page{
-    use ErrorsKeyPassword, ErrorsEmailPassword, EmailPassword, CheckbooksState;
+    use EmailPassword, CheckbooksState;
     private $NameHeadTable;
     private $PasswordHeadTable;
     private $ForgetPasswordHeadTable;
