@@ -1,4 +1,10 @@
 <?php
-interface CheckbooksState{
-    function getCheckbooksState();
+trait CheckbooksState{
+    private $CheckbooksState;
+    function InitCheckbooksState($info){
+        $this->CheckbooksState = $info['CheckbooksState'];
+    }
+    function getCheckbooksState(){
+        return $this->CheckbooksState;
+    }
 }

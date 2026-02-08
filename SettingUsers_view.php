@@ -78,6 +78,8 @@
         $(id).find('#email').val(email);
         $(id).find('#password').val(password);
         $(id).find('#codePassword').val(codePassword);
+        $(id).find('#codePassword, #password').attr('type', 'password');
+        $(id).find('#mycheckbox').prop('checked', false);
     }
 </script>
 <?php 

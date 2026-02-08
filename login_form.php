@@ -36,9 +36,6 @@
         ?>
     </select>
 </div>
-
-
-
 <div class="form-group">
     <label for="email"><?php echo $view->getLabelEmail()?></label>
     <input type="email" class="form-control" id="email" name="Email"
@@ -66,7 +63,6 @@
         >
 </div>
 <?php include 'ValidEmail.php';?>
-
 <script type="text/javascript">
     $('#dbkeys, #dbkeysBranch').on('change', function(){
         window.location.href = '<?php echo$view->getUrlName2();?>'+'.php?id='+this.value;

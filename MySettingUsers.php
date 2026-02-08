@@ -6,8 +6,8 @@ require 'ErrorsEmailPassword.php';
 require 'InterEmailPass.php';
 require 'InterKeyPassword.php';
 require 'InterCheckbooksState.php';
-class MySettingUsers extends page implements EmailPassword, MyKeyPass, CheckbooksState{
-    use ErrorsKeyPassword, ErrorsEmailPassword;
+class MySettingUsers extends page implements EmailPassword, MyKeyPass{
+    use ErrorsKeyPassword, ErrorsEmailPassword, CheckbooksState;
     private $NameHeadTable;
     private $PasswordHeadTable;
     private $ForgetPasswordHeadTable;
@@ -17,12 +17,12 @@ class MySettingUsers extends page implements EmailPassword, MyKeyPass, Checkbook
     private $HintPassword;
     private $LabelForgetPassword;
     private $HintForgetPassword;
-    private $CheckbooksState;
     private $DataView;
     function __construct($message = 'LoadMessage', $type = 'success'){
         parent::__construct('SettingUsers', $message, $type);
         $this->initErrorsKeyPassword($this->getModelPage());
         $this->initErrorsEmailPassword($this->getModelPage());
+        $this->InitCheckbooksState($this->getModelPage());
         $this->NameHeadTable = $this->getModelPage()['NameHeadTable'];
         $this->PasswordHeadTable = $this->getModelPage()['PasswordHeadTable'];
         $this->ForgetPasswordHeadTable = $this->getModelPage()['ForgetPasswordHeadTable'];
@@ -32,16 +32,12 @@ class MySettingUsers extends page implements EmailPassword, MyKeyPass, Checkbook
         $this->HintPassword = $this->getModelPage()['HintPassword'];
         $this->LabelForgetPassword = $this->getModelPage()['LabelForgetPassword'];
         $this->HintForgetPassword = $this->getModelPage()['HintForgetPassword'];
-        $this->CheckbooksState = $this->getModelPage()['CheckbooksState'];
         $this->DataView = isset($this->getObj()['Users']) ? array_reverse(Users::fromArray($this->getObj()['Users'])):array();
     }
     static function initMySettingUsers($message = 'LoadMessage', $type = 'success'){
         $view = new MySettingUsers($message, $type);
         include 'SettingUsers_view.php';
         exit;
-    }
-    function getCheckbooksState(){
-        return $this->CheckbooksState;
     }
     function getMyDataView(){
         return $this->DataView;
