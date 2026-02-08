@@ -2,13 +2,10 @@
 require 'InformationPage.php';
 require 'ErrorLangStyle.php';
 require 'InterEmailPass.php';
-class LoginRegister extends InformationPage implements EmailPassword{
-    use ErrorLangStyle;
+require 'ErrorsKeyPassword.php';
+class LoginRegister extends InformationPage{
+    use ErrorLangStyle, EmailPassword, ErrorsKeyPassword;
     private $TitleForm;
-    private $LabelEmail;
-    private $HintEmail;
-    private $LabelPassword;
-    private $HintPassword;
     private $ButtonName;
     private $MyLanguage;
     private $ChangeLanguageButton;
@@ -72,13 +69,11 @@ class LoginRegister extends InformationPage implements EmailPassword{
     function __construct($IdPage, $message, $type){
         parent::__construct($IdPage);
         $this->initErrorLangStyle($this->getModelPage());
+        $this->initErrorsKeyPassword($this->getModelPage());
+        $this->initEmailPassword($this->getModelPage());
         $this->ModalTitleStyle = $this->getModelPage()['ModalTitleStyle'];
         $this->ModalButtonStyle = $this->getModelPage()['ModalButtonStyle'];
         $this->TitleForm = $this->getModelPage()['TitleForm'];
-        $this->LabelEmail = $this->getModelPage()['LabelEmail'];
-        $this->HintEmail = $this->getModelPage()['HintEmail'];
-        $this->LabelPassword = $this->getModelPage()['LabelPassword'];
-        $this->HintPassword = $this->getModelPage()['HintPassword'];
         $this->MyLanguage = MyLanguage::fromArray($this->getModel2()['AllNamesLanguage']);
         $this->ButtonName = $this->getModelPage()['ButtonName'];
         $this->ChangeLanguageButton = $this->getModelPage()['ChangeLanguageButton'];
@@ -178,18 +173,6 @@ class LoginRegister extends InformationPage implements EmailPassword{
     }
     function getTitleForm(){
         return $this->TitleForm;
-    }
-    function getLabelEmail(){
-        return $this->LabelEmail;
-    }
-    function getHintEmail(){
-        return $this->HintEmail;
-    }
-    function getLabelPassword(){
-        return $this->LabelPassword;
-    }
-    function getHintPassword(){
-        return $this->HintPassword;
     }
     function getButtonName(){
         return $this->ButtonName;

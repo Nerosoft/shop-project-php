@@ -4,34 +4,22 @@ require 'Users.php';
 require 'ErrorsKeyPassword.php';
 require 'ErrorsEmailPassword.php';
 require 'InterEmailPass.php';
-require 'InterKeyPassword.php';
 require 'InterCheckbooksState.php';
-class MySettingUsers extends page implements EmailPassword, MyKeyPass{
-    use ErrorsKeyPassword, ErrorsEmailPassword, CheckbooksState;
+class MySettingUsers extends page{
+    use ErrorsKeyPassword, ErrorsEmailPassword, EmailPassword, CheckbooksState;
     private $NameHeadTable;
     private $PasswordHeadTable;
     private $ForgetPasswordHeadTable;
-    private $LabelName;
-    private $HintName;
-    private $LabelPassword;
-    private $HintPassword;
-    private $LabelForgetPassword;
-    private $HintForgetPassword;
     private $DataView;
     function __construct($message = 'LoadMessage', $type = 'success'){
         parent::__construct('SettingUsers', $message, $type);
         $this->initErrorsKeyPassword($this->getModelPage());
         $this->initErrorsEmailPassword($this->getModelPage());
+        $this->initEmailPassword($this->getModelPage());
         $this->InitCheckbooksState($this->getModelPage());
         $this->NameHeadTable = $this->getModelPage()['NameHeadTable'];
         $this->PasswordHeadTable = $this->getModelPage()['PasswordHeadTable'];
         $this->ForgetPasswordHeadTable = $this->getModelPage()['ForgetPasswordHeadTable'];
-        $this->LabelName = $this->getModelPage()['LabelName'];
-        $this->HintName = $this->getModelPage()['HintName'];
-        $this->LabelPassword = $this->getModelPage()['LabelPassword'];
-        $this->HintPassword = $this->getModelPage()['HintPassword'];
-        $this->LabelForgetPassword = $this->getModelPage()['LabelForgetPassword'];
-        $this->HintForgetPassword = $this->getModelPage()['HintForgetPassword'];
         $this->DataView = isset($this->getObj()['Users']) ? array_reverse(Users::fromArray($this->getObj()['Users'])):array();
     }
     static function initMySettingUsers($message = 'LoadMessage', $type = 'success'){
@@ -50,23 +38,5 @@ class MySettingUsers extends page implements EmailPassword, MyKeyPass{
     }
     function getForgetPasswordHeadTable(){
         return $this->ForgetPasswordHeadTable;
-    }
-    function getLabelEmail(){
-        return $this->LabelName;
-    }
-    function getHintEmail(){
-        return $this->HintName;
-    }
-    function getLabelPassword(){
-        return $this->LabelPassword;
-    }
-    function getHintPassword(){
-        return $this->HintPassword;
-    }
-    function getLabelKeyPassword(){
-        return $this->LabelForgetPassword;
-    }
-    function getHintKeyPassword(){
-        return $this->HintForgetPassword;
     }
 }

@@ -82,8 +82,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "LabelCategory"=> "Category",
                         "HintCategory"=> "enter Category"
                     ],
-                    "SettingUsers"=> [
-                        "CheckbooksState"=>"change state input",
+                    "SettingUsers"=>[
+                        "CheckbooksState"=> "change state input",
                         "MYTITLE"=> "user table",
                         "LoadMessage"=> "welcome in page user Table",
                         "ScreenModelDelete"=> "Screen delete user",
@@ -106,8 +106,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "RequiredEmail"=> "user Required",
                         "InvalidEmail"=> "user Invalid",
                         "NameHeadTable"=> "Name",
-                        "LabelName"=> "Name",
-                        "HintName"=> "enter name user",
+                        "LabelEmail"=> "Email",
+                        "HintEmail"=> "enter name Email",
                         "RequiredPassword"=> "password Required",
                         "InvalidPassword"=> "password Invalid",
                         "PasswordHeadTable"=> "Password",
@@ -116,8 +116,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "RequiredKeyPassword"=> "key Required",
                         "InvalidKeyPassword"=> "key Invalid",
                         "ForgetPasswordHeadTable"=> "Forget Password",
-                        "LabelForgetPassword"=> "Forget Password",
-                        "HintForgetPassword"=> "enter Forget Password user"
+                        "LabelKeyPassword"=> "Key Password",
+                        "HintKeyPassword"=> "enter key Password"
                     ],
                     "SelectBranchBox"=> [
                         "WithoutRays"=> "Without rays",
@@ -267,7 +267,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MessageSetupProject"=> "Successfully setup project"
                     ],
                     "Login"=> [
-                        "CheckbooksState"=>"change state input",
+                        "CheckbooksState"=> "change state input",
                         "UsedStyle"=> " style used",
                         "ModalTitleStyle"=> "title style",
                         "ModalButtonStyle"=> "save style",
@@ -317,7 +317,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "NameTableIsInv"=> "invalid name project",
                         "MessageSetupProject"=> "Successfully setup project",
                         "EmailExist"=> "invalid email",
-                        "NewPassword"=> "New password"
+                        "NewPassword"=>"New Password",
+                        "NewHintPassword"=>"enter new password"
                     ],
                     "Home"=> [
                         "MYTITLE"=> "custom table",
@@ -520,8 +521,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "LabelCategory"=> "Category",
                         "HintCategory"=> "enter Category"
                     ],
-                    "SettingUsers"=> [
-                        "CheckbooksState"=>"change state input",
+                    "SettingUsers"=>[
+                        "CheckbooksState"=> "change state input",
                         "MYTITLE"=> "user table",
                         "LoadMessage"=> "welcome in page user Table",
                         "ScreenModelDelete"=> "Screen delete user",
@@ -544,8 +545,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "RequiredEmail"=> "user Required",
                         "InvalidEmail"=> "user Invalid",
                         "NameHeadTable"=> "Name",
-                        "LabelName"=> "Name",
-                        "HintName"=> "enter name user",
+                        "LabelEmail"=> "Email",
+                        "HintEmail"=> "enter name Email",
                         "RequiredPassword"=> "password Required",
                         "InvalidPassword"=> "password Invalid",
                         "PasswordHeadTable"=> "Password",
@@ -554,8 +555,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "RequiredKeyPassword"=> "key Required",
                         "InvalidKeyPassword"=> "key Invalid",
                         "ForgetPasswordHeadTable"=> "Forget Password",
-                        "LabelForgetPassword"=> "Forget Password",
-                        "HintForgetPassword"=> "enter Forget Password user"
+                        "LabelKeyPassword"=> "Key Password",
+                        "HintKeyPassword"=> "enter key Password"
                     ],
                     "SelectBranchBox"=> [
                         "WithoutRays"=> "Without rays",
@@ -708,7 +709,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MessageSetupProject"=> "Successfully setup project"
                     ],
                     "Login"=> [
-                        "CheckbooksState"=>"change state input",
+                        "CheckbooksState"=> "change state input",
                         "UsedStyle"=> " style used",
                         "ModalTitleStyle"=> "title style",
                         "ModalButtonStyle"=> "save style",
@@ -758,7 +759,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "NameTableIsInv"=> "invalid name project",
                         "MessageSetupProject"=> "Successfully setup project",
                         "EmailExist"=> "invalid email",
-                        "NewPassword"=> "New password"
+                        "NewPassword"=>"New Password",
+                        "NewHintPassword"=>"enter new password"
                     ],
                     "Home"=> [
                         "MYTITLE"=> "custom table",

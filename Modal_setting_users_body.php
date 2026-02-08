@@ -5,10 +5,10 @@
     class="form-control">
 </div>
 <div class="form-group">
-    <label for="password"><?php echo $view->getLabelPassword()?></label>
+    <label for="password"><?php echo $labelPassword?></label>
     <input type="password" class="form-control" id="password" name="Password"
-        placeholder="<?php echo $view->getHintPassword()?>"
-        title="<?php echo $view->getHintPassword()?>"
+        placeholder="<?php echo $hintPassword?>"
+        title="<?php echo $hintPassword?>"
         value="<?php echo$myObject?->getPassword()??''?>"
         required
         minlength="8" 

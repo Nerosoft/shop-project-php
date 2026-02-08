@@ -6,6 +6,8 @@
             $title = $view->getScreenModelCreate();
             $button = $view->getButtonModelAdd();
             $action = 'SettingUsersCreatePost.php';
+            $labelPassword = $view->getLabelPassword();
+            $hintPassword = $view->getHintPassword();
             include('modal_setting_users_table.php');
         ?>
         <table id="example" class="table table-striped" >

@@ -88,8 +88,8 @@
                 "RequiredEmail": "user Required",
                 "InvalidEmail": "user Invalid",
                 "NameHeadTable": "Name",
-                "LabelName": "Name",
-                "HintName": "enter name user",
+                "LabelEmail": "Email",
+                "HintEmail": "enter name Email",
                 "RequiredPassword": "password Required",
                 "InvalidPassword": "password Invalid",
                 "PasswordHeadTable": "Password",
@@ -98,8 +98,8 @@
                 "RequiredKeyPassword": "key Required",
                 "InvalidKeyPassword": "key Invalid",
                 "ForgetPasswordHeadTable": "Forget Password",
-                "LabelForgetPassword": "Forget Password",
-                "HintForgetPassword": "enter Forget Password user"
+                "LabelKeyPassword": "Key Password",
+                "HintKeyPassword": "enter key Password"
             },
             "SelectBranchBox": {
                 "WithoutRays": "Without rays",
@@ -299,7 +299,8 @@
                 "NameTableIsInv": "invalid name project",
                 "MessageSetupProject": "Successfully setup project",
                 "EmailExist": "invalid email",
-                "NewPassword": "New password"
+                "NewPassword": "New Password",
+                "NewHintPassword": "enter new password"
             },
             "Home": {
                 "MYTITLE": "custom table",
@@ -526,8 +527,8 @@
                 "RequiredEmail": "user Required",
                 "InvalidEmail": "user Invalid",
                 "NameHeadTable": "Name",
-                "LabelName": "Name",
-                "HintName": "enter name user",
+                "LabelEmail": "Email",
+                "HintEmail": "enter name Email",
                 "RequiredPassword": "password Required",
                 "InvalidPassword": "password Invalid",
                 "PasswordHeadTable": "Password",
@@ -536,8 +537,8 @@
                 "RequiredKeyPassword": "key Required",
                 "InvalidKeyPassword": "key Invalid",
                 "ForgetPasswordHeadTable": "Forget Password",
-                "LabelForgetPassword": "Forget Password",
-                "HintForgetPassword": "enter Forget Password user"
+                "LabelKeyPassword": "Key Password",
+                "HintKeyPassword": "enter key Password"
             },
             "SelectBranchBox": {
                 "WithoutRays": "Without rays",
@@ -740,7 +741,8 @@
                 "NameTableIsInv": "invalid name project",
                 "MessageSetupProject": "Successfully setup project",
                 "EmailExist": "invalid email",
-                "NewPassword": "New password"
+                "NewPassword": "New Password",
+                "NewHintPassword": "enter new password"
             },
             "Home": {
                 "MYTITLE": "custom table",
