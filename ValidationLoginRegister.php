@@ -12,7 +12,7 @@ class ValidationLoginRegister extends ModelJson{
         foreach ($this->getFile() as $key => $obj)
             if($key === $_POST['superId'] || isset($obj['Branches']) && in_array($_POST['superId'], array_keys($obj['Branches']))){
                 $_SESSION['staticId'] = $key;
-                header('Location:view?id=Home');
+                header('LOCATION:index');
                 exit;
             }
     }

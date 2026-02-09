@@ -12,4 +12,4 @@ class FlexTablesDeletePost extends ValidationId{
 }
 new FlexTablesDeletePost();
 }else
-    header('LOCATION:view?id=Home');
+    header('LOCATION:index');

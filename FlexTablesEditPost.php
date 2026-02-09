@@ -13,4 +13,4 @@ class FlexTablesEditPost extends ValidationId{
 }
 new FlexTablesEditPost();
 }else
-    header('LOCATION:view?id=Home');
+    header('LOCATION:index');

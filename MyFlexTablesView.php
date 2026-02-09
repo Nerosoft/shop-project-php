@@ -2,7 +2,7 @@
 require 'page.php';
 require 'ErrorFlexTable.php';
 if(!isset((new ModelJson($_GET['id']))->getObj()[(new ModelJson($_GET['id']))->getObj()['Setting']['Language']][$_GET['id']]))
-    header("Location:view?id=Home");
+    header("Location:index");
 class MyFlexTablesView extends Page{
     use ErrorFlexTable;
     private $TableHead;

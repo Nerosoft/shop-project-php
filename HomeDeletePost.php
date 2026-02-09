@@ -20,4 +20,4 @@ class HomeDeletePost extends ValidationId{
 }
 new HomeDeletePost();
 }else
-    header('LOCATION:view?id=Home');
+    header('LOCATION:index');
