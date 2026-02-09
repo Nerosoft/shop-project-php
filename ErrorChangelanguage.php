@@ -18,9 +18,9 @@ trait ErrorChangelanguage{
     function initErrorChangelanguage2($modal, $newKey, $nameKey = 'AllNamesLanguage'){
         $this->initErrorChangelanguage($modal->getModelPage(), $modal->getModel2()['AllNamesLanguage']);
          if(!isset($_POST['lang_name']) || $_POST['lang_name'] === '')
-            MyChangeLanguage::initMyChangeLanguage($this->getNewLangNameRequired(), 'danger');
+            ModelJson::initViewPost($this->getNewLangNameRequired());
         else if(strlen($_POST['lang_name']) < 3)
-            MyChangeLanguage::initMyChangeLanguage($this->getNewLangNameInvalid(), 'danger');
+            ModelJson::initViewPost($this->getNewLangNameInvalid());
         else{
             $myData = $this->getObj();
             foreach ($this->getallNames() as $key=>$value)

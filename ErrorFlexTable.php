@@ -10,9 +10,9 @@ trait ErrorFlexTable{
         $this->initErrorFlexTable($modal->getModelPage());
         foreach ($this->getErrorsMessageReq() as $key => $value) {
             if(!isset($_POST[$key]) || $_POST[$key] === '')
-                MyFlexTablesView::initMyFlexTablesView($this->getErrorsMessageReq()[$key]);
+                MyFlexTablesView::initMyFlexTablesView($this->getErrorsMessageReq()[$key], 'danger');
             else if(strlen($_POST[$key]) < 3)
-                MyFlexTablesView::initMyFlexTablesView($this->getErrorsMessageInv()[$key]);
+                MyFlexTablesView::initMyFlexTablesView($this->getErrorsMessageInv()[$key], 'danger');
             else{
                 $myData = $modal->getObj();
                 foreach ($this->getErrorsMessageReq() as $key => $value)
