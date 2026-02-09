@@ -27,7 +27,5 @@ if(isset($_GET['id']))
             require 'MyFlexTablesView.php';
             MyFlexTablesView::initMyFlexTablesView();
     }
-else{
-    require 'MyHome.php';
-    MyHome::initHome();
-}
+else
+    header('LOCATION:index');
