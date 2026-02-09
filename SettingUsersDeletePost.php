@@ -13,4 +13,4 @@ class SettingUsersDeletePost extends ValidationId{
 
 new SettingUsersDeletePost();
 }else
-    header('LOCATION:SettingUsers.php');
+    header('LOCATION:view?id=SettingUsers');

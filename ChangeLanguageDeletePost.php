@@ -19,4 +19,4 @@ class ChangeLanguageDeletePost extends ValidationId{
 }
 new ChangeLanguageDeletePost();
 }else
-    header('LOCATION:ChangeLanguage');
+    header('LOCATION:view?id=ChangeLanguage');

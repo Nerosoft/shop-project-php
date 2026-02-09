@@ -14,4 +14,4 @@ class ProductDeletePost extends ValidationId{
 
 new ProductDeletePost();
 }else
-    header('LOCATION:Product.php');
+    header('LOCATION:view?id=Product');

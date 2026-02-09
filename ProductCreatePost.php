@@ -12,4 +12,4 @@ class ProductCreatePost extends ModelJson{
 
 new ProductCreatePost();
 }else
-    header('LOCATION:Product.php');
+    header('LOCATION:view?id=Product');

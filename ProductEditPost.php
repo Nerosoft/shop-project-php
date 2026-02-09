@@ -13,4 +13,4 @@ class ProductEditPost extends ValidationId{
 
 new ProductEditPost();
 }else
-    header('LOCATION:Product.php');
+    header('LOCATION:view?id=Product');

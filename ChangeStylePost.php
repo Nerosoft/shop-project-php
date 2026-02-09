@@ -14,4 +14,4 @@ class ChangeStylePost extends ValidationId{
 }
 new ChangeStylePost();
 }else
-    header('LOCATION:MyStyle');
+    header('LOCATION:view?id=MyStyle');

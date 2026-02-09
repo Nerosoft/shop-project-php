@@ -71,7 +71,7 @@
 <?php 
 foreach ($this->getMyMenuApp() as $key => $item) {
     if(is_array($item)){
-        $classActive = isset($_GET['lang']) && $_GET['lang'] === $key || $key === $this->getUrlName2() || isset($_GET['id']) && $this->getUrlName2() === $_GET['id']? 'my_active':'';
+        $classActive = isset($_GET['lang']) && $_GET['lang'] === $key || $key === $this->getUrlName2() || isset($_GET['id']) && isset($this->getModel2()['MyFlexTables'][$_GET['id']]) ? 'my_active':'';
         $name = array_shift($item);
         echo <<<HTML
             <li class="nav-item dropdown">
@@ -82,7 +82,7 @@ foreach ($this->getMyMenuApp() as $key => $item) {
             <ul class="dropdown-menu dropdown-menu-dark">
         HTML;
         foreach ($item as $keyItem=>$myItem){
-            $loc = $this->getUrlName2() === 'SystemLang' ? $this->getUrlName2().'?lang='.$key.'&table='.$keyItem : $key.'?id='.$keyItem;
+            $loc = $this->getUrlName2() === 'SystemLang' ? $this->getUrlName2().'?lang='.$key.'&table='.$keyItem : 'view?id='.$keyItem;
             $classActive = isset($_GET['table']) && $_GET['table'] === $keyItem && isset($_GET['lang']) && $_GET['lang'] === $key || isset($_GET['id']) && $keyItem === $_GET['id'] ? 'my_active':'';
             echo <<<HTML
                 <li>
@@ -97,7 +97,7 @@ foreach ($this->getMyMenuApp() as $key => $item) {
     }else{
         $classActive = $this->getUrlName2() === $key && !isset($_GET['table']) && !isset($_GET['table']) ? 'my_active':'';
         echo <<<HTML
-        <li class="nav-item"><a class="nav-link {$classActive}" aria-current="page" href="{$key}">
+        <li class="nav-item"><a class="nav-link {$classActive}" aria-current="page" href="view?id={$key}">
                 <img class="style_icon_menu" src="./asset/lib/icons/{$this->getIconByKey($key)}"/>
                 {$item}
             </a>

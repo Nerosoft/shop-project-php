@@ -14,4 +14,4 @@ class ChangeLanguagePost extends ValidationId{
 }
 new ChangeLanguagePost();
 }else
-    header('LOCATION:ChangeLanguage');
+    header('LOCATION:view?id=ChangeLanguage');

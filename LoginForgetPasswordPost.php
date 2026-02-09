@@ -20,4 +20,4 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     }
     new LoginForgetPasswordPost();
 }else
-    header('LOCATION:Login.php');
+    header('LOCATION:Login');

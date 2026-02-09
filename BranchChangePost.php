@@ -12,4 +12,4 @@ class BranchChangePost extends ValidationId{
 }
 new BranchChangePost();
 }else
-    header('LOCATION:Branches');
+    header('LOCATION:view?id=Branches');

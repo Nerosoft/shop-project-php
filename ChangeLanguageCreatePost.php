@@ -22,4 +22,4 @@ class ChangeLanguageCreatePost extends ModelJson{
 
 new ChangeLanguageCreatePost();
 }else
-    header('LOCATION:ChangeLanguage');
+    header('LOCATION:view?id=ChangeLanguage');

@@ -14,4 +14,4 @@ class SettingUsersCreatePost extends ModelJson{
 
 new SettingUsersCreatePost();
 }else
-    header('LOCATION:SettingUsers.php');
+    header('LOCATION:view?id=SettingUsers');

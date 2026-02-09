@@ -15,4 +15,4 @@ class SettingUsersEditPost extends ValidationId{
 
 new SettingUsersEditPost();
 }else
-    header('LOCATION:SettingUsers.php');
+    header('LOCATION:view?id=SettingUsers');

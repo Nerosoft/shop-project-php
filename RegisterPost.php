@@ -15,4 +15,4 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     }
     new RegisterPost();    
 }else
-    header('LOCATION:Register.php');
+    header('LOCATION:Register');

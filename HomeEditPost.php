@@ -17,4 +17,4 @@ class HomeEditPost extends ValidationId{
 }
 new HomeEditPost();
 }else
-    header('LOCATION:Home');
+    header('LOCATION:view?id=Home');

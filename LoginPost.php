@@ -15,4 +15,4 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     }
     new LoginPost();
 }else
-    header('LOCATION:Login.php');
+    header('LOCATION:Login');

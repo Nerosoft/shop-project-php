@@ -18,4 +18,4 @@ class BranchDeletePost extends ValidationId{
 }
 new BranchDeletePost();
 }else
-    header('LOCATION:Branches');
+    header('LOCATION:view?id=Branches');

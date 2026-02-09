@@ -26,4 +26,4 @@ class SystemLangEditPost extends ModelJson{
 }
 new SystemLangEditPost();
 }else
-    header('LOCATION:SystemLang');
+    header('LOCATION:view?id=SystemLang');

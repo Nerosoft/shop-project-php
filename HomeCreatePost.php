@@ -35,4 +35,4 @@ class HomeCreatePost extends ModelJson{
 
 new HomeCreatePost();
 }else
-    header('LOCATION:Home');
+    header('LOCATION:view?id=Home');

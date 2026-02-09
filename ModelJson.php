@@ -15,7 +15,7 @@ class ModelJson{
         }else if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['superId']) && isset($this->File[$_POST['superId']]))
             $this->id = $_POST['superId'];
         else if($_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST['superId']) || $_SERVER["REQUEST_METHOD"] === "POST" && !isset($this->File[$_POST['superId']]))
-            header("Location: login.php");
+            header("Location:login");
         else if(isset($_GET['id']) && isset($this->File[$_GET['id']]))
             $this->id = $_GET['id'];
         else

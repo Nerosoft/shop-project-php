@@ -12,4 +12,4 @@ class FlexTablesCreatePost extends ModelJson{
 }
 new FlexTablesCreatePost();
 }else
-    header('LOCATION:Home');
+    header('LOCATION:view?id=Home');

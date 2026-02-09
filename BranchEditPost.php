@@ -13,4 +13,4 @@ class BranchEditPost extends ValidationId{
 }
 new BranchEditPost();
 }else
-    header('LOCATION:Branches');
+    header('LOCATION:view?id=Branches');

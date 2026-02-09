@@ -18,4 +18,4 @@ class BranchCreatePost extends ModelJson{
 
 new BranchCreatePost();
 }else
-    header('LOCATION:Branches');
+    header('LOCATION:view?id=Branches');
