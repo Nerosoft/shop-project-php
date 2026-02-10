@@ -1,9 +1,10 @@
 <?php
 require 'InformationPage.php';
 require 'ErrorsHomeName.php';
+require 'InfoHome.php';
 require 'InterEmailPass.php';
 class LoginRegister extends InformationPage{
-    use ErrorsHomeName, EmailPassword;
+    use ErrorsHomeName, InfoHome, EmailPassword;
     private $TitleForm;
     private $ButtonName;
     private $MyLanguage;
@@ -20,8 +21,6 @@ class LoginRegister extends InformationPage{
     private $AllBranch;
     private $ModalTitleProject;
     private $ModalButtonProject;
-    private $NameLabel;
-    private $NameHint;
     private $ButtonSetupProject;
     private $ModalTitleStyle;
     private $ModalButtonStyle;
@@ -42,12 +41,6 @@ class LoginRegister extends InformationPage{
     }
     function getButtonSetupProject(){
         return $this->ButtonSetupProject;
-    }
-    function getNameLabel(){
-        return $this->NameLabel;
-    }
-    function getNameHint(){
-        return $this->NameHint;
     }
     function getAllBranch(){
         return $this->AllBranch;
@@ -75,6 +68,7 @@ class LoginRegister extends InformationPage{
     }
     function __construct($IdPage, $message, $type){
         parent::__construct($IdPage);
+        $this->initInfoHome($this->getModelPage());
         $this->initErrorsHomeName($this->getModelPage());
         $this->initEmailPassword($this->getModelPage());
         $this->ChangeLang = $this->getModelPage()['UsedLanguage'];
@@ -95,8 +89,6 @@ class LoginRegister extends InformationPage{
         $this->ModalTitleProject = $this->getModelPage()['ModalTitleProject'];
         $this->ModalButtonProject = $this->getModelPage()['ModalButtonProject'];
         $this->ButtonSetupProject = $this->getModelPage()['ButtonSetupProject'];
-        $this->NameLabel = $this->getModelPage()['NameLabel'];
-        $this->NameHint = $this->getModelPage()['NameHint'];
         foreach ($this->getFile() as $key => $obj)
             if(isset($obj['State']) && $obj['State'] === 'admin'){
                 $this->dbKeys[$key] = $obj[$obj['Setting']['Language']]['AppSettingAdmin']['AdminDashboard'];

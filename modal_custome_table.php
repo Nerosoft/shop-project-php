@@ -3,17 +3,7 @@
 include('start_model.php');
 if(isset($index))
     include('my_id.php');
-?>
-<div class="form-group">
-    <label for="lang_name" class="form-label"><?php echo$view->getLabelName()?></label>
-    <input 
-    minlength="3" 
-    required
-    oninvalid="handleInput(this ,'<?php echo$view->getNameTableIsReq()?>', '<?php echo$view->getNameTableIsInv()?>')"
-    oninput="handleInput(this ,'<?php echo$view->getNameTableIsReq()?>', '<?php echo$view->getNameTableIsInv()?>')"
-    type="text" name="name" id="name" value="<?php echo$myObject?->getName()??''?>" placeholder='<?php echo$view->getHintName()?>' class="form-control">
-</div>
-<?php 
+include 'modal_custome_table_input_name.php';
 if(!isset($index))
     echo <<<HTML
         <div class="form-group">
