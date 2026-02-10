@@ -71,7 +71,7 @@
 <?php 
 foreach ($this->getMyMenuApp() as $key => $item) {
     if(is_array($item)){
-        $classActive = isset($_GET['lang']) && $_GET['lang'] === $key || $key === $this->getUrlName2() || isset($_GET['id']) && isset($this->getModel2()['MyFlexTables'][$_GET['id']]) ? 'my_active':'';
+        $classActive = isset($_GET['lang']) && $_GET['lang'] === $key || isset($_GET['id']) && isset($this->getModel2()['MyFlexTables'][$_GET['id']]) ? 'my_active':'';
         $name = array_shift($item);
         echo <<<HTML
             <li class="nav-item dropdown">
