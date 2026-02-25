@@ -7,6 +7,9 @@ class BranchDeletePost extends ValidationId{
     function __construct(){
         parent::__construct('Branches');
         $file = $this->getFile();
+        if(isset($file[$_POST['id']]['Product']))
+            foreach ($file[$_POST['id']]['Product'] as $key => $value)
+               array_map('unlink', glob('asset/product/'.$key.'.*'));
         if(count($file[$this->getFixedId()]['Branches']) === 1)
             unset($file[$this->getFixedId()]['Branches']);
         else

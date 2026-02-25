@@ -88,8 +88,20 @@ class AdminMenu extends InformationPage
             return 'arrow-up-circle-fill.svg';
         else if($key === 'TablePage')
             return 'calendar4-event.svg';
-        else if($key === 'Html')
+        else if($key === 'SettingUsers')
             return 'bar-chart-line-fill.svg';
+        else if($key === 'Product')
+            return 'calendar-day.svg';
+        else if($key === 'MyStyle')
+            return 'cloud-download-fill.svg';
+        else if($key === 'MyFlexTables')
+            return 'cloud-fill.svg';
+        else if($key === 'Style')
+            return 'file-earmark-word-fill.svg';
+        else if(isset($this->getModel2()['MyFlexTables'][$key]))
+            return 'cloud-haze.svg';
+        else if(isset($this->getModel2()['AllNamesLanguage'][$key]))
+            return 'credit-card-fill.svg';
         else
             return 'camera2.svg';
     }
