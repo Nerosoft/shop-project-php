@@ -35,7 +35,7 @@ if(isset($index))
         <div class="col-lg-auto pt-2">
             <div class="input-group">
                 <div class="input-group-prepend">
-                    <img class="style_icon_menu" src="./asset/lib/icons/geo-alt.svg"/>
+                    <img class="style_icon_menu" src="./asset/lib/icons/envelope-heart.svg"/>
                 </div>
                     <input 
                     minlength="3" 
@@ -48,7 +48,7 @@ if(isset($index))
         <div class="col-lg-auto pt-2">
             <div class="input-group">
                 <div class="input-group-prepend">
-                <img class="style_icon_menu" src="./asset/lib/icons/geo-alt.svg"/>
+                <img class="style_icon_menu" src="./asset/lib/icons/envelope-plus-fill.svg"/>
                 </div>
                 <input 
                 minlength="3" 
@@ -61,7 +61,7 @@ if(isset($index))
         <div class="col-lg-auto pt-2">
             <div class="input-group">
                 <div class="input-group-prepend">
-                <img class="style_icon_menu" src="./asset/lib/icons/geo-alt.svg"/>
+                <img class="style_icon_menu" src="./asset/lib/icons/file-earmark-zip-fill.svg"/>
                 </div>
                 <input 
                 minlength="3" 
@@ -74,7 +74,7 @@ if(isset($index))
         <div class="col-lg-auto pt-2">
             <div class="input-group">
                 <div class="input-group-prepend">
-                <img class="style_icon_menu" src="./asset/lib/icons/geo-alt.svg"/>
+                <img class="style_icon_menu" src="./asset/lib/icons/globe-central-south-asia-fill.svg"/>
                 </div>
                 <input 
                 minlength="3" 
@@ -87,7 +87,7 @@ if(isset($index))
         <div class="col-lg-auto pt-2">
             <div class="input-group">
                 <div class="input-group-prepend">
-                <img class="style_icon_menu" src="./asset/lib/icons/geo-alt.svg"/>
+                <img class="style_icon_menu" src="./asset/lib/icons/house-up.svg"/>
                 </div>
                 <input 
                 minlength="3" 
@@ -100,7 +100,7 @@ if(isset($index))
         <div class="col-lg-auto pt-2">
             <div class="input-group">
                 <div class="input-group-prepend">
-                <img class="style_icon_menu" src="./asset/lib/icons/geo-alt.svg"/>
+                <img class="style_icon_menu" src="./asset/lib/icons/kanban-fill.svg"/>
                 </div>
                 <input 
                 minlength="3" 
@@ -113,7 +113,7 @@ if(isset($index))
         <div class="col-lg-auto pt-2">
             <div class="input-group">
                 <div class="input-group-prepend">
-                    <img class="style_icon_menu" src="./asset/lib/icons/geo-alt.svg"/>
+                    <img class="style_icon_menu" src="./asset/lib/icons/person-badge.svg"/>
                 </div>
                 <select
                 title="<?php echo$view->getselectBox1()?>"

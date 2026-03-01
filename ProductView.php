@@ -149,5 +149,5 @@
             preview.attr('src', './asset/img/error_image.png');
         }
  }
-// </script>
+</script>
 <?php include 'end_html.php'?>
