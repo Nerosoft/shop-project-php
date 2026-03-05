@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="col-lg-auto pt-2">
-            <label class="branch-label" for="brance-rays-name"><?php echo $view->getLabelBranchRaysPhone()?></label>
+            <label class="branch-label" for="brance-rays-phone"><?php echo $view->getLabelBranchRaysPhone()?></label>
             <div class="input-group">
                 <div class="input-group-prepend">
                 <img class="style_icon_menu" src="./asset/lib/icons/telephone.svg"/>
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="col-lg-auto pt-2">
-            <label class="branch-label" for="brance-rays-name"><?php echo $view->getLabelBranchRaysCountry()?></label>
+            <label class="branch-label" for="brance-rays-country"><?php echo $view->getLabelBranchRaysCountry()?></label>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <img class="style_icon_menu" src="./asset/lib/icons/envelope-heart.svg"/>
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="col-lg-auto pt-2">
-            <label class="branch-label" for="brance-rays-name"><?php echo $view->getLabelBranchRaysGovernments()?></label>
+            <label class="branch-label" for="brance-rays-governments"><?php echo $view->getLabelBranchRaysGovernments()?></label>
             <div class="input-group">
                 <div class="input-group-prepend">
                 <img class="style_icon_menu" src="./asset/lib/icons/envelope-plus-fill.svg"/>
@@ -57,7 +57,7 @@
             </div>
         </div>
         <div class="col-lg-auto pt-2">
-            <label class="branch-label" for="brance-rays-name"><?php echo $view->getLabelBranchRaysCity()?></label>
+            <label class="branch-label" for="brance-rays-city"><?php echo $view->getLabelBranchRaysCity()?></label>
             <div class="input-group">
                 <div class="input-group-prepend">
                 <img class="style_icon_menu" src="./asset/lib/icons/file-earmark-zip-fill.svg"/>
@@ -71,7 +71,7 @@
             </div>
         </div>
         <div class="col-lg-auto pt-2">
-            <label class="branch-label" for="brance-rays-name"><?php echo $view->getLabelBranchRaysStreet()?></label>
+            <label class="branch-label" for="brance-rays-street"><?php echo $view->getLabelBranchRaysStreet()?></label>
             <div class="input-group">
                 <div class="input-group-prepend">
                 <img class="style_icon_menu" src="./asset/lib/icons/globe-central-south-asia-fill.svg"/>
@@ -85,7 +85,7 @@
             </div>
         </div>
         <div class="col-lg-auto pt-2">
-            <label class="branch-label" for="brance-rays-name"><?php echo $view->getLabelBranchRaysBuilding()?></label>
+            <label class="branch-label" for="brance-rays-building"><?php echo $view->getLabelBranchRaysBuilding()?></label>
             <div class="input-group">
                 <div class="input-group-prepend">
                 <img class="style_icon_menu" src="./asset/lib/icons/house-up.svg"/>
@@ -99,7 +99,7 @@
             </div>
         </div>
         <div class="col-lg-auto pt-2">
-            <label class="branch-label" for="brance-rays-name"><?php echo $view->getLabelBranchRaysAddress()?></label>
+            <label class="branch-label" for="brance-rays-address"><?php echo $view->getLabelBranchRaysAddress()?></label>
             <div class="input-group">
                 <div class="input-group-prepend">
                 <img class="style_icon_menu" src="./asset/lib/icons/kanban-fill.svg"/>
@@ -113,7 +113,7 @@
             </div>
         </div>
         <div class="col-lg-auto pt-2">
-            <label class="branch-label" for="brance-rays-name"><?php echo $view->getLabelWithRaysOut()?></label>
+            <label class="branch-label" for="brance-rays-follow"><?php echo $view->getLabelWithRaysOut()?></label>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <img class="style_icon_menu" src="./asset/lib/icons/person-badge.svg"/>
