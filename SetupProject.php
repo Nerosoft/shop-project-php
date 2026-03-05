@@ -4,27 +4,28 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
     $_SERVER['SCRIPT_FILENAME'] = $_POST['setup_project'];
     require  $_POST['setup_project'] === 'Login'?'MyLogin.php':'MyRegister.php';
     class SetupProject extends ModelJson{
-        use ErrorsHomeName;
+        use ErrorBranch;
         function __construct(){
             parent::__construct($_POST['setup_project']);
-            $this->initErrorsHomeName2($this->getMyModal());
+            $myId = $this->getRandomId();
+            $this->validInputs($this->getMyModal());
             $file = $this->getFile();
-            $file[$this->getRandomId()] = $this->getProject();
+            $file[$myId] = $this->getProject($myId);
             $this->saveFile($file);
             if($_POST['setup_project'] === 'Login')
                 MyLogin::initMyLogin('MessageSetupProject');
             else 
                 MyRegister::initMyRegister('MessageSetupProject');
         }
-        function getProject(){
+        function getProject($myId){
             return array(
                 "State"=> "admin",
                 "MyLanguage"=> [
-                    "Style"=>[
+                    "Style"=> [
                         "dark"=> "dark",
                         "default"=> "default"
                     ],
-                    "Menu"=>[
+                    "Menu"=> [
                         "SystemLang"=> "Edit my language",
                         "Home"=> "Home",
                         "Branches"=> "Branches",
@@ -34,7 +35,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MyFlexTables"=> "flex table",
                         "MyStyle"=> "Style"
                     ],
-                    "Product"=>[
+                    "Product"=> [
                         "TitleViewImage"=> "view image product",
                         "UploadImgInv"=> "error upload image product",
                         "TableProductImage"=> "image product",
@@ -82,7 +83,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "LabelCategory"=> "Category",
                         "HintCategory"=> "enter Category"
                     ],
-                    "SettingUsers"=>[
+                    "SettingUsers"=> [
                         "CheckbooksState"=> "change state input",
                         "MYTITLE"=> "user table",
                         "LoadMessage"=> "welcome in page user Table",
@@ -119,11 +120,14 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "LabelKeyPassword"=> "Key Password",
                         "HintKeyPassword"=> "enter key Password"
                     ],
-                    "SelectBranchBox"=>[
+                    "SelectBranchBox"=> [
                         "WithoutRays"=> "Without rays",
                         "WithRays"=> "With rays"
                     ],
-                    "Branches"=>[
+                    "Branches"=> [
+                        "TitleChangeLanguageMessage"=> "Screen change branche",
+                        "ButtonChangeLanguageMessage"=> "change branch",
+                        "LabelChangeLanguageMessage"=> "do you want to change branche",
                         "MYTITLE"=> "branch",
                         "SuccessfullyChangeBranch"=> "Successfully Changed Branch",
                         "ErrorChangeBranch"=> "Error Change Branch",
@@ -165,6 +169,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "BranchAddress"=> "Address",
                         "BranchCountry"=> "Country",
                         "BranchFollow"=> "Follow",
+
                         "BranchRaysName"=> "Enter branch name",
                         "BranchRaysPhone"=> "Enter branch phone",
                         "BranchRaysCountry"=> "Enter branch country",
@@ -173,7 +178,18 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "BranchRaysStreet"=> "Enter branch street",
                         "BranchRaysBuilding"=> "Enter branch building",
                         "BranchRaysAddress"=> "Enter branch address",
+
+                        "LabelBranchRaysName"=> "branch name",
+                        "LabelBranchRaysPhone"=> "branch phone",
+                        "LabelBranchRaysCountry"=> "branch country",
+                        "LabelBranchRaysGovernments"=> "branch governments",
+                        "LabelBranchRaysCity"=> "branch city",
+                        "LabelBranchRaysStreet"=> "branch street",
+                        "LabelBranchRaysBuilding"=> "branch building",
+                        "LabelBranchRaysAddress"=> "branch address",
+                        "LabelWithRaysOut"=> "in rays or out rays",
                         "WithRaysOut"=> "Select in rays or out rays",
+
                         "MessageModelCreate"=> "Seccessfully branch add",
                         "BranceRaysFollowValue"=> "invalid branch",
                         "IdIsReq"=> "branch id required",
@@ -181,7 +197,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MessageModelEdit"=> "Seccessfully branch edit",
                         "Delete"=> "Seccessfully delete branch"
                     ],
-                    "ChangeLanguage"=>[
+                    "ChangeLanguage"=> [
                         "MYTITLE"=> "change language",
                         "Used"=> "language is used",
                         "LoadMessage"=> "welcome in Change Language",
@@ -216,7 +232,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MessageModelEdit"=> "Seccessfully edit language",
                         "Delete"=> "Seccessfully delete language-"
                     ],
-                    "Register"=>[
+                    "Register"=> [
                         "UsedStyle"=> " style used",
                         "ModalTitleStyle"=> "title style",
                         "ModalButtonStyle"=> "save style",
@@ -260,13 +276,46 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "ModalTitleProject"=> "Setup your project",
                         "ModalButtonProject"=> "Create your project",
                         "ButtonSetupProject"=> "Setup project",
-                        "LabelName"=> "Project name",
-                        "HintName"=> "enter your name project",
-                        "NameTableIsReq"=> "reqired name project",
-                        "NameTableIsInv"=> "invalid name project",
-                        "MessageSetupProject"=> "Successfully setup project"
+
+                        "BranchRaysName"=> "Enter branch name",
+                        "BranchRaysPhone"=> "Enter branch phone",
+                        "BranchRaysCountry"=> "Enter branch country",
+                        "BranchRaysGovernments"=> "Enter branch governments",
+                        "BranchRaysCity"=> "Enter branch city",
+                        "BranchRaysStreet"=> "Enter branch street",
+                        "BranchRaysBuilding"=> "Enter branch building",
+                        "BranchRaysAddress"=> "Enter branch address",
+
+                        "LabelBranchRaysName"=> "branch name",
+                        "LabelBranchRaysPhone"=> "branch phone",
+                        "LabelBranchRaysCountry"=> "branch country",
+                        "LabelBranchRaysGovernments"=> "branch governments",
+                        "LabelBranchRaysCity"=> "branch city",
+                        "LabelBranchRaysStreet"=> "branch street",
+                        "LabelBranchRaysBuilding"=> "branch building",
+                        "LabelBranchRaysAddress"=> "branch address",
+                        "LabelWithRaysOut"=> "in rays or out rays",
+                        "WithRaysOut"=> "Select in rays or out rays",
+                        "MessageSetupProject"=> "Successfully setup project",
+                        "BranceRaysNameRequired"=>"BranceRaysNameRequired",
+                        "BranceRaysNameLength"=>"BranceRaysNameLength",
+                        "BranceRaysPhoneRequired"=>"BranceRaysPhoneRequired",
+                        "BranceRaysPhoneLength"=>"BranceRaysPhoneLength",
+                        "BranceRaysCountryRequired"=>"BranceRaysCountryRequired",
+                        "BranceRaysCountryLength"=>"BranceRaysCountryLength",
+                        "BranceRaysGovernmentsRequired"=>"BranceRaysGovernmentsRequired",
+                        "BranceRaysGovernmentsLength"=>"BranceRaysGovernmentsLength",
+                        "BranceRaysCityRequired"=>"BranceRaysCityRequired",
+                        "BranceRaysCityLength"=>"BranceRaysCityLength",
+                        "BranceRaysStreetRequired"=>"BranceRaysStreetRequired",
+                        "BranceRaysStreetLength"=>"BranceRaysStreetLength",
+                        "BranceRaysBuildingRequired"=>"BranceRaysBuildingRequired",
+                        "BranceRaysBuildingLength"=>"BranceRaysBuildingLength",
+                        "BranceRaysAddressRequired"=>"BranceRaysAddressRequired",
+                        "BranceRaysAddressLength"=>"BranceRaysAddressLength",
+                        "BranceRaysFollowRequired"=>"BranceRaysFollowRequired"
                     ],
-                    "Login"=>[
+                    "Login"=> [
                         "CheckbooksState"=> "change state input",
                         "UsedStyle"=> " style used",
                         "ModalTitleStyle"=> "title style",
@@ -311,16 +360,49 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "ModalTitleProject"=> "Setup your project",
                         "ModalButtonProject"=> "Create your project",
                         "ButtonSetupProject"=> "Setup project",
-                        "LabelName"=> "Project name",
-                        "HintName"=> "enter your name project",
-                        "NameTableIsReq"=> "reqired name project",
-                        "NameTableIsInv"=> "invalid name project",
                         "MessageSetupProject"=> "Successfully setup project",
                         "EmailExist"=> "invalid email",
                         "NewPassword"=> "New Password",
-                        "NewHintPassword"=> "enter new password"
+                        "NewHintPassword"=> "enter new password",
+
+                        "BranchRaysName"=> "Enter branch name",
+                        "BranchRaysPhone"=> "Enter branch phone",
+                        "BranchRaysCountry"=> "Enter branch country",
+                        "BranchRaysGovernments"=> "Enter branch governments",
+                        "BranchRaysCity"=> "Enter branch city",
+                        "BranchRaysStreet"=> "Enter branch street",
+                        "BranchRaysBuilding"=> "Enter branch building",
+                        "BranchRaysAddress"=> "Enter branch address",
+
+                        "LabelBranchRaysName"=> "branch name",
+                        "LabelBranchRaysPhone"=> "branch phone",
+                        "LabelBranchRaysCountry"=> "branch country",
+                        "LabelBranchRaysGovernments"=> "branch governments",
+                        "LabelBranchRaysCity"=> "branch city",
+                        "LabelBranchRaysStreet"=> "branch street",
+                        "LabelBranchRaysBuilding"=> "branch building",
+                        "LabelBranchRaysAddress"=> "branch address",
+                        "LabelWithRaysOut"=> "in rays or out rays",
+                        "WithRaysOut"=> "Select in rays or out rays",
+                        "BranceRaysNameRequired"=>"BranceRaysNameRequired",
+                        "BranceRaysNameLength"=>"BranceRaysNameLength",
+                        "BranceRaysPhoneRequired"=>"BranceRaysPhoneRequired",
+                        "BranceRaysPhoneLength"=>"BranceRaysPhoneLength",
+                        "BranceRaysCountryRequired"=>"BranceRaysCountryRequired",
+                        "BranceRaysCountryLength"=>"BranceRaysCountryLength",
+                        "BranceRaysGovernmentsRequired"=>"BranceRaysGovernmentsRequired",
+                        "BranceRaysGovernmentsLength"=>"BranceRaysGovernmentsLength",
+                        "BranceRaysCityRequired"=>"BranceRaysCityRequired",
+                        "BranceRaysCityLength"=>"BranceRaysCityLength",
+                        "BranceRaysStreetRequired"=>"BranceRaysStreetRequired",
+                        "BranceRaysStreetLength"=>"BranceRaysStreetLength",
+                        "BranceRaysBuildingRequired"=>"BranceRaysBuildingRequired",
+                        "BranceRaysBuildingLength"=>"BranceRaysBuildingLength",
+                        "BranceRaysAddressRequired"=>"BranceRaysAddressRequired",
+                        "BranceRaysAddressLength"=>"BranceRaysAddressLength",
+                        "BranceRaysFollowRequired"=>"BranceRaysFollowRequired"
                     ],
-                    "Home"=>[
+                    "Home"=> [
                         "MYTITLE"=> "custom table",
                         "LoadMessage"=> "welcome in page Custom Table",
                         "ScreenModelDelete"=> "Screen delete table",
@@ -349,7 +431,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "LabelInputNumber"=> "Input Numper",
                         "HintInputNumber"=> "enter Input Numper table"
                     ],
-                    "MyStyle"=>[
+                    "MyStyle"=> [
                         "MYTITLE"=> "style page",
                         "IdIsReq"=> "Id Required style",
                         "IdIsInv"=> "Id Invalid style",
@@ -370,12 +452,12 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MessageStyle"=> "successfully change style",
                         "MessageModelEdit"=> "Seccessfully style edit"
                     ],
-                    "AppSettingAdmin"=>[
+                    "AppSettingAdmin"=> [
                         "MYTITLE"=> "App setting",
                         "Menu"=> "Menu",
                         "Offcanvas"=> "Dark offcanvas",
                         "Logout"=> "Logout",
-                        "AdminDashboard"=> $_POST['name'],
+                        "AdminDashboard"=> $_POST['Name'],
                         "BranchesCompany"=> "Select branches",
                         "BranchMain"=> "Branch main",
                         "AllNamesLanguage"=> "App lang",
@@ -391,7 +473,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "Style"=> "Style",
                         "SelectStyle"=> "Select style"
                     ],
-                    "TableInfo"=>[
+                    "TableInfo"=> [
                         "MYTITLE"=> "table info",
                         "Ssearch"=> "Quick Search=>",
                         "InfoEmpty"=> "No records available",
@@ -400,7 +482,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "LengthMenu"=> "records per page",
                         "InfoFiltered"=> "Showing"
                     ],
-                    "TablePage"=>[
+                    "TablePage"=> [
                         "MYTITLE"=> "Table page",
                         "LoadMessage"=> "welcome in page table",
                         "ScreenModelDelete"=> "Screen delete table",
@@ -420,7 +502,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "IdIsReq"=> "Id Required",
                         "IdIsInv"=> "Id Invalid"
                     ],
-                    "SystemLang"=>[
+                    "SystemLang"=> [
                         "ErrorFormInput"=> "Error server",
                         "MYTITLE"=> "system language",
                         "TextRequired"=> "Text Required",
@@ -458,12 +540,12 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                     "Language"=> "english",
                     "Style"=> "dark"
                 ],
-                "english"=>[
-                    "Style"=>[
+                "english"=> [
+                    "Style"=> [
                         "dark"=> "dark",
                         "default"=> "default"
                     ],
-                    "Menu"=>[
+                    "Menu"=> [
                         "SystemLang"=> "Edit my language",
                         "Home"=> "Home",
                         "Branches"=> "Branches",
@@ -473,7 +555,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MyFlexTables"=> "flex table",
                         "MyStyle"=> "Style"
                     ],
-                    "Product"=>[
+                    "Product"=> [
                         "TitleViewImage"=> "view image product",
                         "UploadImgInv"=> "error upload image product",
                         "TableProductImage"=> "image product",
@@ -521,7 +603,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "LabelCategory"=> "Category",
                         "HintCategory"=> "enter Category"
                     ],
-                    "SettingUsers"=>[
+                    "SettingUsers"=> [
                         "CheckbooksState"=> "change state input",
                         "MYTITLE"=> "user table",
                         "LoadMessage"=> "welcome in page user Table",
@@ -558,11 +640,14 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "LabelKeyPassword"=> "Key Password",
                         "HintKeyPassword"=> "enter key Password"
                     ],
-                    "SelectBranchBox"=>[
+                    "SelectBranchBox"=> [
                         "WithoutRays"=> "Without rays",
                         "WithRays"=> "With rays"
                     ],
-                    "Branches"=>[
+                    "Branches"=> [
+                        "TitleChangeLanguageMessage"=> "Screen change branche",
+                        "ButtonChangeLanguageMessage"=> "change branch",
+                        "LabelChangeLanguageMessage"=> "do you want to change branche",
                         "MYTITLE"=> "branch",
                         "SuccessfullyChangeBranch"=> "Successfully Changed Branch",
                         "ErrorChangeBranch"=> "Error Change Branch",
@@ -604,6 +689,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "BranchAddress"=> "Address",
                         "BranchCountry"=> "Country",
                         "BranchFollow"=> "Follow",
+
                         "BranchRaysName"=> "Enter branch name",
                         "BranchRaysPhone"=> "Enter branch phone",
                         "BranchRaysCountry"=> "Enter branch country",
@@ -612,7 +698,18 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "BranchRaysStreet"=> "Enter branch street",
                         "BranchRaysBuilding"=> "Enter branch building",
                         "BranchRaysAddress"=> "Enter branch address",
+
+                        "LabelBranchRaysName"=> "branch name",
+                        "LabelBranchRaysPhone"=> "branch phone",
+                        "LabelBranchRaysCountry"=> "branch country",
+                        "LabelBranchRaysGovernments"=> "branch governments",
+                        "LabelBranchRaysCity"=> "branch city",
+                        "LabelBranchRaysStreet"=> "branch street",
+                        "LabelBranchRaysBuilding"=> "branch building",
+                        "LabelBranchRaysAddress"=> "branch address",
+                        "LabelWithRaysOut"=> "in rays or out rays",
                         "WithRaysOut"=> "Select in rays or out rays",
+
                         "MessageModelCreate"=> "Seccessfully branch add",
                         "BranceRaysFollowValue"=> "invalid branch",
                         "IdIsReq"=> "branch id required",
@@ -620,7 +717,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MessageModelEdit"=> "Seccessfully branch edit",
                         "Delete"=> "Seccessfully delete branch"
                     ],
-                    "ChangeLanguage"=>[
+                    "ChangeLanguage"=> [
                         "MYTITLE"=> "change language",
                         "Used"=> "language is used",
                         "LoadMessage"=> "welcome in Change Language",
@@ -655,10 +752,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MessageModelEdit"=> "Seccessfully edit language",
                         "Delete"=> "Seccessfully delete language-"
                     ],
-                    "AllNamesLanguage"=>[
+                    "AllNamesLanguage"=> [
                         "english"=> "engilsh"
                     ],
-                    "Register"=>[
+                    "Register"=> [
                         "UsedStyle"=> " style used",
                         "ModalTitleStyle"=> "title style",
                         "ModalButtonStyle"=> "save style",
@@ -702,13 +799,46 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "ModalTitleProject"=> "Setup your project",
                         "ModalButtonProject"=> "Create your project",
                         "ButtonSetupProject"=> "Setup project",
-                        "LabelName"=> "Project name",
-                        "HintName"=> "enter your name project",
-                        "NameTableIsReq"=> "reqired name project",
-                        "NameTableIsInv"=> "invalid name project",
-                        "MessageSetupProject"=> "Successfully setup project"
+
+                        "BranchRaysName"=> "Enter branch name",
+                        "BranchRaysPhone"=> "Enter branch phone",
+                        "BranchRaysCountry"=> "Enter branch country",
+                        "BranchRaysGovernments"=> "Enter branch governments",
+                        "BranchRaysCity"=> "Enter branch city",
+                        "BranchRaysStreet"=> "Enter branch street",
+                        "BranchRaysBuilding"=> "Enter branch building",
+                        "BranchRaysAddress"=> "Enter branch address",
+
+                        "LabelBranchRaysName"=> "branch name",
+                        "LabelBranchRaysPhone"=> "branch phone",
+                        "LabelBranchRaysCountry"=> "branch country",
+                        "LabelBranchRaysGovernments"=> "branch governments",
+                        "LabelBranchRaysCity"=> "branch city",
+                        "LabelBranchRaysStreet"=> "branch street",
+                        "LabelBranchRaysBuilding"=> "branch building",
+                        "LabelBranchRaysAddress"=> "branch address",
+                        "LabelWithRaysOut"=> "in rays or out rays",
+                        "WithRaysOut"=> "Select in rays or out rays",
+                        "MessageSetupProject"=> "Successfully setup project",
+                        "BranceRaysNameRequired"=>"BranceRaysNameRequired",
+                        "BranceRaysNameLength"=>"BranceRaysNameLength",
+                        "BranceRaysPhoneRequired"=>"BranceRaysPhoneRequired",
+                        "BranceRaysPhoneLength"=>"BranceRaysPhoneLength",
+                        "BranceRaysCountryRequired"=>"BranceRaysCountryRequired",
+                        "BranceRaysCountryLength"=>"BranceRaysCountryLength",
+                        "BranceRaysGovernmentsRequired"=>"BranceRaysGovernmentsRequired",
+                        "BranceRaysGovernmentsLength"=>"BranceRaysGovernmentsLength",
+                        "BranceRaysCityRequired"=>"BranceRaysCityRequired",
+                        "BranceRaysCityLength"=>"BranceRaysCityLength",
+                        "BranceRaysStreetRequired"=>"BranceRaysStreetRequired",
+                        "BranceRaysStreetLength"=>"BranceRaysStreetLength",
+                        "BranceRaysBuildingRequired"=>"BranceRaysBuildingRequired",
+                        "BranceRaysBuildingLength"=>"BranceRaysBuildingLength",
+                        "BranceRaysAddressRequired"=>"BranceRaysAddressRequired",
+                        "BranceRaysAddressLength"=>"BranceRaysAddressLength",
+                        "BranceRaysFollowRequired"=>"BranceRaysFollowRequired"
                     ],
-                    "Login"=>[
+                    "Login"=> [
                         "CheckbooksState"=> "change state input",
                         "UsedStyle"=> " style used",
                         "ModalTitleStyle"=> "title style",
@@ -753,16 +883,49 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "ModalTitleProject"=> "Setup your project",
                         "ModalButtonProject"=> "Create your project",
                         "ButtonSetupProject"=> "Setup project",
-                        "LabelName"=> "Project name",
-                        "HintName"=> "enter your name project",
-                        "NameTableIsReq"=> "reqired name project",
-                        "NameTableIsInv"=> "invalid name project",
                         "MessageSetupProject"=> "Successfully setup project",
                         "EmailExist"=> "invalid email",
                         "NewPassword"=> "New Password",
-                        "NewHintPassword"=> "enter new password"
+                        "NewHintPassword"=> "enter new password",
+
+                        "BranchRaysName"=> "Enter branch name",
+                        "BranchRaysPhone"=> "Enter branch phone",
+                        "BranchRaysCountry"=> "Enter branch country",
+                        "BranchRaysGovernments"=> "Enter branch governments",
+                        "BranchRaysCity"=> "Enter branch city",
+                        "BranchRaysStreet"=> "Enter branch street",
+                        "BranchRaysBuilding"=> "Enter branch building",
+                        "BranchRaysAddress"=> "Enter branch address",
+
+                        "LabelBranchRaysName"=> "branch name",
+                        "LabelBranchRaysPhone"=> "branch phone",
+                        "LabelBranchRaysCountry"=> "branch country",
+                        "LabelBranchRaysGovernments"=> "branch governments",
+                        "LabelBranchRaysCity"=> "branch city",
+                        "LabelBranchRaysStreet"=> "branch street",
+                        "LabelBranchRaysBuilding"=> "branch building",
+                        "LabelBranchRaysAddress"=> "branch address",
+                        "LabelWithRaysOut"=> "in rays or out rays",
+                        "WithRaysOut"=> "Select in rays or out rays",
+                        "BranceRaysNameRequired"=>"BranceRaysNameRequired",
+                        "BranceRaysNameLength"=>"BranceRaysNameLength",
+                        "BranceRaysPhoneRequired"=>"BranceRaysPhoneRequired",
+                        "BranceRaysPhoneLength"=>"BranceRaysPhoneLength",
+                        "BranceRaysCountryRequired"=>"BranceRaysCountryRequired",
+                        "BranceRaysCountryLength"=>"BranceRaysCountryLength",
+                        "BranceRaysGovernmentsRequired"=>"BranceRaysGovernmentsRequired",
+                        "BranceRaysGovernmentsLength"=>"BranceRaysGovernmentsLength",
+                        "BranceRaysCityRequired"=>"BranceRaysCityRequired",
+                        "BranceRaysCityLength"=>"BranceRaysCityLength",
+                        "BranceRaysStreetRequired"=>"BranceRaysStreetRequired",
+                        "BranceRaysStreetLength"=>"BranceRaysStreetLength",
+                        "BranceRaysBuildingRequired"=>"BranceRaysBuildingRequired",
+                        "BranceRaysBuildingLength"=>"BranceRaysBuildingLength",
+                        "BranceRaysAddressRequired"=>"BranceRaysAddressRequired",
+                        "BranceRaysAddressLength"=>"BranceRaysAddressLength",
+                        "BranceRaysFollowRequired"=>"BranceRaysFollowRequired"
                     ],
-                    "Home"=>[
+                    "Home"=> [
                         "MYTITLE"=> "custom table",
                         "LoadMessage"=> "welcome in page Custom Table",
                         "ScreenModelDelete"=> "Screen delete table",
@@ -791,7 +954,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "LabelInputNumber"=> "Input Numper",
                         "HintInputNumber"=> "enter Input Numper table"
                     ],
-                    "MyStyle"=>[
+                    "MyStyle"=> [
                         "MYTITLE"=> "style page",
                         "IdIsReq"=> "Id Required style",
                         "IdIsInv"=> "Id Invalid style",
@@ -812,12 +975,12 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MessageStyle"=> "successfully change style",
                         "MessageModelEdit"=> "Seccessfully style edit"
                     ],
-                    "AppSettingAdmin"=>[
+                    "AppSettingAdmin"=> [
                         "MYTITLE"=> "App setting",
                         "Menu"=> "Menu",
                         "Offcanvas"=> "Dark offcanvas",
                         "Logout"=> "Logout",
-                        "AdminDashboard"=> $_POST['name'],
+                        "AdminDashboard"=> $_POST['Name'],
                         "BranchesCompany"=> "Select branches",
                         "BranchMain"=> "Branch main",
                         "AllNamesLanguage"=> "App lang",
@@ -833,7 +996,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "Style"=> "Style",
                         "SelectStyle"=> "Select style"
                     ],
-                    "TableInfo"=>[
+                    "TableInfo"=> [
                         "MYTITLE"=> "table info",
                         "Ssearch"=> "Quick Search=>",
                         "InfoEmpty"=> "No records available",
@@ -842,7 +1005,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "LengthMenu"=> "records per page",
                         "InfoFiltered"=> "Showing"
                     ],
-                    "TablePage"=>[
+                    "TablePage"=> [
                         "MYTITLE"=> "Table page",
                         "LoadMessage"=> "welcome in page table",
                         "ScreenModelDelete"=> "Screen delete table",
@@ -862,7 +1025,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "IdIsReq"=> "Id Required",
                         "IdIsInv"=> "Id Invalid"
                     ],
-                    "SystemLang"=>[
+                    "SystemLang"=> [
                         "ErrorFormInput"=> "Error server",
                         "MYTITLE"=> "system language",
                         "TextRequired"=> "Text Required",
@@ -895,7 +1058,27 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "ScreenModelEdit"=> "Screen edit all language",
                         "ButtonModelEdit"=> "Edit"
                     ]
-                ]
+                ],
+                "Branches"=>[
+                    $myId=>[
+                        "Name"=>$_POST["Name"],
+                        "Phone"=>$_POST["Phone"],
+                        "Country"=>$_POST["Country"],
+                        "Governments"=>$_POST["Governments"],
+                        "City"=>$_POST["City"],
+                        "Street"=>$_POST["Street"],
+                        "Building"=>$_POST["Building"],
+                        "Address"=>$_POST["Address"],
+                        "Follow"=>$_POST["Follow"]
+                    ]
+                ],
+                "Users"=> [
+                    "tX5783e4ubcieu343uibf"=> [
+                        "Email"=> "root@yahoo.com",
+                        "Password"=> "root@yahoo.com",
+                        "Key"=> "root@yahoo.com"
+                    ]
+                ],
             );
         }
     }

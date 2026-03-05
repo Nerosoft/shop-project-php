@@ -1,19 +1,15 @@
 <?php
 require 'ErrorChangelanguage.php';
+require 'ChangeStyleLangBranch.php';
 trait InfoChangeLangStyle{
-    use ErrorChangelanguage;
-    private $LabelChangeLanguageMessage;
-    private $TitleChangeLanguageMessage;
-    private $ButtonChangeLanguageMessage;
+    use ErrorChangelanguage, ChangeStyleLangBranch;
     private $LabelNameLanguage;
     private $HintNewLangName;
     private $NameLangaue;
     private $DataView;
     function InitInfoChangeLangStyle($obj, $DataView, $lang){
         $this->initErrorChangelanguage($obj, $lang);
-        $this->LabelChangeLanguageMessage = $obj['LabelChangeLanguageMessage'];
-        $this->TitleChangeLanguageMessage = $obj['TitleChangeLanguageMessage'];
-        $this->ButtonChangeLanguageMessage = $obj['ButtonChangeLanguageMessage'];
+        $this->initChangeStyleLangBranch($obj);
         $this->LabelNameLanguage = $obj['LabelCreateLanguage'];
         $this->HintNewLangName = $obj['HintNewLangName'];
         $this->NameLangaue = $obj['NameLangaue'];
@@ -30,14 +26,5 @@ trait InfoChangeLangStyle{
     }
     function getLabelNameLanguage(){
         return $this->LabelNameLanguage;
-    }
-    function getLabelChangeLanguageMessage(){
-        return $this->LabelChangeLanguageMessage;
-    }
-    function getTitleChangeLanguageMessage(){
-        return $this->TitleChangeLanguageMessage;
-    }
-    function getButtonChangeLanguageMessage(){
-        return $this->ButtonChangeLanguageMessage;
     }
 }

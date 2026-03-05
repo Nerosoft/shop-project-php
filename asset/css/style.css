@@ -20,3 +20,7 @@
 .text-left{
     text-align: left!important;
 }
+.branch-label{
+    margin-left: 45px;
+    margin-bottom: 5px;
+}

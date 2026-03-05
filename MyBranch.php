@@ -1,9 +1,10 @@
 <?php
 require 'page.php';
 require 'ErrorBranch.php';
+require 'ChangeStyleLangBranch.php';
+require 'InfoBranch.php';
 class MyBranch extends Page{
-    use ErrorBranch;
-    private $branchInputOutput;
+    use ErrorBranch, ChangeStyleLangBranch, InfoBranch;
     private $BranchStreet;
     private $BranchName;
     private $BranchPhone;
@@ -13,29 +14,12 @@ class MyBranch extends Page{
     private $BranchAddress;
     private $BranchCountry;
     private $BranchFollow;
-    private $BranchRaysName;
-    private $BranchRaysPhone;
-    private $BranchRaysCountry;
-    private $BranchRaysGovernments;
-    private $BranchRaysCity;
-    private $BranchRaysStreet;
-    private $BranchRaysBuilding;
-    private $BranchRaysAddress;
-    private $selectBox1;
     private $DataView;
     function __construct($message = 'LoadMessage', $type = 'success'){
         parent::__construct('Branches', $message, $type);
         $this->initErrorBranch($this->getModelPage());
-        $this->branchInputOutput = $this->getModel2()['SelectBranchBox'];
-        $this->BranchRaysName = $this->getModelPage()['BranchRaysName'];
-        $this->BranchRaysPhone = $this->getModelPage()['BranchRaysPhone'];
-        $this->BranchRaysCountry = $this->getModelPage()['BranchRaysCountry'];
-        $this->BranchRaysGovernments = $this->getModelPage()['BranchRaysGovernments'];
-        $this->BranchRaysCity = $this->getModelPage()['BranchRaysCity'];
-        $this->BranchRaysStreet = $this->getModelPage()['BranchRaysStreet'];
-        $this->BranchRaysBuilding = $this->getModelPage()['BranchRaysBuilding'];
-        $this->BranchRaysAddress = $this->getModelPage()['BranchRaysAddress'];
-        $this->selectBox1 = $this->getModelPage()['WithRaysOut'];
+        $this->initChangeStyleLangBranch($this->getModelPage());
+        $this->initInfoBranch($this->getModelPage(), $this->getModel2()['SelectBranchBox']);
         $this->BranchStreet = $this->getModelPage()['BranchStreet'];
         $this->BranchName = $this->getModelPage()['BranchName'];
         $this->BranchPhone = $this->getModelPage()['BranchPhone'];
@@ -50,9 +34,6 @@ class MyBranch extends Page{
     }
     function getMyDataView(){
         return $this->DataView;
-    }
-    function getbranchInputOutput(){
-        return $this->branchInputOutput;
     }
     function getBranchStreet(){
         return $this->BranchStreet;
@@ -81,33 +62,7 @@ class MyBranch extends Page{
     function getBranchFollow(){
         return $this->BranchFollow;
     }
-    function getBranchRaysName(){
-        return $this->BranchRaysName;
-    }
-    function getBranchRaysPhone(){
-        return $this->BranchRaysPhone;
-    }
-    function getBranchRaysCountry(){
-        return $this->BranchRaysCountry;
-    }
-    function getBranchRaysGovernments(){
-        return $this->BranchRaysGovernments;
-    }
-    function getBranchRaysCity(){
-        return $this->BranchRaysCity;
-    }
-    function getBranchRaysStreet(){
-        return $this->BranchRaysStreet;
-    }
-    function getBranchRaysBuilding(){
-        return $this->BranchRaysBuilding;
-    }
-    function getBranchRaysAddress(){
-        return $this->BranchRaysAddress;
-    }
-    function getselectBox1(){
-        return $this->selectBox1;
-    }
+    
     static function initBranch($message = 'LoadMessage', $type = 'success'){
         $view = new MyBranch($message, $type);
         include 'Branch_view.php';

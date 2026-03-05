@@ -20,7 +20,6 @@ class AdminMenu extends InformationPage
     private $ButtonModelEdit;
     private $TableId;
     private $TabelEvent;
-    private $mySelectBranch;
     function __construct($IdPage, $message, $type){
         parent::__construct($IdPage);
         $this->Ssearch = $this->getModel2()['TableInfo']['Ssearch'];
@@ -38,8 +37,6 @@ class AdminMenu extends InformationPage
         $this->ScreenModelEdit = $this->getModelPage()['ScreenModelEdit'];
         $this->ButtonModelEdit = $this->getModelPage()['ButtonModelEdit'];
         $this->AdminDashboard = $this->getModel2()['AppSettingAdmin']['AdminDashboard'];
-        $this->mySelectBranch = array($this->getFixedId()=>new Branch($this->getModel2()['AppSettingAdmin']['BranchMain']), ...Branch::fromArray($this->getBranch()));
-
         if($this->getUrlName2() === 'SystemLang'){
             $this->myMenuApp = array('Home'=>$this->getModel2()['Menu']['Home'], 'SystemLang'=>$this->getModel2()['Menu']['SystemLang']);
             foreach ($this->getModel2()['AllNamesLanguage'] as $key => $value){
@@ -134,9 +131,6 @@ class AdminMenu extends InformationPage
     }
     function getInfoFiltered(){
         return $this->InfoFiltered;
-    }
-    function getMyBranch(){
-        return $this->mySelectBranch;
     }
     function getMyMenuApp(){
         return $this->myMenuApp;

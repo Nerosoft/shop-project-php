@@ -11,52 +11,7 @@
         <a class="nav-link" href="logout.php"><?php echo$this->getLogout()?></a>
       </li>
     </ul>
-    <div class="dropdown">
-      <a class="btn btn-danger button-select-branch dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <?php echo $this->getSelectStyle()?>
-      </a>
-      <ul class="dropdown-menu">        
-      <?php
-        foreach ($this->getStyle() as $index_style => $style) {
-          echo <<<HTML
-          <form class="form_branch" method="POST" action="ChangeStylePost">
-          <input type="hidden" value="{$index_style}" name="id">
-          <li class="dropdown-item">
-          <button type="submit" class="
-          HTML;
-          echo $index_style === $this->getStyleFile()?'btn btn-danger' : 'btn btn-primary';
-          echo <<<HTML
-              ">{$style->getName()}</button>
-              </li>
-            </form>
-          HTML;
-        }
-      ?>
-      </ul>
-  </div>
-    <div class="dropdown">
-      <a class="btn btn-danger button-select-branch dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <?php echo $this->getBranchesCompany()?>
-      </a>
-      <ul class="dropdown-menu">        
-      <?php
-        foreach ($this->getMyBranch() as $index_branch => $branch_button) {
-          echo <<<HTML
-          <form class="form_branch" method="POST" action="BranchChangePost.php">
-          <input type="hidden" value="{$index_branch}" name="id">
-          <li class="dropdown-item">
-          <button type="submit" class="
-          HTML;
-          echo $index_branch === $this->getId()?'btn btn-danger' : 'btn btn-primary';
-          echo <<<HTML
-              ">{$branch_button->getName()}</button>
-              </li>
-            </form>
-          HTML;
-        }
-      ?>
-      </ul>
-  </div>
+   
   <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
   </button>

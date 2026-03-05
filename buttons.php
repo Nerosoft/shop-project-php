@@ -10,6 +10,6 @@
     include('start_model.php');
     echo '<input type="hidden" value="'.$view->getId().'"name="superId">
     <input type="hidden" name="setup_project" value="'.$view->getUrlName2().'">';
-    include 'modal_custome_table_input_name.php';?>
+    include 'model_branch_inputs.php';?>
     <?php include('end_model.php');?>
 <button onclick="openForm('#setupprojectmodal')" type="button" class="btn btn-danger" ><?php echo $view->getButtonSetupProject()?></button>

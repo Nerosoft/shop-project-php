@@ -2,21 +2,29 @@
 require 'page.php';
 require 'CustomTable.php';
 require 'ErrorsHome.php';
-require 'InfoHome.php';
 class MyHome extends Page{
-    use InfoHome, ErrorsHome;
+    use ErrorsHome;
     private $TableName;
     private $LabelInputNumber;
     private $HintInputNumber;
+    private $LabelName;
+    private $HintName;
     private $DataView;
     function __construct($message, $type){
         parent::__construct('Home', $message, $type);
         $this->initErrorsHome($this->getModelPage());
-        $this->initInfoHome($this->getModelPage());
+        $this->LabelName = $this->getModelPage()['LabelName'];
+        $this->HintName = $this->getModelPage()['HintName'];
         $this->TableName = $this->getModelPage()['NameTable'];
         $this->LabelInputNumber = $this->getModelPage()['LabelInputNumber'];
         $this->HintInputNumber = $this->getModelPage()['HintInputNumber'];
         $this->DataView = isset($this->getModel2()['MyFlexTables'])?array_reverse(CustomTable::fromArray($this)):array();
+    }
+    function getLabelName(){
+        return $this->LabelName;
+    }
+    function getHintName(){
+        return $this->HintName;
     }
     function getMyDataView(){
         return $this->DataView;

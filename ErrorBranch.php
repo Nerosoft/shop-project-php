@@ -36,59 +36,60 @@ trait ErrorBranch{
         $this->BranceRaysAddressLength = $error['BranceRaysAddressLength'];
         $this->BranceRaysFollowRequired = $error['BranceRaysFollowRequired'];
     }
-    function initErrorBranch2($modal, $keyId){
+    function validInputs($modal){
         $this->initErrorBranch($modal->getModelPage());
         if(!isset($_POST['Name']) || $_POST['Name'] === '')
-            MyBranch::initBranch($this->getBranceRaysNameRequired(), 'danger');
+            $modal->initViewPost($this->getBranceRaysNameRequired());
         else if(strlen($_POST['Name']) < 3)
-            MyBranch::initBranch($this->getBranceRaysNameLength(), 'danger');
+            $modal->initViewPost($this->getBranceRaysNameLength());
         else if(!isset($_POST['Phone']) || $_POST['Phone'] === '')
-            MyBranch::initBranch($this->getBranceRaysPhoneRequired(), 'danger');
+            $modal->initViewPost($this->getBranceRaysPhoneRequired());
         else if(!preg_match('/^[0-9]{11}$/', $_POST['Phone']))
-            MyBranch::initBranch($this->getBranceRaysPhoneLength(), 'danger');
+            $modal->initViewPost($this->getBranceRaysPhoneLength());
         else if(!isset($_POST['Country']) || $_POST['Country'] === '')
-            MyBranch::initBranch($this->getBranceRaysCountryRequired(), 'danger');
+            $modal->initViewPost($this->getBranceRaysCountryRequired());
         else if(strlen($_POST['Country']) < 3)
-            MyBranch::initBranch($this->getBranceRaysCountryLength(), 'danger');
+            $modal->initViewPost($this->getBranceRaysCountryLength());
         else if(!isset($_POST['Governments']) || $_POST['Governments'] === '')
-            MyBranch::initBranch($this->getBranceRaysGovernmentsRequired(), 'danger');
+            $modal->initViewPost($this->getBranceRaysGovernmentsRequired());
         else if(strlen($_POST['Governments']) < 3)
-            MyBranch::initBranch($this->getBranceRaysGovernmentsLength(), 'danger');
+            $modal->initViewPost($this->getBranceRaysGovernmentsLength());
         else if(!isset($_POST['City']) || $_POST['City'] === '')
-            MyBranch::initBranch($this->getBranceRaysCityRequired(), 'danger');
+            $modal->initViewPost($this->getBranceRaysCityRequired());
         else if(strlen($_POST['City']) < 3)
-            MyBranch::initBranch($this->getBranceRaysCityLength(), 'danger');
+            $modal->initViewPost($this->getBranceRaysCityLength());
         else if(!isset($_POST['Street']) || $_POST['Street'] === '')
-            MyBranch::initBranch($this->getBranceRaysStreetRequired(), 'danger');
+            $modal->initViewPost($this->getBranceRaysStreetRequired());
         else if(strlen($_POST['Street']) < 3)
-            MyBranch::initBranch($this->getBranceRaysStreetLength(), 'danger');
+            $modal->initViewPost($this->getBranceRaysStreetLength());
         else if(!isset($_POST['Building']) || $_POST['Building'] === '')
-            MyBranch::initBranch($this->getBranceRaysBuildingRequired(), 'danger');
+            $modal->initViewPost($this->getBranceRaysBuildingRequired());
         else if(strlen($_POST['Building']) < 3)
-            MyBranch::initBranch($this->getBranceRaysBuildingLength(), 'danger');
+            $modal->initViewPost($this->getBranceRaysBuildingLength());
         else if(!isset($_POST['Address']) || $_POST['Address'] === '')
-            MyBranch::initBranch($this->getBranceRaysAddressRequired(), 'danger');
+            $modal->initViewPost($this->getBranceRaysAddressRequired());
         else if(strlen($_POST['Address']) < 3)
-            MyBranch::initBranch($this->getBranceRaysAddressLength(), 'danger');
+            $modal->initViewPost($this->getBranceRaysAddressLength());
         else if(!isset($_POST['Follow']) || $_POST['Follow'] === '')
-            MyBranch::initBranch($this->getBranceRaysFollowRequired(), 'danger');
+            $modal->initViewPost($this->getBranceRaysFollowRequired());
         else if(!isset($this->getModel2()['SelectBranchBox'][$_POST['Follow']]))
-            MyBranch::initBranch($modal->getModelPage()['BranceRaysFollowValue'], 'danger');
-        else{
-            $file = $modal->getFile();
-            $file[$modal->getFixedId()]['Branches'][$keyId] = array(
-                "Name"=>$_POST["Name"],
-                "Phone"=>$_POST["Phone"],
-                "Country"=>$_POST["Country"],
-                "Governments"=>$_POST["Governments"],
-                "City"=>$_POST["City"],
-                "Street"=>$_POST["Street"],
-                "Building"=>$_POST["Building"],
-                "Address"=>$_POST["Address"],
-                "Follow"=>$_POST["Follow"]
-            );
-            return $file;
-        }
+            $modal->initViewPost($modal->getModelPage()['BranceRaysFollowValue']);
+    }
+    function initErrorBranch2($modal, $keyId){
+        $this->validInputs($modal);
+        $file = $modal->getFile();
+        $file[$modal->getFixedId()]['Branches'][$keyId] = array(
+            "Name"=>$_POST["Name"],
+            "Phone"=>$_POST["Phone"],
+            "Country"=>$_POST["Country"],
+            "Governments"=>$_POST["Governments"],
+            "City"=>$_POST["City"],
+            "Street"=>$_POST["Street"],
+            "Building"=>$_POST["Building"],
+            "Address"=>$_POST["Address"],
+            "Follow"=>$_POST["Follow"]
+        );
+        return $file;
     }
     function getBranceRaysNameRequired(){
         return $this->BranceRaysNameRequired;

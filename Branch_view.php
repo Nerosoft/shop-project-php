@@ -30,6 +30,7 @@
                 
                     $count = 1;
                     foreach ($view->getMyDataView() as $index => $myObject) {
+                        $image = $index === $view->getId() ? 'lightbulb-fill.svg' : 'lightbulb.svg';
                         echo <<<HTML
                             <tr>
                                 <td>$count</td>
@@ -44,10 +45,12 @@
                                 <td>{$myObject->getFollowId()}</td>
                                 <td>
                         HTML;
-                        if($view->getId() !== $index){
+                        if($view->getId() !== $index && $index !== $view->getFixedId()){
                             $action = 'BranchDeletePost.php';
                             include('modal_delete.php');
                         }
+                        $action = 'BranchChangePost.php';
+                        include('modal_changelanguage_changestyle.php');
                         $title = $view->getScreenModelEdit();
                         $button = $view->getButtonModelEdit();
                         $idModel = "editModel".$index;

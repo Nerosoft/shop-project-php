@@ -54,13 +54,12 @@ class Branch implements DeleteInfoName
     function getFollowId(){
         return $this->Follow;
     }
-    static function fromArray($myBranch, $follow = null){
+    static function fromArray($myBranch, $follow){
         $allBranch = array();
-        if(!is_null($myBranch))
-            foreach ($myBranch as $key => $branch)
-                $allBranch[$key] = is_null($follow)?new Branch($branch['Name']):new Branch($branch['Name'], $branch['Phone'], $branch['Governments'],
-                    $branch['City'], $branch['Street'], $branch['Building'], $branch['Address'],
-                    $branch['Country'], $follow[$branch['Follow']]);        
-            return $allBranch;
+        foreach ($myBranch as $key => $branch)
+            $allBranch[$key] = new Branch($branch['Name'], $branch['Phone'], $branch['Governments'],
+                $branch['City'], $branch['Street'], $branch['Building'], $branch['Address'],
+                $branch['Country'], $follow[$branch['Follow']]);        
+        return $allBranch;
     }
 }

@@ -1,10 +1,10 @@
 <?php
 require 'InformationPage.php';
-require 'ErrorsHomeName.php';
-require 'InfoHome.php';
+require 'ErrorBranch.php';
+require 'InfoBranch.php';
 require 'InterEmailPass.php';
 class LoginRegister extends InformationPage{
-    use ErrorsHomeName, InfoHome, EmailPassword;
+    use ErrorBranch, InfoBranch, EmailPassword;
     private $TitleForm;
     private $ButtonName;
     private $MyLanguage;
@@ -15,7 +15,6 @@ class LoginRegister extends InformationPage{
     private $dbKeys;
     private $dbBranchKeys;
     private $DbKeyLabel;
-    private $myIdBranch;
     private $AppLabel;
     private $BranchLabel;
     private $AllBranch;
@@ -51,9 +50,6 @@ class LoginRegister extends InformationPage{
     function getBranchLabel(){
         return $this->BranchLabel;
     }
-    function getMyIdBranch(){
-        return $this->myIdBranch;
-    }
     function getDbKeys(){
         return $this->dbKeys;
     }
@@ -68,8 +64,8 @@ class LoginRegister extends InformationPage{
     }
     function __construct($IdPage, $message, $type){
         parent::__construct($IdPage);
-        $this->initInfoHome($this->getModelPage());
-        $this->initErrorsHomeName($this->getModelPage());
+        $this->initInfoBranch($this->getModelPage(), $this->getModel2()['SelectBranchBox']);
+        $this->initErrorBranch($this->getModelPage());
         $this->initEmailPassword($this->getModelPage());
         $this->ChangeLang = $this->getModelPage()['UsedLanguage'];
         $this->ChangeStyle = $this->getModelPage()['UsedStyle'];
@@ -91,14 +87,9 @@ class LoginRegister extends InformationPage{
         $this->ButtonSetupProject = $this->getModelPage()['ButtonSetupProject'];
         foreach ($this->getFile() as $key => $obj)
             if(isset($obj['State']) && $obj['State'] === 'admin'){
-                $this->dbKeys[$key] = $obj[$obj['Setting']['Language']]['AppSettingAdmin']['AdminDashboard'];
-                if($this->getId() === $key || isset($obj['Branches']) && in_array($this->getId(), array_keys($obj['Branches']))){
-                    $this->myIdBranch = $key;
-                    $this->dbBranchKeys[$key]['Name'] = $obj[$obj['Setting']['Language']]['AppSettingAdmin']['BranchMain'];
-                    if(isset($obj['Branches']))
-                        $this->dbBranchKeys = $this->dbBranchKeys + $obj['Branches'];
-                    
-                }
+                $this->dbKeys[$key] = $obj['Branches'];
+                if(count($obj['Branches']) > 1 && in_array($this->getId(), array_keys($obj['Branches'])))
+                    $this->dbBranchKeys = $obj['Branches'];
             }
         include 'title_html.php';
         $this->showToast($this->getModelPage()[$message]??$message, $type);

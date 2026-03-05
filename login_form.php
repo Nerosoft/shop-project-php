@@ -5,37 +5,40 @@
     <select
     title=""
     class="form-select" id="dbkeys" name="dbkeys"  aria-label="Default select example">
-        <option value="" selected disabled><?php echo $view->getAppLabel()?></option>
+        <option selected disabled><?php echo $view->getAppLabel()?></option>
         <?php 
             foreach($view->getDbKeys() as $key=>$name){
-                $select = $view->getMyIdBranch() === $key ? 'selected' : '';
+                $select = isset($name[$view->getId()])? 'selected' : '';
                 echo <<<HTML
                 <option {$select} value="{$key}">
-                    {$name}
+                    {$name[$key]['Name']}
                 </option>
                 HTML;
             }
         ?>
     </select>
 </div>
-<div class="form-group">
-    <label for="email"><?php echo $view->getAllBranch()?></label>
-    <select
-    title=""
-    class="form-select" id="dbkeysBranch" name="dbkeys"  aria-label="Default select example">
-        <option value="" selected disabled><?php echo $view->getBranchLabel()?></option>
-        <?php 
-            foreach($view->getDbBranchKeys() as $key=>$name){
-                $select = $view->getId() === $key ? 'selected' : '';
-                echo <<<HTML
-                <option {$select} value="{$key}">
-                    {$name['Name']}
-                </option>
-                HTML;
-            }
-        ?>
-    </select>
-</div>
+<?php
+    if(!empty($view->getDbBranchKeys())){
+        echo<<<HTML
+        <div class="form-group">
+            <label for="email">{$view->getAllBranch()}</label>
+            <select
+            title=""
+            class="form-select" id="dbkeysBranch" name="dbkeys"  aria-label="Default select example">
+                <option selected disabled>{$view->getBranchLabel()}</option>
+        HTML;
+        foreach($view->getDbBranchKeys() as $key=>$name){
+            $select = $view->getId() === $key ? 'selected' : '';
+            echo <<<HTML
+            <option {$select} value="{$key}">
+                {$name['Name']}
+            </option>
+            HTML;
+        }
+        echo '</select></div>';
+    }
+?>
 <div class="form-group">
     <label for="email"><?php echo $view->getLabelEmail()?></label>
     <input type="email" class="form-control" id="email" name="Email"
