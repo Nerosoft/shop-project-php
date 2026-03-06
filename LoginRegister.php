@@ -64,7 +64,7 @@ class LoginRegister extends InformationPage{
     }
     function __construct($IdPage, $message, $type){
         parent::__construct($IdPage);
-        $this->initInfoBranch($this->getModelPage(), $this->getModel2()['SelectBranchBox']);
+        $this->initInfoBranch($this->getMyModal());
         $this->initErrorBranch($this->getModelPage());
         $this->initEmailPassword($this->getModelPage());
         $this->ChangeLang = $this->getModelPage()['UsedLanguage'];

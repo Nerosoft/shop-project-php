@@ -1037,12 +1037,12 @@
             "admin": {
                 "Name": "admin",
                 "Phone": "01204299614",
-                "Country": "your City",
-                "Governments": "your Street",
-                "City": "your Building",
-                "Street": "your Address",
-                "Building": "your Country",
-                "Address": "your Governments",
+                "Country": "your Street",
+                "Governments": "your Building",
+                "City": "your Address",
+                "Street": "your Country",
+                "Building": "your Governments",
+                "Address": "your City",
                 "Follow": "WithoutRays"
             }
         }

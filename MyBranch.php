@@ -19,7 +19,7 @@ class MyBranch extends Page{
         parent::__construct('Branches', $message, $type);
         $this->initErrorBranch($this->getModelPage());
         $this->initChangeStyleLangBranch($this->getModelPage());
-        $this->initInfoBranch($this->getModelPage(), $this->getModel2()['SelectBranchBox']);
+        $this->initInfoBranch($this->getMyModal());
         $this->BranchStreet = $this->getModelPage()['BranchStreet'];
         $this->BranchName = $this->getModelPage()['BranchName'];
         $this->BranchPhone = $this->getModelPage()['BranchPhone'];
