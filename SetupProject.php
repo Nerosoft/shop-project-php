@@ -313,7 +313,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "BranceRaysBuildingLength"=>"BranceRaysBuildingLength",
                         "BranceRaysAddressRequired"=>"BranceRaysAddressRequired",
                         "BranceRaysAddressLength"=>"BranceRaysAddressLength",
-                        "BranceRaysFollowRequired"=>"BranceRaysFollowRequired"
+                        "BranceRaysFollowRequired"=>"BranceRaysFollowRequired",
+                        "BranceRaysFollowValue"=>"Work invalid"
                     ],
                     "Login"=> [
                         "CheckbooksState"=> "change state input",
@@ -400,7 +401,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "BranceRaysBuildingLength"=>"BranceRaysBuildingLength",
                         "BranceRaysAddressRequired"=>"BranceRaysAddressRequired",
                         "BranceRaysAddressLength"=>"BranceRaysAddressLength",
-                        "BranceRaysFollowRequired"=>"BranceRaysFollowRequired"
+                        "BranceRaysFollowRequired"=>"BranceRaysFollowRequired",
+                        "BranceRaysFollowValue"=>"Work invalid"
                     ],
                     "Home"=> [
                         "MYTITLE"=> "custom table",
@@ -836,7 +838,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "BranceRaysBuildingLength"=>"BranceRaysBuildingLength",
                         "BranceRaysAddressRequired"=>"BranceRaysAddressRequired",
                         "BranceRaysAddressLength"=>"BranceRaysAddressLength",
-                        "BranceRaysFollowRequired"=>"BranceRaysFollowRequired"
+                        "BranceRaysFollowRequired"=>"BranceRaysFollowRequired",
+                        "BranceRaysFollowValue"=>"Work invalid"
                     ],
                     "Login"=> [
                         "CheckbooksState"=> "change state input",
@@ -923,7 +926,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "BranceRaysBuildingLength"=>"BranceRaysBuildingLength",
                         "BranceRaysAddressRequired"=>"BranceRaysAddressRequired",
                         "BranceRaysAddressLength"=>"BranceRaysAddressLength",
-                        "BranceRaysFollowRequired"=>"BranceRaysFollowRequired"
+                        "BranceRaysFollowRequired"=>"BranceRaysFollowRequired",
+                        "BranceRaysFollowValue"=>"Work invalid"
                     ],
                     "Home"=> [
                         "MYTITLE"=> "custom table",
