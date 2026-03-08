@@ -26,26 +26,26 @@ class ModelJson{
     function getRandomId(){
         return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 2) . substr(uniqid(), -6);
     }
-    function initViewPost($message){
+    function initViewPost($message, $type="danger"){
         switch ($this->getUrlName2()) {
             case 'Product':
-                Product::initProduct($message, 'danger');
+                Product::initProduct($message, $type);
             case 'Home':
-                MyHome::initHome($message, 'danger');
+                MyHome::initHome($message, $type);
             case 'Branches':
-                MyBranch::initBranch($message, 'danger');
+                MyBranch::initBranch($message, $type);
             case 'ChangeLanguage':
-                MyChangeLanguage::initMyChangeLanguage($message, 'danger');
+                MyChangeLanguage::initMyChangeLanguage($message, $type);
             case 'SettingUsers':
-                MySettingUsers::initMySettingUsers($message, 'danger');
+                MySettingUsers::initMySettingUsers($message, $type);
             case 'MyStyle':
-                MyStyleClass::initMyStyleClass($message, 'danger');
+                MyStyleClass::initMyStyleClass($message, $type);
             case 'Login':
-                MyLogin::initMyLogin($message, 'danger');
+                MyLogin::initMyLogin($message, $type);
             case 'Register':
-                MyRegister::initMyRegister($message, 'danger');
+                MyRegister::initMyRegister($message, $type);
             default:
-                MyFlexTablesView::initMyFlexTablesView($message, 'danger');
+                MyFlexTablesView::initMyFlexTablesView($message, $type);
         }
     }
     function getStyleFile(){
@@ -111,5 +111,11 @@ class ModelJson{
     }
     function getMyModal(){
         return $this;
+    }
+    function loginAdmin($userId, $staticId){
+        $_SESSION['userId'] = $userId;
+        $_SESSION['staticId'] = $staticId;
+        header('LOCATION:index');
+        exit;
     }
 }

@@ -8,13 +8,9 @@ class ValidationLoginRegister extends ModelJson{
         return $this->users;
     }
     function redirectToAdminPage(){
-        $_SESSION['userId'] = $_POST['superId'];
         foreach ($this->getFile() as $key => $obj)
-            if($key === $_POST['superId'] || isset($obj['Branches']) && in_array($_POST['superId'], array_keys($obj['Branches']))){
-                $_SESSION['staticId'] = $key;
-                header('LOCATION:index');
-                exit;
-            }
+            if(isset($obj['Branches']) && in_array($_POST['superId'], array_keys($obj['Branches'])))
+                $this->loginAdmin($_POST['superId'], $key);        
     }
     function __construct($IdPage){
         parent::__construct($IdPage);

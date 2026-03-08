@@ -31,7 +31,7 @@
                         HTML;
                         $action = 'ChangeLanguagePost.php';
                         include('modal_changelanguage_changestyle.php');
-                        if($index !== $view->getLanguage()){
+                        if($index !== $view->getLanguage() && $index !== 'english'){
                             $action = 'ChangeLanguageDeletePost.php';
                             include('modal_delete.php');
                         }

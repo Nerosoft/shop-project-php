@@ -14,6 +14,7 @@ class ValidationId extends ModelJson{
         $this->getSCRIPTFILENAME() === 'FlexTablesDeletePost' && !isset($this->getObj()[$_GET['id']][$_POST['id']]) ||
         $this->getUrlName2() === 'ChangeLanguage' && !isset($this->getModel2()['AllNamesLanguage'][$_POST['id']])||
         $this->getUrlName2() === 'ChangeLanguage' && $_POST['id'] === $this->getLanguage() && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost'||
+        $this->getUrlName2() === 'ChangeLanguage' && $_POST['id'] === 'english' && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost'||
 
         $this->getUrlName2() === 'Login' && $_POST['state'] ==='lang' && !isset($this->getModel2()['AllNamesLanguage'][$_POST['id']])||
         $this->getUrlName2() === 'Register' && $_POST['state'] ==='lang' && !isset($this->getModel2()['AllNamesLanguage'][$_POST['id']])||

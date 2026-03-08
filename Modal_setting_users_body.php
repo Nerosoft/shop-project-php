@@ -1,6 +1,7 @@
 <div class="form-group">
     <label for="email"><?php echo$view->getLabelEmail()?></label>
     <input required type="email" name="Email" id="email" 
+    title="<?php echo $view->getHintEmail()?>"
     value="<?php echo$myObject?->getName()??''?>" placeholder='<?php echo$view->getHintEmail()?>'
     class="form-control">
 </div>

@@ -9,7 +9,7 @@ class BranchCreatePost extends ModelJson{
         $keyId = $this->getRandomId();
         $file = $this->initErrorBranch2($this->getMyModal(), $keyId);
         $obj = $this->getFileByFixedId();
-        unset($obj['Branches'], $obj['Users'], $obj['State']);
+        unset($obj['Branches']);
         $file [$keyId] = $obj;
         $this->saveFile($file);
         MyBranch::initBranch('MessageModelCreate');

@@ -8,13 +8,7 @@ class ChangeLanguageCreatePost extends ModelJson{
         parent::__construct('ChangeLanguage');
         $newKey = $this->getRandomId();
         $myData = $this->initErrorChangelanguage2($this->getMyModal(),  $newKey);
-        $myData[$newKey] = $myData['MyLanguage'];
-        $myData[$newKey]['AllNamesLanguage'] = $myData[$this->getLanguage()]['AllNamesLanguage'];
-        if(isset($myData[$this->getLanguage()]['MyFlexTables']))
-            foreach ($myData[$this->getLanguage()]['MyFlexTables'] as $key => $value){ 
-                $myData[$newKey]['MyFlexTables'][$key] = $value;
-                $myData[$newKey][$key] = $myData[$this->getLanguage()][$key];   
-            }  
+        $myData[$newKey] = $myData['english'];
         $this->saveModel($myData);
         MyChangeLanguage::initMyChangeLanguage('MessageModelCreate');
     }

@@ -5,6 +5,7 @@ require 'InfoBranch.php';
 require 'InterEmailPass.php';
 class LoginRegister extends InformationPage{
     use ErrorBranch, InfoBranch, EmailPassword;
+    private $Style;
     private $TitleForm;
     private $ButtonName;
     private $MyLanguage;
@@ -67,6 +68,7 @@ class LoginRegister extends InformationPage{
         $this->initInfoBranch($this->getMyModal());
         $this->initErrorBranch($this->getModelPage());
         $this->initEmailPassword($this->getModelPage());
+        $this->Style = MyLanguage::fromArray($this->getModel2()['Style']);
         $this->ChangeLang = $this->getModelPage()['UsedLanguage'];
         $this->ChangeStyle = $this->getModelPage()['UsedStyle'];
         $this->ModalTitleStyle = $this->getModelPage()['ModalTitleStyle'];
@@ -86,7 +88,7 @@ class LoginRegister extends InformationPage{
         $this->ModalButtonProject = $this->getModelPage()['ModalButtonProject'];
         $this->ButtonSetupProject = $this->getModelPage()['ButtonSetupProject'];
         foreach ($this->getFile() as $key => $obj)
-            if(isset($obj['State']) && $obj['State'] === 'admin'){
+            if(isset($obj['Branches'])){
                 $this->dbKeys[$key] = $obj['Branches'];
                 if(count($obj['Branches']) > 1 && in_array($this->getId(), array_keys($obj['Branches'])))
                     $this->dbBranchKeys = $obj['Branches'];
@@ -165,6 +167,9 @@ class LoginRegister extends InformationPage{
             </div>
             </div>
         HTML;
+    }
+    function getStyle(){
+        return $this->Style;
     }
     function getDbKeyLabel(){
         return $this->DbKeyLabel;

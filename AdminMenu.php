@@ -4,8 +4,6 @@ require 'BranchClass.php';
 require 'InformationPage.php';
 class AdminMenu extends InformationPage
 {
-    private $BranchesCompany;
-    private $SelectStyle;
     private $Offcanvas;
     private $Logout;
     private $AdminDashboard;
@@ -28,8 +26,6 @@ class AdminMenu extends InformationPage
         $this->Info = $this->getModel2()['TableInfo']['Info'];
         $this->LengthMenu = $this->getModel2()['TableInfo']['LengthMenu'];
         $this->InfoFiltered = $this->getModel2()['TableInfo']['InfoFiltered'];
-        $this->BranchesCompany = $this->getModel2()['AppSettingAdmin']['BranchesCompany'];
-        $this->SelectStyle = $this->getModel2()['AppSettingAdmin']['SelectStyle'];
         $this->Offcanvas = $this->getModel2()['AppSettingAdmin']['Offcanvas'];
         $this->Logout = $this->getModel2()['AppSettingAdmin']['Logout'];
         $this->TableId = $this->getModelPage()['TableId'];
@@ -134,12 +130,6 @@ class AdminMenu extends InformationPage
     }
     function getMyMenuApp(){
         return $this->myMenuApp;
-    }
-    function getBranchesCompany(){
-        return $this->BranchesCompany;
-    }
-    function getSelectStyle(){
-        return $this->SelectStyle;
     }
     function getOffcanvas(){
         return $this->Offcanvas;

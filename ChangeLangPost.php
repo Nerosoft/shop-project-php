@@ -13,10 +13,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['change_language']) && 
             parent::__construct($_POST['change_language']);
             setcookie($this->getId().$_POST['state'], $_POST['id'], time()+2628000);
             $_COOKIE[$this->getId().$_POST['state']] = $_POST['id'];
-            if($_POST['change_language'] === 'Login')
-                MyLogin::initMyLogin($_POST['state'] === 'lang'?'ChangeLang':'ChangeStyleMessage');
-            else 
-                MyRegister::initMyRegister($_POST['state'] === 'lang'?'ChangeLang':'ChangeStyleMessage');
+            $this->initViewPost($_POST['state'] === 'lang'?$this->getModelPage()['ChangeLang'].' '.$this->getModel2()['AllNamesLanguage'][$_POST['id']]:$this->getModelPage()['ChangeStyleMessage'].' '.$this->getModel2()['Style'][$_POST['id']], 'success');
         }
     }
 new ChangeLangPost();
