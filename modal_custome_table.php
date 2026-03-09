@@ -7,6 +7,7 @@ if(isset($index))
 <div class="form-group">
     <label for="lang_name" class="form-label"><?php echo$view->getLabelName()?></label>
     <input 
+    title="<?php echo$view->getHintName()?>"
     minlength="3" 
     required
     oninvalid="handleInput(this ,'<?php echo$view->getNameTableIsReq()?>', '<?php echo$view->getNameTableIsInv()?>')"
@@ -20,6 +21,7 @@ if(!isset($index))
         <div class="form-group">
             <label for="lang_name" class="form-label">{$view->getLabelInputNumber()}</label>
             <input 
+            title='{$view->getHintInputNumber()}'
             min="1" 
             max="8" 
             required

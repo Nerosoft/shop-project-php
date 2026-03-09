@@ -22,6 +22,7 @@ if(isset($index))
 <div class="form-group">
     <label for="name" class="form-label"><?php echo$view->getLabelName()?></label>
     <input required type="text" name="name" id="name" 
+    title='<?php echo$view->getHintName()?>'
     minlength="3"
     oninput="handleInput(this, '<?php echo $view->getRequiredName()?>', '<?php echo $view->getInvalidName()?>')"
         oninvalid="handleInput(this, '<?php echo $view->getRequiredName()?>', '<?php echo $view->getInvalidName()?>')"

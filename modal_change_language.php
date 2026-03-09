@@ -9,6 +9,7 @@ if(isset($index))
 <div class="form-group">
     <label for="lang_name" class="form-label"><?php echo$view->getLabelNameLanguage()?></label>
     <input 
+    title='<?php echo $view->getHintNewLangName()?>'
     minlength="3" 
     required
     oninvalid="handleInput(this ,'<?php echo $view->getNewLangNameRequired()?>', '<?php echo $view->getNewLangNameInvalid()?>')"

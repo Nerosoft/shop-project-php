@@ -14,8 +14,7 @@ class Branch implements DeleteInfoName
     private $Address;
     private $Country;
     private $Follow;
-    function __construct($Name, $Phone = null, $Governments = null,
-    $City = null, $Street = null, $Building = null, $Address = null, $Country = null, $Follow = null)
+    function __construct($Name, $Phone, $Governments, $City, $Street, $Building, $Address, $Country, $Follow)
     {
         $this->Name = $Name;
         $this->Phone = $Phone;

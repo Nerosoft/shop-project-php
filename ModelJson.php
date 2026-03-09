@@ -112,10 +112,4 @@ class ModelJson{
     function getMyModal(){
         return $this;
     }
-    function loginAdmin($userId, $staticId){
-        $_SESSION['userId'] = $userId;
-        $_SESSION['staticId'] = $staticId;
-        header('LOCATION:index');
-        exit;
-    }
 }

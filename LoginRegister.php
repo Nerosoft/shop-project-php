@@ -90,7 +90,7 @@ class LoginRegister extends InformationPage{
         foreach ($this->getFile() as $key => $obj)
             if(isset($obj['Branches'])){
                 $this->dbKeys[$key] = $obj['Branches'];
-                if(count($obj['Branches']) > 1 && in_array($this->getId(), array_keys($obj['Branches'])))
+                if(count($obj['Branches']) > 1 && isset($obj['Branches'][$this->getId()]))
                     $this->dbBranchKeys = $obj['Branches'];
             }
         include 'title_html.php';
