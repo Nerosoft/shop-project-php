@@ -12,11 +12,11 @@ class ModelJson{
         if(isset($_SESSION['userId'])){
             $this->id = $_SESSION['userId'];
             $this->FixedId = $_SESSION['staticId'];
-        }else if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['superId']) && isset($this->File[$_POST['superId']]))
+        }else if(isset($_GET['id']) && !isset($this->File[$_GET['id']]) || $_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST['superId']) || $_SERVER["REQUEST_METHOD"] === "POST" && !isset($this->File[$_POST['superId']]))
+            header("Location:".$this->getUrlName2());
+        else if($_SERVER["REQUEST_METHOD"] === "POST")
             $this->id = $_POST['superId'];
-        else if($_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST['superId']) || $_SERVER["REQUEST_METHOD"] === "POST" && !isset($this->File[$_POST['superId']]))
-            header("Location:login");
-        else if(isset($_GET['id']) && isset($this->File[$_GET['id']]))
+        else if(isset($_GET['id']))
             $this->id = $_GET['id'];
         else
             $this->id = 'admin';

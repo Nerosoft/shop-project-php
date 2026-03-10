@@ -3,7 +3,8 @@ require 'page.php';
 require 'Users.php';
 require 'InterEmailPass.php';
 require 'InterCheckbooksState.php';
-class MySettingUsers extends page{
+include 'InterfaceDataView.php';
+class MySettingUsers extends page implements InterfaceDataView{
     use EmailPassword, CheckbooksState;
     private $NameHeadTable;
     private $PasswordHeadTable;

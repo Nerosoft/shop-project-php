@@ -2,8 +2,9 @@
 require 'page.php';
 require 'ErrorBranch.php';
 require 'ChangeStyleLangBranch.php';
-require 'InfoBranch.php';
-class MyBranch extends Page{
+include 'InfoBranch.php';
+require 'InterfaceDataView.php';
+class MyBranch extends Page implements InterfaceDataView{
     use ErrorBranch, ChangeStyleLangBranch, InfoBranch;
     private $BranchStreet;
     private $BranchName;

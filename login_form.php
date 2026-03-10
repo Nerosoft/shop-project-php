@@ -1,7 +1,7 @@
 <?php echo '<input type="hidden" value="'.$view->getId().'"name="superId" id="superId">';?>
 <h4><?php echo $view->getTitleForm()?></h4>
 <div class="form-group">
-    <label for="email"><?php echo $view->getDbKeyLabel()?></label>
+    <label for="dbkeys"><?php echo $view->getDbKeyLabel()?></label>
     <select
     title=""
     class="form-select" id="dbkeys" name="dbkeys"  aria-label="Default select example">
@@ -22,7 +22,7 @@
     if(!empty($view->getDbBranchKeys())){
         echo<<<HTML
         <div class="form-group">
-            <label for="email">{$view->getAllBranch()}</label>
+            <label for="dbkeysBranch">{$view->getAllBranch()}</label>
             <select
             title=""
             class="form-select" id="dbkeysBranch" name="dbkeys"  aria-label="Default select example">
@@ -68,6 +68,9 @@
 <?php include 'ValidEmail.php';?>
 <script type="text/javascript">
     $('#dbkeys, #dbkeysBranch').on('change', function(){
-        window.location.href = '<?php echo$view->getUrlName2();?>'+'.php?id='+this.value;
+        window.location.href = '<?php echo $view->getUrlName2();?>'+'?id='+this.value;
     });
+    function goRegister(){
+        window.location.href = '<?php echo isset($_GET['id'])?($view->getUrlName2()!=='Login'?'login':'register').'?id='.$_GET['id']:($view->getUrlName2()!=='Login'?'login':'register');?>';
+    }
 </script>

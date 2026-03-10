@@ -25,7 +25,7 @@ class Users implements DeleteInfoName
     static function fromArray($users){
         $arr = array();
         foreach ($users as $key => $user)
-            $arr[$key] = new Users($user['Email'], $user['Password'], $user['Key']);
+            $arr[$key] = new Users(...$user);
         return $arr;
     }
 }

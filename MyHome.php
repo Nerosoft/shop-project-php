@@ -2,7 +2,8 @@
 require 'page.php';
 require 'CustomTable.php';
 require 'ErrorsHome.php';
-class MyHome extends Page{
+include 'InterfaceDataView.php';
+class MyHome extends Page implements InterfaceDataView{
     use ErrorsHome;
     private $TableName;
     private $LabelInputNumber;

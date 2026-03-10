@@ -217,6 +217,7 @@
                 "english": "engilsh"
             },
             "Register": {
+                "RegisterLoginPage": "Login account",
                 "UsedStyle": "style is active",
                 "ModalTitleStyle": "welcome in edit style",
                 "ModalButtonStyle": "save style",
@@ -299,6 +300,7 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Login": {
+                "RegisterLoginPage": "Register account",
                 "CheckbooksState": "show password",
                 "UsedStyle": " style is active",
                 "ModalTitleStyle": "welcome in edit style",
@@ -600,7 +602,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             },
-            "D1300f19": {
+            "cm63dcf9": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "egypt",
@@ -623,7 +625,7 @@
             }
         }
     },
-    "D1300f19": {
+    "cm63dcf9": {
         "Setting": {
             "Language": "english",
             "Style": "default"
@@ -841,6 +843,7 @@
                 "english": "engilsh"
             },
             "Register": {
+                "RegisterLoginPage": "Login account",
                 "UsedStyle": "style is active",
                 "ModalTitleStyle": "welcome in edit style",
                 "ModalButtonStyle": "save style",
@@ -923,6 +926,7 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Login": {
+                "RegisterLoginPage": "Register account",
                 "CheckbooksState": "show password",
                 "UsedStyle": " style is active",
                 "ModalTitleStyle": "welcome in edit style",

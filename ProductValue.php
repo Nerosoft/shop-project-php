@@ -1,5 +1,5 @@
 <?php
-class ProductValue{
+class ProductValue implements DeleteInfoName{
     private $Name;
     private $Descreption;
     private $Salary;

@@ -26,7 +26,7 @@ class LoginRegister extends InformationPage{
     private $ModalButtonStyle;
     private $ChangeLang;
     private $ChangeStyle;
-
+    private $RegisterLoginPage;
     function getModalTitleStyle(){
         return $this->ModalTitleStyle;
     }
@@ -63,6 +63,9 @@ class LoginRegister extends InformationPage{
     function getChangeStyle(){
         return $this->ChangeStyle;
     }
+    function getRegisterLoginPage(){
+        return $this->RegisterLoginPage;
+    }
     function __construct($IdPage, $message, $type){
         parent::__construct($IdPage);
         $this->initInfoBranch($this->getMyModal());
@@ -87,6 +90,7 @@ class LoginRegister extends InformationPage{
         $this->ModalTitleProject = $this->getModelPage()['ModalTitleProject'];
         $this->ModalButtonProject = $this->getModelPage()['ModalButtonProject'];
         $this->ButtonSetupProject = $this->getModelPage()['ButtonSetupProject'];
+        $this->RegisterLoginPage = $this->getModelPage()['RegisterLoginPage'];
         foreach ($this->getFile() as $key => $obj)
             if(isset($obj['Branches'])){
                 $this->dbKeys[$key] = $obj['Branches'];

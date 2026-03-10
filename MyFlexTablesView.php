@@ -3,7 +3,8 @@ require 'page.php';
 require 'ErrorFlexTable.php';
 if(!isset((new ModelJson($_GET['id']))->getObj()[(new ModelJson($_GET['id']))->getObj()['Setting']['Language']][$_GET['id']]))
     header("Location:index");
-class MyFlexTablesView extends Page{
+include 'InterfaceDataView.php';
+class MyFlexTablesView extends Page implements InterfaceDataView{
     use ErrorFlexTable;
     private $TableHead;
     private $Label;

@@ -2,7 +2,8 @@
 require 'page.php';
 require 'ErrorProduct.php';
 require 'ProductValue.php';
-class Product extends Page{
+include 'InterfaceDataView.php';
+class Product extends Page implements InterfaceDataView{
     use ErrorProduct;
     private $NameHeadTable;
     private $LabelName;

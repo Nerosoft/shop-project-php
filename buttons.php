@@ -58,3 +58,4 @@
 </div>
     <?php include('end_model.php');?>
 <button onclick="openForm('#setupprojectmodal')" type="button" class="btn btn-danger" ><?php echo $view->getButtonSetupProject()?></button>
+<button type="button" onclick="goRegister()" class="btn btn-info"><?php echo $view->getRegisterLoginPage()?></button>

@@ -235,6 +235,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "english"=> "engilsh"
                     ],
                     "Register"=> [
+                        "RegisterLoginPage"=> "Login account",
                         "UsedStyle"=> "style is active",
                         "ModalTitleStyle"=> "welcome in edit style",
                         "ModalButtonStyle"=> "save style",
@@ -317,6 +318,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "BranceRaysFollowValue"=> "Work invalid"
                     ],
                     "Login"=> [
+                        "RegisterLoginPage"=> "Register account",
                         "CheckbooksState"=> "show password",
                         "UsedStyle"=> " style is active",
                         "ModalTitleStyle"=> "welcome in edit style",

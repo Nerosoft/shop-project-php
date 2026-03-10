@@ -1,7 +1,8 @@
 <?php
 require 'AdminMenu.php';
 require 'ErrorSystemlang.php';
-class MySystemlang extends AdminMenu{
+include 'InterfaceDataView.php';
+class MySystemlang extends AdminMenu implements InterfaceDataView{
     use ErrorSystemlang;
     private $LanguageName;
     private $WordHint;
