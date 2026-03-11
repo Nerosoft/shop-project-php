@@ -11,16 +11,14 @@
             </tr>
         </thead>
         <tbody>
-           
                 <?php 
                 
                     $count = 1;
-                    foreach ($view->getMyDataView() as $keyLanguage => $myValue) {
-                        if(!(isset($_GET['lang']) && isset($_GET['table'])) && is_array($myValue)){
-                            foreach ($myValue as $keyPage => $table) {
+                    if(!(isset($_GET['lang']) && isset($_GET['table'])))
+                        foreach ($view->getMyDataView() as $keyLanguage => $myValue)
+                            foreach ($myValue as $keyPage => $table)
                                 foreach ($table as $key => $myValue)
-                                {
-                                    if(is_array($myValue)){
+                                    if(is_array($myValue))
                                         foreach ($myValue as $key2 => $myValue)
                                         {
                                             echo <<<HTML
@@ -40,7 +38,7 @@
                                             echo '</td></tr>';
                                             $count++;
                                         }
-                                    }else{
+                                    else{
                                         echo <<<HTML
                                             <tr>
                                                 <td>{$count}</td>
@@ -57,48 +55,44 @@
                                         include('modal_lang_page.php');
                                         echo '</td></tr>';
                                         $count++;
-                                    }
+                                    }    
+                    else
+                        foreach ($view->getMyDataView() as $keyLanguage => $myValue) {
+                            if(is_array($myValue))
+                                foreach ($myValue as $key => $myValue){
+                                    echo <<<HTML
+                                        <tr>
+                                            <td>{$count}</td>
+                                            <td>{$myValue}</td>
+                                            <td>
+                                    HTML;
+                                    
+                                    $title = $view->getScreenModelEdit();
+                                    $button = $view->getButtonModelEdit();
+                                    $idModel = "editModel".$count;
+                                    $idForm = "editForm".$count;
+                                    $action = 'SystemLangEditPost.php?lang='.$_GET['lang'].'&table='.$_GET['table'].'&key='.$keyLanguage.'&array='.$key;
+                                    include('modal_lang_page.php');
+                                    echo '</td></tr>';
+                                    $count++;
                                 }
-
-                            }
-                        }else if(is_array($myValue)){
-
-                            foreach ($myValue as $key => $myValue){
+                            else{
                                 echo <<<HTML
                                     <tr>
                                         <td>{$count}</td>
                                         <td>{$myValue}</td>
                                         <td>
                                 HTML;
-                                
                                 $title = $view->getScreenModelEdit();
                                 $button = $view->getButtonModelEdit();
                                 $idModel = "editModel".$count;
                                 $idForm = "editForm".$count;
-                                $action = 'SystemLangEditPost.php?lang='.$_GET['lang'].'&table='.$_GET['table'].'&key='.$keyLanguage.'&array='.$key;
+                                $action = 'SystemLangEditPost.php?lang='.$_GET['lang'].'&table='.$_GET['table'].'&key='.$keyLanguage;
                                 include('modal_lang_page.php');
                                 echo '</td></tr>';
                                 $count++;
                             }
-
-
-                        }else{
-                            echo <<<HTML
-                                <tr>
-                                    <td>{$count}</td>
-                                    <td>{$myValue}</td>
-                                    <td>
-                            HTML;
-                            $title = $view->getScreenModelEdit();
-                            $button = $view->getButtonModelEdit();
-                            $idModel = "editModel".$count;
-                            $idForm = "editForm".$count;
-                            $action = 'SystemLangEditPost.php?lang='.$_GET['lang'].'&table='.$_GET['table'].'&key='.$keyLanguage;
-                            include('modal_lang_page.php');
-                            echo '</td></tr>';
-                            $count++;
                         }
-                    }
                 ?>
             
                         
