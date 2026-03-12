@@ -8,7 +8,7 @@ if(isset($index))
     <div class="pt-2 form-group text-center">
         <h5><?php echo $view->getImgLabel()?></h5>
         
-        <img id="preview" src='<?php echo isset($index) ? "./asset/product/".$index : "./asset/img/product.jpg"?>' class="avatar-product">
+        <img id="preview" src='<?php echo isset($index) ? "./asset/product/".$view->getId()."/".$index : "./asset/img/product.jpg"?>' class="avatar-product">
         <div class="img-btn">
             <input 
             <?php echo isset($index)?'':'required'?>

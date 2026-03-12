@@ -7,7 +7,7 @@ class ProductDeletePost extends ValidationId{
     function __construct(){
         parent::__construct('Product');
         $this->deleteItem('Product');
-        array_map('unlink', glob('asset/product/'.$_POST['id'].'.*'));
+        array_map('unlink', glob('asset/product/'.$this->getId().'/'.$_POST['id'].'.*'));
         Product::initProduct('Delete');
     }
 }

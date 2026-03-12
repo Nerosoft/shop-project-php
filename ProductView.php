@@ -30,7 +30,7 @@
                         echo <<<HTML
                             <tr>
                                 <td>$count</td>
-                                <td><img id="preview" src="./asset/product/{$index}" class="avatar-product-view"></td>
+                                <td><img id="preview" src="./asset/product/{$view->getId()}/{$index}" class="avatar-product-view"></td>
                                 <td>{$myObject->getName()}</td>
                                 <td>{$myObject->getDescreption()}</td>
                                 <td>{$myObject->getSalary()}</td>
@@ -46,7 +46,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <img src="./asset/product/{$index}" class="product-img-view">
+                                                    <img src="./asset/product/{$view->getId()}/{$index}" class="product-img-view">
                                                 </div>
                                             </div>
                                         </div>
@@ -107,7 +107,7 @@
         $(id).find('#descreption').val(descreption);
         $(id).find('#salary').val(salary);
         $(id).find('#category').val(category);
-        $(id).find('#preview').attr('src', './asset/product/'+image);
+        $(id).find('#preview').attr('src', './asset/product/<?php echo$view->getId()?>/'+image);
         $(id).find('#avatar').val("");
         $(id).find('#avatar')[0].setCustomValidity('');
     }

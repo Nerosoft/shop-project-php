@@ -15,7 +15,19 @@ class MyBranch extends Page implements InterfaceDataView{
     private $BranchAddress;
     private $BranchCountry;
     private $BranchFollow;
+    private $FlexTable;
+    private $SettingAccounts;
+    private $Product;
     private $DataView;
+    function getFlexTable(){
+        return $this->FlexTable;
+    }
+    function getSettingAccounts(){
+        return $this->SettingAccounts;
+    }
+    function getProduct(){
+        return $this->Product;
+    }
     function __construct($message = 'LoadMessage', $type = 'success'){
         parent::__construct('Branches', $message, $type);
         $this->initErrorBranch($this->getModelPage());
@@ -30,6 +42,9 @@ class MyBranch extends Page implements InterfaceDataView{
         $this->BranchAddress = $this->getModelPage()['BranchAddress'];
         $this->BranchCountry = $this->getModelPage()['BranchCountry'];
         $this->BranchFollow = $this->getModelPage()['BranchFollow'];
+        $this->FlexTable = $this->getModelPage()['FlexTable'];
+        $this->SettingAccounts = $this->getModelPage()['SettingAccounts'];
+        $this->Product = $this->getModelPage()['Product'];
         //get all hint
         $this->DataView = Branch::fromArray($this->getBranch(), $this->getbranchInputOutput());
     }

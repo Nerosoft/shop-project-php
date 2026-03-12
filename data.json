@@ -109,6 +109,9 @@
                 "WithRays": "With work"
             },
             "Branches": {
+                "FlexTable": "Flex table",
+                "SettingAccounts": "Setting accounts",
+                "Product": "Product",
                 "TitleChangeLanguageMessage": "welcome in change branche",
                 "ButtonChangeLanguageMessage": "Change",
                 "LabelChangeLanguageMessage": "do you want to change branche",
@@ -602,10 +605,10 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             },
-            "cm63dcf9": {
+            "rMa3325e": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
-                "Country": "egypt",
+                "Country": "Egypt",
                 "Governments": "menofia",
                 "City": "sirs el laiana",
                 "Street": "menofia - menouf - sirs el laiana",
@@ -625,7 +628,7 @@
             }
         }
     },
-    "cm63dcf9": {
+    "rMa3325e": {
         "Setting": {
             "Language": "english",
             "Style": "default"
@@ -735,6 +738,9 @@
                 "WithRays": "With work"
             },
             "Branches": {
+                "FlexTable": "Flex table",
+                "SettingAccounts": "Setting accounts",
+                "Product": "Product",
                 "TitleChangeLanguageMessage": "welcome in change branche",
                 "ButtonChangeLanguageMessage": "Change",
                 "LabelChangeLanguageMessage": "do you want to change branche",

@@ -1,12 +1,16 @@
 </head>
 <body>
     <div class="start-page container">
-        <button class="btn btn-primary" onClick="openForm('#createModel')"><?php echo $view->getButtonModelCreate()?></button>
         <?php
-            $title = $view->getScreenModelCreate();
-            $button = $view->getButtonModelAdd();
-            $action = 'BranchCreatePost.php';
-            include('model_branch.php');
+            if($view->getId()===$view->getFixedId()){
+                echo <<<HTML
+                    <button class="btn btn-primary" onClick="openForm('#createModel')">{$view->getButtonModelCreate()}</button>
+                HTML;
+                $title = $view->getScreenModelCreate();
+                $button = $view->getButtonModelAdd();
+                $action = 'BranchCreatePost.php';
+                include('model_branch.php');
+            }
         ?>
         <table id="example" class="table table-striped" >
         <thead>

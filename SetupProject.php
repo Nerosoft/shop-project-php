@@ -127,6 +127,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "WithRays"=> "With work"
                     ],
                     "Branches"=> [
+                        "FlexTable"=> "Flex table",
+                        "SettingAccounts"=> "Setting accounts",
+                        "Product"=> "Product",
                         "TitleChangeLanguageMessage"=> "welcome in change branche",
                         "ButtonChangeLanguageMessage"=> "Change",
                         "LabelChangeLanguageMessage"=> "do you want to change branche",

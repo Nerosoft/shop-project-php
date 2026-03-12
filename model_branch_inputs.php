@@ -112,7 +112,7 @@
                 id="brance-rays-address" type="text" class="form-control" name="Address" value="<?php echo$myObject?->getAddress()??''?>" title="<?php echo$view->getBranchRaysAddress()?>" placeholder="<?php echo$view->getBranchRaysAddress()?>">
             </div>
         </div>
-        <div class="col-lg-auto pt-2">
+        <div class="col-lg-12 pt-2">
             <label class="branch-label" for="brance-rays-follow"><?php echo $view->getLabelWithRaysOut()?></label>
             <div class="input-group">
                 <div class="input-group-prepend">
