@@ -16,7 +16,7 @@ if(isset($index))
 </div>
 
 <?php
-if(!isset($index))
+if(!isset($index)){
     echo <<<HTML
         <div class="form-group">
             <label for="lang_name" class="form-label">{$view->getLabelInputNumber()}</label>
@@ -28,5 +28,8 @@ if(!isset($index))
             type="number" name="input_number" id="input_number"  placeholder='{$view->getHintInputNumber()}' class="form-control">
         </div>
     HTML;
+    if(count($view->getFileByFixedId()['Branches']) > 1)
+        include 'AllBranchOption.php';
+}
 include('end_model.php');
 ?>

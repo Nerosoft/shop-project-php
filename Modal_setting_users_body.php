@@ -28,7 +28,9 @@
     oninput="handleInput(this, '<?php echo $view->getRequiredKeyPassword()?>', '<?php echo $view->getInvalidKeyPassword()?>')"
     oninvalid="handleInput(this, '<?php echo $view->getRequiredKeyPassword()?>', '<?php echo $view->getInvalidKeyPassword()?>')">
 </div>
- <div class="form-group">
-    <input id="mycheckbox" onchange="changeInputState($('#<?php echo$idForm??'createForm'?>').find('#codePassword'), $('#<?php echo$idForm??'createForm'?>').find('#password'))" type="checkbox"><label for="codePassword"><?php echo $view->getCheckbooksState()?></label>
+<div class="form-check">
+    <input onchange="changeInputState($('#<?php echo$idForm??'createForm'?>').find('#codePassword'), $('#<?php echo$idForm??'createForm'?>').find('#password'))"  id="mycheckbox" class="form-check-input" type="checkbox">
+    <label  class="form-check-label">
+       <?php echo $view->getCheckbooksState()?>
+    </label>
 </div>
-<?php include('end_model.php');?>

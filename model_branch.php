@@ -16,7 +16,7 @@ if(isset($view->getModel2()['MyFlexTables']))
         </div>
        
     HTML;
-if(isset($view->getFileByFixedId()['Users']))
+if(isset($view->getObj()['Users']))
     echo <<<HTML
         <div class="col-lg-auto pt-2">
             <div class="form-check">
@@ -27,7 +27,7 @@ if(isset($view->getFileByFixedId()['Users']))
             </div>
         </div>
     HTML;
-if(isset($view->getFileByFixedId()['Product']))
+if(isset($view->getObj()['Product']))
     echo <<<HTML
         <div class="col-lg-auto pt-2">
             <div class="form-check">

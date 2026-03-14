@@ -112,4 +112,10 @@ class ModelJson{
     function getMyModal(){
         return $this;
     }
+    function validBranchKeys(){
+        foreach ($_POST['choices'] as $key => $value)
+            if(!isset($this->getFileByFixedId()['Branches'][$key]))
+                return false;
+        return true;
+    }
 }

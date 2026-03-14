@@ -1,9 +1,6 @@
 <!-- Modal -->
 <?php 
-include('start_model.php');
-if(isset($index))
-    include('my_id.php');
-?>
+include('start_model.php');?>
 
 
 <div class="form-group">
@@ -18,5 +15,9 @@ if(isset($index))
 </div>
 
 <?php 
+if(isset($index))
+    include('my_id.php');
+else if(count($view->getFileByFixedId()['Branches']) > 1)
+        include 'AllBranchOption.php';
 include('end_model.php');
 ?>

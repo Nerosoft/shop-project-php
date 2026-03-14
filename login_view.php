@@ -13,7 +13,8 @@
         $idForm = "forgetpasswordform";
         include('start_model.php');
         echo '<input type="hidden" value="'.$view->getId().'"name="superId">';
-        include('Modal_setting_users_body.php');?>
+        include('Modal_setting_users_body.php');
+        include('end_model.php');?>
     </div>
 </div>
 </body>

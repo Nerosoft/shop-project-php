@@ -8,7 +8,7 @@ class BranchCreatePost extends ModelJson{
         parent::__construct('Branches');
         $keyId = $this->getRandomId();
         $file = $this->initErrorBranch2($this->getMyModal(), $keyId);
-        $obj = $this->getFileByFixedId();
+        $obj = $this->getObj();
         unset($obj['Branches']);
         if(!isset($_POST['Users']) && isset($obj['Users']))
             unset($obj['Users']);
