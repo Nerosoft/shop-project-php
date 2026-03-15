@@ -116,6 +116,7 @@ class ModelJson{
         foreach ($_POST['choices'] as $key => $value)
             if(!isset($this->getFileByFixedId()['Branches'][$key]))
                 return false;
+        $_POST['choices'][$this->getId()] = $this->getId();
         return true;
     }
 }

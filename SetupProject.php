@@ -38,6 +38,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "MyStyle"=> "Style"
                     ],
                     "Product"=> [
+                        "AllBranches"=> "All branches",
                         "TitleViewImage"=> "View image product",
                         "UploadImgInv"=> "error upload image product",
                         "TableProductImage"=> "Image",
@@ -86,6 +87,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "HintCategory"=> "enter Category"
                     ],
                     "SettingUsers"=> [
+                        "AllBranches"=> "All branches",
                         "CheckbooksState"=> "show password",
                         "MYTITLE"=> "Setting account",
                         "LoadMessage"=> "welcome in setting account",
@@ -200,6 +202,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "Delete"=> "Seccessfully delete branch"
                     ],
                     "ChangeLanguage"=> [
+                        "AllBranches"=> "All branches",
                         "MYTITLE"=> "Change language",
                         "Used"=> "language is used",
                         "LoadMessage"=> "Welcome in change language",
@@ -408,6 +411,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "BranceRaysFollowValue"=> "Work invalid"
                     ],
                     "Home"=> [
+                        "AllBranches"=> "All branches",
                         "MYTITLE"=> "Home",
                         "LoadMessage"=> "Welcome in home",
                         "ScreenModelDelete"=> "welcome in delete table",
@@ -508,6 +512,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "IdIsInv"=> "your message error id invalid"
                     ],
                     "SystemLang"=> [
+                        "ChangeAllLanguageSystem"=>"Change all language system",
                         "ErrorFormInput"=> "Error server",
                         "MYTITLE"=> "Edit all word",
                         "TextRequired"=> "Word required",

@@ -1,9 +1,5 @@
 <!-- Modal -->
-<?php 
-include('start_model.php');
-if(isset($index))
-    include('my_id.php');
-?>
+<?php include('start_model.php');?>
 <div>
     <div class="pt-2 form-group text-center">
         <h5><?php echo $view->getImgLabel()?></h5>
@@ -62,4 +58,10 @@ if(isset($index))
     oninput="handleInput(this, '<?php echo $view->getRequiredCategory()?>', '<?php echo $view->getInvalidCategory()?>')"
     oninvalid="handleInput(this, '<?php echo $view->getRequiredCategory()?>', '<?php echo $view->getInvalidCategory()?>')">
 </div>
-<?php include('end_model.php');?>
+<?php 
+if(isset($index))
+    include('my_id.php');
+else if(count($view->getFileByFixedId()['Branches']) > 1)
+    include 'AllBranchOption.php';
+include('end_model.php');
+?>

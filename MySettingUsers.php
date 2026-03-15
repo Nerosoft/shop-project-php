@@ -10,6 +10,7 @@ class MySettingUsers extends page implements InterfaceDataView{
     private $PasswordHeadTable;
     private $ForgetPasswordHeadTable;
     private $DataView;
+    private $AllBranches;
     function __construct($message = 'LoadMessage', $type = 'success'){
         parent::__construct('SettingUsers', $message, $type);
         $this->initErrorsKeyPassword($this->getModelPage());
@@ -20,7 +21,11 @@ class MySettingUsers extends page implements InterfaceDataView{
         $this->PasswordHeadTable = $this->getModelPage()['PasswordHeadTable'];
         $this->ForgetPasswordHeadTable = $this->getModelPage()['ForgetPasswordHeadTable'];
         $this->DataView = isset($this->getObj()['Users']) ? array_reverse(Users::fromArray($this->getObj()['Users'])):array();
+        $this->AllBranches = $this->getModelPage()['AllBranches'];
     }
+    function getAllBranches(){
+        return $this->AllBranches;
+    } 
     static function initMySettingUsers($message = 'LoadMessage', $type = 'success'){
         $view = new MySettingUsers($message, $type);
         include 'SettingUsers_view.php';

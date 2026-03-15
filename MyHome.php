@@ -10,6 +10,7 @@ class MyHome extends Page implements InterfaceDataView{
     private $HintInputNumber;
     private $LabelName;
     private $HintName;
+    private $AllBranches;
     private $DataView;
     function __construct($message, $type){
         parent::__construct('Home', $message, $type);
@@ -19,7 +20,11 @@ class MyHome extends Page implements InterfaceDataView{
         $this->TableName = $this->getModelPage()['NameTable'];
         $this->LabelInputNumber = $this->getModelPage()['LabelInputNumber'];
         $this->HintInputNumber = $this->getModelPage()['HintInputNumber'];
+        $this->AllBranches = $this->getModelPage()['AllBranches'];
         $this->DataView = isset($this->getModel2()['MyFlexTables'])?array_reverse(CustomTable::fromArray($this)):array();
+    }
+    function getAllBranches(){
+        return $this->AllBranches;
     }
     function getLabelName(){
         return $this->LabelName;

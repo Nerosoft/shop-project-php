@@ -22,6 +22,7 @@ class Product extends Page implements InterfaceDataView{
     private $TableProductImage;
     private $TitleViewImage;
     private $DataView = array();
+    private $AllBranches;
     function __construct($message, $type){
         parent::__construct('Product', $message, $type);
         $this->initErrorProduct($this->getModelPage());
@@ -42,7 +43,12 @@ class Product extends Page implements InterfaceDataView{
         $this->TableProductImage = $this->getModelPage()['TableProductImage'];
         $this->TitleViewImage = $this->getModelPage()['TitleViewImage'];
         $this->DataView = isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
+        $this->AllBranches = $this->getModelPage()['AllBranches'];
+
     }
+    function getAllBranches(){
+        return $this->AllBranches;
+    } 
     function getTitleViewImage(){
         return $this->TitleViewImage;
     }

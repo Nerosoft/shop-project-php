@@ -7,7 +7,7 @@ class ChangeLanguageCreatePost extends ModelJson{
     function __construct(){
         parent::__construct('ChangeLanguage');
         $newKey = $this->getRandomId();
-        if(isset($_POST['Branches']) && $_POST['Branches'] === 'all' && count($this->getFileByFixedId()['Branches']) > 1 || isset($_POST['choices']) && count($this->getFileByFixedId()['Branches']) > 1 && $this->validBranchKeys()){
+        if(isset($_POST['Branches']) && count($this->getFileByFixedId()['Branches']) > 1 || isset($_POST['choices']) && count($this->getFileByFixedId()['Branches']) > 1 && $this->validBranchKeys()){
             $this->validLanguageInput($this->getMyModal());
             $file = $this->getFile();
             foreach (isset($_POST['Branches']) ? $this->getFileByFixedId()['Branches'] : $_POST['choices'] as $keyBranch => $value) {

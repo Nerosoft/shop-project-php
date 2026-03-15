@@ -14,5 +14,33 @@
     oninput="handleInput(this ,'<?php echo $view->getTextRequired()?>', '<?php echo $view->getTextLenght()?>')"
     type="text" name="word" id="word" value="<?php echo $myValue?>" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
 </div>
-
-<?php include('end_model.php');?>
+<?php 
+if(count($view->getModel2()['AllNamesLanguage'])>1){
+    include 'AllBranchLanguageInput.php';
+    foreach($view->getModel2()['AllNamesLanguage'] as $key=>$option)
+        if(isset($_GET['lang']) && $_GET['lang'] !== $key)
+            echo <<<HTML
+                <div class="col-md-auto">
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input type="checkbox" id="choices[]" class="form-check-input" name="choices[$key]" value="{$key}">
+                            <label class="form-check-label" for="choices[]">
+                            {$option}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            HTML;
+        
+}
+    // echo<<<HTML
+    //     <div class="col-lg-auto pt-2">
+    //         <div class="form-check">
+    //             <input name="AllLanguage" class="form-check-input" type="checkbox">
+    //             <label  class="form-check-label">
+    //                 {$view->getChangeAllLanguageSystem()}
+    //             </label>
+    //         </div>
+    //     </div>
+    // HTML;
+include('end_model.php');?>
