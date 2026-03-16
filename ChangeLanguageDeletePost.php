@@ -8,12 +8,7 @@ class ChangeLanguageDeletePost extends ValidationId{
     function __construct(){
         parent::__construct('ChangeLanguage');
         $this->initErrorChangelanguageAllNames($this->getModel2()['AllNamesLanguage']);
-        $myData = $this->getObj();
-        unset($myData[$_POST['id']]);
-        foreach ($this->getallNames() as $key=>$value)
-            if($key !== $_POST['id'])
-                unset($myData[$key]['AllNamesLanguage'][$_POST['id']]);
-        $this->saveModel($myData);
+        $this->saveModel($this->deleteLanguage($this->getObj()));
         MyChangeLanguage::initMyChangeLanguage('Delete');
     }
 }
