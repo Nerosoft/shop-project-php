@@ -24,9 +24,9 @@ trait ErrorProduct{
         $this->Invimage = $error['Invimage'];
         $this->UploadImgInv = $error['UploadImgInv'];
     }
-    function validProductInput($modal){
+    function initErrorProduct2($modal, $myKeyDb, $keyMessage = 'MessageModelCreate'){
         $this->initErrorProduct($modal->getModelPage());
-         if(!isset($_FILES['avatar']))
+        if(!isset($_FILES['avatar']))
            Product::initProduct($this->getUploadImgInv(), 'danger');
         else if($modal->getSCRIPTFILENAME()==="ProductCreatePost" && !is_uploaded_file($_FILES['avatar']['tmp_name']))
             Product::initProduct($this->getUploadImgInv(), 'danger');
@@ -53,11 +53,17 @@ trait ErrorProduct{
            Product::initProduct($this->getRequiredCategory(), 'danger');
         else if(strlen($_POST['category']) < 3)
            Product::initProduct($this->getInvalidCategory(), 'danger');
-        return true;
-    }
-    function initErrorProduct2($modal, $myKeyDb, $keyMessage = 'MessageModelCreate'){
-        $this->validProductInput($modal); 
-        $modal->saveModel($this->saveProduct($modal->getObj(), $myKeyDb, $modal->getId()));
+        else if(isset($_POST['Branches']) && count($modal->getFileByFixedId()['Branches']) > 1 || isset($_POST['choices']) && is_array($_POST['choices']) && count($modal->getFileByFixedId()['Branches']) > 1){
+            $file = $modal->getFile();
+            foreach (isset($_POST['Branches']) ? $modal->getFileByFixedId()['Branches'] : array($modal->getId()=>$modal->getId(),...$_POST['choices']) as $keyBranch => $value)
+                if(isset($file[$keyBranch]) && $keyMessage ==='MessageModelCreate' || isset($file[$keyBranch]['Product'][$myKeyDb]))
+                    $file[$keyBranch] = $this->saveProduct($file[$keyBranch], $myKeyDb, $keyBranch);
+                //no return true validation when edit
+                else
+                    Product::initProduct('IdIsInv', 'danger');
+            $modal->saveFile($file);
+        }else
+            $modal->saveModel($this->saveProduct($modal->getObj(), $myKeyDb, $modal->getId()));
         Product::initProduct($keyMessage);
     }
     function saveProduct($myData, $myKeyDb, $idSseion){

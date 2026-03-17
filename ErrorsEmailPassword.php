@@ -10,6 +10,7 @@ trait ErrorsEmailPassword{
         $this->RequiredPassword = $error['RequiredPassword'];
         $this->InvalidPassword = $error['InvalidPassword'];
     }
+    //setup project no valid email exist
     function initErrorsEmailPassword3($modal){
         $this->initErrorsEmailPassword($modal->getModelPage());
         if(!isset($_POST['Email']) || $_POST['Email'] === '')
@@ -21,11 +22,6 @@ trait ErrorsEmailPassword{
         else if(strlen($_POST['Password']) < 8)
             ModelJson::initViewPost($this->getInvalidPassword());
         return true;
-    }
-    function initErrorsEmailPassword2($modal, $users = null){
-        $this->initErrorsEmailPassword3($modal);
-        if($modal->getSCRIPTFILENAME() === 'LoginForgetPasswordPost' && !in_array($_POST['Email'], array_map(function($obj) {return $obj->getName();}, $users)) || $modal->getSCRIPTFILENAME() === 'RegisterPost' && in_array($_POST['Email'], array_map(function($obj) {return $obj->getName();}, $users)) || $modal->getSCRIPTFILENAME() === 'LoginPost' && !in_array($_POST['Email'], array_map(function($obj) {return $obj->getName();}, $users)) || $modal->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && isset($modal->getObj()['Users']) && in_array($_POST['Email'], array_map(function($obj) {return $obj['Email'];}, $modal->getObj()['Users'])) || $modal->getSCRIPTFILENAME() === 'SettingUsersEditPost' && isset($_POST['id']) && isset($modal->getObj()['Users'][$_POST['id']]) && in_array($_POST['Email'], array_map(function($obj) {return $obj['Email'];}, $modal->getObj()['Users'])) && $modal->getObj()['Users'][$_POST['id']]['Email'] !== $_POST['Email'])
-            ModelJson::initViewPost($modal->getModelPage()['EmailExist']);
     }
     function getRequiredEmail(){
         return $this->RequiredEmail;

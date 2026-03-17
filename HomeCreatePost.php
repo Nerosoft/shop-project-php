@@ -13,10 +13,11 @@ class HomeCreatePost extends ModelJson{
             MyHome::initHome($this->getInputNumberTableIsInv(), 'danger');
         else{
             $key = $this->getRandomId();
-            if(isset($_POST['Branches']) && count($this->getFileByFixedId()['Branches']) > 1 || isset($_POST['choices']) && count($this->getFileByFixedId()['Branches']) > 1 && $this->validBranchKeys()){
+            if(isset($_POST['Branches']) && count($this->getFileByFixedId()['Branches']) > 1 || isset($_POST['choices']) && is_array($_POST['choices']) && count($this->getFileByFixedId()['Branches']) > 1){
                 $myData = $this->getFile();
-                foreach (isset($_POST['Branches']) ? $this->getFileByFixedId()['Branches'] : $_POST['choices'] as $keyBranch => $value) 
-                    $myData[$keyBranch] = $this->saveFelxTable($myData[$keyBranch][$myData[$keyBranch]['Setting']['Language']]['AllNamesLanguage'], $myData[$keyBranch], $this->getMyModal(), $key);
+                foreach (isset($_POST['Branches']) ? $this->getFileByFixedId()['Branches'] : array($this->getId()=>$this->getId(), ...$_POST['choices']) as $keyBranch => $value) 
+                    if(isset($myData[$keyBranch]))
+                        $myData[$keyBranch] = $this->saveFelxTable($myData[$keyBranch][$myData[$keyBranch]['Setting']['Language']]['AllNamesLanguage'], $myData[$keyBranch], $this->getMyModal(), $key);
                 $this->saveFile($myData);
             }else
                 $this->saveModel($this->saveFelxTable($this->getModel2()['AllNamesLanguage'], $this->getObj(), $this->getMyModal(), $key));

@@ -21,40 +21,6 @@ class ValidationId extends ModelJson{
         //show view and message delete
         $this->initViewPost('Delete', 'success');
     }
-    function validUsersEdit(){
-        //add key session id inside option array
-        $_POST['choices'][$this->getId()] = $this->getId();
-        $file = $this->getFile();
-        foreach ($_POST['choices'] as $keyBranch => $value){
-            //check branch key and id and delete item or array
-            if(isset($file[$keyBranch]['Users'][$_POST['id']]) && !in_array($_POST['Email'], array_map(function($user) {return $user['Email'];}, $file[$keyBranch]['Users'])) || isset($file[$keyBranch]['Users'][$_POST['id']]) && $_POST['Email'] === $file[$keyBranch]['Users'][$_POST['id']]['Email'])
-                $file[$keyBranch]['Users'][$_POST['id']] = array("Email"=>$_POST["Email"], "Password"=>$_POST["Password"], "Key"=>$_POST["Key"]);
-            else if($file[$keyBranch]['Users'][$_POST['id']] && in_array($_POST['Email'], array_map(function($user) {return $user['Email'];}, $file[$keyBranch]['Users'])))
-                MySettingUsers::initMySettingUsers('EmailExist', 'danger');
-            else 
-                return true;
-        }
-        //save file
-        $this->saveFile($file);
-        //show view and message edit
-        MySettingUsers::initMySettingUsers('MessageModelEdit');
-    }
-    function validProductEdit(){
-        //add key session id inside option array
-        $_POST['choices'][$this->getId()] = $this->getId();
-        $file = $this->getFile();
-        foreach ($_POST['choices'] as $keyBranch => $value){
-            //check branch key and id and delete item or array
-            if(isset($file[$keyBranch]['Product'][$_POST['id']]))
-                $file[$keyBranch] = $this->saveProduct($file[$keyBranch], $_POST['id'], $keyBranch);
-            else 
-                return true;
-        }
-        //save file
-        $this->saveFile($file);
-        //show view and message edit
-        Product::initProduct('MessageModelEdit');
-    }
     //check error and delete at same time
     function ValidLanguage($state = true, $message = 'Delete'){
         //add key session id inside option array
@@ -126,9 +92,9 @@ class ValidationId extends ModelJson{
         $this->getUrlName2() === 'Register' && $_POST['state'] ==='style' && !isset($this->getModel2()['Style'][$_POST['id']])||
         //check file SettingUsersDeletePost and isset($_POST['choices']) firist work only delete and edit option user and product and home and change language
         isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'SettingUsersDeletePost' && $this->validUsersProduct('Users')||
-        isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'SettingUsersEditPost' && $this->initErrorsEmailPassword3($this->getMyModal()) && $this->validKeyPassword($this->getMyModal()) && $this->validUsersEdit()||
+        isset($_POST['choices']) && is_array($_POST['choices']) && count($this->getFileByFixedId()['Branches']) > 1 && $this->getSCRIPTFILENAME() === 'SettingUsersEditPost' && $this->initErrorsEmailPassword3($this->getMyModal()) && $this->initErrorsKeyPassword2($this->getMyModal(), $_POST['id'], 'MessageModelEdit')||
+        isset($_POST['choices']) && is_array($_POST['choices']) && count($this->getFileByFixedId()['Branches']) > 1 && $this->getSCRIPTFILENAME() === 'ProductEditPost' && $this->initErrorProduct2($this->getMyModal(), $_POST['id'], 'MessageModelEdit')||
         isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ProductDeletePost' && $this->validUsersProduct('Product')||
-        isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ProductEditPost' && $this->validProductInput($this->getMyModal()) && $this->validProductEdit()||
         isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'HomeDeletePost' && $this->ValidHome()||
         isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'HomeEditPost' && $this->initErrorsHome2($this->getMyModal()) === 'valid' && $this->ValidHome(false, 'MessageModelEdit')||
         isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && $this->ValidLanguage()||
