@@ -31,16 +31,5 @@ if(count($view->getModel2()['AllNamesLanguage'])>1){
                     </div>
                 </div>
             HTML;
-        
 }
-    // echo<<<HTML
-    //     <div class="col-lg-auto pt-2">
-    //         <div class="form-check">
-    //             <input name="AllLanguage" class="form-check-input" type="checkbox">
-    //             <label  class="form-check-label">
-    //                 {$view->getChangeAllLanguageSystem()}
-    //             </label>
-    //         </div>
-    //     </div>
-    // HTML;
 include('end_model.php');?>

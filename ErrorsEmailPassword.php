@@ -20,6 +20,7 @@ trait ErrorsEmailPassword{
             ModelJson::initViewPost($this->getRequiredPassword());
         else if(strlen($_POST['Password']) < 8)
             ModelJson::initViewPost($this->getInvalidPassword());
+        return true;
     }
     function initErrorsEmailPassword2($modal, $users = null){
         $this->initErrorsEmailPassword3($modal);

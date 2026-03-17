@@ -53,6 +53,7 @@ trait ErrorProduct{
            Product::initProduct($this->getRequiredCategory(), 'danger');
         else if(strlen($_POST['category']) < 3)
            Product::initProduct($this->getInvalidCategory(), 'danger');
+        return true;
     }
     function initErrorProduct2($modal, $myKeyDb, $keyMessage = 'MessageModelCreate'){
         $this->validProductInput($modal); 

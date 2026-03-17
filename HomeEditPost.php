@@ -8,10 +8,10 @@ class HomeEditPost extends ValidationId{
     function __construct(){
         parent::__construct('Home');
         $this->initErrorsHome2($this->getMyModal());
-        $myData = $this->getObj();
-        foreach ($this->getModel2()['AllNamesLanguage'] as $code => $value) 
-            $myData[$code]['MyFlexTables'][$_POST['id']] = $_POST['name'];
-        $this->saveModel($myData);
+        //$myData = $this->getObj();
+        // foreach ($this->getModel2()['AllNamesLanguage'] as $code => $value) 
+        //     $myData[$code]['MyFlexTables'][$_POST['id']] = $_POST['name'];
+        $this->saveModel($this->editHome($this->getObj(), $this->getModel2()['AllNamesLanguage']));
         MyHome::initHome('MessageModelEdit');
     }
 }

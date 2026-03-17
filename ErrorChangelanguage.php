@@ -31,5 +31,6 @@ trait ErrorChangelanguage{
             ModelJson::initViewPost($this->getNewLangNameRequired());
         else if(strlen($_POST['lang_name']) < 3)
             ModelJson::initViewPost($this->getNewLangNameInvalid());
+        return 'valid';
     }
 }

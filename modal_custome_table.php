@@ -1,9 +1,6 @@
 <!-- Modal -->
 <?php 
-include('start_model.php');
-if(isset($index))
-    include('my_id.php');
-?>
+include('start_model.php');?>
 <div class="form-group">
     <label for="lang_name" class="form-label"><?php echo$view->getLabelName()?></label>
     <input 
@@ -28,8 +25,7 @@ if(!isset($index)){
             type="number" name="input_number" id="input_number"  placeholder='{$view->getHintInputNumber()}' class="form-control">
         </div>
     HTML;
-    if(count($view->getFileByFixedId()['Branches']) > 1)
-        include 'AllBranchOption.php';
+    
 }
-include('end_model.php');
+include 'AllBranchOption.php';
 ?>

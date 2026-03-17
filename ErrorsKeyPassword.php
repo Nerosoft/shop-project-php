@@ -19,6 +19,7 @@ trait ErrorsKeyPassword{
             ModelJson::initViewPost($this->getRequiredKeyPassword(), 'danger');
         else if(strlen($_POST['Key']) < 8)
             ModelJson::initViewPost($this->getInvalidKeyPassword(), 'danger');
+        return true;
     }
     function getRequiredKeyPassword(){
         return $this->RequiredKeyPassword;

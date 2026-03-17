@@ -14,10 +14,4 @@ include('start_model.php');?>
     type="text" name="lang_name" id="lang_name" value="<?php echo$myObject?->getName()??''?>" placeholder='<?php echo $view->getHintNewLangName()?>' class="form-control">
 </div>
 
-<?php 
-if(isset($index))
-    include('my_id.php');
-else if(count($view->getFileByFixedId()['Branches']) > 1)
-        include 'AllBranchOption.php';
-include('end_model.php');
-?>
+<?php include 'AllBranchOption.php';?>

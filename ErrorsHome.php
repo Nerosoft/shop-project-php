@@ -16,6 +16,7 @@ trait ErrorsHome{
             MyHome::initHome($this->getNameTableIsReq(), 'danger');
         else if(strlen($_POST['name']) < 3)
             MyHome::initHome($this->getNameTableIsInv(), 'danger');
+        return 'valid';
     }
     function saveFelxTable($AllNamesLanguage, $myData, $modal, $key){
         foreach ($AllNamesLanguage as $code => $value) {

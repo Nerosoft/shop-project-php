@@ -59,9 +59,5 @@
     oninvalid="handleInput(this, '<?php echo $view->getRequiredCategory()?>', '<?php echo $view->getInvalidCategory()?>')">
 </div>
 <?php 
-if(isset($index))
-    include('my_id.php');
-else if(count($view->getFileByFixedId()['Branches']) > 1)
     include 'AllBranchOption.php';
-include('end_model.php');
 ?>
