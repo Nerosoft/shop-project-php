@@ -6,7 +6,7 @@ trait ErrorsKeyPassword{
         $this->RequiredKeyPassword = $error['RequiredKeyPassword'];
         $this->InvalidKeyPassword = $error['InvalidKeyPassword'];
     }
-    function initErrorsKeyPassword2($modal, $keyId, $message = 'MessageModelCreate'){
+    function initErrorsKeyPassword2($modal, $keyId){
         $this->validKeyPassword($modal);
         if(isset($_POST['Branches']) && count($modal->getFileByFixedId()['Branches']) > 1 && $modal->getSCRIPTFILENAME() ==='SettingUsersCreatePost'|| isset($_POST['Branches']) && count($modal->getFileByFixedId()['Branches']) > 1 && $modal->getSCRIPTFILENAME() ==='SettingUsersEditPost' || isset($_POST['choices']) && is_array($_POST['choices']) && count($modal->getFileByFixedId()['Branches']) > 1 && $modal->getSCRIPTFILENAME() ==='SettingUsersCreatePost' || isset($_POST['choices']) && is_array($_POST['choices']) && count($modal->getFileByFixedId()['Branches']) > 1 && $modal->getSCRIPTFILENAME() ==='SettingUsersEditPost'){
             $file = $modal->getFile();
@@ -29,7 +29,6 @@ trait ErrorsKeyPassword{
                     MySettingUsers::initMySettingUsers('IdIsInv', 'danger');
                 //save file
             $modal->saveFile($file);
-            MySettingUsers::initMySettingUsers($message);
             //make edit account and email inside post = exist email
         }else if(isset($modal->getObj()['Users'][$keyId]['Email']) && $_POST['Email'] === $modal->getObj()['Users'][$keyId]['Email'] ||
         //make edit create account and check exist email
