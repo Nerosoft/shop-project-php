@@ -18,6 +18,8 @@ class HomeCreatePost extends ModelJson{
                 foreach (isset($_POST['Branches']) ? $this->getFileByFixedId()['Branches'] : array($this->getId()=>$this->getId(), ...$_POST['choices']) as $keyBranch => $value) 
                     if(isset($myData[$keyBranch]))
                         $myData[$keyBranch] = $this->saveFelxTable($myData[$keyBranch][$myData[$keyBranch]['Setting']['Language']]['AllNamesLanguage'], $myData[$keyBranch], $this->getMyModal(), $key);
+                    else
+                        MyHome::initHome('IdIsInv', 'danger');
                 $this->saveFile($myData);
             }else
                 $this->saveModel($this->saveFelxTable($this->getModel2()['AllNamesLanguage'], $this->getObj(), $this->getMyModal(), $key));
