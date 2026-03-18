@@ -80,7 +80,8 @@ class ValidationId extends ModelJson{
         if(!isset($_POST['id']) || $_POST['id'] === '')
             $this->initViewPost($this->getModelPage()['IdIsReq']);
         else if(isset($_POST['choices']) && is_array($_POST['choices']) && count($this->getFileByFixedId()['Branches']) > 1 && $this->getSCRIPTFILENAME() === 'ProductEditPost'||
-                isset($_POST['choices']) && is_array($_POST['choices']) && count($this->getFileByFixedId()['Branches']) > 1 && $this->getSCRIPTFILENAME() === 'SettingUsersEditPost')
+                isset($_POST['choices']) && is_array($_POST['choices']) && count($this->getFileByFixedId()['Branches']) > 1 && $this->getSCRIPTFILENAME() === 'SettingUsersEditPost'||
+                isset($_POST['choices']) && is_array($_POST['choices']) && count($this->getFileByFixedId()['Branches']) > 1 && $this->getSCRIPTFILENAME() === 'HomeEditPost')
             return;
         else if(
         $this->getSCRIPTFILENAME() === 'BranchDeletePost' && $_POST['id'] === $this->getFixedId()||
@@ -97,7 +98,7 @@ class ValidationId extends ModelJson{
         isset($_POST['choices']) && is_array($_POST['choices']) && count($this->getFileByFixedId()['Branches']) > 1 && $this->getSCRIPTFILENAME() === 'SettingUsersDeletePost' && $this->validUsersProduct('Users')||
         isset($_POST['choices']) && is_array($_POST['choices']) && count($this->getFileByFixedId()['Branches']) > 1 && $this->getSCRIPTFILENAME() === 'ProductDeletePost' && $this->validUsersProduct('Product')||
         isset($_POST['choices']) && is_array($_POST['choices']) && count($this->getFileByFixedId()['Branches']) > 1 && $this->getSCRIPTFILENAME() === 'HomeDeletePost' && $this->ValidHome()||
-        isset($_POST['choices']) && is_array($_POST['choices']) && count($this->getFileByFixedId()['Branches']) > 1 && $this->getSCRIPTFILENAME() === 'HomeEditPost' && $this->initErrorsHome2($this->getMyModal()) === 'valid' && $this->ValidHome(false, 'MessageModelEdit')||
+        // isset($_POST['choices']) && is_array($_POST['choices']) && count($this->getFileByFixedId()['Branches']) > 1 && $this->getSCRIPTFILENAME() === 'HomeEditPost' && $this->initErrorsHome2($this->getMyModal()) === 'valid' && $this->ValidHome(false, 'MessageModelEdit')||
         isset($_POST['choices']) && is_array($_POST['choices']) && count($this->getFileByFixedId()['Branches']) > 1 && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && $this->ValidLanguage()||
         isset($_POST['choices']) && is_array($_POST['choices']) && count($this->getFileByFixedId()['Branches']) > 1 && $this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' && $this->validLanguageInput($this->getMyModal()) === 'valid' && $this->ValidLanguage(false, 'MessageModelEdit')||
         //work delete add edit user and product and home and change language

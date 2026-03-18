@@ -8,8 +8,12 @@ class HomeEditPost extends ValidationId{
     function __construct(){
         parent::__construct('Home');
         $this->initErrorsHome2($this->getMyModal());
-        $this->saveModel($this->editHome($this->getObj(), $this->getModel2()['AllNamesLanguage']));
-        MyHome::initHome('MessageModelEdit');
+        if(isset($_POST['choices']) && is_array($_POST['choices']) && count($this->getFileByFixedId()['Branches']) > 1 && $this->ValidHome(false, 'MessageModelEdit'))
+            MyHome::initHome('IdIsInv', 'danger');
+        else{
+            $this->saveModel($this->editHome($this->getObj(), $this->getModel2()['AllNamesLanguage']));
+            MyHome::initHome('MessageModelEdit');
+        }
     }
 }
 new HomeEditPost();
