@@ -21,6 +21,9 @@ trait ErrorsKeyPassword{
                     isset($file[$keyBranch]['Users'][$keyId]) && !in_array($_POST['Email'], array_map(function($user) {return $user['Email'];}, $file[$keyBranch]['Users'])))
                     //save account inside file
                     $file[$keyBranch]['Users'][$keyId] = array("Email"=>$_POST["Email"], "Password"=>$_POST["Password"], "Key"=>$_POST["Key"]);
+                //show error exist email
+                else if(isset($file[$keyBranch]['Users']) && in_array($_POST['Email'], array_map(function($user) {return $user['Email'];}, $file[$keyBranch]['Users'])))    
+                    ModelJson::initViewPost($modal->getModelPage()['EmailExist']);
                 //no return true validation when edit
                 else
                     MySettingUsers::initMySettingUsers('IdIsInv', 'danger');
