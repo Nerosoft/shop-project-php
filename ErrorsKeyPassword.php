@@ -8,7 +8,7 @@ trait ErrorsKeyPassword{
     }
     function initErrorsKeyPassword2($modal, $keyId){
         $this->validKeyPassword($modal);
-        if(isset($_POST['Branches']) && count($modal->getFileByFixedId()['Branches']) > 1 && $modal->getSCRIPTFILENAME() ==='SettingUsersCreatePost'|| isset($_POST['Branches']) && count($modal->getFileByFixedId()['Branches']) > 1 && $modal->getSCRIPTFILENAME() ==='SettingUsersEditPost' || isset($_POST['choices']) && is_array($_POST['choices']) && count($modal->getFileByFixedId()['Branches']) > 1 && $modal->getSCRIPTFILENAME() ==='SettingUsersCreatePost' || isset($_POST['choices']) && is_array($_POST['choices']) && count($modal->getFileByFixedId()['Branches']) > 1 && $modal->getSCRIPTFILENAME() ==='SettingUsersEditPost'){
+        if(isset($_POST['Branches']) && count($modal->getFileByFixedId()['Branches']) > 1 && $modal->getSCRIPTFILENAME() ==='SettingUsersCreatePost'|| isset($_POST['choices']) && is_array($_POST['choices']) && count($modal->getFileByFixedId()['Branches']) > 1 && $modal->getSCRIPTFILENAME() ==='SettingUsersCreatePost' || isset($_POST['choices']) && is_array($_POST['choices']) && count($modal->getFileByFixedId()['Branches']) > 1 && $modal->getSCRIPTFILENAME() ==='SettingUsersEditPost'){
             $file = $modal->getFile();
             foreach (isset($_POST['Branches']) ? $modal->getFileByFixedId()['Branches'] : array($modal->getId()=>$modal->getId(),...$_POST['choices']) as $keyBranch => $value)
                     //make edit account and email inside post = exist email
