@@ -16,23 +16,6 @@ trait ErrorsHome{
             MyHome::initHome($this->getNameTableIsReq(), 'danger');
         else if(strlen($_POST['name']) < 3)
             MyHome::initHome($this->getNameTableIsInv(), 'danger');
-        return 'valid';
-    }
-    function saveFelxTable($AllNamesLanguage, $myData, $modal, $key){
-        foreach ($AllNamesLanguage as $code => $value) {
-            $myData[$code]['MyFlexTables'][$key] = $_POST['name'];
-            $myData[$code][$key] = $myData[$code]['TablePage'];
-            $myData[$code][$key]['MYTITLE'] = $_POST['name'];
-            for ($i=0; $i < $_POST['input_number']; $i++){
-                $myInputKey = $modal->getRandomId();
-                $myData[$code][$key]['TableHead'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputNameTable'];
-                $myData[$code][$key]['Label'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputLabel'];
-                $myData[$code][$key]['Hint'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputHint'];
-                $myData[$code][$key]['ErrorsMessageReq'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputErrorsMessageReq'];
-                $myData[$code][$key]['ErrorsMessageInv'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputErrorsMessageInv'];
-            }
-        }
-        return $myData;
     }
     function getNameTableIsReq(){
         return $this->NameTableIsReq;

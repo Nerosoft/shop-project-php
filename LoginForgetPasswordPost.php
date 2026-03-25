@@ -8,6 +8,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
         function __construct(){
             parent::__construct('Login');
             $this->validKeyPassword($this->getMyModal());
+            //valid key email and email
             foreach ($this->getUsers() as $key => $user) 
                 if($user->getName() === $_POST['Email'] && $user->getKey() === $_POST['Key']){
                     $myData = $this->getObj();

@@ -2,10 +2,12 @@
 include 'SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
 require 'MySettingUsers.php';
-class SettingUsersCreatePost extends ModelJson{
+require 'ValidationId.php';
+//make extends ValidationId and valid id branch and id users inside ValidationId class
+class SettingUsersCreatePost extends ValidationId{
     use ErrorsKeyPassword, ErrorsEmailPassword;
     function __construct(){
-        parent::__construct('SettingUsers');
+        parent::__construct('Users');
         $this->initErrorsEmailPassword3($this->getMyModal());
         $this->initErrorsKeyPassword2($this->getMyModal(), $this->getRandomId());
         MySettingUsers::initMySettingUsers('MessageModelCreate');
@@ -14,4 +16,4 @@ class SettingUsersCreatePost extends ModelJson{
 
 new SettingUsersCreatePost();
 }else
-    header('LOCATION:view?id=SettingUsers');
+    header('LOCATION:view?id=Users');

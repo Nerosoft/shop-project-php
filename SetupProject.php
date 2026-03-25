@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "Home"=> "Home",
                         "Branches"=> "Branches",
                         "ChangeLanguage"=> "Change language",
-                        "SettingUsers"=> "Setting accounts",
+                        "Users"=> "Setting accounts",
                         "Product"=> "Product",
                         "MyFlexTables"=> "flex table",
                         "MyStyle"=> "Style"
@@ -86,7 +86,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "LabelCategory"=> "Category",
                         "HintCategory"=> "enter Category"
                     ],
-                    "SettingUsers"=> [
+                    "Users"=> [
                         "AllBranches"=> "All branches",
                         "CheckbooksState"=> "show password",
                         "MYTITLE"=> "Setting account",
@@ -480,7 +480,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "SelectTestBox"=> "Select Test Box",
                         "Html"=> "Html",
                         "Style"=> "Style",
-                        "SelectStyle"=> "Select style"
+                        "SelectStyle"=> "Select style",
+                        "BranchInv"=>"branch id invalid"
                     ],
                     "TableInfo"=> [
                         "MYTITLE"=> "Table",

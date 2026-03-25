@@ -81,7 +81,7 @@ class AdminMenu extends InformationPage
             return 'arrow-up-circle-fill.svg';
         else if($key === 'TablePage')
             return 'calendar4-event.svg';
-        else if($key === 'SettingUsers')
+        else if($key === 'Users')
             return 'bar-chart-line-fill.svg';
         else if($key === 'Product')
             return 'calendar-day.svg';

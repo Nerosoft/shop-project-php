@@ -36,7 +36,7 @@ class ModelJson{
                 MyBranch::initBranch($message, $type);
             case 'ChangeLanguage':
                 MyChangeLanguage::initMyChangeLanguage($message, $type);
-            case 'SettingUsers':
+            case 'Users':
                 MySettingUsers::initMySettingUsers($message, $type);
             case 'MyStyle':
                 MyStyleClass::initMyStyleClass($message, $type);

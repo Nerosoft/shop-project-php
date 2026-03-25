@@ -11,7 +11,7 @@ if(isset($_GET['id']))
         case 'ChangeLanguage':
             require 'MyChangeLanguage.php';
             MyChangeLanguage::initMyChangeLanguage();
-        case 'SettingUsers':
+        case 'Users':
             require 'MySettingUsers.php';
             MySettingUsers::initMySettingUsers();
         case 'Product':

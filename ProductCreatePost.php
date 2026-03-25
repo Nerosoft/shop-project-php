@@ -2,7 +2,8 @@
 include 'SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
 require 'ProductClass.php';
-class ProductCreatePost extends ModelJson{
+require 'ValidationId.php';
+class ProductCreatePost extends ValidationId{
     use ErrorProduct;
     function __construct(){
         parent::__construct('Product');

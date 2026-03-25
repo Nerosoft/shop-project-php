@@ -12,7 +12,7 @@ class MySettingUsers extends page implements InterfaceDataView{
     private $DataView;
     private $AllBranches;
     function __construct($message = 'LoadMessage', $type = 'success'){
-        parent::__construct('SettingUsers', $message, $type);
+        parent::__construct('Users', $message, $type);
         $this->initErrorsKeyPassword($this->getModelPage());
         $this->initErrorsEmailPassword($this->getModelPage());
         $this->initEmailPassword($this->getModelPage());

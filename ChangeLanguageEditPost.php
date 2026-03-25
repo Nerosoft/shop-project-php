@@ -7,7 +7,14 @@ class ChangeLanguageEditPost extends ValidationId{
     use ErrorChangelanguage;
     function __construct(){
         parent::__construct('ChangeLanguage');
-        $this->saveModel($this->initErrorChangelanguage2($this->getMyModal(),  $_POST['id']));
+        $this->validLanguageInput($this->getMyModal());
+        if(isset($_POST['Branches']) || isset($_POST['choices'])){
+            $file = $this->getFile();
+            foreach (isset($_POST['Branches']) ? $this->getFileByFixedId()['Branches'] : $_POST['choices'] as $keyBranch => $value)
+                $file[$keyBranch] = $this->saveNameLanguage($file[$keyBranch][$file[$keyBranch]['Setting']['Language']]['AllNamesLanguage'], 'AllNamesLanguage', $_POST['id'], $file[$keyBranch]);
+            $this->saveFile($file);
+        }else
+            $this->saveModel($this->saveNameLanguage($this->getallNames(), 'AllNamesLanguage', $_POST['id'], $this->getObj()));
         MyChangeLanguage::initMyChangeLanguage('MessageModelEdit');
     }
 }

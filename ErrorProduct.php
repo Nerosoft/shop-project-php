@@ -53,14 +53,10 @@ trait ErrorProduct{
            Product::initProduct($this->getRequiredCategory(), 'danger');
         else if(strlen($_POST['category']) < 3)
            Product::initProduct($this->getInvalidCategory(), 'danger');
-        else if(isset($_POST['Branches']) && count($modal->getFileByFixedId()['Branches']) > 1 || isset($_POST['choices']) && is_array($_POST['choices']) && count($modal->getFileByFixedId()['Branches']) > 1){
+        else if(isset($_POST['Branches']) || isset($_POST['choices'])){
             $file = $modal->getFile();
-            foreach (isset($_POST['Branches']) ? $modal->getFileByFixedId()['Branches'] : array($modal->getId()=>$modal->getId(),...$_POST['choices']) as $keyBranch => $value)
-                if(isset($file[$keyBranch]) && $keyMessage ==='MessageModelCreate' || isset($file[$keyBranch]['Product'][$myKeyDb]))
-                    $file[$keyBranch] = $this->saveProduct($file[$keyBranch], $myKeyDb, $keyBranch);
-                //no return true validation when edit
-                else
-                    Product::initProduct('IdIsInv', 'danger');
+            foreach (isset($_POST['Branches']) ? $modal->getFileByFixedId()['Branches'] : $_POST['choices'] as $keyBranch => $value)
+                $file[$keyBranch] = $this->saveProduct($file[$keyBranch], $myKeyDb, $keyBranch);
             $modal->saveFile($file);
         }else
             $modal->saveModel($this->saveProduct($modal->getObj(), $myKeyDb, $modal->getId()));

@@ -1,11 +1,13 @@
 <?php
 if(isset($index) && count($view->getFileByFixedId()['Branches']) > 1){
     include('my_id.php');
+    $myCountBranch = 1;
     foreach($view->getFileByFixedId()['Branches'] as $key=>$option)
         if($key !== $view->getId() && $view->getUrlName2() === 'Home' && isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['Language']][$index])||
            $key !== $view->getId() && $view->getUrlName2() === 'ChangeLanguage' && isset($view->getFile()[$key][$index])||
-           $key !== $view->getId() && $view->getUrlName2() === 'SettingUsers' && isset($view->getFile()[$key]['Users'][$index])||
-           $key !== $view->getId() && $view->getUrlName2() === 'Product' && isset($view->getFile()[$key]['Product'][$index]))
+           $key !== $view->getId() && $view->getUrlName2() === 'Users' && isset($view->getFile()[$key]['Users'][$index])||
+           $key !== $view->getId() && $view->getUrlName2() === 'Product' && isset($view->getFile()[$key]['Product'][$index])){
+            ++$myCountBranch;
             echo <<<HTML
                 <div class="col-md-auto">
                     <div class="form-group">
@@ -18,6 +20,9 @@ if(isset($index) && count($view->getFileByFixedId()['Branches']) > 1){
                     </div>
                 </div>
             HTML;
+        }
+    if($myCountBranch === count($view->getFileByFixedId()['Branches']))
+        include 'AllBranchLanguageInput.php';
 }else if(isset($index))
     include('my_id.php');
 else if(count($view->getFileByFixedId()['Branches']) > 1){
@@ -38,4 +43,3 @@ else if(count($view->getFileByFixedId()['Branches']) > 1){
             HTML;
     }
 }
-include('end_model.php');

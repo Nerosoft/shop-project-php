@@ -6,7 +6,7 @@ require 'ValidationId.php';
 class FlexTablesDeletePost extends ValidationId{
     function __construct(){
         parent::__construct($_GET['id']);
-        $this->deleteItem($_GET['id']);
+        $this->saveModel($this->deleteItem($_GET['id'], $this->getObj()));
         MyFlexTablesView::initMyFlexTablesView('Delete');
     }
 }

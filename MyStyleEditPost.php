@@ -7,7 +7,7 @@ class MyStyleEditPost extends ValidationId{
     use ErrorChangelanguage;
     function __construct(){
         parent::__construct('MyStyle');
-        $this->saveModel($this->initErrorChangelanguage2($this->getMyModal(), $_POST['id'], 'Style'));
+        $this->saveModel($this->initErrorChangelanguage2($this->getMyModal(), $_POST['id']));
         MyStyleClass::initMyStyleClass('MessageModelEdit');
     }
 }

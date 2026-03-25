@@ -6,7 +6,7 @@ require 'ValidationId.php';
 class ProductDeletePost extends ValidationId{
     function __construct(){
         parent::__construct('Product');
-        $this->deleteItem('Product');
+        $this->saveModel($this->deleteItem('Product', $this->getObj()));
         array_map('unlink', glob('asset/product/'.$this->getId().'/'.$_POST['id'].'.*'));
         Product::initProduct('Delete');
     }

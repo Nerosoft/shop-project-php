@@ -14,7 +14,7 @@
                 "Home": "Home",
                 "Branches": "Branches",
                 "ChangeLanguage": "Change language",
-                "SettingUsers": "Setting accounts",
+                "Users": "Setting accounts",
                 "Product": "Product",
                 "MyFlexTables": "flex table",
                 "MyStyle": "Style"
@@ -68,7 +68,7 @@
                 "LabelCategory": "Category",
                 "HintCategory": "enter Category"
             },
-            "SettingUsers": {
+            "Users": {
                 "AllBranches": "All branches",
                 "CheckbooksState": "show password",
                 "MYTITLE": "Setting account",
@@ -221,7 +221,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "le96165e": "English language"
+                "eBb936ff": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -463,7 +463,8 @@
                 "SelectTestBox": "Select Test Box",
                 "Html": "Html",
                 "Style": "Style",
-                "SelectStyle": "Select style"
+                "SelectStyle": "Select style",
+                "BranchInv": "branch id invalid"
             },
             "TableInfo": {
                 "MYTITLE": "Table",
@@ -590,6 +591,23 @@
                     "ONb5cb93": "Error quantity invalid",
                     "Vmb5cb9d": "Error date invalid"
                 }
+            }
+        },
+        "D2b5cb45": {
+            "o07a08fd": {
+                "gYb5cb65": "Javascript",
+                "s5b5cb73": "Abdullah",
+                "lgb5cb7d": "200",
+                "kCb5cb86": "100",
+                "ONb5cb93": "13 book",
+                "Vmb5cb9d": "2026"
+            }
+        },
+        "Users": {
+            "KNa5430b": {
+                "Email": "ggamals7744@yahoo.com",
+                "Password": "ggamals7744@yahoo.com",
+                "Key": "ggamals7744@yahoo.com"
             }
         },
         "Branches": {
@@ -604,29 +622,19 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             },
-            "1Hdc0d38": {
+            "yRece596": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
-                "Governments": "menofia",
-                "City": "sirs el laiana",
+                "Governments": "cairo, egypt",
+                "City": "cairo, egypt",
                 "Street": "menofia - menouf - sirs el laiana",
                 "Building": "Nero-Soft",
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             }
         },
-        "D2b5cb45": {
-            "o07a08fd": {
-                "gYb5cb65": "Javascript",
-                "s5b5cb73": "Abdullah",
-                "lgb5cb7d": "200",
-                "kCb5cb86": "100",
-                "ONb5cb93": "13 book",
-                "Vmb5cb9d": "2026"
-            }
-        },
-        "le96165e": {
+        "eBb936ff": {
             "Style": {
                 "dark": "dark",
                 "default": "default"
@@ -636,7 +644,7 @@
                 "Home": "Home",
                 "Branches": "Branches",
                 "ChangeLanguage": "Change language",
-                "SettingUsers": "Setting accounts",
+                "Users": "Setting accounts",
                 "Product": "Product",
                 "MyFlexTables": "flex table",
                 "MyStyle": "Style"
@@ -690,7 +698,7 @@
                 "LabelCategory": "Category",
                 "HintCategory": "enter Category"
             },
-            "SettingUsers": {
+            "Users": {
                 "AllBranches": "All branches",
                 "CheckbooksState": "show password",
                 "MYTITLE": "Setting account",
@@ -843,7 +851,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "le96165e": "English language"
+                "eBb936ff": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -1085,7 +1093,8 @@
                 "SelectTestBox": "Select Test Box",
                 "Html": "Html",
                 "Style": "Style",
-                "SelectStyle": "Select style"
+                "SelectStyle": "Select style",
+                "BranchInv": "branch id invalid"
             },
             "TableInfo": {
                 "MYTITLE": "Table",
@@ -1213,16 +1222,9 @@
                     "Vmb5cb9d": "Error date invalid"
                 }
             }
-        },
-        "Users": {
-            "KNa5430b": {
-                "Email": "ggamals7744@yahoo.com",
-                "Password": "ggamals7744@yahoo.com",
-                "Key": "ggamals7744@yahoo.com"
-            }
         }
     },
-    "1Hdc0d38": {
+    "yRece596": {
         "Setting": {
             "Language": "english",
             "Style": "default"
@@ -1237,7 +1239,7 @@
                 "Home": "Home",
                 "Branches": "Branches",
                 "ChangeLanguage": "Change language",
-                "SettingUsers": "Setting accounts",
+                "Users": "Setting accounts",
                 "Product": "Product",
                 "MyFlexTables": "flex table",
                 "MyStyle": "Style"
@@ -1291,7 +1293,7 @@
                 "LabelCategory": "Category",
                 "HintCategory": "enter Category"
             },
-            "SettingUsers": {
+            "Users": {
                 "AllBranches": "All branches",
                 "CheckbooksState": "show password",
                 "MYTITLE": "Setting account",
@@ -1444,7 +1446,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "le96165e": "English language"
+                "eBb936ff": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -1686,7 +1688,8 @@
                 "SelectTestBox": "Select Test Box",
                 "Html": "Html",
                 "Style": "Style",
-                "SelectStyle": "Select style"
+                "SelectStyle": "Select style",
+                "BranchInv": "branch id invalid"
             },
             "TableInfo": {
                 "MYTITLE": "Table",
@@ -1813,6 +1816,9 @@
                     "ONb5cb93": "Error quantity invalid",
                     "Vmb5cb9d": "Error date invalid"
                 }
+            },
+            "": {
+                "Style": "dark1"
             }
         },
         "D2b5cb45": {
@@ -1825,7 +1831,14 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "le96165e": {
+        "Users": {
+            "KNa5430b": {
+                "Email": "ggamals7744@yahoo.com",
+                "Password": "ggamals7744@yahoo.com",
+                "Key": "ggamals7744@yahoo.com"
+            }
+        },
+        "eBb936ff": {
             "Style": {
                 "dark": "dark",
                 "default": "default"
@@ -1835,7 +1848,7 @@
                 "Home": "Home",
                 "Branches": "Branches",
                 "ChangeLanguage": "Change language",
-                "SettingUsers": "Setting accounts",
+                "Users": "Setting accounts",
                 "Product": "Product",
                 "MyFlexTables": "flex table",
                 "MyStyle": "Style"
@@ -1889,7 +1902,7 @@
                 "LabelCategory": "Category",
                 "HintCategory": "enter Category"
             },
-            "SettingUsers": {
+            "Users": {
                 "AllBranches": "All branches",
                 "CheckbooksState": "show password",
                 "MYTITLE": "Setting account",
@@ -2042,7 +2055,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "le96165e": "English language"
+                "eBb936ff": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -2284,7 +2297,8 @@
                 "SelectTestBox": "Select Test Box",
                 "Html": "Html",
                 "Style": "Style",
-                "SelectStyle": "Select style"
+                "SelectStyle": "Select style",
+                "BranchInv": "branch id invalid"
             },
             "TableInfo": {
                 "MYTITLE": "Table",
@@ -2411,13 +2425,9 @@
                     "ONb5cb93": "Error quantity invalid",
                     "Vmb5cb9d": "Error date invalid"
                 }
-            }
-        },
-        "Users": {
-            "KNa5430b": {
-                "Email": "ggamals7744@yahoo.com",
-                "Password": "ggamals7744@yahoo.com",
-                "Key": "ggamals7744@yahoo.com"
+            },
+            "": {
+                "Style": "dark1"
             }
         }
     }

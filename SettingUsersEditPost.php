@@ -6,7 +6,7 @@ require 'ValidationId.php';
 class SettingUsersEditPost extends ValidationId{
     use ErrorsKeyPassword, ErrorsEmailPassword;
     function __construct(){
-        parent::__construct('SettingUsers');
+        parent::__construct('Users');
         $this->initErrorsEmailPassword3($this->getMyModal());
         $this->initErrorsKeyPassword2($this->getMyModal(), $_POST['id']);
         MySettingUsers::initMySettingUsers('MessageModelEdit');
@@ -15,4 +15,4 @@ class SettingUsersEditPost extends ValidationId{
 
 new SettingUsersEditPost();
 }else
-    header('LOCATION:view?id=SettingUsers');
+    header('LOCATION:view?id=Users');
