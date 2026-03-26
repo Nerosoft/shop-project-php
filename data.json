@@ -622,12 +622,12 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             },
-            "yRece596": {
+            "VMfba078": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
-                "Country": "Egypt",
-                "Governments": "cairo, egypt",
-                "City": "cairo, egypt",
+                "Country": "egypt",
+                "Governments": "menofia",
+                "City": "sirs el laiana",
                 "Street": "menofia - menouf - sirs el laiana",
                 "Building": "Nero-Soft",
                 "Address": "menofia - menouf - sirs el laiana",
@@ -1224,7 +1224,7 @@
             }
         }
     },
-    "yRece596": {
+    "VMfba078": {
         "Setting": {
             "Language": "english",
             "Style": "default"
@@ -1816,9 +1816,6 @@
                     "ONb5cb93": "Error quantity invalid",
                     "Vmb5cb9d": "Error date invalid"
                 }
-            },
-            "": {
-                "Style": "dark1"
             }
         },
         "D2b5cb45": {
@@ -2425,9 +2422,6 @@
                     "ONb5cb93": "Error quantity invalid",
                     "Vmb5cb9d": "Error date invalid"
                 }
-            },
-            "": {
-                "Style": "dark1"
             }
         }
     }

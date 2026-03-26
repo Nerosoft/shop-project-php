@@ -25,19 +25,18 @@ class ValidationId extends ModelJson{
         if($this->getSCRIPTFILENAME()!=='HomeCreatePost' && $this->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' && $this->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $this->getSCRIPTFILENAME()!=='ProductCreatePost' && !isset($_POST['id']) || $this->getSCRIPTFILENAME()!=='HomeCreatePost' && $this->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' &&  $this->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $this->getSCRIPTFILENAME()!=='ProductCreatePost' && $_POST['id'] === '')
             $this->initViewPost($this->getModelPage()['IdIsReq']);
         //make valid is array and count branch
-        //use isset($_SESSION['userId']) ignore (change style and language from login and register page)
         //make test id session inside array choices
-        else if(isset($_SESSION['userId']) && isset($_POST['choices']) && is_array($_POST['choices']) && isset($_POST['choices'][$this->getId()])|| 
-            isset($_SESSION['userId']) && isset($_POST['choices']) && !is_array($_POST['choices']) ||
-            isset($_SESSION['userId']) && isset($_POST['choices']) && count($this->getFileByFixedId()['Branches']) === 1||
-            isset($_SESSION['userId']) && isset($_POST['Branches']) && count($this->getFileByFixedId()['Branches']) === 1)
+        else if(isset($_POST['choices']) && is_array($_POST['choices']) && isset($_POST['choices'][$this->getId()])|| 
+            isset($_POST['choices']) && !is_array($_POST['choices']) ||
+            isset($_POST['choices']) && count($this->getFileByFixedId()['Branches']) === 1||
+            isset($_POST['Branches']) && count($this->getFileByFixedId()['Branches']) === 1)
             $this->initViewPost($this->getModel2()['AppSettingAdmin']['BranchInv']);
         //make add edit delete for home and language and users and product inside all branch
         else if(isset($_POST['Branches']) && $this->getUrlName2() === 'Users'||
             isset($_POST['choices']) && $this->getUrlName2() === 'Users'||
             isset($_POST['Branches']) && $this->getUrlName2() === 'Home'||
             isset($_POST['choices']) && $this->getUrlName2() === 'Home'||
-            isset($_SESSION['userId']) && isset($_POST['Branches']) && $this->getUrlName2() === 'ChangeLanguage'||
+            isset($_POST['Branches']) && $this->getUrlName2() === 'ChangeLanguage'||
             isset($_POST['choices']) && $this->getUrlName2() === 'ChangeLanguage'||
             isset($_POST['Branches']) && $this->getUrlName2() === 'Product'||
             isset($_POST['choices']) && $this->getUrlName2() === 'Product'){

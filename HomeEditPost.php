@@ -5,7 +5,9 @@ require 'MyHome.php';
 require 'ValidationId.php';
 class HomeEditPost extends ValidationId{
     use ErrorsHome;
-    function editHome(){
+    function __construct(){
+        parent::__construct('Home');
+        $this->initErrorsHome2($this->getMyModal());
         if(isset($_POST['Branches']) || isset($_POST['choices'])){
             $file = $this->getFile();
             foreach (isset($_POST['Branches']) ? $this->getFileByFixedId()['Branches'] : $_POST['choices'] as $keyBranch => $value)
@@ -18,13 +20,7 @@ class HomeEditPost extends ValidationId{
                 $myData[$code]['MyFlexTables'][$_POST['id']] = $_POST['name'];
             $this->saveModel($myData);
         }
-    }
-    function __construct(){
-        parent::__construct('Home');
-        $this->initErrorsHome2($this->getMyModal());
-        $this->editHome();
         MyHome::initHome('MessageModelEdit');
-        
     }
 }
 new HomeEditPost();
