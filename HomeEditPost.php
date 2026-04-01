@@ -5,22 +5,18 @@ require 'MyHome.php';
 require 'ValidationId.php';
 class HomeEditPost extends ValidationId{
     use ErrorsHome;
+    private $modal;
     function __construct(){
-        parent::__construct('Home');
-        $this->initErrorsHome2($this->getMyModal());
-        if(isset($_POST['Branches']) || isset($_POST['choices'])){
-            $file = $this->getFile();
-            foreach (isset($_POST['Branches']) ? $this->getFileByFixedId()['Branches'] : $_POST['choices'] as $keyBranch => $value)
-                foreach($file[$keyBranch][$file[$keyBranch]['Setting']['Language']]['AllNamesLanguage'] as $code => $value) 
-                    $file[$keyBranch][$code]['MyFlexTables'][$_POST['id']] = $_POST['name'];
-            $this->saveFile($file);
-        }else{
-            $myData = $this->getObj();
-            foreach ($this->getModel2()['AllNamesLanguage'] as $code => $value) 
-                $myData[$code]['MyFlexTables'][$_POST['id']] = $_POST['name'];
-            $this->saveModel($myData);
-        }
+        $this->modal = new ModelJson('Home');
+        $this->initErrorsHome3($this->getMyModal()->getModelPage());
+        $this->validName();
+        parent::__construct($this->getMyModal()); 
+        if(!isset($_POST['Branches']) && !isset($_POST['choices']))
+            $this->getMyModal()->saveModel($this->editHome($this->getMyModal()->getObj(), $this->getMyModal()->getModel2()['AllNamesLanguage']));
         MyHome::initHome('MessageModelEdit');
+    }
+    function getMyModal(){
+        return $this->modal;
     }
 }
 new HomeEditPost();

@@ -5,10 +5,15 @@ require 'MyBranch.php';
 require 'ValidationId.php';
 class BranchEditPost extends ValidationId{
     use ErrorBranch;
+    private $modal;
     function __construct(){
-        parent::__construct('Branches');
-        $this->saveFile($this->initErrorBranch2($this->getMyModal(), $_POST['id']));
+        $this->modal = new ModelJson('Branches');
+        parent::__construct($this->getMyModal());
+        $this->getMyModal()->saveFile($this->initErrorBranch2($this->getMyModal(), $_POST['id']));
         MyBranch::initBranch('MessageModelEdit');
+    }
+    function getMyModal(){
+        return $this->modal;
     }
 }
 new BranchEditPost();

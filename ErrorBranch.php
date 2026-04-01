@@ -72,7 +72,7 @@ trait ErrorBranch{
             $modal->initViewPost($this->getBranceRaysAddressLength());
         else if(!isset($_POST['Follow']) || $_POST['Follow'] === '')
             $modal->initViewPost($this->getBranceRaysFollowRequired());
-        else if(!isset($this->getModel2()['SelectBranchBox'][$_POST['Follow']]))
+        else if(!isset($modal->getModel2()['SelectBranchBox'][$_POST['Follow']]))
             $modal->initViewPost($modal->getModelPage()['BranceRaysFollowValue']);
     }
     function initErrorBranch2($modal, $keyId){

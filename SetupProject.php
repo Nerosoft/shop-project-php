@@ -202,6 +202,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "Delete"=> "Seccessfully delete branch"
                     ],
                     "ChangeLanguage"=> [
+                        "LanguageReq"=>"Required language",
+                        "LanguageInv"=>"Invalid language",
                         "AllBranches"=> "All branches",
                         "MYTITLE"=> "Change language",
                         "Used"=> "language is used",
@@ -441,6 +443,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "HintInputNumber"=> "Enter input numper"
                     ],
                     "MyStyle"=> [
+                        "BranchInv"=> "branch id invalid",
+                        "AllBranches"=> "All branches",
                         "MYTITLE"=> "Style",
                         "IdIsReq"=> "Id required",
                         "IdIsInv"=> "Id invalid",

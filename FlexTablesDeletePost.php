@@ -4,10 +4,15 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 require 'MyFlexTablesView.php';
 require 'ValidationId.php';
 class FlexTablesDeletePost extends ValidationId{
+    private $modal;
     function __construct(){
-        parent::__construct($_GET['id']);
-        $this->saveModel($this->deleteItem($_GET['id'], $this->getObj()));
+        $this->modal = new ModelJson($_GET['id']);
+        parent::__construct($this->getMyModal()); 
+        $this->getMyModal()->saveModel($this->deleteItem($_GET['id'], $this->getMyModal()->getObj()));
         MyFlexTablesView::initMyFlexTablesView('Delete');
+    }
+    function getMyModal(){
+        return $this->modal;
     }
 }
 new FlexTablesDeletePost();

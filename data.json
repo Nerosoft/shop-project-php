@@ -2,7 +2,8 @@
     "admin": {
         "Setting": {
             "Language": "english",
-            "Style": "default"
+            "Style": "default",
+            "AllNamesLanguage": "Nl48a977"
         },
         "english": {
             "Style": {
@@ -184,6 +185,8 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "LanguageReq": "Required language",
+                "LanguageInv": "Invalid language",
                 "AllBranches": "All branches",
                 "MYTITLE": "Change language",
                 "Used": "language is used",
@@ -203,7 +206,7 @@
                 "TableId": "Id",
                 "TabelEvent": "Event",
                 "LanguageInfo": "Hello, Welcome!",
-                "LanguageSelect": "Select a language to change the content:",
+                "LanguageSelect": "Select a language",
                 "LabelChangeLanguageMessage": "do you want to change language",
                 "LabelNewLangName": "Name",
                 "HintNewLangName": "Enter name",
@@ -221,7 +224,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "eBb936ff": "English language"
+                "Fl8753c4": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -424,6 +427,8 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
+                "BranchInv": "branch id invalid",
+                "AllBranches": "All branches",
                 "MYTITLE": "Style",
                 "IdIsReq": "Id required",
                 "IdIsInv": "Id invalid",
@@ -622,19 +627,19 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             },
-            "VMfba078": {
+            "nj5960c4": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
-                "Country": "egypt",
-                "Governments": "menofia",
-                "City": "sirs el laiana",
+                "Country": "Egypt",
+                "Governments": "cairo, egypt",
+                "City": "cairo, egypt",
                 "Street": "menofia - menouf - sirs el laiana",
-                "Building": "Nero-Soft",
+                "Building": "Egypt",
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             }
         },
-        "eBb936ff": {
+        "Fl8753c4": {
             "Style": {
                 "dark": "dark",
                 "default": "default"
@@ -814,6 +819,8 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "LanguageReq": "Required language",
+                "LanguageInv": "Invalid language",
                 "AllBranches": "All branches",
                 "MYTITLE": "Change language",
                 "Used": "language is used",
@@ -833,7 +840,7 @@
                 "TableId": "Id",
                 "TabelEvent": "Event",
                 "LanguageInfo": "Hello, Welcome!",
-                "LanguageSelect": "Select a language to change the content:",
+                "LanguageSelect": "Select a language",
                 "LabelChangeLanguageMessage": "do you want to change language",
                 "LabelNewLangName": "Name",
                 "HintNewLangName": "Enter name",
@@ -851,7 +858,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "eBb936ff": "English language"
+                "Fl8753c4": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -1054,6 +1061,8 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
+                "BranchInv": "branch id invalid",
+                "AllBranches": "All branches",
                 "MYTITLE": "Style",
                 "IdIsReq": "Id required",
                 "IdIsInv": "Id invalid",
@@ -1224,10 +1233,11 @@
             }
         }
     },
-    "VMfba078": {
+    "nj5960c4": {
         "Setting": {
             "Language": "english",
-            "Style": "default"
+            "Style": "default",
+            "AllNamesLanguage": "Nl48a977"
         },
         "english": {
             "Style": {
@@ -1409,6 +1419,8 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "LanguageReq": "Required language",
+                "LanguageInv": "Invalid language",
                 "AllBranches": "All branches",
                 "MYTITLE": "Change language",
                 "Used": "language is used",
@@ -1428,7 +1440,7 @@
                 "TableId": "Id",
                 "TabelEvent": "Event",
                 "LanguageInfo": "Hello, Welcome!",
-                "LanguageSelect": "Select a language to change the content:",
+                "LanguageSelect": "Select a language",
                 "LabelChangeLanguageMessage": "do you want to change language",
                 "LabelNewLangName": "Name",
                 "HintNewLangName": "Enter name",
@@ -1446,7 +1458,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "eBb936ff": "English language"
+                "Fl8753c4": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -1649,6 +1661,8 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
+                "BranchInv": "branch id invalid",
+                "AllBranches": "All branches",
                 "MYTITLE": "Style",
                 "IdIsReq": "Id required",
                 "IdIsInv": "Id invalid",
@@ -1835,7 +1849,7 @@
                 "Key": "ggamals7744@yahoo.com"
             }
         },
-        "eBb936ff": {
+        "Fl8753c4": {
             "Style": {
                 "dark": "dark",
                 "default": "default"
@@ -2015,6 +2029,8 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "LanguageReq": "Required language",
+                "LanguageInv": "Invalid language",
                 "AllBranches": "All branches",
                 "MYTITLE": "Change language",
                 "Used": "language is used",
@@ -2034,7 +2050,7 @@
                 "TableId": "Id",
                 "TabelEvent": "Event",
                 "LanguageInfo": "Hello, Welcome!",
-                "LanguageSelect": "Select a language to change the content:",
+                "LanguageSelect": "Select a language",
                 "LabelChangeLanguageMessage": "do you want to change language",
                 "LabelNewLangName": "Name",
                 "HintNewLangName": "Enter name",
@@ -2052,7 +2068,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "eBb936ff": "English language"
+                "Fl8753c4": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -2255,6 +2271,8 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
+                "BranchInv": "branch id invalid",
+                "AllBranches": "All branches",
                 "MYTITLE": "Style",
                 "IdIsReq": "Id required",
                 "IdIsInv": "Id invalid",

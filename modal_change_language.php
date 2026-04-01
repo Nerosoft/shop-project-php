@@ -1,6 +1,31 @@
 <!-- Modal -->
 <?php 
-include('start_model.php');?>
+include('start_model.php');
+//ignore create language(onlu edit lang and style)
+if($action !== 'ChangeLanguageCreatePost.php')
+    echo '<input type="hidden" value="'.$view->getUrlName2().'" name="option">';
+else{
+    echo <<<HTML
+        <div class="form-group">
+            <label for="selectedLanguage">{$view->getSelectLang()}</label>
+            <select
+            title=""
+            class="form-select" name="selectedLanguage"  aria-label="Default select example">
+    HTML;
+               foreach($view->getMyDataView() as $key=>$name){
+                    $select = $key === $view->getLanguage()? 'selected' : '';
+                    echo <<<HTML
+                    <option {$select} value="{$key}">
+                        {$name->getName()}
+                    </option>
+                    HTML;
+                }
+    echo <<<HTML
+            </select>
+        </div>
+    HTML;
+}
+?>
 
 
 <div class="form-group">

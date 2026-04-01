@@ -21,13 +21,13 @@
                                 <td>
                                 
                         HTML;
-                        $action = 'ChangeStylePost.php';
+                        $action = 'ChangeLanguagePost.php';
                         include('modal_changelanguage_changestyle.php');
                         $title = $view->getScreenModelEdit();
                         $button = $view->getButtonModelEdit();
                         $idModel = "editModel".$index;
                         $idForm = "editForm".$index;
-                        $action = 'MyStyleEditPost';
+                        $action = 'ChangeLanguageEditPost';
                         include('modal_change_language.php');
 
                      

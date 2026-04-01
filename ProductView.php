@@ -56,7 +56,7 @@
                         include('modal_delete.php');
                         $title = $view->getScreenModelEdit();
                         $button = $view->getButtonModelEdit();
-                        $action = 'ProductEditPost.php';
+                        $action = 'ProductCreatePost.php';
                         $idModel = "editModel".$index;
                         $idForm = "editForm".$index;
                         include('ProductModal.php');

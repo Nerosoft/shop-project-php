@@ -1,24 +1,24 @@
 <?php
 include 'SessionAdmin.php';
-if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'MyChangeLanguage.php';
+if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['option']) && $_POST['option'] === 'ChangeLanguage' || $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['option']) && $_POST['option'] === 'MyStyle'){
+require ($_POST['option'] === 'MyStyle'?'MyStyleClass':'MyChangeLanguage').'.php';
 require 'ValidationId.php';
 class ChangeLanguageEditPost extends ValidationId{
     use ErrorChangelanguage;
+    private $modal;
     function __construct(){
-        parent::__construct('ChangeLanguage');
+        $this->modal = new ModelJson($_POST['option']);
         $this->validLanguageInput($this->getMyModal());
-        if(isset($_POST['Branches']) || isset($_POST['choices'])){
-            $file = $this->getFile();
-            foreach (isset($_POST['Branches']) ? $this->getFileByFixedId()['Branches'] : $_POST['choices'] as $keyBranch => $value)
-                $file[$keyBranch] = $this->saveNameLanguage($file[$keyBranch][$file[$keyBranch]['Setting']['Language']]['AllNamesLanguage'], 'AllNamesLanguage', $_POST['id'], $file[$keyBranch]);
-            $this->saveFile($file);
-        }else
-            $this->saveModel($this->saveNameLanguage($this->getallNames(), 'AllNamesLanguage', $_POST['id'], $this->getObj()));
-        MyChangeLanguage::initMyChangeLanguage('MessageModelEdit');
+        parent::__construct($this->getMyModal(), $_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage'); 
+        if(!isset($_POST['Branches']) && !isset($_POST['choices']))
+            $this->getMyModal()->saveModel($this->saveNameLanguage($this->getallNames(), $_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage', $_POST['id'], $this->getMyModal()->getObj()));
+        $this->getMyModal()->initViewPost('MessageModelEdit', 'success');
+    }
+    function getMyModal(){
+        return $this->modal;
     }
 }
 
 new ChangeLanguageEditPost();
 }else
-    header('LOCATION:view?id=ChangeLanguage');
+    header('LOCATION:index');

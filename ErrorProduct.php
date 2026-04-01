@@ -24,11 +24,11 @@ trait ErrorProduct{
         $this->Invimage = $error['Invimage'];
         $this->UploadImgInv = $error['UploadImgInv'];
     }
-    function initErrorProduct2($modal, $myKeyDb, $keyMessage = 'MessageModelCreate'){
+    function validProductInput($modal){
         $this->initErrorProduct($modal->getModelPage());
         if(!isset($_FILES['avatar']))
            Product::initProduct($this->getUploadImgInv(), 'danger');
-        else if($modal->getSCRIPTFILENAME()==="ProductCreatePost" && !is_uploaded_file($_FILES['avatar']['tmp_name']))
+        else if(!isset($_POST['id']) && !is_uploaded_file($_FILES['avatar']['tmp_name']))
             Product::initProduct($this->getUploadImgInv(), 'danger');
         else if(is_uploaded_file($_FILES['avatar']['tmp_name']) && 
         strtolower(pathinfo(basename($_FILES['avatar']['name']), PATHINFO_EXTENSION)) !== 'jpg' &&
@@ -53,14 +53,6 @@ trait ErrorProduct{
            Product::initProduct($this->getRequiredCategory(), 'danger');
         else if(strlen($_POST['category']) < 3)
            Product::initProduct($this->getInvalidCategory(), 'danger');
-        else if(isset($_POST['Branches']) || isset($_POST['choices'])){
-            $file = $modal->getFile();
-            foreach (isset($_POST['Branches']) ? $modal->getFileByFixedId()['Branches'] : $_POST['choices'] as $keyBranch => $value)
-                $file[$keyBranch] = $this->saveProduct($file[$keyBranch], $myKeyDb, $keyBranch);
-            $modal->saveFile($file);
-        }else
-            $modal->saveModel($this->saveProduct($modal->getObj(), $myKeyDb, $modal->getId()));
-        Product::initProduct($keyMessage);
     }
     function saveProduct($myData, $myKeyDb, $idSseion){
         $myData['Product'][$myKeyDb] = array("Name"=>$_POST["name"], "Descreption"=>$_POST["descreption"], "Salary"=>$_POST["salary"], "Category"=>$_POST["category"]);

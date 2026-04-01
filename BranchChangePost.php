@@ -4,10 +4,15 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 require 'MyBranch.php';
 require 'ValidationId.php';
 class BranchChangePost extends ValidationId{
+    private $modal;
     function __construct(){
-        parent::__construct('Branches');
-        $this->resetId();
+        $this->modal = new ModelJson('Branches');
+        parent::__construct($this->getMyModal());
+        $this->getMyModal()->resetId();
         MyBranch::initBranch('SuccessfullyChangeBranch');
+    }
+    function getMyModal(){
+        return $this->modal;
     }
 }
 new BranchChangePost();

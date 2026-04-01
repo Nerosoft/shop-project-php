@@ -36,7 +36,7 @@
                             include('modal_delete.php');
                             $title = $view->getScreenModelEdit();
                             $button = $view->getButtonModelEdit();
-                            $action = 'SettingUsersEditPost.php';
+                            $action = 'SettingUsersCreatePost.php';
                             $idModel = "editModel".$index;
                             $idForm = "editForm".$index;
                             include('modal_setting_users_table.php');

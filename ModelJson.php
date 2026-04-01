@@ -12,17 +12,27 @@ class ModelJson{
         if(isset($_SESSION['userId'])){
             $this->id = $_SESSION['userId'];
             $this->FixedId = $_SESSION['staticId'];
+            $this->Language = $this->getObj()['Setting']['Language'];
+            $this->StyleFile = $this->getObj()['Setting']['Style'];
         }else if(isset($_GET['id']) && !isset($this->File[$_GET['id']]) || $_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST['superId']) || $_SERVER["REQUEST_METHOD"] === "POST" && !isset($this->File[$_POST['superId']]))
             header("Location:".$this->getUrlName2());
-        else if($_SERVER["REQUEST_METHOD"] === "POST")
+        else if($_SERVER["REQUEST_METHOD"] === "POST"){
             $this->id = $_POST['superId'];
-        else if(isset($_GET['id']))
+            $this->Language = isset($_COOKIE[$this->getId().'lang']) && isset($this->getObj()[$_COOKIE[$this->getId().'lang']])?$_COOKIE[$this->getId().'lang']:$this->getObj()['Setting']['Language'];
+            $this->StyleFile = isset($_COOKIE[$this->getId().'style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'style']])?$_COOKIE[$this->getId().'style']:$this->getObj()['Setting']['Style'];
+        }
+        else if(isset($_GET['id'])){
             $this->id = $_GET['id'];
-        else
+            $this->Language = isset($_COOKIE[$this->getId().'lang']) && isset($this->getObj()[$_COOKIE[$this->getId().'lang']])?$_COOKIE[$this->getId().'lang']:$this->getObj()['Setting']['Language'];
+            $this->StyleFile = isset($_COOKIE[$this->getId().'style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'style']])?$_COOKIE[$this->getId().'style']:$this->getObj()['Setting']['Style'];
+        }
+        else{
             $this->id = 'admin';
-        $this->Language = isset($_COOKIE[$this->getId().'lang']) && isset($this->getObj()[$_COOKIE[$this->getId().'lang']]) && !isset($_SESSION['staticId'])?$_COOKIE[$this->getId().'lang']:$this->getObj()['Setting']['Language'];
-        $this->StyleFile = isset($_COOKIE[$this->getId().'style']) && isset($this->getObj()[$this->Language]['Style'][$_COOKIE[$this->getId().'style']]) && !isset($_SESSION['staticId'])?$_COOKIE[$this->getId().'style']:$this->getObj()['Setting']['Style'];
+            $this->Language = isset($_COOKIE[$this->getId().'lang']) && isset($this->getObj()[$_COOKIE[$this->getId().'lang']])?$_COOKIE[$this->getId().'lang']:$this->getObj()['Setting']['Language'];
+            $this->StyleFile = isset($_COOKIE[$this->getId().'style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'style']])?$_COOKIE[$this->getId().'style']:$this->getObj()['Setting']['Style'];
+        }
     }
+    //create and edit
     function getRandomId(){
         return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 2) . substr(uniqid(), -6);
     }

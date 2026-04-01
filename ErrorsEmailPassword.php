@@ -14,14 +14,13 @@ trait ErrorsEmailPassword{
     function initErrorsEmailPassword3($modal){
         $this->initErrorsEmailPassword($modal->getModelPage());
         if(!isset($_POST['Email']) || $_POST['Email'] === '')
-            ModelJson::initViewPost($this->getRequiredEmail());
+            $modal->initViewPost($this->getRequiredEmail());
         else if(!preg_match('/^[\w]+@[\w]+\.[a-zA-z]{2,6}$/', $_POST['Email']))
-            ModelJson::initViewPost($this->getInvalidEmail());
+            $modal->initViewPost($this->getInvalidEmail());
         else if(!isset($_POST['Password']) || $_POST['Password'] === '')
-            ModelJson::initViewPost($this->getRequiredPassword());
+            $modal->initViewPost($this->getRequiredPassword());
         else if(strlen($_POST['Password']) < 8)
-            ModelJson::initViewPost($this->getInvalidPassword());
-        return true;
+            $modal->initViewPost($this->getInvalidPassword());
     }
     function getRequiredEmail(){
         return $this->RequiredEmail;

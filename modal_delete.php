@@ -4,9 +4,12 @@ $title = $view->getScreenModelDelete();
 $idModel = "deleteModel".$index;
 $idForm = "deleteForm".$index;
 include('start_model.php');
-include ('my_id.php');
 echo $view->getmessageModelDelete().'<spam>-'.($nameItem??$myObject->getName()).'</spam>';
-include 'AllBranchOption.php';
+//ignore branch and flextable
+if($view->getUrlName2() === 'Branches' || isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()]))
+    include ('my_id.php');
+else
+    include 'AllBranchOption.php';
 ?>
 </div>
 <div class="modal-footer">

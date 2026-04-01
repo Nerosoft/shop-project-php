@@ -15,12 +15,6 @@ trait ErrorChangelanguage{
     function getNewLangNameInvalid(){
         return $this->NewLangNameInvalid;
     }
-
-    function initErrorChangelanguage2($modal, $newKey){
-        //valid input for style and language
-        $this->validLanguageInput($modal);
-        return $this->saveNameLanguage($this->getallNames(), 'Style', $newKey, $modal->getObj());
-    }
     function saveNameLanguage($name, $nameKey, $newKey, $myData){
         foreach ($name as $key=>$value)
             $myData[$key][$nameKey][$newKey] = $_POST['lang_name'];
@@ -29,8 +23,8 @@ trait ErrorChangelanguage{
     function validLanguageInput($modal){
         $this->initErrorChangelanguage($modal->getModelPage(), $modal->getModel2()['AllNamesLanguage']);
         if(!isset($_POST['lang_name']) || $_POST['lang_name'] === '')
-            ModelJson::initViewPost($this->getNewLangNameRequired());
+            $modal->initViewPost($this->getNewLangNameRequired());
         else if(strlen($_POST['lang_name']) < 3)
-            ModelJson::initViewPost($this->getNewLangNameInvalid());
+            $modal->initViewPost($this->getNewLangNameInvalid());
     }
 }
