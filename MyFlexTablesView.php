@@ -10,12 +10,17 @@ class MyFlexTablesView extends Page implements InterfaceDataView{
     private $Label;
     private $Hint;
     private $DataView;
+    private $AllBranches;
+    function getAllBranches(){
+        return $this->AllBranches;
+    } 
     function __construct($message = 'LoadMessage', $type = 'success'){
         parent::__construct($_GET['id'], $message, $type);
         $this->initErrorFlexTable($this->getModelPage());
         $this->TableHead = $this->getModelPage()['TableHead'];
         $this->Label = $this->getModelPage()['Label'];
         $this->Hint = $this->getModelPage()['Hint'];
+        $this->AllBranches = $this->getModelPage()['AllBranches'];
         $this->DataView = isset($this->getObj()[$_GET['id']])?array_reverse($this->getObj()[$_GET['id']]):array();
     }
     static function initMyFlexTablesView($message = 'LoadMessage', $type = 'success'){

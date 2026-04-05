@@ -224,7 +224,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "Fl8753c4": "English language"
+                "wSa6e1a9": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -427,7 +427,6 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
-                "BranchInv": "branch id invalid",
                 "AllBranches": "All branches",
                 "MYTITLE": "Style",
                 "IdIsReq": "Id required",
@@ -481,6 +480,7 @@
                 "InfoFiltered": "Showing"
             },
             "TablePage": {
+                "AllBranches": "All branches",
                 "MYTITLE": "your name table",
                 "LoadMessage": "your message loade page",
                 "ScreenModelDelete": "your title delete modal",
@@ -538,6 +538,7 @@
                 "D2b5cb45": "book programming language"
             },
             "D2b5cb45": {
+                "AllBranches": "All branches",
                 "MYTITLE": "book programming language",
                 "LoadMessage": "Welcome in book programing language",
                 "ScreenModelDelete": "Welcome in delete book",
@@ -627,19 +628,19 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             },
-            "nj5960c4": {
+            "Rya7d44e": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
                 "Governments": "cairo, egypt",
                 "City": "cairo, egypt",
                 "Street": "menofia - menouf - sirs el laiana",
-                "Building": "Egypt",
+                "Building": "Nero-Soft",
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             }
         },
-        "Fl8753c4": {
+        "wSa6e1a9": {
             "Style": {
                 "dark": "dark",
                 "default": "default"
@@ -858,7 +859,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "Fl8753c4": "English language"
+                "wSa6e1a9": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -1061,7 +1062,6 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
-                "BranchInv": "branch id invalid",
                 "AllBranches": "All branches",
                 "MYTITLE": "Style",
                 "IdIsReq": "Id required",
@@ -1115,6 +1115,7 @@
                 "InfoFiltered": "Showing"
             },
             "TablePage": {
+                "AllBranches": "All branches",
                 "MYTITLE": "your name table",
                 "LoadMessage": "your message loade page",
                 "ScreenModelDelete": "your title delete modal",
@@ -1172,6 +1173,7 @@
                 "D2b5cb45": "book programming language"
             },
             "D2b5cb45": {
+                "AllBranches": "All branches",
                 "MYTITLE": "book programming language",
                 "LoadMessage": "Welcome in book programing language",
                 "ScreenModelDelete": "Welcome in delete book",
@@ -1233,7 +1235,7 @@
             }
         }
     },
-    "nj5960c4": {
+    "Rya7d44e": {
         "Setting": {
             "Language": "english",
             "Style": "default",
@@ -1458,7 +1460,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "Fl8753c4": "English language"
+                "wSa6e1a9": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -1661,7 +1663,6 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
-                "BranchInv": "branch id invalid",
                 "AllBranches": "All branches",
                 "MYTITLE": "Style",
                 "IdIsReq": "Id required",
@@ -1715,6 +1716,7 @@
                 "InfoFiltered": "Showing"
             },
             "TablePage": {
+                "AllBranches": "All branches",
                 "MYTITLE": "your name table",
                 "LoadMessage": "your message loade page",
                 "ScreenModelDelete": "your title delete modal",
@@ -1772,6 +1774,7 @@
                 "D2b5cb45": "book programming language"
             },
             "D2b5cb45": {
+                "AllBranches": "All branches",
                 "MYTITLE": "book programming language",
                 "LoadMessage": "Welcome in book programing language",
                 "ScreenModelDelete": "Welcome in delete book",
@@ -1849,7 +1852,7 @@
                 "Key": "ggamals7744@yahoo.com"
             }
         },
-        "Fl8753c4": {
+        "wSa6e1a9": {
             "Style": {
                 "dark": "dark",
                 "default": "default"
@@ -2068,7 +2071,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "Fl8753c4": "English language"
+                "wSa6e1a9": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -2271,7 +2274,6 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
-                "BranchInv": "branch id invalid",
                 "AllBranches": "All branches",
                 "MYTITLE": "Style",
                 "IdIsReq": "Id required",
@@ -2325,6 +2327,7 @@
                 "InfoFiltered": "Showing"
             },
             "TablePage": {
+                "AllBranches": "All branches",
                 "MYTITLE": "your name table",
                 "LoadMessage": "your message loade page",
                 "ScreenModelDelete": "your title delete modal",
@@ -2382,6 +2385,7 @@
                 "D2b5cb45": "book programming language"
             },
             "D2b5cb45": {
+                "AllBranches": "All branches",
                 "MYTITLE": "book programming language",
                 "LoadMessage": "Welcome in book programing language",
                 "ScreenModelDelete": "Welcome in delete book",

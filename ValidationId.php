@@ -23,13 +23,12 @@ class ValidationId{
         $myData['Setting'][$myKey] = $_POST['id'];
         return $myData;
     }
-    function saveFelxTable($AllNamesLanguage, $myData, $key, $modal){
+    function saveFelxTable($AllNamesLanguage, $myData, $key, $keysInput){
         foreach ($AllNamesLanguage as $code => $value) {
             $myData[$code]['MyFlexTables'][$key] = $_POST['name'];
             $myData[$code][$key] = $myData[$code]['TablePage'];
             $myData[$code][$key]['MYTITLE'] = $_POST['name'];
-            for ($i=0; $i < $_POST['input_number']; $i++){
-                $myInputKey = $modal->getRandomId();
+            foreach ($keysInput as $key2 => $myInputKey){
                 $myData[$code][$key]['TableHead'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputNameTable'];
                 $myData[$code][$key]['Label'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputLabel'];
                 $myData[$code][$key]['Hint'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputHint'];
@@ -46,9 +45,10 @@ class ValidationId{
     }
     //passing modal and stop extends
     //make pram for allnamelanguage and style $modal->getSCRIPTFILENAME() === 'ChangeLanguageEditPost'?'AllNamesLanguage':'Style'
-    function __construct($modal, $keyId = null, $var = null){
+    function __construct($modal, $keyId = null, $keysInput = null){
         //valid id first
-        if($modal->getSCRIPTFILENAME()!=='HomeCreatePost' && $modal->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' && $modal->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $modal->getSCRIPTFILENAME()!=='ProductCreatePost' && !isset($_POST['id']) || $modal->getSCRIPTFILENAME()!=='HomeCreatePost' && $modal->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' &&  $modal->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $modal->getSCRIPTFILENAME()!=='ProductCreatePost' && $_POST['id'] === '')
+        if($modal->getSCRIPTFILENAME()!=='FlexTablesCreatePost' && $modal->getSCRIPTFILENAME()!=='HomeCreatePost' && $modal->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' && $modal->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $modal->getSCRIPTFILENAME()!=='ProductCreatePost' && !isset($_POST['id']) ||
+         $modal->getSCRIPTFILENAME()!=='FlexTablesCreatePost' && $modal->getSCRIPTFILENAME()!=='HomeCreatePost' && $modal->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' &&  $modal->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $modal->getSCRIPTFILENAME()!=='ProductCreatePost' && $_POST['id'] === '')
             $modal->initViewPost($modal->getModelPage()['IdIsReq']);
         
         
@@ -73,6 +73,10 @@ class ValidationId{
             isset($_POST['choices']) && $modal->getUrlName2() === 'Users'||
             isset($_POST['Branches']) && $modal->getUrlName2() === 'Home'||
             isset($_POST['choices']) && $modal->getUrlName2() === 'Home'||
+            isset($_POST['Branches']) && $modal->getSCRIPTFILENAME() === 'FlexTablesCreatePost'||
+            isset($_POST['choices']) && $modal->getSCRIPTFILENAME() === 'FlexTablesCreatePost'||
+            isset($_POST['Branches']) && $modal->getSCRIPTFILENAME() === 'FlexTablesDeletePost'||
+            isset($_POST['choices']) && $modal->getSCRIPTFILENAME() === 'FlexTablesDeletePost'||
             isset($_POST['Branches']) && $modal->getUrlName2() === 'MyStyle'||
             isset($_POST['choices']) && $modal->getUrlName2() === 'MyStyle'||
             isset($_POST['Branches']) && $modal->getUrlName2() === 'ChangeLanguage'||
@@ -91,6 +95,9 @@ class ValidationId{
                 else if($modal->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$keyId][$_POST['id']]) ||
                 $modal->getSCRIPTFILENAME() === 'ChangeLanguagePost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$keyId][$_POST['id']]) ||
                   $modal->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && !isset($myFile[$key][$_POST['id']]) ||
+                  isset($_POST['id']) && $modal->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($myFile[$key][$_GET['id']][$_POST['id']]) ||
+                  !isset($_POST['id']) && $modal->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_GET['id']]) ||
+                  isset($_POST['id']) && $modal->getSCRIPTFILENAME() === 'FlexTablesDeletePost' && !isset($myFile[$key][$_GET['id']][$_POST['id']]) ||
                    $modal->getSCRIPTFILENAME() === 'HomeEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['id']]) ||
                    $modal->getSCRIPTFILENAME() === 'HomeDeletePost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['id']]) ||
                     isset($_POST['id']) && $modal->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && !isset($myFile[$key][$modal->getUrlName2()][$_POST['id']]) ||
@@ -129,16 +136,16 @@ class ValidationId{
                     $myFile[$key][$keyId] = $lang;
                 }
                 else if($modal->getSCRIPTFILENAME() === 'ChangeLanguageEditPost')
-                    $myFile[$key] = $this->saveNameLanguage($myFile[$key][$myFile[$key]['Setting']['Language']]['AllNamesLanguage'], $var, $_POST['id'], $myFile[$key]);
+                    $myFile[$key] = $this->saveNameLanguage($myFile[$key][$myFile[$key]['Setting']['Language']]['AllNamesLanguage'], $keyId, $_POST['id'], $myFile[$key]);
                 //make delete language
                 else if($modal->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost')
                     //delete item or array
                    $myFile[$key] = $this->deleteLanguage($myFile[$key]);
                 else if($modal->getSCRIPTFILENAME() === 'ChangeLanguagePost')
-                    $myFile[$key] = $this->changeLangStylePost($myFile[$key], $var);
+                    $myFile[$key] = $this->changeLangStylePost($myFile[$key], $_POST['option'] === 'MyStyle'?'Style':'Language');
                 //--------------------------------------------------------------------------------
                 else if($modal->getSCRIPTFILENAME() === 'HomeCreatePost')
-                    $myFile[$key] = $this->saveFelxTable($myFile[$key][$myFile[$key]['Setting']['Language']]['AllNamesLanguage'], $myFile[$key], $keyId, $modal);
+                    $myFile[$key] = $this->saveFelxTable($myFile[$key][$myFile[$key]['Setting']['Language']]['AllNamesLanguage'], $myFile[$key], $keyId, $keysInput);
                 else if($modal->getSCRIPTFILENAME() === 'HomeEditPost')
                     $myFile[$key] = $this->editHome($myFile[$key], $myFile[$key][$myFile[$key]['Setting']['Language']]['AllNamesLanguage']);
                 //make delete home
@@ -156,6 +163,10 @@ class ValidationId{
                     array_map('unlink', glob('asset/product/'.$key.'/'.$_POST['id'].'.*'));
                 }
                 //---------------------------------------------------------------------------------
+                else if($modal->getSCRIPTFILENAME() === 'FlexTablesCreatePost')
+                    $myFile[$key] = $this->saveFlexTable($myFile[$key], $myFile[$key][$myFile[$key]['Setting']['Language']][$_GET['id']]['ErrorsMessageReq'], $keyId);
+                else if($modal->getSCRIPTFILENAME() === 'FlexTablesDeletePost')
+                    $myFile[$key] = $this->deleteItem($_GET['id'], $myFile[$key]);
             $modal->saveFile($myFile);
         }
 
@@ -165,7 +176,7 @@ class ValidationId{
             isset($_POST['id']) && $modal->getSCRIPTFILENAME() === 'BranchDeletePost' && $_POST['id'] === $modal->getId()||
             isset($_POST['id']) && $modal->getUrlName2() === 'Branches' && !isset($modal->getBranch()[$_POST['id']])||
             isset($_POST['id']) && $modal->getUrlName2() === 'MyStyle' && !isset($modal->getModel2()['Style'][$_POST['id']])||
-            isset($_POST['id']) && $modal->getSCRIPTFILENAME() === 'FlexTablesEditPost' && !isset($modal->getObj()[$_GET['id']][$_POST['id']]) ||
+            isset($_POST['id']) && $modal->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($modal->getObj()[$_GET['id']][$_POST['id']]) ||
             isset($_POST['id']) && $modal->getSCRIPTFILENAME() === 'FlexTablesDeletePost' && !isset($modal->getObj()[$_GET['id']][$_POST['id']]) ||
             isset($_POST['id']) && $modal->getUrlName2() === 'Login' && $_POST['state'] ==='lang' && !isset($modal->getModel2()['AllNamesLanguage'][$_POST['id']])||
             isset($_POST['id']) && $modal->getUrlName2() === 'Register' && $_POST['state'] ==='lang' && !isset($modal->getModel2()['AllNamesLanguage'][$_POST['id']])||

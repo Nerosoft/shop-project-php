@@ -5,9 +5,11 @@ $button = $view->getButtonChangeLanguageMessage();
 $idModel = "selectLanguage".$index;
 $idForm = "selectLanguage".$index;
 include('start_model.php');
-//ignore branch change only(style and lang)
-if($action !== 'BranchChangePost.php')
-    echo '<input type="hidden" value="'.$view->getUrlName2().'" name="option">';
 echo $view->getLabelChangeLanguageMessage().'<spam>-'.$myObject->getName().'</spam>';
-include 'AllBranchOption.php';
+//ignore branch change only(style and lang)
+if($view->getUrlName2() !== 'Branches'){
+    echo '<input type="hidden" value="'.$view->getUrlName2().'" name="option">';
+    include 'AllBranchOption.php';
+}else
+    include('my_id.php');
 include('end_model.php');

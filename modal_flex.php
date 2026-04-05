@@ -1,8 +1,6 @@
 <!-- Modal -->
 <?php 
 include('start_model.php');
-if(isset($index))
-    include('my_id.php');
 foreach($myObject??$view->getHint() as $key=>$value){
     $inputValue = isset($index)?$value:'';
     echo <<<HTML
@@ -20,5 +18,6 @@ foreach($myObject??$view->getHint() as $key=>$value){
 }
 ?>
 <?php 
+include 'AllBranchOption.php';
 include('end_model.php');
 ?>

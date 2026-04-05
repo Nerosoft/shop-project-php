@@ -443,7 +443,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "HintInputNumber"=> "Enter input numper"
                     ],
                     "MyStyle"=> [
-                        "BranchInv"=> "branch id invalid",
                         "AllBranches"=> "All branches",
                         "MYTITLE"=> "Style",
                         "IdIsReq"=> "Id required",
@@ -497,6 +496,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "InfoFiltered"=> "Showing"
                     ],
                     "TablePage"=> [
+                        "AllBranches"=> "All branches",
                         "MYTITLE"=> "your name table",
                         "LoadMessage"=> "your message loade page",
                         "ScreenModelDelete"=> "your title delete modal",

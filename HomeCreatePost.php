@@ -14,9 +14,9 @@ class HomeCreatePost extends ValidationId{
         else if(!is_numeric($_POST['input_number']) || $_POST['input_number'] > 8)
             MyHome::initHome($this->getInputNumberTableIsInv(), 'danger');        
         else if(!isset($_POST['Branches']) && !isset($_POST['choices']))
-            $this->getMyModal()->saveModel($this->saveFelxTable($this->getMyModal()->getModel2()['AllNamesLanguage'], $this->getMyModal()->getObj(), $this->getMyModal()->getRandomId(), $this->getMyModal()));
+            $this->getMyModal()->saveModel($this->saveFelxTable($this->getMyModal()->getModel2()['AllNamesLanguage'], $this->getMyModal()->getObj(), $this->getMyModal()->getRandomId(), $this->getMyModal()->getArrayKeys()));
         else 
-            parent::__construct($this->getMyModal(), $this->getMyModal()->getRandomId()); 
+            parent::__construct($this->getMyModal(), $this->getMyModal()->getRandomId(), $this->getMyModal()->getArrayKeys()); 
         MyHome::initHome('MessageModelCreate');
     }
     function getMyModal(){

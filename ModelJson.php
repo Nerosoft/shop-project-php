@@ -122,4 +122,10 @@ class ModelJson{
     function getMyModal(){
         return $this;
     }
+    function getArrayKeys(){
+        $myInputKey = array();
+        for ($i=0; $i < $_POST['input_number']; $i++)
+            array_push($myInputKey,$this->getRandomId());
+        return $myInputKey;
+    }
 }

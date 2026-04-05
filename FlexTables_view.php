@@ -45,7 +45,7 @@
                         $button = $view->getButtonModelEdit();
                         $idModel = "editModel".$index;
                         $idForm = "editForm".$index;
-                        $action = 'FlexTablesEditPost?id='.$_GET['id'];
+                        $action = 'FlexTablesCreatePost?id='.$_GET['id'];
                         include('modal_flex.php');
                         echo <<<HTML
                                     <img class="style_icon_menu pointer"
