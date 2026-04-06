@@ -1,12 +1,4 @@
 language arabic and direction
-make add edit delete inside all branch
-move change language inside edit all words
 make trait language and branch and style is active error
-move isset index and start modal inside AllBranchOption
-change SettingUsers key inside menu into User and use getUrlName2 like
-$key !== $view->getId() && $view->getUrlName2() === 'Product' && isset($view->getFile()[$key][$view->getUrlName2()][$index]))
-make chose lang for create language like arabic or english or systemlang
-solve delete modal
-solve change lang and style auth
 solve image product
 Modeljson overwrit constructor
