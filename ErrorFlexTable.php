@@ -14,11 +14,6 @@ trait ErrorFlexTable{
             else if(strlen($_POST[$key]) < 3)
                 MyFlexTablesView::initMyFlexTablesView($this->getErrorsMessageInv()[$key], 'danger');
     }
-    function saveFlexTable($myData, $keysInput, $keyId){
-        foreach ($keysInput as $key => $value)
-            $myData[$_GET['id']][$keyId][$key] = $_POST[$key];
-        return $myData;
-    }
     function getErrorsMessageReq(){
         return $this->ErrorsMessageReq;
     }

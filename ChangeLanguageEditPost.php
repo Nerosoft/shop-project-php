@@ -9,9 +9,12 @@ class ChangeLanguageEditPost extends ValidationId{
     function __construct(){
         $this->modal = new ModelJson($_POST['option']);
         $this->validLanguageInput($this->getMyModal());
-        parent::__construct($this->getMyModal(), $_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage'); 
+        $keyId = $_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage';
+        parent::__construct($this->getMyModal(), function($myFile) use($keyId){
+            return $this->saveNameLanguage($myFile[$myFile['Setting']['Language']]['AllNamesLanguage'], $keyId, $_POST['id'], $myFile);
+        }); 
         if(!isset($_POST['Branches']) && !isset($_POST['choices']))
-            $this->getMyModal()->saveModel($this->saveNameLanguage($this->getallNames(), $_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage', $_POST['id'], $this->getMyModal()->getObj()));
+            $this->getMyModal()->saveModel($this->saveNameLanguage($this->getallNames(), $keyId, $_POST['id'], $this->getMyModal()->getObj()));
         $this->getMyModal()->initViewPost('MessageModelEdit', 'success');
     }
     function getMyModal(){

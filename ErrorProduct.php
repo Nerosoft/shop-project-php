@@ -54,21 +54,6 @@ trait ErrorProduct{
         else if(strlen($_POST['category']) < 3)
            Product::initProduct($this->getInvalidCategory(), 'danger');
     }
-    function saveProduct($myData, $myKeyDb, $idSseion){
-        $myData['Product'][$myKeyDb] = array("Name"=>$_POST["name"], "Descreption"=>$_POST["descreption"], "Salary"=>$_POST["salary"], "Category"=>$_POST["category"]);
-        if(isset($_FILES['avatar']) && is_uploaded_file($_FILES['avatar']['tmp_name']) && is_dir('asset/product/'.$idSseion))
-            copy($_FILES['avatar']['tmp_name'], 'asset/product/'.$idSseion.'/'.$myKeyDb.'.'.strtolower(pathinfo(basename($_FILES['avatar']['name']), PATHINFO_EXTENSION)));
-        else if(isset($_FILES['avatar']) && is_uploaded_file($_FILES['avatar']['tmp_name']) && is_dir('asset/product')){
-            mkdir('asset/product/'.$idSseion);
-            copy($_FILES['avatar']['tmp_name'], 'asset/product/'.$idSseion.'/'.$myKeyDb.'.'.strtolower(pathinfo(basename($_FILES['avatar']['name']), PATHINFO_EXTENSION)));
-        }
-        else if(isset($_FILES['avatar']) && is_uploaded_file($_FILES['avatar']['tmp_name'])){
-            mkdir('asset/product');
-            mkdir('asset/product/'.$idSseion);
-            copy($_FILES['avatar']['tmp_name'], 'asset/product/'.$idSseion.'/'.$myKeyDb.'.'.strtolower(pathinfo(basename($_FILES['avatar']['name']), PATHINFO_EXTENSION)));
-        }
-        return $myData;
-    }
     function getUploadImgInv(){
         return $this->UploadImgInv;
     }

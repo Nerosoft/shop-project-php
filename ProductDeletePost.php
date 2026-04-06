@@ -7,7 +7,12 @@ class ProductDeletePost extends ValidationId{
     private $modal;
     function __construct(){
         $this->modal = new ModelJson('Product');
-        parent::__construct($this->getMyModal());
+        parent::__construct($this->getMyModal(), function($myFile, $key){
+            //delete image for product
+            array_map('unlink', glob('asset/product/'.$key.'/'.$_POST['id'].'.*'));
+            //delete item or array
+            return $this->deleteItem('Product', $myFile);
+        });
         if(!isset($_POST['Branches']) && !isset($_POST['choices'])){
             $this->getMyModal()->saveModel($this->deleteItem('Product', $this->getMyModal()->getObj()));
             array_map('unlink', glob('asset/product/'.$this->getMyModal()->getId().'/'.$_POST['id'].'.*'));
