@@ -32,8 +32,8 @@ class ValidationId{
             isset($_POST['choices']) && $modal->getUrlName2() === 'Home'||
             isset($_POST['Branches']) && $modal->getSCRIPTFILENAME() === 'FlexTablesCreatePost'||
             isset($_POST['choices']) && $modal->getSCRIPTFILENAME() === 'FlexTablesCreatePost'||
-            isset($_POST['Branches']) && $modal->getSCRIPTFILENAME() === 'FlexTablesDeletePost'||
-            isset($_POST['choices']) && $modal->getSCRIPTFILENAME() === 'FlexTablesDeletePost'||
+            isset($_POST['Branches']) && $modal->getSCRIPTFILENAME() === 'SettingUsersDeletePost'||
+            isset($_POST['choices']) && $modal->getSCRIPTFILENAME() === 'SettingUsersDeletePost'||
             isset($_POST['Branches']) && $modal->getUrlName2() === 'MyStyle'||
             isset($_POST['choices']) && $modal->getUrlName2() === 'MyStyle'||
             isset($_POST['Branches']) && $modal->getUrlName2() === 'ChangeLanguage'||
@@ -51,7 +51,6 @@ class ValidationId{
                 //style dont create use getUrlName2
                 else if(isset($_POST['id']) && $modal->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($myFile[$key][$_GET['id']][$_POST['id']]) ||
                     !isset($_POST['id']) && $modal->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_GET['id']]) ||
-                    isset($_POST['id']) && $modal->getSCRIPTFILENAME() === 'FlexTablesDeletePost' && !isset($myFile[$key][$_GET['id']][$_POST['id']]) ||
                     
                     $modal->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
                     $modal->getSCRIPTFILENAME() === 'ChangeLanguagePost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
@@ -61,15 +60,12 @@ class ValidationId{
                     $modal->getSCRIPTFILENAME() === 'HomeDeletePost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['id']]) ||
                   
                 $modal->getSCRIPTFILENAME() === 'ProductDeletePost' && !isset($myFile[$key][$modal->getUrlName2()][$_POST['id']])||
-                  $modal->getSCRIPTFILENAME() === 'SettingUsersDeletePost' && !isset($myFile[$key][$modal->getUrlName2()][$_POST['id']]) ||
+                //valid users and flex table getUrlName2
+                $modal->getSCRIPTFILENAME() === 'SettingUsersDeletePost' && !isset($myFile[$key][$modal->getUrlName2()][$_POST['id']]) ||
                   //ignore create validation account and product
                   isset($_POST['id']) && $modal->getSCRIPTFILENAME() === 'ProductCreatePost' && !isset($myFile[$key][$modal->getUrlName2()][$_POST['id']])||
                   isset($_POST['id']) && $modal->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && !isset($myFile[$key][$modal->getUrlName2()][$_POST['id']]))
                     $modal->initViewPost($modal->getModelPage()['IdIsInv']);
-                    //make delete user
-                else if($modal->getSCRIPTFILENAME() === 'SettingUsersDeletePost' || $modal->getSCRIPTFILENAME() === 'FlexTablesDeletePost')
-                    //delete item or array
-                    $myFile[$key] = $this->deleteItem($modal->getSCRIPTFILENAME() === 'FlexTablesDeletePost'?$_GET['id']:$modal->getUrlName2(), $myFile[$key]);
                 else
                     $myFile[$key] = $callback($myFile[$key], $key);
             $modal->saveFile($myFile);
@@ -82,7 +78,8 @@ class ValidationId{
             $modal->getUrlName2() === 'Branches' && !isset($modal->getBranch()[$_POST['id']])||
             $modal->getUrlName2() === 'MyStyle' && !isset($modal->getModel2()['Style'][$_POST['id']])||
             $modal->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($modal->getObj()[$_GET['id']][$_POST['id']]) ||
-            $modal->getSCRIPTFILENAME() === 'FlexTablesDeletePost' && !isset($modal->getObj()[$_GET['id']][$_POST['id']]) ||
+            //valid users and flex table $_GET['id']
+            $modal->getSCRIPTFILENAME() === 'SettingUsersDeletePost' && !isset($modal->getObj()[$_GET['id']][$_POST['id']]) ||
             $modal->getUrlName2() === 'Login' && $_POST['state'] ==='lang' && !isset($modal->getModel2()['AllNamesLanguage'][$_POST['id']])||
             $modal->getUrlName2() === 'Register' && $_POST['state'] ==='lang' && !isset($modal->getModel2()['AllNamesLanguage'][$_POST['id']])||
             $modal->getUrlName2() === 'Login' && $_POST['state'] ==='style' && !isset($modal->getModel2()['Style'][$_POST['id']])||

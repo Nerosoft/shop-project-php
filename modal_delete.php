@@ -5,7 +5,7 @@ $idModel = "deleteModel".$index;
 $idForm = "deleteForm".$index;
 include('start_model.php');
 echo $view->getmessageModelDelete().'<spam>-'.($nameItem??$myObject->getName()).'</spam>';
-//ignore branch and flextable
+//ignore branch
 if($view->getUrlName2() === 'Branches')
     include ('my_id.php');
 else

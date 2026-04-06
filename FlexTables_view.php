@@ -39,7 +39,7 @@
                             <td>
                             HTML;
                         $nameItem = $myObject[array_key_first($myObject)];
-                        $action = 'FlexTablesDeletePost?id='.$_GET['id'];
+                        $action = 'SettingUsersDeletePost?id='.$_GET['id'];
                         include('modal_delete.php');
                         $title = $view->getScreenModelEdit();
                         $button = $view->getButtonModelEdit();
