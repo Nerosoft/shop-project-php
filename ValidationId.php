@@ -2,7 +2,7 @@
 class ValidationId{
     //passing modal and stop extends
     //make pram for allnamelanguage and style $modal->getSCRIPTFILENAME() === 'ChangeLanguageEditPost'?'AllNamesLanguage':'Style'
-    function __construct($modal, $callback = null, $keyId = null, $keysInput = null){
+    function __construct($modal, $callback = null){
         //valid id first
         if($modal->getSCRIPTFILENAME()!=='FlexTablesCreatePost' && $modal->getSCRIPTFILENAME()!=='HomeCreatePost' && $modal->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' && $modal->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $modal->getSCRIPTFILENAME()!=='ProductCreatePost' && !isset($_POST['id']) ||
          $modal->getSCRIPTFILENAME()!=='FlexTablesCreatePost' && $modal->getSCRIPTFILENAME()!=='HomeCreatePost' && $modal->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' &&  $modal->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $modal->getSCRIPTFILENAME()!=='ProductCreatePost' && $_POST['id'] === '')
@@ -56,6 +56,7 @@ class ValidationId{
                     $modal->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
                     $modal->getSCRIPTFILENAME() === 'ChangeLanguagePost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
                     $modal->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && !isset($myFile[$key][$_POST['id']]) ||
+                    $modal->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english' ||
                     $modal->getSCRIPTFILENAME() === 'HomeEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['id']]) ||
                     $modal->getSCRIPTFILENAME() === 'HomeDeletePost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['id']]) ||
                   
