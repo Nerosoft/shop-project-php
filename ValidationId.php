@@ -16,8 +16,8 @@ class ValidationId{
         //make test id session inside array choices
         else if(isset($_POST['choices']) && is_array($_POST['choices']) && isset($_POST['choices'][$modal->getId()])|| 
             isset($_POST['choices']) && !is_array($_POST['choices']) ||
-            isset($_POST['choices']) && count($modal->getFileByFixedId()['Branches']) === 1||
-            isset($_POST['Branches']) && count($modal->getFileByFixedId()['Branches']) === 1)
+            isset($_POST['choices']) && count($modal->getBranch()) === 1||
+            isset($_POST['Branches']) && count($modal->getBranch()) === 1)
             $modal->initViewPost($modal->getModel2()['AppSettingAdmin']['BranchInv']);
 
 
@@ -42,7 +42,7 @@ class ValidationId{
             isset($_POST['choices']) && $modal->getUrlName2() === 'Product'){
             //make declar file if delete item and test id
             $myFile = $modal->getFile();
-            foreach (isset($_POST['Branches']) ? $modal->getFileByFixedId()['Branches'] : array(...$_POST['choices'], $modal->getId()=>$modal->getId()) as $key => $value)
+            foreach (isset($_POST['Branches']) ? $modal->getBranch() : array(...$_POST['choices'], $modal->getId()=>$modal->getId()) as $key => $value)
                 //make test id branch if user select choices option
                 if(!isset($_POST['Branches']) && !isset($modal->getBranch()[$key]))
                     $modal->initViewPost($modal->getModel2()['AppSettingAdmin']['BranchInv']);
