@@ -15,13 +15,17 @@ trait ErrorsHome{
     }
     function initErrorsHome2($modal){
         $this->initErrorsHome($modal->getModelPage());
-        $this->validName();
+        $this->validName($modal->getSCRIPTFILENAME());
     }
-    function validName(){
+    function validName($nameScript = ''){
         if(!isset($_POST['name']) || $_POST['name'] === '')
             MyHome::initHome($this->getNameTableIsReq(), 'danger');
         else if(strlen($_POST['name']) < 3)
             MyHome::initHome($this->getNameTableIsInv(), 'danger');
+        else if($nameScript === 'HomeCreatePost' && !isset($_POST['input_number']) || $nameScript === 'HomeCreatePost' && $_POST['input_number'] === '')
+            MyHome::initHome($this->getInputNumberTableIsReq(), 'danger');
+        else if($nameScript === 'HomeCreatePost' && !is_numeric($_POST['input_number']) || $nameScript === 'HomeCreatePost' && $_POST['input_number'] > 8)
+            MyHome::initHome($this->getInputNumberTableIsInv(), 'danger');    
     }
     function getNameTableIsReq(){
         return $this->NameTableIsReq;

@@ -13,11 +13,7 @@ class HomeCreatePost extends ValidationId{
         $this->initErrorsHome2($this->getMyModal());
         $this->keyId = $this->getMyModal()->getRandomId();
         $this->keysInput = $this->getMyModal()->getArrayKeys();
-        if(!isset($_POST['input_number']) || $_POST['input_number'] === '')
-            MyHome::initHome($this->getInputNumberTableIsReq(), 'danger');
-        else if(!is_numeric($_POST['input_number']) || $_POST['input_number'] > 8)
-            MyHome::initHome($this->getInputNumberTableIsInv(), 'danger');        
-        else if(!isset($_POST['Branches']) && !isset($_POST['choices']))
+        if(!isset($_POST['Branches']) && !isset($_POST['choices']))
             $this->getMyModal()->saveModel($this->saveFelxTable($this->getMyModal()->getModel2()['AllNamesLanguage'], $this->getMyModal()->getObj()));
         else 
             parent::__construct($this->getMyModal(), function($myFile){
