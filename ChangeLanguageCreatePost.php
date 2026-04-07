@@ -10,11 +10,7 @@ class ChangeLanguageCreatePost extends ValidationId{
         $this->modal = new ModelJson('ChangeLanguage');
         $keyId = $this->getMyModal()->getRandomId();
         $this->validLanguageInput($this->getMyModal());
-        if(!isset($_POST['selectedLanguage']))
-            MyChangeLanguage::initMyChangeLanguage('LanguageReq', 'danger');
-        else if(!isset($this->getallNames()[$_POST['selectedLanguage']]))
-            MyChangeLanguage::initMyChangeLanguage('LanguageInv', 'danger');
-        else if(!isset($_POST['Branches']) && !isset($_POST['choices'])){
+        if(!isset($_POST['Branches']) && !isset($_POST['choices'])){
             $myData = $this->saveNameLanguage($this->getallNames(), 'AllNamesLanguage', $keyId, $this->getMyModal()->getObj());
             $myData[$keyId] = $myData[$_POST['selectedLanguage']];
             $this->getMyModal()->saveModel($myData);
