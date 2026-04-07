@@ -10,6 +10,7 @@ echo $view->getLabelChangeLanguageMessage().'<spam>-'.$myObject->getName().'</sp
 if($view->getUrlName2() === 'MyStyle' && count($view->getBranch()) > 1){
     echo '<input type="hidden" value="'.$view->getUrlName2().'" name="option">';
     include('my_id.php');
+    $myBranch = $view->getBranch2();
     include 'AllBranchOptionChose.php';
 }
 else if($view->getUrlName2() === 'ChangeLanguage'){

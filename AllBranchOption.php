@@ -1,6 +1,5 @@
 <?php
-$myBranch = $view->getBranch();
-unset($myBranch[$view->getId()]);
+$myBranch = $view->getBranch2();
 //make test key inside all blanch
 if(isset($index) && count($myBranch) >= 1 || isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()])){
     if(isset($index))

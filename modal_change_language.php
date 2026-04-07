@@ -39,5 +39,13 @@ else{
     type="text" name="lang_name" id="lang_name" value="<?php echo$myObject?->getName()??''?>" placeholder='<?php echo $view->getHintNewLangName()?>' class="form-control">
 </div>
 
-<?php include 'AllBranchOption.php';
+<?php 
+if($view->getUrlName2() === 'MyStyle' && count($view->getBranch()) > 1){
+    echo '<input type="hidden" value="'.$view->getUrlName2().'" name="option">';
+    include('my_id.php');
+    $myBranch = $view->getBranch2();
+    include 'AllBranchOptionChose.php';
+}else
+    include 'AllBranchOption.php';
+
 include('end_model.php');?>

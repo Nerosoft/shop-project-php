@@ -97,6 +97,11 @@ class ModelJson{
     function getBranch(){
         return $this->File[$this->FixedId]['Branches'];
     }
+    function getBranch2(){
+        $myBranch = $this->getBranch();
+        unset($myBranch[$this->getId()]);
+        return $myBranch;
+    }
     function getFileByFixedId(){
         return $this->File[$this->FixedId];
     }
