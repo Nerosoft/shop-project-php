@@ -10,7 +10,6 @@ if(isset($index) && count($myBranch) >= 1 || isset($view->getModel2()['MyFlexTab
             $view->getUrlName2() === 'ChangeLanguage' && isset($view->getFile()[$key][$index])||
             $view->getUrlName2() === 'Users' && isset($view->getFile()[$key]['Users'][$index])||
             $view->getUrlName2() === 'Product' && isset($view->getFile()[$key]['Product'][$index])||
-            $view->getUrlName2() === 'MyStyle'||
             isset($index) && isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['Language']]['MyFlexTables'][$view->getUrlName2()]) && isset($view->getFile()[$key][$view->getUrlName2()][$index])||
             !isset($index) && isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['Language']]['MyFlexTables'][$view->getUrlName2()])){
             ++$myCountBranch;
