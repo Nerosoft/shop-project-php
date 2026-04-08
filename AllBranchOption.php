@@ -1,7 +1,11 @@
 <?php
 $myBranch = $view->getBranch2();
+if($view->getUrlName2() === 'MyStyle'){
+    include('my_id.php');
+    include 'AllBranchOptionChose.php';
+}
 //make test key inside all blanch
-if(isset($index) && count($myBranch) >= 1 || isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()])){
+else if(isset($index) && count($myBranch) >= 1 || count($myBranch) >= 1 && isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()])){
     if(isset($index))
         include('my_id.php');
     $myCountBranch = 0;
@@ -29,7 +33,8 @@ if(isset($index) && count($myBranch) >= 1 || isset($view->getModel2()['MyFlexTab
     }
     if($myCountBranch === count($myBranch))
         include 'AllBranchLanguageInput.php';
-}else if(isset($index))//make check index for edit
+}
+else if(isset($index))
     include('my_id.php');
 //make create inside all branch or select and custom branch
 else if(count($myBranch) >= 1)

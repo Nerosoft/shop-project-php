@@ -6,10 +6,10 @@ $idForm = "deleteForm".$index;
 include('start_model.php');
 echo $view->getmessageModelDelete().'<spam>-'.($nameItem??$myObject->getName()).'</spam>';
 //ignore branch
-if($view->getUrlName2() === 'Branches')
-    include ('my_id.php');
-else
+if($view->getUrlName2() !== 'Branches')
     include 'AllBranchOption.php';
+else
+    include ('my_id.php');
 ?>
 </div>
 <div class="modal-footer">
