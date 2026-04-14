@@ -31,6 +31,17 @@ class ModelJson{
             $this->Language = isset($_COOKIE[$this->getId().'lang']) && isset($this->getObj()[$_COOKIE[$this->getId().'lang']])?$_COOKIE[$this->getId().'lang']:$this->getObj()['Setting']['Language'];
             $this->StyleFile = isset($_COOKIE[$this->getId().'style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'style']])?$_COOKIE[$this->getId().'style']:$this->getObj()['Setting']['Style'];
         }
+
+        // if(
+        // $this->getSCRIPTFILENAME() === 'ProductCreatePost' ||
+        // $this->getSCRIPTFILENAME() === 'SetupProject' ||
+        // $this->getSCRIPTFILENAME() === 'LoginForgetPasswordPost' ||
+        // $this->getSCRIPTFILENAME() === 'LoginPost' ||
+        // $this->getSCRIPTFILENAME() === 'RegisterPost' ||
+        // $this->getSCRIPTFILENAME() === 'SettingUsersCreatePost'){
+        //     $_SERVER["REQUEST_METHOD"] = 'asdasd';
+        //     $this->validMyErrorsInputs($this);
+        // }
     }
     //create and edit
     function getRandomId(){
@@ -54,6 +65,8 @@ class ModelJson{
                 MyLogin::initMyLogin($message, $type);
             case 'Register':
                 MyRegister::initMyRegister($message, $type);
+            case 'Site':
+                Site::initMySite($message, $type);
             default:
                 MyFlexTablesView::initMyFlexTablesView($message, $type);
         }
@@ -96,6 +109,12 @@ class ModelJson{
     }
     function getBranch(){
         return $this->File[$this->FixedId]['Branches'];
+    }
+    function getBranch3(){
+        foreach ($this->getFile() as $key => $obj)
+            if(isset($obj['Branches']) && in_array(isset($_GET['id'])?$_GET['id']:$this->getId(), array_keys($obj['Branches'])))
+                return $obj['Branches']; 
+     
     }
     function getBranch2(){
         $myBranch = $this->getBranch();

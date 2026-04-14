@@ -85,6 +85,8 @@ class AdminMenu extends InformationPage
             return 'bar-chart-line-fill.svg';
         else if($key === 'Product')
             return 'calendar-day.svg';
+        else if($key === 'Site')
+            return 'chat-dots.svg';
         else if($key === 'MyStyle')
             return 'cloud-download-fill.svg';
         else if($key === 'MyFlexTables')

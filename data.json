@@ -6,6 +6,50 @@
             "AllNamesLanguage": "Nl48a977"
         },
         "english": {
+            "Site": {
+                "MYTITLE": "Delivery Marketing",
+                "TitleModalLang": "welcom in change language",
+                "ErrorActiveLang": "Language is active",
+                "ButtonActiveLang": "Change language",
+                "TitleModalStyle": "welcom in change style",
+                "ErrorActiveStyle": "Style is active",
+                "ButtonActiveStyle": "Change style",
+                "Title": "my site title",
+                "NavTitle": " Delivery Marketing",
+                "About": "About",
+                "Contact": "Contact",
+                "Product": "Our Works",
+                "TitleHome": "We are ready for your delivery marketing",
+                "Menu": "Our Works",
+                "Phone": " +2001204299614",
+                "BranchesCompany": "Select branches",
+                "BranchesLanguage": "Select language",
+                "BranchesStyle": "Select style",
+                "ChangeStyleMessage": "Successfylly Change Style",
+                "LoadMessage": "welcome in delivery marketing",
+                "ChangeLang": "successfully change language",
+                "TheBest": "the best",
+                "DeliveryMarketing": "Delivery Marketing",
+                "Sirs": "in sirs el laiana",
+                "AboutMe": "Welcome in delivery marketing",
+                "Look": "Please take a look through our",
+                "Trends": "Delivery Marketing Trends",
+                "ClientTestimonials": "Client Testimonials",
+                "ClientTestimonialsInfo": "If they do not find you spiteful and envious person know that you are a failure.",
+                "ClientNeroSoft": "Nero-Soft",
+                "ClientPos": "Delivery Marketing (CEO)",
+                "brands": "brands",
+                "Creative": "We make creative",
+                "Only": "only.",
+                "ContactInfo": "Contact Info",
+                "ContactInfoPhone": "+2001204299614",
+                "ContactInfoEmail": "+ggamals7744@yahoo.com",
+                "OurWork": "Our work",
+                "OurWorkInfo": "welcome in Our work",
+                "Copyright": "Copyright",
+                "Company": "2026 Your Company",
+                "Design": "Design : Nero-Soft"
+            },
             "Style": {
                 "dark": "dark",
                 "default": "default"
@@ -224,7 +268,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "wSa6e1a9": "English language"
+                "fu9623a3": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -454,7 +498,6 @@
                 "Offcanvas": "Menu",
                 "Logout": "Logout",
                 "AdminDashboard": "Welocme in my library",
-                "BranchesCompany": "Select branches",
                 "BranchMain": "Branch main",
                 "AllNamesLanguage": "All names language",
                 "MyFlexTables": "All names flex tables",
@@ -464,10 +507,8 @@
                 "InputErrorsMessageReq": "error name reqired",
                 "InputErrorsMessageInv": "error name invalid",
                 "SelectBranchBox": "Without work or With work",
-                "SelectTestBox": "Select Test Box",
                 "Html": "Html",
                 "Style": "Style",
-                "SelectStyle": "Select style",
                 "BranchInv": "branch id invalid"
             },
             "TableInfo": {
@@ -628,7 +669,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             },
-            "Rya7d44e": {
+            "Fi31dd0d": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
@@ -640,7 +681,83 @@
                 "Follow": "WithRays"
             }
         },
-        "wSa6e1a9": {
+        "Product": {
+            "b59962e0": {
+                "Name": "Marketing",
+                "Descreption": "Sweet Go Agency",
+                "Salary": "100",
+                "Category": "Sweet Go Agency"
+            },
+            "w3e933a4": {
+                "Name": "Website",
+                "Descreption": "Smart Ladies",
+                "Salary": "100",
+                "Category": "Smart Ladies"
+            },
+            "Ou45f9aa": {
+                "Name": "Branding",
+                "Descreption": "Shoes factory",
+                "Salary": "100",
+                "Category": "Shoes factory"
+            },
+            "Zaa3a53d": {
+                "Name": "Social Media",
+                "Descreption": "Race Bicycle",
+                "Salary": "100",
+                "Category": "Race Bicycle"
+            },
+            "kod56475": {
+                "Name": "Video",
+                "Descreption": "Ultimate HealthCare",
+                "Salary": "100",
+                "Category": "Ultimate HealthCare"
+            }
+        },
+        "fu9623a3": {
+            "Site": {
+                "MYTITLE": "Delivery Marketing",
+                "TitleModalLang": "welcom in change language",
+                "ErrorActiveLang": "Language is active",
+                "ButtonActiveLang": "Change language",
+                "TitleModalStyle": "welcom in change style",
+                "ErrorActiveStyle": "Style is active",
+                "ButtonActiveStyle": "Change style",
+                "Title": "my site title",
+                "NavTitle": " Delivery Marketing",
+                "About": "About",
+                "Contact": "Contact",
+                "Product": "Our Works",
+                "TitleHome": "We are ready for your delivery marketing",
+                "Menu": "Our Works",
+                "Phone": " +2001204299614",
+                "BranchesCompany": "Select branches",
+                "BranchesLanguage": "Select language",
+                "BranchesStyle": "Select style",
+                "ChangeStyleMessage": "Successfylly Change Style",
+                "LoadMessage": "welcome in delivery marketing",
+                "ChangeLang": "successfully change language",
+                "TheBest": "the best",
+                "DeliveryMarketing": "Delivery Marketing",
+                "Sirs": "in sirs el laiana",
+                "AboutMe": "Welcome in delivery marketing",
+                "Look": "Please take a look through our",
+                "Trends": "Delivery Marketing Trends",
+                "ClientTestimonials": "Client Testimonials",
+                "ClientTestimonialsInfo": "If they do not find you spiteful and envious person know that you are a failure.",
+                "ClientNeroSoft": "Nero-Soft",
+                "ClientPos": "Delivery Marketing (CEO)",
+                "brands": "brands",
+                "Creative": "We make creative",
+                "Only": "only.",
+                "ContactInfo": "Contact Info",
+                "ContactInfoPhone": "+2001204299614",
+                "ContactInfoEmail": "+ggamals7744@yahoo.com",
+                "OurWork": "Our work",
+                "OurWorkInfo": "welcome in Our work",
+                "Copyright": "Copyright",
+                "Company": "2026 Your Company",
+                "Design": "Design : Nero-Soft"
+            },
             "Style": {
                 "dark": "dark",
                 "default": "default"
@@ -859,7 +976,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "wSa6e1a9": "English language"
+                "fu9623a3": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -1089,7 +1206,6 @@
                 "Offcanvas": "Menu",
                 "Logout": "Logout",
                 "AdminDashboard": "Welocme in my library",
-                "BranchesCompany": "Select branches",
                 "BranchMain": "Branch main",
                 "AllNamesLanguage": "All names language",
                 "MyFlexTables": "All names flex tables",
@@ -1099,10 +1215,8 @@
                 "InputErrorsMessageReq": "error name reqired",
                 "InputErrorsMessageInv": "error name invalid",
                 "SelectBranchBox": "Without work or With work",
-                "SelectTestBox": "Select Test Box",
                 "Html": "Html",
                 "Style": "Style",
-                "SelectStyle": "Select style",
                 "BranchInv": "branch id invalid"
             },
             "TableInfo": {
@@ -1235,13 +1349,57 @@
             }
         }
     },
-    "Rya7d44e": {
+    "Fi31dd0d": {
         "Setting": {
             "Language": "english",
             "Style": "default",
             "AllNamesLanguage": "Nl48a977"
         },
         "english": {
+            "Site": {
+                "MYTITLE": "Delivery Marketing",
+                "TitleModalLang": "welcom in change language",
+                "ErrorActiveLang": "Language is active",
+                "ButtonActiveLang": "Change language",
+                "TitleModalStyle": "welcom in change style",
+                "ErrorActiveStyle": "Style is active",
+                "ButtonActiveStyle": "Change style",
+                "Title": "my site title",
+                "NavTitle": " Delivery Marketing",
+                "About": "About",
+                "Contact": "Contact",
+                "Product": "Our Works",
+                "TitleHome": "We are ready for your delivery marketing",
+                "Menu": "Our Works",
+                "Phone": " +2001204299614",
+                "BranchesCompany": "Select branches",
+                "BranchesLanguage": "Select language",
+                "BranchesStyle": "Select style",
+                "ChangeStyleMessage": "Successfylly Change Style",
+                "LoadMessage": "welcome in delivery marketing",
+                "ChangeLang": "successfully change language",
+                "TheBest": "the best",
+                "DeliveryMarketing": "Delivery Marketing",
+                "Sirs": "in sirs el laiana",
+                "AboutMe": "Welcome in delivery marketing",
+                "Look": "Please take a look through our",
+                "Trends": "Delivery Marketing Trends",
+                "ClientTestimonials": "Client Testimonials",
+                "ClientTestimonialsInfo": "If they do not find you spiteful and envious person know that you are a failure.",
+                "ClientNeroSoft": "Nero-Soft",
+                "ClientPos": "Delivery Marketing (CEO)",
+                "brands": "brands",
+                "Creative": "We make creative",
+                "Only": "only.",
+                "ContactInfo": "Contact Info",
+                "ContactInfoPhone": "+2001204299614",
+                "ContactInfoEmail": "+ggamals7744@yahoo.com",
+                "OurWork": "Our work",
+                "OurWorkInfo": "welcome in Our work",
+                "Copyright": "Copyright",
+                "Company": "2026 Your Company",
+                "Design": "Design : Nero-Soft"
+            },
             "Style": {
                 "dark": "dark",
                 "default": "default"
@@ -1460,7 +1618,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "wSa6e1a9": "English language"
+                "fu9623a3": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -1690,7 +1848,6 @@
                 "Offcanvas": "Menu",
                 "Logout": "Logout",
                 "AdminDashboard": "Welocme in my library",
-                "BranchesCompany": "Select branches",
                 "BranchMain": "Branch main",
                 "AllNamesLanguage": "All names language",
                 "MyFlexTables": "All names flex tables",
@@ -1700,10 +1857,8 @@
                 "InputErrorsMessageReq": "error name reqired",
                 "InputErrorsMessageInv": "error name invalid",
                 "SelectBranchBox": "Without work or With work",
-                "SelectTestBox": "Select Test Box",
                 "Html": "Html",
                 "Style": "Style",
-                "SelectStyle": "Select style",
                 "BranchInv": "branch id invalid"
             },
             "TableInfo": {
@@ -1852,7 +2007,83 @@
                 "Key": "ggamals7744@yahoo.com"
             }
         },
-        "wSa6e1a9": {
+        "Product": {
+            "b59962e0": {
+                "Name": "Marketing",
+                "Descreption": "Sweet Go Agency",
+                "Salary": "100",
+                "Category": "Sweet Go Agency"
+            },
+            "w3e933a4": {
+                "Name": "Website",
+                "Descreption": "Smart Ladies",
+                "Salary": "100",
+                "Category": "Smart Ladies"
+            },
+            "Ou45f9aa": {
+                "Name": "Branding",
+                "Descreption": "Shoes factory",
+                "Salary": "100",
+                "Category": "Shoes factory"
+            },
+            "Zaa3a53d": {
+                "Name": "Social Media",
+                "Descreption": "Race Bicycle",
+                "Salary": "100",
+                "Category": "Race Bicycle"
+            },
+            "kod56475": {
+                "Name": "Video",
+                "Descreption": "Ultimate HealthCare",
+                "Salary": "100",
+                "Category": "Ultimate HealthCare"
+            }
+        },
+        "fu9623a3": {
+            "Site": {
+                "MYTITLE": "Delivery Marketing",
+                "TitleModalLang": "welcom in change language",
+                "ErrorActiveLang": "Language is active",
+                "ButtonActiveLang": "Change language",
+                "TitleModalStyle": "welcom in change style",
+                "ErrorActiveStyle": "Style is active",
+                "ButtonActiveStyle": "Change style",
+                "Title": "my site title",
+                "NavTitle": " Delivery Marketing",
+                "About": "About",
+                "Contact": "Contact",
+                "Product": "Our Works",
+                "TitleHome": "We are ready for your delivery marketing",
+                "Menu": "Our Works",
+                "Phone": " +2001204299614",
+                "BranchesCompany": "Select branches",
+                "BranchesLanguage": "Select language",
+                "BranchesStyle": "Select style",
+                "ChangeStyleMessage": "Successfylly Change Style",
+                "LoadMessage": "welcome in delivery marketing",
+                "ChangeLang": "successfully change language",
+                "TheBest": "the best",
+                "DeliveryMarketing": "Delivery Marketing",
+                "Sirs": "in sirs el laiana",
+                "AboutMe": "Welcome in delivery marketing",
+                "Look": "Please take a look through our",
+                "Trends": "Delivery Marketing Trends",
+                "ClientTestimonials": "Client Testimonials",
+                "ClientTestimonialsInfo": "If they do not find you spiteful and envious person know that you are a failure.",
+                "ClientNeroSoft": "Nero-Soft",
+                "ClientPos": "Delivery Marketing (CEO)",
+                "brands": "brands",
+                "Creative": "We make creative",
+                "Only": "only.",
+                "ContactInfo": "Contact Info",
+                "ContactInfoPhone": "+2001204299614",
+                "ContactInfoEmail": "+ggamals7744@yahoo.com",
+                "OurWork": "Our work",
+                "OurWorkInfo": "welcome in Our work",
+                "Copyright": "Copyright",
+                "Company": "2026 Your Company",
+                "Design": "Design : Nero-Soft"
+            },
             "Style": {
                 "dark": "dark",
                 "default": "default"
@@ -2071,7 +2302,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "wSa6e1a9": "English language"
+                "fu9623a3": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -2301,7 +2532,6 @@
                 "Offcanvas": "Menu",
                 "Logout": "Logout",
                 "AdminDashboard": "Welocme in my library",
-                "BranchesCompany": "Select branches",
                 "BranchMain": "Branch main",
                 "AllNamesLanguage": "All names language",
                 "MyFlexTables": "All names flex tables",
@@ -2311,10 +2541,8 @@
                 "InputErrorsMessageReq": "error name reqired",
                 "InputErrorsMessageInv": "error name invalid",
                 "SelectBranchBox": "Without work or With work",
-                "SelectTestBox": "Select Test Box",
                 "Html": "Html",
                 "Style": "Style",
-                "SelectStyle": "Select style",
                 "BranchInv": "branch id invalid"
             },
             "TableInfo": {
