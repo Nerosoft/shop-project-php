@@ -42,7 +42,6 @@ class Site extends InformationPage{
         <link rel="stylesheet" href="./asset/css/site/font-awesome.min.css">
         <link rel="stylesheet" href="./asset/css/site/aos.css">
         <link rel="stylesheet" href="./asset/css/site/owl.carousel.min.css">
-        <link rel="stylesheet" href="./asset/css/site/owl.theme.default.min.css">
         <!-- MAIN CSS -->
         <link rel="stylesheet" href="./asset/css/site/templatemo-digital-trend.css">
         </head>

@@ -1,12 +1,6 @@
 
   $(function () {
 
-    // MENU
-    $('.nav-link').on('click',function(){
-      $(".navbar-collapse").collapse('hide');
-    });
-
-
     // AOS ANIMATION
     AOS.init({
       disable: 'mobile',

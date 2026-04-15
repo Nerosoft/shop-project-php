@@ -6,48 +6,50 @@
             <?php echo $view->getNavTitle()?>
         </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a href="#about" class="nav-link smoothScroll"><?php echo $view->getAbout()?></a>
-                </li>
-                <li class="nav-item">
-                    <a href="#project" class="nav-link smoothScroll"><?php echo $view->getProduct()?></a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link smoothScroll"><?php echo $view->getContact()?></a>
-                </li>
-                <li onclick="openForm('#createModel')" class="nav-item">
-                    <a class="nav-link pointer smoothScroll"><?php echo $view->getBranchesLanguage()?></a>
-                </li>
-                <li onclick="openForm('#style_modal')" class="nav-item">
-                    <a class="nav-link pointer smoothScroll"><?php echo $view->getBranchesStyle()?></a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <?php echo $view->getBranchesCompany()?>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark">
-                    <?php
-                    foreach ($view->getBranch3() as $keyItem=>$myBranch){
-                        $href = ($_SERVER["REQUEST_METHOD"] === "POST"?'/shop/web':'').'?id='.$keyItem;
-                        echo <<<HTML
-                            <li>
-                            <a class="dropdown-item" href="{$href}">
-                                {$myBranch['Name']}
+            <ul class="navbar-nav ms-auto">
+                <?php
+                    echo<<<HTML
+                        <li class="nav-item">
+                        <a href="#about" class="nav-link smoothScroll">{$view->getAbout()}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#project" class="nav-link smoothScroll">{$view->getProduct()}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link smoothScroll">{$view->getContact()}</a>
+                        </li>
+                        <li onclick="openForm('#createModel')" class="nav-item">
+                            <a class="nav-link pointer smoothScroll">{$view->getBranchesLanguage()}</a>
+                        </li>
+                        <li onclick="openForm('#style_modal')" class="nav-item">
+                            <a class="nav-link pointer smoothScroll">{$view->getBranchesStyle()}</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                                {$view->getBranchesCompany()}
                             </a>
-                            </li>
-                        HTML;
-                    }
-                    ?>
-                    </ul>
-                </li>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                    HTML;
+                                foreach ($view->getBranch3() as $keyItem=>$myBranch){
+                                    $href = ($_SERVER["REQUEST_METHOD"] === "POST"?'/shop/web':'').'?id='.$keyItem;
+                                    $myActive = $view->getId() === $keyItem ? 'my_active':'';
+                                    echo <<<HTML
+                                        <li>
+                                        <a class="dropdown-item {$myActive}" href="{$href}">
+                                            {$myBranch['Name']}
+                                        </a>
+                                        </li>
+                                    HTML;
+                                }
+                ?>
+                            </ul>
+                        </li>
 
             </ul>
         </div>
@@ -63,12 +65,13 @@
 
             <div class="col-lg-6 col-md-10 col-12 d-flex flex-column justify-content-center align-items-center">
                     <div class="hero-text">
-
-                        <h1 class="text-white" data-aos="fade-up"><?php echo $view->getTitleHome()?></h1>
-
-                        <a href="#project" class="custom-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100"><?php echo $view->getMenu()?></a>
-
-                        <strong class="d-block py-3 pl-5 text-white" data-aos="fade-up" data-aos-delay="200"><i class="fa fa-phone mr-2"></i><?php echo $view->getPhone()?></strong>
+                        <?php
+                        echo<<<HTML
+                        <h1 class="text-white" data-aos="fade-up">{$view->getTitleHome()}</h1>
+                        <a href="#project" class="custom-btn btn-bg btn mt-3" data-aos="fade-up" data-aos-delay="100">{$view->getMenu()}</a>
+                        <strong class="d-block py-3 pl-5 text-white" data-aos="fade-up" data-aos-delay="200"><i class="fa fa-phone mr-2"></i>{$view->getPhone()}</strong>
+                        HTML;
+                        ?>
                     </div>
             </div>
 
