@@ -70,7 +70,4 @@
     $('#dbkeys, #dbkeysBranch').on('change', function(){
         window.location.href = '<?php echo $view->getUrlName2();?>'+'?id='+this.value;
     });
-    function goRegister(){
-        window.location.href = '<?php echo isset($_GET['id'])?($view->getUrlName2()!=='Login'?'login':'register').'?id='.$_GET['id']:($view->getUrlName2()!=='Login'?'login':'register');?>';
-    }
 </script>

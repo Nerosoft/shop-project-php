@@ -4,6 +4,7 @@ body,
 }
 .register button,
 #register h4,
+.navbutton,
 #register label,
 div.dt-container div.dt-search label,
 div.dt-container div.dt-length label,
@@ -32,7 +33,7 @@ tr th,
 .register button,
 #createModel button,
 #style_modal button,
-
+.navbutton,
 .button-select-branch,
 .dropdown-menu,
 .dropdown-item:focus, .dropdown-item:hover,
@@ -52,6 +53,7 @@ tr th,
 #style_modal button:hover,
 .register button:hover,
 .start-page button:hover,
+.navbutton:hover,
 .dropdown-menu .btn-primary:hover{
     background-color: #dc3545;
     border-color: #dc3545;
