@@ -26,10 +26,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                     "Site"=> [
                         "MYTITLE"=> "Delivery Marketing",
                         "TitleModalLang"=> "welcom in change language",
-                        "ErrorActiveLang"=> "Language is active",
+                        "UsedLanguage"=> "Language is active",
                         "ButtonActiveLang"=> "Change language",
                         "TitleModalStyle"=> "welcom in change style",
-                        "ErrorActiveStyle"=> "Style is active",
+                        "UsedStyle"=> "Style is active",
                         "ButtonActiveStyle"=> "Change style",
                         "Title"=> "my site title",
                         "NavTitle"=> " Delivery Marketing",

@@ -12,9 +12,12 @@ class MyHome extends Page implements InterfaceDataView{
     private $HintName;
     private $AllBranches;
     private $DataView;
+    function callAllFunction(){
+        $this->initErrorsHome($this->getModelPage());
+    }
     function __construct($message, $type){
         parent::__construct('Home', $message, $type);
-        $this->initErrorsHome($this->getModelPage());
+        // $this->initErrorsHome($this->getModelPage());
         $this->LabelName = $this->getModelPage()['LabelName'];
         $this->HintName = $this->getModelPage()['HintName'];
         $this->TableName = $this->getModelPage()['NameTable'];

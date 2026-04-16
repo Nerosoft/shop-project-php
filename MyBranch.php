@@ -28,11 +28,16 @@ class MyBranch extends Page implements InterfaceDataView{
     function getProduct(){
         return $this->Product;
     }
-    function __construct($message = 'LoadMessage', $type = 'success'){
-        parent::__construct('Branches', $message, $type);
+    function callAllFunction(){
         $this->initErrorBranch($this->getModelPage());
         $this->initChangeStyleLangBranch($this->getModelPage());
         $this->initInfoBranch($this->getMyModal());
+    }
+    function __construct($message = 'LoadMessage', $type = 'success'){
+        parent::__construct('Branches', $message, $type);
+        // $this->initErrorBranch($this->getModelPage());
+        // $this->initChangeStyleLangBranch($this->getModelPage());
+        // $this->initInfoBranch($this->getMyModal());
         $this->BranchStreet = $this->getModelPage()['BranchStreet'];
         $this->BranchName = $this->getModelPage()['BranchName'];
         $this->BranchPhone = $this->getModelPage()['BranchPhone'];

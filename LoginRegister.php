@@ -3,8 +3,9 @@ require 'InformationPage.php';
 require 'ErrorBranch.php';
 require 'InfoBranch.php';
 require 'InterEmailPass.php';
+require 'ErrorActiveStyleLang.php';
 class LoginRegister extends InformationPage{
-    use ErrorBranch, InfoBranch, EmailPassword;
+    use ErrorBranch, InfoBranch, EmailPassword, ErrorActiveStyleLang;
     private $Style;
     private $TitleForm;
     private $ButtonName;
@@ -24,8 +25,6 @@ class LoginRegister extends InformationPage{
     private $ButtonSetupProject;
     private $ModalTitleStyle;
     private $ModalButtonStyle;
-    private $ChangeLang;
-    private $ChangeStyle;
     private $RegisterLoginPage;
     function getModalTitleStyle(){
         return $this->ModalTitleStyle;
@@ -57,23 +56,19 @@ class LoginRegister extends InformationPage{
     function getDbBranchKeys(){
         return $this->dbBranchKeys;
     }
-    function getChangeLang(){
-        return $this->ChangeLang;
-    }
-    function getChangeStyle(){
-        return $this->ChangeStyle;
-    }
     function getRegisterLoginPage(){
         return $this->RegisterLoginPage;
     }
-    function __construct($IdPage, $message, $type){
-        parent::__construct($IdPage);
+    function callAllFunction(){
         $this->initInfoBranch($this->getMyModal());
         $this->initErrorBranch($this->getModelPage());
         $this->initEmailPassword($this->getModelPage());
+        $this->initErrorActiveStyleLang();
+        $this->callAllFunction2();
+    }
+    function __construct($IdPage, $message, $type){
+        parent::__construct($IdPage);
         $this->Style = MyLanguage::fromArray($this->getModel2()['Style']);
-        $this->ChangeLang = $this->getModelPage()['UsedLanguage'];
-        $this->ChangeStyle = $this->getModelPage()['UsedStyle'];
         $this->ModalTitleStyle = $this->getModelPage()['ModalTitleStyle'];
         $this->ModalButtonStyle = $this->getModelPage()['ModalButtonStyle'];
         $this->TitleForm = $this->getModelPage()['TitleForm'];

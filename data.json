@@ -9,10 +9,10 @@
             "Site": {
                 "MYTITLE": "Delivery Marketing",
                 "TitleModalLang": "welcom in change language",
-                "ErrorActiveLang": "Language is active",
+                "UsedLanguage": "Language is active",
                 "ButtonActiveLang": "Change language",
                 "TitleModalStyle": "welcom in change style",
-                "ErrorActiveStyle": "Style is active",
+                "UsedStyle": "Style is active",
                 "ButtonActiveStyle": "Change style",
                 "Title": "my site title",
                 "NavTitle": " Delivery Marketing",
@@ -268,7 +268,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "fu9623a3": "English language"
+                "Eucbca2d": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -669,14 +669,14 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             },
-            "Fi31dd0d": {
+            "BOedfc31": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
                 "Governments": "cairo, egypt",
                 "City": "cairo, egypt",
                 "Street": "menofia - menouf - sirs el laiana",
-                "Building": "Nero-Soft",
+                "Building": "Egypt",
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             }
@@ -713,14 +713,14 @@
                 "Category": "Ultimate HealthCare"
             }
         },
-        "fu9623a3": {
+        "Eucbca2d": {
             "Site": {
                 "MYTITLE": "Delivery Marketing",
                 "TitleModalLang": "welcom in change language",
-                "ErrorActiveLang": "Language is active",
+                "UsedLanguage": "Language is active",
                 "ButtonActiveLang": "Change language",
                 "TitleModalStyle": "welcom in change style",
-                "ErrorActiveStyle": "Style is active",
+                "UsedStyle": "Style is active",
                 "ButtonActiveStyle": "Change style",
                 "Title": "my site title",
                 "NavTitle": " Delivery Marketing",
@@ -976,7 +976,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "fu9623a3": "English language"
+                "Eucbca2d": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -1349,7 +1349,7 @@
             }
         }
     },
-    "Fi31dd0d": {
+    "BOedfc31": {
         "Setting": {
             "Language": "english",
             "Style": "default",
@@ -1359,10 +1359,10 @@
             "Site": {
                 "MYTITLE": "Delivery Marketing",
                 "TitleModalLang": "welcom in change language",
-                "ErrorActiveLang": "Language is active",
+                "UsedLanguage": "Language is active",
                 "ButtonActiveLang": "Change language",
                 "TitleModalStyle": "welcom in change style",
-                "ErrorActiveStyle": "Style is active",
+                "UsedStyle": "Style is active",
                 "ButtonActiveStyle": "Change style",
                 "Title": "my site title",
                 "NavTitle": " Delivery Marketing",
@@ -1618,7 +1618,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "fu9623a3": "English language"
+                "Eucbca2d": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -2039,14 +2039,14 @@
                 "Category": "Ultimate HealthCare"
             }
         },
-        "fu9623a3": {
+        "Eucbca2d": {
             "Site": {
                 "MYTITLE": "Delivery Marketing",
                 "TitleModalLang": "welcom in change language",
-                "ErrorActiveLang": "Language is active",
+                "UsedLanguage": "Language is active",
                 "ButtonActiveLang": "Change language",
                 "TitleModalStyle": "welcom in change style",
-                "ErrorActiveStyle": "Style is active",
+                "UsedStyle": "Style is active",
                 "ButtonActiveStyle": "Change style",
                 "Title": "my site title",
                 "NavTitle": " Delivery Marketing",
@@ -2302,7 +2302,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "fu9623a3": "English language"
+                "Eucbca2d": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",

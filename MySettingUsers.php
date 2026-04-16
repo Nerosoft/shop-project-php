@@ -11,12 +11,18 @@ class MySettingUsers extends page implements InterfaceDataView{
     private $ForgetPasswordHeadTable;
     private $DataView;
     private $AllBranches;
-    function __construct($message = 'LoadMessage', $type = 'success'){
-        parent::__construct('Users', $message, $type);
+    function callAllFunction(){
         $this->initErrorsKeyPassword($this->getModelPage());
         $this->initErrorsEmailPassword($this->getModelPage());
         $this->initEmailPassword($this->getModelPage());
         $this->InitCheckbooksState($this->getModelPage());
+    }
+    function __construct($message = 'LoadMessage', $type = 'success'){
+        parent::__construct('Users', $message, $type);
+        // $this->initErrorsKeyPassword($this->getModelPage());
+        // $this->initErrorsEmailPassword($this->getModelPage());
+        // $this->initEmailPassword($this->getModelPage());
+        // $this->InitCheckbooksState($this->getModelPage());
         $this->NameHeadTable = $this->getModelPage()['NameHeadTable'];
         $this->PasswordHeadTable = $this->getModelPage()['PasswordHeadTable'];
         $this->ForgetPasswordHeadTable = $this->getModelPage()['ForgetPasswordHeadTable'];

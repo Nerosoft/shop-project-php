@@ -2,7 +2,9 @@
 require 'InformationPage.php';
 require 'DeleteInfoName.php';
 require 'ProductValue.php';
+require 'ErrorActiveStyleLang.php';
 class Site extends InformationPage{
+    use ErrorActiveStyleLang;
     private $DataView;
     private $About;
     private $Product;
@@ -35,6 +37,9 @@ class Site extends InformationPage{
     private $Copyright;
     private $Company;
     private $Design;
+    function callAllFunction(){
+        $this->initErrorActiveStyleLang();
+    }
     function __construct($message = 'LoadMessage', $type = 'success'){
         parent::__construct('Site');
         $this->DataView = isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
@@ -48,8 +53,8 @@ class Site extends InformationPage{
         <body>
         HTML;
         $this->showToast($this->getModelPage()[$message]??$message, $type);
-        $this->initEvent('createModel', 'createForm', $this->getLanguage(), $this->getModelPage()['ErrorActiveLang'], $this->getModelPage()['TitleModalLang'], $this->getModelPage()['ButtonActiveLang'], 'lang', MyLanguage::fromArray($this->getModel2()['AllNamesLanguage']));
-        $this->initEvent('style_modal', 'style_form', $this->getStyleFile(), $this->getModelPage()['ErrorActiveStyle'], $this->getModelPage()['TitleModalStyle'], $this->getModelPage()['ButtonActiveStyle'], 'style', MyLanguage::fromArray($this->getModel2()['Style']));
+        $this->initEvent('createModel', 'createForm', $this->getLanguage(), $this->getChangeLang(), $this->getModelPage()['TitleModalLang'], $this->getModelPage()['ButtonActiveLang'], 'lang', MyLanguage::fromArray($this->getModel2()['AllNamesLanguage']));
+        $this->initEvent('style_modal', 'style_form', $this->getStyleFile(), $this->getChangeStyle(), $this->getModelPage()['TitleModalStyle'], $this->getModelPage()['ButtonActiveStyle'], 'style', MyLanguage::fromArray($this->getModel2()['Style']));
         $this->initScriptStyleLang();
         $this->About = $this->getModelPage()['About'];
         $this->Product = $this->getModelPage()['Product'];

@@ -8,9 +8,12 @@ class MyLogin extends LoginRegister{
     private $ModalForgetPasswordButton;
     private $NewPassword;
     private $NewHintPassword;
+    function callAllFunction2(){
+        $this->InitCheckbooksState($this->getModelPage());
+    }
     function __construct($message = 'LoadMessage', $type = 'success'){
         parent::__construct('Login', $message, $type);
-        $this->InitCheckbooksState($this->getModelPage());
+        // $this->InitCheckbooksState($this->getModelPage());
         $this->ButtonForgetPassword = $this->getModelPage()['ButtonForgetPassword'];
         $this->ModalForgetPasswordTitle = $this->getModelPage()['ModalForgetPasswordTitle'];
         $this->ModalForgetPasswordButton = $this->getModelPage()['ModalForgetPasswordButton'];
