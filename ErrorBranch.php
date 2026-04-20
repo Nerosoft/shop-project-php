@@ -76,10 +76,10 @@ trait ErrorBranch{
         else if(!isset($modal->getModel2()['SelectBranchBox'][$_POST['Follow']]))
             $modal->initViewPost($modal->getModelPage()['BranceRaysFollowValue']);
     }
-    function initErrorBranch2($modal, $keyId){
+    function initErrorBranch2($modal){
         $this->validInputs($modal);
         $this->myBranch = $modal->getFile();
-        $this->myBranch[$modal->getFixedId()]['Branches'][$keyId] = array(
+        $this->myBranch[$modal->getFixedId()]['Branches'][$modal->getSCRIPTFILENAME() === 'BranchEditPost'? $_POST['id'] : $modal->getRandomId()] = array(
             "Name"=>$_POST["Name"],
             "Phone"=>$_POST["Phone"],
             "Country"=>$_POST["Country"],

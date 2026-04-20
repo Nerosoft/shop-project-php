@@ -2,7 +2,7 @@
 class ValidationId extends ModelJson{
     //passing modal and stop extends
     //make pram for allnamelanguage and style $this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost'?'AllNamesLanguage':'Style'
-    function __construct($IdPage, $callback = null, $keyId = null){
+    function __construct($IdPage, $callback = null){
         parent::__construct($IdPage);
         //valid id first
         if($this->getSCRIPTFILENAME()!=='BranchCreatePost' && $this->getSCRIPTFILENAME()!=='FlexTablesCreatePost' && $this->getSCRIPTFILENAME()!=='HomeCreatePost' && $this->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' && $this->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $this->getSCRIPTFILENAME()!=='ProductCreatePost' && !isset($_POST['id']) ||
@@ -120,7 +120,7 @@ class ValidationId extends ModelJson{
         )
             $this->initViewPost($this->getModelPage()['IdIsInv']);
         else if($this->getSCRIPTFILENAME() === 'BranchEditPost' || $this->getSCRIPTFILENAME() === 'BranchCreatePost')
-            $this->initErrorBranch2($this->getMyModal(), $this->getSCRIPTFILENAME() === 'BranchEditPost'? $_POST['id'] : $keyId);
+            $this->initErrorBranch2($this->getMyModal());
         else if($this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' || $this->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost')
             $this->validLanguageInput($this->getMyModal());
         else if($this->getSCRIPTFILENAME() === 'FlexTablesCreatePost')

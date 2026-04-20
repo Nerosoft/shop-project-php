@@ -6,8 +6,8 @@ require 'ValidationId.php';
 class BranchCreatePost extends ValidationId{
     use ErrorBranch;
     function __construct(){
-        $keyId = $this->getRandomId();
-        parent::__construct('Branches', null, $keyId);
+        parent::__construct('Branches', null);
+        $keyId =  array_key_last($this->myBranch[$this->getFixedId()]['Branches']);
         $obj = $this->getObj();
         unset($obj['Branches']);
         if(!isset($_POST['Users']) && isset($obj['Users']))
