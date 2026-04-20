@@ -2,8 +2,7 @@
     "admin": {
         "Setting": {
             "Language": "english",
-            "Style": "default",
-            "AllNamesLanguage": "Nl48a977"
+            "Style": "default"
         },
         "english": {
             "Site": {
@@ -669,7 +668,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             },
-            "BOedfc31": {
+            "dGb13fcd": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
@@ -1349,11 +1348,10 @@
             }
         }
     },
-    "BOedfc31": {
+    "dGb13fcd": {
         "Setting": {
             "Language": "english",
-            "Style": "default",
-            "AllNamesLanguage": "Nl48a977"
+            "Style": "default"
         },
         "english": {
             "Site": {

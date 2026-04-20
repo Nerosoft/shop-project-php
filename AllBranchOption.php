@@ -1,16 +1,13 @@
 <?php
 $myBranch = $view->getBranch2();
-if($view->getUrlName2() === 'MyStyle'){
-    include('my_id.php');
-    include 'AllBranchOptionChose.php';
-}
 //make test key inside all blanch
-else if(isset($index) && count($myBranch) >= 1 || count($myBranch) >= 1 && isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()])){
+if(isset($index) && count($myBranch) >= 1 || count($myBranch) >= 1 && isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()])){
     if(isset($index))
         include('my_id.php');
     $myCountBranch = 0;
     foreach($myBranch as $key=>$option){
-        if( $view->getUrlName2() === 'Home' && isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['Language']][$index])||
+        if( $view->getUrlName2() === 'MyStyle' ||
+            $view->getUrlName2() === 'Home' && isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['Language']][$index])||
             $view->getUrlName2() === 'ChangeLanguage' && isset($view->getFile()[$key][$index])||
             $view->getUrlName2() === 'Users' && isset($view->getFile()[$key]['Users'][$index])||
             $view->getUrlName2() === 'Product' && isset($view->getFile()[$key]['Product'][$index])||
