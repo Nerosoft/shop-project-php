@@ -24,6 +24,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                 ],
                 "english"=> [
                     "Site"=> [
+                        "IdIsReq"=> "Id Required",
+                        "IdIsInv"=> "Id Invalid",
                         "MYTITLE"=> "Delivery Marketing",
                         "TitleModalLang"=> "welcom in change language",
                         "UsedLanguage"=> "Language is active",

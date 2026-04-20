@@ -6,6 +6,8 @@
         },
         "english": {
             "Site": {
+                "IdIsReq": "Id Required",
+                "IdIsInv": "Id Invalid",
                 "MYTITLE": "Delivery Marketing",
                 "TitleModalLang": "welcom in change language",
                 "UsedLanguage": "Language is active",
@@ -267,7 +269,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "Eucbca2d": "English language"
+                "fG343408": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -668,7 +670,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             },
-            "dGb13fcd": {
+            "4l491fe9": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
@@ -712,8 +714,10 @@
                 "Category": "Ultimate HealthCare"
             }
         },
-        "Eucbca2d": {
+        "fG343408": {
             "Site": {
+                "IdIsReq": "Id Required",
+                "IdIsInv": "Id Invalid",
                 "MYTITLE": "Delivery Marketing",
                 "TitleModalLang": "welcom in change language",
                 "UsedLanguage": "Language is active",
@@ -975,7 +979,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "Eucbca2d": "English language"
+                "fG343408": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -1348,13 +1352,15 @@
             }
         }
     },
-    "dGb13fcd": {
+    "4l491fe9": {
         "Setting": {
             "Language": "english",
             "Style": "default"
         },
         "english": {
             "Site": {
+                "IdIsReq": "Id Required",
+                "IdIsInv": "Id Invalid",
                 "MYTITLE": "Delivery Marketing",
                 "TitleModalLang": "welcom in change language",
                 "UsedLanguage": "Language is active",
@@ -1616,7 +1622,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "Eucbca2d": "English language"
+                "fG343408": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -2037,8 +2043,10 @@
                 "Category": "Ultimate HealthCare"
             }
         },
-        "Eucbca2d": {
+        "fG343408": {
             "Site": {
+                "IdIsReq": "Id Required",
+                "IdIsInv": "Id Invalid",
                 "MYTITLE": "Delivery Marketing",
                 "TitleModalLang": "welcom in change language",
                 "UsedLanguage": "Language is active",
@@ -2300,7 +2308,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "Eucbca2d": "English language"
+                "fG343408": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
