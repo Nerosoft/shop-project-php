@@ -4,3 +4,5 @@ Modeljson overwrit constructor
 make save file use setFile() function
 make extends InfoChangeLangStyle in MySystemlang
 make return file and save usersSettingcreate
+make $_POST['state'] AllNameLanguage and Style
+make sutup project array or jason
