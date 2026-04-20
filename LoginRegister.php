@@ -59,15 +59,12 @@ class LoginRegister extends InformationPage{
     function getRegisterLoginPage(){
         return $this->RegisterLoginPage;
     }
-    function callAllFunction(){
+    function __construct($IdPage, $message, $type){
+        parent::__construct($IdPage);
         $this->initInfoBranch($this->getMyModal());
         $this->initErrorBranch($this->getModelPage());
         $this->initEmailPassword($this->getModelPage());
         $this->initErrorActiveStyleLang();
-        $this->callAllFunction2();
-    }
-    function __construct($IdPage, $message, $type){
-        parent::__construct($IdPage);
         $this->Style = MyLanguage::fromArray($this->getModel2()['Style']);
         $this->ModalTitleStyle = $this->getModelPage()['ModalTitleStyle'];
         $this->ModalButtonStyle = $this->getModelPage()['ModalButtonStyle'];
