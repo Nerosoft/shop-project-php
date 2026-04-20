@@ -16,7 +16,7 @@ class MySettingUsers extends page implements InterfaceDataView{
         $this->initErrorsKeyPassword($this->getModelPage());
         $this->initErrorsEmailPassword($this->getModelPage());
         $this->initEmailPassword($this->getModelPage());
-        $this->InitCheckbooksState($this->getModelPage());
+        // $this->InitCheckbooksState($this->getModelPage());
         $this->NameHeadTable = $this->getModelPage()['NameHeadTable'];
         $this->PasswordHeadTable = $this->getModelPage()['PasswordHeadTable'];
         $this->ForgetPasswordHeadTable = $this->getModelPage()['ForgetPasswordHeadTable'];

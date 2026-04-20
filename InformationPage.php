@@ -5,6 +5,19 @@ class InformationPage extends ModelJson{
     private $Title;
     function __construct($IdPage){
         parent::__construct($IdPage);
+        if($IdPage === 'Site' || $IdPage === 'Login' || $IdPage === 'Register'){
+            $this->initErrorActiveStyleLang();
+            if($IdPage === 'Login')
+                $this->InitCheckbooksState($this->getModelPage());
+        }
+        else if($IdPage === 'Users')
+            $this->InitCheckbooksState($this->getModelPage());
+        else if($IdPage === 'ChangeLanguage' || $IdPage === 'MyStyle' || $IdPage === 'Branches'){
+            if($IdPage === 'ChangeLanguage' || $IdPage === 'MyStyle')
+                $this->InitInfoChangeLangStyle($this->getModelPage(), array_reverse(MyLanguage::fromArray($this->getModel2()[$IdPage === 'ChangeLanguage'?'AllNamesLanguage':'Style'])), $this->getModel2()['AllNamesLanguage']);
+            $this->initChangeStyleLangBranch($this->getModelPage());
+        }
+
         $this->Title = $this->getModelPage()['Title'];
         include 'start_html.php';
     }

@@ -64,7 +64,7 @@ class LoginRegister extends InformationPage{
         $this->initInfoBranch($this->getMyModal());
         $this->initErrorBranch($this->getModelPage());
         $this->initEmailPassword($this->getModelPage());
-        $this->initErrorActiveStyleLang();
+        // $this->initErrorActiveStyleLang();
         $this->Style = MyLanguage::fromArray($this->getModel2()['Style']);
         $this->ModalTitleStyle = $this->getModelPage()['ModalTitleStyle'];
         $this->ModalButtonStyle = $this->getModelPage()['ModalButtonStyle'];

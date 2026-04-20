@@ -39,7 +39,7 @@ class Site extends InformationPage{
     private $Design;
     function __construct($message = 'LoadMessage', $type = 'success'){
         parent::__construct('Site');
-        $this->initErrorActiveStyleLang();
+        // $this->initErrorActiveStyleLang();
         $this->DataView = isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
         echo<<<HTML
         <link rel="stylesheet" href="./asset/css/site/font-awesome.min.css">
