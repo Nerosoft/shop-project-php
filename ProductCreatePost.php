@@ -5,27 +5,15 @@ require 'ProductClass.php';
 require 'ValidationId.php';
 class ProductCreatePost extends ValidationId{
     use ErrorProduct;
-    private $modal;
     private $keyId;
     function __construct(){
-        $this->modal = new ModelJson('Product');
-        $this->validProductInput($this->getMyModal());
         $this->keyId = isset($_POST['id'])?$_POST['id']:$this->getMyModal()->getRandomId();
-        if(isset($_POST['Branches']) || isset($_POST['choices'])){
-            parent::__construct($this->getMyModal(),  function($myFile, $keyBranch){
-                return $this->saveProduct($myFile, $keyBranch);
-            });
-        }
-        //for edit product
-        else if(isset($_POST['id'])){
-            parent::__construct($this->getMyModal());
-            $this->getMyModal()->saveModel($this->saveProduct($this->getMyModal()->getObj(), $this->getMyModal()->getId()));
-        }else//for create product
-            $this->getMyModal()->saveModel($this->saveProduct($this->getMyModal()->getObj(), $this->getMyModal()->getId()));
+        parent::__construct('Product',  function($myFile, $keyBranch){
+            return $this->saveProduct($myFile, $keyBranch);
+        });
+        if(!isset($_POST['Branches']) && !isset($_POST['choices']))
+            $this->saveModel($this->saveProduct($this->getObj(), $this->getId()));
         Product::initProduct(isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');
-    }
-    function getMyModal(){
-        return $this->modal;
     }
     function saveProduct($myData, $idSseion){
         $myData['Product'][$this->keyId] = array("Name"=>$_POST["name"], "Descreption"=>$_POST["descreption"], "Salary"=>$_POST["salary"], "Category"=>$_POST["category"]);

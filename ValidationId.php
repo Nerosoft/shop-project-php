@@ -1,12 +1,13 @@
 <?php
-class ValidationId{
+class ValidationId extends ModelJson{
     //passing modal and stop extends
-    //make pram for allnamelanguage and style $modal->getSCRIPTFILENAME() === 'ChangeLanguageEditPost'?'AllNamesLanguage':'Style'
-    function __construct($modal, $callback = null){
+    //make pram for allnamelanguage and style $this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost'?'AllNamesLanguage':'Style'
+    function __construct($IdPage, $callback = null, $keyId = null){
+        parent::__construct($IdPage);
         //valid id first
-        if($modal->getSCRIPTFILENAME()!=='FlexTablesCreatePost' && $modal->getSCRIPTFILENAME()!=='HomeCreatePost' && $modal->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' && $modal->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $modal->getSCRIPTFILENAME()!=='ProductCreatePost' && !isset($_POST['id']) ||
-         $modal->getSCRIPTFILENAME()!=='FlexTablesCreatePost' && $modal->getSCRIPTFILENAME()!=='HomeCreatePost' && $modal->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' &&  $modal->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $modal->getSCRIPTFILENAME()!=='ProductCreatePost' && $_POST['id'] === '')
-            $modal->initViewPost($modal->getModelPage()['IdIsReq']);
+        if($this->getSCRIPTFILENAME()!=='BranchCreatePost' && $this->getSCRIPTFILENAME()!=='FlexTablesCreatePost' && $this->getSCRIPTFILENAME()!=='HomeCreatePost' && $this->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' && $this->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $this->getSCRIPTFILENAME()!=='ProductCreatePost' && !isset($_POST['id']) ||
+         $this->getSCRIPTFILENAME()!=='BranchCreatePost' && $this->getSCRIPTFILENAME()!=='FlexTablesCreatePost' && $this->getSCRIPTFILENAME()!=='HomeCreatePost' && $this->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' &&  $this->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $this->getSCRIPTFILENAME()!=='ProductCreatePost' && $_POST['id'] === '')
+            $this->initViewPost($this->getModelPage()['IdIsReq']);
         
         
         
@@ -14,11 +15,11 @@ class ValidationId{
         
         //make valid is array and count branch
         //make test id session inside array choices
-        else if(isset($_POST['choices']) && is_array($_POST['choices']) && isset($_POST['choices'][$modal->getId()])|| 
+        else if(isset($_POST['choices']) && is_array($_POST['choices']) && isset($_POST['choices'][$this->getId()])|| 
             isset($_POST['choices']) && !is_array($_POST['choices']) ||
-            isset($_POST['choices']) && count($modal->getBranch()) === 1||
-            isset($_POST['Branches']) && count($modal->getBranch()) === 1)
-            $modal->initViewPost($modal->getModel2()['AppSettingAdmin']['BranchInv']);
+            isset($_POST['choices']) && count($this->getBranch()) === 1||
+            isset($_POST['Branches']) && count($this->getBranch()) === 1)
+            $this->initViewPost($this->getModel2()['AppSettingAdmin']['BranchInv']);
 
 
 
@@ -26,80 +27,117 @@ class ValidationId{
 
 
         //make add edit delete for home and language and users and product inside all branch
-        else if(isset($_POST['Branches']) && $modal->getUrlName2() === 'Users'||
-            isset($_POST['choices']) && $modal->getUrlName2() === 'Users'||
-            isset($_POST['Branches']) && $modal->getUrlName2() === 'Home'||
-            isset($_POST['choices']) && $modal->getUrlName2() === 'Home'||
-            isset($_POST['Branches']) && $modal->getSCRIPTFILENAME() === 'FlexTablesCreatePost'||
-            isset($_POST['choices']) && $modal->getSCRIPTFILENAME() === 'FlexTablesCreatePost'||
-            isset($_POST['Branches']) && $modal->getSCRIPTFILENAME() === 'SettingUsersDeletePost'||
-            isset($_POST['choices']) && $modal->getSCRIPTFILENAME() === 'SettingUsersDeletePost'||
-            isset($_POST['Branches']) && $modal->getUrlName2() === 'MyStyle'||
-            isset($_POST['choices']) && $modal->getUrlName2() === 'MyStyle'||
-            isset($_POST['Branches']) && $modal->getUrlName2() === 'ChangeLanguage'||
-            isset($_POST['choices']) && $modal->getUrlName2() === 'ChangeLanguage'||
-            isset($_POST['Branches']) && $modal->getUrlName2() === 'Product'||
-            isset($_POST['choices']) && $modal->getUrlName2() === 'Product'){
+        else if(
+            
+
+
+            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'HomeCreatePost' && is_null($this->validName())||
+            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'HomeCreatePost' && is_null($this->validName())||
+            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'HomeEditPost' && is_null($this->validName())||
+            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'HomeEditPost' && is_null($this->validName())||
+
+            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'HomeDeletePost'||
+            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'HomeDeletePost'||
+
+            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && is_null($this->initErrorFlexTable2($this->getMyModal()))||
+            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && is_null($this->initErrorFlexTable2($this->getMyModal()))||
+
+            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'ProductCreatePost' && is_null($this->validProductInput($this->getMyModal()))||
+            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ProductCreatePost' && is_null($this->validProductInput($this->getMyModal()))||
+
+            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3($this->getMyModal()))||
+            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3($this->getMyModal()))||
+            
+            //product and uesrs and flextable
+            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'SettingUsersDeletePost'||
+            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'SettingUsersDeletePost'||
+
+
+            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'ChangeLanguagePost'||
+            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ChangeLanguagePost'||
+            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost'||
+            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost'||
+            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' && is_null($this->validLanguageInput($this->getMyModal()))||
+            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' && is_null($this->validLanguageInput($this->getMyModal()))||
+            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost' && is_null($this->validLanguageInput($this->getMyModal()))||
+            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost' && is_null($this->validLanguageInput($this->getMyModal()))
+
+
+
+           ){
             //make declar file if delete item and test id
-            $myFile = $modal->getFile();
-            foreach (isset($_POST['Branches']) ? $modal->getBranch() : array(...$_POST['choices'], $modal->getId()=>$modal->getId()) as $key => $value)
+            $myFile = $this->getFile();
+            foreach (isset($_POST['Branches']) ? $this->getBranch() : array(...$_POST['choices'], $this->getId()=>$this->getId()) as $key => $value)
                 //make test id branch if user select choices option
-                if(!isset($_POST['Branches']) && !isset($modal->getBranch()[$key]))
-                    $modal->initViewPost($modal->getModel2()['AppSettingAdmin']['BranchInv']);
+                if(!isset($_POST['Branches']) && !isset($this->getBranch()[$key]))
+                    $this->initViewPost($this->getModel2()['AppSettingAdmin']['BranchInv']);
                 //make text id inside all branch for users and product and home and language (only edit)
                 //use $IdPage only(users and product)
                 //style dont create use getUrlName2
-                else if(isset($_POST['id']) && $modal->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($myFile[$key][$_GET['id']][$_POST['id']]) ||
-                    !isset($_POST['id']) && $modal->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_GET['id']]) ||
+                else if(isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($myFile[$key][$_GET['id']][$_POST['id']]) ||
+                    !isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_GET['id']]) ||
                     
-                    $modal->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
-                    $modal->getSCRIPTFILENAME() === 'ChangeLanguagePost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
-                    $modal->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && !isset($myFile[$key][$_POST['id']]) ||
-                    $modal->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english' ||
-                    $modal->getSCRIPTFILENAME() === 'HomeEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['id']]) ||
-                    $modal->getSCRIPTFILENAME() === 'HomeDeletePost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['id']]) ||
+                    $this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
+                    $this->getSCRIPTFILENAME() === 'ChangeLanguagePost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
+                    $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && !isset($myFile[$key][$_POST['id']]) ||
+                    $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english' ||
+                    $this->getSCRIPTFILENAME() === 'HomeEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['id']]) ||
+                    $this->getSCRIPTFILENAME() === 'HomeDeletePost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['id']]) ||
                   
-                $modal->getSCRIPTFILENAME() === 'ProductDeletePost' && !isset($myFile[$key][$modal->getUrlName2()][$_POST['id']])||
+                $this->getSCRIPTFILENAME() === 'ProductDeletePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']])||
                 //valid users and flex table getUrlName2
-                $modal->getSCRIPTFILENAME() === 'SettingUsersDeletePost' && !isset($myFile[$key][$modal->getUrlName2()][$_POST['id']]) ||
+                $this->getSCRIPTFILENAME() === 'SettingUsersDeletePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]) ||
                   //ignore create validation account and product
-                  isset($_POST['id']) && $modal->getSCRIPTFILENAME() === 'ProductCreatePost' && !isset($myFile[$key][$modal->getUrlName2()][$_POST['id']])||
-                  isset($_POST['id']) && $modal->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && !isset($myFile[$key][$modal->getUrlName2()][$_POST['id']]))
-                    $modal->initViewPost($modal->getModelPage()['IdIsInv']);
+                  isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ProductCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']])||
+                  isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]))
+                    $this->initViewPost($this->getModelPage()['IdIsInv']);
                 else
                     $myFile[$key] = $callback($myFile[$key], $key);
-            $modal->saveFile($myFile);
+            $this->saveFile($myFile);
         }
 
 
         else if(
-            $modal->getSCRIPTFILENAME() === 'BranchDeletePost' && $_POST['id'] === $modal->getFixedId()||
-            $modal->getSCRIPTFILENAME() === 'BranchDeletePost' && $_POST['id'] === $modal->getId()||
-            $modal->getUrlName2() === 'Branches' && !isset($modal->getBranch()[$_POST['id']])||
-            $modal->getUrlName2() === 'MyStyle' && !isset($modal->getModel2()['Style'][$_POST['id']])||
-            $modal->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($modal->getObj()[$_GET['id']][$_POST['id']]) ||
+            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'BranchDeletePost' && $_POST['id'] === $this->getFixedId()||
+            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'BranchDeletePost' && $_POST['id'] === $this->getId()||
+            isset($_POST['id']) && $this->getUrlName2() === 'Branches' && !isset($this->getBranch()[$_POST['id']])||
+            isset($_POST['id']) && $this->getUrlName2() === 'MyStyle' && !isset($this->getModel2()['Style'][$_POST['id']])||
+            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($this->getObj()[$_GET['id']][$_POST['id']]) ||
             //valid users and flex table $_GET['id']
-            $modal->getSCRIPTFILENAME() === 'SettingUsersDeletePost' && !isset($modal->getObj()[$_GET['id']][$_POST['id']]) ||
-            $modal->getUrlName2() === 'Login' && $_POST['state'] ==='lang' && !isset($modal->getModel2()['AllNamesLanguage'][$_POST['id']])||
-            $modal->getUrlName2() === 'Register' && $_POST['state'] ==='lang' && !isset($modal->getModel2()['AllNamesLanguage'][$_POST['id']])||
-            $modal->getUrlName2() === 'Login' && $_POST['state'] ==='style' && !isset($modal->getModel2()['Style'][$_POST['id']])||
-            $modal->getUrlName2() === 'Register' && $_POST['state'] ==='style' && !isset($modal->getModel2()['Style'][$_POST['id']])||
+            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'SettingUsersDeletePost' && !isset($this->getObj()[$_GET['id']][$_POST['id']]) ||
+            isset($_POST['id']) && $this->getUrlName2() === 'Login' && $_POST['state'] ==='lang' && !isset($this->getModel2()['AllNamesLanguage'][$_POST['id']])||
+            isset($_POST['id']) && $this->getUrlName2() === 'Register' && $_POST['state'] ==='lang' && !isset($this->getModel2()['AllNamesLanguage'][$_POST['id']])||
+            isset($_POST['id']) && $this->getUrlName2() === 'Login' && $_POST['state'] ==='style' && !isset($this->getModel2()['Style'][$_POST['id']])||
+            isset($_POST['id']) && $this->getUrlName2() === 'Register' && $_POST['state'] ==='style' && !isset($this->getModel2()['Style'][$_POST['id']])||
             //work delete add edit user and product and home and change language
-            $modal->getUrlName2() === 'Users' && !isset($modal->getObj()['Users'][$_POST['id']])||
-            $modal->getUrlName2() === 'Home' && !isset($modal->getModel2()['MyFlexTables'][$_POST['id']])||
-            $modal->getUrlName2() === 'ChangeLanguage' && !isset($modal->getModel2()['AllNamesLanguage'][$_POST['id']])||
-            $modal->getUrlName2() === 'Product' && !isset($modal->getObj()['Product'][$_POST['id']])||
+            isset($_POST['id']) && $this->getUrlName2() === 'Users' && !isset($this->getObj()['Users'][$_POST['id']])||
+            isset($_POST['id']) && $this->getUrlName2() === 'Home' && !isset($this->getModel2()['MyFlexTables'][$_POST['id']])||
+            isset($_POST['id']) && $this->getUrlName2() === 'ChangeLanguage' && !isset($this->getModel2()['AllNamesLanguage'][$_POST['id']])||
+            isset($_POST['id']) && $this->getUrlName2() === 'Product' && !isset($this->getObj()['Product'][$_POST['id']])||
             //check lang name = english (system) and = (select language)
-            $modal->getUrlName2() === 'ChangeLanguage' && $_POST['id'] === $modal->getLanguage() && $modal->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost'||
-            $modal->getUrlName2() === 'ChangeLanguage' && $_POST['id'] === 'english' && $modal->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost'
+            isset($_POST['id']) && $this->getUrlName2() === 'ChangeLanguage' && $_POST['id'] === $this->getLanguage() && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost'||
+            isset($_POST['id']) && $this->getUrlName2() === 'ChangeLanguage' && $_POST['id'] === 'english' && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost'
         )
-            $modal->initViewPost($modal->getModelPage()['IdIsInv']);
+            $this->initViewPost($this->getModelPage()['IdIsInv']);
+        else if($this->getSCRIPTFILENAME() === 'BranchEditPost' || $this->getSCRIPTFILENAME() === 'BranchCreatePost')
+            $this->initErrorBranch2($this->getMyModal(), $this->getSCRIPTFILENAME() === 'BranchEditPost'? $_POST['id'] : $keyId);
+        else if($this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' || $this->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost')
+            $this->validLanguageInput($this->getMyModal());
+        else if($this->getSCRIPTFILENAME() === 'FlexTablesCreatePost')
+            $this->initErrorFlexTable2($this->getMyModal());
+        else if($this->getSCRIPTFILENAME() === 'ProductCreatePost')
+            $this->validProductInput($this->getMyModal());
+        else if($this->getSCRIPTFILENAME() === 'SettingUsersCreatePost')
+            $this->initErrorsEmailPassword3($this->getMyModal());
+        else if($this->getSCRIPTFILENAME() === 'HomeCreatePost' || $this->getSCRIPTFILENAME() === 'HomeEditPost')
+            $this->validName();
+        
     }
-    function deleteItem($id, $myData){
-        if(count($myData[$id]) === 1)
-            unset($myData[$id]);
+    function deleteItem($myData){
+        if(count($myData[$this->getUrlName2()]) === 1)
+            unset($myData[$this->getUrlName2()]);
         else
-            unset($myData[$id][$_POST['id']]);
+            unset($myData[$this->getUrlName2()][$_POST['id']]);
         return $myData;
     }
 }

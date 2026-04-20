@@ -5,24 +5,17 @@ require 'MyHome.php';
 require 'ValidationId.php';
 class HomeCreatePost extends ValidationId{
     use ErrorsHome;
-    private $modal;
     private $keyId;
     private $keysInput;
     function __construct(){
-        $this->modal = new ModelJson('Home');
-        $this->initErrorsHome2($this->getMyModal());
-        $this->keyId = $this->getMyModal()->getRandomId();
-        $this->keysInput = $this->getMyModal()->getArrayKeys();
-        if(!isset($_POST['Branches']) && !isset($_POST['choices']))
-            $this->getMyModal()->saveModel($this->saveFelxTable($this->getMyModal()->getModel2()['AllNamesLanguage'], $this->getMyModal()->getObj()));
-        else 
-            parent::__construct($this->getMyModal(), function($myFile){
-                return $this->saveFelxTable($myFile[$myFile['Setting']['Language']]['AllNamesLanguage'], $myFile);
+        $this->keyId = $this->getRandomId();
+        $this->keysInput = isset($_POST['input_number'])?$this->getArrayKeys():array();
+        parent::__construct('Home', function($myFile){
+            return $this->saveFelxTable($myFile[$myFile['Setting']['Language']]['AllNamesLanguage'], $myFile);
         }); 
+        if(!isset($_POST['Branches']) && !isset($_POST['choices']))
+            $this->saveModel($this->saveFelxTable($this->getModel2()['AllNamesLanguage'], $this->getObj()));
         MyHome::initHome('MessageModelCreate');
-    }
-    function getMyModal(){
-        return $this->modal;
     }
     function saveFelxTable($AllNamesLanguage, $myData){
         foreach ($AllNamesLanguage as $code => $value) {

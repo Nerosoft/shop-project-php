@@ -1,21 +1,22 @@
 <?php
 include 'SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_GET['id'])){
-require ($_GET['id'] !== 'Users'?'MyFlexTablesView':'MySettingUsers').'.php';
+require ($_GET['id'] === 'Product' ? 'ProductClass' : ($_GET['id'] !== 'Users'?'MyFlexTablesView':'MySettingUsers')).'.php';
 require 'ValidationId.php';
 class SettingUsersDeletePost extends ValidationId{
-    private $modal;
     function __construct(){
-        $this->modal = new ModelJson($_GET['id']);
-        parent::__construct($this->getMyModal(), function($myFile){
-            return $this->deleteItem($_GET['id'], $myFile);
+        parent::__construct($_GET['id'], function($myFile, $key){
+            if($this->getUrlName2() === 'Product')
+                //delete image for product
+                array_map('unlink', glob('asset/product/'.$key.'/'.$_POST['id'].'.*'));
+            return $this->deleteItem($myFile);
         });
-        if(!isset($_POST['Branches']) && !isset($_POST['choices']))
-            $this->getMyModal()->saveModel($this->deleteItem($_GET['id'], $this->getMyModal()->getObj()));
-        $this->getMyModal()->initViewPost('Delete', 'success');
-    }
-    function getMyModal(){
-        return $this->modal;
+        if(!isset($_POST['Branches']) && !isset($_POST['choices'])){
+            $this->saveModel($this->deleteItem($this->getObj()));
+            if($this->getUrlName2() === 'Product')
+                array_map('unlink', glob('asset/product/'.$this->getId().'/'.$_POST['id'].'.*'));
+        }
+        $this->initViewPost('Delete', 'success');
     }
 }
 

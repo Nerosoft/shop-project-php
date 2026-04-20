@@ -4,14 +4,12 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 require 'MyBranch.php';
 require 'ValidationId.php';
 class BranchDeletePost extends ValidationId{
-    private $modal;
     function __construct(){
-        $this->modal = new ModelJson('Branches');
-        parent::__construct($this->getMyModal());
-        $file = $this->getMyModal()->getFile();
-        unset($file[$this->getMyModal()->getFixedId()]['Branches'][$_POST['id']]);
+        parent::__construct('Branches');
+        $file = $this->getFile();
+        unset($file[$this->getFixedId()]['Branches'][$_POST['id']]);
         unset($file[$_POST['id']]);
-        $this->getMyModal()->saveFile($file);
+        $this->saveFile($file);
         if(is_dir('asset/product/'.$_POST['id'])){
             $dir = opendir('asset/product/'.$_POST['id']);
             while (false !== ($myFile=readdir($dir)))
@@ -21,9 +19,6 @@ class BranchDeletePost extends ValidationId{
             rmdir('asset/product/'.$_POST['id']);
         }
         MyBranch::initBranch('Delete');
-    }
-    function getMyModal(){
-        return $this->modal;
     }
 }
 new BranchDeletePost();

@@ -4,18 +4,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['option']) && $_POST['o
 require ($_POST['option'] === 'MyStyle'?'MyStyleClass':'MyChangeLanguage').'.php';
 require 'ValidationId.php';
 class ChangeLanguagePost extends ValidationId{
-    private $modal;
     function __construct(){
-        $this->modal = new ModelJson($_POST['option']);
-        parent::__construct($this->getMyModal(), function($myFile){
+        parent::__construct($_POST['option'], function($myFile){
             return $this->changeLangStylePost($myFile);
         });
         if(!isset($_POST['Branches']) && !isset($_POST['choices']))
-            $this->getMyModal()->saveModel($this->changeLangStylePost($this->getMyModal()->getObj()));
-        $this->getMyModal()->initViewPost($_POST['option'] === 'ChangeLanguage'?'ChangeLang':'MessageStyle', 'success');
-    }
-    function getMyModal(){
-        return $this->modal;
+            $this->saveModel($this->changeLangStylePost($this->getMyModal()->getObj()));
+        $this->initViewPost($_POST['option'] === 'ChangeLanguage'?'ChangeLang':'MessageStyle', 'success');
     }
     function changeLangStylePost($myData){
         $myData['Setting'][$_POST['option'] === 'MyStyle'?'Style':'Language'] = $_POST['id'];

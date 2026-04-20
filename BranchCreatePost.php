@@ -2,12 +2,12 @@
 include 'SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
 require 'MyBranch.php';
-class BranchCreatePost extends ModelJson{
+require 'ValidationId.php';
+class BranchCreatePost extends ValidationId{
     use ErrorBranch;
     function __construct(){
-        parent::__construct('Branches');
         $keyId = $this->getRandomId();
-        $file = $this->initErrorBranch2($this->getMyModal(), $keyId);
+        parent::__construct('Branches', null, $keyId);
         $obj = $this->getObj();
         unset($obj['Branches']);
         if(!isset($_POST['Users']) && isset($obj['Users']))
@@ -34,8 +34,8 @@ class BranchCreatePost extends ModelJson{
                 
             }
         }
-        $file [$keyId] = $obj;
-        $this->saveFile($file);
+        $this->myBranch[$keyId] = $obj;
+        $this->saveFile($this->myBranch);
         MyBranch::initBranch('MessageModelCreate');
     }
 }

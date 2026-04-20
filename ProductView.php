@@ -52,7 +52,7 @@
                                         </div>
                                     </div>
                         HTML;
-                        $action = 'ProductDeletePost.php';
+                        $action = 'SettingUsersDeletePost?id='.$view->getUrlName2();
                         include('modal_delete.php');
                         $title = $view->getScreenModelEdit();
                         $button = $view->getButtonModelEdit();

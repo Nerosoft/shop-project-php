@@ -31,17 +31,6 @@ class ModelJson{
             $this->Language = isset($_COOKIE[$this->getId().'lang']) && isset($this->getObj()[$_COOKIE[$this->getId().'lang']])?$_COOKIE[$this->getId().'lang']:$this->getObj()['Setting']['Language'];
             $this->StyleFile = isset($_COOKIE[$this->getId().'style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'style']])?$_COOKIE[$this->getId().'style']:$this->getObj()['Setting']['Style'];
         }
-
-        // if(
-        // $this->getSCRIPTFILENAME() === 'ProductCreatePost' ||
-        // $this->getSCRIPTFILENAME() === 'SetupProject' ||
-        // $this->getSCRIPTFILENAME() === 'LoginForgetPasswordPost' ||
-        // $this->getSCRIPTFILENAME() === 'LoginPost' ||
-        // $this->getSCRIPTFILENAME() === 'RegisterPost' ||
-        // $this->getSCRIPTFILENAME() === 'SettingUsersCreatePost'){
-        //     $_SERVER["REQUEST_METHOD"] = 'asdasd';
-        //     $this->validMyErrorsInputs($this);
-        // }
     }
     //create and edit
     function getRandomId(){

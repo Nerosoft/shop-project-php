@@ -32,7 +32,7 @@
                                 <td>***************</td>
                                 <td>
                             HTML;
-                            $action = 'SettingUsersDeletePost?id='.'Users';
+                            $action = 'SettingUsersDeletePost?id='.$view->getUrlName2();
                             include('modal_delete.php');
                             $title = $view->getScreenModelEdit();
                             $button = $view->getButtonModelEdit();

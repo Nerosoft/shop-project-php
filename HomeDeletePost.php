@@ -4,18 +4,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 require 'MyHome.php';
 require 'ValidationId.php';
 class HomeDeletePost extends ValidationId{
-    private $modal;
     function __construct(){
-        $this->modal = new ModelJson('Home');
-        parent::__construct($this->getMyModal(), function($myFile){
+        parent::__construct('Home', function($myFile){
             return $this->deleteHome($myFile);
         }); 
         if(!isset($_POST['Branches']) && !isset($_POST['choices']))
-            $this->getMyModal()->saveModel($this->deleteHome($this->getMyModal()->getObj()));
+            $this->saveModel($this->deleteHome($this->getObj()));
         MyHome::initHome('Delete');
-    }
-    function getMyModal(){
-        return $this->modal;
     }
     function deleteHome($myData){
         foreach ($myData[$myData['Setting']['Language']]['AllNamesLanguage'] as $key => $value) 
