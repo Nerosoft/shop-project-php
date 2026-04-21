@@ -6,7 +6,19 @@ class InformationPage extends ModelJson{
     function __construct($IdPage, $message, $type){
         parent::__construct($IdPage);
         $this->Title = $this->getModelPage()['Title'];
-        include 'start_html.php';
+        echo<<<HTML
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>{$this->getTitle()}</title>
+            <link href="./asset/css/style.css" rel="stylesheet">
+            <link href="./asset/lib/bootstrap.min.css" rel="stylesheet">
+            <script src="./asset/lib/jquery.min.js" type="text/javascript"></script>
+            <script src="./asset/lib/bootstrap.bundle.min.js" type="text/javascript"></script>
+            <script src="./asset/js/script.js" type="text/javascript"></script>
+            <link href="./asset/css/{$this->getStyleFile()}.css" rel="stylesheet">
+        HTML;
         if($IdPage === 'Site' || $IdPage === 'Login' || $IdPage === 'Register'){
             echo $IdPage === 'Site'? 
                 '<link rel="stylesheet" href="./asset/css/site/font-awesome.min.css">
