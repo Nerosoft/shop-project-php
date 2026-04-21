@@ -105,9 +105,9 @@ class ValidationId extends ModelJson{
             isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($this->getObj()[$_GET['id']][$_POST['id']]) ||
             //valid users and flex table $_GET['id']
             isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'SettingUsersDeletePost' && !isset($this->getObj()[$_GET['id']][$_POST['id']]) ||
-            isset($_POST['id']) && $this->getUrlName2() === 'Login' && !isset($this->getModel2()[$_POST['state'] ==='style'?'Style':'AllNamesLanguage'][$_POST['id']])||
-            isset($_POST['id']) && $this->getUrlName2() === 'Register' && !isset($this->getModel2()[$_POST['state'] ==='style'?'Style':'AllNamesLanguage'][$_POST['id']])||
-            isset($_POST['id']) && $this->getUrlName2() === 'Site' && !isset($this->getModel2()[$_POST['state'] ==='style'?'Style':'AllNamesLanguage'][$_POST['id']])||
+            isset($_POST['id']) && $this->getUrlName2() === 'Login' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
+            isset($_POST['id']) && $this->getUrlName2() === 'Register' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
+            isset($_POST['id']) && $this->getUrlName2() === 'Site' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
             //work delete add edit user and product and home and change language
             isset($_POST['id']) && $this->getUrlName2() === 'Users' && !isset($this->getObj()['Users'][$_POST['id']])||
             isset($_POST['id']) && $this->getUrlName2() === 'Home' && !isset($this->getModel2()['MyFlexTables'][$_POST['id']])||

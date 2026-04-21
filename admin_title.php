@@ -1,8 +1,3 @@
-<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
-<script src="./asset/lib/dataTables.js" type="text/javascript"></script>
-<script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script>
-</head>
-<body>
 <nav class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"><?php echo $this->getAdminDashboard()?></a>

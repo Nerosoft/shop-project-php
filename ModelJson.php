@@ -18,18 +18,18 @@ class ModelJson{
             header("Location:".$this->getUrlName2());
         else if($_SERVER["REQUEST_METHOD"] === "POST"){
             $this->id = $_POST['superId'];
-            $this->Language = isset($_COOKIE[$this->getId().'lang']) && isset($this->getObj()[$_COOKIE[$this->getId().'lang']])?$_COOKIE[$this->getId().'lang']:$this->getObj()['Setting']['Language'];
-            $this->StyleFile = isset($_COOKIE[$this->getId().'style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'style']])?$_COOKIE[$this->getId().'style']:$this->getObj()['Setting']['Style'];
+            $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['Setting']['Language'];
+            $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Setting']['Style'];
         }
         else if(isset($_GET['id'])){
             $this->id = $_GET['id'];
-            $this->Language = isset($_COOKIE[$this->getId().'lang']) && isset($this->getObj()[$_COOKIE[$this->getId().'lang']])?$_COOKIE[$this->getId().'lang']:$this->getObj()['Setting']['Language'];
-            $this->StyleFile = isset($_COOKIE[$this->getId().'style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'style']])?$_COOKIE[$this->getId().'style']:$this->getObj()['Setting']['Style'];
+            $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['Setting']['Language'];
+            $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Setting']['Style'];
         }
         else{
             $this->id = 'admin';
-            $this->Language = isset($_COOKIE[$this->getId().'lang']) && isset($this->getObj()[$_COOKIE[$this->getId().'lang']])?$_COOKIE[$this->getId().'lang']:$this->getObj()['Setting']['Language'];
-            $this->StyleFile = isset($_COOKIE[$this->getId().'style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'style']])?$_COOKIE[$this->getId().'style']:$this->getObj()['Setting']['Style'];
+            $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['Setting']['Language'];
+            $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Setting']['Style'];
         }
     }
     //create and edit

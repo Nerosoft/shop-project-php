@@ -38,22 +38,8 @@ class Site extends InformationPage{
     private $Company;
     private $Design;
     function __construct($message = 'LoadMessage', $type = 'success'){
-        parent::__construct('Site');
-        // $this->initErrorActiveStyleLang();
+        parent::__construct('Site', $message, $type);
         $this->DataView = isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
-        echo<<<HTML
-        <link rel="stylesheet" href="./asset/css/site/font-awesome.min.css">
-        <link rel="stylesheet" href="./asset/css/site/aos.css">
-        <link rel="stylesheet" href="./asset/css/site/owl.carousel.min.css">
-        <!-- MAIN CSS -->
-        <link rel="stylesheet" href="./asset/css/site/templatemo-digital-trend.css">
-        </head>
-        <body>
-        HTML;
-        $this->showToast($this->getModelPage()[$message]??$message, $type);
-        $this->initEvent('createModel', 'createForm', $this->getLanguage(), $this->getChangeLang(), $this->getModelPage()['TitleModalLang'], $this->getModelPage()['ButtonActiveLang'], 'lang', MyLanguage::fromArray($this->getModel2()['AllNamesLanguage']));
-        $this->initEvent('style_modal', 'style_form', $this->getStyleFile(), $this->getChangeStyle(), $this->getModelPage()['TitleModalStyle'], $this->getModelPage()['ButtonActiveStyle'], 'style', MyLanguage::fromArray($this->getModel2()['Style']));
-        $this->initScriptStyleLang();
         $this->About = $this->getModelPage()['About'];
         $this->Product = $this->getModelPage()['Product'];
         $this->Contact = $this->getModelPage()['Contact'];

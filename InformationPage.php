@@ -3,100 +3,41 @@ require 'ModelJson.php';
 require 'MyLanguage.php';
 class InformationPage extends ModelJson{
     private $Title;
-    function __construct($IdPage){
+    function __construct($IdPage, $message, $type){
         parent::__construct($IdPage);
+        $this->Title = $this->getModelPage()['Title'];
+        include 'start_html.php';
         if($IdPage === 'Site' || $IdPage === 'Login' || $IdPage === 'Register'){
+            echo $IdPage === 'Site'? 
+                '<link rel="stylesheet" href="./asset/css/site/font-awesome.min.css">
+                <link rel="stylesheet" href="./asset/css/site/aos.css">
+                <link rel="stylesheet" href="./asset/css/site/owl.carousel.min.css">
+                <!-- MAIN CSS -->
+                <link rel="stylesheet" href="./asset/css/site/templatemo-digital-trend.css">' : 
+                '<link href="./asset/css/login_register.css" rel="stylesheet">';
             $this->initErrorActiveStyleLang();
             if($IdPage === 'Login')
                 $this->InitCheckbooksState($this->getModelPage());
-        }
-        else if($IdPage === 'Users')
-            $this->InitCheckbooksState($this->getModelPage());
-        else if($IdPage === 'ChangeLanguage' || $IdPage === 'MyStyle' || $IdPage === 'Branches'){
-            if($IdPage === 'ChangeLanguage' || $IdPage === 'MyStyle')
-                $this->InitInfoChangeLangStyle($this->getModelPage(), array_reverse(MyLanguage::fromArray($this->getModel2()[$IdPage === 'ChangeLanguage'?'AllNamesLanguage':'Style'])), $this->getModel2()['AllNamesLanguage']);
-            $this->initChangeStyleLangBranch($this->getModelPage());
+        }else{
+            if($IdPage === 'Users')
+                $this->InitCheckbooksState($this->getModelPage());
+            else if($IdPage === 'ChangeLanguage' || $IdPage === 'MyStyle' || $IdPage === 'Branches'){
+                if($IdPage === 'ChangeLanguage' || $IdPage === 'MyStyle')
+                    $this->InitInfoChangeLangStyle($this->getModelPage(), array_reverse(MyLanguage::fromArray($this->getModel2()[$IdPage === 'ChangeLanguage'?'AllNamesLanguage':'Style'])), $this->getModel2()['AllNamesLanguage']);
+                $this->initChangeStyleLangBranch($this->getModelPage());
+            }
+            echo '<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
+            <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
+            <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script>';
         }
 
-        $this->Title = $this->getModelPage()['Title'];
-        include 'start_html.php';
+        echo '</head><body>';
+        $this->showToast($this->getModelPage()[$message]??$message, $type);
     }
     function getTitle(){
         return $this->Title;
     }
     function setTitle($title){
         return $this->Title = $title;
-    }
-    function initEvent($idModel, $idForm, $style_lang, $error, $title, $button, $state, $data){
-        echo<<<HTML
-        <div class="modal fade" id="{$idModel}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="SettingLanguage">{$title}</h5>
-                    <button type="button" id="close_button" onclick="restValue('#{$idModel}', '{$style_lang}')" class="btn btn-dark">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form id="{$idForm}" action="ChangeLangPost.php" method="POST">
-                <div class="modal-body">
-                    <input type="hidden" value="{$this->getId()}" name="superId">
-                    <input type="hidden"value="{$state}" name="state">
-                    <input type="hidden" name="change_language" value="{$this->getUrlName2()}">
-
-        HTML;
-        foreach ($data as $key => $value)
-            if($key === $style_lang)
-                echo <<<HTML
-                    <div class="form-check">
-                    <input name="id" onchange="changeLangStyle(this, '#{$idForm}', '{$style_lang}', '#{$idModel}', '{$error}')" class="form-check-input flexCheck" value="{$key}" checked type="radio">
-                    <label  class="form-check-label">
-                    {$value->getName()}
-                    </label>
-                    </div>
-                HTML;
-            else
-                echo <<<HTML
-                    <div class="form-check">
-                    <input name="id" onchange="changeLangStyle(this, '#{$idForm}', '{$style_lang}', '#{$idModel}', '{$error}')" class="form-check-input" value="{$key}" type="radio">
-                    <label  class="form-check-label">
-                    {$value->getName()}
-                    </label>
-                    </div>
-                HTML;
-        echo<<<HTML
-            </div>
-                <div class="modal-footer">
-                <button type="submit" id="click_button" class="btn btn-primary" onclick="sendLangStyle('#{$idForm}', '#{$idModel}', '{$style_lang}', '{$error}')">{$button}</button>
-                </div>
-            </form>
-            </div>
-            </div>
-            </div>
-        HTML;
-    }
-    function initScriptStyleLang(){
-        echo <<<HTML
-        <script type="text/javascript">
-            function restValue(id, style_lang){
-                closeForm(id);
-                removeClass(id);
-                if($(id).find('input[name="id"]:checked').val() !== style_lang)
-                    $(id).find('.flexCheck').prop('checked', true);
-            }
-            function changeLangStyle(el, idForm, style_lang, idModal, error){
-                validForm(idForm);
-                if(el.value !== style_lang)
-                    $(idModal).find('.flexCheck')[0].setCustomValidity('');
-                else
-                    el.setCustomValidity(error);
-            }
-            function sendLangStyle(idForm, idModel, style_lang, error){
-                validForm(idForm);
-                if($(idModel).find('input[name="id"]:checked').val() === style_lang)
-                    $(idModel).find('input[name="id"]:checked')[0].setCustomValidity(error);
-            }
-        </script>
-    HTML;
     }
 }
