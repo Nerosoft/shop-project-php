@@ -7,7 +7,7 @@ class BranchCreatePost extends ValidationId{
     use ErrorBranch;
     function __construct(){
         parent::__construct('Branches', null);
-        $keyId =  array_key_last($this->myBranch[$this->getFixedId()]['Branches']);
+        $keyId =  array_key_last($this->getBranch());
         $obj = $this->getObj();
         unset($obj['Branches']);
         if(!isset($_POST['Users']) && isset($obj['Users']))
@@ -34,8 +34,9 @@ class BranchCreatePost extends ValidationId{
                 
             }
         }
-        $this->myBranch[$keyId] = $obj;
-        $this->saveFile($this->myBranch);
+        $myBranch = $this->getFile();
+        $myBranch[$keyId] = $obj;
+        $this->saveFile($myBranch);
         MyBranch::initBranch('MessageModelCreate');
     }
 }

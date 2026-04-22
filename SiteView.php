@@ -25,14 +25,14 @@
                             <a href="#contact" class="nav-link smoothScroll">{$view->getContact()}</a>
                         </li>
                         <li onclick="openForm('#createModel')" class="nav-item">
-                            <a class="nav-link pointer smoothScroll">{$view->getBranchesLanguage()}</a>
+                            <a class="nav-link pointer smoothScroll">{$view->getChangeLanguageButton()}</a>
                         </li>
                         <li onclick="openForm('#style_modal')" class="nav-item">
-                            <a class="nav-link pointer smoothScroll">{$view->getBranchesStyle()}</a>
+                            <a class="nav-link pointer smoothScroll">{$view->getChangeStyleButton()}</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-                                {$view->getBranchesCompany()}
+                                {$view->getBranchLabel()}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark">
                     HTML;

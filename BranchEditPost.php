@@ -7,7 +7,7 @@ class BranchEditPost extends ValidationId{
     use ErrorBranch;
     function __construct(){
         parent::__construct('Branches');
-        $this->getMyModal()->saveFile($this->myBranch);
+        $this->saveMyFile();
         MyBranch::initBranch('MessageModelEdit');
     }
 }

@@ -8,13 +8,10 @@ class LoginRegister extends InformationPage{
     use ErrorBranch, InfoBranch, EmailPassword, ErrorActiveStyleLang;
     private $TitleForm;
     private $ButtonName;
-    private $ChangeLanguageButton;
-    private $ChangeStyleButton;
     private $dbKeys;
     private $dbBranchKeys;
     private $DbKeyLabel;
     private $AppLabel;
-    private $BranchLabel;
     private $AllBranch;
     private $ModalTitleProject;
     private $ModalButtonProject;
@@ -35,9 +32,6 @@ class LoginRegister extends InformationPage{
     function getAppLabel(){
         return $this->AppLabel;
     }
-    function getBranchLabel(){
-        return $this->BranchLabel;
-    }
     function getDbKeys(){
         return $this->dbKeys;
     }
@@ -54,11 +48,8 @@ class LoginRegister extends InformationPage{
         $this->initEmailPassword($this->getModelPage());
         $this->TitleForm = $this->getModelPage()['TitleForm'];
         $this->ButtonName = $this->getModelPage()['ButtonName'];
-        $this->ChangeLanguageButton = $this->getModelPage()['ChangeLanguageButton'];
-        $this->ChangeStyleButton = $this->getModelPage()['ChangeStyleButton'];
         $this->DbKeyLabel = $this->getModelPage()['DbKeyLabel'];
         $this->AppLabel = $this->getModelPage()['AppLabel'];
-        $this->BranchLabel = $this->getModelPage()['BranchLabel'];
         $this->AllBranch = $this->getModelPage()['AllBranch'];
         $this->ModalTitleProject = $this->getModelPage()['ModalTitleProject'];
         $this->ModalButtonProject = $this->getModelPage()['ModalButtonProject'];
@@ -73,12 +64,6 @@ class LoginRegister extends InformationPage{
     }
     function getDbKeyLabel(){
         return $this->DbKeyLabel;
-    }
-    function getChangeStyleButton(){
-        return $this->ChangeStyleButton;
-    }
-    function getChangeLanguageButton(){
-        return $this->ChangeLanguageButton;
     }
     function getTitleForm(){
         return $this->TitleForm;

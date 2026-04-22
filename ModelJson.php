@@ -89,6 +89,12 @@ class ModelJson{
     function getFile(){
         return $this->File;
     }
+    function saveVarFile($file){
+        $this->File = $file;
+    }
+    function saveMyFile(){
+        file_put_contents("data.json", json_encode($this->getFile(), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+    }
     function saveFile($file){
         $this->File = $file;
         file_put_contents("data.json", json_encode($file, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));

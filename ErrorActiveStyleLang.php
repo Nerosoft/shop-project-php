@@ -8,6 +8,9 @@ trait ErrorActiveStyleLang{
     private $ModalButtonStyle;
     private $Style;
     private $MyLanguage;
+    private $BranchLabel;
+    private $ChangeStyleButton;
+    private $ChangeLanguageButton;
     function initErrorActiveStyleLang(){
         $this->ModelTitle = $this->getModelPage()['ModelTitle'];
         $this->ModelButton = $this->getModelPage()['ModelButton'];
@@ -15,11 +18,23 @@ trait ErrorActiveStyleLang{
         $this->ModalButtonStyle = $this->getModelPage()['ModalButtonStyle'];
         $this->Style = MyLanguage::fromArray($this->getModel2()['Style']);
         $this->MyLanguage = MyLanguage::fromArray($this->getModel2()['AllNamesLanguage']);
+        $this->BranchLabel = $this->getModelPage()['BranchLabel'];
+        $this->ChangeLanguageButton = $this->getModelPage()['ChangeLanguageButton'];
+        $this->ChangeStyleButton = $this->getModelPage()['ChangeStyleButton'];
         $this->ChangeLang = $this->getModelPage()['UsedLanguage'];
         $this->ChangeStyle = $this->getModelPage()['UsedStyle'];
         $this->initEvent('createModel', 'createForm', $this->getLanguage(), $this->getChangeLang(), $this->getModelTitle(), $this->getModelButton(), 'AllNamesLanguage', $this->getMyLanguage());
         $this->initEvent('style_modal', 'style_form', $this->getStyleFile(), $this->getChangeStyle(), $this->getModalTitleStyle(), $this->getModalButtonStyle(), 'Style', $this->getStyle());
         $this->initScriptStyleLang();
+    }
+    function getBranchLabel(){
+        return $this->BranchLabel;
+    }
+    function getChangeStyleButton(){
+        return $this->ChangeStyleButton;
+    }
+    function getChangeLanguageButton(){
+        return $this->ChangeLanguageButton;
     }
     function getMyLanguage(){
         return $this->MyLanguage;

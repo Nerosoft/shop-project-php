@@ -9,7 +9,7 @@ class ChangeLanguagePost extends ValidationId{
             return $this->changeLangStylePost($myFile);
         });
         if(!isset($_POST['Branches']) && !isset($_POST['choices']))
-            $this->saveModel($this->changeLangStylePost($this->getMyModal()->getObj()));
+            $this->saveModel($this->changeLangStylePost($this->getObj()));
         $this->initViewPost($_POST['option'] === 'ChangeLanguage'?'ChangeLang':'MessageStyle', 'success');
     }
     function changeLangStylePost($myData){

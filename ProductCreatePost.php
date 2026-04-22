@@ -7,7 +7,7 @@ class ProductCreatePost extends ValidationId{
     use ErrorProduct;
     private $keyId;
     function __construct(){
-        $this->keyId = isset($_POST['id'])?$_POST['id']:$this->getMyModal()->getRandomId();
+        $this->keyId = isset($_POST['id'])?$_POST['id']:$this->getRandomId();
         parent::__construct('Product',  function($myFile, $keyBranch){
             return $this->saveProduct($myFile, $keyBranch);
         });

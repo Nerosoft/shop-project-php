@@ -9,10 +9,7 @@ class Site extends InformationPage{
     private $About;
     private $Product;
     private $Contact;
-    private $BranchesLanguage;
-    private $BranchesStyle;
     private $NavTitle;
-    private $BranchesCompany;
     private $TitleHome;
     private $Menu;
     private $Phone;
@@ -43,10 +40,7 @@ class Site extends InformationPage{
         $this->About = $this->getModelPage()['About'];
         $this->Product = $this->getModelPage()['Product'];
         $this->Contact = $this->getModelPage()['Contact'];
-        $this->BranchesLanguage = $this->getModelPage()['BranchesLanguage'];
-        $this->BranchesStyle = $this->getModelPage()['BranchesStyle'];
         $this->NavTitle = $this->getModelPage()['NavTitle'];
-        $this->BranchesCompany = $this->getModelPage()['BranchesCompany'];
         $this->TitleHome = $this->getModelPage()['TitleHome'];
         $this->Menu = $this->getModelPage()['Menu'];
         $this->Phone = $this->getModelPage()['Phone'];
@@ -144,9 +138,6 @@ class Site extends InformationPage{
     function getTitleHome(){
         return $this->TitleHome;
     }
-    function getBranchesCompany(){
-        return $this->BranchesCompany;
-    }
     function getNavTitle(){
         return $this->NavTitle;
     }
@@ -158,12 +149,6 @@ class Site extends InformationPage{
     }
     function getContact(){
         return $this->Contact;
-    }
-    function getBranchesLanguage(){
-        return $this->BranchesLanguage;
-    }
-    function getBranchesStyle(){
-        return $this->BranchesStyle;
     }
     static function initMySite($message, $type){
         $view = new Site($message, $type);

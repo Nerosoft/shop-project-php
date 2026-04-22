@@ -6,7 +6,7 @@ require 'ValidationId.php';
 class ChangeLanguageCreatePost extends ValidationId{
     use ErrorChangelanguage;
     function __construct(){
-        $keyId = $this->getMyModal()->getRandomId();
+        $keyId = $this->getRandomId();
         parent::__construct('ChangeLanguage', function ($myFile)use($keyId){
             $myLanguage = $this->getObj()[$_POST['selectedLanguage']];
             if(isset($myLanguage['MyFlexTables']))
@@ -27,7 +27,7 @@ class ChangeLanguageCreatePost extends ValidationId{
             return $myFile;
         });
         if(!isset($_POST['Branches']) && !isset($_POST['choices'])){
-            $myData = $this->saveNameLanguage($this->getallNames(), 'AllNamesLanguage', $keyId, $this->getMyModal()->getObj());
+            $myData = $this->saveNameLanguage($this->getallNames(), 'AllNamesLanguage', $keyId, $this->getObj());
             $myData[$keyId] = $myData[$_POST['selectedLanguage']];
             $this->saveModel($myData);
         }

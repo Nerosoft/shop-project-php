@@ -17,7 +17,6 @@ trait ErrorBranch{
     private $BranceRaysBuildingLength;
     private $BranceRaysAddressLength;
     private $BranceRaysCountryLength;
-    public $myBranch; 
     function initErrorBranch($error){
         $this->BranceRaysNameRequired = $error['BranceRaysNameRequired'];
         $this->BranceRaysNameLength = $error['BranceRaysNameLength'];
@@ -78,8 +77,8 @@ trait ErrorBranch{
     }
     function initErrorBranch2($modal){
         $this->validInputs($modal);
-        $this->myBranch = $modal->getFile();
-        $this->myBranch[$modal->getFixedId()]['Branches'][$modal->getSCRIPTFILENAME() === 'BranchEditPost'? $_POST['id'] : $modal->getRandomId()] = array(
+        $myBranch = $modal->getFile();
+        $myBranch[$modal->getFixedId()]['Branches'][$modal->getSCRIPTFILENAME() === 'BranchEditPost'? $_POST['id'] : $modal->getRandomId()] = array(
             "Name"=>$_POST["Name"],
             "Phone"=>$_POST["Phone"],
             "Country"=>$_POST["Country"],
@@ -90,6 +89,7 @@ trait ErrorBranch{
             "Address"=>$_POST["Address"],
             "Follow"=>$_POST["Follow"]
         );
+        $this->saveVarFile($myBranch);
     }
     function getBranceRaysNameRequired(){
         return $this->BranceRaysNameRequired;
