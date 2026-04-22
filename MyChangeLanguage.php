@@ -18,6 +18,13 @@ class MyChangeLanguage extends Page{
     } 
     static function initMyChangeLanguage($message = 'LoadMessage', $type = 'success'){
         $view = new MyChangeLanguage($message, $type);
+        echo<<<HTML
+        <button class="btn btn-primary" onClick="openForm('#createModel')">{$view->getButtonModelCreate()}</button>
+        HTML;
+        $title = $view->getScreenModelCreate();
+        $button = $view->getButtonModelAdd();
+        $action = 'ChangeLanguageCreatePost.php';
+        include('modal_change_language.php');
         include 'ChangeLanguage_view.php';
         exit;
     }

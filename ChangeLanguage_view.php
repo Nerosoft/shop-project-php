@@ -1,16 +1,5 @@
 
-    <div class="start-page container">
-        <?php
-            if($view->getUrlName2() === 'ChangeLanguage'){
-            echo<<<HTML
-            <button class="btn btn-primary" onClick="openForm('#createModel')">{$view->getButtonModelCreate()}</button>
-            HTML;
-            $title = $view->getScreenModelCreate();
-            $button = $view->getButtonModelAdd();
-            $action = 'ChangeLanguageCreatePost.php';
-            include('modal_change_language.php');
-            }
-        ?>
+   
         <table id="example" class="table table-striped" >
         <thead>
             <tr>
