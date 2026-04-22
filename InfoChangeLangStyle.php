@@ -9,7 +9,6 @@ trait InfoChangeLangStyle{
     private $DataView;
     function InitInfoChangeLangStyle($obj, $DataView, $lang){
         $this->initErrorChangelanguage($obj, $lang);
-        // $this->initChangeStyleLangBranch($obj);
         $this->LabelNameLanguage = $obj['LabelCreateLanguage'];
         $this->HintNewLangName = $obj['HintNewLangName'];
         $this->NameLangaue = $obj['NameLangaue'];

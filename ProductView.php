@@ -1,6 +1,4 @@
-<link rel="stylesheet" href="./asset/css/product.css">
-</head>
-<body>
+
     <div class="start-page container">
         <button class="btn btn-primary" onClick="openForm('#createModel')"><?php echo $view->getButtonModelCreate()?></button>
         <?php

@@ -21,16 +21,12 @@ trait ErrorsKeyPassword{
             $modal->initViewPost($modal->getModelPage()['EmailExist']);
         
     }
-
     function validKeyPassword($modal){
         $this->initErrorsKeyPassword($modal->getModelPage());
         if(!isset($_POST['Key']) || $_POST['Key'] === '')
            $modal->initViewPost($this->getRequiredKeyPassword(), 'danger');
         else if(strlen($_POST['Key']) < 8)
            $modal->initViewPost($this->getInvalidKeyPassword(), 'danger');
-    }
-    function createEditAccountBranch(){
-
     }
     function getRequiredKeyPassword(){
         return $this->RequiredKeyPassword;

@@ -1,5 +1,4 @@
-</head>
-<body>
+
     <div class="start-page container">
         <?php
            
