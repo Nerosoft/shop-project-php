@@ -7,7 +7,6 @@ class MyChangeLanguage extends Page{
     private $SelectLang;
     function __construct($message = 'LoadMessage', $type = 'success'){
         parent::__construct('ChangeLanguage', $message, $type);
-        // $this->InitInfoChangeLangStyle($this->getModelPage(), array_reverse(MyLanguage::fromArray($this->getModel2()['AllNamesLanguage'])), $this->getModel2()['AllNamesLanguage']);
         $this->AllBranches = $this->getModelPage()['AllBranches'];
         $this->SelectLang = $this->getModelPage()['LanguageSelect'];
     }

@@ -1,11 +1,15 @@
 
     <div class="start-page container">
-        <button class="btn btn-primary" onClick="openForm('#createModel')"><?php echo $view->getButtonModelCreate()?></button>
         <?php
+            if($view->getUrlName2() === 'ChangeLanguage'){
+            echo<<<HTML
+            <button class="btn btn-primary" onClick="openForm('#createModel')">{$view->getButtonModelCreate()}</button>
+            HTML;
             $title = $view->getScreenModelCreate();
             $button = $view->getButtonModelAdd();
             $action = 'ChangeLanguageCreatePost.php';
             include('modal_change_language.php');
+            }
         ?>
         <table id="example" class="table table-striped" >
         <thead>
@@ -21,7 +25,7 @@
                 
                     $count = 1;
                     foreach ($view->getMyDataView() as $index => $myObject) {
-                        $image = $index === $view->getLanguage() ? 'lightbulb-fill.svg' : 'lightbulb.svg';
+                        $image = $index === $view->getLanguage() || $index === $view->getStyleFile()? 'lightbulb-fill.svg' : 'lightbulb.svg';
                         echo <<<HTML
                             <tr>
                                 <td>$count</td>
@@ -30,7 +34,7 @@
                         HTML;
                         $action = 'ChangeLanguagePost.php';
                         include('modal_changelanguage_changestyle.php');
-                        if($index !== $view->getLanguage() && $index !== 'english'){
+                        if($index !== $view->getLanguage() && $index !== 'english' && $view->getUrlName2() === 'ChangeLanguage'){
                             $action = 'ChangeLanguageDeletePost.php';
                             include('modal_delete.php');
                         }
@@ -69,7 +73,11 @@
         { 'searchable': true, className: "text-left" },
         { 'searchable': false }
     ];
+    function displayEditForm(id, value){
+        removeClass(id);
+        openForm(id);
+        $(id).find('#lang_name').val(value);
+    }
 </script>
 <?php 
-include 'javascript_language_style.php';
 include 'end_html.php'?>

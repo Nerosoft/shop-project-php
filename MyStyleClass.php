@@ -6,7 +6,6 @@ class MyStyleClass extends AdminMenu{
     private $AllBranches;
     function __construct($message = 'LoadMessage', $type = 'success'){
         parent::__construct('MyStyle', $message, $type);
-        // $this->InitInfoChangeLangStyle($this->getModelPage(), MyLanguage::fromArray($this->getModel2()['Style']), $this->getModel2()['AllNamesLanguage']);
         $this->AllBranches = $this->getModelPage()['AllBranches'];
     }
     function getAllBranches(){
@@ -14,7 +13,7 @@ class MyStyleClass extends AdminMenu{
     }
     static function initMyStyleClass($message = 'LoadMessage', $type = 'success'){
         $view = new MyStyleClass($message, $type);
-        include 'MyStyle_view.php';
+        include 'ChangeLanguage_view.php';
         exit;
     }
 }
