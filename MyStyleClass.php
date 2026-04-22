@@ -7,6 +7,7 @@ class MyStyleClass extends AdminMenu{
     function __construct($message = 'LoadMessage', $type = 'success'){
         parent::__construct('MyStyle', $message, $type);
         $this->AllBranches = $this->getModelPage()['AllBranches'];
+        echo '<div class="start-page container">';
     }
     function getAllBranches(){
         return $this->AllBranches;

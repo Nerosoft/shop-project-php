@@ -1,5 +1,4 @@
 
-   
         <table id="example" class="table table-striped" >
         <thead>
             <tr>

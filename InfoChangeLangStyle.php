@@ -13,7 +13,6 @@ trait InfoChangeLangStyle{
         $this->HintNewLangName = $obj['HintNewLangName'];
         $this->NameLangaue = $obj['NameLangaue'];
         $this->DataView = $DataView;
-        echo '<div class="start-page container">';
     }
     function getMyDataView(){
         return $this->DataView;

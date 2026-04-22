@@ -19,6 +19,7 @@ class MyChangeLanguage extends Page{
     static function initMyChangeLanguage($message = 'LoadMessage', $type = 'success'){
         $view = new MyChangeLanguage($message, $type);
         echo<<<HTML
+        <div class="start-page container">
         <button class="btn btn-primary" onClick="openForm('#createModel')">{$view->getButtonModelCreate()}</button>
         HTML;
         $title = $view->getScreenModelCreate();
