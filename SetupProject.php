@@ -560,7 +560,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "IdIsInv"=> "your message error id invalid"
                     ],
                     "SystemLang"=> [
-                        "ChangeAllLanguageSystem"=>"Change all language system",
+                        "AllBranches"=>"Change all language system",
                         "ErrorFormInput"=> "Error server",
                         "MYTITLE"=> "Edit all word",
                         "TextRequired"=> "Word required",

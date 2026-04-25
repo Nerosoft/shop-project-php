@@ -1,8 +1,5 @@
 language arabic and direction
 make trait language and branch and style is active error
-Modeljson overwrit constructor
 make save file use setFile() function
 make extends InfoChangeLangStyle in MySystemlang
-make return file and save usersSettingcreate
 make sutup project array or jason
-$this->AllBranches

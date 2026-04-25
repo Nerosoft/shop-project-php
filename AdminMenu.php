@@ -18,8 +18,14 @@ class AdminMenu extends InformationPage
     private $ButtonModelEdit;
     private $TableId;
     private $TabelEvent;
+    private $AllBranches;
+    function getAllBranches(){
+        return $this->AllBranches;
+    }
     function __construct($IdPage, $message, $type){
         parent::__construct($IdPage, $message, $type);
+        if($IdPage !== 'Branches')
+            $this->AllBranches = $this->getModelPage()['AllBranches'];
         $this->Ssearch = $this->getModel2()['TableInfo']['Ssearch'];
         $this->InfoEmpty = $this->getModel2()['TableInfo']['InfoEmpty'];
         $this->ZeroRecords = $this->getModel2()['TableInfo']['ZeroRecords'];
