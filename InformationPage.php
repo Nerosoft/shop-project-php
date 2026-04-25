@@ -18,14 +18,15 @@ class InformationPage extends ModelJson{
             <script src="./asset/lib/bootstrap.bundle.min.js" type="text/javascript"></script>
             <script src="./asset/js/script.js" type="text/javascript"></script>
             <link href="./asset/css/{$this->getStyleFile()}.css" rel="stylesheet">
+            <link rel="stylesheet" href="./asset/css/font-awesome.min.css">
         HTML;
         if($IdPage === 'Site' || $IdPage === 'Login' || $IdPage === 'Register'){
             echo $IdPage === 'Site'? 
-                '<link rel="stylesheet" href="./asset/css/site/font-awesome.min.css">
-                <link rel="stylesheet" href="./asset/css/site/aos.css">
-                <link rel="stylesheet" href="./asset/css/site/owl.carousel.min.css">
+                '<link rel="stylesheet" href="./asset/css/aos.css">
+                <link rel="stylesheet" href="./asset/css/owl.carousel.min.css">
+                <link rel="stylesheet" href="./asset/css/owl.theme.default.min.css">
                 <!-- MAIN CSS -->
-                <link rel="stylesheet" href="./asset/css/site/templatemo-digital-trend.css">' : 
+                <link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css">' : 
                 '<link href="./asset/css/login_register.css" rel="stylesheet">';
             $this->initErrorActiveStyleLang();
             if($IdPage === 'Login')

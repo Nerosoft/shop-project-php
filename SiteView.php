@@ -16,19 +16,19 @@
                 <?php
                     echo<<<HTML
                         <li class="nav-item">
-                        <a href="#about" class="nav-link smoothScroll">{$view->getAbout()}</a>
+                        <a href="#about" class="nav-link">{$view->getAbout()}</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#project" class="nav-link smoothScroll">{$view->getProduct()}</a>
+                            <a href="#project" class="nav-link">{$view->getProduct()}</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#contact" class="nav-link smoothScroll">{$view->getContact()}</a>
+                            <a href="#contact" class="nav-link">{$view->getContact()}</a>
                         </li>
                         <li onclick="openForm('#createModel')" class="nav-item">
-                            <a class="nav-link pointer smoothScroll">{$view->getChangeLanguageButton()}</a>
+                            <a class="nav-link pointer">{$view->getChangeLanguageButton()}</a>
                         </li>
                         <li onclick="openForm('#style_modal')" class="nav-item">
-                            <a class="nav-link pointer smoothScroll">{$view->getChangeStyleButton()}</a>
+                            <a class="nav-link pointer">{$view->getChangeStyleButton()}</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
@@ -258,9 +258,8 @@
 
 
 <!-- SCRIPTS -->
-<script src="./asset/js/site/aos.js"></script>
-<script src="./asset/js/site/owl.carousel.min.js"></script>
-<script src="./asset/js/site/smoothscroll.js"></script>
-<script src="./asset/js/site/custom.js"></script>
+<script src="./asset/js/aos.js"></script>
+<script src="./asset/js/owl.carousel.min.js"></script>
+<script src="./asset/js/custom.js"></script>
 </body>
 </html>
