@@ -36,9 +36,8 @@
                         $idForm = "editForm".$index;
                         include('modal_custome_table.php');
                         echo <<<HTML
-                                    <img class="style_icon_menu pointer"
-                                    src="./asset/lib/icons/wrench-adjustable.svg"
-                                    onclick="displayEditForm('#{$idModel}', '{$myObject->getName()}')"/>
+                                <i class="fa fa-sliders fa-2x pointer" 
+                                onclick="displayEditForm('#{$idModel}', '{$myObject->getName()}')"></i>
                                 </td>
                             </tr>
                         HTML;

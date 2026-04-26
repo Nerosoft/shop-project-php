@@ -47,9 +47,8 @@
                         $action = 'FlexTablesCreatePost?id='.$_GET['id'];
                         include('modal_flex.php');
                         echo <<<HTML
-                                    <img class="style_icon_menu pointer"
-                                    src="./asset/lib/icons/wrench-adjustable.svg"
-                                    onclick="displayEditForm('#{$idModel}', '{$index}') "/>
+                        <i class="fa fa-sliders fa-2x pointer" 
+                                onclick="displayEditForm('#{$idModel}', '{$index}')"></i>
                                 </td>
                             </tr>
                         HTML;

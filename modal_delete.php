@@ -1,4 +1,4 @@
-<img class="style_icon_menu pointer" src="./asset/lib/icons/trash3.svg" onclick="openForm('#deleteModel<?php echo$index?>')"/>
+<i class="fa fa-trash fa-2x pointer" onclick="openForm('#deleteModel<?php echo$index?>')"></i>
 <?php
 $title = $view->getScreenModelDelete();
 $idModel = "deleteModel".$index;

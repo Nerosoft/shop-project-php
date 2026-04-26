@@ -13,7 +13,7 @@
                 
                     $count = 1;
                     foreach ($view->getMyDataView() as $index => $myObject) {
-                        $image = $index === $view->getLanguage() || $index === $view->getStyleFile()? 'lightbulb-fill.svg' : 'lightbulb.svg';
+                        $image = $index === $view->getLanguage() || $index === $view->getStyleFile()? 'fa fa-toggle-on' : 'fa fa-toggle-off';
                         echo <<<HTML
                             <tr>
                                 <td>$count</td>
@@ -33,9 +33,8 @@
                         $action = 'ChangeLanguageEditPost';
                         include('modal_change_language.php');
                         echo <<<HTML
-                                    <img class="style_icon_menu pointer"
-                                    src="./asset/lib/icons/wrench-adjustable.svg"
-                                    onclick="displayEditForm('#{$idModel}', '{$myObject->getName()}')"/>
+                                <i class="fa fa-sliders fa-2x pointer" 
+                                onclick="displayEditForm('#{$idModel}', '{$myObject->getName()}')"></i>
                                 </td>
                             </tr>
                         HTML;

@@ -25,8 +25,7 @@ foreach ($this->getMyMenuApp() as $key => $item) {
         $name = array_shift($item);
         echo <<<HTML
             <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle {$classActive}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img class="style_icon_menu" src="./asset/lib/icons/{$this->getIconByKey($key)}"/>
+            <a class="nav-link dropdown-toggle icon_font {$this->getIconByKey($key)} {$classActive}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {$name}
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
@@ -36,8 +35,7 @@ foreach ($this->getMyMenuApp() as $key => $item) {
             $classActive = isset($_GET['table']) && $_GET['table'] === $keyItem && isset($_GET['lang']) && $_GET['lang'] === $key || isset($_GET['id']) && $keyItem === $_GET['id'] && $key === 'MyFlexTables' ? 'my_active':'';
             echo <<<HTML
                 <li>
-                <a class="dropdown-item {$classActive}" href="{$loc}">
-                    <img class="style_icon_menu" src="./asset/lib/icons/{$this->getIconByKey($keyItem)}"/>
+                <a class="dropdown-item icon_font {$this->getIconByKey($keyItem)} {$classActive}" href="{$loc}">
                     {$myItem}
                 </a>
                 </li>
@@ -47,8 +45,7 @@ foreach ($this->getMyMenuApp() as $key => $item) {
     }else{
         $classActive = $this->getUrlName2() === $key && !isset($_GET['table']) && !isset($_GET['table']) ? 'my_active':'';
         echo <<<HTML
-        <li class="nav-item"><a class="nav-link {$classActive}" aria-current="page" href="view?id={$key}">
-                <img class="style_icon_menu" src="./asset/lib/icons/{$this->getIconByKey($key)}"/>
+        <li class="nav-item"><a class="nav-link icon_font {$this->getIconByKey($key)} {$classActive}" aria-current="page" href="view?id={$key}">
                 {$item}
             </a>
             </li>

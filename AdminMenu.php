@@ -59,51 +59,47 @@ class AdminMenu extends InformationPage
     }
     function getIconByKey($key){
         if($key === 'Home')
-            return 'box-arrow-left.svg';
+            return 'fa fa-home';
         else if($key === 'SystemLang')
-                return 'gear.svg';  
+                return 'fa fa-gear';  
         else if($key === 'ChangeLanguage')
-            return 'globe-asia-australia.svg';
+            return 'fa fa-language';
         else if($key === 'Branches')
-            return 'hospital.svg';
+            return 'fa fa-tree';
         else if($key === 'Login')
-            return 'database-exclamation.svg';
+            return 'fa fa-lock';
         else if($key === 'Register')
-            return 'arrows.svg';
+            return 'fa fa-user-plus';
         else if($key === 'Menu')
-            return 'menu-button-fill.svg';
+            return 'fa fa-bars';
         else if($key === 'TableInfo')
-            return 'person-add.svg';
+            return 'fa fa-info';
         else if($key === 'AppSettingAdmin')
-            return 'box.svg';
-        else if($key === 'SelectTestBox')
-            return 'hospital.svg';
+            return 'fa fa-archive';
         else if($key === 'SelectBranchBox')
-            return 'gear.svg';
+            return 'fa fa-tree';
         else if($key === 'AllNamesLanguage')
-            return 'bag-check-fill.svg';
-        else if($key === 'CustomTable')
-            return 'arrow-up-circle-fill.svg';
+            return 'fa fa-globe';
         else if($key === 'TablePage')
-            return 'calendar4-event.svg';
+            return 'fa fa-table';
         else if($key === 'Users')
-            return 'bar-chart-line-fill.svg';
+            return 'fa fa-user';
         else if($key === 'Product')
-            return 'calendar-day.svg';
+            return 'fa fa-tag';
         else if($key === 'Site')
-            return 'chat-dots.svg';
+            return 'fa fa-truck';
         else if($key === 'MyStyle')
-            return 'cloud-download-fill.svg';
+            return 'fa fa-magic';
         else if($key === 'MyFlexTables')
-            return 'cloud-fill.svg';
+            return 'fa fa-table';
         else if($key === 'Style')
-            return 'file-earmark-word-fill.svg';
+            return 'fa fa-magic';
         else if(isset($this->getModel2()['MyFlexTables'][$key]))
-            return 'cloud-haze.svg';
+            return 'fa fa-table';
         else if(isset($this->getModel2()['AllNamesLanguage'][$key]))
-            return 'credit-card-fill.svg';
+            return 'fa fa-language';
         else
-            return 'camera2.svg';
+            return 'fa fa-inbox';
     }
     function getScreenModelEdit(){
         return $this->ScreenModelEdit;

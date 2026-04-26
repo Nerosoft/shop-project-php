@@ -1,4 +1,4 @@
-<img class="style_icon_menu pointer" src="./asset/lib/icons/<?php echo $image?>" onclick="openForm('#selectLanguage<?php echo$index?>')"/>
+<i class="pointer <?php echo $image?> fa-2x" onclick="openForm('#selectLanguage<?php echo$index?>')"></i>
 <?php
 $title = $view->getTitleChangeLanguageMessage();
 $button = $view->getButtonChangeLanguageMessage();

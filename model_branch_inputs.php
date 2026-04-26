@@ -1,10 +1,10 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-auto pt-2">
-            <label class="branch-label" for="brance-rays-name"><?php echo $view->getLabelBranchRaysName()?></label>
+            <i class="fa fa-user fa-2x"></i>
+            <label for="brance-rays-name"><?php echo $view->getLabelBranchRaysName()?></label>
             <div class="input-group">
                 <div class="input-group-prepend">
-                <img class="style_icon_menu" src="./asset/lib/icons/hospital.svg"/>
                 </div>
                 <input 
                 minlength="3" 
@@ -15,10 +15,10 @@
             </div>
         </div>
         <div class="col-lg-auto pt-2">
-            <label class="branch-label" for="brance-rays-phone"><?php echo $view->getLabelBranchRaysPhone()?></label>
+            <i class="fa fa-phone fa-2x"></i>
+            <label for="brance-rays-phone"><?php echo $view->getLabelBranchRaysPhone()?></label>
             <div class="input-group">
                 <div class="input-group-prepend">
-                <img class="style_icon_menu" src="./asset/lib/icons/telephone.svg"/>
                 </div>
                 <input 
                 pattern="^[0-9]{11}$" 
@@ -29,10 +29,10 @@
             </div>
         </div>
         <div class="col-lg-auto pt-2">
-            <label class="branch-label" for="brance-rays-country"><?php echo $view->getLabelBranchRaysCountry()?></label>
+            <i class="fa fa-globe fa-2x"></i>
+            <label for="brance-rays-country"><?php echo $view->getLabelBranchRaysCountry()?></label>
             <div class="input-group">
                 <div class="input-group-prepend">
-                    <img class="style_icon_menu" src="./asset/lib/icons/envelope-heart.svg"/>
                 </div>
                     <input 
                     minlength="3" 
@@ -43,10 +43,10 @@
             </div>
         </div>
         <div class="col-lg-auto pt-2">
-            <label class="branch-label" for="brance-rays-governments"><?php echo $view->getLabelBranchRaysGovernments()?></label>
+            <i class="fa fa-building fa-2x"></i>
+            <label for="brance-rays-governments"><?php echo $view->getLabelBranchRaysGovernments()?></label>
             <div class="input-group">
                 <div class="input-group-prepend">
-                <img class="style_icon_menu" src="./asset/lib/icons/envelope-plus-fill.svg"/>
                 </div>
                 <input 
                 minlength="3" 
@@ -57,10 +57,10 @@
             </div>
         </div>
         <div class="col-lg-auto pt-2">
-            <label class="branch-label" for="brance-rays-city"><?php echo $view->getLabelBranchRaysCity()?></label>
+            <i class="fa fa-columns fa-2x"></i>
+            <label for="brance-rays-city"><?php echo $view->getLabelBranchRaysCity()?></label>
             <div class="input-group">
                 <div class="input-group-prepend">
-                <img class="style_icon_menu" src="./asset/lib/icons/file-earmark-zip-fill.svg"/>
                 </div>
                 <input 
                 minlength="3" 
@@ -71,10 +71,10 @@
             </div>
         </div>
         <div class="col-lg-auto pt-2">
-            <label class="branch-label" for="brance-rays-street"><?php echo $view->getLabelBranchRaysStreet()?></label>
+            <i class="fa fa-road fa-2x"></i>
+            <label for="brance-rays-street"><?php echo $view->getLabelBranchRaysStreet()?></label>
             <div class="input-group">
                 <div class="input-group-prepend">
-                <img class="style_icon_menu" src="./asset/lib/icons/globe-central-south-asia-fill.svg"/>
                 </div>
                 <input 
                 minlength="3" 
@@ -85,10 +85,10 @@
             </div>
         </div>
         <div class="col-lg-auto pt-2">
-            <label class="branch-label" for="brance-rays-building"><?php echo $view->getLabelBranchRaysBuilding()?></label>
+            <i class="fa fa-building fa-2x"></i>
+            <label for="brance-rays-building"><?php echo $view->getLabelBranchRaysBuilding()?></label>
             <div class="input-group">
                 <div class="input-group-prepend">
-                <img class="style_icon_menu" src="./asset/lib/icons/house-up.svg"/>
                 </div>
                 <input 
                 minlength="3" 
@@ -99,10 +99,10 @@
             </div>
         </div>
         <div class="col-lg-auto pt-2">
-            <label class="branch-label" for="brance-rays-address"><?php echo $view->getLabelBranchRaysAddress()?></label>
+            <i class="fa fa-map fa-2x"></i>
+            <label for="brance-rays-address"><?php echo $view->getLabelBranchRaysAddress()?></label>
             <div class="input-group">
                 <div class="input-group-prepend">
-                <img class="style_icon_menu" src="./asset/lib/icons/kanban-fill.svg"/>
                 </div>
                 <input 
                 minlength="3" 
@@ -113,10 +113,10 @@
             </div>
         </div>
         <div class="col-lg-12 pt-2">
-            <label class="branch-label" for="brance-rays-follow"><?php echo $view->getLabelWithRaysOut()?></label>
+            <i class="fa fa-building fa-2x"></i>
+            <label for="brance-rays-follow"><?php echo $view->getLabelWithRaysOut()?></label>
             <div class="input-group">
                 <div class="input-group-prepend">
-                    <img class="style_icon_menu" src="./asset/lib/icons/person-badge.svg"/>
                 </div>
                 <select
                 title="<?php echo$view->getselectBox1()?>"

@@ -1,15 +1,20 @@
 .modal-header{
     justify-content: space-between;
 }
-.my_active{
-    color: orange !important;
-}
-.style_icon_menu{
-    width: 30px;
+
+.fa{
     margin: 7px;
 }
+.icon_font{
+    font-size: 20px !important;
+    margin-top: 20px!important;
+}
 .offcanvas-body, .offcanvas-body .dropdown-menu{
-    background-color: gray!important;
+    background-color: gray;
+}
+.dropdown-item:hover{
+    background-color: transparent !important;
+    width: 90%;
 }
 .start-page{
     margin-top: 57px;
@@ -19,10 +24,6 @@
 }
 .text-left{
     text-align: left!important;
-}
-.branch-label{
-    margin-left: 45px;
-    margin-bottom: 5px;
 }
 
 .flexCheck:checked {
@@ -39,9 +40,6 @@
 .img-btn{
     margin-top: 5px;
 }
-/* .error-message{
-    border: 2px solid #dc3545;
-} */
 .avatar{
     width: 1px;
     height: 1px;
@@ -57,4 +55,7 @@
 .product-img-view{
     width: 100%;
     height: 100%;
+}
+.my_active, .nav-link:hover, .dropdown-item:hover{
+    color: orange !important;
 }

@@ -33,7 +33,7 @@
                 
                     $count = 1;
                     foreach ($view->getMyDataView() as $index => $myObject) {
-                        $image = $index === $view->getId() ? 'lightbulb-fill.svg' : 'lightbulb.svg';
+                        $image = $index === $view->getId() ? 'fa fa-toggle-on' : 'fa fa-toggle-off';
                         echo <<<HTML
                             <tr>
                                 <td>$count</td>
@@ -61,9 +61,7 @@
                         $action = 'BranchEditPost.php';
                         include('model_branch.php');
                         echo <<<HTML
-                                    <img class="style_icon_menu pointer"
-                                    src="./asset/lib/icons/wrench-adjustable.svg"
-                                    onclick="displayEditForm($('#{$idForm}').find('#brance-rays-name'), $('#{$idForm}').find('#brance-rays-phone'), $('#{$idForm}').find('#brance-rays-country'), $('#{$idForm}').find('#brance-rays-governments'), $('#{$idForm}').find('#brance-rays-city'), $('#{$idForm}').find('#brance-rays-street'), $('#{$idForm}').find('#brance-rays-building'), $('#{$idForm}').find('#brance-rays-address'), $('#{$idForm}').find('#brance-rays-follow option'), '#{$idModel}', '{$myObject->getName()}', '{$myObject->getPhone()}', '{$myObject->getCountry()}', '{$myObject->getGovernments()}', '{$myObject->getCity()}', '{$myObject->getStreet()}', '{$myObject->getBuilding()}', '{$myObject->getAddress()}', '{$myObject->getFollowId()}')"/>
+                                    <i class="fa fa-sliders fa-2x pointer" onclick="displayEditForm($('#{$idForm}').find('#brance-rays-name'), $('#{$idForm}').find('#brance-rays-phone'), $('#{$idForm}').find('#brance-rays-country'), $('#{$idForm}').find('#brance-rays-governments'), $('#{$idForm}').find('#brance-rays-city'), $('#{$idForm}').find('#brance-rays-street'), $('#{$idForm}').find('#brance-rays-building'), $('#{$idForm}').find('#brance-rays-address'), $('#{$idForm}').find('#brance-rays-follow option'), '#{$idModel}', '{$myObject->getName()}', '{$myObject->getPhone()}', '{$myObject->getCountry()}', '{$myObject->getGovernments()}', '{$myObject->getCity()}', '{$myObject->getStreet()}', '{$myObject->getBuilding()}', '{$myObject->getAddress()}', '{$myObject->getFollowId()}')"></i>
                                 </td>
                             </tr>
                         HTML;

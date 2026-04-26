@@ -38,8 +38,8 @@ tr th,
 .dropdown-menu,
 .dropdown-item:focus, .dropdown-item:hover,
 .pagination .page-link{
-    background-color: #383838;
-    border-color: #383838;
+    background-color: #383838 !important;
+    border-color: #383838 !important;
 }
 .dropdown-item:focus, .dropdown-item:hover{
     background-color: #383838;

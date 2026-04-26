@@ -62,10 +62,9 @@
                         
                         
                         echo <<<HTML
-                                    <img class="style_icon_menu pointer"
-                                    src="./asset/lib/icons/wrench-adjustable.svg"
-                                    onclick="displayEditForm('#{$idModel}', '{$myObject->getName()}', '{$myObject->getDescreption()}', '{$myObject->getSalary()}', '{$myObject->getCategory()}', '{$index}')"/>
-                                    <img class="style_icon_menu pointer" src="./asset/lib/icons/binoculars-fill.svg" onclick="openForm('#imgmodal{$index}')"/>
+                        <i class="fa fa-sliders fa-2x pointer" 
+                        onclick="displayEditForm('#{$idModel}', '{$myObject->getName()}', '{$myObject->getDescreption()}', '{$myObject->getSalary()}', '{$myObject->getCategory()}', '{$index}')"></i>
+                                <i class="fa fa-binoculars fa-2x pointer" onclick="openForm('#imgmodal{$index}')"></i>
                                 </td>
                             </tr>
                         HTML;
