@@ -690,4 +690,8 @@ https://templatemo.com/tm-538-digital-trend
     }
   }
 
+  .nav-link:focus{
+    color: orange;
+  }
+
 

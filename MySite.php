@@ -34,6 +34,9 @@ class Site extends InformationPage{
     private $Copyright;
     private $Company;
     private $Design;
+    private $Stories;
+    private $WorkWithUs;
+    private $Privacy;
     function __construct($message = 'LoadMessage', $type = 'success'){
         parent::__construct('Site', $message, $type);
         $this->DataView = isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
@@ -65,6 +68,18 @@ class Site extends InformationPage{
         $this->Copyright = $this->getModelPage()['Copyright'];
         $this->Company = $this->getModelPage()['Copyright'];
         $this->Design = $this->getModelPage()['Design'];
+        $this->Stories = $this->getModelPage()['Stories'];
+        $this->WorkWithUs = $this->getModelPage()['WorkWithUs'];
+        $this->Privacy = $this->getModelPage()['Privacy'];
+    }
+    function getStories(){
+        return $this->Stories;
+    }
+    function getWorkWithUs(){
+        return $this->WorkWithUs;
+    }
+    function getPrivacy(){
+        return $this->Privacy;
     }
     function getContactInfo(){
         return $this->ContactInfo;

@@ -233,12 +233,12 @@
                     <a rel="nofollow noopener" href="#" target="_blank">{$view->getDesign()}</a></p>
                     </div>
 
-                    <!-- <div class="col-lg-4 mx-lg-auto col-md-6 col-12" data-aos="fade-up" data-aos-delay="500">
+                    <div class="col-lg-4 mx-lg-auto col-md-6 col-12" data-aos="fade-up" data-aos-delay="500">
                     
                         <ul class="footer-link">
-                            <li><a href="#">Stories</a></li>
-                            <li><a href="#">Work with us</a></li>
-                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">{$view->getStories()}</a></li>
+                            <li><a href="#">{$view->getWorkWithUs()}</a></li>
+                            <li><a href="#">{$view->getPrivacy()}</a></li>
                         </ul>
                     </div>
 
@@ -249,7 +249,7 @@
                             <li><a href="#" class="fa fa-dribbble"></a></li>
                             <li><a href="#" class="fa fa-behance"></a></li>
                         </ul>
-                    </div> -->
+                    </div>
                 HTML;
             ?>
         </div>

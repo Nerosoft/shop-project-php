@@ -6,6 +6,9 @@
         },
         "english": {
             "Site": {
+                "Stories": "Stories",
+                "WorkWithUs": "Work with us",
+                "Privacy": "Privacy",
                 "IdIsReq": "Id Required",
                 "IdIsInv": "Id Invalid",
                 "MYTITLE": "Delivery Marketing",
@@ -269,7 +272,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "Rm66cca7": "English language"
+                "uT862795": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -670,14 +673,14 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             },
-            "gRbdd98a": {
+            "arad72bb": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
                 "Governments": "cairo, egypt",
                 "City": "cairo, egypt",
                 "Street": "menofia - menouf - sirs el laiana",
-                "Building": "Nero-Soft",
+                "Building": "Egypt",
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             }
@@ -714,8 +717,11 @@
                 "Category": "Ultimate HealthCare"
             }
         },
-        "Rm66cca7": {
+        "uT862795": {
             "Site": {
+                "Stories": "Stories",
+                "WorkWithUs": "Work with us",
+                "Privacy": "Privacy",
                 "IdIsReq": "Id Required",
                 "IdIsInv": "Id Invalid",
                 "MYTITLE": "Delivery Marketing",
@@ -979,7 +985,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "Rm66cca7": "English language"
+                "uT862795": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -1352,13 +1358,16 @@
             }
         }
     },
-    "gRbdd98a": {
+    "arad72bb": {
         "Setting": {
             "Language": "english",
             "Style": "default"
         },
         "english": {
             "Site": {
+                "Stories": "Stories",
+                "WorkWithUs": "Work with us",
+                "Privacy": "Privacy",
                 "IdIsReq": "Id Required",
                 "IdIsInv": "Id Invalid",
                 "MYTITLE": "Delivery Marketing",
@@ -1622,7 +1631,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "Rm66cca7": "English language"
+                "uT862795": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
@@ -2043,8 +2052,11 @@
                 "Category": "Ultimate HealthCare"
             }
         },
-        "Rm66cca7": {
+        "uT862795": {
             "Site": {
+                "Stories": "Stories",
+                "WorkWithUs": "Work with us",
+                "Privacy": "Privacy",
                 "IdIsReq": "Id Required",
                 "IdIsInv": "Id Invalid",
                 "MYTITLE": "Delivery Marketing",
@@ -2308,7 +2320,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "Rm66cca7": "English language"
+                "uT862795": "English language"
             },
             "Register": {
                 "RegisterLoginPage": "Login account",
