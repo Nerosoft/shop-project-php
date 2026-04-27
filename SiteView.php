@@ -78,7 +78,7 @@
             <div class="col-lg-6 col-12">
                 <div class="hero-image" data-aos="fade-up" data-aos-delay="300">
 
-                <img src="./asset/img/site/working-girl.png" class="img-fluid" alt="working girl">
+                <img src="./asset/img/working-girl.png" class="img-fluid" alt="working girl">
                 </div>
             </div>
 
@@ -104,7 +104,7 @@
 
                     <div class="about-image" data-aos="fade-up" data-aos-delay="200">
 
-                    <img src="./asset/img/site/office.png" class="img-fluid" alt="office">
+                    <img src="./asset/img/office.png" class="img-fluid" alt="office">
                 </div>
             </div>
 
@@ -164,7 +164,7 @@
             <div class="col-lg-6 col-md-5 col-12">
                 <div class="contact-image" data-aos="fade-up">
 
-                    <img src="./asset/img/site/female-avatar.png" class="img-fluid" alt="website">
+                    <img src="./asset/img/female-avatar.png" class="img-fluid" alt="website">
                 </div>
             </div>
 

@@ -26,8 +26,9 @@ trait ErrorProduct{
     }
     function validProductInput($modal){
         $this->initErrorProduct($modal->getModelPage());
+        //delete input
         if(!isset($_FILES['avatar']))
-           Product::initProduct($this->getUploadImgInv(), 'danger');
+           Product::initProduct($this->getReqimage(), 'danger');
         else if(!isset($_POST['id']) && !is_uploaded_file($_FILES['avatar']['tmp_name']))
             Product::initProduct($this->getUploadImgInv(), 'danger');
         else if(is_uploaded_file($_FILES['avatar']['tmp_name']) && 
