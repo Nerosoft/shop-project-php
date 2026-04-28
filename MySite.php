@@ -1,7 +1,7 @@
 <?php
 require 'InformationPage.php';
 require 'DeleteInfoName.php';
-require 'ProductValue.php';
+require 'class_object/ProductValue.php';
 require 'all_trait/ErrorActiveStyleLang.php';
 class Site extends InformationPage{
     use ErrorActiveStyleLang;

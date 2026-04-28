@@ -1,6 +1,6 @@
 <?php
 require 'page.php';
-require 'CustomTable.php';
+require 'class_object/CustomTable.php';
 require 'all_trait/ErrorsHome.php';
 include 'InterfaceDataView.php';
 class MyHome extends Page implements InterfaceDataView{

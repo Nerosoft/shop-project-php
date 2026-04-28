@@ -1,7 +1,7 @@
 <?php
 require 'page.php';
 require 'all_trait/ErrorProduct.php';
-require 'ProductValue.php';
+require 'class_object/ProductValue.php';
 include 'InterfaceDataView.php';
 class Product extends Page implements InterfaceDataView{
     use ErrorProduct;

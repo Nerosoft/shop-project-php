@@ -1,6 +1,5 @@
 <?php
 require 'DeleteInfoName.php';
-require 'BranchClass.php';
 require 'InformationPage.php';
 class AdminMenu extends InformationPage
 {

@@ -1,6 +1,6 @@
 <?php
 require 'page.php';
-require 'Users.php';
+require 'class_object/Users.php';
 require 'all_trait/InterEmailPass.php';
 require 'all_trait/InterCheckbooksState.php';
 include 'InterfaceDataView.php';

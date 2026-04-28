@@ -4,6 +4,7 @@ require 'all_trait/ErrorBranch.php';
 require 'all_trait/ChangeStyleLangBranch.php';
 include 'all_trait/InfoBranch.php';
 require 'InterfaceDataView.php';
+require 'class_object/BranchClass.php';
 class MyBranch extends Page implements InterfaceDataView{
     use ErrorBranch, ChangeStyleLangBranch, InfoBranch;
     private $BranchStreet;
@@ -31,7 +32,7 @@ class MyBranch extends Page implements InterfaceDataView{
     function __construct($message = 'LoadMessage', $type = 'success'){
         parent::__construct('Branches', $message, $type);
         $this->initErrorBranch($this->getModelPage());
-        // $this->initChangeStyleLangBranch($this->getModelPage());
+        // $this->($this->getModelPage());
         $this->initInfoBranch($this->getMyModal());
         $this->BranchStreet = $this->getModelPage()['BranchStreet'];
         $this->BranchName = $this->getModelPage()['BranchName'];
