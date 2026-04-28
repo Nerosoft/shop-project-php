@@ -1,5 +1,5 @@
 <?php
-require 'all_trait/TableProductImage.php';
+require 'TableProductImage.php';
 trait ErrorProduct{
     use TableProductImage;
     private $RequiredName;

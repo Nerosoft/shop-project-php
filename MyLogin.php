@@ -1,6 +1,6 @@
 <?php
 require 'LoginRegister.php';
-require 'InterCheckbooksState.php';
+require 'all_trait/InterCheckbooksState.php';
 class MyLogin extends LoginRegister{
     use CheckbooksState;
     private $ButtonForgetPassword;

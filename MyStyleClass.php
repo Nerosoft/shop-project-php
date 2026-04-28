@@ -1,6 +1,6 @@
 <?php
 require 'AdminMenu.php';
-require 'InfoChangeLangStyle.php';
+require 'all_trait/InfoChangeLangStyle.php';
 class MyStyleClass extends AdminMenu{
    use InfoChangeLangStyle;
     function __construct($message = 'LoadMessage', $type = 'success'){

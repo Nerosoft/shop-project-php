@@ -1,6 +1,6 @@
 <?php
-require 'ErrorChangelanguage.php';
-require 'ChangeStyleLangBranch.php';
+require 'all_trait/ErrorChangelanguage.php';
+require 'all_trait/ChangeStyleLangBranch.php';
 trait InfoChangeLangStyle{
     use ErrorChangelanguage, ChangeStyleLangBranch;
     private $LabelNameLanguage;

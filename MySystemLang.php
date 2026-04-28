@@ -1,6 +1,6 @@
 <?php
 require 'AdminMenu.php';
-require 'ErrorSystemlang.php';
+require 'all_trait/ErrorSystemlang.php';
 include 'InterfaceDataView.php';
 class MySystemlang extends AdminMenu implements InterfaceDataView{
     use ErrorSystemlang;

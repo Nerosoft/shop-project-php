@@ -1,8 +1,8 @@
 <?php
 require 'page.php';
 require 'Users.php';
-require 'InterEmailPass.php';
-require 'InterCheckbooksState.php';
+require 'all_trait/InterEmailPass.php';
+require 'all_trait/InterCheckbooksState.php';
 include 'InterfaceDataView.php';
 class MySettingUsers extends page implements InterfaceDataView{
     use EmailPassword, CheckbooksState;

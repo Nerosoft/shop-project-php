@@ -1,8 +1,8 @@
 <?php
 require 'page.php';
-require 'ErrorBranch.php';
-require 'ChangeStyleLangBranch.php';
-include 'InfoBranch.php';
+require 'all_trait/ErrorBranch.php';
+require 'all_trait/ChangeStyleLangBranch.php';
+include 'all_trait/InfoBranch.php';
 require 'InterfaceDataView.php';
 class MyBranch extends Page implements InterfaceDataView{
     use ErrorBranch, ChangeStyleLangBranch, InfoBranch;

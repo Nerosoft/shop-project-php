@@ -1,6 +1,6 @@
 <?php
 require 'LoginRegister.php';
-require 'ErrorRegister.php';
+require 'all_trait/ErrorRegister.php';
 class MyRegister extends LoginRegister{    
     use ErrorRegister;
     private $LabelConfirmPassword;

@@ -1,6 +1,6 @@
 <?php
 require 'page.php';
-require 'InfoChangeLangStyle.php';
+require 'all_trait/InfoChangeLangStyle.php';
 class MyChangeLanguage extends Page{
     use InfoChangeLangStyle;
     private $SelectLang;

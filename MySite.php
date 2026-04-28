@@ -2,7 +2,7 @@
 require 'InformationPage.php';
 require 'DeleteInfoName.php';
 require 'ProductValue.php';
-require 'ErrorActiveStyleLang.php';
+require 'all_trait/ErrorActiveStyleLang.php';
 class Site extends InformationPage{
     use ErrorActiveStyleLang;
     private $DataView;

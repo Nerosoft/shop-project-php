@@ -1,5 +1,5 @@
 <?php
-require 'ErrorChangelanguageAllNames.php';
+require 'all_trait/ErrorChangelanguageAllNames.php';
 trait ErrorChangelanguage{
     use ErrorChangelanguageAllNames;
     private $NewLangNameRequired;

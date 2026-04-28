@@ -1,6 +1,6 @@
 <?php
 require 'page.php';
-require 'ErrorFlexTable.php';
+require 'all_trait/ErrorFlexTable.php';
 if(!isset((new ModelJson($_GET['id']))->getObj()[(new ModelJson($_GET['id']))->getObj()['Setting']['Language']][$_GET['id']]))
     header("Location:index");
 include 'InterfaceDataView.php';
