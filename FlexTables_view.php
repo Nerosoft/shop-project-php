@@ -11,6 +11,7 @@
         <thead>
             <tr>
                 <th><?php echo$view->getTableId()?></th>
+                <th><?php echo $view->getTableProductImage()?></th>
                 <?php 
                     foreach($view->getTableHead() as $index=>$name)
                         echo<<<HTML
@@ -29,6 +30,7 @@
                         echo <<<HTML
                             <tr>
                                 <td>$count</td>
+                                <td><img id="preview" src="./asset/product/{$view->getId()}/{$index}" class="avatar-product-view"></td>
                         HTML;
                         foreach ($myObject as $key => $item)
                             echo <<<HTML
@@ -37,6 +39,7 @@
                         echo <<<HTML
                             <td>
                             HTML;
+                        include('all_modal/ViewImage.php');
                         $nameItem = $myObject[array_key_first($myObject)];
                         $action = 'SettingUsersDeletePost?id='.$_GET['id'];
                         include('modal_delete.php');
@@ -47,8 +50,8 @@
                         $action = 'FlexTablesCreatePost?id='.$_GET['id'];
                         include('modal_flex.php');
                         echo <<<HTML
-                        <i class="fa fa-sliders fa-2x pointer" 
-                                onclick="displayEditForm('#{$idModel}', '{$index}')"></i>
+                        <i class="fa fa-sliders fa-2x pointer" onclick="displayEditForm('#{$idModel}', '{$index}')"></i>
+                        <i class="fa fa-binoculars fa-2x pointer" onclick="openForm('#imgmodal{$index}')"></i>
                                 </td>
                             </tr>
                         HTML;
@@ -61,6 +64,7 @@
         <tfoot>
             <tr>
                 <th><?php echo$view->getTableId()?></th>
+                <th><?php echo $view->getTableProductImage()?></th>
                 <?php 
                     foreach($view->getTableHead() as $index=>$name)
                         echo<<<HTML
@@ -73,16 +77,18 @@
     </table>
     </div>
 <script type="text/javascript">
-    let setting = [{ 'searchable': true, className: "text-left" }];
-    for (let index = 0; index < <?php echo count($view->getTableHead())?>; index++)
-        setting.push({ 'searchable': true, className: "text-left" });
-    setting.push({ 'searchable': false, className: "text-left" });
+    let setting = [];
+    for (let index = -3; index < <?php echo count($view->getTableHead())?>; index++)
+        setting.push({ 'searchable': true, className: "text-left table-avatar" });
     function displayEditForm(id, keyObj){
         removeClass(id);
         openForm(id);
         let myObj = <?php echo json_encode($view->getMyDataView())?>;
         for (const key in myObj[keyObj]) 
             $(id).find('#'+key).val(myObj[keyObj][key]);
+        $(id).find('#preview').attr('src', './asset/product/<?php echo$view->getId()?>/'+keyObj);
     }
 </script>
-<?php include 'end_html.php'?>
+<?php 
+include 'end_html.php';
+?>

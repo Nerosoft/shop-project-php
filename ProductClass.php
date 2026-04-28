@@ -17,10 +17,6 @@ class Product extends Page implements InterfaceDataView{
     private $CategoryHeadTable;
     private $LabelCategory;
     private $HintCategory;
-    private $ImgLabel;
-    private $ImgButton;
-    private $TableProductImage;
-    private $TitleViewImage;
     private $DataView = array();
     function __construct($message, $type){
         parent::__construct('Product', $message, $type);
@@ -37,23 +33,7 @@ class Product extends Page implements InterfaceDataView{
         $this->CategoryHeadTable = $this->getModelPage()['CategoryHeadTable'];
         $this->LabelCategory = $this->getModelPage()['LabelCategory'];
         $this->HintCategory = $this->getModelPage()['HintCategory'];
-        $this->ImgLabel = $this->getModelPage()['ImgLabel'];
-        $this->ImgButton = $this->getModelPage()['ImgButton'];
-        $this->TableProductImage = $this->getModelPage()['TableProductImage'];
-        $this->TitleViewImage = $this->getModelPage()['TitleViewImage'];
         $this->DataView = isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
-    }
-    function getTitleViewImage(){
-        return $this->TitleViewImage;
-    }
-    function getTableProductImage(){
-        return $this->TableProductImage;
-    }
-    function getImgLabel(){
-        return $this->ImgLabel;
-    }
-    function getImgButton(){
-        return $this->ImgButton;
     }
     function getNameHeadTable(){
         return $this->NameHeadTable;

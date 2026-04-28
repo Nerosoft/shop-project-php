@@ -65,7 +65,6 @@
         ?>
         >
 </div>
-<?php include 'ValidEmail.php';?>
 <script type="text/javascript">
     $('#dbkeys, #dbkeysBranch').on('change', function(){
         window.location.href = '<?php echo $view->getUrlName2();?>'+'?id='+this.value;

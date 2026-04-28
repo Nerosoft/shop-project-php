@@ -47,5 +47,4 @@ function handleInputPassConfirmPass(event, req, inv, id){
         event.setCustomValidity('');
 }
 </script>
-</body>
-</html>
+<?php include 'end_html.php'?>

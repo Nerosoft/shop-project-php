@@ -17,5 +17,4 @@
         include('end_model.php');?>
     </div>
 </div>
-</body>
-</html>
+<?php include 'end_html.php'?>

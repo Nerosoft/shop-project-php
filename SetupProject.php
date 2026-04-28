@@ -542,6 +542,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "InfoFiltered"=> "Showing"
                     ],
                     "TablePage"=> [
+                         "TitleViewImage"=>"View image product",
+                        "TableProductImage"=>"Image",
+                        "Reqimage"=>"Required image",
+                        "Invimage"=>"Invalid image",
+                        "UploadImgInv"=>"error upload image",
+                        "ImgLabel"=>"your image",
+                        "ImgButton"=>"Select your image",
                         "AllBranches"=> "All branches",
                         "MYTITLE"=> "your name table",
                         "LoadMessage"=> "your message loade page",

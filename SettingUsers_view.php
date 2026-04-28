@@ -81,5 +81,4 @@
     }
 </script>
 <?php 
-include 'ValidEmail.php';
 include 'end_html.php'?>

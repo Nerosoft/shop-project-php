@@ -1,5 +1,7 @@
 <?php
+require 'all_trait/TableProductImage.php';
 trait ErrorProduct{
+    use TableProductImage;
     private $RequiredName;
     private $InvalidName;
     private $RequiredDescreption;
@@ -8,10 +10,8 @@ trait ErrorProduct{
     private $InvalidDescreption;
     private $InvalidSalary;
     private $InvalidCategory;
-    private $Reqimage;
-    private $Invimage;
-    private $UploadImgInv;
     function initErrorProduct($error){
+        $this->initTableProductImage();
         $this->RequiredName = $error['RequiredName'];
         $this->InvalidName = $error['InvalidName'];
         $this->RequiredDescreption = $error['RequiredDescreption'];
@@ -20,25 +20,11 @@ trait ErrorProduct{
         $this->InvalidDescreption = $error['InvalidDescreption'];
         $this->InvalidSalary = $error['InvalidSalary'];
         $this->InvalidCategory = $error['InvalidCategory'];
-        $this->Reqimage = $error['Reqimage'];
-        $this->Invimage = $error['Invimage'];
-        $this->UploadImgInv = $error['UploadImgInv'];
     }
     function validProductInput($modal){
         $this->initErrorProduct($modal->getModelPage());
-        //delete input
-        if(!isset($_FILES['avatar']))
-           Product::initProduct($this->getReqimage(), 'danger');
-        else if(!isset($_POST['id']) && !is_uploaded_file($_FILES['avatar']['tmp_name']))
-            Product::initProduct($this->getUploadImgInv(), 'danger');
-        else if(is_uploaded_file($_FILES['avatar']['tmp_name']) && 
-        strtolower(pathinfo(basename($_FILES['avatar']['name']), PATHINFO_EXTENSION)) !== 'jpg' &&
-        strtolower(pathinfo(basename($_FILES['avatar']['name']), PATHINFO_EXTENSION)) !== 'png'||
-        is_uploaded_file($_FILES['avatar']['tmp_name']) && $_FILES['avatar']['size'] > (2 * 1024 * 1024)||
-        is_uploaded_file($_FILES['avatar']['tmp_name']) && $_FILES['avatar']['size'] < 2000||
-        is_uploaded_file($_FILES['avatar']['tmp_name']) && !getimagesize($_FILES['avatar']['tmp_name']))
-           Product::initProduct($this->getInvimage(), 'danger');
-        else if(!isset($_POST['name']) || $_POST['name'] === '')
+        $this->validMyImage();
+        if(!isset($_POST['name']) || $_POST['name'] === '')
            Product::initProduct($this->getRequiredName(), 'danger');
         else if(strlen($_POST['name']) < 3)
            Product::initProduct($this->getInvalidName(), 'danger');
@@ -54,15 +40,6 @@ trait ErrorProduct{
            Product::initProduct($this->getRequiredCategory(), 'danger');
         else if(strlen($_POST['category']) < 3)
            Product::initProduct($this->getInvalidCategory(), 'danger');
-    }
-    function getUploadImgInv(){
-        return $this->UploadImgInv;
-    }
-    function getReqimage(){
-        return $this->Reqimage;
-    }
-    function getInvimage(){
-        return $this->Invimage;
     }
     function getRequiredName(){
         return $this->RequiredName;

@@ -1,6 +1,7 @@
 <!-- Modal -->
 <?php 
 include('start_model.php');
+include('pis_of_page/image_table_product.php');
 foreach($myObject??$view->getHint() as $key=>$value){
     $inputValue = isset($index)?$value:'';
     echo <<<HTML

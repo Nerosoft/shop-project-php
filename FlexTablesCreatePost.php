@@ -8,17 +8,18 @@ class FlexTablesCreatePost extends ValidationId{
     private $keyId;
     function __construct(){
         $this->keyId = isset($_POST['id'])?$_POST['id']:$this->getRandomId();
-        parent::__construct($_GET['id'], function($myFile){
-            return $this->saveFlexTable($myFile, $myFile[$myFile['Setting']['Language']][$_GET['id']]['ErrorsMessageReq']);
+        parent::__construct($_GET['id'], function($myFile, $idSseion){
+            return $this->saveFlexTable($myFile, $myFile[$myFile['Setting']['Language']][$_GET['id']]['ErrorsMessageReq'], $idSseion);
 
         }, 'MyFlexTables');
         if(!isset($_POST['Branches']) && !isset($_POST['choices']))
-            $this->saveModel($this->saveFlexTable($this->getObj(), $this->getErrorsMessageReq()));
+            $this->saveModel($this->saveFlexTable($this->getObj(), $this->getErrorsMessageReq(), $this->getId()));
         MyFlexTablesView::initMyFlexTablesView(isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');
     }
-    function saveFlexTable($myData, $keysInput){
+    function saveFlexTable($myData, $keysInput, $idSseion){
         foreach ($keysInput as $key => $value)
             $myData[$_GET['id']][$this->keyId][$key] = $_POST[$key];
+        $this->saveProductTable($idSseion);
         return $myData;
     }
 }

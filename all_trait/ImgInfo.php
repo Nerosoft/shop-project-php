@@ -1,15 +1,44 @@
 <?php
 trait ImgInfo{
-    private $ImgLabel;
-    private $ImgButton;
+    private $Reqimage;
+    private $Invimage;
     function initImageInfo(){
-        $this->ImgLabel = $this->getModelPage()['ImgLabel'];
-        $this->ImgButton = $this->getModelPage()['ImgButton'];
+        $this->Reqimage = $this->getModelPage()['Reqimage'];
+        $this->Invimage = $this->getModelPage()['Invimage'];
     }
-    function getImgLabel(){
-        return $this->ImgLabel;
+    function validMyImage(){
+        $this->initImageInfo();
+        //delete input
+        if(!isset($_FILES['avatar']))
+           $this->initViewPost($this->getReqimage());
+        else if(!isset($_POST['id']) && !is_uploaded_file($_FILES['avatar']['tmp_name']))
+            $this->initViewPost($this->getModelPage()['UploadImgInv']);
+        else if(is_uploaded_file($_FILES['avatar']['tmp_name']) && 
+        strtolower(pathinfo(basename($_FILES['avatar']['name']), PATHINFO_EXTENSION)) !== 'jpg' &&
+        strtolower(pathinfo(basename($_FILES['avatar']['name']), PATHINFO_EXTENSION)) !== 'png'||
+        is_uploaded_file($_FILES['avatar']['tmp_name']) && $_FILES['avatar']['size'] > (2 * 1024 * 1024)||
+        is_uploaded_file($_FILES['avatar']['tmp_name']) && $_FILES['avatar']['size'] < 2000||
+        is_uploaded_file($_FILES['avatar']['tmp_name']) && !getimagesize($_FILES['avatar']['tmp_name']))
+           $this->initViewPost($this->getInvimage());
     }
-    function getImgButton(){
-        return $this->ImgButton;
+    function saveProductTable($idSseion){
+        if(isset($_FILES['avatar']) && is_uploaded_file($_FILES['avatar']['tmp_name']) && is_dir('asset/product/'.$idSseion))
+            copy($_FILES['avatar']['tmp_name'], 'asset/product/'.$idSseion.'/'.$this->keyId.'.'.strtolower(pathinfo(basename($_FILES['avatar']['name']), PATHINFO_EXTENSION)));
+        else if(isset($_FILES['avatar']) && is_uploaded_file($_FILES['avatar']['tmp_name']) && is_dir('asset/product')){
+            mkdir('asset/product/'.$idSseion);
+            copy($_FILES['avatar']['tmp_name'], 'asset/product/'.$idSseion.'/'.$this->keyId.'.'.strtolower(pathinfo(basename($_FILES['avatar']['name']), PATHINFO_EXTENSION)));
+        }
+        else if(isset($_FILES['avatar']) && is_uploaded_file($_FILES['avatar']['tmp_name'])){
+            mkdir('asset/product');
+            mkdir('asset/product/'.$idSseion);
+            copy($_FILES['avatar']['tmp_name'], 'asset/product/'.$idSseion.'/'.$this->keyId.'.'.strtolower(pathinfo(basename($_FILES['avatar']['name']), PATHINFO_EXTENSION)));
+        }
     }
+    function getReqimage(){
+        return $this->Reqimage;
+    }
+    function getInvimage(){
+        return $this->Invimage;
+    }
+
 }
