@@ -37,7 +37,7 @@
                             <ul class="dropdown-menu dropdown-menu-dark">
                     HTML;
                                 foreach ($view->getBranch3() as $keyItem=>$myBranch){
-                                    $href = ($_SERVER["REQUEST_METHOD"] === "POST"?'/shop/web':'').'?id='.$keyItem;
+                                    $href = ($_SERVER["REQUEST_METHOD"] === "POST"?'/shop/site':'').'?id='.$keyItem;
                                     $myActive = $view->getId() === $keyItem ? 'my_active':'';
                                     echo <<<HTML
                                         <li>
