@@ -1,7 +1,7 @@
 <?php
 include 'SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'MyHome.php';
+require 'controller/MyHome.php';
 require 'ValidationId.php';
 class HomeCreatePost extends ValidationId{
     use ErrorsHome;

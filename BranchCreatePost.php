@@ -1,7 +1,7 @@
 <?php
 include 'SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'MyBranch.php';
+require 'controller/MyBranch.php';
 require 'ValidationId.php';
 class BranchCreatePost extends ValidationId{
     use ErrorBranch;

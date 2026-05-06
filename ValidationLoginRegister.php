@@ -1,5 +1,4 @@
 <?php
-require 'DeleteInfoName.php';
 require 'class_object/Users.php';
 class ValidationLoginRegister extends ModelJson{
     use ErrorsEmailPassword;

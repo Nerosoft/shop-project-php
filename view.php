@@ -3,28 +3,28 @@ include 'SessionAdmin.php';
 if(isset($_GET['id']))
     switch ($_GET['id']) {
         case 'Home':
-            require 'MyHome.php';
+            require 'controller/MyHome.php';
             MyHome::initHome(); 
         case 'Branches':
-            require 'MyBranch.php';
+            require 'controller/MyBranch.php';
             MyBranch::initBranch();
         case 'ChangeLanguage':
-            require 'MyChangeLanguage.php';
+            require 'controller/MyChangeLanguage.php';
             MyChangeLanguage::initMyChangeLanguage();
         case 'Users':
-            require 'MySettingUsers.php';
+            require 'controller/MySettingUsers.php';
             MySettingUsers::initMySettingUsers();
         case 'Product':
-            require 'ProductClass.php';
+            require 'controller/ProductClass.php';
             Product::initProduct();
         case 'MyStyle':
-            require 'MyStyleClass.php';
+            require 'controller/MyStyleClass.php';
             MyStyleClass::initMyStyleClass();
         case 'SystemLang':
-            require 'MySystemlang.php';
+            require 'controller/MySystemlang.php';
             MySystemlang::initMySystemlang();
         default:
-            require 'MyFlexTablesView.php';
+            require 'controller/MyFlexTablesView.php';
             MyFlexTablesView::initMyFlexTablesView();
     }
 else

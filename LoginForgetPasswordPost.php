@@ -1,7 +1,7 @@
 <?php
 include 'SessionAuth.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-    require 'MyLogin.php';
+    require 'controller/MyLogin.php';
     require 'ValidationLoginRegister.php';
     class LoginForgetPasswordPost extends ValidationLoginRegister{
         use ErrorsKeyPassword;

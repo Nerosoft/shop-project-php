@@ -2,7 +2,7 @@
 include 'SessionAuth.php';
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_POST['setup_project'] === 'Login' || $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_POST['setup_project'] === 'Register'){
     $_SERVER['SCRIPT_FILENAME'] = $_POST['setup_project'];
-    require  $_POST['setup_project'] === 'Login'?'MyLogin.php':'MyRegister.php';
+    require  'controller/'.($_POST['setup_project'] === 'Login'?'MyLogin.php':'MyRegister.php');
     class SetupProject extends ModelJson{
         use ErrorBranch, ErrorsEmailPassword, ErrorsKeyPassword;
         function __construct(){

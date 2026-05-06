@@ -1,4 +1,4 @@
 <?php
 include 'SessionAdmin.php';
-require 'MyHome.php';
+require 'controller/MyHome.php';
 MyHome::initHome();

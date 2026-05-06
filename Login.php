@@ -1,4 +1,4 @@
 <?php
 include 'SessionAuth.php';
-require 'MyLogin.php';
+require 'controller/MyLogin.php';
 MyLogin::initMyLogin();

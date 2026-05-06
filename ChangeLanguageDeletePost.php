@@ -1,7 +1,7 @@
 <?php
 include 'SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'MyChangeLanguage.php';
+require 'controller/MyChangeLanguage.php';
 require 'ValidationId.php';
 class ChangeLanguageDeletePost extends ValidationId{
     function __construct(){

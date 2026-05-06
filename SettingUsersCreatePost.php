@@ -1,7 +1,7 @@
 <?php
 include 'SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'MySettingUsers.php';
+require 'controller/MySettingUsers.php';
 require 'ValidationId.php';
 //make extends ValidationId and valid id branch and id users inside ValidationId class
 class SettingUsersCreatePost extends ValidationId{

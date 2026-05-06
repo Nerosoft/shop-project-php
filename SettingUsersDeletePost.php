@@ -1,7 +1,7 @@
 <?php
 include 'SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_GET['id'])){
-require ($_GET['id'] === 'Product' ? 'ProductClass' : ($_GET['id'] !== 'Users'?'MyFlexTablesView':'MySettingUsers')).'.php';
+require 'controller/'.($_GET['id'] === 'Product' ? 'ProductClass' : ($_GET['id'] !== 'Users'?'MyFlexTablesView':'MySettingUsers')).'.php';
 require 'ValidationId.php';
 class SettingUsersDeletePost extends ValidationId{
     function __construct(){

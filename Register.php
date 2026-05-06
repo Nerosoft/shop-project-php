@@ -1,4 +1,4 @@
 <?php
 include 'SessionAuth.php';
-require 'MyRegister.php';
+require 'controller/MyRegister.php';
 MyRegister::initMyRegister();

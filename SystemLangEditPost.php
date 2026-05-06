@@ -1,7 +1,7 @@
 <?php
 include 'SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'MySystemlang.php';
+require 'controller/MySystemlang.php';
 class SystemLangEditPost extends ModelJson{
     use ErrorSystemlang;
     function validLanguage(){

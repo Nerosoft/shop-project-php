@@ -8,7 +8,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['change_language']) && 
  $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['change_language']) && isset($_POST['state']) && $_POST['change_language'] === 'Login' && $_POST['state'] === 'Style'||
  $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['change_language']) && isset($_POST['state']) && $_POST['change_language'] === 'Register' && $_POST['state'] === 'Style'){
     $_SERVER['SCRIPT_FILENAME'] = $_POST['change_language'];
-    require  $_POST['change_language'] === 'Site'?'MySite.php':($_POST['change_language'] === 'Login'?'MyLogin.php':'MyRegister.php');
+    require  'controller/'.($_POST['change_language'] === 'Site'?'MySite.php':($_POST['change_language'] === 'Login'?'MyLogin.php':'MyRegister.php'));
     require 'ValidationId.php';
     class ChangeLangPost extends ValidationId{
         function __construct(){
