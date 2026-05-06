@@ -45,8 +45,8 @@ class ValidationId extends ModelJson{
             isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'ProductCreatePost' && is_null($this->validProductInput($this->getMyModal()))||
             isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ProductCreatePost' && is_null($this->validProductInput($this->getMyModal()))||
 
-            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3($this->getMyModal())) && is_null($this->validKeyPassword($this->getMyModal()))||
-            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3($this->getMyModal())) && is_null($this->validKeyPassword($this->getMyModal()))||
+            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3($this->getMyModal()))||
+            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3($this->getMyModal()))||
             
             //product and uesrs and flextable
             isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'SettingUsersDeletePost'||
@@ -128,6 +128,7 @@ class ValidationId extends ModelJson{
             $this->validProductInput($this->getMyModal());
         else if($this->getSCRIPTFILENAME() === 'SettingUsersCreatePost')
             $this->initErrorsEmailPassword3($this->getMyModal());
+        
         else if($this->getSCRIPTFILENAME() === 'HomeCreatePost' || $this->getSCRIPTFILENAME() === 'HomeEditPost')
             $this->validName();
         

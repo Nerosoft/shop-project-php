@@ -21,6 +21,13 @@ trait ErrorsEmailPassword{
             $modal->initViewPost($this->getRequiredPassword());
         else if(strlen($_POST['Password']) < 8)
             $modal->initViewPost($this->getInvalidPassword());
+        else if($modal->getSCRIPTFILENAME() !== 'LoginPost'){
+            $this->initErrorsKeyPassword($modal->getModelPage());
+            if(!isset($_POST['Key']) || $_POST['Key'] === '')
+                $modal->initViewPost($this->getRequiredKeyPassword(), 'danger');
+            else if(strlen($_POST['Key']) < 8)
+                $modal->initViewPost($this->getInvalidKeyPassword(), 'danger');
+        }
     }
     function getRequiredEmail(){
         return $this->RequiredEmail;

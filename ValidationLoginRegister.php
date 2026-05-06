@@ -16,7 +16,8 @@ class ValidationLoginRegister extends ModelJson{
     }
     function __construct($IdPage){
         parent::__construct($IdPage);
-        $this->users = isset($this->getObj()['Users']) ? Users::fromArray($this->getObj()['Users']):array();
+        if($IdPage === 'Login')
+            $this->users = isset($this->getObj()['Users']) ? Users::fromArray($this->getObj()['Users']):array();
         $this->initErrorsEmailPassword3($this->getMyModal());
     }
 }

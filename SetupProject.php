@@ -3,13 +3,12 @@ include 'auth/SessionAuth.php';
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_POST['setup_project'] === 'Login' || $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_POST['setup_project'] === 'Register'){
     $_SERVER['SCRIPT_FILENAME'] = $_POST['setup_project'];
     require  'controller/'.($_POST['setup_project'] === 'Login'?'MyLogin.php':'MyRegister.php');
-    class SetupProject extends ModelJson{
-        use ErrorBranch, ErrorsEmailPassword, ErrorsKeyPassword;
+    require 'ValidationLoginRegister.php';
+    class SetupProject extends ValidationLoginRegister{
+        use ErrorBranch, ErrorsKeyPassword;
         function __construct(){
             parent::__construct($_POST['setup_project']);
             $this->validInputs($this->getMyModal());
-            $this->initErrorsEmailPassword3($this->getMyModal());
-            $this->validKeyPassword($this->getMyModal());
             $myId = $this->getRandomId();
             $file = $this->getFile();
             $file[$myId] = $this->getProject($myId);

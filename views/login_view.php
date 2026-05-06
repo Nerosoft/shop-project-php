@@ -11,10 +11,7 @@
         $action = 'LoginForgetPasswordPost.php';
         $idModel = "forgetpasswordmodal";
         $idForm = "forgetpasswordform";
-        include('all_modal/start_model.php');
-        echo '<input type="hidden" value="'.$view->getId().'"name="superId">';
-        include('all_modal/Modal_setting_users_body.php');
-        include('all_modal/end_model.php');?>
+        include('all_modal/modal_setting_users_table.php');?>
     </div>
 </div>
 <?php include 'pis_of_page/end_html.php'?>

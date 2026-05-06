@@ -8,8 +8,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
         function __construct(){
             parent::__construct('Register');
             $keyId = $this->getRandomId();
+            //valid confirm password
             $this->initErrorsRegister2($this->getMyModal(), $keyId);
-            $this->initErrorsKeyPassword2($this->getMyModal(), $keyId);
+            $this->getMyModal()->saveModel($this->initErrorsKeyPassword2($this->getMyModal(), $keyId, $this->getMyModal()->getObj()));
             $this->redirectToAdminPage();
         }
     }
