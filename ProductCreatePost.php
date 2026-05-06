@@ -1,5 +1,5 @@
 <?php
-include 'SessionAdmin.php';
+include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
 require 'controller/ProductClass.php';
 require 'ValidationId.php';

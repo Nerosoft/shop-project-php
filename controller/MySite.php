@@ -166,7 +166,7 @@ class Site extends InformationPage{
     }
     static function initMySite($message = 'LoadMessage', $type = 'success'){
         $view = new Site($message, $type);
-        include 'SiteView.php';
+        include 'views/SiteView.php';
         exit;
     }
     function getDataView(){

@@ -1,5 +1,5 @@
 <?php
-include 'SessionAdmin.php';
+include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['option']) && $_POST['option'] === 'ChangeLanguage' || $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['option']) && $_POST['option'] === 'MyStyle'){
 require 'controller/'.($_POST['option'] === 'MyStyle'?'MyStyleClass':'MyChangeLanguage').'.php';
 require 'ValidationId.php';

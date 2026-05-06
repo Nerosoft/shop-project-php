@@ -1,5 +1,5 @@
 <?php
-include 'SessionAdmin.php';
+include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_GET['id'])){
 require 'controller/'.($_GET['id'] === 'Product' ? 'ProductClass' : ($_GET['id'] !== 'Users'?'MyFlexTablesView':'MySettingUsers')).'.php';
 require 'ValidationId.php';

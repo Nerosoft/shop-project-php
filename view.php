@@ -1,5 +1,5 @@
 <?php
-include 'SessionAdmin.php';
+include 'auth/SessionAdmin.php';
 if(isset($_GET['id']))
     switch ($_GET['id']) {
         case 'Home':

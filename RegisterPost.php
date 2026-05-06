@@ -1,5 +1,5 @@
 <?php 
-include 'SessionAuth.php';
+include 'auth/SessionAuth.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
     require 'controller/MyRegister.php';
     require 'ValidationLoginRegister.php';

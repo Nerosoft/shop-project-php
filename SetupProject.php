@@ -1,5 +1,5 @@
 <?php
-include 'SessionAuth.php';
+include 'auth/SessionAuth.php';
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_POST['setup_project'] === 'Login' || $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_POST['setup_project'] === 'Register'){
     $_SERVER['SCRIPT_FILENAME'] = $_POST['setup_project'];
     require  'controller/'.($_POST['setup_project'] === 'Login'?'MyLogin.php':'MyRegister.php');
