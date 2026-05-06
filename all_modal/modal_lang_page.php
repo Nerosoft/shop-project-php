@@ -16,7 +16,7 @@
 </div>
 <?php 
 if(count($view->getModel2()['AllNamesLanguage'])>1){
-    include 'all_modal/AllBranchLanguageInput.php';
+    include 'AllBranchLanguageInput.php';
     foreach($view->getModel2()['AllNamesLanguage'] as $key=>$option)
         if(isset($_GET['lang']) && $_GET['lang'] !== $key)
             echo <<<HTML

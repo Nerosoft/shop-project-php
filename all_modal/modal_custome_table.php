@@ -27,6 +27,6 @@ if(!isset($index)){
     HTML;
     
 }
-include 'all_modal/AllBranchOption.php';
+include 'AllBranchOption.php';
 include('end_model.php');
 ?>

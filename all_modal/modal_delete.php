@@ -7,9 +7,9 @@ include('start_model.php');
 echo $view->getmessageModelDelete().'<spam>-'.($nameItem??$myObject->getName()).'</spam>';
 //ignore branch
 if($view->getUrlName2() !== 'Branches')
-    include 'all_modal/AllBranchOption.php';
+    include 'AllBranchOption.php';
 else
-    include ('all_modal/my_id.php');
+    include ('my_id.php');
 ?>
 </div>
 <div class="modal-footer">

@@ -47,6 +47,6 @@ include('pis_of_page/image_table_product.php');
     oninvalid="handleInput(this, '<?php echo $view->getRequiredCategory()?>', '<?php echo $view->getInvalidCategory()?>')">
 </div>
 <?php 
-    include 'all_modal/AllBranchOption.php';
+    include 'AllBranchOption.php';
     include('end_model.php');
 ?>

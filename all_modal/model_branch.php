@@ -3,7 +3,7 @@
 include('start_model.php');
 include 'model_branch_inputs.php';
 if(isset($index))
-    include('all_modal/my_id.php');
+    include('my_id.php');
 else{
     if(isset($view->getModel2()['MyFlexTables']))
         echo <<<HTML

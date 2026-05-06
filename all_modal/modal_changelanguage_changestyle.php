@@ -10,9 +10,9 @@ echo $view->getLabelChangeLanguageMessage().'<spam>-'.$myObject->getName().'</sp
 //ignore branch change only(style and lang)
 if($view->getUrlName2() !== 'Branches'){
     echo '<input type="hidden" value="'.$view->getUrlName2().'" name="option">';
-    include 'all_modal/AllBranchOption.php';
+    include 'AllBranchOption.php';
 }else
     //set id for branch
-    include('all_modal/my_id.php');
+    include('my_id.php');
 
 include('end_model.php');

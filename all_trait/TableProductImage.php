@@ -1,5 +1,5 @@
 <?php
-require 'all_trait/ImgInfo.php';
+require 'ImgInfo.php';
 trait TableProductImage{
     use ImgInfo;
     private $ImgLabel;
