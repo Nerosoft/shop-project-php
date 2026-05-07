@@ -7,12 +7,11 @@ trait ErrorsKeyPassword{
         $this->InvalidKeyPassword = $error['InvalidKeyPassword'];
     }
     function initErrorsKeyPassword2($modal, $keyId, $myData){
-       if(isset($modal->getObj()['Users'][$keyId]['Email']) && $_POST['Email'] === $modal->getObj()['Users'][$keyId]['Email'] ||
+       if(isset($myData['Users'][$keyId]['Email']) && $_POST['Email'] === $myData['Users'][$keyId]['Email'] ||
             //make edit create account and check exist email
-            isset($modal->getObj()['Users']) && !in_array($_POST['Email'], array_map(function($user) {return $user['Email'];}, $modal->getObj()['Users']))||
+            isset($myData['Users']) && !in_array($_POST['Email'], array_map(function($user) {return $user['Email'];}, $myData['Users']))||
             //check users empty
-            !isset($modal->getObj()['Users'])){
-                // $myData = $modal->getObj();
+            !isset($myData['Users'])){
                 $myData['Users'][$keyId] = array("Email"=>$_POST["Email"], "Password"=>$_POST["Password"], "Key"=>$_POST["Key"]);
                 return $myData;
             //show message email exist
