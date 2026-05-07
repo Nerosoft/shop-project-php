@@ -1,8 +1,6 @@
 <?php
 require 'LoginRegister.php';
-require 'all_trait/InterCheckbooksState.php';
 class MyLogin extends LoginRegister{
-    use CheckbooksState;
     private $ButtonForgetPassword;
     private $ModalForgetPasswordTitle;
     private $ModalForgetPasswordButton;
@@ -10,7 +8,6 @@ class MyLogin extends LoginRegister{
     private $NewHintPassword;
     function __construct($message, $type){
         parent::__construct('Login', $message, $type);
-        // $this->InitCheckbooksState($this->getModelPage());
         $this->ButtonForgetPassword = $this->getModelPage()['ButtonForgetPassword'];
         $this->ModalForgetPasswordTitle = $this->getModelPage()['ModalForgetPasswordTitle'];
         $this->ModalForgetPasswordButton = $this->getModelPage()['ModalForgetPasswordButton'];

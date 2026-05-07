@@ -1,11 +1,22 @@
 <?php
 class ValidationId extends ModelJson{
-    //passing modal and stop extends
-    //make pram for allnamelanguage and style $this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost'?'AllNamesLanguage':'Style'
+    function redirectToAdminPage(){
+        if(isset($this->getFile()[$_POST['superId']]) && isset($this->getFile()[$_POST['superId']]['Branches']))
+            $this->loginAdmin($_POST['superId'], $_POST['superId']);
+        else
+            foreach ($this->getFile() as $key => $obj)
+                if(isset($obj['Branches']) && in_array($_POST['superId'], array_keys($obj['Branches'])))
+                    $this->loginAdmin($_POST['superId'], $key);        
+    }
     function __construct($IdPage, $callback = null){
         parent::__construct($IdPage);
+        if($this->getSCRIPTFILENAME()==='LoginForgetPasswordPost' || 
+        $this->getSCRIPTFILENAME()==='LoginPost' || 
+        $this->getSCRIPTFILENAME() === 'RegisterPost'||
+        $this->getSCRIPTFILENAME() === 'SetupProject')
+            $this->initErrorsEmailPassword3($this->getMyModal());
         //valid id first
-        if($this->getSCRIPTFILENAME()!=='BranchCreatePost' && $this->getSCRIPTFILENAME()!=='FlexTablesCreatePost' && $this->getSCRIPTFILENAME()!=='HomeCreatePost' && $this->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' && $this->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $this->getSCRIPTFILENAME()!=='ProductCreatePost' && !isset($_POST['id']) ||
+        else if($this->getSCRIPTFILENAME()!=='BranchCreatePost' && $this->getSCRIPTFILENAME()!=='FlexTablesCreatePost' && $this->getSCRIPTFILENAME()!=='HomeCreatePost' && $this->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' && $this->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $this->getSCRIPTFILENAME()!=='ProductCreatePost' && !isset($_POST['id']) ||
          $this->getSCRIPTFILENAME()!=='BranchCreatePost' && $this->getSCRIPTFILENAME()!=='FlexTablesCreatePost' && $this->getSCRIPTFILENAME()!=='HomeCreatePost' && $this->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' &&  $this->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $this->getSCRIPTFILENAME()!=='ProductCreatePost' && $_POST['id'] === '')
             $this->initViewPost($this->getModelPage()['IdIsReq']);
         

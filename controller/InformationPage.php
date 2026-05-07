@@ -28,12 +28,8 @@ class InformationPage extends ModelJson{
                 <link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css">' : 
                 '<link href="./asset/css/login_register.css" rel="stylesheet">';
             $this->initErrorActiveStyleLang();
-            if($IdPage === 'Login')
-                $this->InitCheckbooksState($this->getModelPage());
         }else{
-            if($IdPage === 'Users')
-                $this->InitCheckbooksState($this->getModelPage());
-            else if($IdPage === 'ChangeLanguage' || $IdPage === 'MyStyle' || $IdPage === 'Branches'){
+            if($IdPage === 'ChangeLanguage' || $IdPage === 'MyStyle' || $IdPage === 'Branches'){
                 if($IdPage === 'ChangeLanguage' || $IdPage === 'MyStyle')
                     $this->InitInfoChangeLangStyle($this->getModelPage(), array_reverse(MyLanguage::fromArray($this->getModel2()[$IdPage === 'ChangeLanguage'?'AllNamesLanguage':'Style'])), $this->getModel2()['AllNamesLanguage']);
                 $this->initChangeStyleLangBranch($this->getModelPage());

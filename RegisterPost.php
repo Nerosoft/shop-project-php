@@ -2,9 +2,9 @@
 include 'auth/SessionAuth.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
     require 'controller/MyRegister.php';
-    require 'ValidationLoginRegister.php';
-    class RegisterPost extends ValidationLoginRegister{
-        use ErrorRegister, ErrorsKeyPassword;
+    require 'ValidationId.php';
+    class RegisterPost extends ValidationId{
+        use ErrorRegister, ErrorsEmailPassword;
         function __construct(){
             parent::__construct('Register');
             $keyId = $this->getRandomId();

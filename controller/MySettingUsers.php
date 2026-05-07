@@ -2,18 +2,15 @@
 require 'page.php';
 require 'class_object/Users.php';
 require 'all_trait/InterEmailPass.php';
-require 'all_trait/InterCheckbooksState.php';
 include 'interface/InterfaceDataView.php';
 class MySettingUsers extends page implements InterfaceDataView{
-    use EmailPassword, CheckbooksState;
+    use EmailPassword;
     private $NameHeadTable;
     private $PasswordHeadTable;
     private $ForgetPasswordHeadTable;
     private $DataView;
     function __construct($message, $type){
         parent::__construct('Users', $message, $type);
-        $this->initErrorsKeyPassword($this->getModelPage());
-        $this->initErrorsEmailPassword($this->getModelPage());
         $this->initEmailPassword($this->getModelPage());
         $this->NameHeadTable = $this->getModelPage()['NameHeadTable'];
         $this->PasswordHeadTable = $this->getModelPage()['PasswordHeadTable'];

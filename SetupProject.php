@@ -1,11 +1,10 @@
 <?php
 include 'auth/SessionAuth.php';
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_POST['setup_project'] === 'Login' || $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_POST['setup_project'] === 'Register'){
-    $_SERVER['SCRIPT_FILENAME'] = $_POST['setup_project'];
     require  'controller/'.($_POST['setup_project'] === 'Login'?'MyLogin.php':'MyRegister.php');
-    require 'ValidationLoginRegister.php';
-    class SetupProject extends ValidationLoginRegister{
-        use ErrorBranch, ErrorsKeyPassword;
+    require 'ValidationId.php';
+    class SetupProject extends ValidationId{
+        use ErrorBranch, ErrorsEmailPassword;
         function __construct(){
             parent::__construct($_POST['setup_project']);
             $this->validInputs($this->getMyModal());

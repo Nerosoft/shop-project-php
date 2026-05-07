@@ -5,7 +5,7 @@ require 'controller/MySettingUsers.php';
 require 'ValidationId.php';
 //make extends ValidationId and valid id branch and id users inside ValidationId class
 class SettingUsersCreatePost extends ValidationId{
-    use ErrorsKeyPassword, ErrorsEmailPassword;
+    use ErrorsEmailPassword;
     function __construct(){
         $keyId = isset($_POST['id'])?$_POST['id']:$this->getRandomId();
         parent::__construct('Users', function($myFile)use($keyId){
