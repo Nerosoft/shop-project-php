@@ -34,7 +34,11 @@
             }
         </script>
         HTML;
-    else if($view->getUrlName2() === 'Users' || $view->getUrlName2() === 'Login' || $view->getUrlName2() === 'Register')
+    else if($view->getUrlName2() === 'Users' || $view->getUrlName2() === 'Login' || $view->getUrlName2() === 'Register'){
+        if($view->getUrlName2() !== 'Users'){
+            include 'pis_of_page/buttons.php';
+            echo '</div></div>';
+        }
         echo<<<HTML
         <script type="text/javascript">
             $(document).ready(function() {
@@ -49,6 +53,7 @@
             });
         </script>
         HTML;
+    }
     if(isset($_SESSION['userId']))
         echo<<<HTML
         <script type="text/javascript">

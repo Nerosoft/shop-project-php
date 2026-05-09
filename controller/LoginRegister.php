@@ -17,6 +17,9 @@ class LoginRegister extends InformationPage{
     private $ModalButtonProject;
     private $ButtonSetupProject;
     private $RegisterLoginPage;
+    private $ButtonForgetPassword;
+    private $ModalForgetPasswordTitle;
+    private $ModalForgetPasswordButton;
     function getModalTitleProject(){
         return $this->ModalTitleProject;
     }
@@ -41,11 +44,23 @@ class LoginRegister extends InformationPage{
     function getRegisterLoginPage(){
         return $this->RegisterLoginPage;
     }
-    function __construct($IdPage, $message, $type){
+     function getButtonForgetPassword(){
+        return $this->ButtonForgetPassword;
+    }
+    function getModalForgetPasswordTitle(){
+        return $this->ModalForgetPasswordTitle;
+    }
+    function getModalForgetPasswordButton(){
+        return $this->ModalForgetPasswordButton;
+    }
+    function __construct($IdPage, $message, $type, $action){
         parent::__construct($IdPage, $message, $type);
         $this->initInfoBranch($this->getMyModal());
         $this->initErrorBranch($this->getModelPage());
         $this->initEmailPassword($this->getModelPage());
+        $this->ButtonForgetPassword = $this->getModelPage()['ButtonForgetPassword'];
+        $this->ModalForgetPasswordTitle = $this->getModelPage()['ModalForgetPasswordTitle'];
+        $this->ModalForgetPasswordButton = $this->getModelPage()['ModalForgetPasswordButton'];
         $this->TitleForm = $this->getModelPage()['TitleForm'];
         $this->ButtonName = $this->getModelPage()['ButtonName'];
         $this->DbKeyLabel = $this->getModelPage()['DbKeyLabel'];
@@ -61,6 +76,12 @@ class LoginRegister extends InformationPage{
                 if(count($obj['Branches']) > 1 && isset($obj['Branches'][$this->getId()]))
                     $this->dbBranchKeys = $obj['Branches'];
             }
+        echo<<<HTML
+            <div class="container">
+                <div class="register">
+                    <form id='register' method='POST' action="{$action}">
+        HTML;
+        include 'pis_of_page/login_form.php';
     }
     function getDbKeyLabel(){
         return $this->DbKeyLabel;

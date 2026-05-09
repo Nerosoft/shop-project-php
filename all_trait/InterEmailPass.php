@@ -4,22 +4,29 @@ trait EmailPassword{
     use ErrorsEmailPassword;
     private $LabelEmail;
     private $HintEmail;
-    private $info;
+    private $LabelPassword;
+    private $HintPassword;
+    private $LabelPassword2;
+    private $HintPassword2;
     private $LabelKeyPassword;
     private $HintKeyPassword;
     private $CheckbooksState;
     function getCheckbooksState(){
         return $this->CheckbooksState;
     }
-    function initEmailPassword($info){
+    function initEmailPassword($info, $keypass = 'NewPassword', $keyHintpass = 'NewHintPassword'){
         $this->initErrorsEmailPassword($info);
         $this->LabelEmail = $info['LabelEmail'];
         $this->HintEmail = $info['HintEmail'];
-        $this->info = $info;
         $this->LabelKeyPassword = $info['LabelKeyPassword'];
+        $this->LabelPassword = $info['NewPassword'];
+        $this->HintPassword = $info['NewHintPassword'];
         $this->HintKeyPassword = $info['HintKeyPassword'];
-        if($this->getUrlName2() === 'Login' || $this->getUrlName2() === 'Users')
         $this->CheckbooksState = $info['CheckbooksState'];
+        if($this->getUrlName2() !== 'Users'){
+            $this->LabelPassword2 = $info['LabelPassword'];
+            $this->HintPassword2 = $info['LabelPassword'];
+        }
     }
     function getLabelKeyPassword(){
         return $this->LabelKeyPassword;
@@ -33,10 +40,16 @@ trait EmailPassword{
     function getHintEmail(){
         return $this->HintEmail;
     }
-    function getLabelPassword($key = 'LabelPassword'){
-        return $this->info[$key];
+    function getLabelPassword(){
+        return $this->LabelPassword;
     }
-    function getHintPassword($key = 'HintPassword'){
-        return $this->info[$key];
+    function getHintPassword(){
+        return $this->HintPassword;
+    }
+    function getLabelPassword2(){
+        return $this->LabelPassword2;
+    }
+    function getHintPassword2(){
+        return $this->HintPassword2;
     }
 }

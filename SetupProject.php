@@ -290,6 +290,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "english"=> "engilsh"
                     ],
                     "Register"=> [
+                        "ButtonForgetPassword"=> "Forget password",
+                        "ModalForgetPasswordTitle"=> "Change and forget password",
+                        "ModalForgetPasswordButton"=> "login and change password",
+                        "CheckbooksState"=> "show password",
                         "RegisterLoginPage"=> "Login account",
                         "UsedStyle"=> "style is active",
                         "ModalTitleStyle"=> "welcome in edit style",
@@ -307,6 +311,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "LabelEmail"=> "Email",
                         "HintEmail"=> "Enter your email",
                         "LabelPassword"=> "Password",
+                        "NewPassword"=> "Password",
+                        "NewHintPassword"=> "Enter password",
                         "HintPassword"=> "Enter password",
                         "LabelConfirmPassword"=> "Confirm password",
                         "HintConfirmPassword"=> "Enter confirm password",
