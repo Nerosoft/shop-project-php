@@ -23,5 +23,4 @@
         $idModel = "forgetpasswordmodal";
         $idForm = "forgetpasswordform";
         include('all_modal/modal_setting_users_table.php');
-        echo '</div></div>';
-        include 'pis_of_page/end_html.php';?>
+        echo '</div></div>';?>

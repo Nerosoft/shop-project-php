@@ -80,5 +80,3 @@
         $(id).find('#mycheckbox').prop('checked', false);
     }
 </script>
-<?php 
-include 'pis_of_page/end_html.php'?>

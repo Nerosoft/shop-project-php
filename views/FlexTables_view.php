@@ -89,6 +89,3 @@
         $(id).find('#preview').attr('src', './asset/product/<?php echo$view->getId()?>/'+keyObj);
     }
 </script>
-<?php 
-include 'pis_of_page/end_html.php';
-?>

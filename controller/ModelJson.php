@@ -45,23 +45,23 @@ class ModelJson{
             case 'Product':
                 $view = new Product($message, $type);
                 include 'views/ProductView.php';
-                exit;
+                break;
             case 'Home':
                 $view = new MyHome($message, $type);
                 include 'views/home_view.php';
-                exit;
+                break;
             case 'Branches':
                 $view = new MyBranch($message, $type);
                 include 'views/Branch_view.php';
-                exit;
+                break;
             case 'Users':
                 $view = new MySettingUsers($message, $type);
                 include 'views/SettingUsers_view.php';
-                exit;
+                break;
             case 'MyStyle':
                 $view = new MyStyleClass($message, $type);
                 include 'views/ChangeLanguage_view.php';
-                exit;
+                break;
             case 'ChangeLanguage':
                 $view = new MyChangeLanguage($message, $type);
                 echo<<<HTML
@@ -72,7 +72,7 @@ class ModelJson{
                 $action = 'ChangeLanguageCreatePost.php';
                 include('all_modal/modal_change_language.php');
                 include 'views/ChangeLanguage_view.php';
-                exit;
+                break;
             case 'Site':
                 $view = new Site($message, $type);
                 include 'views/SiteView.php';
@@ -80,23 +80,24 @@ class ModelJson{
             case 'SystemLang':
                 $view = new MySystemlang($message, $type);
                 include 'views/SystemLang_view.php';
-                exit;
+                break;
             case 'Register':
                 $view = new MyRegister($message, $type);
                 include 'pis_of_page/login_form.php';
                 include('all_modal/setting_users_iput.php');
                 include 'pis_of_page/buttons.php';
-                exit;
+                break;
             case 'Login':
                 $view = new LoginRegister($message, $type);
                 include 'pis_of_page/login_form.php';
                 include 'pis_of_page/buttons.php';
-                exit;
+                break;
             default:
                 $view = new MyFlexTablesView($message, $type);
                 include 'views/FlexTables_view.php';
-                exit;
         }
+        include 'pis_of_page/end_html.php';
+        exit;
     }
     function getStyleFile(){
         return $this->StyleFile;

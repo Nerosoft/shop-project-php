@@ -34,22 +34,6 @@
             }
         </script>
         HTML;
-    else if($view->getUrlName2() === 'Users' || $view->getUrlName2() === 'Login' || $view->getUrlName2() === 'Register'){
-        echo<<<HTML
-        <script type="text/javascript">
-            $(document).ready(function() {
-                // $('input[type="email"]').on('input invalid', function() {
-                //     if (this.validity.valueMissing)
-                //         this.setCustomValidity('{$view->getRequiredEmail()}');
-                //     else if (this.validity.typeMismatch)
-                //         this.setCustomValidity('{$view->getInvalidEmail()}');
-                //     else
-                //         this.setCustomValidity('');
-                // });
-            });
-        </script>
-        HTML;
-    }
     if(isset($_SESSION['userId']))
         echo<<<HTML
         <script type="text/javascript">
