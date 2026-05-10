@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                         $this->saveModel($myData);
                         $this->redirectToAdminPage();
                     }
-            LoginRegister::initMyLoginRegister(false, 'ForgetPasswordMessageInvlid', 'danger');
+            $this->initViewPost('ForgetPasswordMessageInvlid');
         }
     }
     new LoginForgetPasswordPost();

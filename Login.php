@@ -1,3 +1,3 @@
 <?php
 include 'auth/SessionAuth.php';
-LoginRegister::initMyLoginRegister(false);
+LoginRegister::initMyLoginRegister(new LoginRegister());

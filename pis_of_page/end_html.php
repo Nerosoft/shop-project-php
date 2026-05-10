@@ -35,21 +35,17 @@
         </script>
         HTML;
     else if($view->getUrlName2() === 'Users' || $view->getUrlName2() === 'Login' || $view->getUrlName2() === 'Register'){
-        if($view->getUrlName2() !== 'Users'){
-            include 'pis_of_page/buttons.php';
-            echo '</div></div>';
-        }
         echo<<<HTML
         <script type="text/javascript">
             $(document).ready(function() {
-                $('input[type="email"]').on('input invalid', function() {
-                    if (this.validity.valueMissing)
-                        this.setCustomValidity('{$view->getRequiredEmail()}');
-                    else if (this.validity.typeMismatch)
-                        this.setCustomValidity('{$view->getInvalidEmail()}');
-                    else
-                        this.setCustomValidity('');
-                });
+                // $('input[type="email"]').on('input invalid', function() {
+                //     if (this.validity.valueMissing)
+                //         this.setCustomValidity('{$view->getRequiredEmail()}');
+                //     else if (this.validity.typeMismatch)
+                //         this.setCustomValidity('{$view->getInvalidEmail()}');
+                //     else
+                //         this.setCustomValidity('');
+                // });
             });
         </script>
         HTML;

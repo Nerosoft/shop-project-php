@@ -10,7 +10,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                 foreach ($this->getObj()['Users'] as $key => $value)
                     if($value['Email'] === $_POST['Email'] && $value['Password'] === $_POST['Password'])
                         $this->redirectToAdminPage();
-            LoginRegister::initMyLoginRegister(false, 'EmailPassword', 'danger');
+            $this->initViewPost('EmailPassword');
         }
     }
     new LoginPost();

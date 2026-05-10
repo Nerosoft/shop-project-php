@@ -6,6 +6,16 @@
         title="<?php echo $view->getHintEmail()?>"
         required>
 </div>
+<script>
+    $('input[type="email"]').on('input invalid', function() {
+        if (this.validity.valueMissing)
+            this.setCustomValidity('<?php echo$view->getRequiredEmail()?>');
+        else if (this.validity.typeMismatch)
+            this.setCustomValidity('<?php echo$view->getInvalidEmail()?>');
+        else
+            this.setCustomValidity('');
+    });
+</script>
 <div class="form-group">
     <i class="fa fa-lock fa-2x"></i>
     <label for="password"><?php echo $view->getLabelPassword()?></label>

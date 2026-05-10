@@ -11,11 +11,11 @@ trait ErrorRegister{
     function initErrorsRegister2($modal, $keyId){
         $this->initErrorsRegister($modal->getModelPage());
         if(!isset($_POST['password_confirmation']) || $_POST['password_confirmation'] === '')
-            LoginRegister::initMyLoginRegister(true, $this->getRequiredConfirmPassword(), 'danger');
+            $this->initViewPost($this->getRequiredConfirmPassword());
         else if(strlen($_POST['password_confirmation']) < 8)
-            LoginRegister::initMyLoginRegister(true, $this->getInvalidConfirmPassword(), 'danger');
+            $this->initViewPost($this->getInvalidConfirmPassword());
         else if($_POST['Password'] !== $_POST['password_confirmation'])
-            LoginRegister::initMyLoginRegister(true, $this->getPasswordDosNotMatch(), 'danger');
+            $this->initViewPost($this->getPasswordDosNotMatch());
 }
     function getPasswordDosNotMatch(){
         return $this->PasswordDosNotMatch;
