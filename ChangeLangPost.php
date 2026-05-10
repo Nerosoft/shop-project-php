@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['change_language']) && 
  $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['change_language']) && isset($_POST['state']) && $_POST['change_language'] === 'Login' && $_POST['state'] === 'Style'||
  $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['change_language']) && isset($_POST['state']) && $_POST['change_language'] === 'Register' && $_POST['state'] === 'Style'){
     if($_POST['change_language'] === 'Site')
-        require 'controller/MySite.php';
+        require 'controller/Site.php';
     else if($_POST['change_language'] === 'Register'){
         require  'controller/LoginRegister.php';
         require 'controller/MyRegister.php';

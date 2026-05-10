@@ -59,17 +59,18 @@ class ModelJson{
                 include 'views/SettingUsers_view.php';
                 exit;
             case 'MyStyle':
+                $view = new MyStyleClass($message, $type);
+                include 'views/ChangeLanguage_view.php';
+                exit;
             case 'ChangeLanguage':
-                $view = $keyPage === 'MyStyle'?new MyStyleClass($message, $type):new MyChangeLanguage($message, $type);
-                if($keyPage === 'ChangeLanguage'){
-                    echo<<<HTML
-                    <button class="btn btn-primary" onClick="openForm('#createModel')">{$view->getButtonModelCreate()}</button>
-                    HTML;
-                    $title = $view->getScreenModelCreate();
-                    $button = $view->getButtonModelAdd();
-                    $action = 'ChangeLanguageCreatePost.php';
-                    include('all_modal/modal_change_language.php');
-                }
+                $view = new MyChangeLanguage($message, $type);
+                echo<<<HTML
+                <button class="btn btn-primary" onClick="openForm('#createModel')">{$view->getButtonModelCreate()}</button>
+                HTML;
+                $title = $view->getScreenModelCreate();
+                $button = $view->getButtonModelAdd();
+                $action = 'ChangeLanguageCreatePost.php';
+                include('all_modal/modal_change_language.php');
                 include 'views/ChangeLanguage_view.php';
                 exit;
             case 'Site':
@@ -81,15 +82,15 @@ class ModelJson{
                 include 'views/SystemLang_view.php';
                 exit;
             case 'Register':
-            case 'Login':
-                $view = $keyPage === 'Register'?new MyRegister($message, $type):new LoginRegister($message, $type);
+                $view = new MyRegister($message, $type);
                 include 'pis_of_page/login_form.php';
-                if($view->getUrlName2() === 'Register')
-                    include('all_modal/setting_users_iput.php');
-                echo '</form>';
+                include('all_modal/setting_users_iput.php');
                 include 'pis_of_page/buttons.php';
-                echo '</div></div>';
-                include 'pis_of_page/end_html.php';
+                exit;
+            case 'Login':
+                $view = new LoginRegister($message, $type);
+                include 'pis_of_page/login_form.php';
+                include 'pis_of_page/buttons.php';
                 exit;
             default:
                 $view = new MyFlexTablesView($message, $type);

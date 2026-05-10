@@ -1,3 +1,5 @@
+ </form>
+
 <button form='register' type='submit' class="btn btn-primary" onclick="validForm('#register')"><?php echo $view->getButtonName()?></button>
 <button type="button" onclick="openForm('#createModel')" class="btn btn-success"><?php echo $view->getChangeLanguageButton()?></button>
 <button type="button" onclick="openForm('#style_modal')" class="btn btn-info"><?php echo $view->getChangeStyleButton()?></button>
@@ -20,4 +22,6 @@
         $action = 'LoginForgetPasswordPost.php';
         $idModel = "forgetpasswordmodal";
         $idForm = "forgetpasswordform";
-        include('all_modal/modal_setting_users_table.php');?>
+        include('all_modal/modal_setting_users_table.php');
+        echo '</div></div>';
+        include 'pis_of_page/end_html.php';?>
