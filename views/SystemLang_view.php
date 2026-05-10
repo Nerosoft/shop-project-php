@@ -1,4 +1,5 @@
 
+    <?php $view = new MySystemlang($message, $type);?>
     <div class="start-page container">
         <table id="example" class="table table-striped" >
         <thead>

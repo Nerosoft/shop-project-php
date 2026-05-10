@@ -1,4 +1,5 @@
 
+    <?php $view = new MyBranch($message, $type);?>
     <div class="start-page container">
         <?php
            

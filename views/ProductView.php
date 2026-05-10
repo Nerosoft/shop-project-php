@@ -1,4 +1,5 @@
 
+    <?php $view = new Product($message, $type);?>
     <div class="start-page container">
         <button class="btn btn-primary" onClick="openForm('#createModel')"><?php echo $view->getButtonModelCreate()?></button>
         <?php

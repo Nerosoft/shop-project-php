@@ -43,19 +43,15 @@ class ModelJson{
     static function initView($keyPage, $message = 'LoadMessage', $type = 'success'){
         switch ($keyPage) {
             case 'Product':
-                $view = new Product($message, $type);
                 include 'views/ProductView.php';
                 break;
             case 'Home':
-                $view = new MyHome($message, $type);
                 include 'views/home_view.php';
                 break;
             case 'Branches':
-                $view = new MyBranch($message, $type);
                 include 'views/Branch_view.php';
                 break;
             case 'Users':
-                $view = new MySettingUsers($message, $type);
                 include 'views/SettingUsers_view.php';
                 break;
             case 'MyStyle':
@@ -74,11 +70,9 @@ class ModelJson{
                 include 'views/ChangeLanguage_view.php';
                 break;
             case 'Site':
-                $view = new Site($message, $type);
                 include 'views/SiteView.php';
                 exit;
             case 'SystemLang':
-                $view = new MySystemlang($message, $type);
                 include 'views/SystemLang_view.php';
                 break;
             case 'Register':
@@ -93,7 +87,6 @@ class ModelJson{
                 include 'pis_of_page/buttons.php';
                 break;
             default:
-                $view = new MyFlexTablesView($message, $type);
                 include 'views/FlexTables_view.php';
         }
         include 'pis_of_page/end_html.php';

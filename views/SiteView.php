@@ -1,3 +1,4 @@
+<?php $view = new Site($message, $type);?>
 <!-- MENU BAR -->
 <nav class="navbar navbar-expand-lg">
     <div class="container">
