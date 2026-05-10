@@ -1,7 +1,6 @@
 <?php
 include 'auth/SessionAuth.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-    require 'controller/MyLogin.php';
     require 'ValidationId.php';
     class LoginPost extends ValidationId{
         use ErrorsEmailPassword;
@@ -11,7 +10,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                 foreach ($this->getObj()['Users'] as $key => $value)
                     if($value['Email'] === $_POST['Email'] && $value['Password'] === $_POST['Password'])
                         $this->redirectToAdminPage();
-            MyLogin::initMyLogin('EmailPassword', 'danger');
+            LoginRegister::initMyLoginRegister(false, 'EmailPassword', 'danger');
         }
     }
     new LoginPost();

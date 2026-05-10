@@ -1,5 +1,4 @@
 <?php
-require 'LoginRegister.php';
 require 'all_trait/ErrorRegister.php';
 class MyRegister extends LoginRegister{    
     use ErrorRegister;
@@ -10,11 +9,6 @@ class MyRegister extends LoginRegister{
         $this->initErrorsRegister($this->getModelPage());
         $this->LabelConfirmPassword = $this->getModelPage()['LabelConfirmPassword'];
         $this->HintConfirmPassword = $this->getModelPage()['HintConfirmPassword'];
-    }
-    static function initMyRegister($message = 'LoadMessage', $type = 'success'){
-        $view = new MyRegister($message, $type);
-        include 'views/register_view.php';
-        exit;
     }
     function getLabelConfirmPassword(){
         return $this->LabelConfirmPassword;

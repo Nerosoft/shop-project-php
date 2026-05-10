@@ -52,9 +52,9 @@ class ModelJson{
             case 'MyStyle':
                 MyStyleClass::initMyStyleClass($message, $type);
             case 'Login':
-                MyLogin::initMyLogin($message, $type);
+                LoginRegister::initMyLoginRegister(false,$message, $type);
             case 'Register':
-                MyRegister::initMyRegister($message, $type);
+                LoginRegister::initMyLoginRegister(true, $message, $type);
             case 'Site':
                 Site::initMySite($message, $type);
             default:

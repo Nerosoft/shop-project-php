@@ -1,7 +1,6 @@
 <?php
 include 'auth/SessionAuth.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-    require 'controller/MyLogin.php';
     require 'ValidationId.php';
     class LoginForgetPasswordPost extends ValidationId{
         use ErrorsEmailPassword;
@@ -17,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                         $this->saveModel($myData);
                         $this->redirectToAdminPage();
                     }
-            MyLogin::initMyLogin('ForgetPasswordMessageInvlid', 'danger');
+            LoginRegister::initMyLoginRegister(false, 'ForgetPasswordMessageInvlid', 'danger');
         }
     }
     new LoginForgetPasswordPost();

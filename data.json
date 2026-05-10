@@ -272,7 +272,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "Q1ee7db4": "English language"
+                "UPebee39": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
@@ -411,8 +411,8 @@
                 "ButtonSetupProject": "Create project",
                 "MessageSetupProject": "Successfully create project",
                 "EmailExist": "Not found email",
-                "NewPassword": "New Password",
-                "NewHintPassword": "enter new password",
+                "NewPassword": "Password",
+                "NewHintPassword": "enter password",
                 "BranchRaysName": "Enter name",
                 "BranchRaysPhone": "Enter phone",
                 "BranchRaysCountry": "Enter country",
@@ -683,7 +683,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             },
-            "iE32ade7": {
+            "ej8ab013": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
@@ -692,7 +692,7 @@
                 "Street": "menofia - menouf - sirs el laiana",
                 "Building": "Nero-Soft",
                 "Address": "menofia - menouf - sirs el laiana",
-                "Follow": "WithoutRays"
+                "Follow": "WithRays"
             }
         },
         "Product": {
@@ -737,7 +737,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "Q1ee7db4": {
+        "UPebee39": {
             "Site": {
                 "Stories": "Stories",
                 "WorkWithUs": "Work with us",
@@ -1005,7 +1005,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "Q1ee7db4": "English language"
+                "UPebee39": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
@@ -1144,8 +1144,8 @@
                 "ButtonSetupProject": "Create project",
                 "MessageSetupProject": "Successfully create project",
                 "EmailExist": "Not found email",
-                "NewPassword": "New Password",
-                "NewHintPassword": "enter new password",
+                "NewPassword": "Password",
+                "NewHintPassword": "enter password",
                 "BranchRaysName": "Enter name",
                 "BranchRaysPhone": "Enter phone",
                 "BranchRaysCountry": "Enter country",
@@ -1398,7 +1398,7 @@
             }
         }
     },
-    "iE32ade7": {
+    "ej8ab013": {
         "Setting": {
             "Language": "english",
             "Style": "default"
@@ -1671,7 +1671,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "Q1ee7db4": "English language"
+                "UPebee39": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
@@ -1810,8 +1810,8 @@
                 "ButtonSetupProject": "Create project",
                 "MessageSetupProject": "Successfully create project",
                 "EmailExist": "Not found email",
-                "NewPassword": "New Password",
-                "NewHintPassword": "enter new password",
+                "NewPassword": "Password",
+                "NewHintPassword": "enter password",
                 "BranchRaysName": "Enter name",
                 "BranchRaysPhone": "Enter phone",
                 "BranchRaysCountry": "Enter country",
@@ -2112,7 +2112,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "Q1ee7db4": {
+        "UPebee39": {
             "Site": {
                 "Stories": "Stories",
                 "WorkWithUs": "Work with us",
@@ -2380,7 +2380,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "Q1ee7db4": "English language"
+                "UPebee39": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
@@ -2519,8 +2519,8 @@
                 "ButtonSetupProject": "Create project",
                 "MessageSetupProject": "Successfully create project",
                 "EmailExist": "Not found email",
-                "NewPassword": "New Password",
-                "NewHintPassword": "enter new password",
+                "NewPassword": "Password",
+                "NewHintPassword": "enter password",
                 "BranchRaysName": "Enter name",
                 "BranchRaysPhone": "Enter phone",
                 "BranchRaysCountry": "Enter country",

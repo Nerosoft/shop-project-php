@@ -1,7 +1,8 @@
 <?php
 include 'auth/SessionAuth.php';
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_POST['setup_project'] === 'Login' || $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_POST['setup_project'] === 'Register'){
-    require  'controller/'.($_POST['setup_project'] === 'Login'?'MyLogin.php':'MyRegister.php');
+    if($_POST['setup_project'] === 'Register')
+        require 'controller/MyRegister.php';
     require 'ValidationId.php';
     class SetupProject extends ValidationId{
         use ErrorBranch, ErrorsEmailPassword;
@@ -426,8 +427,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "ButtonSetupProject"=> "Create project",
                         "MessageSetupProject"=> "Successfully create project",
                         "EmailExist"=> "Not found email",
-                        "NewPassword"=> "New Password",
-                        "NewHintPassword"=> "enter new password",
+                        "NewPassword"=> "Password",
+                        "NewHintPassword"=> "enter password",
                         "BranchRaysName"=> "Enter name",
                         "BranchRaysPhone"=> "Enter phone",
                         "BranchRaysCountry"=> "Enter country",
