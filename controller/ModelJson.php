@@ -77,13 +77,11 @@ class ModelJson{
                 break;
             case 'Register':
                 $view = new MyRegister($message, $type);
-                include 'pis_of_page/login_form.php';
                 include('all_modal/setting_users_iput.php');
                 include 'pis_of_page/buttons.php';
                 break;
             case 'Login':
                 $view = new LoginRegister($message, $type);
-                include 'pis_of_page/login_form.php';
                 include 'pis_of_page/buttons.php';
                 break;
             default:

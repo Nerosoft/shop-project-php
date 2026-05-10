@@ -80,7 +80,9 @@ class LoginRegister extends InformationPage{
             <div class="container">
                 <div class="register">
                     <form id='register' method='POST' action="{$action}">
-        HTML;        
+        HTML; 
+        $view = $this;
+        include 'pis_of_page/login_form.php';       
     }
     function getDbKeyLabel(){
         return $this->DbKeyLabel;

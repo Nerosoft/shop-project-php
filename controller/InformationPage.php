@@ -25,22 +25,21 @@ class InformationPage extends ModelJson{
                 '<link rel="stylesheet" href="./asset/css/aos.css">
                 <link rel="stylesheet" href="./asset/css/owl.carousel.min.css">
                 <link rel="stylesheet" href="./asset/css/owl.theme.default.min.css">
-                <link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css">' : 
-                '<link href="./asset/css/login_register.css" rel="stylesheet">';
+                <link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css"></head><body>' : 
+                '<link href="./asset/css/login_register.css" rel="stylesheet"></head><body>';
             $this->initErrorActiveStyleLang();
         }else{
+            echo '<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
+            <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
+            <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';
             if($IdPage === 'ChangeLanguage' || $IdPage === 'MyStyle' || $IdPage === 'Branches'){
                 if($IdPage === 'ChangeLanguage' || $IdPage === 'MyStyle')
                     $this->InitInfoChangeLangStyle($this->getModelPage(), array_reverse(MyLanguage::fromArray($this->getModel2()[$IdPage === 'ChangeLanguage'?'AllNamesLanguage':'Style'])), $this->getModel2()['AllNamesLanguage']);
                 $this->initChangeStyleLangBranch($this->getModelPage());
             }
-            echo '<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
-            <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
-            <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script>';
         }
         $toast = $this->getModelPage()[$message]??$message;
         echo<<<HTML
-            </head><body>
             <div style="position: fixed; top: 0; right: 10px; z-index: 9999; max-height: 90vh; overflow-y: auto;">
                 <div id="toastId" class="toast text-bg-{$type} mt-2">
                     <script>
