@@ -1,7 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'controller/MyHome.php';
+require 'controller/Home.php';
 require 'ValidationId.php';
 class HomeDeletePost extends ValidationId{
     function __construct(){
@@ -10,7 +10,7 @@ class HomeDeletePost extends ValidationId{
         }); 
         if(!isset($_POST['Branches']) && !isset($_POST['choices']))
             $this->saveModel($this->deleteHome($this->getObj(), $this->getId()));
-        MyHome::initHome('Delete');
+        $this->initViewPost('Delete', 'success');
     }
     function deleteHome($myData, $idSseion){
         foreach ($myData[$myData['Setting']['Language']]['AllNamesLanguage'] as $key => $value) 

@@ -17,11 +17,6 @@ class MySettingUsers extends page implements InterfaceDataView{
         $this->ForgetPasswordHeadTable = $this->getModelPage()['ForgetPasswordHeadTable'];
         $this->DataView = isset($this->getObj()['Users']) ? array_reverse(Users::fromArray($this->getObj()['Users'])):array();
     }
-    static function initMySettingUsers($message = 'LoadMessage', $type = 'success'){
-        $view = new MySettingUsers($message, $type);
-        include 'views/SettingUsers_view.php';
-        exit;
-    }
     function getMyDataView(){
         return $this->DataView;
     }

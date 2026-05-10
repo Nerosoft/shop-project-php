@@ -14,7 +14,7 @@ class FlexTablesCreatePost extends ValidationId{
         }, 'MyFlexTables');
         if(!isset($_POST['Branches']) && !isset($_POST['choices']))
             $this->saveModel($this->saveFlexTable($this->getObj(), $this->getErrorsMessageReq(), $this->getId()));
-        MyFlexTablesView::initMyFlexTablesView(isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');
+        $this->initViewPost(isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate', 'success');
     }
     function saveFlexTable($myData, $keysInput, $idSseion){
         foreach ($keysInput as $key => $value)

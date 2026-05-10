@@ -27,11 +27,6 @@ class MySystemlang extends AdminMenu implements InterfaceDataView{
         else
             $this->DataView = array();
     }
-    static function initMySystemlang($message = 'LoadMessage', $type = 'success'){
-        $view = new MySystemlang($message, $type);
-        include 'views/SystemLang_view.php';
-        exit;
-    }
     function getLanguageName(){
         return $this->LanguageName;
     }

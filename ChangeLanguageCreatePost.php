@@ -1,7 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'controller/MyChangeLanguage.php';
+require 'controller/ChangeLanguage.php';
 require 'ValidationId.php';
 class ChangeLanguageCreatePost extends ValidationId{
     use ErrorChangelanguage;
@@ -31,7 +31,7 @@ class ChangeLanguageCreatePost extends ValidationId{
             $myData[$keyId] = $myData[$_POST['selectedLanguage']];
             $this->saveModel($myData);
         }
-        MyChangeLanguage::initMyChangeLanguage('MessageModelCreate');
+        $this->initViewPost('MessageModelCreate', 'success');
     }
 }
 

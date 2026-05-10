@@ -78,10 +78,4 @@ class MyBranch extends Page implements InterfaceDataView{
     function getBranchFollow(){
         return $this->BranchFollow;
     }
-    
-    static function initBranch($message = 'LoadMessage', $type = 'success'){
-        $view = new MyBranch($message, $type);
-        include 'views/Branch_view.php';
-        exit;
-    }
 }

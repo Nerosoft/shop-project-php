@@ -1,7 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'controller/MyHome.php';
+require 'controller/Home.php';
 require 'ValidationId.php';
 class HomeEditPost extends ValidationId{
     use ErrorsHome;
@@ -11,7 +11,7 @@ class HomeEditPost extends ValidationId{
         }); 
         if(!isset($_POST['Branches']) && !isset($_POST['choices']))
             $this->saveModel($this->editHome($this->getObj(), $this->getModel2()['AllNamesLanguage']));
-        MyHome::initHome('MessageModelEdit');
+        $this->initViewPost('MessageModelEdit', 'success');
     }
     function editHome($myData, $AllNamesLanguage){
         foreach ($AllNamesLanguage as $code => $value) 

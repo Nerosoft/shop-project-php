@@ -1,7 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'controller/MyChangeLanguage.php';
+require 'controller/ChangeLanguage.php';
 require 'ValidationId.php';
 class ChangeLanguageDeletePost extends ValidationId{
     function __construct(){
@@ -10,7 +10,7 @@ class ChangeLanguageDeletePost extends ValidationId{
         });
         if(!isset($_POST['Branches']) && !isset($_POST['choices']))
             $this->saveModel($this->deleteLanguage($this->getObj()));
-        MyChangeLanguage::initMyChangeLanguage('Delete');
+        $this->initViewPost('Delete', 'success');
     }
     function deleteLanguage($myData){
         //delete language

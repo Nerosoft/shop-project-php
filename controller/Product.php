@@ -74,9 +74,4 @@ class Product extends Page implements InterfaceDataView{
     function getMyDataView(){
         return $this->DataView;
     }
-    static function initProduct($message = 'LoadMessage', $type = 'success'){
-        $view = new Product($message, $type);
-        include 'views/ProductView.php';
-        exit;
-    }
 }

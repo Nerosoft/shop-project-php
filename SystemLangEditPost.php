@@ -1,7 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'controller/MySystemlang.php';
+require 'controller/Systemlang.php';
 class SystemLangEditPost extends ModelJson{
     use ErrorSystemlang;
     function validLanguage(){
@@ -16,11 +16,11 @@ class SystemLangEditPost extends ModelJson{
         parent::__construct('SystemLang');
         $this->initErrorSystemlang($this->getModelPage());
         if(!isset($_POST['word']) || $_POST['word'] === '')
-            MySystemlang::initMySystemlang($this->getTextRequired(), 'danger');
+            $this->initViewPost($this->getTextRequired());
         else if(strlen($_POST['word']) < 3 )
-            MySystemlang::initMySystemlang($this->getTextLenght(), 'danger');
+            $this->initViewPost($this->getTextLenght());
         else if(!isset($_GET['lang']) || !isset($_GET['table']) || !isset($_GET['key']) || !isset($this->getObj()[$_GET['lang']][$_GET['table']][$_GET['key']]) && !isset($_GET['array']) || isset($_GET['array']) && !isset($this->getObj()[$_GET['lang']][$_GET['table']][$_GET['key']][$_GET['array']]))
-            MySystemlang::initMySystemlang($this->getModelPage()['ErrorFormInput'], 'danger');
+            $this->initViewPost($this->getModelPage()['ErrorFormInput']);
         //check isset all language or name language
         else if(isset($_POST['Branches']) || isset($_POST['choices']) && $this->validLanguage()){
             $file = $this->getObj();
@@ -40,7 +40,7 @@ class SystemLangEditPost extends ModelJson{
                 $file[$_GET['lang']][$_GET['table']][$_GET['key']] = $_POST['word'];
             $this->saveModel($file);
         }
-        MySystemlang::initMySystemlang('AllLanguageEdit');
+        $this->initViewPost('AllLanguageEdit', 'success');
     }
 }
 new SystemLangEditPost();

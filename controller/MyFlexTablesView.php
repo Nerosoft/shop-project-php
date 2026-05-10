@@ -19,11 +19,6 @@ class MyFlexTablesView extends Page implements InterfaceDataView{
         $this->Hint = $this->getModelPage()['Hint'];
         $this->DataView = isset($this->getObj()[$_GET['id']])?array_reverse($this->getObj()[$_GET['id']]):array();
     }
-    static function initMyFlexTablesView($message = 'LoadMessage', $type = 'success'){
-        $view = new MyFlexTablesView($message, $type);
-        include 'views/FlexTables_view.php';
-        exit;
-    }
     function getMyDataView(){
         return $this->DataView;
     }

@@ -164,11 +164,6 @@ class Site extends InformationPage{
     function getContact(){
         return $this->Contact;
     }
-    static function initMySite($message = 'LoadMessage', $type = 'success'){
-        $view = new Site($message, $type);
-        include 'views/SiteView.php';
-        exit;
-    }
     function getDataView(){
         return $this->DataView;
     }

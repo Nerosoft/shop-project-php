@@ -1,4 +1,4 @@
 <?php
 include 'auth/SessionAuth.php';
 require 'controller/MyRegister.php';
-LoginRegister::initMyLoginRegister(new MyRegister());
+ModelJson::initView('Register');

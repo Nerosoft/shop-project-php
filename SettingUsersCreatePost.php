@@ -1,7 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'controller/MySettingUsers.php';
+require 'controller/Users.php';
 require 'ValidationId.php';
 //make extends ValidationId and valid id branch and id users inside ValidationId class
 class SettingUsersCreatePost extends ValidationId{
@@ -13,7 +13,7 @@ class SettingUsersCreatePost extends ValidationId{
         });
         if(!isset($_POST['Branches']) && !isset($_POST['choices']))
             $this->getMyModal()->saveModel($this->initErrorsKeyPassword2($this->getMyModal(), $keyId, $this->getMyModal()->getObj()));
-        MySettingUsers::initMySettingUsers(isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');
+        $this->initViewPost(isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate', 'success');
     }
 }
 

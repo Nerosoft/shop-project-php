@@ -1,7 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'controller/MyBranch.php';
+require 'controller/Branches.php';
 require 'ValidationId.php';
 class BranchDeletePost extends ValidationId{
     function __construct(){
@@ -18,7 +18,7 @@ class BranchDeletePost extends ValidationId{
             closedir($dir);
             rmdir('asset/product/'.$_POST['id']);
         }
-        MyBranch::initBranch('Delete');
+        $this->initViewPost('Delete', 'success');
     }
 }
 new BranchDeletePost();

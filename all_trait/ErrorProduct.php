@@ -25,21 +25,21 @@ trait ErrorProduct{
         $this->initErrorProduct($modal->getModelPage());
         $this->validMyImage();
         if(!isset($_POST['name']) || $_POST['name'] === '')
-           Product::initProduct($this->getRequiredName(), 'danger');
+           $this->initViewPost($this->getRequiredName());
         else if(strlen($_POST['name']) < 3)
-           Product::initProduct($this->getInvalidName(), 'danger');
+           $this->initViewPost($this->getInvalidName());
         else if(!isset($_POST['descreption']) || $_POST['descreption'] === '')
-           Product::initProduct($this->getRequiredDescreption(), 'danger');
+           $this->initViewPost($this->getRequiredDescreption());
         else if(strlen($_POST['descreption']) < 8)
-           Product::initProduct($this->getInvalidDescreption(), 'danger');
+           $this->initViewPost($this->getInvalidDescreption());
         else if(!isset($_POST['salary']) || $_POST['salary'] === '')
-           Product::initProduct($this->getRequiredSalary(), 'danger');
+           $this->initViewPost($this->getRequiredSalary());
         else if(!is_numeric($_POST['salary']) || $_POST['salary'] > 1000000)
-           Product::initProduct($this->getInvalidSalary(), 'danger');
+           $this->initViewPost($this->getInvalidSalary());
         else if(!isset($_POST['category']) || $_POST['category'] === '')
-           Product::initProduct($this->getRequiredCategory(), 'danger');
+           $this->initViewPost($this->getRequiredCategory());
         else if(strlen($_POST['category']) < 3)
-           Product::initProduct($this->getInvalidCategory(), 'danger');
+           $this->initViewPost($this->getInvalidCategory());
     }
     function getRequiredName(){
         return $this->RequiredName;

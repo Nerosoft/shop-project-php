@@ -1,7 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'controller/MyBranch.php';
+require 'controller/Branches.php';
 require 'ValidationId.php';
 class BranchCreatePost extends ValidationId{
     use ErrorBranch;
@@ -46,7 +46,7 @@ class BranchCreatePost extends ValidationId{
         $myBranch = $this->getFile();
         $myBranch[$keyId] = $obj;
         $this->saveFile($myBranch);
-        MyBranch::initBranch('MessageModelCreate');
+       $this->initViewPost('MessageModelCreate', 'success');
     }
 }
 

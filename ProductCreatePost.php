@@ -1,7 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'controller/ProductClass.php';
+require 'controller/Product.php';
 require 'ValidationId.php';
 class ProductCreatePost extends ValidationId{
     use ErrorProduct;
@@ -13,7 +13,7 @@ class ProductCreatePost extends ValidationId{
         });
         if(!isset($_POST['Branches']) && !isset($_POST['choices']))
             $this->saveModel($this->saveProduct($this->getObj(), $this->getId()));
-        Product::initProduct(isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');
+        $this->initViewPost(isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate', 'success');
     }
     function saveProduct($myData, $idSseion){
         $myData['Product'][$this->keyId] = array("Name"=>$_POST["name"], "Descreption"=>$_POST["descreption"], "Salary"=>$_POST["salary"], "Category"=>$_POST["category"]);

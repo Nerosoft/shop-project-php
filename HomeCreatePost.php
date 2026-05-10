@@ -1,7 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'controller/MyHome.php';
+require 'controller/Home.php';
 require 'ValidationId.php';
 class HomeCreatePost extends ValidationId{
     use ErrorsHome;
@@ -15,7 +15,7 @@ class HomeCreatePost extends ValidationId{
         }); 
         if(!isset($_POST['Branches']) && !isset($_POST['choices']))
             $this->saveModel($this->saveFelxTable($this->getModel2()['AllNamesLanguage'], $this->getObj()));
-        MyHome::initHome('MessageModelCreate');
+        $this->initViewPost('MessageModelCreate', 'success');
     }
     function saveFelxTable($AllNamesLanguage, $myData){
         foreach ($AllNamesLanguage as $code => $value) {

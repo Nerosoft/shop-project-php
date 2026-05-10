@@ -1,31 +1,14 @@
 <?php
 include 'auth/SessionAdmin.php';
-if(isset($_GET['id']))
-    switch ($_GET['id']) {
-        case 'Home':
-            require 'controller/MyHome.php';
-            MyHome::initHome(); 
-        case 'Branches':
-            require 'controller/MyBranch.php';
-            MyBranch::initBranch();
-        case 'ChangeLanguage':
-            require 'controller/MyChangeLanguage.php';
-            MyChangeLanguage::initMyChangeLanguage();
-        case 'Users':
-            require 'controller/MySettingUsers.php';
-            MySettingUsers::initMySettingUsers();
-        case 'Product':
-            require 'controller/ProductClass.php';
-            Product::initProduct();
-        case 'MyStyle':
-            require 'controller/MyStyleClass.php';
-            MyStyleClass::initMyStyleClass();
-        case 'SystemLang':
-            require 'controller/MySystemlang.php';
-            MySystemlang::initMySystemlang();
-        default:
-            require 'controller/MyFlexTablesView.php';
-            MyFlexTablesView::initMyFlexTablesView();
-    }
+if(isset($_GET['id'])){
+    require 'controller/'.($_GET['id'] === 'Home' ||
+    $_GET['id'] === 'Branches' ||
+    $_GET['id'] === 'ChangeLanguage' ||
+    $_GET['id'] === 'Users' ||
+    $_GET['id'] === 'Product' ||
+    $_GET['id'] === 'SystemLang' ||
+    $_GET['id'] === 'MyStyle'? $_GET['id']:'MyFlexTablesView').'.php';
+    ModelJson::initView($_GET['id']);
+}
 else
     header('LOCATION:index');

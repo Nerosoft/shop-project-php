@@ -38,27 +38,63 @@ class ModelJson{
         return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 2) . substr(uniqid(), -6);
     }
     function initViewPost($message, $type="danger"){
-        switch ($this->getUrlName2()) {
+        ModelJson::initView($this->getUrlName2(), $message, $type);
+    }
+    static function initView($keyPage, $message = 'LoadMessage', $type = 'success'){
+        switch ($keyPage) {
             case 'Product':
-                Product::initProduct($message, $type);
+                $view = new Product($message, $type);
+                include 'views/ProductView.php';
+                exit;
             case 'Home':
-                MyHome::initHome($message, $type);
+                $view = new MyHome($message, $type);
+                include 'views/home_view.php';
+                exit;
             case 'Branches':
-                MyBranch::initBranch($message, $type);
-            case 'ChangeLanguage':
-                MyChangeLanguage::initMyChangeLanguage($message, $type);
+                $view = new MyBranch($message, $type);
+                include 'views/Branch_view.php';
+                exit;
             case 'Users':
-                MySettingUsers::initMySettingUsers($message, $type);
+                $view = new MySettingUsers($message, $type);
+                include 'views/SettingUsers_view.php';
+                exit;
             case 'MyStyle':
-                MyStyleClass::initMyStyleClass($message, $type);
-            case 'Login':
-                LoginRegister::initMyLoginRegister(new LoginRegister($message, $type));
-            case 'Register':
-                LoginRegister::initMyLoginRegister(new MyRegister($message, $type));
+            case 'ChangeLanguage':
+                $view = $keyPage === 'MyStyle'?new MyStyleClass($message, $type):new MyChangeLanguage($message, $type);
+                if($keyPage === 'ChangeLanguage'){
+                    echo<<<HTML
+                    <button class="btn btn-primary" onClick="openForm('#createModel')">{$view->getButtonModelCreate()}</button>
+                    HTML;
+                    $title = $view->getScreenModelCreate();
+                    $button = $view->getButtonModelAdd();
+                    $action = 'ChangeLanguageCreatePost.php';
+                    include('all_modal/modal_change_language.php');
+                }
+                include 'views/ChangeLanguage_view.php';
+                exit;
             case 'Site':
-                Site::initMySite($message, $type);
+                $view = new Site($message, $type);
+                include 'views/SiteView.php';
+                exit;
+            case 'SystemLang':
+                $view = new MySystemlang($message, $type);
+                include 'views/SystemLang_view.php';
+                exit;
+            case 'Register':
+            case 'Login':
+                $view = $keyPage === 'Register'?new MyRegister($message, $type):new LoginRegister($message, $type);
+                include 'pis_of_page/login_form.php';
+                if($view->getUrlName2() === 'Register')
+                    include('all_modal/setting_users_iput.php');
+                echo '</form>';
+                include 'pis_of_page/buttons.php';
+                echo '</div></div>';
+                include 'pis_of_page/end_html.php';
+                exit;
             default:
-                MyFlexTablesView::initMyFlexTablesView($message, $type);
+                $view = new MyFlexTablesView($message, $type);
+                include 'views/FlexTables_view.php';
+                exit;
         }
     }
     function getStyleFile(){

@@ -39,9 +39,4 @@ class MyHome extends Page implements InterfaceDataView{
     function getHintInputNumber(){
         return $this->HintInputNumber;
     }
-    static function initHome($message = 'LoadMessage', $type = 'success'){
-        $view = new MyHome($message, $type);
-        include 'views/home_view.php';
-        exit;
-    }
 }
