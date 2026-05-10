@@ -12,6 +12,26 @@
                 minlength="8" 
                 required>
             </div>
+            <script>
+                function handleInputPassConfirmPass(event, req, inv, id){
+                    if (event.validity.valueMissing)
+                        event.setCustomValidity(req);
+                    else if (event.validity.tooShort)
+                        event.setCustomValidity(inv);
+                    else if(event.value === $('#'+id).val()){
+                        event.setCustomValidity('');
+                        $('#'+id)[0].setCustomValidity('');
+                    }
+                    else if($(event).attr('id') === 'password' && event.value !== $('#'+id).val() && $('#'+id).val().length >=8){
+                        event.setCustomValidity('');
+                        $('#'+id)[0].setCustomValidity('{$view->getPasswordDosNotMatch()}');
+                    }
+                    else if(event.value !== $('#'+id).val() && $('#'+id).val().length >=8)
+                        event.setCustomValidity('{$view->getPasswordDosNotMatch()}');
+                    else if($(event).attr('id') === 'password')
+                        event.setCustomValidity('');
+                }
+            </script>
         HTML;
 ?>
  <div class="form-group">

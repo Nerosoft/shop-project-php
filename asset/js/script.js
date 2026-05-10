@@ -41,23 +41,3 @@ function changeInputState(codePassword, password){
     codePassword.attr('type', codePassword.attr('type')==='text'?'password':'text');
     password.attr('type', password.attr('type')==='text'?'password':'text');
 }
-
-
-function handleInputPassConfirmPass(event, req, inv, id){
-    if (event.validity.valueMissing)
-        event.setCustomValidity(req);
-    else if (event.validity.tooShort)
-        event.setCustomValidity(inv);
-    else if(event.value === $('#'+id).val()){
-        event.setCustomValidity('');
-        $('#'+id)[0].setCustomValidity('');
-    }
-    else if($(event).attr('id') === 'password' && event.value !== $('#'+id).val() && $('#'+id).val().length >=8){
-        event.setCustomValidity('');
-        $('#'+id)[0].setCustomValidity('<?php echo $view->getPasswordDosNotMatch()?>');
-    }
-    else if(event.value !== $('#'+id).val() && $('#'+id).val().length >=8)
-        event.setCustomValidity('<?php echo $view->getPasswordDosNotMatch()?>');
-    else if($(event).attr('id') === 'password')
-        event.setCustomValidity('');
-}
