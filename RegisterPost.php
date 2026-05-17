@@ -1,7 +1,7 @@
 <?php 
 include 'auth/SessionAuth.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-    require 'controller/MyRegister.php';
+    require 'controller/Register.php';
     require 'ValidationId.php';
     class RegisterPost extends ValidationId{
         use ErrorRegister, ErrorsEmailPassword;

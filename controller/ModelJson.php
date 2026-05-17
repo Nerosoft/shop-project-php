@@ -2,36 +2,14 @@
 require 'interface/DeleteInfoName.php';
 class ModelJson{
     private $File;
-    private $id;
-    private $FixedId;
     private $IdPage;
     private $Language;
     private $StyleFile;
     function __construct($IdPage){
         $this->IdPage = $IdPage;
         $this->File = json_decode(file_get_contents('data.json'), true);
-        if(isset($_SESSION['userId'])){
-            $this->id = $_SESSION['userId'];
-            $this->FixedId = $_SESSION['staticId'];
-            $this->Language = $this->getObj()['Setting']['Language'];
-            $this->StyleFile = $this->getObj()['Setting']['Style'];
-        }else if(isset($_GET['id']) && !isset($this->File[$_GET['id']]) || $_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST['superId']) || $_SERVER["REQUEST_METHOD"] === "POST" && !isset($this->File[$_POST['superId']]))
-            header("Location:".$this->getUrlName2());
-        else if($_SERVER["REQUEST_METHOD"] === "POST"){
-            $this->id = $_POST['superId'];
-            $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['Setting']['Language'];
-            $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Setting']['Style'];
-        }
-        else if(isset($_GET['id'])){
-            $this->id = $_GET['id'];
-            $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['Setting']['Language'];
-            $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Setting']['Style'];
-        }
-        else{
-            $this->id = 'admin';
-            $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['Setting']['Language'];
-            $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Setting']['Style'];
-        }
+        $this->Language = $IdPage === 'Site' && isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) || isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['Setting']['Language'];
+        $this->StyleFile = $IdPage === 'Site' && isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) ||isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Setting']['Style'];
     }
     //create and edit
     function getRandomId(){
@@ -40,12 +18,18 @@ class ModelJson{
     function initViewPost($message, $type="danger"){
         ModelJson::initView($this->getUrlName2(), $message, $type);
     }
-    static function initView($keyPage, $message = 'LoadMessage', $type = 'success'){
+    static function initView($keyPage, $message = 'LoadMessage', $type = 'success', $callback = null){
+        if($keyPage !== 'Login')
+            require_once 'controller/'.$keyPage.'.php';
+        if(!is_null($callback)){
+            require 'ValidationId.php';
+            $callback();
+        }
         switch ($keyPage) {
             case 'Product':
                 include 'views/ProductView.php';
                 break;
-            case 'Home':
+            case 'Home':                
                 include 'views/home_view.php';
                 break;
             case 'Branches':
@@ -125,10 +109,10 @@ class ModelJson{
         file_put_contents("data.json", json_encode($file, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
     }
     function getObj(){
-        return $this->File[$this->id];
+        return $this->File[$this->getId()];
     }
     function getBranch(){
-        return $this->File[$this->FixedId]['Branches'];
+        return $this->File[$this->getFixedId()]['Branches'];
     }
     function getBranch3(){
         foreach ($this->getFile() as $key => $obj)
@@ -142,21 +126,20 @@ class ModelJson{
         return $myBranch;
     }
     function getFileByFixedId(){
-        return $this->File[$this->FixedId];
+        return $this->File[$this->getFixedId()];
     }
     function saveModel($data){
-        $this->File[$this->id] = $data;
+        $this->File[$this->getId()] = $data;
         file_put_contents("data.json", json_encode($this->File, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
     }
     function getFixedId(){
-        return $this->FixedId;
+        return $_SESSION['staticId'];
     }
     function getId(){
-        return $this->id;
+        return isset($_SESSION['userId'])?$_SESSION['userId']:($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['superId'])?$_POST['superId']:(isset($_GET['id'])?$_GET['id']:'admin'));
     }
     function resetId(){
         $_SESSION['userId'] = $_POST['id'];
-        $this->id = $_POST['id'];
     }
     function getMyModal(){
         return $this;

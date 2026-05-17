@@ -2,7 +2,7 @@
 include 'auth/SessionAuth.php';
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_POST['setup_project'] === 'Login' || $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_POST['setup_project'] === 'Register'){
     if($_POST['setup_project'] === 'Register')
-        require 'controller/MyRegister.php';
+        require 'controller/Register.php';
     require 'ValidationId.php';
     class SetupProject extends ValidationId{
         use ErrorBranch, ErrorsEmailPassword;
@@ -250,6 +250,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "Delete"=> "Seccessfully delete branch"
                     ],
                     "ChangeLanguage"=> [
+                        "MessageStyleLang"=> "Successfylly change language",
                         "LanguageReq"=>"Required language",
                         "LanguageInv"=>"Invalid language",
                         "AllBranches"=> "All branches",
@@ -497,6 +498,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "HintInputNumber"=> "Enter input numper"
                     ],
                     "MyStyle"=> [
+                        "MessageStyleLang"=> "Successfylly change language",
                         "AllBranches"=> "All branches",
                         "MYTITLE"=> "Style",
                         "IdIsReq"=> "Id required",

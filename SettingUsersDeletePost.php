@@ -1,8 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_GET['id'])){
-require 'controller/'.($_GET['id'] === 'Product' ? 'Product' : ($_GET['id'] !== 'Users'?'MyFlexTablesView':'Users')).'.php';
-require 'ValidationId.php';
+ModelJson::initView($_GET['id'], isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate', 'success', function(){
 class SettingUsersDeletePost extends ValidationId{
     function __construct(){
         parent::__construct($_GET['id'], function($myFile, $key){
@@ -10,15 +9,14 @@ class SettingUsersDeletePost extends ValidationId{
                 //delete image for product
                 array_map('unlink', glob('asset/product/'.$key.'/'.$_POST['id'].'.*'));
             return $this->deleteItem($myFile);
-        });
-        if(!isset($_POST['Branches']) && !isset($_POST['choices'])){
-            $this->saveModel($this->deleteItem($this->getObj()));
-            if($_GET['id'] !== 'Users')
-                array_map('unlink', glob('asset/product/'.$this->getId().'/'.$_POST['id'].'.*'));
-        }
-        $this->initViewPost('Delete', 'success');
+        }, 'Delete');
+        $this->saveModel($this->deleteItem($this->getObj()));
+        if($_GET['id'] !== 'Users')
+            array_map('unlink', glob('asset/product/'.$this->getId().'/'.$_POST['id'].'.*'));
+        
     }
 }
 new SettingUsersDeletePost();
+});
 }else
     header('LOCATION:index');

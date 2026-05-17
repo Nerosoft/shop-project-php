@@ -1,7 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'controller/Systemlang.php';
+ModelJson::initView('SystemLang', 'AllLanguageEdit', 'success', function(){
 class SystemLangEditPost extends ModelJson{
     use ErrorSystemlang;
     function validLanguage(){
@@ -40,9 +40,9 @@ class SystemLangEditPost extends ModelJson{
                 $file[$_GET['lang']][$_GET['table']][$_GET['key']] = $_POST['word'];
             $this->saveModel($file);
         }
-        $this->initViewPost('AllLanguageEdit', 'success');
     }
 }
 new SystemLangEditPost();
+});
 }else
     header('LOCATION:view?id=SystemLang');

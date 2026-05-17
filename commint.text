@@ -8,7 +8,6 @@ add image inside table
 use this dont send modal
 move modal to folder
 solve <<<HTML like Site
-make call interface callView inside static function inside model jason
-make call process function when use all branch dont pass callback
-include username and password and start form inside constructor
-make if condetion inside Modal_setting_users_body for superId 
+make delete branche inside setting user
+pass filename like keypage
+make include AllBranchOption inside end modal

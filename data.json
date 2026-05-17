@@ -233,6 +233,7 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "MessageStyleLang": "Successfylly change language",
                 "LanguageReq": "Required language",
                 "LanguageInv": "Invalid language",
                 "AllBranches": "All branches",
@@ -272,7 +273,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "fM98dc15": "English language"
+                "d32474f7": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
@@ -481,6 +482,7 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
+                "MessageStyleLang": "Successfylly change style",
                 "AllBranches": "All branches",
                 "MYTITLE": "Style",
                 "IdIsReq": "Id required",
@@ -683,7 +685,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             },
-            "8y3cb66b": {
+            "gr6799ea": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
@@ -737,7 +739,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "fM98dc15": {
+        "d32474f7": {
             "Site": {
                 "Stories": "Stories",
                 "WorkWithUs": "Work with us",
@@ -966,6 +968,7 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "MessageStyleLang": "Successfylly change language",
                 "LanguageReq": "Required language",
                 "LanguageInv": "Invalid language",
                 "AllBranches": "All branches",
@@ -1005,7 +1008,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "fM98dc15": "English language"
+                "d32474f7": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
@@ -1214,6 +1217,7 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
+                "MessageStyleLang": "Successfylly change style",
                 "AllBranches": "All branches",
                 "MYTITLE": "Style",
                 "IdIsReq": "Id required",
@@ -1398,7 +1402,7 @@
             }
         }
     },
-    "8y3cb66b": {
+    "gr6799ea": {
         "Setting": {
             "Language": "english",
             "Style": "default"
@@ -1632,6 +1636,7 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "MessageStyleLang": "Successfylly change language",
                 "LanguageReq": "Required language",
                 "LanguageInv": "Invalid language",
                 "AllBranches": "All branches",
@@ -1671,7 +1676,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "fM98dc15": "English language"
+                "d32474f7": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
@@ -1880,6 +1885,7 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
+                "MessageStyleLang": "Successfylly change style",
                 "AllBranches": "All branches",
                 "MYTITLE": "Style",
                 "IdIsReq": "Id required",
@@ -2112,7 +2118,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "fM98dc15": {
+        "d32474f7": {
             "Site": {
                 "Stories": "Stories",
                 "WorkWithUs": "Work with us",
@@ -2341,6 +2347,7 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "MessageStyleLang": "Successfylly change language",
                 "LanguageReq": "Required language",
                 "LanguageInv": "Invalid language",
                 "AllBranches": "All branches",
@@ -2380,7 +2387,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "fM98dc15": "English language"
+                "d32474f7": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
@@ -2589,6 +2596,7 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
+                "MessageStyleLang": "Successfylly change style",
                 "AllBranches": "All branches",
                 "MYTITLE": "Style",
                 "IdIsReq": "Id required",

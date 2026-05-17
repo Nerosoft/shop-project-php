@@ -1,5 +1,4 @@
 <?php
-require 'ModelJson.php';
 require 'class_object/MyLanguage.php';
 class InformationPage extends ModelJson{
     private $Title;

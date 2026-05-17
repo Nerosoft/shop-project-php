@@ -8,7 +8,7 @@ class ValidationId extends ModelJson{
                 if(isset($obj['Branches']) && in_array($_POST['superId'], array_keys($obj['Branches'])))
                     $this->loginAdmin($_POST['superId'], $key);        
     }
-    function __construct($IdPage, $callback = null){
+    function __construct($IdPage, $callback = null, $message = null){
         parent::__construct($IdPage);
         if($this->getSCRIPTFILENAME()==='LoginForgetPasswordPost' || 
         $this->getSCRIPTFILENAME()==='LoginPost' || 
@@ -105,6 +105,7 @@ class ValidationId extends ModelJson{
                 else
                     $myFile[$key] = $callback($myFile[$key], $key);
             $this->saveFile($myFile);
+            $this->initViewPost($message, 'success');
         }
 
 

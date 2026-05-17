@@ -11,13 +11,10 @@ include('setting_users_iput.php');
     </label>
 </div>
 <?php
-if($view->getUrlName2() !== 'Users'){
+if($view->getUrlName2() !== 'Users')
     echo '<input type="hidden" value="'.$view->getId().'"name="superId">';
-    if($action ==='SetupProject.php'){
-        include 'all_modal/model_branch_inputs.php';
-        echo '<input type="hidden" name="setup_project" value="'.$view->getUrlName2().'"></div></div>';
-    }
-}else
+else{
     include 'AllBranchOption.php';
-include('end_model.php');
+    include('end_model.php');
+}
 ?>

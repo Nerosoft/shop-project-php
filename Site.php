@@ -1,3 +1,3 @@
 <?php
-require 'controller/Site.php';
+require 'controller/ModelJson.php';
 ModelJson::initView('Site');

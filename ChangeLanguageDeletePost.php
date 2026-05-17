@@ -1,16 +1,13 @@
 <?php
 include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'controller/ChangeLanguage.php';
-require 'ValidationId.php';
+ModelJson::initView('ChangeLanguage', 'Delete', 'success', function(){
 class ChangeLanguageDeletePost extends ValidationId{
     function __construct(){
         parent::__construct('ChangeLanguage', function($myFile){
             return $this->deleteLanguage($myFile);
-        });
-        if(!isset($_POST['Branches']) && !isset($_POST['choices']))
-            $this->saveModel($this->deleteLanguage($this->getObj()));
-        $this->initViewPost('Delete', 'success');
+        }, 'Delete');
+        $this->saveModel($this->deleteLanguage($this->getObj()));
     }
     function deleteLanguage($myData){
         //delete language
@@ -26,5 +23,6 @@ class ChangeLanguageDeletePost extends ValidationId{
     }
 }
 new ChangeLanguageDeletePost();
+});
 }else
     header('LOCATION:view?id=ChangeLanguage');

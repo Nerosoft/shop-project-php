@@ -10,7 +10,11 @@
     $idModel = "setupprojectmodal";
     $idForm = "setupprojectform";
    
-    include 'all_modal/modal_setting_users_table.php';?>
+    include 'all_modal/modal_setting_users_table.php';
+    include 'all_modal/model_branch_inputs.php';
+    echo '<input type="hidden" name="setup_project" value="'.$view->getUrlName2().'"></div></div>';
+    include('all_modal/end_model.php');
+    ?>
 
 <button onclick="openForm('#setupprojectmodal')" type="button" class="btn btn-danger" ><?php echo $view->getButtonSetupProject()?></button>
 <a href="<?php echo ($view->getUrlName2()!=='Login'?'login':'register').'?id='.$view->getId();?>" class="navbutton btn btn-info mt-2"><?php echo $view->getRegisterLoginPage()?></a>
@@ -23,4 +27,5 @@
         $idModel = "forgetpasswordmodal";
         $idForm = "forgetpasswordform";
         include('all_modal/modal_setting_users_table.php');
-        echo '</div></div>';?>
+        include('all_modal/end_model.php');
+        ?>

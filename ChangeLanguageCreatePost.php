@@ -1,8 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'controller/ChangeLanguage.php';
-require 'ValidationId.php';
+ModelJson::initView('ChangeLanguage', 'MessageModelCreate', 'success', function(){
 class ChangeLanguageCreatePost extends ValidationId{
     use ErrorChangelanguage;
     function __construct(){
@@ -25,16 +24,14 @@ class ChangeLanguageCreatePost extends ValidationId{
             //add lang inside branch
             $myFile[$keyId] = $lang;
             return $myFile;
-        });
-        if(!isset($_POST['Branches']) && !isset($_POST['choices'])){
-            $myData = $this->saveNameLanguage($this->getallNames(), 'AllNamesLanguage', $keyId, $this->getObj());
-            $myData[$keyId] = $myData[$_POST['selectedLanguage']];
-            $this->saveModel($myData);
-        }
-        $this->initViewPost('MessageModelCreate', 'success');
+        }, 'MessageModelCreate');
+        $myData = $this->saveNameLanguage($this->getallNames(), 'AllNamesLanguage', $keyId, $this->getObj());
+        $myData[$keyId] = $myData[$_POST['selectedLanguage']];
+        $this->saveModel($myData);
+        
     }
 }
-
 new ChangeLanguageCreatePost();
+});
 }else
     header('LOCATION:view?id=ChangeLanguage');

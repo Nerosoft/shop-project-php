@@ -1,8 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'controller/Branches.php';
-require 'ValidationId.php';
+ModelJson::initView('Branches', 'MessageModelCreate', 'success', function(){
 class BranchCreatePost extends ValidationId{
     use ErrorBranch;
     function copyImageFolder($arr){
@@ -15,7 +14,7 @@ class BranchCreatePost extends ValidationId{
         closedir($dir);
     }
     function __construct(){
-        parent::__construct('Branches', null);
+        parent::__construct('Branches');
         $keyId =  array_key_last($this->getBranch());
         $obj = $this->getObj();
         unset($obj['Branches']);
@@ -46,10 +45,9 @@ class BranchCreatePost extends ValidationId{
         $myBranch = $this->getFile();
         $myBranch[$keyId] = $obj;
         $this->saveFile($myBranch);
-       $this->initViewPost('MessageModelCreate', 'success');
     }
 }
-
 new BranchCreatePost();
+});
 }else
     header('LOCATION:view?id=Branches');

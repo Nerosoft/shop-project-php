@@ -1,16 +1,13 @@
 <?php
 include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'controller/Home.php';
-require 'ValidationId.php';
+ModelJson::initView('Home', 'Delete', 'success', function(){
 class HomeDeletePost extends ValidationId{
     function __construct(){
         parent::__construct('Home', function($myFile, $idSseion){
             return $this->deleteHome($myFile, $idSseion);
-        }); 
-        if(!isset($_POST['Branches']) && !isset($_POST['choices']))
-            $this->saveModel($this->deleteHome($this->getObj(), $this->getId()));
-        $this->initViewPost('Delete', 'success');
+        }, 'Delete'); 
+        $this->saveModel($this->deleteHome($this->getObj(), $this->getId()));
     }
     function deleteHome($myData, $idSseion){
         foreach ($myData[$myData['Setting']['Language']]['AllNamesLanguage'] as $key => $value) 
@@ -27,5 +24,6 @@ class HomeDeletePost extends ValidationId{
     }
 }
 new HomeDeletePost();
+});
 }else
     header('LOCATION:index');

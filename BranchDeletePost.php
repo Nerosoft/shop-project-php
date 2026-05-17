@@ -1,8 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-require 'controller/Branches.php';
-require 'ValidationId.php';
+ModelJson::initView('Branches', 'Delete', 'success', function(){
 class BranchDeletePost extends ValidationId{
     function __construct(){
         parent::__construct('Branches');
@@ -18,9 +17,9 @@ class BranchDeletePost extends ValidationId{
             closedir($dir);
             rmdir('asset/product/'.$_POST['id']);
         }
-        $this->initViewPost('Delete', 'success');
     }
 }
 new BranchDeletePost();
+});
 }else
     header('LOCATION:view?id=Branches');
