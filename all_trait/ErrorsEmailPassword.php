@@ -21,17 +21,17 @@ trait ErrorsEmailPassword{
     function initErrorsEmailPassword3($modal){
         $this->initErrorsEmailPassword($modal->getModelPage());
         if(!isset($_POST['Email']) || $_POST['Email'] === '')
-            $modal->initViewPost($this->getRequiredEmail());
+            ModelJson::initView2($this->getUrlName2(), $this->getRequiredEmail());
         else if(!preg_match('/^[\w]+@[\w]+\.[a-zA-z]{2,6}$/', $_POST['Email']))
-            $modal->initViewPost($this->getInvalidEmail());
+            ModelJson::initView2($this->getUrlName2(), $this->getInvalidEmail());
         else if(!isset($_POST['Password']) || $_POST['Password'] === '')
-            $modal->initViewPost($this->getRequiredPassword());
+            ModelJson::initView2($this->getUrlName2(), $this->getRequiredPassword());
         else if(strlen($_POST['Password']) < 8)
-            $modal->initViewPost($this->getInvalidPassword());
+            ModelJson::initView2($this->getUrlName2(), $this->getInvalidPassword());
         else if($modal->getSCRIPTFILENAME() !== 'LoginPost' && !isset($_POST['Key']) || $modal->getSCRIPTFILENAME() !== 'LoginPost' && $_POST['Key'] === '')
-                $modal->initViewPost($this->getRequiredKeyPassword(), 'danger');
+                ModelJson::initView2($this->getUrlName2(), $this->getRequiredKeyPassword(), 'danger');
         else if($modal->getSCRIPTFILENAME() !== 'LoginPost' && strlen($_POST['Key']) < 8)
-            $modal->initViewPost($this->getInvalidKeyPassword(), 'danger');
+            ModelJson::initView2($this->getUrlName2(), $this->getInvalidKeyPassword(), 'danger');
     }
     function initErrorsKeyPassword2($modal, $keyId, $myData){
        if(isset($myData['Users'][$keyId]['Email']) && $_POST['Email'] === $myData['Users'][$keyId]['Email'] ||
@@ -43,7 +43,7 @@ trait ErrorsEmailPassword{
                 return $myData;
             //show message email exist
         }else
-            $modal->initViewPost($modal->getModelPage()['EmailExist']);
+            ModelJson::initView2($this->getUrlName2(), $modal->getModelPage()['EmailExist']);
         
     }
     function getRequiredKeyPassword(){

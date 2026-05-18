@@ -11,10 +11,6 @@ include('setting_users_iput.php');
     </label>
 </div>
 <?php
-if($view->getUrlName2() !== 'Users')
-    echo '<input type="hidden" value="'.$view->getId().'"name="superId">';
-else{
-    include 'AllBranchOption.php';
+if($view->getUrlName2() === 'Users')
     include('end_model.php');
-}
 ?>

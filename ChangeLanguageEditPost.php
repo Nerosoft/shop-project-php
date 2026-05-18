@@ -1,7 +1,6 @@
 <?php
 include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['option']) && $_POST['option'] === 'ChangeLanguage' || $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['option']) && $_POST['option'] === 'MyStyle'){
-// require 'controller/'.($_POST['option'] === 'MyStyle'?'MyStyle':'ChangeLanguage').'.php';
 ModelJson::initView($_POST['option'], 'MessageModelEdit', 'success', function(){
 class ChangeLanguageEditPost extends ValidationId{
     use ErrorChangelanguage;

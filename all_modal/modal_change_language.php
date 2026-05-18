@@ -13,9 +13,11 @@ include('start_model.php');?>
 </div>
 <?php
 //ignore create language(only edit lang and style)
-if($action !== 'ChangeLanguageCreatePost.php'){
-    echo '<input type="hidden" value="'.$view->getUrlName2().'" name="option">';
-}else{
+// if($action !== 'ChangeLanguageCreatePost.php'){
+//     echo '<input type="hidden" value="'.$view->getUrlName2().'" name="option">';
+// }
+
+if($action === 'ChangeLanguageCreatePost.php'){
     echo <<<HTML
         <div class="form-group">
             <label for="selectedLanguage">{$view->getSelectLang()}</label>
@@ -36,7 +38,6 @@ if($action !== 'ChangeLanguageCreatePost.php'){
         </div>
     HTML;
 }
-include 'AllBranchOption.php';
 include('end_model.php');?>
 
 

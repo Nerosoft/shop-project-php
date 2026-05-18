@@ -23,9 +23,9 @@ trait ErrorChangelanguage{
     function validLanguageInput($modal){
         $this->initErrorChangelanguage($modal->getModelPage(), $modal->getModel2()['AllNamesLanguage']);
         if(!isset($_POST['lang_name']) || $_POST['lang_name'] === '')
-            $modal->initViewPost($this->getNewLangNameRequired());
+            ModelJson::initView2($this->getUrlName2(), $this->getNewLangNameRequired());
         else if(strlen($_POST['lang_name']) < 3)
-            $modal->initViewPost($this->getNewLangNameInvalid());
+            ModelJson::initView2($this->getUrlName2(), $this->getNewLangNameInvalid());
         else if($modal->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost' && !isset($_POST['selectedLanguage']))
             ModelJson::initView2($this->getUrlName2(), 'LanguageReq');
         else if($modal->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost' && !isset($this->getallNames()[$_POST['selectedLanguage']]))
