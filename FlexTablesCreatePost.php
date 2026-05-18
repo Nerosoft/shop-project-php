@@ -1,7 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-ModelJson::initView($_GET['id'], isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate', 'success', function(){
+ModelJson::initView('MyFlexTablesView', isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate', 'success', function(){
 class FlexTablesCreatePost extends ValidationId{
     use ErrorFlexTable;
     private $keyId;
