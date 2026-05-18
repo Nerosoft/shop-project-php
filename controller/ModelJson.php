@@ -16,15 +16,18 @@ class ModelJson{
         return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 2) . substr(uniqid(), -6);
     }
     function initViewPost($message, $type="danger"){
-        ModelJson::initView(isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()])?'MyFlexTablesView':$this->getUrlName2(), $message, $type);
+        ModelJson::initView2($this->getUrlName2(), $message, $type);
     }
     static function initView($keyPage, $message = 'LoadMessage', $type = 'success', $callback = null){
         if($keyPage !== 'Login')
-            require_once 'controller/'.$keyPage.'.php';
+            require 'controller/'.$keyPage.'.php';
         if(!is_null($callback)){
             require 'ValidationId.php';
             $callback();
         }
+        ModelJson::initView2($keyPage, $message, $type);
+    }
+    static function initView2($keyPage, $message, $type){
         switch ($keyPage) {
             case 'Product':
                 include 'views/ProductView.php';
