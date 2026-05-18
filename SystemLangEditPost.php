@@ -16,11 +16,11 @@ class SystemLangEditPost extends ModelJson{
         parent::__construct('SystemLang');
         $this->initErrorSystemlang($this->getModelPage());
         if(!isset($_POST['word']) || $_POST['word'] === '')
-            $this->initViewPost($this->getTextRequired());
+            ModelJson::initView2($this->getUrlName2(), $this->getTextRequired());
         else if(strlen($_POST['word']) < 3 )
-            $this->initViewPost($this->getTextLenght());
+            ModelJson::initView2($this->getUrlName2(), $this->getTextLenght());
         else if(!isset($_GET['lang']) || !isset($_GET['table']) || !isset($_GET['key']) || !isset($this->getObj()[$_GET['lang']][$_GET['table']][$_GET['key']]) && !isset($_GET['array']) || isset($_GET['array']) && !isset($this->getObj()[$_GET['lang']][$_GET['table']][$_GET['key']][$_GET['array']]))
-            $this->initViewPost($this->getModelPage()['ErrorFormInput']);
+            ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['ErrorFormInput']);
         //check isset all language or name language
         else if(isset($_POST['Branches']) || isset($_POST['choices']) && $this->validLanguage()){
             $file = $this->getObj();

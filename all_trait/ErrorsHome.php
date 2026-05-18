@@ -15,13 +15,13 @@ trait ErrorsHome{
     function validName(){
         $this->initErrorsHome($this->getModelPage());
         if(!isset($_POST['name']) || $_POST['name'] === '')
-            $this->initViewPost($this->getNameTableIsReq());
+            ModelJson::initView2($this->getUrlName2(), $this->getNameTableIsReq());
         else if(strlen($_POST['name']) < 3)
-            $this->initViewPost($this->getNameTableIsInv());
+            ModelJson::initView2($this->getUrlName2(), $this->getNameTableIsInv());
         else if($this->getSCRIPTFILENAME() === 'HomeCreatePost' && !isset($_POST['input_number']) || $this->getSCRIPTFILENAME() === 'HomeCreatePost' && $_POST['input_number'] === '')
-            $this->initViewPost($this->getInputNumberTableIsReq());
+            ModelJson::initView2($this->getUrlName2(), $this->getInputNumberTableIsReq());
         else if($this->getSCRIPTFILENAME() === 'HomeCreatePost' && !is_numeric($_POST['input_number']) || $this->getSCRIPTFILENAME() === 'HomeCreatePost' && $_POST['input_number'] > 8)
-            $this->initViewPost($this->getInputNumberTableIsInv());    
+            ModelJson::initView2($this->getUrlName2(), $this->getInputNumberTableIsInv());    
     }
     function getNameTableIsReq(){
         return $this->NameTableIsReq;

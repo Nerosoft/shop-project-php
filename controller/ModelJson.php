@@ -15,9 +15,6 @@ class ModelJson{
     function getRandomId(){
         return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 2) . substr(uniqid(), -6);
     }
-    function initViewPost($message, $type="danger"){
-        ModelJson::initView2($this->getUrlName2(), $message, $type);
-    }
     static function initView($keyPage, $message = 'LoadMessage', $type = 'success', $callback = null){
         if($keyPage !== 'Login')
             require 'controller/'.$keyPage.'.php';
@@ -27,7 +24,7 @@ class ModelJson{
         }
         ModelJson::initView2($keyPage, $message, $type);
     }
-    static function initView2($keyPage, $message, $type){
+    static function initView2($keyPage, $message, $type = "danger"){
         switch ($keyPage) {
             case 'Product':
                 include 'views/ProductView.php';

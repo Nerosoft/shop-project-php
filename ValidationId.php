@@ -18,7 +18,7 @@ class ValidationId extends ModelJson{
         //valid id first
         else if($this->getSCRIPTFILENAME()!=='BranchCreatePost' && $this->getSCRIPTFILENAME()!=='FlexTablesCreatePost' && $this->getSCRIPTFILENAME()!=='HomeCreatePost' && $this->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' && $this->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $this->getSCRIPTFILENAME()!=='ProductCreatePost' && !isset($_POST['id']) ||
          $this->getSCRIPTFILENAME()!=='BranchCreatePost' && $this->getSCRIPTFILENAME()!=='FlexTablesCreatePost' && $this->getSCRIPTFILENAME()!=='HomeCreatePost' && $this->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' &&  $this->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $this->getSCRIPTFILENAME()!=='ProductCreatePost' && $_POST['id'] === '')
-            $this->initViewPost($this->getModelPage()['IdIsReq']);
+            ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['IdIsReq']);
         
         
         
@@ -30,7 +30,7 @@ class ValidationId extends ModelJson{
             isset($_POST['choices']) && !is_array($_POST['choices']) ||
             isset($_POST['choices']) && count($this->getBranch()) === 1||
             isset($_POST['Branches']) && count($this->getBranch()) === 1)
-            $this->initViewPost($this->getModel2()['AppSettingAdmin']['BranchInv']);
+            ModelJson::initView2($this->getUrlName2(), $this->getModel2()['AppSettingAdmin']['BranchInv']);
 
 
 
@@ -81,7 +81,7 @@ class ValidationId extends ModelJson{
             foreach (isset($_POST['Branches']) ? $this->getBranch() : array(...$_POST['choices'], $this->getId()=>$this->getId()) as $key => $value)
                 //make test id branch if user select choices option
                 if(!isset($_POST['Branches']) && !isset($this->getBranch()[$key]))
-                    $this->initViewPost($this->getModel2()['AppSettingAdmin']['BranchInv']);
+                    ModelJson::initView2($this->getUrlName2(), $this->getModel2()['AppSettingAdmin']['BranchInv']);
                 //make text id inside all branch for users and product and home and language (only edit)
                 //use $IdPage only(users and product)
                 //style dont create use getUrlName2
@@ -101,11 +101,11 @@ class ValidationId extends ModelJson{
                   //ignore create validation account and product
                   isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ProductCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']])||
                   isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]))
-                    $this->initViewPost($this->getModelPage()['IdIsInv']);
+                    ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['IdIsInv']);
                 else
                     $myFile[$key] = $callback($myFile[$key], $key);
             $this->saveFile($myFile);
-            $this->initViewPost($message, 'success');
+            ModelJson::initView2($this->getUrlName2(), $message, 'success');
         }
 
 
@@ -129,7 +129,7 @@ class ValidationId extends ModelJson{
             isset($_POST['id']) && $this->getUrlName2() === 'ChangeLanguage' && $_POST['id'] === $this->getLanguage() && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost'||
             isset($_POST['id']) && $this->getUrlName2() === 'ChangeLanguage' && $_POST['id'] === 'english' && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost'
         )
-            $this->initViewPost($this->getModelPage()['IdIsInv']);
+            ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['IdIsInv']);
         else if($this->getSCRIPTFILENAME() === 'BranchEditPost' || $this->getSCRIPTFILENAME() === 'BranchCreatePost')
             $this->initErrorBranch2($this->getMyModal());
         else if($this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' || $this->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost')

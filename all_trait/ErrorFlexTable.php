@@ -14,9 +14,9 @@ trait ErrorFlexTable{
         $this->initErrorFlexTable($modal->getModelPage());
         foreach ($this->getErrorsMessageReq() as $key => $value)
             if(!isset($_POST[$key]) || $_POST[$key] === '')
-                $this->initViewPost($this->getErrorsMessageReq()[$key]);
+                ModelJson::initView2($this->getUrlName2(), $this->getErrorsMessageReq()[$key]);
             else if(strlen($_POST[$key]) < 3)
-                $this->initViewPost($this->getErrorsMessageInv()[$key]);
+                ModelJson::initView2($this->getUrlName2(), $this->getErrorsMessageInv()[$key]);
     }
     function getErrorsMessageReq(){
         return $this->ErrorsMessageReq;

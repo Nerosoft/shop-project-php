@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                         $this->saveModel($myData);
                         $this->redirectToAdminPage();
                     }
-            $this->initViewPost('ForgetPasswordMessageInvlid');
+            ModelJson::initView2($this->getUrlName2(), 'ForgetPasswordMessageInvlid');
         }
     }
     new LoginForgetPasswordPost();
