@@ -12,11 +12,6 @@ include('start_model.php');?>
     type="text" name="lang_name" id="lang_name" value="<?php echo$myObject?->getName()??''?>" placeholder='<?php echo $view->getHintNewLangName()?>' class="form-control">
 </div>
 <?php
-//ignore create language(only edit lang and style)
-// if($action !== 'ChangeLanguageCreatePost.php'){
-//     echo '<input type="hidden" value="'.$view->getUrlName2().'" name="option">';
-// }
-
 if($action === 'ChangeLanguageCreatePost.php'){
     echo <<<HTML
         <div class="form-group">

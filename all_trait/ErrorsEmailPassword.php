@@ -64,10 +64,4 @@ trait ErrorsEmailPassword{
     function getInvalidPassword(){
         return $this->InvalidPassword;
     }
-    function loginAdmin($userId, $staticId){
-        $_SESSION['userId'] = $userId;
-        $_SESSION['staticId'] = $staticId;
-        header('LOCATION:index');
-        exit;
-    }
 }

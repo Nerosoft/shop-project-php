@@ -1,13 +1,5 @@
 <?php
 class ValidationId extends ModelJson{
-    function redirectToAdminPage(){
-        if(isset($this->getFile()[$_POST['superId']]) && isset($this->getFile()[$_POST['superId']]['Branches']))
-            $this->loginAdmin($_POST['superId'], $_POST['superId']);
-        else
-            foreach ($this->getFile() as $key => $obj)
-                if(isset($obj['Branches']) && in_array($_POST['superId'], array_keys($obj['Branches'])))
-                    $this->loginAdmin($_POST['superId'], $key);        
-    }
     function __construct($IdPage, $callback = null, $message = null){
         parent::__construct($IdPage);
         if($this->getSCRIPTFILENAME()==='LoginForgetPasswordPost' || 

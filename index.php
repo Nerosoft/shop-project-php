@@ -1,3 +1,3 @@
 <?php
 include 'auth/SessionAdmin.php';
-ModelJson::initView('Home');
+ModelJson::initView('Home', $_GET['message']??'LoadMessage');

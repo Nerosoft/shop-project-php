@@ -273,7 +273,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "d32474f7": "English language"
+                "zCb8a8d9": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
@@ -452,6 +452,10 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "CreateProjectMessage": "Successfully create project",
+                "LoginMessage": "Successfully login",
+                "ForgetMessage": "Successfully forget and login",
+                "RegisterMessage": "Successfully register",
                 "AllBranches": "All branches",
                 "MYTITLE": "Home",
                 "LoadMessage": "Welcome in home",
@@ -685,7 +689,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             },
-            "gr6799ea": {
+            "b1f196cf": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
@@ -739,7 +743,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "d32474f7": {
+        "zCb8a8d9": {
             "Site": {
                 "Stories": "Stories",
                 "WorkWithUs": "Work with us",
@@ -1008,7 +1012,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "d32474f7": "English language"
+                "zCb8a8d9": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
@@ -1187,6 +1191,10 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "CreateProjectMessage": "Successfully create project",
+                "LoginMessage": "Successfully login",
+                "ForgetMessage": "Successfully forget and login",
+                "RegisterMessage": "Successfully register",
                 "AllBranches": "All branches",
                 "MYTITLE": "Home",
                 "LoadMessage": "Welcome in home",
@@ -1402,7 +1410,7 @@
             }
         }
     },
-    "gr6799ea": {
+    "b1f196cf": {
         "Setting": {
             "Language": "english",
             "Style": "default"
@@ -1676,7 +1684,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "d32474f7": "English language"
+                "zCb8a8d9": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
@@ -1855,6 +1863,10 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "CreateProjectMessage": "Successfully create project",
+                "LoginMessage": "Successfully login",
+                "ForgetMessage": "Successfully forget and login",
+                "RegisterMessage": "Successfully register",
                 "AllBranches": "All branches",
                 "MYTITLE": "Home",
                 "LoadMessage": "Welcome in home",
@@ -1998,8 +2010,7 @@
                 "ButtonModelEdit": "save"
             },
             "MyFlexTables": {
-                "D2b5cb45": "book programming language",
-                "b23a1178": "facebook"
+                "D2b5cb45": "book programming language"
             },
             "D2b5cb45": {
                 "TitleViewImage": "View image product",
@@ -2068,49 +2079,6 @@
                     "ONb5cb93": "Error quantity invalid",
                     "Vmb5cb9d": "Error date invalid"
                 }
-            },
-            "b23a1178": {
-                "TitleViewImage": "View image product",
-                "TableProductImage": "Image",
-                "Reqimage": "Required image",
-                "Invimage": "Invalid image",
-                "UploadImgInv": "error upload image",
-                "ImgLabel": "your image",
-                "ImgButton": "Select your image",
-                "AllBranches": "All branches",
-                "MYTITLE": "facebook",
-                "LoadMessage": "your message loade page",
-                "ScreenModelDelete": "your title delete modal",
-                "MessageModelDelete": "your message do you want to delete table",
-                "ButtonModelDelete": "your name button delete table",
-                "Title": "your title page",
-                "ScreenModelCreate": "your title create new modal",
-                "ScreenModelEdit": "your title edit modal",
-                "ButtonModelCreate": "your name button create table",
-                "ButtonModelAdd": "your name button create table",
-                "ButtonModelEdit": "your name button edit table",
-                "TableId": "your name table Id",
-                "TabelEvent": "your name table event",
-                "MessageModelCreate": "your message successfully create table",
-                "MessageModelEdit": "your message successfully edit table",
-                "Delete": "your message successfully delete table",
-                "IdIsReq": "your message error id required",
-                "IdIsInv": "your message error id invalid",
-                "TableHead": {
-                    "ge3a118f": "Name"
-                },
-                "Label": {
-                    "ge3a118f": "Name"
-                },
-                "Hint": {
-                    "ge3a118f": "Enter name value"
-                },
-                "ErrorsMessageReq": {
-                    "ge3a118f": "error name reqired"
-                },
-                "ErrorsMessageInv": {
-                    "ge3a118f": "error name invalid"
-                }
             }
         },
         "Users": {
@@ -2162,7 +2130,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "d32474f7": {
+        "zCb8a8d9": {
             "Site": {
                 "Stories": "Stories",
                 "WorkWithUs": "Work with us",
@@ -2431,7 +2399,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "d32474f7": "English language"
+                "zCb8a8d9": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
@@ -2610,6 +2578,10 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "CreateProjectMessage": "Successfully create project",
+                "LoginMessage": "Successfully login",
+                "ForgetMessage": "Successfully forget and login",
+                "RegisterMessage": "Successfully register",
                 "AllBranches": "All branches",
                 "MYTITLE": "Home",
                 "LoadMessage": "Welcome in home",
@@ -2753,8 +2725,7 @@
                 "ButtonModelEdit": "save"
             },
             "MyFlexTables": {
-                "D2b5cb45": "book programming language",
-                "b23a1178": "facebook"
+                "D2b5cb45": "book programming language"
             },
             "D2b5cb45": {
                 "TitleViewImage": "View image product",
@@ -2822,49 +2793,6 @@
                     "kCb5cb86": "Error salary invalid",
                     "ONb5cb93": "Error quantity invalid",
                     "Vmb5cb9d": "Error date invalid"
-                }
-            },
-            "b23a1178": {
-                "TitleViewImage": "View image product",
-                "TableProductImage": "Image",
-                "Reqimage": "Required image",
-                "Invimage": "Invalid image",
-                "UploadImgInv": "error upload image",
-                "ImgLabel": "your image",
-                "ImgButton": "Select your image",
-                "AllBranches": "All branches",
-                "MYTITLE": "facebook",
-                "LoadMessage": "your message loade page",
-                "ScreenModelDelete": "your title delete modal",
-                "MessageModelDelete": "your message do you want to delete table",
-                "ButtonModelDelete": "your name button delete table",
-                "Title": "your title page",
-                "ScreenModelCreate": "your title create new modal",
-                "ScreenModelEdit": "your title edit modal",
-                "ButtonModelCreate": "your name button create table",
-                "ButtonModelAdd": "your name button create table",
-                "ButtonModelEdit": "your name button edit table",
-                "TableId": "your name table Id",
-                "TabelEvent": "your name table event",
-                "MessageModelCreate": "your message successfully create table",
-                "MessageModelEdit": "your message successfully edit table",
-                "Delete": "your message successfully delete table",
-                "IdIsReq": "your message error id required",
-                "IdIsInv": "your message error id invalid",
-                "TableHead": {
-                    "ge3a118f": "Name"
-                },
-                "Label": {
-                    "ge3a118f": "Name"
-                },
-                "Hint": {
-                    "ge3a118f": "Enter name value"
-                },
-                "ErrorsMessageReq": {
-                    "ge3a118f": "error name reqired"
-                },
-                "ErrorsMessageInv": {
-                    "ge3a118f": "error name invalid"
                 }
             }
         }

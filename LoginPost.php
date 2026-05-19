@@ -1,7 +1,7 @@
 <?php
 include 'auth/SessionAuth.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-    require 'ValidationId.php';
+ModelJson::initView('Login', null, null, function(){
     class LoginPost extends ValidationId{
         use ErrorsEmailPassword;
         function __construct(){
@@ -9,10 +9,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             if(isset($this->getObj()['Users']))
                 foreach ($this->getObj()['Users'] as $key => $value)
                     if($value['Email'] === $_POST['Email'] && $value['Password'] === $_POST['Password'])
-                        $this->redirectToAdminPage();
+                        return;
             ModelJson::initView2($this->getUrlName2(), 'EmailPassword');
         }
     }
-    new LoginPost();
+    return new LoginPost();
+}, 'LoginMessage');
 }else
     header('LOCATION:Login');

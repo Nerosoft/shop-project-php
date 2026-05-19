@@ -15,17 +15,34 @@ class ModelJson{
     function getRandomId(){
         return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 2) . substr(uniqid(), -6);
     }
-    static function initView($keyPage, $message = 'LoadMessage', $type = 'success', $callback = null){
+    static function initView($keyPage, $message = 'LoadMessage', $type = 'success', $callback = null, $keyPage2 = null){
         if($keyPage !== 'Login')
             require 'controller/'.$keyPage.'.php';
         if(!is_null($callback)){
             require 'ValidationId.php';
-            $callback();
+            $obj = $callback();
         }
-        ModelJson::initView2($keyPage, $message, $type);
+        ModelJson::initView2($keyPage2??$keyPage, $message, $type, $obj??null);
     }
-    static function initView2($keyPage, $message, $type = "danger"){
+    static function initView2($keyPage, $message, $type = "danger", $obj = null){
         switch ($keyPage) {
+            case'CreateProjectMessage':
+            case'RegisterMessage':
+            case'ForgetMessage':
+            case'LoginMessage':
+                if($keyPage === 'CreateProjectMessage' || isset($obj->getFile()[$_POST['superId']]) && isset($obj->getFile()[$_POST['superId']]['Branches'])){
+                    $_SESSION['userId'] = $_POST['superId'];
+                    $_SESSION['staticId'] = $_POST['superId'];
+                }
+                else
+                    foreach ($obj->getFile() as $key => $obj)
+                        if(isset($obj['Branches']) && in_array($_POST['superId'], array_keys($obj['Branches']))){
+                            $_SESSION['userId'] = $_POST['superId'];
+                            $_SESSION['staticId'] = $key;
+                            break;
+                        }   
+                header('LOCATION:index?message='.$keyPage);
+                exit;
             case 'Product':
                 include 'views/ProductView.php';
                 break;
@@ -67,6 +84,15 @@ class ModelJson{
             case 'Login':
                 $view = new LoginRegister($message, $type);
                 include 'pis_of_page/buttons.php';
+                echo <<<HTML
+                <button onclick="openForm('#forgetpasswordmodal')" type="button" class="btn btn-success" >{$view->getButtonForgetPassword()}</button>
+                HTML;
+                $title = $view->getModalForgetPasswordTitle();
+                $button = $view->getModalForgetPasswordButton();
+                $action = 'LoginForgetPasswordPost.php';
+                $idModel = "forgetpasswordmodal";
+                $idForm = "forgetpasswordform";
+                include('all_modal/modal_setting_users_table.php');
                 break;
             default:
                 include 'views/FlexTables_view.php';

@@ -73,7 +73,6 @@ trait ErrorActiveStyleLang{
                 </div>
                 <form id="{$idForm}" action="ChangeLangPost.php" method="POST">
                 <div class="modal-body">
-                    <input type="hidden" value="{$this->getId()}" name="superId">
                     <input type="hidden"value="{$state}" name="state">
                     <input type="hidden" name="change_language" value="{$this->getUrlName2()}">
 
@@ -97,16 +96,8 @@ trait ErrorActiveStyleLang{
                     </label>
                     </div>
                 HTML;
-        echo<<<HTML
-            </div>
-                <div class="modal-footer">
-                <button type="submit" id="click_button" class="btn btn-primary" onclick="sendLangStyle('#{$idForm}', '#{$idModel}', '{$style_lang}', '{$error}')">{$button}</button>
-                </div>
-            </form>
-            </div>
-            </div>
-            </div>
-        HTML;
+            $view=$this;
+            include 'all_modal/end_model.php';
     }
     function initScriptStyleLang(){
         echo <<<HTML
@@ -124,11 +115,11 @@ trait ErrorActiveStyleLang{
                 else
                     el.setCustomValidity(error);
             }
-            function sendLangStyle(idForm, idModel, style_lang, error){
-                validForm(idForm);
-                if($(idModel).find('input[name="id"]:checked').val() === style_lang)
-                    $(idModel).find('input[name="id"]:checked')[0].setCustomValidity(error);
-            }
+            $('#createModel,#style_modal').find('#click_button').on('click', function(){
+                if($(this).parent().parent().attr('id') === 'createForm' && $('#createModel').find('input[name="id"]:checked').val() === '{$this->getLanguage()}'||
+                    $(this).parent().parent().attr('id') === 'style_form' && $('#style_modal').find('input[name="id"]:checked').val() === '{$this->getStyleFile()}')
+                    $('#'+$(this).parent().parent().attr('id')).find('input[name="id"]:checked')[0].setCustomValidity($(this).parent().parent().attr('id')==='createForm'?'{$this->getChangeLang()}':'{$this->getChangeStyle()}');
+            });
         </script>
     HTML;
     }

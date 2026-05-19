@@ -1,19 +1,16 @@
 <?php
 include 'auth/SessionAuth.php';
-if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_POST['setup_project'] === 'Login' || $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_POST['setup_project'] === 'Register'){
-    if($_POST['setup_project'] === 'Register')
-        require 'controller/Register.php';
-    require 'ValidationId.php';
+if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['option']) && $_POST['option'] === 'Login' || $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['option']) && $_POST['option'] === 'Register'){
+ModelJson::initView($_POST['option'], null, null, function(){
     class SetupProject extends ValidationId{
         use ErrorBranch, ErrorsEmailPassword;
         function __construct(){
-            parent::__construct($_POST['setup_project']);
+            parent::__construct($_POST['option']);
             $this->validInputs($this->getMyModal());
             $myId = $this->getRandomId();
             $file = $this->getFile();
             $file[$myId] = $this->getProject($myId);
             $this->saveFile($file);
-            $this->loginAdmin($myId, $myId);
         }
         function getProject($myId){
             return array(
@@ -468,6 +465,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
                         "BranceRaysFollowValue"=> "Work invalid"
                     ],
                     "Home"=> [
+                        "CreateProjectMessage"=> "Successfully create project",
+                        "LoginMessage"=>"Successfully login",
+                        "ForgetMessage"=>"Successfully forget and login",
+                        "RegisterMessage"=>"Successfully register",
                         "AllBranches"=> "All branches",
                         "MYTITLE"=> "Home",
                         "LoadMessage"=> "Welcome in home",
@@ -635,6 +636,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['setup_project']) && $_
         }
     }
    
-new SetupProject();
+return new SetupProject();
+}, 'CreateProjectMessage');
 }else
     header('LOCATION:Login');

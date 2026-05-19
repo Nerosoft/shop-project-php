@@ -1,8 +1,8 @@
 <?php 
 include 'auth/SessionAuth.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-    require 'controller/Register.php';
-    require 'ValidationId.php';
+ModelJson::initView('Register', null, null, function(){
+
     class RegisterPost extends ValidationId{
         use ErrorRegister, ErrorsEmailPassword;
         function __construct(){
@@ -11,9 +11,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             //valid confirm password
             $this->initErrorsRegister2($this->getMyModal(), $keyId);
             $this->getMyModal()->saveModel($this->initErrorsKeyPassword2($this->getMyModal(), $keyId, $this->getMyModal()->getObj()));
-            $this->redirectToAdminPage();
         }
     }
-    new RegisterPost();    
+    return new RegisterPost();
+}, 'RegisterMessage');    
 }else
     header('LOCATION:Register');
