@@ -1,14 +1,5 @@
 <?php
-if($view->getUrlName2() === 'Login' || $view->getUrlName2() === 'Register' || $view->getUrlName2() === 'Site')
-    echo '<input type="hidden" value="'.$view->getId().'"name="superId">';
-else if($view->getUrlName2() === 'MyStyle' ||
-$view->getUrlName2() === 'ChangeLanguage'||
-$view->getUrlName2() === 'Home'||
-$view->getUrlName2() === 'Users'||
-$view->getUrlName2() === 'Product'||
-isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()])
-)
-  include 'AllBranchOption.php';
+include 'AllBranchOption.php';
 if(isset($action) && $action === 'ChangeLanguagePost.php' || 
   isset($action) && $action === 'SetupProject.php'||
   isset($action) && $action === 'ChangeLanguageEditPost')
