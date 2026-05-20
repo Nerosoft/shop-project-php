@@ -11,5 +11,5 @@ else if(isset($_POST['change_language']) && $_POST['change_language'] === 'Site'
     require 'controller/ModelJson.php';
 else{
     require 'controller/ModelJson.php';
-    require 'controller/Login.php';
+    require 'controller/LoginRegister.php';
 }

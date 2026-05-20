@@ -16,8 +16,7 @@ class ModelJson{
         return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 2) . substr(uniqid(), -6);
     }
     static function initView($keyPage, $message = 'LoadMessage', $type = 'success', $callback = null, $keyPage2 = null){
-        if($keyPage !== 'Login')
-            require 'controller/'.$keyPage.'.php';
+        require 'controller/'.$keyPage.'.php';
         if(!is_null($callback)){
             require 'ValidationId.php';
             $obj = $callback();
@@ -81,7 +80,7 @@ class ModelJson{
                 include 'pis_of_page/buttons.php';
                 break;
             case 'Login':
-                $view = new LoginRegister($message, $type);
+                $view = new Login($message, $type);
                 include 'pis_of_page/buttons.php';
                 echo <<<HTML
                 <button onclick="openForm('#forgetpasswordmodal')" type="button" class="btn btn-success" >{$view->getButtonForgetPassword()}</button>
