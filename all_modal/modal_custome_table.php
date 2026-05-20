@@ -11,22 +11,3 @@ include('start_model.php');?>
     oninput="handleInput(this ,'<?php echo$view->getNameTableIsReq()?>', '<?php echo$view->getNameTableIsInv()?>')"
     type="text" name="name" id="name" value="<?php echo$myObject?->getName()??''?>" placeholder='<?php echo$view->getHintName()?>' class="form-control">
 </div>
-
-<?php
-if(!isset($index)){
-    echo <<<HTML
-        <div class="form-group">
-            <label for="lang_name" class="form-label">{$view->getLabelInputNumber()}</label>
-            <input 
-            title='{$view->getHintInputNumber()}'
-            min="1" 
-            max="8" 
-            required
-            type="number" name="input_number" id="input_number"  placeholder='{$view->getHintInputNumber()}' class="form-control">
-        </div>
-    HTML;
-    
-}
-// include 'AllBranchOption.php';
-include('end_model.php');
-?>

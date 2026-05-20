@@ -7,8 +7,5 @@ $button = $view->getbuttonModelDelete();
 $arg = true;
 include('start_model.php');
 echo $view->getmessageModelDelete().'<spam>-'.($nameItem??$myObject->getName()).'</spam>';
-//ignore branch
-if($view->getUrlName2() === 'Branches')
-    include ('my_id.php');
 include 'end_model.php';
 ?>

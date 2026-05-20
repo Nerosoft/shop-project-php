@@ -7,6 +7,18 @@
             $button = $view->getButtonModelAdd();
             $action = 'HomeCreatePost.php';
             include('all_modal/modal_custome_table.php');
+            echo <<<HTML
+                <div class="form-group">
+                    <label for="lang_name" class="form-label">{$view->getLabelInputNumber()}</label>
+                    <input 
+                    title='{$view->getHintInputNumber()}'
+                    min="1" 
+                    max="8" 
+                    required
+                    type="number" name="input_number" id="input_number"  placeholder='{$view->getHintInputNumber()}' class="form-control">
+                </div>
+            HTML;
+            include('all_modal/end_model.php');
         ?>
         <table id="example" class="table table-striped" >
         <thead>
@@ -36,6 +48,7 @@
                         $idModel = "editModel".$index;
                         $idForm = "editForm".$index;
                         include('all_modal/modal_custome_table.php');
+                        include('all_modal/end_model.php');
                         echo <<<HTML
                                 <i class="fa fa-sliders fa-2x pointer" 
                                 onclick="displayEditForm('#{$idModel}', '{$myObject->getName()}')"></i>

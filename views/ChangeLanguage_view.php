@@ -32,6 +32,7 @@
                         $idForm = "editForm".$index;
                         $action = 'ChangeLanguageEditPost';
                         include('all_modal/modal_change_language.php');
+                        include('all_modal/end_model.php');
                         echo <<<HTML
                                 <i class="fa fa-sliders fa-2x pointer" 
                                 onclick="displayEditForm('#{$idModel}', '{$myObject->getName()}')"></i>

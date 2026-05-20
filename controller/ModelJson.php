@@ -67,6 +67,26 @@ class ModelJson{
                 $button = $view->getButtonModelAdd();
                 $action = 'ChangeLanguageCreatePost.php';
                 include('all_modal/modal_change_language.php');
+                echo <<<HTML
+                    <div class="form-group">
+                        <label for="selectedLanguage">{$view->getSelectLang()}</label>
+                        <select
+                        title=""
+                        class="form-select" name="selectedLanguage"  aria-label="Default select example">
+                HTML;
+                        foreach($view->getMyDataView() as $key=>$name){
+                                $select = $key === $view->getLanguage()? 'selected' : '';
+                                echo <<<HTML
+                                <option {$select} value="{$key}">
+                                    {$name->getName()}
+                                </option>
+                                HTML;
+                            }
+                echo <<<HTML
+                        </select>
+                    </div>
+                HTML;
+                include('all_modal/end_model.php');
                 include 'views/ChangeLanguage_view.php';
                 break;
             case 'Site':
