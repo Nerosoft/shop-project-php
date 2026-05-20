@@ -11,7 +11,6 @@ include('start_model.php');?>
     oninput="handleInput(this ,'<?php echo $view->getNewLangNameRequired()?>', '<?php echo $view->getNewLangNameInvalid()?>')"
     type="text" name="lang_name" id="lang_name" value="<?php echo$myObject?->getName()??''?>" placeholder='<?php echo $view->getHintNewLangName()?>' class="form-control">
 </div>
-<?php
 
 
 

@@ -19,6 +19,5 @@ foreach($myObject??$view->getHint() as $key=>$value){
 }
 ?>
 <?php 
-// include 'AllBranchOption.php';
 include('end_model.php');
 ?>
