@@ -18,7 +18,7 @@ ModelJson::initView('Login', 'ForgetMessage', 'success', function(){
             ModelJson::initView2($this->getUrlName2(), 'ForgetPasswordMessageInvlid');
         }
     }
-    return new LoginForgetPasswordPost();
+    new LoginForgetPasswordPost();
 }, 'ForgetMessage');
 }else
     header('LOCATION:Login');

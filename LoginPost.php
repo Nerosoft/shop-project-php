@@ -13,7 +13,7 @@ ModelJson::initView('Login', 'LoginMessage', 'success', function(){
             ModelJson::initView2($this->getUrlName2(), 'EmailPassword');
         }
     }
-    return new LoginPost();
+    new LoginPost();
 }, 'LoginMessage');
 }else
     header('LOCATION:Login');

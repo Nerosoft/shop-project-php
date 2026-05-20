@@ -2,7 +2,6 @@
 include 'auth/SessionAuth.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
 ModelJson::initView('Register', 'RegisterMessage', 'success', function(){
-
     class RegisterPost extends ValidationId{
         use ErrorRegister, ErrorsEmailPassword;
         function __construct(){
@@ -13,7 +12,7 @@ ModelJson::initView('Register', 'RegisterMessage', 'success', function(){
             $this->getMyModal()->saveModel($this->initErrorsKeyPassword2($this->getMyModal(), $keyId, $this->getMyModal()->getObj()));
         }
     }
-    return new RegisterPost();
+    new RegisterPost();
 }, 'RegisterMessage');    
 }else
     header('LOCATION:Register');

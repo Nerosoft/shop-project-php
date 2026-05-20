@@ -19,31 +19,32 @@ class ModelJson{
         require 'controller/'.$keyPage.'.php';
         if(!is_null($callback)){
             require 'ValidationId.php';
-            $obj = $callback();
+            $callback();
         }
-        ModelJson::initView2($keyPage2??$keyPage, $message, $type, $obj??null);
+        ModelJson::initView2($keyPage2??$keyPage, $message, $type);
     }
-    static function initView2($keyPage, $message, $type = "danger", $obj = null){
+    static function initView2($keyPage, $message, $type = "danger"){
         switch ($keyPage) {
             case 'Product':
                 include 'views/ProductView.php';
-                break;
+            break;
             case'CreateProjectMessage':
             case'RegisterMessage':
             case'ForgetMessage':
             case'LoginMessage':
-                if($keyPage === 'CreateProjectMessage' || isset($obj->getFile()[$_POST['superId']]) && isset($obj->getFile()[$_POST['superId']]['Branches'])){
+                require 'controller/Home.php';
+                $view = new MyHome($message, $type);
+                if($keyPage === 'CreateProjectMessage' || isset($view->getFile()[$_POST['superId']]) && isset($view->getFile()[$_POST['superId']]['Branches'])){
                     $_SESSION['userId'] = $_POST['superId'];
                     $_SESSION['staticId'] = $_POST['superId'];
                 }
                 else
-                    foreach ($obj->getFile() as $key => $obj)
+                    foreach ($view->getFile() as $key => $obj)
                         if(isset($obj['Branches']) && in_array($_POST['superId'], array_keys($obj['Branches']))){
                             $_SESSION['userId'] = $_POST['superId'];
                             $_SESSION['staticId'] = $key;
                             break;
                         }   
-                require 'controller/Home.php';
             case 'Home':                
                 include 'views/home_view.php';
                 break;
