@@ -1,7 +1,7 @@
 <?php
 include 'auth/SessionAuth.php';
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-ModelJson::initView('Login', null, null, function(){
+ModelJson::initView('Login', 'LoginMessage', 'success', function(){
     class LoginPost extends ValidationId{
         use ErrorsEmailPassword;
         function __construct(){

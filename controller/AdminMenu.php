@@ -1,5 +1,5 @@
 <?php
-require 'InformationPage.php';
+require_once 'InformationPage.php';
 class AdminMenu extends InformationPage
 {
     private $Offcanvas;

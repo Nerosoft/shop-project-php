@@ -1,7 +1,7 @@
 <?php
 include 'auth/SessionAuth.php';
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['option']) && $_POST['option'] === 'Login' || $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['option']) && $_POST['option'] === 'Register'){
-ModelJson::initView($_POST['option'], null, null, function(){
+ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', function(){
     class SetupProject extends ValidationId{
         use ErrorBranch, ErrorsEmailPassword;
         function __construct(){

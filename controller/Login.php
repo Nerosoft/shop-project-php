@@ -53,7 +53,7 @@ class LoginRegister extends InformationPage{
     function getModalForgetPasswordButton(){
         return $this->ModalForgetPasswordButton;
     }
-    function __construct($message = 'LoadMessage', $type = 'success', $IdPage = 'Login', $action = 'LoginPost.php'){
+    function __construct($message, $type, $IdPage = 'Login', $action = 'LoginPost.php'){
         parent::__construct($IdPage, $message, $type);
         $this->initInfoBranch($this->getMyModal());
         $this->initErrorBranch($this->getModelPage());

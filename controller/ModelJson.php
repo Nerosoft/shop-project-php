@@ -26,6 +26,9 @@ class ModelJson{
     }
     static function initView2($keyPage, $message, $type = "danger", $obj = null){
         switch ($keyPage) {
+            case 'Product':
+                include 'views/ProductView.php';
+                break;
             case'CreateProjectMessage':
             case'RegisterMessage':
             case'ForgetMessage':
@@ -41,11 +44,7 @@ class ModelJson{
                             $_SESSION['staticId'] = $key;
                             break;
                         }   
-                header('LOCATION:index?message='.$keyPage);
-                exit;
-            case 'Product':
-                include 'views/ProductView.php';
-                break;
+                require 'controller/Home.php';
             case 'Home':                
                 include 'views/home_view.php';
                 break;
