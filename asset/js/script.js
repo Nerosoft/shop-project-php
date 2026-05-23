@@ -1,6 +1,9 @@
 function validForm(form){
     $(form).addClass('was-validated');
 }
+function validForm2(idModal){
+    $(idModal).find('form')('was-validated');
+}
 function handleInput(event, error1, error2) {
     if (event.validity.valueMissing)
         event.setCustomValidity(error1);

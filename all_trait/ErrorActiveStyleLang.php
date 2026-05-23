@@ -23,8 +23,8 @@ trait ErrorActiveStyleLang{
         $this->ChangeStyleButton = $this->getModelPage()['ChangeStyleButton'];
         $this->ChangeLang = $this->getModelPage()['UsedLanguage'];
         $this->ChangeStyle = $this->getModelPage()['UsedStyle'];
-        $this->initEvent('createModel', 'createForm', $this->getLanguage(), $this->getChangeLang(), $this->getModelTitle(), $this->getModelButton(), 'AllNamesLanguage', $this->getMyLanguage());
-        $this->initEvent('style_modal', 'style_form', $this->getStyleFile(), $this->getChangeStyle(), $this->getModalTitleStyle(), $this->getModalButtonStyle(), 'Style', $this->getStyle());
+        $this->initEvent('createModel', 'createForm', $this->getLanguage(), $this->getChangeLang(), $this->getModelTitle(), $this->getModelButton(), 'AllNamesLanguage', $this->getMyLanguage(), $this);
+        $this->initEvent('style_modal', 'style_form', $this->getStyleFile(), $this->getChangeStyle(), $this->getModalTitleStyle(), $this->getModalButtonStyle(), 'Style', $this->getStyle(), $this);
         $this->initScriptStyleLang();
     }
     function getBranchLabel(){
@@ -60,22 +60,12 @@ trait ErrorActiveStyleLang{
     function getChangeStyle(){
         return $this->ChangeStyle;
     }
-    function initEvent($idModel, $idForm, $style_lang, $error, $title, $button, $state, $data){
+    function initEvent($idModel, $idForm, $style_lang, $error, $title, $button, $state, $data, $view){
+        $action = "ChangeLangPost.php";
+        include 'all_modal/start_model.php';
         echo<<<HTML
-        <div class="modal fade" id="{$idModel}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="SettingLanguage">{$title}</h5>
-                    <button type="button" id="close_button" onclick="restValue('#{$idModel}', '{$style_lang}')" class="btn btn-dark">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form id="{$idForm}" action="ChangeLangPost.php" method="POST">
-                <div class="modal-body">
-                    <input type="hidden"value="{$state}" name="state">
-                    <input type="hidden" name="change_language" value="{$this->getUrlName2()}">
-
+            <input type="hidden"value="{$state}" name="state">
+            <input type="hidden" name="change_language" value="{$this->getUrlName2()}">
         HTML;
         foreach ($data as $key => $value)
             if($key === $style_lang)
@@ -96,18 +86,15 @@ trait ErrorActiveStyleLang{
                     </label>
                     </div>
                 HTML;
-            $view=$this;
             include 'all_modal/end_model.php';
     }
     function initScriptStyleLang(){
         echo <<<HTML
         <script type="text/javascript">
-            function restValue(id, style_lang){
-                closeForm(id);
-                removeClass(id);
-                if($(id).find('input[name="id"]:checked').val() !== style_lang)
-                    $(id).find('.flexCheck').prop('checked', true);
-            }
+             $('#createModel,#style_modal').find('#close_button').on('click', function (){
+                removeClass('#'+$(this).parent().parent().parent().parent().attr('id'));
+                $('#'+$(this).parent().parent().parent().parent().attr('id')).find('.flexCheck').prop('checked', true);
+            });
             function changeLangStyle(el, idForm, style_lang, idModal, error){
                 validForm(idForm);
                 if(el.value !== style_lang)
