@@ -93,7 +93,8 @@ trait ErrorActiveStyleLang{
         <script type="text/javascript">
              $('#createModel,#style_modal').find('#close_button').on('click', function (){
                 removeClass('#'+$(this).parent().parent().parent().parent().attr('id'));
-                $('#'+$(this).parent().parent().parent().parent().attr('id')).find('.flexCheck').prop('checked', true);
+                if($('#'+$(this).parent().parent().parent().parent().attr('id')).find('.flexCheck').val() !== $('#'+$(this).parent().parent().parent().parent().attr('id')).find('input[name="id"]:checked').val())
+                    $('#'+$(this).parent().parent().parent().parent().attr('id')).find('.flexCheck').prop('checked', true);
             });
             function changeLangStyle(el, idForm, style_lang, idModal, error){
                 validForm(idForm);
