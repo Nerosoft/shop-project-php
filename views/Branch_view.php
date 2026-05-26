@@ -58,11 +58,10 @@
                         $title = $view->getScreenModelEdit();
                         $button = $view->getButtonModelEdit();
                         $idModel = "editModel".$index;
-                        $idForm = "editForm".$index;
                         $action = 'BranchEditPost.php';
                         include('all_modal/model_branch.php');
                         echo <<<HTML
-                                    <i class="fa fa-sliders fa-2x pointer" onclick="displayEditForm($('#{$idForm}').find('#brance-rays-name'), $('#{$idForm}').find('#brance-rays-phone'), $('#{$idForm}').find('#brance-rays-country'), $('#{$idForm}').find('#brance-rays-governments'), $('#{$idForm}').find('#brance-rays-city'), $('#{$idForm}').find('#brance-rays-street'), $('#{$idForm}').find('#brance-rays-building'), $('#{$idForm}').find('#brance-rays-address'), $('#{$idForm}').find('#brance-rays-follow option'), '#{$idModel}', '{$myObject->getName()}', '{$myObject->getPhone()}', '{$myObject->getCountry()}', '{$myObject->getGovernments()}', '{$myObject->getCity()}', '{$myObject->getStreet()}', '{$myObject->getBuilding()}', '{$myObject->getAddress()}', '{$myObject->getFollowId()}')"></i>
+                                    <i class="fa fa-sliders fa-2x pointer" onclick="displayEditForm($('#{$idModel}').find('#brance-rays-name'), $('#{$idModel}').find('#brance-rays-phone'), $('#{$idModel}').find('#brance-rays-country'), $('#{$idModel}').find('#brance-rays-governments'), $('#{$idModel}').find('#brance-rays-city'), $('#{$idModel}').find('#brance-rays-street'), $('#{$idModel}').find('#brance-rays-building'), $('#{$idModel}').find('#brance-rays-address'), $('#{$idModel}').find('#brance-rays-follow option'), '#{$idModel}', '{$myObject->getName()}', '{$myObject->getPhone()}', '{$myObject->getCountry()}', '{$myObject->getGovernments()}', '{$myObject->getCity()}', '{$myObject->getStreet()}', '{$myObject->getBuilding()}', '{$myObject->getAddress()}', '{$myObject->getFollowId()}')"></i>
                                 </td>
                             </tr>
                         HTML;
