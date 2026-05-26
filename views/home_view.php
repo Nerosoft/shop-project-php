@@ -46,7 +46,6 @@
                         $button = $view->getButtonModelEdit();
                         $action = 'HomeEditPost.php';
                         $idModel = "editModel".$index;
-                        // $idForm = "editForm".$index;
                         include('all_modal/modal_custome_table.php');
                         include('all_modal/end_model.php');
                         echo <<<HTML

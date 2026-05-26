@@ -47,7 +47,6 @@
                         $title = $view->getScreenModelEdit();
                         $button = $view->getButtonModelEdit();
                         $idModel = "editModel".$index;
-                        // $idForm = "editForm".$index;
                         $action = 'FlexTablesCreatePost?id='.$_GET['id'];
                         include('all_modal/modal_flex.php');
                         echo <<<HTML

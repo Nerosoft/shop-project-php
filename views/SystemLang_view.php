@@ -32,7 +32,6 @@
                                             $title = $view->getScreenModelEdit();
                                             $button = $view->getButtonModelEdit();
                                             $idModel = "editModel".$count;
-                                            // $idForm = "editForm".$count;
                                             $action = 'SystemLangEditPost.php?lang='.$keyLanguage.'&table='.$keyPage.'&key='.$key.'&array='.$key2;
                                             include('all_modal/modal_lang_page.php');
                                             echo '</td></tr>';
@@ -50,7 +49,6 @@
                                         $title = $view->getScreenModelEdit();
                                         $button = $view->getButtonModelEdit();
                                         $idModel = "editModel".$count;
-                                        // $idForm = "editForm".$count;
                                         $action = 'SystemLangEditPost.php?lang='.$keyLanguage.'&table='.$keyPage.'&key='.$key;
                                         include('all_modal/modal_lang_page.php');
                                         echo '</td></tr>';
@@ -70,7 +68,6 @@
                                     $title = $view->getScreenModelEdit();
                                     $button = $view->getButtonModelEdit();
                                     $idModel = "editModel".$count;
-                                    // $idForm = "editForm".$count;
                                     $action = 'SystemLangEditPost.php?lang='.$_GET['lang'].'&table='.$_GET['table'].'&key='.$keyLanguage.'&array='.$key;
                                     include('all_modal/modal_lang_page.php');
                                     echo '</td></tr>';
@@ -86,7 +83,6 @@
                                 $title = $view->getScreenModelEdit();
                                 $button = $view->getButtonModelEdit();
                                 $idModel = "editModel".$count;
-                                // $idForm = "editForm".$count;
                                 $action = 'SystemLangEditPost.php?lang='.$_GET['lang'].'&table='.$_GET['table'].'&key='.$keyLanguage;
                                 include('all_modal/modal_lang_page.php');
                                 echo '</td></tr>';

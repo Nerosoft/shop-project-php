@@ -143,7 +143,6 @@ class ModelJson{
                 $button = $view->getModalForgetPasswordButton();
                 $action = 'LoginForgetPasswordPost.php';
                 $idModel = "forgetpasswordmodal";
-                // $idForm = "forgetpasswordform";
                 include('all_modal/modal_setting_users_table.php');
                 break;
             default:

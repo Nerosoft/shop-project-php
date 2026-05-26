@@ -6,9 +6,9 @@
         <div class="img-btn">
             <input 
             <?php echo isset($index)?'':'required'?>
-            oninput="changeImage(this, $('#<?php echo isset($index) ? "editForm".$index : "createForm"?>').find('#preview'))" type="file" id="avatar" name="avatar" class="avatar" accept="image/*"/>
+            oninput="changeImage(this, $('#<?php echo isset($index) ? "editModel".$index : "createModel"?>').find('#preview'))" type="file" id="avatar" name="avatar" class="avatar" accept="image/*"/>
             <button 
-            onclick="openImage($('#<?php echo isset($index) ? "editForm".$index : "createForm"?>').find('#avatar'))" id="uploadBtn"
+            onclick="openImage($('#<?php echo isset($index) ? "editModel".$index : "createModel"?>').find('#avatar'))" id="uploadBtn"
             type="button" class="btn btn-success"><?php echo $view->getImgButton()?></button>
         </div>
     </div>

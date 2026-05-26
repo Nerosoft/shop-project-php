@@ -3,7 +3,6 @@
 $title = $view->getTitleChangeLanguageMessage();
 $button = $view->getButtonChangeLanguageMessage();
 $idModel = "selectLanguage".$index;
-$idForm = "selectLanguage".$index;
 include('start_model.php');
 echo $view->getLabelChangeLanguageMessage().'<spam>-'.$myObject->getName().'</spam>';
 include('end_model.php');
