@@ -2,7 +2,7 @@
 <?php
 $title = $view->getScreenModelDelete();
 $idModel = "deleteModel".$index;
-$idForm = "deleteForm".$index;
+// $idForm = "deleteForm".$index;
 $button = $view->getbuttonModelDelete();
 include('start_model.php');
 echo $view->getmessageModelDelete().'<spam>-'.($nameItem??$myObject->getName()).'</spam>';

@@ -38,7 +38,7 @@
                             $button = $view->getButtonModelEdit();
                             $action = 'SettingUsersCreatePost.php';
                             $idModel = "editModel".$index;
-                            $idForm = "editForm".$index;
+                            // $idForm = "editForm".$index;
                             include('all_modal/modal_setting_users_table.php');
                             echo <<<HTML
                                        <i class="fa fa-sliders fa-2x pointer" 

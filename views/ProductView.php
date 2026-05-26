@@ -43,7 +43,7 @@
                         $button = $view->getButtonModelEdit();
                         $action = 'ProductCreatePost.php';
                         $idModel = "editModel".$index;
-                        $idForm = "editForm".$index;
+                        // $idForm = "editForm".$index;
                         include('all_modal/ProductModal.php');
 
                         

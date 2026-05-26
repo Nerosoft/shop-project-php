@@ -8,7 +8,7 @@
     $button = $view->getModalButtonProject();
     $action = 'SetupProject.php';
     $idModel = "setupprojectmodal";
-    $idForm = "setupprojectform";
+    // $idForm = "setupprojectform";
    
     include 'all_modal/show_password.php';
     include 'all_modal/model_branch_inputs.php';

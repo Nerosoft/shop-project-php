@@ -7,7 +7,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form id="<?php echo$idForm??'createForm'?>" action="<?php echo $action??''?>" method="POST" enctype="multipart/form-data">
+      <form action="<?php echo $action??''?>" method="POST" enctype="multipart/form-data">
       <div class="modal-body">
 
          

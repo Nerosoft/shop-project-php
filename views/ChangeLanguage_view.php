@@ -29,7 +29,7 @@
                         $title = $view->getScreenModelEdit();
                         $button = $view->getButtonModelEdit();
                         $idModel = "editModel".$index;
-                        $idForm = "editForm".$index;
+                        // $idForm = "editForm".$index;
                         $action = 'ChangeLanguageEditPost';
                         include('all_modal/modal_change_language.php');
                         include('all_modal/end_model.php');
