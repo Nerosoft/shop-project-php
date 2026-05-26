@@ -9,7 +9,7 @@ foreach ($data as $key => $value)
     if($key === $style_lang)
         echo <<<HTML
             <div class="form-check">
-            <input name="id" onchange="changeLangStyle(this, '#{$idForm}', '{$style_lang}', '#{$idModel}', '{$error}')" class="form-check-input flexCheck" value="{$key}" checked type="radio">
+            <input name="id" onchange="changeLangStyle(this, '{$style_lang}', '#{$idModel}', '{$error}')" class="form-check-input flexCheck" value="{$key}" checked type="radio">
             <label  class="form-check-label">
             {$value->getName()}
             </label>
@@ -18,7 +18,7 @@ foreach ($data as $key => $value)
     else
         echo <<<HTML
             <div class="form-check">
-            <input name="id" onchange="changeLangStyle(this, '#{$idForm}', '{$style_lang}', '#{$idModel}', '{$error}')" class="form-check-input" value="{$key}" type="radio">
+            <input name="id" onchange="changeLangStyle(this, '{$style_lang}', '#{$idModel}', '{$error}')" class="form-check-input" value="{$key}" type="radio">
             <label  class="form-check-label">
             {$value->getName()}
             </label>
