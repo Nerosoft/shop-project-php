@@ -7,18 +7,7 @@ if(isset($action) && $action === 'ChangeLanguagePost.php' ||
 ?>
 </div>
 <div class="modal-footer">
-  <button type="submit" id="click_button" class="btn btn-primary"
-  <?php
-  if(!isset($arg)){
-    $arg = $idForm??'createForm';
-    echo <<<HTML
-      onclick="validForm('#{$arg}')"
-    HTML;
-  }
-  echo '>'.$button;
-  ?>
-
-</button>
+  <button type="submit" id="click_button" onclick="validForm('#<?php echo$idForm??'createForm'?>')" class="btn btn-primary"><?php echo$button?></button>
 </div>
 </form>
 </div>
