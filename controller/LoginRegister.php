@@ -63,7 +63,7 @@ class LoginRegister extends InformationPage{
             }
         echo<<<HTML
             <div class="container">
-                <div class="register">
+                <div id="loginRegister" class="register">
                     <form id='register' method='POST' action="{$action}">
         HTML; 
         $view = $this;

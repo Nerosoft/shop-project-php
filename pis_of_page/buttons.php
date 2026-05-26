@@ -1,6 +1,6 @@
  </form>
 
-<button form='register' type='submit' class="btn btn-primary" onclick="validForm('#register')"><?php echo $view->getButtonName()?></button>
+<button form='register' type='submit' class="btn btn-primary" onclick="validForm2('#loginRegister')"><?php echo $view->getButtonName()?></button>
 <button type="button" onclick="openForm('#createModel')" class="btn btn-success"><?php echo $view->getChangeLanguageButton()?></button>
 <button type="button" onclick="openForm('#style_modal')" class="btn btn-info"><?php echo $view->getChangeStyleButton()?></button>
 <?php 
