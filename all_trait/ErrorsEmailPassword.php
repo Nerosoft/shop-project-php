@@ -33,13 +33,13 @@ trait ErrorsEmailPassword{
         else if($modal->getSCRIPTFILENAME() !== 'LoginPost' && strlen($_POST['Key']) < 8)
             ModelJson::initView2($this->getUrlName2(), $this->getInvalidKeyPassword(), 'danger');
     }
-    function initErrorsKeyPassword2($modal, $keyId, $myData){
-       if(isset($myData['Users'][$keyId]['Email']) && $_POST['Email'] === $myData['Users'][$keyId]['Email'] ||
+    function initErrorsKeyPassword2($modal, $myData){
+       if(isset($myData['Users'][$this->keyId]['Email']) && $_POST['Email'] === $myData['Users'][$this->keyId]['Email'] ||
             //make edit create account and check exist email
             isset($myData['Users']) && !in_array($_POST['Email'], array_map(function($user) {return $user['Email'];}, $myData['Users']))||
             //check users empty
             !isset($myData['Users'])){
-                $myData['Users'][$keyId] = array("Email"=>$_POST["Email"], "Password"=>$_POST["Password"], "Key"=>$_POST["Key"]);
+                $myData['Users'][$this->keyId] = array("Email"=>$_POST["Email"], "Password"=>$_POST["Password"], "Key"=>$_POST["Key"]);
                 return $myData;
             //show message email exist
         }else

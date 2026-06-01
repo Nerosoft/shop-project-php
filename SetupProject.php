@@ -7,12 +7,11 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
         function __construct(){
             parent::__construct($_POST['option']);
             $this->validInputs($this->getMyModal());
-            $myId = $this->getRandomId();
             $file = $this->getFile();
-            $file[$myId] = $this->getProject($myId);
+            $file[$this->keyId] = $this->getProject();
             $this->saveFile($file);
         }
-        function getProject($myId){
+        function getProject(){
             return array(
                 "Setting"=> [
                     "Language"=> "english",
@@ -613,7 +612,7 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                     ]
                 ],
                 "Branches"=>[
-                    $myId=>[
+                    $this->keyId=>[
                         "Name"=>$_POST["Name"],
                         "Phone"=>$_POST["Phone"],
                         "Country"=>$_POST["Country"],

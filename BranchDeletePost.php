@@ -6,16 +6,16 @@ class BranchDeletePost extends ValidationId{
     function __construct(){
         parent::__construct('Branches');
         $file = $this->getFile();
-        unset($file[$this->getFixedId()]['Branches'][$_POST['id']]);
-        unset($file[$_POST['id']]);
+        unset($file[$this->getFixedId()]['Branches'][$this->keyId]);
+        unset($file[$this->keyId]);
         $this->saveFile($file);
-        if(is_dir('asset/product/'.$_POST['id'])){
-            $dir = opendir('asset/product/'.$_POST['id']);
+        if(is_dir('asset/product/'.$this->keyId)){
+            $dir = opendir('asset/product/'.$this->keyId);
             while (false !== ($myFile=readdir($dir)))
                 if($myFile != '.' && $myFile != '..')
-                    unlink('asset/product/'.$_POST['id'].'/'.$myFile);
+                    unlink('asset/product/'.$this->keyId.'/'.$myFile);
             closedir($dir);
-            rmdir('asset/product/'.$_POST['id']);
+            rmdir('asset/product/'.$this->keyId);
         }
     }
 }

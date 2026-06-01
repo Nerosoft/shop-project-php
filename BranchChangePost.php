@@ -5,7 +5,7 @@ ModelJson::initView('Branches', 'SuccessfullyChangeBranch', 'success', function(
 class BranchChangePost extends ValidationId{
     function __construct(){
         parent::__construct('Branches');
-        $this->resetId();
+        $_SESSION['userId'] = $this->keyId;
     }
 }
 new BranchChangePost();

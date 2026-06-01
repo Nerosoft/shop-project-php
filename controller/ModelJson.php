@@ -215,9 +215,9 @@ class ModelJson{
     function getId(){
         return isset($_SESSION['userId'])?$_SESSION['userId']:($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['superId'])?$_POST['superId']:(isset($_GET['id'])?$_GET['id']:'admin'));
     }
-    function resetId(){
-        $_SESSION['userId'] = $_POST['id'];
-    }
+    // function resetId(){
+    //     $_SESSION['userId'] = $_POST['id'];
+    // }
     function getMyModal(){
         return $this;
     }

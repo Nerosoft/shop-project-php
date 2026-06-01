@@ -5,13 +5,12 @@ ModelJson::initView('ChangeLanguage', 'MessageModelCreate', 'success', function(
 class ChangeLanguageCreatePost extends ValidationId{
     use ErrorChangelanguage;
     function __construct(){
-        $keyId = $this->getRandomId();
-        parent::__construct('ChangeLanguage', function ($myFile)use($keyId){
+        parent::__construct('ChangeLanguage', function ($myFile){
             $myLanguage = $this->getObj()[$_POST['selectedLanguage']];
             if(isset($myLanguage['MyFlexTables']))
                 foreach ($myLanguage['MyFlexTables'] as $keyFlexTable => $value)
                     unset($myLanguage[$keyFlexTable]);
-            $myFile = $this->saveNameLanguage($myFile[$myFile['Setting']['Language']]['AllNamesLanguage'], 'AllNamesLanguage', $keyId, $myFile);
+            $myFile = $this->saveNameLanguage($myFile[$myFile['Setting']['Language']]['AllNamesLanguage'], 'AllNamesLanguage', $myFile);
             $lang = $myLanguage;
             //reset all name language 
             $lang['AllNamesLanguage'] = $myFile[$myFile['Setting']['Language']]['AllNamesLanguage'];
@@ -22,11 +21,11 @@ class ChangeLanguageCreatePost extends ValidationId{
                     $lang[$keyFlex] = $myFile[$myFile['Setting']['Language']][$keyFlex];
             }
             //add lang inside branch
-            $myFile[$keyId] = $lang;
+            $myFile[$this->keyId] = $lang;
             return $myFile;
         }, 'MessageModelCreate');
-        $myData = $this->saveNameLanguage($this->getallNames(), 'AllNamesLanguage', $keyId, $this->getObj());
-        $myData[$keyId] = $myData[$_POST['selectedLanguage']];
+        $myData = $this->saveNameLanguage($this->getallNames(), 'AllNamesLanguage', $this->getObj());
+        $myData[$this->keyId] = $myData[$_POST['selectedLanguage']];
         $this->saveModel($myData);
         
     }

@@ -8,7 +8,7 @@ trait ErrorRegister{
         $this->InvalidConfirmPassword = $error['InvalidConfirmPassword'];
         $this->PasswordDosNotMatch = $error['PasswordDosNotMatch'];
     }
-    function initErrorsRegister2($modal, $keyId){
+    function initErrorsRegister2($modal){
         $this->initErrorsRegister($modal->getModelPage());
         if(!isset($_POST['password_confirmation']) || $_POST['password_confirmation'] === '')
             ModelJson::initView2($this->getUrlName2(), $this->getRequiredConfirmPassword());

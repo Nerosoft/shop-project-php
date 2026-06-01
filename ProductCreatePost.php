@@ -4,9 +4,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 ModelJson::initView('Product', isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate', 'success', function(){
 class ProductCreatePost extends ValidationId{
     use ErrorProduct;
-    private $keyId;
     function __construct(){
-        $this->keyId = isset($_POST['id'])?$_POST['id']:$this->getRandomId();
         parent::__construct('Product',  function($myFile, $keyBranch){
             return $this->saveProduct($myFile, $keyBranch);
         }, isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');

@@ -15,9 +15,9 @@ trait ErrorChangelanguage{
     function getNewLangNameInvalid(){
         return $this->NewLangNameInvalid;
     }
-    function saveNameLanguage($name, $nameKey, $newKey, $myData){
+    function saveNameLanguage($name, $nameKey, $myData){
         foreach ($name as $key=>$value)
-            $myData[$key][$nameKey][$newKey] = $_POST['lang_name'];
+            $myData[$key][$nameKey][$this->keyId] = $_POST['lang_name'];
         return $myData;
     }
     function validLanguageInput($modal){

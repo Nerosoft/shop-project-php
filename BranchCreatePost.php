@@ -5,17 +5,16 @@ ModelJson::initView('Branches', 'MessageModelCreate', 'success', function(){
 class BranchCreatePost extends ValidationId{
     use ErrorBranch;
     function copyImageFolder($arr){
-        if(!is_dir('asset/product/'.array_key_last($this->getBranch())))
-            mkdir('asset/product/'.array_key_last($this->getBranch()));
+        if(!is_dir('asset/product/'.$this->keyId))
+            mkdir('asset/product/'.$this->keyId);
         $dir = opendir('asset/product/'.$this->getId());
         while (false !== ($myFile=readdir($dir)))
             if($myFile != '.' && $myFile != '..' && isset($arr[pathinfo($myFile, PATHINFO_FILENAME)]))
-                copy('asset/product/'.$this->getId().'/'.$myFile, 'asset/product/'.array_key_last($this->getBranch()).'/'.$myFile);
+                copy('asset/product/'.$this->getId().'/'.$myFile, 'asset/product/'.$this->keyId.'/'.$myFile);
         closedir($dir);
     }
     function __construct(){
         parent::__construct('Branches');
-        $keyId =  array_key_last($this->getBranch());
         $obj = $this->getObj();
         unset($obj['Branches']);
         if(!isset($_POST['Users']) && isset($obj['Users']))
@@ -43,7 +42,7 @@ class BranchCreatePost extends ValidationId{
                 
             }
         $myBranch = $this->getFile();
-        $myBranch[$keyId] = $obj;
+        $myBranch[$this->keyId] = $obj;
         $this->saveFile($myBranch);
     }
 }

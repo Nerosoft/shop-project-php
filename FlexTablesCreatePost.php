@@ -4,9 +4,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 ModelJson::initView('MyFlexTablesView', isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate', 'success', function(){
 class FlexTablesCreatePost extends ValidationId{
     use ErrorFlexTable;
-    private $keyId;
     function __construct(){
-        $this->keyId = isset($_POST['id'])?$_POST['id']:$this->getRandomId();
         parent::__construct($_GET['id'], function($myFile, $idSseion){
             return $this->saveFlexTable($myFile, $myFile[$myFile['Setting']['Language']][$_GET['id']]['ErrorsMessageReq'], $idSseion);
 

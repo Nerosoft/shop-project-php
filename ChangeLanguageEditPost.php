@@ -5,11 +5,10 @@ ModelJson::initView($_POST['option'], 'MessageModelEdit', 'success', function(){
 class ChangeLanguageEditPost extends ValidationId{
     use ErrorChangelanguage;
     function __construct(){
-        $keyId = $_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage';
-        parent::__construct($_POST['option'], function($myFile) use($keyId){
-            return $this->saveNameLanguage($myFile[$myFile['Setting']['Language']]['AllNamesLanguage'], $keyId, $_POST['id'], $myFile);
+        parent::__construct($_POST['option'], function($myFile){
+            return $this->saveNameLanguage($myFile[$myFile['Setting']['Language']]['AllNamesLanguage'], $_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage', $myFile);
         }, 'MessageModelEdit'); 
-        $this->saveModel($this->saveNameLanguage($this->getallNames(), $keyId, $_POST['id'], $this->getObj()));
+        $this->saveModel($this->saveNameLanguage($this->getallNames(), $_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage', $this->getObj()));
     }
 }
 new ChangeLanguageEditPost();

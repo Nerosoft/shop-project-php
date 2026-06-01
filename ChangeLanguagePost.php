@@ -11,7 +11,7 @@ class ChangeLanguagePost extends ValidationId{
         $this->saveModel($this->changeLangStylePost($this->getObj()));
     }
     function changeLangStylePost($myData){
-        $myData['Setting'][$_POST['option'] === 'MyStyle'?'Style':'Language'] = $_POST['id'];
+        $myData['Setting'][$_POST['option'] === 'MyStyle'?'Style':'Language'] = $this->keyId;
         return $myData;
     }
 }

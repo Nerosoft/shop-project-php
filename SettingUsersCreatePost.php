@@ -5,11 +5,10 @@ ModelJson::initView('Users', isset($_POST['id'])?'MessageModelEdit':'MessageMode
 class SettingUsersCreatePost extends ValidationId{
     use ErrorsEmailPassword;
     function __construct(){
-        $keyId = isset($_POST['id'])?$_POST['id']:$this->getRandomId();
-        parent::__construct('Users', function($myFile)use($keyId){
-            return $this->initErrorsKeyPassword2($this->getMyModal(), $keyId, $myFile);
+        parent::__construct('Users', function($myFile){
+            return $this->initErrorsKeyPassword2($this->getMyModal(), $myFile);
         }, isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');
-        $this->getMyModal()->saveModel($this->initErrorsKeyPassword2($this->getMyModal(), $keyId, $this->getMyModal()->getObj()));
+        $this->getMyModal()->saveModel($this->initErrorsKeyPassword2($this->getMyModal(), $this->getMyModal()->getObj()));
     }
 }
 new SettingUsersCreatePost();

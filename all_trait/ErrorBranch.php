@@ -78,7 +78,7 @@ trait ErrorBranch{
     function initErrorBranch2($modal){
         $this->validInputs($modal);
         $myBranch = $modal->getFile();
-        $myBranch[$modal->getFixedId()]['Branches'][$modal->getSCRIPTFILENAME() === 'BranchEditPost'? $_POST['id'] : $modal->getRandomId()] = array(
+        $myBranch[$modal->getFixedId()]['Branches'][$this->keyId] = array(
             "Name"=>$_POST["Name"],
             "Phone"=>$_POST["Phone"],
             "Country"=>$_POST["Country"],

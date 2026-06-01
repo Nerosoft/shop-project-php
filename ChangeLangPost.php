@@ -11,8 +11,8 @@ ModelJson::initView($_POST['change_language'], $_POST['state'] === 'AllNamesLang
     class ChangeLangPost extends ValidationId{
         function __construct(){
             parent::__construct($_POST['change_language']);
-            setcookie($this->getId().$_POST['state'], $_POST['id'], time()+2628000);
-            $_COOKIE[$this->getId().$_POST['state']] = $_POST['id'];
+            setcookie($this->getId().$_POST['state'], $this->keyId, time()+2628000);
+            $_COOKIE[$this->getId().$_POST['state']] = $this->keyId;
         }
     }
     new ChangeLangPost();

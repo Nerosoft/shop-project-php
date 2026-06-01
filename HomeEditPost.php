@@ -12,7 +12,7 @@ class HomeEditPost extends ValidationId{
     }
     function editHome($myData, $AllNamesLanguage){
         foreach ($AllNamesLanguage as $code => $value) 
-            $myData[$code]['MyFlexTables'][$_POST['id']] = $_POST['name'];
+            $myData[$code]['MyFlexTables'][$this->keyId] = $_POST['name'];
         return $myData;
     }
 }
