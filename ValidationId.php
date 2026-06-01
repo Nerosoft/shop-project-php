@@ -3,7 +3,8 @@ class ValidationId extends ModelJson{
     protected $keyId;
     function __construct($IdPage, $callback = null, $message = null){
         parent::__construct($IdPage);
-        $this->keyId =  $this->getSCRIPTFILENAME() !== 'BranchCreatePost' && 
+        //make id for flex table and user stting and product else make id for all action
+        $this->keyId = $this->getSCRIPTFILENAME() !== 'BranchCreatePost' && 
         $this->getSCRIPTFILENAME() !== 'ChangeLanguageCreatePost' && 
         $this->getSCRIPTFILENAME() !== 'HomeCreatePost' && 
         $this->getSCRIPTFILENAME() !== 'SetupProject' && 
