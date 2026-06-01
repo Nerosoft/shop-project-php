@@ -3,7 +3,7 @@ class ValidationId extends ModelJson{
     protected $keyId;
     function __construct($IdPage, $callback = null, $message = null, $myKeyPage = null){
         parent::__construct($IdPage);
-        $this->keyId = $myKeyPage??$_POST['id']??$this->getRandomId();
+        $this->keyId = $myKeyPage??($_POST['id']??$this->getRandomId());
         if($this->getSCRIPTFILENAME()==='LoginForgetPasswordPost' || 
         $this->getSCRIPTFILENAME()==='LoginPost' || 
         $this->getSCRIPTFILENAME() === 'RegisterPost'||
