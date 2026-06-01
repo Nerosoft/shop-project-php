@@ -23,7 +23,7 @@ class ChangeLanguageCreatePost extends ValidationId{
             //add lang inside branch
             $myFile[$this->keyId] = $lang;
             return $myFile;
-        }, 'MessageModelCreate');
+        }, 'MessageModelCreate', $this->getRandomId());
         $myData = $this->saveNameLanguage($this->getallNames(), 'AllNamesLanguage', $this->getObj());
         $myData[$this->keyId] = $myData[$_POST['selectedLanguage']];
         $this->saveModel($myData);

@@ -5,7 +5,7 @@ ModelJson::initView('Register', 'RegisterMessage', 'success', function(){
     class RegisterPost extends ValidationId{
         use ErrorRegister, ErrorsEmailPassword;
         function __construct(){
-            parent::__construct('Register');
+            parent::__construct('Register', null, null, $this->getRandomId());
             //valid confirm password
             $this->initErrorsRegister2($this->getMyModal());
             $this->getMyModal()->saveModel($this->initErrorsKeyPassword2($this->getMyModal(), $this->getMyModal()->getObj()));

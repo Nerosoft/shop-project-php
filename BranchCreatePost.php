@@ -14,7 +14,7 @@ class BranchCreatePost extends ValidationId{
         closedir($dir);
     }
     function __construct(){
-        parent::__construct('Branches');
+        parent::__construct('Branches', null, null, $this->getRandomId());
         $obj = $this->getObj();
         unset($obj['Branches']);
         if(!isset($_POST['Users']) && isset($obj['Users']))
