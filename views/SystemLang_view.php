@@ -111,7 +111,6 @@
         { 'searchable': false }
     ];
     function displayForm(id, inputValue, value){
-        removeClass(id);
         openForm(id);
         inputValue.val(value);
     }

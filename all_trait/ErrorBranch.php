@@ -17,27 +17,27 @@ trait ErrorBranch{
     private $BranceRaysBuildingLength;
     private $BranceRaysAddressLength;
     private $BranceRaysCountryLength;
-    function initErrorBranch($error){
-        $this->BranceRaysNameRequired = $error['BranceRaysNameRequired'];
-        $this->BranceRaysNameLength = $error['BranceRaysNameLength'];
-        $this->BranceRaysPhoneRequired = $error['BranceRaysPhoneRequired'];
-        $this->BranceRaysPhoneLength = $error['BranceRaysPhoneLength'];
-        $this->BranceRaysCountryRequired = $error['BranceRaysCountryRequired'];
-        $this->BranceRaysCountryLength = $error['BranceRaysCountryLength'];
-        $this->BranceRaysGovernmentsRequired = $error['BranceRaysGovernmentsRequired'];
-        $this->BranceRaysGovernmentsLength = $error['BranceRaysGovernmentsLength'];
-        $this->BranceRaysCityRequired = $error['BranceRaysCityRequired'];
-        $this->BranceRaysCityLength = $error['BranceRaysCityLength'];
-        $this->BranceRaysStreetRequired = $error['BranceRaysStreetRequired'];
-        $this->BranceRaysStreetLength = $error['BranceRaysStreetLength'];
-        $this->BranceRaysBuildingRequired = $error['BranceRaysBuildingRequired'];
-        $this->BranceRaysBuildingLength = $error['BranceRaysBuildingLength'];
-        $this->BranceRaysAddressRequired = $error['BranceRaysAddressRequired'];
-        $this->BranceRaysAddressLength = $error['BranceRaysAddressLength'];
-        $this->BranceRaysFollowRequired = $error['BranceRaysFollowRequired'];
+    function initErrorBranch(){
+        $this->BranceRaysNameRequired = $this->getModelPage()['BranceRaysNameRequired'];
+        $this->BranceRaysNameLength = $this->getModelPage()['BranceRaysNameLength'];
+        $this->BranceRaysPhoneRequired = $this->getModelPage()['BranceRaysPhoneRequired'];
+        $this->BranceRaysPhoneLength = $this->getModelPage()['BranceRaysPhoneLength'];
+        $this->BranceRaysCountryRequired = $this->getModelPage()['BranceRaysCountryRequired'];
+        $this->BranceRaysCountryLength = $this->getModelPage()['BranceRaysCountryLength'];
+        $this->BranceRaysGovernmentsRequired = $this->getModelPage()['BranceRaysGovernmentsRequired'];
+        $this->BranceRaysGovernmentsLength = $this->getModelPage()['BranceRaysGovernmentsLength'];
+        $this->BranceRaysCityRequired = $this->getModelPage()['BranceRaysCityRequired'];
+        $this->BranceRaysCityLength = $this->getModelPage()['BranceRaysCityLength'];
+        $this->BranceRaysStreetRequired = $this->getModelPage()['BranceRaysStreetRequired'];
+        $this->BranceRaysStreetLength = $this->getModelPage()['BranceRaysStreetLength'];
+        $this->BranceRaysBuildingRequired = $this->getModelPage()['BranceRaysBuildingRequired'];
+        $this->BranceRaysBuildingLength = $this->getModelPage()['BranceRaysBuildingLength'];
+        $this->BranceRaysAddressRequired = $this->getModelPage()['BranceRaysAddressRequired'];
+        $this->BranceRaysAddressLength = $this->getModelPage()['BranceRaysAddressLength'];
+        $this->BranceRaysFollowRequired = $this->getModelPage()['BranceRaysFollowRequired'];
     }
-    function validInputs($modal){
-        $this->initErrorBranch($modal->getModelPage());
+    function validInputs(){
+        $this->initErrorBranch();
         if(!isset($_POST['Name']) || $_POST['Name'] === '')
             ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysNameRequired());
         else if(strlen($_POST['Name']) < 3)
@@ -72,13 +72,13 @@ trait ErrorBranch{
             ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysAddressLength());
         else if(!isset($_POST['Follow']) || $_POST['Follow'] === '')
             ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysFollowRequired());
-        else if(!isset($modal->getModel2()['SelectBranchBox'][$_POST['Follow']]))
-            ModelJson::initView2($this->getUrlName2(), $modal->getModelPage()['BranceRaysFollowValue']);
+        else if(!isset($this->getModel2()['SelectBranchBox'][$_POST['Follow']]))
+            ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['BranceRaysFollowValue']);
     }
-    function initErrorBranch2($modal){
-        $this->validInputs($modal);
-        $myBranch = $modal->getFile();
-        $myBranch[$modal->getFixedId()]['Branches'][$this->keyId] = array(
+    function initErrorBranch2(){
+        $this->validInputs();
+        $myBranch = $this->getFile();
+        $myBranch[$this->getFixedId()]['Branches'][$this->keyId] = array(
             "Name"=>$_POST["Name"],
             "Phone"=>$_POST["Phone"],
             "Country"=>$_POST["Country"],

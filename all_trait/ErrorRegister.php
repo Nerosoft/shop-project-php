@@ -3,13 +3,13 @@ trait ErrorRegister{
     private $RequiredConfirmPassword;
     private $InvalidConfirmPassword;
     private $PasswordDosNotMatch;
-    public function initErrorsRegister($error){
-        $this->RequiredConfirmPassword = $error['RequiredConfirmPassword'];
-        $this->InvalidConfirmPassword = $error['InvalidConfirmPassword'];
-        $this->PasswordDosNotMatch = $error['PasswordDosNotMatch'];
+    public function initErrorsRegister(){
+        $this->RequiredConfirmPassword = $this->getModelPage()['RequiredConfirmPassword'];
+        $this->InvalidConfirmPassword = $this->getModelPage()['InvalidConfirmPassword'];
+        $this->PasswordDosNotMatch = $this->getModelPage()['PasswordDosNotMatch'];
     }
-    function initErrorsRegister2($modal){
-        $this->initErrorsRegister($modal->getModelPage());
+    function initErrorsRegister2(){
+        $this->initErrorsRegister();
         if(!isset($_POST['password_confirmation']) || $_POST['password_confirmation'] === '')
             ModelJson::initView2($this->getUrlName2(), $this->getRequiredConfirmPassword());
         else if(strlen($_POST['password_confirmation']) < 8)

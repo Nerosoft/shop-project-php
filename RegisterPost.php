@@ -7,8 +7,8 @@ ModelJson::initView('Register', 'RegisterMessage', 'success', function(){
         function __construct(){
             parent::__construct('Register');
             //valid confirm password
-            $this->initErrorsRegister2($this->getMyModal());
-            $this->getMyModal()->saveModel($this->initErrorsKeyPassword2($this->getMyModal(), $this->getMyModal()->getObj()));
+            $this->initErrorsRegister2();
+            $this->getMyModal()->saveModel($this->initErrorsKeyPassword2($this->getMyModal()->getObj()));
         }
     }
     new RegisterPost();

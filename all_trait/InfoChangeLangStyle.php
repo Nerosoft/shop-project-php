@@ -7,11 +7,11 @@ trait InfoChangeLangStyle{
     private $HintNewLangName;
     private $NameLangaue;
     private $DataView;
-    function InitInfoChangeLangStyle($obj, $DataView, $lang){
-        $this->initErrorChangelanguage($obj, $lang);
-        $this->LabelNameLanguage = $obj['LabelCreateLanguage'];
-        $this->HintNewLangName = $obj['HintNewLangName'];
-        $this->NameLangaue = $obj['NameLangaue'];
+    function InitInfoChangeLangStyle($DataView){
+        $this->initErrorChangelanguage();
+        $this->LabelNameLanguage = $this->getModelPage()['LabelCreateLanguage'];
+        $this->HintNewLangName = $this->getModelPage()['HintNewLangName'];
+        $this->NameLangaue = $this->getModelPage()['NameLangaue'];
         $this->DataView = $DataView;
         echo '<div class="start-page container">';
     }

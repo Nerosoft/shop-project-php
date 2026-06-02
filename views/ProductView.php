@@ -84,7 +84,6 @@
         { 'searchable': false, className: "text-left table-avatar"}
     ];
     function displayEditForm(id, name, descreption, salary, category, image){
-        removeClass(id);
         openForm(id);
         $(id).find('#name').val(name);
         $(id).find('#descreption').val(descreption);

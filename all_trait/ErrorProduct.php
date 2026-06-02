@@ -10,19 +10,19 @@ trait ErrorProduct{
     private $InvalidDescreption;
     private $InvalidSalary;
     private $InvalidCategory;
-    function initErrorProduct($error){
+    function initErrorProduct(){
         $this->initTableProductImage();
-        $this->RequiredName = $error['RequiredName'];
-        $this->InvalidName = $error['InvalidName'];
-        $this->RequiredDescreption = $error['RequiredDescreption'];
-        $this->RequiredSalary = $error['RequiredSalary'];
-        $this->RequiredCategory = $error['RequiredCategory'];
-        $this->InvalidDescreption = $error['InvalidDescreption'];
-        $this->InvalidSalary = $error['InvalidSalary'];
-        $this->InvalidCategory = $error['InvalidCategory'];
+        $this->RequiredName = $this->getModelPage()['RequiredName'];
+        $this->InvalidName = $this->getModelPage()['InvalidName'];
+        $this->RequiredDescreption = $this->getModelPage()['RequiredDescreption'];
+        $this->RequiredSalary = $this->getModelPage()['RequiredSalary'];
+        $this->RequiredCategory = $this->getModelPage()['RequiredCategory'];
+        $this->InvalidDescreption = $this->getModelPage()['InvalidDescreption'];
+        $this->InvalidSalary = $this->getModelPage()['InvalidSalary'];
+        $this->InvalidCategory = $this->getModelPage()['InvalidCategory'];
     }
-    function validProductInput($modal){
-        $this->initErrorProduct($modal->getModelPage());
+    function validProductInput(){
+        $this->initErrorProduct();
         $this->validMyImage();
         if(!isset($_POST['name']) || $_POST['name'] === '')
            ModelJson::initView2($this->getUrlName2(), $this->getRequiredName());

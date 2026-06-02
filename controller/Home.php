@@ -13,7 +13,7 @@ class MyHome extends Page implements InterfaceDataView{
     private $DataView;
     function __construct($message, $type){
         parent::__construct('Home', $message, $type);
-        $this->initErrorsHome($this->getModelPage());
+        $this->initErrorsHome();
         $this->LabelName = $this->getModelPage()['LabelName'];
         $this->HintName = $this->getModelPage()['HintName'];
         $this->TableName = $this->getModelPage()['NameTable'];

@@ -6,7 +6,7 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
         use ErrorBranch, ErrorsEmailPassword;
         function __construct(){
             parent::__construct($_POST['option']);
-            $this->validInputs($this->getMyModal());
+            $this->validInputs();
             $file = $this->getFile();
             $file[$this->keyId] = $this->getProject();
             $this->saveFile($file);

@@ -20,26 +20,26 @@ trait InfoBranch{
     private $BranchRaysBuilding;
     private $BranchRaysAddress;
     private $selectBox1;
-    function initInfoBranch($modal){
-        $this->branchInputOutput = $modal->getModel2()['SelectBranchBox'];
-        $this->LabelBranchRaysName = $modal->getModelPage()['LabelBranchRaysName'];
-        $this->LabelBranchRaysPhone = $modal->getModelPage()['LabelBranchRaysPhone'];
-        $this->LabelBranchRaysCountry = $modal->getModelPage()['LabelBranchRaysCountry'];
-        $this->LabelBranchRaysGovernments = $modal->getModelPage()['LabelBranchRaysGovernments'];
-        $this->LabelBranchRaysCity = $modal->getModelPage()['LabelBranchRaysCity'];
-        $this->LabelBranchRaysStreet = $modal->getModelPage()['LabelBranchRaysStreet'];
-        $this->LabelBranchRaysBuilding = $modal->getModelPage()['LabelBranchRaysBuilding'];
-        $this->LabelBranchRaysAddress = $modal->getModelPage()['LabelBranchRaysAddress'];
-        $this->LabelWithRaysOut = $modal->getModelPage()['LabelWithRaysOut'];
-        $this->BranchRaysName = $modal->getModelPage()['BranchRaysName'];
-        $this->BranchRaysPhone = $modal->getModelPage()['BranchRaysPhone'];
-        $this->BranchRaysCountry = $modal->getModelPage()['BranchRaysCountry'];
-        $this->BranchRaysGovernments = $modal->getModelPage()['BranchRaysGovernments'];
-        $this->BranchRaysCity = $modal->getModelPage()['BranchRaysCity'];
-        $this->BranchRaysStreet = $modal->getModelPage()['BranchRaysStreet'];
-        $this->BranchRaysBuilding = $modal->getModelPage()['BranchRaysBuilding'];
-        $this->BranchRaysAddress = $modal->getModelPage()['BranchRaysAddress'];
-        $this->selectBox1 = $modal->getModelPage()['WithRaysOut'];  
+    function initInfoBranch(){
+        $this->branchInputOutput = $this->getModel2()['SelectBranchBox'];
+        $this->LabelBranchRaysName = $this->getModelPage()['LabelBranchRaysName'];
+        $this->LabelBranchRaysPhone = $this->getModelPage()['LabelBranchRaysPhone'];
+        $this->LabelBranchRaysCountry = $this->getModelPage()['LabelBranchRaysCountry'];
+        $this->LabelBranchRaysGovernments = $this->getModelPage()['LabelBranchRaysGovernments'];
+        $this->LabelBranchRaysCity = $this->getModelPage()['LabelBranchRaysCity'];
+        $this->LabelBranchRaysStreet = $this->getModelPage()['LabelBranchRaysStreet'];
+        $this->LabelBranchRaysBuilding = $this->getModelPage()['LabelBranchRaysBuilding'];
+        $this->LabelBranchRaysAddress = $this->getModelPage()['LabelBranchRaysAddress'];
+        $this->LabelWithRaysOut = $this->getModelPage()['LabelWithRaysOut'];
+        $this->BranchRaysName = $this->getModelPage()['BranchRaysName'];
+        $this->BranchRaysPhone = $this->getModelPage()['BranchRaysPhone'];
+        $this->BranchRaysCountry = $this->getModelPage()['BranchRaysCountry'];
+        $this->BranchRaysGovernments = $this->getModelPage()['BranchRaysGovernments'];
+        $this->BranchRaysCity = $this->getModelPage()['BranchRaysCity'];
+        $this->BranchRaysStreet = $this->getModelPage()['BranchRaysStreet'];
+        $this->BranchRaysBuilding = $this->getModelPage()['BranchRaysBuilding'];
+        $this->BranchRaysAddress = $this->getModelPage()['BranchRaysAddress'];
+        $this->selectBox1 = $this->getModelPage()['WithRaysOut'];  
     }
     function getbranchInputOutput(){
         return $this->branchInputOutput;

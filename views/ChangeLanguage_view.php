@@ -61,7 +61,6 @@
         { 'searchable': false }
     ];
     function displayEditForm(id, value){
-        removeClass(id);
         openForm(id);
         $(id).find('#lang_name').val(value);
     }

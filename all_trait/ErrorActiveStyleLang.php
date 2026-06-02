@@ -43,7 +43,6 @@ trait ErrorActiveStyleLang{
         echo <<<HTML
         <script type="text/javascript">
              $('#createModel,#style_modal').find('#close_button').on('click', function (){
-                removeClass('#'+$(this).parent().parent().parent().parent().attr('id'));
                 if($('#'+$(this).parent().parent().parent().parent().attr('id')).find('.flexCheck').val() !== $('#'+$(this).parent().parent().parent().parent().attr('id')).find('input[name="id"]:checked').val())
                     $('#'+$(this).parent().parent().parent().parent().attr('id')).find('.flexCheck').prop('checked', true);
             });

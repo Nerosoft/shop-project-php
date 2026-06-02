@@ -12,7 +12,7 @@ class MyFlexTablesView extends Page implements InterfaceDataView{
     private $DataView;
     function __construct($message, $type){
         parent::__construct($_GET['id'], $message, $type);
-        $this->initErrorFlexTable($this->getModelPage());
+        $this->initErrorFlexTable();
         $this->initImageInfo();
         $this->TableHead = $this->getModelPage()['TableHead'];
         $this->Label = $this->getModelPage()['Label'];

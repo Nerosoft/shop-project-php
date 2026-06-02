@@ -2,9 +2,9 @@
 trait ErrorSystemlang{
     private $TextRequired;
     private $TextLenght;
-    function initErrorSystemlang($error){
-        $this->TextRequired = $error['TextRequired'];
-        $this->TextLenght = $error['TextLenght'];
+    function initErrorSystemlang(){
+        $this->TextRequired = $this->getModelPage()['TextRequired'];
+        $this->TextLenght = $this->getModelPage()['TextLenght'];
     }
     function getTextRequired(){
         return $this->TextRequired;

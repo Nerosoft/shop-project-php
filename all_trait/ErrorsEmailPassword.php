@@ -7,19 +7,19 @@ trait ErrorsEmailPassword{
     private $RequiredKeyPassword;
     private $InvalidKeyPassword;
     
-    public function initErrorsEmailPassword($error){
-        $this->RequiredEmail = $error['RequiredEmail'];
-        $this->InvalidEmail = $error['InvalidEmail'];
-        $this->RequiredPassword = $error['RequiredPassword'];
-        $this->InvalidPassword = $error['InvalidPassword'];
+    public function initErrorsEmailPassword(){
+        $this->RequiredEmail = $this->getModelPage()['RequiredEmail'];
+        $this->InvalidEmail = $this->getModelPage()['InvalidEmail'];
+        $this->RequiredPassword = $this->getModelPage()['RequiredPassword'];
+        $this->InvalidPassword = $this->getModelPage()['InvalidPassword'];
         if($this->getSCRIPTFILENAME() !== 'LoginPost'){
-            $this->RequiredKeyPassword = $error['RequiredKeyPassword'];
-            $this->InvalidKeyPassword = $error['InvalidKeyPassword'];
+            $this->RequiredKeyPassword = $this->getModelPage()['RequiredKeyPassword'];
+            $this->InvalidKeyPassword = $this->getModelPage()['InvalidKeyPassword'];
         }
     }
     //setup project no valid email exist
-    function initErrorsEmailPassword3($modal){
-        $this->initErrorsEmailPassword($modal->getModelPage());
+    function initErrorsEmailPassword3(){
+        $this->initErrorsEmailPassword();
         if(!isset($_POST['Email']) || $_POST['Email'] === '')
             ModelJson::initView2($this->getUrlName2(), $this->getRequiredEmail());
         else if(!preg_match('/^[\w]+@[\w]+\.[a-zA-z]{2,6}$/', $_POST['Email']))
@@ -28,12 +28,12 @@ trait ErrorsEmailPassword{
             ModelJson::initView2($this->getUrlName2(), $this->getRequiredPassword());
         else if(strlen($_POST['Password']) < 8)
             ModelJson::initView2($this->getUrlName2(), $this->getInvalidPassword());
-        else if($modal->getSCRIPTFILENAME() !== 'LoginPost' && !isset($_POST['Key']) || $modal->getSCRIPTFILENAME() !== 'LoginPost' && $_POST['Key'] === '')
+        else if($this->getSCRIPTFILENAME() !== 'LoginPost' && !isset($_POST['Key']) || $this->getSCRIPTFILENAME() !== 'LoginPost' && $_POST['Key'] === '')
                 ModelJson::initView2($this->getUrlName2(), $this->getRequiredKeyPassword(), 'danger');
-        else if($modal->getSCRIPTFILENAME() !== 'LoginPost' && strlen($_POST['Key']) < 8)
+        else if($this->getSCRIPTFILENAME() !== 'LoginPost' && strlen($_POST['Key']) < 8)
             ModelJson::initView2($this->getUrlName2(), $this->getInvalidKeyPassword(), 'danger');
     }
-    function initErrorsKeyPassword2($modal, $myData){
+    function initErrorsKeyPassword2($myData){
        if(isset($myData['Users'][$this->keyId]['Email']) && $_POST['Email'] === $myData['Users'][$this->keyId]['Email'] ||
             //make edit create account and check exist email
             isset($myData['Users']) && !in_array($_POST['Email'], array_map(function($user) {return $user['Email'];}, $myData['Users']))||
@@ -43,7 +43,7 @@ trait ErrorsEmailPassword{
                 return $myData;
             //show message email exist
         }else
-            ModelJson::initView2($this->getUrlName2(), $modal->getModelPage()['EmailExist']);
+            ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['EmailExist']);
         
     }
     function getRequiredKeyPassword(){

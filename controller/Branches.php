@@ -31,8 +31,8 @@ class MyBranch extends Page implements InterfaceDataView{
     }
     function __construct($message, $type){
         parent::__construct('Branches', $message, $type);
-        $this->initErrorBranch($this->getModelPage());
-        $this->initInfoBranch($this->getMyModal());
+        $this->initErrorBranch();
+        $this->initInfoBranch();
         $this->BranchStreet = $this->getModelPage()['BranchStreet'];
         $this->BranchName = $this->getModelPage()['BranchName'];
         $this->BranchPhone = $this->getModelPage()['BranchPhone'];

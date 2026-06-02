@@ -81,7 +81,6 @@
     for (let index = -3; index < <?php echo count($view->getTableHead())?>; index++)
         setting.push({ 'searchable': true, className: "text-left table-avatar" });
     function displayEditForm(id, keyObj){
-        removeClass(id);
         openForm(id);
         let myObj = <?php echo json_encode($view->getMyDataView())?>;
         for (const key in myObj[keyObj]) 

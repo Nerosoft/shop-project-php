@@ -20,7 +20,7 @@ class Product extends Page implements InterfaceDataView{
     private $DataView = array();
     function __construct($message, $type){
         parent::__construct('Product', $message, $type);
-        $this->initErrorProduct($this->getModelPage());
+        $this->initErrorProduct();
         $this->NameHeadTable = $this->getModelPage()['NameHeadTable'];
         $this->LabelName = $this->getModelPage()['LabelName'];
         $this->HintName = $this->getModelPage()['HintName'];

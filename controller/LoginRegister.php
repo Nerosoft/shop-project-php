@@ -43,9 +43,9 @@ class LoginRegister extends InformationPage{
     }
     function __construct($message, $type, $IdPage = 'Login', $action = 'LoginPost.php'){
         parent::__construct($IdPage, $message, $type);
-        $this->initInfoBranch($this->getMyModal());
-        $this->initErrorBranch($this->getModelPage());
-        $this->initEmailPassword($this->getModelPage());
+        $this->initInfoBranch();
+        $this->initErrorBranch();
+        $this->initEmailPassword();
         $this->TitleForm = $this->getModelPage()['TitleForm'];
         $this->ButtonName = $this->getModelPage()['ButtonName'];
         $this->DbKeyLabel = $this->getModelPage()['DbKeyLabel'];

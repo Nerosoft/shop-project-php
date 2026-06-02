@@ -14,7 +14,7 @@ class ValidationId extends ModelJson{
         $this->getSCRIPTFILENAME()==='LoginPost' || 
         $this->getSCRIPTFILENAME() === 'RegisterPost'||
         $this->getSCRIPTFILENAME() === 'SetupProject')
-            $this->initErrorsEmailPassword3($this->getMyModal());
+            $this->initErrorsEmailPassword3();
         //valid id first
         else if($this->getSCRIPTFILENAME()!=='BranchCreatePost' && $this->getSCRIPTFILENAME()!=='FlexTablesCreatePost' && $this->getSCRIPTFILENAME()!=='HomeCreatePost' && $this->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' && $this->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $this->getSCRIPTFILENAME()!=='ProductCreatePost' && !isset($_POST['id']) ||
          $this->getSCRIPTFILENAME()!=='BranchCreatePost' && $this->getSCRIPTFILENAME()!=='FlexTablesCreatePost' && $this->getSCRIPTFILENAME()!=='HomeCreatePost' && $this->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' &&  $this->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $this->getSCRIPTFILENAME()!=='ProductCreatePost' && $_POST['id'] === '')
@@ -50,14 +50,14 @@ class ValidationId extends ModelJson{
             isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'HomeDeletePost'||
             isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'HomeDeletePost'||
 
-            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && is_null($this->initErrorFlexTable2($this->getMyModal()))||
-            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && is_null($this->initErrorFlexTable2($this->getMyModal()))||
+            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && is_null($this->initErrorFlexTable2())||
+            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && is_null($this->initErrorFlexTable2())||
 
             isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'ProductCreatePost' && is_null($this->validProductInput($this->getMyModal()))||
             isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ProductCreatePost' && is_null($this->validProductInput($this->getMyModal()))||
 
-            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3($this->getMyModal()))||
-            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3($this->getMyModal()))||
+            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3())||
+            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3())||
             
             //product and uesrs and flextable
             isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'SettingUsersDeletePost'||
@@ -68,10 +68,10 @@ class ValidationId extends ModelJson{
             isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ChangeLanguagePost'||
             isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost'||
             isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost'||
-            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' && is_null($this->validLanguageInput($this->getMyModal()))||
-            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' && is_null($this->validLanguageInput($this->getMyModal()))||
-            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost' && is_null($this->validLanguageInput($this->getMyModal()))||
-            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost' && is_null($this->validLanguageInput($this->getMyModal()))
+            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' && is_null($this->validLanguageInput())||
+            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' && is_null($this->validLanguageInput())||
+            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost' && is_null($this->validLanguageInput())||
+            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost' && is_null($this->validLanguageInput())
 
 
 
@@ -131,15 +131,15 @@ class ValidationId extends ModelJson{
         )
             ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['IdIsInv']);
         else if($this->getSCRIPTFILENAME() === 'BranchEditPost' || $this->getSCRIPTFILENAME() === 'BranchCreatePost')
-            $this->initErrorBranch2($this->getMyModal());
+            $this->initErrorBranch2();
         else if($this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' || $this->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost')
-            $this->validLanguageInput($this->getMyModal());
+            $this->validLanguageInput();
         else if($this->getSCRIPTFILENAME() === 'FlexTablesCreatePost')
-            $this->initErrorFlexTable2($this->getMyModal());
+            $this->initErrorFlexTable2();
         else if($this->getSCRIPTFILENAME() === 'ProductCreatePost')
             $this->validProductInput($this->getMyModal());
         else if($this->getSCRIPTFILENAME() === 'SettingUsersCreatePost')
-            $this->initErrorsEmailPassword3($this->getMyModal());
+            $this->initErrorsEmailPassword3();
         
         else if($this->getSCRIPTFILENAME() === 'HomeCreatePost' || $this->getSCRIPTFILENAME() === 'HomeEditPost')
             $this->validName();

@@ -1,13 +1,15 @@
 <?php
-require 'ErrorChangelanguageAllNames.php';
 trait ErrorChangelanguage{
-    use ErrorChangelanguageAllNames;
     private $NewLangNameRequired;
     private $NewLangNameInvalid;
-    function initErrorChangelanguage($info, $AllNamesLanguage){
-        $this->NewLangNameRequired = $info['NewLangNameRequired'];
-        $this->NewLangNameInvalid = $info['NewLangNameInvalid'];
-        $this->initErrorChangelanguageAllNames($AllNamesLanguage);
+    private $allNames;
+    function initErrorChangelanguage(){
+        $this->NewLangNameRequired = $this->getModelPage()['NewLangNameRequired'];
+        $this->NewLangNameInvalid = $this->getModelPage()['NewLangNameInvalid'];
+        $this->allNames = $this->getModel2()['AllNamesLanguage'];
+    }
+    function getallNames(){
+        return $this->allNames;
     }
     function getNewLangNameRequired(){
         return $this->NewLangNameRequired;
@@ -20,15 +22,15 @@ trait ErrorChangelanguage{
             $myData[$key][$nameKey][$this->keyId] = $_POST['lang_name'];
         return $myData;
     }
-    function validLanguageInput($modal){
-        $this->initErrorChangelanguage($modal->getModelPage(), $modal->getModel2()['AllNamesLanguage']);
+    function validLanguageInput(){
+        $this->initErrorChangelanguage();
         if(!isset($_POST['lang_name']) || $_POST['lang_name'] === '')
             ModelJson::initView2($this->getUrlName2(), $this->getNewLangNameRequired());
         else if(strlen($_POST['lang_name']) < 3)
             ModelJson::initView2($this->getUrlName2(), $this->getNewLangNameInvalid());
-        else if($modal->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost' && !isset($_POST['selectedLanguage']))
+        else if($this->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost' && !isset($_POST['selectedLanguage']))
             ModelJson::initView2($this->getUrlName2(), 'LanguageReq');
-        else if($modal->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost' && !isset($this->getallNames()[$_POST['selectedLanguage']]))
+        else if($this->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost' && !isset($this->getallNames()[$_POST['selectedLanguage']]))
             ModelJson::initView2($this->getUrlName2(), 'LanguageInv');
     }
 }

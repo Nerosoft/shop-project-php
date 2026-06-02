@@ -76,7 +76,6 @@
         { 'searchable': false }
     ];
     function displayEditForm(id, name){
-        removeClass(id);
         openForm(id);
         $(id).find('#name').val(name);
     }

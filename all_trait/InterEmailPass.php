@@ -12,15 +12,15 @@ trait EmailPassword{
     function getCheckbooksState(){
         return $this->CheckbooksState;
     }
-    function initEmailPassword($info){
-        $this->initErrorsEmailPassword($info);
-        $this->LabelEmail = $info['LabelEmail'];
-        $this->HintEmail = $info['HintEmail'];
-        $this->LabelKeyPassword = $info['LabelKeyPassword'];
-        $this->LabelPassword = $info['NewPassword'];
-        $this->HintPassword = $info['NewHintPassword'];
-        $this->HintKeyPassword = $info['HintKeyPassword'];
-        $this->CheckbooksState = $info['CheckbooksState'];
+    function initEmailPassword(){
+        $this->initErrorsEmailPassword();
+        $this->LabelEmail = $this->getModelPage()['LabelEmail'];
+        $this->HintEmail = $this->getModelPage()['HintEmail'];
+        $this->LabelKeyPassword = $this->getModelPage()['LabelKeyPassword'];
+        $this->LabelPassword = $this->getModelPage()['NewPassword'];
+        $this->HintPassword = $this->getModelPage()['NewHintPassword'];
+        $this->HintKeyPassword = $this->getModelPage()['HintKeyPassword'];
+        $this->CheckbooksState = $this->getModelPage()['CheckbooksState'];
     }
     function getLabelKeyPassword(){
         return $this->LabelKeyPassword;

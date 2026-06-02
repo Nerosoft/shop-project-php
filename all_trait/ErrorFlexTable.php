@@ -4,14 +4,14 @@ trait ErrorFlexTable{
     use TableProductImage;
     private $ErrorsMessageReq;
     private $ErrorsMessageInv;
-    function initErrorFlexTable($error){
+    function initErrorFlexTable(){
         $this->initTableProductImage();
-        $this->ErrorsMessageReq = $error['ErrorsMessageReq'];
-        $this->ErrorsMessageInv = $error['ErrorsMessageInv'];
+        $this->ErrorsMessageReq = $this->getModelPage()['ErrorsMessageReq'];
+        $this->ErrorsMessageInv = $this->getModelPage()['ErrorsMessageInv'];
     }
-    function initErrorFlexTable2($modal){
+    function initErrorFlexTable2(){
         $this->validMyImage();
-        $this->initErrorFlexTable($modal->getModelPage());
+        $this->initErrorFlexTable();
         foreach ($this->getErrorsMessageReq() as $key => $value)
             if(!isset($_POST[$key]) || $_POST[$key] === '')
                 ModelJson::initView2($this->getUrlName2(), $this->getErrorsMessageReq()[$key]);

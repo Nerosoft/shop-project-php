@@ -12,16 +12,13 @@ function handleInput(event, error1, error2) {
 
 
 function openForm(id){
+    if($(id).find('form').hasClass('was-validated'))
+        $(id).find('form').removeClass('was-validated');
     $(id).modal('show');
 }
 function closeForm(id){
     $(id).modal('hide');
 }
-function removeClass(idModal){
-    $(idModal).find('form').removeClass('was-validated');
-}
-
-
 function handleInputPhone(event, error1, error2) {
     if (event.validity.valueMissing)
         event.setCustomValidity(error1);

@@ -71,7 +71,6 @@
         { 'searchable': false }
     ];
     function displayEditForm(id, email, password, codePassword){
-        removeClass(id);
         openForm(id);
         $(id).find('#email').val(email);
         $(id).find('#password').val(password);

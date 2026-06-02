@@ -11,7 +11,7 @@ class MySettingUsers extends page implements InterfaceDataView{
     private $DataView;
     function __construct($message, $type){
         parent::__construct('Users', $message, $type);
-        $this->initEmailPassword($this->getModelPage());
+        $this->initEmailPassword();
         $this->NameHeadTable = $this->getModelPage()['NameHeadTable'];
         $this->PasswordHeadTable = $this->getModelPage()['PasswordHeadTable'];
         $this->ForgetPasswordHeadTable = $this->getModelPage()['ForgetPasswordHeadTable'];
