@@ -44,13 +44,19 @@ $('.edit_create').on('click', function(){
     openForm($(this).data('id'));
     if($(this).data('systemlang')){
         $($(this).data('id')).find('form').find('#word').val($(this).data('systemlang'));
+        $($(this).data('id')).find('.branch-check').each(function(){
+            $(this).prop('checked', false);
+        });
     }
     else if($(this).data('value')){
+        $($(this).data('id')).find('.branch-check').each(function(){
+            $(this).prop('checked', false);
+        });
         let obj = $(this).data('value');
         for (const key in obj) {
             let element = $($(this).data('id')).find('form').find('#'+key);
             if(element.is('select')){
-                element.find('option').each(function(idx, el){                   
+                element.find('option').each(function(){                   
                     if($(this).html() === obj[key])
                         $(this).prop('selected', true);
                 });

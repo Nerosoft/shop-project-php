@@ -19,7 +19,7 @@ else if(isset($index) && count($view->getBranch2()) >= 1 && $view->getUrlName2()
                 <div class="col-md-auto">
                     <div class="form-group">
                         <div class="form-check">
-                            <input type="checkbox" id="choices[]" class="form-check-input" name="choices[$key]" value="{$key}">
+                            <input type="checkbox" id="choices[]" class="form-check-input branch-check" name="choices[$key]" value="{$key}">
                             <label class="form-check-label" for="choices[]">
                             {$option['Name']}
                             </label>
