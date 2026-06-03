@@ -47,7 +47,7 @@ function changeInputState(id, type){
     $(id).find('#key').attr('type', type);
     $(id).find('#password').attr('type', type);
 }
-function restValue(myId, obj, src = null){
+function restValue(myId, obj){
     obj = JSON.parse(obj);
     openForm2(myId);
     for (const key in obj) {
