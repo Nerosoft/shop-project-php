@@ -58,7 +58,7 @@ $('.edit_create').on('click', function(){
             else
                 element.val(obj[key]);
         }
-        if($($(this).data('id')).find('form').find('product-img-view'))
+        if($(this).data('src'))
             $($(this).data('id')).find('form').find('img').attr('src', $(this).data('src'));
     }
 })});
