@@ -61,6 +61,4 @@ function restValue(myId, obj, src = null){
         else
             element.val(obj[key]);
     }
-    if(src !== null)
-        $(myId).find('form').find('img').attr('src', src);
 }

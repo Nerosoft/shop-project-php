@@ -5,7 +5,7 @@
         if($view->getUrlName2() === 'Product' || isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()]))
         echo <<<HTML
             <i class="fa fa-binoculars fa-2x pointer" onclick="openForm('#imgmodal{$index}')"></i>
-            <i onclick="restValue('#$idModel', '$valueObj', './asset/product/{$view->getId()}/{$index}')" class="fa fa-sliders fa-2x pointer"></i>
+            <i onclick="restValue('#$idModel', '$valueObj');$('#$idModel').find('form').find('img').attr('src', './asset/product/{$view->getId()}/{$index}')" class="fa fa-sliders fa-2x pointer"></i>
 
         HTML;
         else
