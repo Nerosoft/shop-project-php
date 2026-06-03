@@ -1,8 +1,8 @@
 
     <?php $view = new Product($message, $type);?>
     <div class="start-page container">
-        <button class="btn btn-primary" onClick="openForm('#createModel')"><?php echo $view->getButtonModelCreate()?></button>
         <?php
+            include 'pis_of_page/button_create.php';
             $title = $view->getScreenModelCreate();
             $button = $view->getButtonModelAdd();
             $action = 'ProductCreatePost.php';
@@ -44,17 +44,10 @@
                         $action = 'ProductCreatePost.php';
                         $idModel = "editModel".$index;
                         include('all_modal/ProductModal.php');
-
-                        
-                        
                         echo <<<HTML
-                        <i class="fa fa-sliders fa-2x pointer" 
-                        onclick="displayEditForm('#{$idModel}', '{$myObject->getName()}', '{$myObject->getDescreption()}', '{$myObject->getSalary()}', '{$myObject->getCategory()}', '{$index}')"></i>
-                                <i class="fa fa-binoculars fa-2x pointer" onclick="openForm('#imgmodal{$index}')"></i>
-                                </td>
-                            </tr>
+                        <i class="fa fa-binoculars fa-2x pointer edit_create" data-id="#imgmodal{$index}"></i>
                         HTML;
-                        ++$count;
+                        include 'pis_of_page/button_edit.php';
                     }
                 ?>
             
@@ -83,16 +76,6 @@
         { 'searchable': true, className: "text-left table-avatar" },
         { 'searchable': false, className: "text-left table-avatar"}
     ];
-    function displayEditForm(id, name, descreption, salary, category, image){
-        openForm(id);
-        $(id).find('#name').val(name);
-        $(id).find('#descreption').val(descreption);
-        $(id).find('#salary').val(salary);
-        $(id).find('#category').val(category);
-        $(id).find('#preview').attr('src', './asset/product/<?php echo$view->getId()?>/'+image);
-        $(id).find('#avatar').val("");
-        $(id).find('#avatar')[0].setCustomValidity('');
-    }
      $('#salary').on('input invalid', function() {
         if (this.validity.valueMissing)
             this.setCustomValidity('<?php echo$view->getRequiredSalary()?>');

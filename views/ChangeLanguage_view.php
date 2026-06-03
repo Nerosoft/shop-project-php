@@ -32,14 +32,7 @@
                         $action = 'ChangeLanguageEditPost';
                         include('all_modal/modal_change_language.php');
                         include('all_modal/end_model.php');
-                        echo <<<HTML
-                                <i class="fa fa-sliders fa-2x pointer" 
-                                onclick="displayEditForm('#{$idModel}', '{$myObject->getName()}')"></i>
-                                </td>
-                            </tr>
-                        HTML;
-
-                        ++$count;
+                        include 'pis_of_page/button_edit.php';
                     }
                 ?>
             
@@ -60,9 +53,5 @@
         { 'searchable': true, className: "text-left" },
         { 'searchable': false }
     ];
-    function displayEditForm(id, value){
-        openForm(id);
-        $(id).find('#lang_name').val(value);
-    }
 </script>
 <?php 

@@ -1,8 +1,8 @@
 
     <?php $view = new MySettingUsers($message, $type);?>
     <div class="start-page container">
-        <button class="btn btn-primary" onClick="openForm('#createModel')"><?php echo $view->getButtonModelCreate()?></button>
         <?php
+            include 'pis_of_page/button_create.php';
             $title = $view->getScreenModelCreate();
             $button = $view->getButtonModelAdd();
             $action = 'SettingUsersCreatePost.php';
@@ -39,13 +39,8 @@
                             $action = 'SettingUsersCreatePost.php';
                             $idModel = "editModel".$index;
                             include('all_modal/modal_setting_users_table.php');
-                            echo <<<HTML
-                                       <i class="fa fa-sliders fa-2x pointer" 
-                                        onclick="displayEditForm('#{$idModel}', '{$myObject->getName()}', '{$myObject->getPassword()}', '{$myObject->getKey()}')"></i>
-                                    </td>
-                                </tr>
-                            HTML;
-                        ++$count;
+                            include 'pis_of_page/button_edit.php';
+
                     }
                 ?>
             
@@ -70,12 +65,4 @@
         { 'searchable': true, className: "text-left" },
         { 'searchable': false }
     ];
-    function displayEditForm(id, email, password, codePassword){
-        openForm(id);
-        $(id).find('#email').val(email);
-        $(id).find('#password').val(password);
-        $(id).find('#codePassword').val(codePassword);
-        $(id).find('#codePassword, #password').attr('type', 'password');
-        $(id).find('#mycheckbox').prop('checked', false);
-    }
 </script>

@@ -1,7 +1,7 @@
 <div class="form-group">
     <i class="fa fa-lock fa-2x"></i>
-    <label for="codePassword"><?php echo $view->getLabelKeyPassword()?></label>
-    <input type="password" class="form-control" id="codePassword" name="Key"
+    <label for="Key"><?php echo $view->getLabelKeyPassword()?></label>
+    <input type="password" class="form-control" id="Key" name="Key"
     placeholder="<?php echo $view->getHintKeyPassword()?>"
     title="<?php echo $view->getHintKeyPassword()?>"
     value="<?php echo$myObject?->getKey()??''?>"

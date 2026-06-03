@@ -1,8 +1,8 @@
  </form>
 
 <button form='register' type='submit' class="btn btn-primary" onclick="validForm2('#loginRegister')"><?php echo $view->getButtonName()?></button>
-<button type="button" onclick="openForm('#createModel')" class="btn btn-success"><?php echo $view->getChangeLanguageButton()?></button>
-<button type="button" onclick="openForm('#style_modal')" class="btn btn-info"><?php echo $view->getChangeStyleButton()?></button>
+<button type="button" data-id="#createModel" class="btn btn-success edit_create"><?php echo $view->getChangeLanguageButton()?></button>
+<button type="button" data-id="#style_modal" class="btn btn-info edit_create"><?php echo $view->getChangeStyleButton()?></button>
 <?php 
     $title = $view->getModalTitleProject();
     $button = $view->getModalButtonProject();
@@ -14,5 +14,5 @@
     include('all_modal/end_model.php');
     ?>
 
-<button onclick="openForm('#setupprojectmodal')" type="button" class="btn btn-danger" ><?php echo $view->getButtonSetupProject()?></button>
+<button data-id="#setupprojectmodal" type="button" class="btn btn-danger edit_create" ><?php echo $view->getButtonSetupProject()?></button>
 <a href="<?php echo ($view->getUrlName2()!=='Login'?'login':'register').'?id='.$view->getId();?>" class="navbutton btn btn-info mt-2"><?php echo $view->getRegisterLoginPage()?></a>

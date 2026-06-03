@@ -25,10 +25,10 @@
                         <li class="nav-item">
                             <a href="#contact" class="nav-link">{$view->getContact()}</a>
                         </li>
-                        <li onclick="openForm('#createModel')" class="nav-item">
+                        <li data-id="#createModel" class="nav-item edit_create">
                             <a class="nav-link pointer">{$view->getChangeLanguageButton()}</a>
                         </li>
-                        <li onclick="openForm('#style_modal')" class="nav-item">
+                        <li data-id="#style_modal" class="nav-item edit_create">
                             <a class="nav-link pointer">{$view->getChangeStyleButton()}</a>
                         </li>
                         <li class="nav-item dropdown">

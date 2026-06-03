@@ -28,4 +28,7 @@ class ProductValue implements DeleteInfoName{
             $arr[$key] = new ProductValue(...$product);
         return $arr;
     }
+    function getObj(){
+        return json_encode(get_object_vars($this));
+    }
 }

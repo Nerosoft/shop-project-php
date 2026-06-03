@@ -60,9 +60,7 @@ class ModelJson{
                 break;
             case 'ChangeLanguage':
                 $view = new MyChangeLanguage($message, $type);
-                echo<<<HTML
-                <button class="btn btn-primary" onClick="openForm('#createModel')">{$view->getButtonModelCreate()}</button>
-                HTML;
+                include 'pis_of_page/button_create.php';
                 $title = $view->getScreenModelCreate();
                 $button = $view->getButtonModelAdd();
                 $action = 'ChangeLanguageCreatePost.php';
@@ -137,7 +135,7 @@ class ModelJson{
                 $view = new Login($message, $type);
                 include 'pis_of_page/buttons.php';
                 echo <<<HTML
-                <button onclick="openForm('#forgetpasswordmodal')" type="button" class="btn btn-success" >{$view->getButtonForgetPassword()}</button>
+                <button data-id="#forgetpasswordmodal" type="button" class="btn btn-success edit_create" >{$view->getButtonForgetPassword()}</button>
                 HTML;
                 $title = $view->getModalForgetPasswordTitle();
                 $button = $view->getModalForgetPasswordButton();

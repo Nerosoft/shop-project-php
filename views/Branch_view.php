@@ -3,9 +3,7 @@
     <div class="start-page container">
         <?php
            
-            echo <<<HTML
-                <button class="btn btn-primary" onClick="openForm('#createModel')">{$view->getButtonModelCreate()}</button>
-            HTML;
+            include 'pis_of_page/button_create.php';
             $title = $view->getScreenModelCreate();
             $button = $view->getButtonModelAdd();
             $action = 'BranchCreatePost.php';
@@ -60,12 +58,7 @@
                         $idModel = "editModel".$index;
                         $action = 'BranchEditPost.php';
                         include('all_modal/model_branch.php');
-                        echo <<<HTML
-                                    <i class="fa fa-sliders fa-2x pointer" onclick="displayEditForm($('#{$idModel}').find('#brance-rays-name'), $('#{$idModel}').find('#brance-rays-phone'), $('#{$idModel}').find('#brance-rays-country'), $('#{$idModel}').find('#brance-rays-governments'), $('#{$idModel}').find('#brance-rays-city'), $('#{$idModel}').find('#brance-rays-street'), $('#{$idModel}').find('#brance-rays-building'), $('#{$idModel}').find('#brance-rays-address'), $('#{$idModel}').find('#brance-rays-follow option'), '#{$idModel}', '{$myObject->getName()}', '{$myObject->getPhone()}', '{$myObject->getCountry()}', '{$myObject->getGovernments()}', '{$myObject->getCity()}', '{$myObject->getStreet()}', '{$myObject->getBuilding()}', '{$myObject->getAddress()}', '{$myObject->getFollowId()}')"></i>
-                                </td>
-                            </tr>
-                        HTML;
-                        ++$count;
+                        include 'pis_of_page/button_edit.php';
                     }
                 ?>
             
@@ -102,20 +95,4 @@
         { 'searchable': true, className: "text-left" },
         { 'searchable': false }
     ];
-
-    function displayEditForm(brance_rays_name, brance_rays_phone, brance_rays_country, brance_rays_governments, brance_rays_city, brance_rays_street, brance_rays_building, brance_rays_address, brance_rays_follow, id, nameTest, phoneTest, countryTest, governmentsTest, cityTest, streetTest, buildingTest, addressTest, followTest){
-        openForm(id);
-        brance_rays_name.val(nameTest);
-        brance_rays_phone.val(phoneTest);
-        brance_rays_country.val(countryTest);
-        brance_rays_governments.val(governmentsTest);
-        brance_rays_city.val(cityTest);
-        brance_rays_street.val(streetTest);
-        brance_rays_building.val(buildingTest);
-        brance_rays_address.val(addressTest);
-        brance_rays_follow.each(function(idx, el){
-            if($(this).html() === followTest)
-                $(this).prop('selected', true);
-        });
-    }
 </script>

@@ -61,4 +61,7 @@ class Branch implements DeleteInfoName
                 $branch['Country'], $follow[$branch['Follow']]);        
         return $allBranch;
     }
+    function getObj(){
+        return json_encode(get_object_vars($this));
+    }
 }

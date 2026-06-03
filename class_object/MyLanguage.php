@@ -14,4 +14,7 @@ class MyLanguage
             $lang[$key] =  new MyLanguage($value);
         return $lang;
     }
+    function getObj(){
+        return json_encode(get_object_vars($this));
+    }
 }

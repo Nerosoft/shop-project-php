@@ -1,8 +1,8 @@
 
     <?php $view = new MyFlexTablesView($message, $type);?>
     <div class="start-page container">
-        <button class="btn btn-primary" onClick="openForm('#createModel')"><?php echo $view->getButtonModelCreate()?></button>
         <?php
+            include 'pis_of_page/button_create.php';
             $title = $view->getScreenModelCreate();
             $button = $view->getButtonModelAdd();
             $action = 'FlexTablesCreatePost?id='.$_GET['id'];
@@ -49,13 +49,10 @@
                         $idModel = "editModel".$index;
                         $action = 'FlexTablesCreatePost?id='.$_GET['id'];
                         include('all_modal/modal_flex.php');
-                        echo <<<HTML
-                        <i class="fa fa-sliders fa-2x pointer" onclick="displayEditForm('#{$idModel}', '{$index}')"></i>
-                        <i class="fa fa-binoculars fa-2x pointer" onclick="openForm('#imgmodal{$index}')"></i>
-                                </td>
-                            </tr>
+                        echo<<<HTML
+                        <i class="fa fa-binoculars fa-2x pointer edit_create" data-id="#imgmodal{$index}"></i>
                         HTML;
-                        ++$count;
+                        include 'pis_of_page/button_edit.php';
                     }
                 ?>
             
@@ -80,11 +77,4 @@
     let setting = [];
     for (let index = -3; index < <?php echo count($view->getTableHead())?>; index++)
         setting.push({ 'searchable': true, className: "text-left table-avatar" });
-    function displayEditForm(id, keyObj){
-        openForm(id);
-        let myObj = <?php echo json_encode($view->getMyDataView())?>;
-        for (const key in myObj[keyObj]) 
-            $(id).find('#'+key).val(myObj[keyObj][key]);
-        $(id).find('#preview').attr('src', './asset/product/<?php echo$view->getId()?>/'+keyObj);
-    }
 </script>

@@ -1,8 +1,8 @@
 
     <?php $view = $view??new MyHome($message, $type);?>
     <div class="start-page container">
-        <button class="btn btn-primary" onClick="openForm('#createModel')"><?php echo $view->getButtonModelCreate()?></button>
         <?php
+            include 'pis_of_page/button_create.php';
             $title = $view->getScreenModelCreate();
             $button = $view->getButtonModelAdd();
             $action = 'HomeCreatePost.php';
@@ -48,13 +48,7 @@
                         $idModel = "editModel".$index;
                         include('all_modal/modal_custome_table.php');
                         include('all_modal/end_model.php');
-                        echo <<<HTML
-                                <i class="fa fa-sliders fa-2x pointer" 
-                                onclick="displayEditForm('#{$idModel}', '{$myObject->getName()}')"></i>
-                                </td>
-                            </tr>
-                        HTML;
-                        ++$count;
+                        include 'pis_of_page/button_edit.php';
                     }
                 ?>
             
@@ -75,10 +69,6 @@
         { 'searchable': true, className: "text-left" },
         { 'searchable': false }
     ];
-    function displayEditForm(id, name){
-        openForm(id);
-        $(id).find('#name').val(name);
-    }
     $('#input_number').on('input invalid', function() {
         if (this.validity.valueMissing)
             this.setCustomValidity('<?php echo$view->getInputNumberTableIsReq()?>');

@@ -687,7 +687,7 @@
                 "Street": "menofia - menouf - sirs el laiana",
                 "Building": "Nero-Soft",
                 "Address": "menofia - menouf - sirs el laiana",
-                "Follow": "WithRays"
+                "Follow": "WithoutRays"
             },
             "b1f196cf": {
                 "Name": "shpeen",
