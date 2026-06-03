@@ -41,20 +41,23 @@ function changeInputState(codePassword, password){
 }
 $(document).ready(function(){
 $('.edit_create').on('click', function(){
-    openForm($(this).data('id'));
+    let myId = $(this).data('id');
+    openForm(myId);
     if($(this).data('systemlang')){
-        $($(this).data('id')).find('form').find('#word').val($(this).data('systemlang'));
-        $($(this).data('id')).find('.branch-check').each(function(){
+        $(myId).find('form').find('#word').val($(this).data('systemlang'));
+        $(myId).find('.branch-check').each(function(){
             $(this).prop('checked', false);
         });
     }
     else if($(this).data('value')){
-        $($(this).data('id')).find('.branch-check').each(function(){
+        $(myId).find('.branch-check, .show-pass').each(function(){
+            if($(this).hasClass('show-pass') && $(this).prop('checked'))
+               changeInputState($(myId).find('#key'), $(myId).find('#password'));
             $(this).prop('checked', false);
         });
         let obj = $(this).data('value');
         for (const key in obj) {
-            let element = $($(this).data('id')).find('form').find('#'+key);
+            let element = $(myId).find('form').find('#'+key);
             if(element.is('select')){
                 element.find('option').each(function(){                   
                     if($(this).html() === obj[key])
@@ -65,6 +68,6 @@ $('.edit_create').on('click', function(){
                 element.val(obj[key]);
         }
         if($(this).data('src'))
-            $($(this).data('id')).find('form').find('img').attr('src', $(this).data('src'));
+            $(myId).find('form').find('img').attr('src', $(this).data('src'));
     }
 })});
