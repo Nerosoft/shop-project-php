@@ -41,7 +41,7 @@ function changeInputState(codePassword, password){
 }
 $(document).ready(function(){
 $('.edit_create').on('click', function(){
-    openForm($(this).data('id')?$(this).data('id'):'#createModel');
+    openForm($(this).data('id'));
     if($(this).data('systemlang')){
         $($(this).data('id')).find('form').find('#word').val($(this).data('systemlang'));
     }
