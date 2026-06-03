@@ -64,28 +64,3 @@ function restValue(myId, obj, src = null){
     if(src !== null)
         $(myId).find('form').find('img').attr('src', src);
 }
-// $(document).ready(function(){
-// $('.edit_create').on('click', function(){
-//     let myId = $(this).data('id');
-//     openForm(myId);
-//     $(myId).find('.branch-check, .show-pass').each(function(){
-//         if($(this).hasClass('show-pass') && $(this).prop('checked'))
-//             changeInputState(myId, 'password');
-//         $(this).prop('checked', false);
-//     });
-//     let obj = $(this).data('value');
-//     for (const key in obj) {
-//         let element = $(myId).find('form').find('#'+key);
-//         if(element.is('select')){
-//             element.find('option').each(function(){                   
-//                 if($(this).html() === obj[key])
-//                     $(this).prop('selected', true);
-//             });
-//         }
-//         else
-//             element.val(obj[key]);
-//     }
-//     if($(this).data('src'))
-//         $(myId).find('form').find('img').attr('src', $(this).data('src'));
-    
-// })});
