@@ -110,8 +110,4 @@
         { 'searchable': true, className: "text-left" },
         { 'searchable': false }
     ];
-    function displayForm(id, inputValue, value){
-        openForm(id);
-        inputValue.val(value);
-    }
 </script>

@@ -41,7 +41,11 @@ function changeInputState(codePassword, password){
 }
 $(document).ready(function(){
 $('.edit_create').on('click', function(){
-    if($(this).data('value')){
+    openForm($(this).data('id')?$(this).data('id'):'#createModel');
+    if($(this).data('systemlang')){
+        $($(this).data('id')).find('form').find('#word').val($(this).data('systemlang'));
+    }
+    else if($(this).data('value')){
         let obj = $(this).data('value');
         for (const key in obj) {
             let element = $($(this).data('id')).find('form').find('#'+key);
@@ -57,5 +61,4 @@ $('.edit_create').on('click', function(){
         if($($(this).data('id')).find('form').find('product-img-view'))
             $($(this).data('id')).find('form').find('img').attr('src', $(this).data('src'));
     }
-    openForm($(this).data('id')?$(this).data('id'):'#createModel');
 })});
