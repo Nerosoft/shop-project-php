@@ -7,7 +7,9 @@ if(isset($action) && $action === 'ChangeLanguagePost.php' ||
 ?>
 </div>
 <div class="modal-footer">
-  <button type="submit" id="click_button" onclick="validForm2('#<?php echo$idModel??'createModel'?>')" class="btn btn-primary"><?php echo$button?></button>
+  <?php
+  include 'pis_of_page/button_valid.php';
+  ?>
 </div>
 </form>
 </div>

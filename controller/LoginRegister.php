@@ -63,8 +63,8 @@ class LoginRegister extends InformationPage{
             }
         echo<<<HTML
             <div class="container">
-                <div id="loginRegister" class="register">
-                    <form id='register' method='POST' action="{$action}">
+                <div id="createModel" class="register">
+                    <form method='POST' action="{$action}">
         HTML; 
         $view = $this;
         include 'pis_of_page/login_form.php';       

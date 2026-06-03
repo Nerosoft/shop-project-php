@@ -1,7 +1,10 @@
- </form>
+<?php
+$button = $view->getButtonName();
+include 'button_valid.php';
+?>
+</form>
 
-<button form='register' type='submit' class="btn btn-primary" onclick="validForm2('#loginRegister')"><?php echo $view->getButtonName()?></button>
-<button type="button" data-id="#createModel" class="btn btn-success edit_create"><?php echo $view->getChangeLanguageButton()?></button>
+<button type="button" data-id="#lang_modal" class="btn btn-success edit_create"><?php echo $view->getChangeLanguageButton()?></button>
 <button type="button" data-id="#style_modal" class="btn btn-info edit_create"><?php echo $view->getChangeStyleButton()?></button>
 <?php 
     $title = $view->getModalTitleProject();

@@ -24,7 +24,7 @@ trait ErrorActiveStyleLang{
         $this->ChangeLang = $this->getModelPage()['UsedLanguage'];
         $this->ChangeStyle = $this->getModelPage()['UsedStyle'];
         $view = $this;
-        $idModel = 'createModel';
+        $idModel = 'lang_modal';
         $style_lang = $this->getLanguage();
         $error = $this->getChangeLang();
         $title = $this->getModelTitle();
@@ -42,7 +42,7 @@ trait ErrorActiveStyleLang{
         include 'all_modal/style_lang_form.php';
         echo <<<HTML
         <script type="text/javascript">
-             $('#createModel,#style_modal').find('#close_button').on('click', function (){
+             $('#lang_modal,#style_modal').find('#close_button').on('click', function (){
                 if($('#'+$(this).parent().parent().parent().parent().attr('id')).find('.flexCheck').val() !== $('#'+$(this).parent().parent().parent().parent().attr('id')).find('input[name="id"]:checked').val())
                     $('#'+$(this).parent().parent().parent().parent().attr('id')).find('.flexCheck').prop('checked', true);
             });
@@ -53,11 +53,11 @@ trait ErrorActiveStyleLang{
                 else
                     el.setCustomValidity(error);
             }
-            $('#createModel,#style_modal').find('#click_button').on('click', function(){
+            $('#lang_modal,#style_modal').find('#click_button').on('click', function(){
                 let idmodal = $(this).parent().parent().parent().parent().parent().attr('id');
-                if(idmodal === 'createModel' && $('#createModel').find('input[name="id"]:checked').val() === '{$this->getLanguage()}'||
+                if(idmodal === 'lang_modal' && $('#lang_modal').find('input[name="id"]:checked').val() === '{$this->getLanguage()}'||
                     idmodal === 'style_modal' && $('#style_modal').find('input[name="id"]:checked').val() === '{$this->getStyleFile()}')
-                    $('#'+idmodal).find('input[name="id"]:checked')[0].setCustomValidity(idmodal==='createModel'?'{$this->getChangeLang()}':'{$this->getChangeStyle()}');
+                    $('#'+idmodal).find('input[name="id"]:checked')[0].setCustomValidity(idmodal==='lang_modal'?'{$this->getChangeLang()}':'{$this->getChangeStyle()}');
             });
         </script>
         HTML;

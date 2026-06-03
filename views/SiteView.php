@@ -25,7 +25,7 @@
                         <li class="nav-item">
                             <a href="#contact" class="nav-link">{$view->getContact()}</a>
                         </li>
-                        <li data-id="#createModel" class="nav-item edit_create">
+                        <li data-id="#lang_modal" class="nav-item edit_create">
                             <a class="nav-link pointer">{$view->getChangeLanguageButton()}</a>
                         </li>
                         <li data-id="#style_modal" class="nav-item edit_create">
