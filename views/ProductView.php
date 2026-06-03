@@ -44,9 +44,6 @@
                         $action = 'ProductCreatePost.php';
                         $idModel = "editModel".$index;
                         include('all_modal/ProductModal.php');
-                        echo <<<HTML
-                        <i class="fa fa-binoculars fa-2x pointer edit_create" data-id="#imgmodal{$index}"></i>
-                        HTML;
                         include 'pis_of_page/button_edit.php';
                     }
                 ?>

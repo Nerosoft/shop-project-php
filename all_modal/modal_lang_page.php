@@ -1,5 +1,5 @@
 <!-- Modal -->
-<i data-id="#<?php echo $idModel?>" data-systemlang="<?php echo $myValue?>" class="fa fa-sliders fa-2x pointer edit_create"></i>
+<i onclick="displayForm('#<?php echo $idModel?>', $('#<?php echo $idModel?>').find('#word'), '<?php echo $myValue?>')" class="fa fa-sliders fa-2x pointer"></i>
 <?php include('start_model.php');?>
 <div class="input-group input-group">
     <div class="input-group-prepend">
@@ -32,4 +32,7 @@ if(count($view->getModel2()['AllNamesLanguage'])>1){
                 </div>
             HTML;
 }
-include('end_model.php');?>
+include('end_model.php');
+echo '</td></tr>';
+$count++;
+?>

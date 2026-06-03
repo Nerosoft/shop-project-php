@@ -35,39 +35,32 @@ function handleInputSelect(event, error1) {
         event.setCustomValidity('');
 }
 
-function changeInputState(codePassword, password){
-    codePassword.attr('type', codePassword.attr('type')==='text'?'password':'text');
-    password.attr('type', password.attr('type')==='text'?'password':'text');
+function changeInputState(id, type){
+    $(id).find('#key').attr('type', type);
+    $(id).find('#password').attr('type', type);
 }
 $(document).ready(function(){
 $('.edit_create').on('click', function(){
     let myId = $(this).data('id');
     openForm(myId);
-    if($(this).data('systemlang')){
-        $(myId).find('form').find('#word').val($(this).data('systemlang'));
-        $(myId).find('.branch-check').each(function(){
-            $(this).prop('checked', false);
-        });
-    }
-    else if($(this).data('value')){
-        $(myId).find('.branch-check, .show-pass').each(function(){
-            if($(this).hasClass('show-pass') && $(this).prop('checked'))
-               changeInputState($(myId).find('#key'), $(myId).find('#password'));
-            $(this).prop('checked', false);
-        });
-        let obj = $(this).data('value');
-        for (const key in obj) {
-            let element = $(myId).find('form').find('#'+key);
-            if(element.is('select')){
-                element.find('option').each(function(){                   
-                    if($(this).html() === obj[key])
-                        $(this).prop('selected', true);
-                });
-            }
-            else
-                element.val(obj[key]);
+    $(myId).find('.branch-check, .show-pass').each(function(){
+        if($(this).hasClass('show-pass') && $(this).prop('checked'))
+            changeInputState(myId, 'password');
+        $(this).prop('checked', false);
+    });
+    let obj = $(this).data('value');
+    for (const key in obj) {
+        let element = $(myId).find('form').find('#'+key);
+        if(element.is('select')){
+            element.find('option').each(function(){                   
+                if($(this).html() === obj[key])
+                    $(this).prop('selected', true);
+            });
         }
-        if($(this).data('src'))
-            $(myId).find('form').find('img').attr('src', $(this).data('src'));
+        else
+            element.val(obj[key]);
     }
+    if($(this).data('src'))
+        $(myId).find('form').find('img').attr('src', $(this).data('src'));
+    
 })});

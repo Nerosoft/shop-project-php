@@ -34,8 +34,6 @@
                                             $idModel = "editModel".$count;
                                             $action = 'SystemLangEditPost.php?lang='.$keyLanguage.'&table='.$keyPage.'&key='.$key.'&array='.$key2;
                                             include('all_modal/modal_lang_page.php');
-                                            echo '</td></tr>';
-                                            $count++;
                                         }
                                     else{
                                         echo <<<HTML
@@ -51,8 +49,6 @@
                                         $idModel = "editModel".$count;
                                         $action = 'SystemLangEditPost.php?lang='.$keyLanguage.'&table='.$keyPage.'&key='.$key;
                                         include('all_modal/modal_lang_page.php');
-                                        echo '</td></tr>';
-                                        $count++;
                                     }    
                     else
                         foreach ($view->getMyDataView() as $keyLanguage => $myValue) {
@@ -70,8 +66,6 @@
                                     $idModel = "editModel".$count;
                                     $action = 'SystemLangEditPost.php?lang='.$_GET['lang'].'&table='.$_GET['table'].'&key='.$keyLanguage.'&array='.$key;
                                     include('all_modal/modal_lang_page.php');
-                                    echo '</td></tr>';
-                                    $count++;
                                 }
                             else{
                                 echo <<<HTML
@@ -85,8 +79,6 @@
                                 $idModel = "editModel".$count;
                                 $action = 'SystemLangEditPost.php?lang='.$_GET['lang'].'&table='.$_GET['table'].'&key='.$keyLanguage;
                                 include('all_modal/modal_lang_page.php');
-                                echo '</td></tr>';
-                                $count++;
                             }
                         }
                 ?>
@@ -110,4 +102,8 @@
         { 'searchable': true, className: "text-left" },
         { 'searchable': false }
     ];
+    function displayForm(id, inputValue, value){
+        openForm(id);
+        inputValue.val(value);
+    }
 </script>

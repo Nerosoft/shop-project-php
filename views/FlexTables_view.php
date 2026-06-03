@@ -49,9 +49,6 @@
                         $idModel = "editModel".$index;
                         $action = 'FlexTablesCreatePost?id='.$_GET['id'];
                         include('all_modal/modal_flex.php');
-                        echo<<<HTML
-                        <i class="fa fa-binoculars fa-2x pointer edit_create" data-id="#imgmodal{$index}"></i>
-                        HTML;
                         include 'pis_of_page/button_edit.php';
                     }
                 ?>

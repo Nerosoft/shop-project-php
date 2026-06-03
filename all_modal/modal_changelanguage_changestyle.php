@@ -1,4 +1,4 @@
-<i class="pointer <?php echo $image?> fa-2x edit_create" data-id="#selectLanguage<?php echo$index?>"></i>
+<i class="pointer <?php echo $image?> fa-2x" onclick="openForm('#selectLanguage<?php echo$index?>')"></i>
 <?php
 $title = $view->getTitleChangeLanguageMessage();
 $button = $view->getButtonChangeLanguageMessage();

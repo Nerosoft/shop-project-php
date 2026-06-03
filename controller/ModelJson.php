@@ -135,7 +135,7 @@ class ModelJson{
                 $view = new Login($message, $type);
                 include 'pis_of_page/buttons.php';
                 echo <<<HTML
-                <button data-id="#forgetpasswordmodal" type="button" class="btn btn-success edit_create" >{$view->getButtonForgetPassword()}</button>
+                <button onclick="openForm('#forgetpasswordmodal')" type="button" class="btn btn-success" >{$view->getButtonForgetPassword()}</button>
                 HTML;
                 $title = $view->getModalForgetPasswordTitle();
                 $button = $view->getModalForgetPasswordButton();
