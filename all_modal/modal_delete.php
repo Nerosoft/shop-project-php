@@ -1,4 +1,4 @@
-<i onclick="openForm('#deleteModel<?php echo$index?>')" class="fa fa-trash fa-2x pointer"></i>
+<i onclick="openForm2('#deleteModel<?php echo$index?>')" class="fa fa-trash fa-2x pointer"></i>
 <?php
 $title = $view->getScreenModelDelete();
 $idModel = "deleteModel".$index;

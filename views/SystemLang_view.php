@@ -103,7 +103,7 @@
         { 'searchable': false }
     ];
     function displayForm(id, inputValue, value){
-        openForm(id);
+        openForm2(id);
         inputValue.val(value);
     }
 </script>
