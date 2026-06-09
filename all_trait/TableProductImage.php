@@ -9,7 +9,7 @@ trait TableProductImage{
     function initTableProductImage(){
         $this->initImageInfo();
         $this->TitleViewImage = $this->getModelPage()['TitleViewImage'];
-        $this->TableProductImage = $this->getModelPage()['TableProductImage'];
+        // $this->TableProductImage = $this->getModelPage()['TableProductImage'];
         $this->ImgLabel = $this->getModelPage()['ImgLabel'];
         $this->ImgButton = $this->getModelPage()['ImgButton'];
     }
@@ -18,7 +18,7 @@ trait TableProductImage{
     }
 
     function getTableProductImage(){
-        return $this->TableProductImage;
+        return $this->getModelPage()['TableProductImage'];//$this->TableProductImage;
     }
     function getImgLabel(){
         return $this->ImgLabel;

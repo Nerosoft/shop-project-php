@@ -6,25 +6,25 @@ trait InfoChangeLangStyle{
     private $LabelNameLanguage;
     private $HintNewLangName;
     private $NameLangaue;
-    private $DataView;
-    function InitInfoChangeLangStyle($DataView){
+    function InitInfoChangeLangStyle(){
         $this->initErrorChangelanguage();
         $this->LabelNameLanguage = $this->getModelPage()['LabelCreateLanguage'];
         $this->HintNewLangName = $this->getModelPage()['HintNewLangName'];
-        $this->NameLangaue = $this->getModelPage()['NameLangaue'];
-        $this->DataView = $DataView;
+        // $this->NameLangaue = $this->getModelPage()['NameLangaue'];
         echo '<div class="start-page container">';
     }
-    function getMyDataView(){
-        return $this->DataView;
-    }
     function getNameLangaue(){
-        return $this->NameLangaue;
+        return $this->getModelPage()['NameLangaue'];//$this->NameLangaue;
     }
     function getHintNewLangName(){
         return $this->HintNewLangName;
     }
     function getLabelNameLanguage(){
         return $this->LabelNameLanguage;
+    }
+    function printTableNames(){
+        echo<<<HTML
+            <th>{$this->getNameLangaue()}</th>
+        HTML;
     }
 }

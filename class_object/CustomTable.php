@@ -5,7 +5,7 @@ class CustomTable implements DeleteInfoName
      * Create a new class instance.
      */
     private $name;
-    public function __construct($Name)
+    public function __construct($Name = null)
     {
         $this->name = $Name;
     }
@@ -21,5 +21,8 @@ class CustomTable implements DeleteInfoName
     }
     function getObj(){
         return json_encode(get_object_vars($this));
+    }
+    static function getKeysObject(){
+        return count(get_object_vars(new static()));
     }
 }

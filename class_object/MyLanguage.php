@@ -2,7 +2,7 @@
 class MyLanguage
 {
     private $name;
-    function __construct($name){
+    function __construct($name = null){
         $this->name = $name;
     }
     function getName(){
@@ -16,5 +16,8 @@ class MyLanguage
     }
     function getObj(){
         return json_encode(get_object_vars($this));
+    }
+    static function getKeysObject(){
+        return count(get_object_vars(new static()));
     }
 }

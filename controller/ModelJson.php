@@ -24,6 +24,8 @@ class ModelJson{
         ModelJson::initView2($keyPage2??$keyPage, $message, $type);
     }
     static function initView2($keyPage, $message, $type = "danger"){
+        if($keyPage !== 'Login' && $keyPage !== 'Register' && $keyPage !== 'Site')
+            $count = 1;
         switch ($keyPage) {
             case 'Product':
                 include 'views/ProductView.php';
@@ -60,31 +62,6 @@ class ModelJson{
                 break;
             case 'ChangeLanguage':
                 $view = new MyChangeLanguage($message, $type);
-                include 'pis_of_page/button_create.php';
-                $title = $view->getScreenModelCreate();
-                $button = $view->getButtonModelAdd();
-                $action = 'ChangeLanguageCreatePost.php';
-                include('all_modal/modal_change_language.php');
-                echo <<<HTML
-                    <div class="form-group">
-                        <label for="selectedLanguage">{$view->getSelectLang()}</label>
-                        <select
-                        title=""
-                        class="form-select" name="selectedLanguage"  aria-label="Default select example">
-                HTML;
-                        foreach($view->getMyDataView() as $key=>$name){
-                                $select = $key === $view->getLanguage()? 'selected' : '';
-                                echo <<<HTML
-                                <option {$select} value="{$key}">
-                                    {$name->getName()}
-                                </option>
-                                HTML;
-                            }
-                echo <<<HTML
-                        </select>
-                    </div>
-                HTML;
-                include('all_modal/end_model.php');
                 include 'views/ChangeLanguage_view.php';
                 break;
             case 'Site':

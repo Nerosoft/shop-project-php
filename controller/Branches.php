@@ -7,19 +7,18 @@ require 'interface/InterfaceDataView.php';
 require 'class_object/BranchClass.php';
 class MyBranch extends Page implements InterfaceDataView{
     use ErrorBranch, ChangeStyleLangBranch, InfoBranch;
-    private $BranchStreet;
-    private $BranchName;
-    private $BranchPhone;
-    private $BranchGovernments;
-    private $BranchCity;
-    private $BranchBuilding;
-    private $BranchAddress;
-    private $BranchCountry;
-    private $BranchFollow;
+    // private $BranchStreet;
+    // private $BranchName;
+    // private $BranchPhone;
+    // private $BranchGovernments;
+    // private $BranchCity;
+    // private $BranchBuilding;
+    // private $BranchAddress;
+    // private $BranchCountry;
+    // private $BranchFollow;
     private $FlexTable;
     private $SettingAccounts;
     private $Product;
-    private $DataView;
     function getFlexTable(){
         return $this->FlexTable;
     }
@@ -30,52 +29,57 @@ class MyBranch extends Page implements InterfaceDataView{
         return $this->Product;
     }
     function __construct($message, $type){
-        parent::__construct('Branches', $message, $type);
+        parent::__construct('Branches', $message, $type, function(){
+            $this->initInfoBranch();
+            return Branch::fromArray($this->getBranch(), $this->getbranchInputOutput());
+        }, Branch::getKeysObject());
         $this->initErrorBranch();
-        $this->initInfoBranch();
-        $this->BranchStreet = $this->getModelPage()['BranchStreet'];
-        $this->BranchName = $this->getModelPage()['BranchName'];
-        $this->BranchPhone = $this->getModelPage()['BranchPhone'];
-        $this->BranchGovernments = $this->getModelPage()['BranchGovernments'];
-        $this->BranchCity = $this->getModelPage()['BranchCity'];
-        $this->BranchBuilding = $this->getModelPage()['BranchBuilding'];
-        $this->BranchAddress = $this->getModelPage()['BranchAddress'];
-        $this->BranchCountry = $this->getModelPage()['BranchCountry'];
-        $this->BranchFollow = $this->getModelPage()['BranchFollow'];
         $this->FlexTable = $this->getModelPage()['FlexTable'];
         $this->SettingAccounts = $this->getModelPage()['SettingAccounts'];
         $this->Product = $this->getModelPage()['Product'];
-        //get all hint
-        $this->DataView = Branch::fromArray($this->getBranch(), $this->getbranchInputOutput());
-    }
-    function getMyDataView(){
-        return $this->DataView;
     }
     function getBranchStreet(){
-        return $this->BranchStreet;
+        return $this->getModelPage()['BranchStreet'];//$this->BranchStreet;
     }
     function getBranchName(){
-        return $this->BranchName;
+        return $this->getModelPage()['BranchName'];//$this->BranchName;
     }
     function getBranchPhone(){
-        return $this->BranchPhone;
+        return $this->getModelPage()['BranchPhone'];//$this->BranchPhone;
     }
     function getBranchGovernments(){
-        return $this->BranchGovernments;
+        return $this->getModelPage()['BranchGovernments'];//$this->BranchGovernments;
     }
     function getBranchCity(){
-        return $this->BranchCity;
+        return $this->getModelPage()['BranchCity'];//$this->BranchCity;
     }
     function getBranchBuilding(){
-        return $this->BranchBuilding;
+        return $this->getModelPage()['BranchBuilding'];//$this->BranchBuilding;
     }
     function getBranchAddress(){
-        return $this->BranchAddress;
+        return $this->getModelPage()['BranchAddress'];//$this->BranchAddress;
     }
     function getBranchCountry(){
-        return $this->BranchCountry;
+        return $this->getModelPage()['BranchCountry'];//$this->BranchCountry;
     }
     function getBranchFollow(){
-        return $this->BranchFollow;
+        return $this->getModelPage()['BranchFollow'];//$this->BranchFollow;
+    }
+    function printTableNames(){
+        echo <<<HTML
+            <th>{$this->getBranchName()}</th>
+            <th>{$this->getBranchPhone()}</th>
+            <th>{$this->getBranchGovernments()}</th>
+            <th>{$this->getBranchCity()}</th>
+            <th>{$this->getBranchStreet()}</th>
+            <th>{$this->getBranchBuilding()}</th>
+            <th>{$this->getBranchAddress()}</th>
+            <th>{$this->getBranchCountry()}</th>
+            <th>{$this->getBranchFollow()}</th>
+        HTML;
+    }
+    function makeCreateModal($view, $title, $button){
+        $action = 'BranchCreatePost.php';
+        include('all_modal/model_branch.php');
     }
 }

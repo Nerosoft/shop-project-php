@@ -8,14 +8,17 @@ class Page extends AdminMenu{
     private $messageModelDelete;
     private $buttonModelDelete;
     private $LoadMessage;
-    function __construct($IdPage, $message, $type){
-        parent::__construct($IdPage, $message, $type);
+    function __construct($IdPage, $message, $type, $DataView, $keysTable = null){
+        parent::__construct($IdPage, $message, $type, $DataView, $keysTable);
         $this->ScreenModelCreate = $this->getModelPage()['ScreenModelCreate'];
-        $this->ButtonModelCreate = $this->getModelPage()['ButtonModelCreate'];
         $this->ButtonModelAdd = $this->getModelPage()['ButtonModelAdd'];
+        $this->ButtonModelCreate = $this->getModelPage()['ButtonModelCreate'];
         $this->ScreenModelDelete = $this->getModelPage()['ScreenModelDelete'];
         $this->messageModelDelete = $this->getModelPage()['MessageModelDelete'];
         $this->buttonModelDelete = $this->getModelPage()['ButtonModelDelete'];
+        echo <<<HTML
+            <button onclick="openForm('#createModel')" class="btn btn-primary">{$this->getModelPage()['ButtonModelCreate']}</button>
+        HTML;
     }
     function getScreenModelCreate(){
         return $this->ScreenModelCreate;

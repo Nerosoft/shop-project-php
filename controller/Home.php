@@ -10,16 +10,16 @@ class MyHome extends Page implements InterfaceDataView{
     private $HintInputNumber;
     private $LabelName;
     private $HintName;
-    private $DataView;
     function __construct($message, $type){
-        parent::__construct('Home', $message, $type);
+        parent::__construct('Home', $message, $type, function(){
+            return isset($this->getModel2()['MyFlexTables'])?array_reverse(CustomTable::fromArray($this)):array();
+        }, CustomTable::getKeysObject());
         $this->initErrorsHome();
         $this->LabelName = $this->getModelPage()['LabelName'];
         $this->HintName = $this->getModelPage()['HintName'];
         $this->TableName = $this->getModelPage()['NameTable'];
         $this->LabelInputNumber = $this->getModelPage()['LabelInputNumber'];
         $this->HintInputNumber = $this->getModelPage()['HintInputNumber'];
-        $this->DataView = isset($this->getModel2()['MyFlexTables'])?array_reverse(CustomTable::fromArray($this)):array();
     }
     function getLabelName(){
         return $this->LabelName;
@@ -27,16 +27,34 @@ class MyHome extends Page implements InterfaceDataView{
     function getHintName(){
         return $this->HintName;
     }
-    function getMyDataView(){
-        return $this->DataView;
-    }
     function getTableName(){
-        return $this->TableName;
+        return $this->getModelPage()['NameTable'];
     }
     function getLabelInputNumber(){
         return $this->LabelInputNumber;
     }
     function getHintInputNumber(){
         return $this->HintInputNumber;
+    }
+    function printTableNames(){
+        echo<<<HTML
+        <th>{$this->getTableName()}</th>
+        HTML;
+    }
+    function makeCreateModal($view, $title, $button){
+        $action = 'HomeCreatePost.php';
+        include('all_modal/modal_custome_table.php');
+        echo <<<HTML
+            <div class="form-group">
+                <label for="lang_name" class="form-label">{$this->getLabelInputNumber()}</label>
+                <input 
+                title='{$this->getHintInputNumber()}'
+                min="1" 
+                max="8" 
+                required
+                type="number" name="input_number" id="input_number"  placeholder='{$this->getHintInputNumber()}' class="form-control">
+            </div>
+        HTML;
+        include('all_modal/end_model.php');
     }
 }

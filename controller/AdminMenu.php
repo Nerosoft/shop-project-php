@@ -17,11 +17,20 @@ class AdminMenu extends InformationPage
     private $TableId;
     private $TabelEvent;
     private $AllBranches;
+    private $keysTable;
+    private $DataView;
+    function getKeysTable(){
+        return $this->keysTable;
+    }
     function getAllBranches(){
         return $this->AllBranches;
     }
-    function __construct($IdPage, $message, $type){
+    function getMyDataView(){
+        return $this->DataView;
+    }
+    function __construct($IdPage, $message, $type, $DataView, $keysTable){
         parent::__construct($IdPage, $message, $type);
+        $this->keysTable = $keysTable??count($this->getModelPage()['TableHead'])+1;
         if($IdPage !== 'Branches')
             $this->AllBranches = $this->getModelPage()['AllBranches'];
         $this->Ssearch = $this->getModel2()['TableInfo']['Ssearch'];
@@ -54,6 +63,19 @@ class AdminMenu extends InformationPage
             unset($this->myMenuApp['MyFlexTables']);
         }        
         include 'pis_of_page/admin_title.php';
+        $this->DataView = $DataView();
+        echo '<div class="start-page container">
+            <table id="example" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>'.$this->getTableId().'</th>';
+        $this->printTableNames();
+        echo '<th>'.$this->getTabelEvent().'</th>
+                </tr>
+            </thead>
+            <tbody>';
+        
+
     }
     function getIconByKey($key){
         if($key === 'Home')

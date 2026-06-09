@@ -21,7 +21,10 @@ trait ErrorsHome{
         else if($this->getSCRIPTFILENAME() === 'HomeCreatePost' && !isset($_POST['input_number']) || $this->getSCRIPTFILENAME() === 'HomeCreatePost' && $_POST['input_number'] === '')
             ModelJson::initView2($this->getUrlName2(), $this->getInputNumberTableIsReq());
         else if($this->getSCRIPTFILENAME() === 'HomeCreatePost' && !is_numeric($_POST['input_number']) || $this->getSCRIPTFILENAME() === 'HomeCreatePost' && $_POST['input_number'] > 8)
-            ModelJson::initView2($this->getUrlName2(), $this->getInputNumberTableIsInv());    
+            ModelJson::initView2($this->getUrlName2(), $this->getInputNumberTableIsInv());  
+        else if($this->getSCRIPTFILENAME() === 'HomeCreatePost')
+            for ($i=0; $i < $_POST['input_number']; $i++)
+                array_push($this->keysInput, $this->getRandomId());  
     }
     function getNameTableIsReq(){
         return $this->NameTableIsReq;

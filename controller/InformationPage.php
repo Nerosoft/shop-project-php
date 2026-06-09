@@ -33,7 +33,7 @@ class InformationPage extends ModelJson{
             <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';
             if($IdPage === 'ChangeLanguage' || $IdPage === 'MyStyle' || $IdPage === 'Branches'){
                 if($IdPage === 'ChangeLanguage' || $IdPage === 'MyStyle')
-                    $this->InitInfoChangeLangStyle(array_reverse(MyLanguage::fromArray($this->getModel2()[$IdPage === 'ChangeLanguage'?'AllNamesLanguage':'Style'])));
+                    $this->InitInfoChangeLangStyle();
                 $this->initChangeStyleLangBranch($this->getModelPage());
             }
         }

@@ -6,9 +6,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             use ErrorsHome;
             private $keysInput = array();
             function __construct(){
-                if(isset($_POST['input_number']) && is_numeric($_POST['input_number']))
-                    for ($i=0; $i < $_POST['input_number']; $i++)
-                        array_push($this->keysInput, $this->getRandomId());
+              
                 parent::__construct('Home', function($myFile){
                     return $this->saveFelxTable($myFile[$myFile['Setting']['Language']]['AllNamesLanguage'], $myFile);
                 }, 'MessageModelCreate'); 

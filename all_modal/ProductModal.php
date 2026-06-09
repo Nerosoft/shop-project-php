@@ -27,7 +27,7 @@ include('pis_of_page/image_table_product.php');
 </div>
  <div class="form-group">
     <label for="Salary"><?php echo $view->getLabelSalary()?></label>
-    <input type="number" class="form-control" id="salary" name="salary"
+    <input type="number" class="form-control mysalary" id="salary" name="salary"
     placeholder="<?php echo $view->getHintSalary()?>"
     title="<?php echo $view->getHintSalary()?>"
     value="<?php echo$myObject?->getSalary()??''?>"

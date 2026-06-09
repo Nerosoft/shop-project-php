@@ -4,7 +4,7 @@ class ProductValue implements DeleteInfoName{
     private $Descreption;
     private $Salary;
     private $Category;
-    function __construct($Name, $Descreption, $Salary, $Category){
+    function __construct($Name = null, $Descreption = null, $Salary = null, $Category = null){
         $this->Name = $Name;
         $this->Descreption = $Descreption;
         $this->Salary = $Salary;
@@ -30,5 +30,8 @@ class ProductValue implements DeleteInfoName{
     }
     function getObj(){
         return json_encode(get_object_vars($this));
+    }
+    static function getKeysObject(){
+        return count(get_object_vars(new static())) + 1;
     }
 }

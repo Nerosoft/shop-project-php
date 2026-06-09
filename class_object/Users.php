@@ -7,7 +7,7 @@ class Users implements DeleteInfoName
     private $Email;
     private $Password;
     private $Key;
-    function __construct($Email, $Password, $Key)
+    function __construct($Email = null, $Password = null, $Key = null)
     {
         $this->Email = $Email;
         $this->Password = $Password;
@@ -30,5 +30,8 @@ class Users implements DeleteInfoName
     }
     function getObj(){
         return json_encode(get_object_vars($this));
+    }
+    static function getKeysObject(){
+        return count(get_object_vars(new static()));
     }
 }

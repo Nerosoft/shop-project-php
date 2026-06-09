@@ -14,7 +14,7 @@ class Branch implements DeleteInfoName
     private $Address;
     private $Country;
     private $Follow;
-    function __construct($Name, $Phone, $Governments, $City, $Street, $Building, $Address, $Country, $Follow)
+    function __construct($Name = null, $Phone = null, $Governments = null, $City = null, $Street = null, $Building = null, $Address = null, $Country = null, $Follow = null)
     {
         $this->Name = $Name;
         $this->Phone = $Phone;
@@ -63,5 +63,8 @@ class Branch implements DeleteInfoName
     }
     function getObj(){
         return json_encode(get_object_vars($this));
+    }
+    static function getKeysObject(){
+        return count(get_object_vars(new static()));
     }
 }
