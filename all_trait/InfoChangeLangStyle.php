@@ -11,7 +11,6 @@ trait InfoChangeLangStyle{
         $this->LabelNameLanguage = $this->getModelPage()['LabelCreateLanguage'];
         $this->HintNewLangName = $this->getModelPage()['HintNewLangName'];
         // $this->NameLangaue = $this->getModelPage()['NameLangaue'];
-        echo '<div class="start-page container">';
     }
     function getNameLangaue(){
         return $this->getModelPage()['NameLangaue'];//$this->NameLangaue;
