@@ -34,7 +34,7 @@ class InformationPage extends ModelJson{
             if($IdPage === 'ChangeLanguage' || $IdPage === 'MyStyle' || $IdPage === 'Branches'){
                 if($IdPage === 'ChangeLanguage' || $IdPage === 'MyStyle')
                     $this->InitInfoChangeLangStyle();
-                $this->initChangeStyleLangBranch($this->getModelPage());
+                $this->initChangeStyleLangBranch();
             }
         }
         $toast = $this->getModelPage()[$message]??$message;
