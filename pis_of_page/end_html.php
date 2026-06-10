@@ -79,8 +79,6 @@
                     });  
                 </script>
         HTML;
-        if($view->getUrlName2() !== 'SystemLang' && $view->getUrlName2() !== 'MyStyle')
-            $view->makeCreateModal($view, $view->getScreenModelCreate(), $view->getButtonModelAdd());
     }
 ?>
 </body>

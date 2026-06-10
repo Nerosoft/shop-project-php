@@ -1,26 +1,26 @@
 <?php
-require 'page.php';
+require 'AdminMenu.php';
 require 'all_trait/ErrorFlexTable.php';
 if(!isset((new ModelJson($_GET['id']))->getObj()[(new ModelJson($_GET['id']))->getObj()['Setting']['Language']][$_GET['id']]))
     header("Location:index");
 include 'interface/InterfaceDataView.php';
-class MyFlexTablesView extends Page implements InterfaceDataView{
+class MyFlexTablesView extends AdminMenu implements InterfaceDataView{
     use ErrorFlexTable;
     private $TableHead;
     private $Label;
     private $Hint;
     function __construct($message, $type){
         parent::__construct($_GET['id'], $message, $type, function(){
+            $this->initErrorFlexTable();
+            $this->initImageInfo();
+            $this->TableHead = $this->getModelPage()['TableHead'];
+            $this->Label = $this->getModelPage()['Label'];
+            $this->Hint = $this->getModelPage()['Hint'];
             return isset($this->getObj()[$_GET['id']])?array_reverse($this->getObj()[$_GET['id']]):array();
-        });
-        $this->initErrorFlexTable();
-        $this->initImageInfo();
-        // $this->TableHead = $this->getModelPage()['TableHead'];
-        $this->Label = $this->getModelPage()['Label'];
-        $this->Hint = $this->getModelPage()['Hint'];
+        }, null);
     }
     function getTableHead(){
-        return $this->getModelPage()['TableHead'];//$this->TableHead;
+        return $this->TableHead;
     }
     function getLabel(){
         return $this->Label;

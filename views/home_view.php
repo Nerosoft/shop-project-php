@@ -1,5 +1,5 @@
 <?php 
-    $view = $view??new MyHome($message, $type);
+    $view = new MyHome($message, $type);
     foreach ($view->getMyDataView() as $index => $myObject) {
         echo <<<HTML
             <tr>

@@ -10,10 +10,10 @@ trait InfoChangeLangStyle{
         $this->initErrorChangelanguage();
         $this->LabelNameLanguage = $this->getModelPage()['LabelCreateLanguage'];
         $this->HintNewLangName = $this->getModelPage()['HintNewLangName'];
-        // $this->NameLangaue = $this->getModelPage()['NameLangaue'];
+        $this->NameLangaue = $this->getModelPage()['NameLangaue'];
     }
     function getNameLangaue(){
-        return $this->getModelPage()['NameLangaue'];//$this->NameLangaue;
+        return $this->NameLangaue;
     }
     function getHintNewLangName(){
         return $this->HintNewLangName;

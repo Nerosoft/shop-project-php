@@ -1,14 +1,14 @@
 <?php
-require 'page.php';
+require 'AdminMenu.php';
 require 'all_trait/InfoChangeLangStyle.php';
-class MyChangeLanguage extends Page{
+class MyChangeLanguage extends AdminMenu{
     use InfoChangeLangStyle;
     private $SelectLang;
     function __construct($message, $type){
         parent::__construct('ChangeLanguage', $message, $type, function(){
+            $this->SelectLang = $this->getModelPage()['LanguageSelect'];
             return array_reverse(MyLanguage::fromArray($this->getModel2()['AllNamesLanguage']));
         }, MyLanguage::getKeysObject());
-        $this->SelectLang = $this->getModelPage()['LanguageSelect'];
     }
     function getSelectLang(){
         return $this->SelectLang;

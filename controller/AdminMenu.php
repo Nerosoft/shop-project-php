@@ -19,6 +19,18 @@ class AdminMenu extends InformationPage
     private $AllBranches;
     private $keysTable;
     private $DataView;
+    private $ScreenModelDelete;
+    private $messageModelDelete;
+    private $buttonModelDelete;
+    function getScreenModelDelete(){
+        return $this->ScreenModelDelete;
+    }
+    function getmessageModelDelete(){
+        return $this->messageModelDelete;
+    }
+    function getbuttonModelDelete(){
+        return $this->buttonModelDelete;
+    }
     function getKeysTable(){
         return $this->keysTable;
     }
@@ -30,6 +42,7 @@ class AdminMenu extends InformationPage
     }
     function __construct($IdPage, $message, $type, $DataView, $keysTable){
         parent::__construct($IdPage, $message, $type);
+        $this->DataView = $DataView();
         $this->keysTable = $keysTable??count($this->getModelPage()['TableHead'])+1;
         if($IdPage !== 'Branches')
             $this->AllBranches = $this->getModelPage()['AllBranches'];
@@ -63,8 +76,17 @@ class AdminMenu extends InformationPage
             unset($this->myMenuApp['MyFlexTables']);
         }        
         include 'pis_of_page/admin_title.php';
-        $this->DataView = $DataView();
-        echo '<div class="start-page container">
+        echo '<div class="start-page container">';
+        if($this->getUrlName2() !== 'SystemLang' && $this->getUrlName2() !== 'MyStyle'){
+            $this->ScreenModelDelete = $this->getModelPage()['ScreenModelDelete'];
+            $this->messageModelDelete = $this->getModelPage()['MessageModelDelete'];
+            $this->buttonModelDelete = $this->getModelPage()['ButtonModelDelete'];
+            echo <<<HTML
+                <button onclick="openForm('#createModel')" class="btn btn-primary">{$this->getModelPage()['ButtonModelCreate']}</button>
+            HTML;
+            $this->makeCreateModal($this, $this->getModelPage()['ScreenModelCreate'], $this->getModelPage()['ButtonModelAdd']);
+        }
+        echo'
             <table id="example" class="table table-striped">
             <thead>
                 <tr>

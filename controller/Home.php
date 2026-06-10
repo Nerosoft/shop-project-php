@@ -1,9 +1,9 @@
 <?php
-require 'page.php';
+require 'AdminMenu.php';
 require 'class_object/CustomTable.php';
 require 'all_trait/ErrorsHome.php';
 include 'interface/InterfaceDataView.php';
-class MyHome extends Page implements InterfaceDataView{
+class MyHome extends AdminMenu implements InterfaceDataView{
     use ErrorsHome;
     private $TableName;
     private $LabelInputNumber;
@@ -12,14 +12,14 @@ class MyHome extends Page implements InterfaceDataView{
     private $HintName;
     function __construct($message, $type){
         parent::__construct('Home', $message, $type, function(){
+            $this->initErrorsHome();
+            $this->LabelName = $this->getModelPage()['LabelName'];
+            $this->HintName = $this->getModelPage()['HintName'];
+            $this->TableName = $this->getModelPage()['NameTable'];
+            $this->LabelInputNumber = $this->getModelPage()['LabelInputNumber'];
+            $this->HintInputNumber = $this->getModelPage()['HintInputNumber'];
             return isset($this->getModel2()['MyFlexTables'])?array_reverse(CustomTable::fromArray($this)):array();
         }, CustomTable::getKeysObject());
-        $this->initErrorsHome();
-        $this->LabelName = $this->getModelPage()['LabelName'];
-        $this->HintName = $this->getModelPage()['HintName'];
-        $this->TableName = $this->getModelPage()['NameTable'];
-        $this->LabelInputNumber = $this->getModelPage()['LabelInputNumber'];
-        $this->HintInputNumber = $this->getModelPage()['HintInputNumber'];
     }
     function getLabelName(){
         return $this->LabelName;
@@ -28,7 +28,7 @@ class MyHome extends Page implements InterfaceDataView{
         return $this->HintName;
     }
     function getTableName(){
-        return $this->getModelPage()['NameTable'];
+        return $this->TableName;
     }
     function getLabelInputNumber(){
         return $this->LabelInputNumber;

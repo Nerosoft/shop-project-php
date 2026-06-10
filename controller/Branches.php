@@ -1,21 +1,21 @@
 <?php
-require 'page.php';
+require 'AdminMenu.php';
 require 'all_trait/ErrorBranch.php';
 require 'all_trait/ChangeStyleLangBranch.php';
 include 'all_trait/InfoBranch.php';
 require 'interface/InterfaceDataView.php';
 require 'class_object/BranchClass.php';
-class MyBranch extends Page implements InterfaceDataView{
+class MyBranch extends AdminMenu implements InterfaceDataView{
     use ErrorBranch, ChangeStyleLangBranch, InfoBranch;
-    // private $BranchStreet;
-    // private $BranchName;
-    // private $BranchPhone;
-    // private $BranchGovernments;
-    // private $BranchCity;
-    // private $BranchBuilding;
-    // private $BranchAddress;
-    // private $BranchCountry;
-    // private $BranchFollow;
+    private $BranchStreet;
+    private $BranchName;
+    private $BranchPhone;
+    private $BranchGovernments;
+    private $BranchCity;
+    private $BranchBuilding;
+    private $BranchAddress;
+    private $BranchCountry;
+    private $BranchFollow;
     private $FlexTable;
     private $SettingAccounts;
     private $Product;
@@ -31,39 +31,48 @@ class MyBranch extends Page implements InterfaceDataView{
     function __construct($message, $type){
         parent::__construct('Branches', $message, $type, function(){
             $this->initInfoBranch();
+            $this->initErrorBranch();
+            $this->FlexTable = $this->getModelPage()['FlexTable'];
+            $this->SettingAccounts = $this->getModelPage()['SettingAccounts'];
+            $this->Product = $this->getModelPage()['Product'];
+            $this->BranchStreet = $this->getModelPage()['BranchStreet'];
+            $this->BranchName = $this->getModelPage()['BranchName'];
+            $this->BranchPhone = $this->getModelPage()['BranchPhone'];
+            $this->BranchGovernments = $this->getModelPage()['BranchGovernments'];
+            $this->BranchCity = $this->getModelPage()['BranchCity'];
+            $this->BranchBuilding = $this->getModelPage()['BranchBuilding'];
+            $this->BranchAddress = $this->getModelPage()['BranchAddress'];
+            $this->BranchCountry = $this->getModelPage()['BranchCountry'];
+            $this->BranchFollow = $this->getModelPage()['BranchFollow'];
             return Branch::fromArray($this->getBranch(), $this->getbranchInputOutput());
         }, Branch::getKeysObject());
-        $this->initErrorBranch();
-        $this->FlexTable = $this->getModelPage()['FlexTable'];
-        $this->SettingAccounts = $this->getModelPage()['SettingAccounts'];
-        $this->Product = $this->getModelPage()['Product'];
     }
     function getBranchStreet(){
-        return $this->getModelPage()['BranchStreet'];//$this->BranchStreet;
+        return $this->BranchStreet;
     }
     function getBranchName(){
-        return $this->getModelPage()['BranchName'];//$this->BranchName;
+        return $this->BranchName;
     }
     function getBranchPhone(){
-        return $this->getModelPage()['BranchPhone'];//$this->BranchPhone;
+        return $this->BranchPhone;
     }
     function getBranchGovernments(){
-        return $this->getModelPage()['BranchGovernments'];//$this->BranchGovernments;
+        return $this->BranchGovernments;
     }
     function getBranchCity(){
-        return $this->getModelPage()['BranchCity'];//$this->BranchCity;
+        return $this->BranchCity;
     }
     function getBranchBuilding(){
-        return $this->getModelPage()['BranchBuilding'];//$this->BranchBuilding;
+        return $this->BranchBuilding;
     }
     function getBranchAddress(){
-        return $this->getModelPage()['BranchAddress'];//$this->BranchAddress;
+        return $this->BranchAddress;
     }
     function getBranchCountry(){
-        return $this->getModelPage()['BranchCountry'];//$this->BranchCountry;
+        return $this->BranchCountry;
     }
     function getBranchFollow(){
-        return $this->getModelPage()['BranchFollow'];//$this->BranchFollow;
+        return $this->BranchFollow;
     }
     function printTableNames(){
         echo <<<HTML

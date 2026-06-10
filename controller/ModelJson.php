@@ -35,13 +35,13 @@ class ModelJson{
             case'ForgetMessage':
             case'LoginMessage':
                 require 'controller/Home.php';
-                $view = new MyHome($message, $type);
-                if($keyPage === 'CreateProjectMessage' || isset($view->getFile()[$_POST['superId']]) && isset($view->getFile()[$_POST['superId']]['Branches'])){
+                $ModelJson = new ModelJson('Home');
+                if($keyPage === 'CreateProjectMessage' || isset($ModelJson->getFile()[$_POST['superId']]) && isset($ModelJson->getFile()[$_POST['superId']]['Branches'])){
                     $_SESSION['userId'] = $_POST['superId'];
                     $_SESSION['staticId'] = $_POST['superId'];
                 }
                 else
-                    foreach ($view->getFile() as $key => $obj)
+                    foreach ($ModelJson->getFile() as $key => $obj)
                         if(isset($obj['Branches']) && in_array($_POST['superId'], array_keys($obj['Branches']))){
                             $_SESSION['userId'] = $_POST['superId'];
                             $_SESSION['staticId'] = $key;
