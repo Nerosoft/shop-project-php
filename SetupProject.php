@@ -635,7 +635,7 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
         }
     }
    
-    new SetupProject();
+    return new SetupProject();
 }, 'CreateProjectMessage');
 }else
     header('LOCATION:Login');

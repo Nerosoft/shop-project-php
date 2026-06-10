@@ -11,7 +11,7 @@ ModelJson::initView('Register', 'RegisterMessage', 'success', function(){
             $this->getMyModal()->saveModel($this->initErrorsKeyPassword2($this->getMyModal()->getObj()));
         }
     }
-    new RegisterPost();
+    return new RegisterPost();
 }, 'RegisterMessage');    
 }else
     header('LOCATION:Register');

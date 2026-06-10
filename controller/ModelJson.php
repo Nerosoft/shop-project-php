@@ -19,11 +19,12 @@ class ModelJson{
         require 'controller/'.$keyPage.'.php';
         if(!is_null($callback)){
             require 'ValidationId.php';
-            $callback();
+            ModelJson::initView2($keyPage2??$keyPage, $message, $type, $callback());
+            // $callback();
         }
         ModelJson::initView2($keyPage2??$keyPage, $message, $type);
     }
-    static function initView2($keyPage, $message, $type = "danger"){
+    static function initView2($keyPage, $message, $type = "danger", $ModelJson = null){
         if($keyPage !== 'Login' && $keyPage !== 'Register' && $keyPage !== 'Site')
             $count = 1;
         switch ($keyPage) {
@@ -35,7 +36,7 @@ class ModelJson{
             case'ForgetMessage':
             case'LoginMessage':
                 require 'controller/Home.php';
-                $ModelJson = new ModelJson('Home');
+                // $ModelJson = new ModelJson('Home');
                 if($keyPage === 'CreateProjectMessage' || isset($ModelJson->getFile()[$_POST['superId']]) && isset($ModelJson->getFile()[$_POST['superId']]['Branches'])){
                     $_SESSION['userId'] = $_POST['superId'];
                     $_SESSION['staticId'] = $_POST['superId'];
@@ -192,6 +193,9 @@ class ModelJson{
     }
     function getMyModal(){
         return $this;
+    }
+    function callMyModal($title, $button, $action, $idModel = 'createModel'){
+        $view = $this;
     }
     // function getArrayKeys(){
     //     $myInputKey = array();
