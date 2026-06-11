@@ -31,11 +31,11 @@ class InformationPage extends ModelJson{
             echo '<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
             <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
             <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';
-            if($IdPage === 'ChangeLanguage' || $IdPage === 'MyStyle' || $IdPage === 'Branches'){
-                if($IdPage === 'ChangeLanguage' || $IdPage === 'MyStyle')
-                    $this->InitInfoChangeLangStyle();
-                $this->initChangeStyleLangBranch();
-            }
+            // if($IdPage === 'ChangeLanguage' || $IdPage === 'MyStyle' || $IdPage === 'Branches'){
+            //     if($IdPage === 'ChangeLanguage' || $IdPage === 'MyStyle')
+            //         $this->InitInfoChangeLangStyle();
+            //     // $this->initChangeStyleLangBranch();
+            // }
         }
         $toast = $this->getModelPage()[$message]??$message;
         echo<<<HTML

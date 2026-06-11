@@ -3,19 +3,19 @@ trait ErrorChangelanguage{
     private $NewLangNameRequired;
     private $NewLangNameInvalid;
     private $allNames;
-    function initErrorChangelanguage(){
-        $this->NewLangNameRequired = $this->getModelPage()['NewLangNameRequired'];
-        $this->NewLangNameInvalid = $this->getModelPage()['NewLangNameInvalid'];
-        $this->allNames = $this->getModel2()['AllNamesLanguage'];
-    }
+    // function initErrorChangelanguage(){
+    //     $this->NewLangNameRequired = $this->getModelPage()['NewLangNameRequired'];
+    //     $this->NewLangNameInvalid = $this->getModelPage()['NewLangNameInvalid'];
+    //     $this->allNames = $this->getModel2()['AllNamesLanguage'];
+    // }
     function getallNames(){
-        return $this->allNames;
+        return $this->getModel2()['AllNamesLanguage'];//$this->allNames;
     }
     function getNewLangNameRequired(){
-        return $this->NewLangNameRequired;
+        return $this->getModelPage()['NewLangNameRequired'];//$this->NewLangNameRequired;
     }
     function getNewLangNameInvalid(){
-        return $this->NewLangNameInvalid;
+        return $this->getModelPage()['NewLangNameInvalid'];//$this->NewLangNameInvalid;
     }
     function saveNameLanguage($name, $nameKey, $myData){
         foreach ($name as $key=>$value)
@@ -23,7 +23,7 @@ trait ErrorChangelanguage{
         return $myData;
     }
     function validLanguageInput(){
-        $this->initErrorChangelanguage();
+        //$this->initErrorChangelanguage();
         if(!isset($_POST['lang_name']) || $_POST['lang_name'] === '')
             ModelJson::initView2($this->getUrlName2(), $this->getNewLangNameRequired());
         else if(strlen($_POST['lang_name']) < 3)

@@ -3,18 +3,18 @@ trait ChangeStyleLangBranch{
     private $TitleChangeLanguageMessage;
     private $ButtonChangeLanguageMessage;
     private $LabelChangeLanguageMessage;
-    function initChangeStyleLangBranch(){
-        $this->TitleChangeLanguageMessage = $this->getModelPage()['TitleChangeLanguageMessage'];
-        $this->ButtonChangeLanguageMessage = $this->getModelPage()['ButtonChangeLanguageMessage'];
-        $this->LabelChangeLanguageMessage = $this->getModelPage()['LabelChangeLanguageMessage'];
-    }
+    // function initChangeStyleLangBranch(){
+    //     $this->TitleChangeLanguageMessage = $this->getModelPage()['TitleChangeLanguageMessage'];
+    //     $this->ButtonChangeLanguageMessage = $this->getModelPage()['ButtonChangeLanguageMessage'];
+    //     $this->LabelChangeLanguageMessage = $this->getModelPage()['LabelChangeLanguageMessage'];
+    // }
     function getLabelChangeLanguageMessage(){
-        return $this->LabelChangeLanguageMessage;
+        return $this->getModelPage()['LabelChangeLanguageMessage'];
     }
     function getTitleChangeLanguageMessage(){
-        return $this->TitleChangeLanguageMessage;
+        return $this->getModelPage()['TitleChangeLanguageMessage'];
     }
     function getButtonChangeLanguageMessage(){
-        return $this->ButtonChangeLanguageMessage;
+        return $this->getModelPage()['ButtonChangeLanguageMessage'];
     }
 }

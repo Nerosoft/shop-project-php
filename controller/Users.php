@@ -35,7 +35,4 @@ class MySettingUsers extends AdminMenu implements InterfaceDataView{
             <th>{$this->getForgetPasswordHeadTable()}</th>
         HTML;
     }
-    // static function makeCreateModal($view, $title, $button, $idModel = 'createModel', $index = null, $myObject = null, $action = 'SettingUsersCreatePost.php'){
-    //     include('all_modal/modal_setting_users_table.php');
-    // }
 }
