@@ -11,9 +11,7 @@
                 <td>{$myObject->getCategory()}</td>
                 <td>
         HTML;
-        include('all_modal/ViewImage.php');
-        $action = 'SettingUsersDeletePost?id='.$view->getUrlName2();
-        include('all_modal/modal_delete.php');
+        // $action = 'SettingUsersDeletePost?id='.$view->getUrlName2();
         include 'pis_of_page/button_edit.php';
     }
 ?>

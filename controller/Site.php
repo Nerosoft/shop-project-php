@@ -1,9 +1,7 @@
 <?php
-require 'InformationPage.php';
+// require 'InformationPage.php';
 require 'class_object/ProductValue.php';
-require 'all_trait/ErrorActiveStyleLang.php';
-class Site extends InformationPage{
-    use ErrorActiveStyleLang;
+class Site extends LoginRegister{
     private $DataView;
     private $About;
     private $Product;
@@ -37,7 +35,7 @@ class Site extends InformationPage{
     private $WorkWithUs;
     private $Privacy;
     function __construct($message, $type){
-        parent::__construct('Site', $message, $type);
+        parent::__construct($message, $type, 'Site');
         $this->DataView = isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
         $this->About = $this->getModelPage()['About'];
         $this->Product = $this->getModelPage()['Product'];

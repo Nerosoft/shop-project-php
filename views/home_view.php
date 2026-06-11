@@ -7,8 +7,6 @@
                 <td>{$myObject->getName()}</td>
                 <td>
         HTML;
-        $action = 'HomeDeletePost.php';
-        include('all_modal/modal_delete.php');
         $title = $view->getScreenModelEdit();
         $button = $view->getButtonModelEdit();
         $action = 'HomeEditPost.php';

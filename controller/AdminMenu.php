@@ -42,6 +42,9 @@ class AdminMenu extends InformationPage
     }
     function __construct($IdPage, $message, $type, $DataView, $keysTable){
         parent::__construct($IdPage, $message, $type);
+         echo '<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
+            <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
+            <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';
         $this->DataView = $DataView();
         $this->keysTable = $keysTable??count($this->getModelPage()['TableHead'])+1;
         if($IdPage !== 'Branches')

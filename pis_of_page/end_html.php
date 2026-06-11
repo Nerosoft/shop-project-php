@@ -35,7 +35,7 @@
             }
         </script>
         HTML;
-    if(isset($_SESSION['userId'])){
+    if(isset($_SESSION['userId']) && $view->getUrlName2() !== 'site'){
         echo<<<HTML
             </tbody>
                 <tfoot>
@@ -81,5 +81,21 @@
         HTML;
     }
 ?>
+<div style="position: fixed; top: 0; right: 10px; z-index: 9999; max-height: 90vh; overflow-y: auto;">
+    <div id="toastId" class="toast text-bg-<?php echo $view->getType()?> mt-2">
+        <script>
+            $(document).ready(function(){
+                (new bootstrap.Toast($('#toastId').on("hidden.bs.toast", function () {
+                $(this).remove();
+                }), { delay: 9000 })).show();
+            });
+        </script>
+        <div class="d-flex">
+            <div class="toast-body"><?php echo $view->getMessage()?></div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

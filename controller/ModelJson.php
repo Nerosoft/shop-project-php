@@ -65,7 +65,7 @@ class ModelJson{
                 break;
             case 'Site':
                 include 'views/SiteView.php';
-                exit;
+                break;
             case 'SystemLang':
                 include 'views/SystemLang_view.php';
                 break;

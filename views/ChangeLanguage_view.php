@@ -8,12 +8,6 @@
                 <td>{$myObject->getName()}</td>
                 <td>
         HTML;
-        $action = 'ChangeLanguagePost.php';
-        include('all_modal/modal_changelanguage_changestyle.php');
-        if($index !== $view->getLanguage() && $index !== 'english' && $view->getUrlName2() === 'ChangeLanguage'){
-            $action = 'ChangeLanguageDeletePost.php';
-            include('all_modal/modal_delete.php');
-        }
         $title = $view->getScreenModelEdit();
         $button = $view->getButtonModelEdit();
         $idModel = "editModel".$index;

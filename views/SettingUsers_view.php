@@ -9,8 +9,7 @@
                 <td>***************</td>
                 <td>
             HTML;
-            $action = 'SettingUsersDeletePost?id='.$view->getUrlName2();
-            include('all_modal/modal_delete.php');
+            // $action = 'SettingUsersDeletePost?id='.$view->getUrlName2();
             include 'pis_of_page/button_edit.php';
 
     }

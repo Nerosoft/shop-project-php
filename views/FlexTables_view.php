@@ -13,10 +13,8 @@
         echo <<<HTML
             <td>
             HTML;
-        include('all_modal/ViewImage.php');
         $nameItem = $myObject[array_key_first($myObject)];
-        $action = 'SettingUsersDeletePost?id='.$_GET['id'];
-        include('all_modal/modal_delete.php');
+        // $action = 'SettingUsersDeletePost?id='.$_GET['id'];
         include 'pis_of_page/button_edit.php';
     }
 ?>
