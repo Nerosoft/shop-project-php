@@ -3,7 +3,7 @@
 include('start_model.php');
 include('pis_of_page/image_table_product.php');
 foreach($myObject??$view->getHint() as $key=>$value){
-    $inputValue = isset($index)?$value:'';
+    $inputValue = isset($index) && $index !== null?$value:'';
     echo <<<HTML
         <div class="mb-3">
             <label for="name" class="form-label">{$view->getLabel()[$key]}</label>

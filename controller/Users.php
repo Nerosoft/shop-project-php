@@ -15,7 +15,9 @@ class MySettingUsers extends AdminMenu implements InterfaceDataView{
             $this->PasswordHeadTable = $this->getModelPage()['PasswordHeadTable'];
             $this->ForgetPasswordHeadTable = $this->getModelPage()['ForgetPasswordHeadTable'];
             return isset($this->getObj()['Users']) ? array_reverse(Users::fromArray($this->getObj()['Users'])):array();
-        }, Users::getKeysObject());
+        }, Users::getKeysObject(), function ($view, $title, $button){
+            $this->makeCreateModal($view, $title, $button);
+        });
     }
     function getNameHeadTable(){
         return $this->NameHeadTable = $this->NameHeadTable;
@@ -33,8 +35,7 @@ class MySettingUsers extends AdminMenu implements InterfaceDataView{
             <th>{$this->getForgetPasswordHeadTable()}</th>
         HTML;
     }
-    function makeCreateModal($view, $title, $button){
-        $action = 'SettingUsersCreatePost.php';
-        include('all_modal/modal_setting_users_table.php');
-    }
+    // static function makeCreateModal($view, $title, $button, $idModel = 'createModel', $index = null, $myObject = null, $action = 'SettingUsersCreatePost.php'){
+    //     include('all_modal/modal_setting_users_table.php');
+    // }
 }

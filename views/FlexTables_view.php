@@ -17,11 +17,6 @@
         $nameItem = $myObject[array_key_first($myObject)];
         $action = 'SettingUsersDeletePost?id='.$_GET['id'];
         include('all_modal/modal_delete.php');
-        $title = $view->getScreenModelEdit();
-        $button = $view->getButtonModelEdit();
-        $idModel = "editModel".$index;
-        $action = 'FlexTablesCreatePost?id='.$_GET['id'];
-        include('all_modal/modal_flex.php');
         include 'pis_of_page/button_edit.php';
     }
 ?>

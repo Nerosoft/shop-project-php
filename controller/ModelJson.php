@@ -115,11 +115,12 @@ class ModelJson{
                 echo <<<HTML
                 <button onclick="openForm('#forgetpasswordmodal')" type="button" class="btn btn-success" >{$view->getButtonForgetPassword()}</button>
                 HTML;
-                $title = $view->getModalForgetPasswordTitle();
-                $button = $view->getModalForgetPasswordButton();
-                $action = 'LoginForgetPasswordPost.php';
-                $idModel = "forgetpasswordmodal";
-                include('all_modal/modal_setting_users_table.php');
+                $view->makeCreateModal($view, $view->getModalForgetPasswordTitle(), $view->getModalForgetPasswordButton(), "forgetpasswordmodal", null, null, 'LoginForgetPasswordPost.php');
+                // $title = $view->getModalForgetPasswordTitle();
+                // $button = $view->getModalForgetPasswordButton();
+                // $action = 'LoginForgetPasswordPost.php';
+                // $idModel = "forgetpasswordmodal";
+                // include('all_modal/modal_setting_users_table.php');
                 break;
             default:
                 include 'views/FlexTables_view.php';
@@ -194,13 +195,4 @@ class ModelJson{
     function getMyModal(){
         return $this;
     }
-    function callMyModal($title, $button, $action, $idModel = 'createModel'){
-        $view = $this;
-    }
-    // function getArrayKeys(){
-    //     $myInputKey = array();
-    //     for ($i=0; $i < $_POST['input_number']; $i++)
-    //         array_push($myInputKey,$this->getRandomId());
-    //     return $myInputKey;
-    // }
 }

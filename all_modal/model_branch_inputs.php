@@ -127,7 +127,7 @@
                     <option value="" selected disabled><?php echo$view->getselectBox1()?></option>
                     <?php 
                         foreach($view->getbranchInputOutput() as $key=>$inpBranch){
-                            $select = isset($index) && $myObject->getFollowId() === $inpBranch ? 'selected' : '';
+                            $select = isset($index) && $index !== null && $myObject->getFollowId() === $inpBranch ? 'selected' : '';
                             echo <<<HTML
                             <option {$select} value="{$key}">{$inpBranch}</option>
                             HTML;

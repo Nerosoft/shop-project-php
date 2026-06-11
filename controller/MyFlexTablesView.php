@@ -17,7 +17,9 @@ class MyFlexTablesView extends AdminMenu implements InterfaceDataView{
             $this->Label = $this->getModelPage()['Label'];
             $this->Hint = $this->getModelPage()['Hint'];
             return isset($this->getObj()[$_GET['id']])?array_reverse($this->getObj()[$_GET['id']]):array();
-        }, null);
+        }, null,  function($view, $title, $button){
+            $this->makeCreateModal($view, $title, $button);
+        });
     }
     function getTableHead(){
         return $this->TableHead;
@@ -35,7 +37,7 @@ class MyFlexTablesView extends AdminMenu implements InterfaceDataView{
                 <th>{$name}</th>
             HTML;
     }
-    function makeCreateModal($view, $title, $button){
+    function makeCreateModal($view, $title, $button, $idModel = 'createModel', $index = null, $myObject = null){
         $action = 'FlexTablesCreatePost?id='.$_GET['id'];
         include('all_modal/modal_flex.php');
     }

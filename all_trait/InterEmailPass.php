@@ -40,4 +40,8 @@ trait EmailPassword{
     function getHintPassword(){
         return $this->HintPassword;
     }
+    function makeCreateModal($view, $title, $button, $idModel = 'createModel', $index = null, $myObject = null, $action = 'SettingUsersCreatePost.php'){
+        include('all_modal/modal_setting_users_table.php');
+    }
 }
+

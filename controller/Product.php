@@ -33,7 +33,9 @@ class Product extends AdminMenu implements InterfaceDataView{
             $this->LabelCategory = $this->getModelPage()['LabelCategory'];
             $this->HintCategory = $this->getModelPage()['HintCategory'];
             return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
-        },ProductValue::getKeysObject());
+        },ProductValue::getKeysObject(), function($view, $title, $button){
+            $this->makeCreateModal($view, $title, $button);
+        });
     }
     function getNameHeadTable(){
         return $this->NameHeadTable;
@@ -80,7 +82,7 @@ class Product extends AdminMenu implements InterfaceDataView{
             <th>{$this->getCategoryHeadTable()}</th>
         HTML;
     }
-    function makeCreateModal($view, $title, $button){
+    function makeCreateModal($view, $title, $button, $idModel = 'createModel', $index = null, $myObject = null){
         $action = 'ProductCreatePost.php';
         include('all_modal/ProductModal.php');
     }

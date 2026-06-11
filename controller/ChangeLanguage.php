@@ -8,23 +8,18 @@ class MyChangeLanguage extends AdminMenu{
         parent::__construct('ChangeLanguage', $message, $type, function(){
             $this->SelectLang = $this->getModelPage()['LanguageSelect'];
             return array_reverse(MyLanguage::fromArray($this->getModel2()['AllNamesLanguage']));
-        }, MyLanguage::getKeysObject());
-    }
-    function getSelectLang(){
-        return $this->SelectLang;
-    }
-    function makeCreateModal($view, $title, $button){
+        }, MyLanguage::getKeysObject(), function($view, $title, $button){
         $action = 'ChangeLanguageCreatePost.php';
         include('all_modal/modal_change_language.php');
         echo <<<HTML
             <div class="form-group">
-                <label for="selectedLanguage">{$this->getSelectLang()}</label>
+                <label for="selectedLanguage">{$view->getSelectLang()}</label>
                 <select
                 title=""
                 class="form-select" name="selectedLanguage"  aria-label="Default select example">
         HTML;
-                foreach($this->getMyDataView() as $key=>$name){
-                        $select = $key === $this->getLanguage()? 'selected' : '';
+                foreach($view->getMyDataView() as $key=>$name){
+                        $select = $key === $view->getLanguage()? 'selected' : '';
                         echo <<<HTML
                         <option {$select} value="{$key}">
                             {$name->getName()}
@@ -36,5 +31,9 @@ class MyChangeLanguage extends AdminMenu{
             </div>
         HTML;
         include('all_modal/end_model.php');
+    });
+    }
+    function getSelectLang(){
+        return $this->SelectLang;
     }
 }

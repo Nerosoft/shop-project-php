@@ -22,11 +22,7 @@
         }
         $action = 'BranchChangePost.php';
         include('all_modal/modal_changelanguage_changestyle.php');
-        $title = $view->getScreenModelEdit();
-        $button = $view->getButtonModelEdit();
-        $idModel = "editModel".$index;
-        $action = 'BranchEditPost.php';
-        include('all_modal/model_branch.php');
+        // $view->makeCreateModal($view, $view->getScreenModelEdit(), $view->getButtonModelEdit(), 'BranchEditPost.php', "editModel".$index, $index, $myObject);
         include 'pis_of_page/button_edit.php';
     }
 ?>

@@ -14,11 +14,6 @@
         include('all_modal/ViewImage.php');
         $action = 'SettingUsersDeletePost?id='.$view->getUrlName2();
         include('all_modal/modal_delete.php');
-        $title = $view->getScreenModelEdit();
-        $button = $view->getButtonModelEdit();
-        $action = 'ProductCreatePost.php';
-        $idModel = "editModel".$index;
-        include('all_modal/ProductModal.php');
         include 'pis_of_page/button_edit.php';
     }
 ?>
