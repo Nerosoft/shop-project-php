@@ -19,22 +19,7 @@ class MyHome extends AdminMenu implements InterfaceDataView{
             $this->LabelInputNumber = $this->getModelPage()['LabelInputNumber'];
             $this->HintInputNumber = $this->getModelPage()['HintInputNumber'];
             return isset($this->getModel2()['MyFlexTables'])?array_reverse(CustomTable::fromArray($this)):array();
-        }, CustomTable::getKeysObject(), function($view, $title, $button){
-            $action = 'HomeCreatePost.php';
-            include('all_modal/modal_custome_table.php');
-            echo <<<HTML
-                <div class="form-group">
-                    <label for="lang_name" class="form-label">{$view->getLabelInputNumber()}</label>
-                    <input 
-                    title='{$view->getHintInputNumber()}'
-                    min="1" 
-                    max="8" 
-                    required
-                    type="number" name="input_number" id="input_number"  placeholder='{$view->getHintInputNumber()}' class="form-control">
-                </div>
-            HTML;
-            include('all_modal/end_model.php');
-        });
+        }, CustomTable::getKeysObject());
     }
     function getLabelName(){
         return $this->LabelName;
@@ -55,5 +40,21 @@ class MyHome extends AdminMenu implements InterfaceDataView{
         echo<<<HTML
         <th>{$this->getTableName()}</th>
         HTML;
+    }
+    function makeCreateModal($view, $title, $button){
+            $action = 'HomeCreatePost.php';
+            include('all_modal/modal_custome_table.php');
+            echo <<<HTML
+                <div class="form-group">
+                    <label for="lang_name" class="form-label">{$view->getLabelInputNumber()}</label>
+                    <input 
+                    title='{$view->getHintInputNumber()}'
+                    min="1" 
+                    max="8" 
+                    required
+                    type="number" name="input_number" id="input_number"  placeholder='{$view->getHintInputNumber()}' class="form-control">
+                </div>
+            HTML;
+            include('all_modal/end_model.php');
     }
 }

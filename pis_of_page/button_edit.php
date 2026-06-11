@@ -9,8 +9,10 @@
         HTML;
     }
     else{
-        if($view->getUrlName2() === 'Users' || $view->getUrlName2() === 'Branches')
+        if($view->getUrlName2() === 'Users')
             $view->makeCreateModal($view, $view->getScreenModelEdit(), $view->getButtonModelEdit(), "editModel".$index, $index, $myObject);
+        else if($view->getUrlName2() === 'Branches')
+            $view->makeCreateModal($view, $view->getScreenModelEdit(), $view->getButtonModelEdit(), "editModel".$index, $index, $myObject, 'BranchEditPost.php');
         echo <<<HTML
             <i onclick="restValue('#editModel{$index}', '$valueObj')" class="fa fa-sliders fa-2x pointer"></i>
         HTML;

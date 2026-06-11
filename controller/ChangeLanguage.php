@@ -8,7 +8,12 @@ class MyChangeLanguage extends AdminMenu{
         parent::__construct('ChangeLanguage', $message, $type, function(){
             $this->SelectLang = $this->getModelPage()['LanguageSelect'];
             return array_reverse(MyLanguage::fromArray($this->getModel2()['AllNamesLanguage']));
-        }, MyLanguage::getKeysObject(), function($view, $title, $button){
+        }, MyLanguage::getKeysObject());
+    }
+    function getSelectLang(){
+        return $this->SelectLang;
+    }
+    function makeCreateModal($view, $title, $button){
         $action = 'ChangeLanguageCreatePost.php';
         include('all_modal/modal_change_language.php');
         echo <<<HTML
@@ -31,9 +36,5 @@ class MyChangeLanguage extends AdminMenu{
             </div>
         HTML;
         include('all_modal/end_model.php');
-    });
-    }
-    function getSelectLang(){
-        return $this->SelectLang;
     }
 }

@@ -40,7 +40,7 @@ class AdminMenu extends InformationPage
     function getMyDataView(){
         return $this->DataView;
     }
-    function __construct($IdPage, $message, $type, $DataView, $keysTable, $callback = null){
+    function __construct($IdPage, $message, $type, $DataView, $keysTable){
         parent::__construct($IdPage, $message, $type);
         $this->DataView = $DataView();
         $this->keysTable = $keysTable??count($this->getModelPage()['TableHead'])+1;
@@ -77,14 +77,14 @@ class AdminMenu extends InformationPage
         }        
         include 'pis_of_page/admin_title.php';
         echo '<div class="start-page container">';
-        if(!is_null($callback)){
+        if($this->getUrlName2() !== 'SystemLang' && $this->getUrlName2() !== 'MyStyle'){
             $this->ScreenModelDelete = $this->getModelPage()['ScreenModelDelete'];
             $this->messageModelDelete = $this->getModelPage()['MessageModelDelete'];
             $this->buttonModelDelete = $this->getModelPage()['ButtonModelDelete'];
             echo <<<HTML
                 <button onclick="openForm('#createModel')" class="btn btn-primary">{$this->getModelPage()['ButtonModelCreate']}</button>
             HTML;
-            $callback($this, $this->getModelPage()['ScreenModelCreate'], $this->getModelPage()['ButtonModelAdd']);
+            $this->makeCreateModal($this, $this->getModelPage()['ScreenModelCreate'], $this->getModelPage()['ButtonModelAdd']);
         }
         echo'
             <table id="example" class="table table-striped">

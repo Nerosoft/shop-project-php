@@ -33,9 +33,7 @@ class Product extends AdminMenu implements InterfaceDataView{
             $this->LabelCategory = $this->getModelPage()['LabelCategory'];
             $this->HintCategory = $this->getModelPage()['HintCategory'];
             return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
-        },ProductValue::getKeysObject(), function($view, $title, $button){
-            $this->makeCreateModal($view, $title, $button);
-        });
+        },ProductValue::getKeysObject());
     }
     function getNameHeadTable(){
         return $this->NameHeadTable;

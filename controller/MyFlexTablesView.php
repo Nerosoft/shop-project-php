@@ -17,9 +17,7 @@ class MyFlexTablesView extends AdminMenu implements InterfaceDataView{
             $this->Label = $this->getModelPage()['Label'];
             $this->Hint = $this->getModelPage()['Hint'];
             return isset($this->getObj()[$_GET['id']])?array_reverse($this->getObj()[$_GET['id']]):array();
-        }, null,  function($view, $title, $button){
-            $this->makeCreateModal($view, $title, $button);
-        });
+        }, null);
     }
     function getTableHead(){
         return $this->TableHead;

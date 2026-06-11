@@ -20,7 +20,6 @@ class ModelJson{
         if(!is_null($callback)){
             require 'ValidationId.php';
             ModelJson::initView2($keyPage2??$keyPage, $message, $type, $callback());
-            // $callback();
         }
         ModelJson::initView2($keyPage2??$keyPage, $message, $type);
     }
@@ -36,7 +35,6 @@ class ModelJson{
             case'ForgetMessage':
             case'LoginMessage':
                 require 'controller/Home.php';
-                // $ModelJson = new ModelJson('Home');
                 if($keyPage === 'CreateProjectMessage' || isset($ModelJson->getFile()[$_POST['superId']]) && isset($ModelJson->getFile()[$_POST['superId']]['Branches'])){
                     $_SESSION['userId'] = $_POST['superId'];
                     $_SESSION['staticId'] = $_POST['superId'];

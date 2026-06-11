@@ -15,9 +15,7 @@ class MySettingUsers extends AdminMenu implements InterfaceDataView{
             $this->PasswordHeadTable = $this->getModelPage()['PasswordHeadTable'];
             $this->ForgetPasswordHeadTable = $this->getModelPage()['ForgetPasswordHeadTable'];
             return isset($this->getObj()['Users']) ? array_reverse(Users::fromArray($this->getObj()['Users'])):array();
-        }, Users::getKeysObject(), function ($view, $title, $button){
-            $this->makeCreateModal($view, $title, $button);
-        });
+        }, Users::getKeysObject());
     }
     function getNameHeadTable(){
         return $this->NameHeadTable = $this->NameHeadTable;
