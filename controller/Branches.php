@@ -46,7 +46,7 @@ class MyBranch extends AdminMenu implements InterfaceDataView{
             $this->BranchFollow = $this->getModelPage()['BranchFollow'];
             return Branch::fromArray($this->getBranch(), $this->getbranchInputOutput());
         }, Branch::getKeysObject(),  function ($view, $title, $button){
-            $this->makeCreateModal($view, $title, $button);
+            $this->makeCreateModal($view, $title, $button, 'createModel', null, null, 'BranchCreatePost.php');
         });
     }
     function getBranchStreet(){
@@ -89,7 +89,7 @@ class MyBranch extends AdminMenu implements InterfaceDataView{
             <th>{$this->getBranchFollow()}</th>
         HTML;
     }
-    function makeCreateModal($view, $title, $button, $idModel = 'createModel', $index = null, $myObject = null, $action = 'BranchCreatePost.php'){
+    function makeCreateModal($view, $title, $button, $idModel, $index = null, $myObject = null, $action = 'BranchEditPost.php'){
         include('all_modal/model_branch.php');
     }
 }
