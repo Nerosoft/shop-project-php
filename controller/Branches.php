@@ -105,7 +105,7 @@ class MyBranch extends AdminMenu implements InterfaceDataView{
                 class="form-select" name="selectedBranch"  aria-label="Default select example">
             HTML;
                 foreach($view->getBranch() as $key=>$name){
-                        $select = $key === $view->getFixedId()? 'selected' : '';
+                        $select = $key === $view->getId()? 'selected' : '';
                         $arr = array();
                         if(isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['Language']]['MyFlexTables']))
                             $arr['flextable'] = $view->getFlexTable();
