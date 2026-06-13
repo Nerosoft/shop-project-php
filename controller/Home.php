@@ -46,6 +46,7 @@ class MyHome extends AdminMenu implements InterfaceDataView{
             include('all_modal/modal_custome_table.php');
             echo <<<HTML
                 <div class="form-group">
+                    <i class="fa fa-home fa-2x"></i>
                     <label for="lang_name" class="form-label">{$view->getLabelInputNumber()}</label>
                     <input 
                     title='{$view->getHintInputNumber()}'

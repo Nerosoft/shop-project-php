@@ -6,6 +6,7 @@ foreach($myObject??$view->getHint() as $key=>$value){
     $inputValue = isset($index) && $index !== null?$value:'';
     echo <<<HTML
         <div class="mb-3">
+            <i class="fa fa-font fa-2x"></i>
             <label for="name" class="form-label">{$view->getLabel()[$key]}</label>
             <input 
             title="{$view->getHint()[$key]}"

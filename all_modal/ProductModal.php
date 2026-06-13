@@ -4,6 +4,7 @@ include('start_model.php');
 include('pis_of_page/image_table_product.php');
 ?>
 <div class="form-group">
+    <i class="fa fa-tag fa-2x"></i>
     <label for="name" class="form-label"><?php echo$view->getLabelName()?></label>
     <input required type="text" name="name" id="name" 
     title='<?php echo$view->getHintName()?>'
@@ -14,6 +15,7 @@ include('pis_of_page/image_table_product.php');
     class="form-control">
 </div>
 <div class="form-group">
+    <i class="fa fa-info fa-2x"></i>
     <label for="descreption"><?php echo $view->getLabelDescreption()?></label>
     <input type="text" class="form-control" id="descreption" name="descreption"
         placeholder="<?php echo $view->getHintDescreption()?>"
@@ -26,6 +28,7 @@ include('pis_of_page/image_table_product.php');
         >
 </div>
  <div class="form-group">
+    <i class="fa fa-money fa-2x"></i>
     <label for="Salary"><?php echo $view->getLabelSalary()?></label>
     <input type="number" class="form-control mysalary" id="salary" name="salary"
     placeholder="<?php echo $view->getHintSalary()?>"
@@ -36,6 +39,7 @@ include('pis_of_page/image_table_product.php');
     required>
 </div>
  <div class="form-group">
+    <i class="fa fa-folder fa-2x"></i>
     <label for="category"><?php echo $view->getLabelCategory()?></label>
     <input type="text" class="form-control" id="category" name="category"
     placeholder="<?php echo $view->getHintCategory()?>"

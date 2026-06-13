@@ -2,6 +2,7 @@
 <?php 
 include('start_model.php');?>
 <div class="form-group">
+    <i class="fa fa-font fa-2x"></i>
     <label for="lang_name" class="form-label"><?php echo$view->getLabelNameLanguage()?></label>
     <input 
     title='<?php echo $view->getHintNewLangName()?>'

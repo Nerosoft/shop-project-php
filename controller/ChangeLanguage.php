@@ -18,6 +18,7 @@ class MyChangeLanguage extends AdminMenu{
         include('all_modal/modal_change_language.php');
         echo <<<HTML
             <div class="form-group">
+                <i class="fa fa-language fa-2x"></i>
                 <label for="selectedLanguage">{$view->getSelectLang()}</label>
                 <select
                 title=""

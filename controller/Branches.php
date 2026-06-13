@@ -98,6 +98,7 @@ class MyBranch extends AdminMenu implements InterfaceDataView{
 
             echo<<<HTML
             <div class="form-group">
+                <i class="fa fa-map fa-2x"></i>
                 <label for="selectedBranch">{$view->getIdBranch()}</label>
                 <select
                 onchange="resetBranch(this)"
