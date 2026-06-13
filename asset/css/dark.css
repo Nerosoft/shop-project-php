@@ -14,6 +14,8 @@ th span,
 tr td,
 .modal-title,
 .modal-content label,
+label,
+.fa,
 .pagination .page-link{
     color: white!important;
 }

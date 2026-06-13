@@ -1,4 +1,5 @@
 <?php
+//ignore session changelanguage site
 session_start();
 if(isset($_SESSION['userId']) && !isset($_POST['change_language'])){
     header("Location:index");
