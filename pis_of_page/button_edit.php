@@ -13,9 +13,9 @@ if($view->getUrlName2() === 'Branches' || $view->getUrlName2() === 'MyStyle' || 
     $action = $view->getUrlName2() === 'Branches'?'BranchChangePost.php':'ChangeLanguagePost.php';
     include('all_modal/modal_changelanguage_changestyle.php');
 }
- if($view->getUrlName2() === 'Branches')
-    $view->makeCreateModal($view, $view->getScreenModelEdit(), $view->getButtonModelEdit(), "editModel".$index, $index, $myObject, 'BranchEditPost.php');
- else if($view->getUrlName2() === 'Users' || $view->getUrlName2() === 'Product' || isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()]) )
+//  if($view->getUrlName2() === 'Branches')
+//     $view->makeCreateModal($view, $view->getScreenModelEdit(), $view->getButtonModelEdit(), "editModel".$index, $index, $myObject, 'BranchEditPost.php');
+ if($view->getUrlName2() === 'Users' || $view->getUrlName2() === 'Product' || isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()]) )
         $view->makeCreateModal($view, $view->getScreenModelEdit(), $view->getButtonModelEdit(), "editModel".$index, $index, $myObject);
  
  

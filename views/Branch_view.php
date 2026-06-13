@@ -16,6 +16,13 @@
                 <td>{$myObject->getFollowId()}</td>
                 <td>
         HTML;
+        $title = $view->getScreenModelEdit();
+        $button = $view->getButtonModelEdit();
+        $action = 'BranchEditPost.php';
+        $idModel = "editModel".$index;
+        include('all_modal/model_branch.php');
+        echo'</div></div>';
+        include('all_modal/end_model.php');
         include 'pis_of_page/button_edit.php';
     }
 ?>

@@ -19,6 +19,7 @@ class MyBranch extends AdminMenu implements InterfaceDataView{
     private $FlexTable;
     private $SettingAccounts;
     private $Product;
+    private $IdBranch;
     function getFlexTable(){
         return $this->FlexTable;
     }
@@ -28,10 +29,14 @@ class MyBranch extends AdminMenu implements InterfaceDataView{
     function getProduct(){
         return $this->Product;
     }
+     function getIdBranch(){
+        return $this->IdBranch;
+     }
     function __construct($message, $type){
         parent::__construct('Branches', $message, $type, function(){
             $this->initInfoBranch();
             $this->initErrorBranch();
+            $this->IdBranch = $this->getModelPage()['IdBranch'];
             $this->FlexTable = $this->getModelPage()['FlexTable'];
             $this->SettingAccounts = $this->getModelPage()['SettingAccounts'];
             $this->Product = $this->getModelPage()['Product'];
@@ -89,5 +94,71 @@ class MyBranch extends AdminMenu implements InterfaceDataView{
     }
     function makeCreateModal($view, $title, $button, $idModel = 'createModel', $index = null, $myObject = null, $action = 'BranchCreatePost.php'){
         include('all_modal/model_branch.php');
+
+            echo<<<HTML
+            <div class="form-group">
+                <label for="selectedBranch">{$view->getIdBranch()}</label>
+                <select
+                onchange="resetBranch(this)"
+                title=""
+                class="form-select" name="selectedBranch"  aria-label="Default select example">
+            HTML;
+                foreach($view->getBranch() as $key=>$name){
+                        $select = $key === $view->getFixedId()? 'selected' : '';
+                        $arr = array();
+                        if(isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['Language']]['MyFlexTables']))
+                            $arr['flextable'] = $view->getFlexTable();
+                        if(isset($view->getFile()[$key]['Users']))
+                            $arr['Users'] = $view->getSettingAccounts();
+                        if(isset($view->getFile()[$key]['Product']))
+                            $arr['product'] = $view->getProduct();
+                        $arr = htmlspecialchars(json_encode($arr));
+                        echo <<<HTML
+                        <option {$select} data-value="{$arr}" value="{$key}">
+                            {$name['Name']}
+                        </option>
+                        HTML;
+                    }
+            echo<<<HTML
+                </select>
+            </div>
+            HTML;
+            echo'<div id="myOption">';
+                if(isset($view->getModel2()['MyFlexTables']))
+                    echo <<<HTML
+                        <div class="col-lg-auto pt-2">
+                            <div class="form-check">
+                                <input name="flextable"  class="form-check-input" value="flextable" type="checkbox">
+                                <label  class="form-check-label">
+                                    {$view->getFlexTable()}
+                                </label>
+                            </div>
+                        </div>
+                    
+                    HTML;
+                if(isset($view->getObj()['Users']))
+                    echo <<<HTML
+                        <div class="col-lg-auto pt-2">
+                            <div class="form-check">
+                                <input name="Users"  class="form-check-input" value="Users" type="checkbox">
+                                <label  class="form-check-label">
+                                    {$view->getSettingAccounts()}
+                                </label>
+                            </div>
+                        </div>
+                    HTML;
+                if(isset($view->getObj()['Product']))
+                    echo <<<HTML
+                        <div class="col-lg-auto pt-2">
+                            <div class="form-check">
+                                <input name="Product"  class="form-check-input" value="Product" type="checkbox">
+                                <label  class="form-check-label">
+                                    {$view->getProduct()}
+                                </label>
+                            </div>
+                        </div>
+                    HTML;
+            echo'</div></div></div>';
+            include('all_modal/end_model.php');
     }
 }

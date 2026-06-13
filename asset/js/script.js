@@ -62,3 +62,19 @@ function restValue(myId, obj){
             element.val(obj[key]);
     }
 }
+function resetBranch(el){
+    $('#createModel').find('#myOption').empty();
+    let array = $(el).find('option:selected').data('value');
+    for (const key in array) {
+         $('#createModel').find('#myOption').append(`<div class="col-lg-auto pt-2">
+                <div class="form-check">
+                    <input name="${key}"  class="form-check-input" value="${key}" type="checkbox">
+                    <label  class="form-check-label">
+                        ${array[key]}
+                    </label>
+                </div>
+            </div>`);
+    }
+      
+    
+}

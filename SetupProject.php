@@ -173,6 +173,9 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "WithRays"=> "With work"
                     ],
                     "Branches"=> [
+                        "IdBranch"=> "Select your branch",
+                        "IdBranchReq"=> "required id branch",
+                        "IdBranchInv"=> "invalid id branch",
                         "FlexTable"=> "Flex table",
                         "SettingAccounts"=> "Setting accounts",
                         "Product"=> "Product",

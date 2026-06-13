@@ -160,6 +160,9 @@
                 "WithRays": "With work"
             },
             "Branches": {
+                "IdBranch": "Select your branch",
+                "IdBranchReq": "required id branch",
+                "IdBranchInv": "invalid id branch",
                 "FlexTable": "Flex table",
                 "SettingAccounts": "Setting accounts",
                 "Product": "Product",
@@ -273,7 +276,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "zCb8a8d9": "English language"
+                "5M63284c": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
@@ -689,14 +692,14 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithoutRays"
             },
-            "b1f196cf": {
+            "O40cf02c": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
                 "Governments": "cairo, egypt",
                 "City": "cairo, egypt",
                 "Street": "menofia - menouf - sirs el laiana",
-                "Building": "Nero-Soft",
+                "Building": "Egypt",
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithRays"
             }
@@ -743,7 +746,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "zCb8a8d9": {
+        "5M63284c": {
             "Site": {
                 "Stories": "Stories",
                 "WorkWithUs": "Work with us",
@@ -899,6 +902,9 @@
                 "WithRays": "With work"
             },
             "Branches": {
+                "IdBranch": "Select your branch",
+                "IdBranchReq": "required id branch",
+                "IdBranchInv": "invalid id branch",
                 "FlexTable": "Flex table",
                 "SettingAccounts": "Setting accounts",
                 "Product": "Product",
@@ -1012,7 +1018,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "zCb8a8d9": "English language"
+                "5M63284c": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
@@ -1410,7 +1416,7 @@
             }
         }
     },
-    "b1f196cf": {
+    "O40cf02c": {
         "Setting": {
             "Language": "english",
             "Style": "default"
@@ -1571,6 +1577,9 @@
                 "WithRays": "With work"
             },
             "Branches": {
+                "IdBranch": "Select your branch",
+                "IdBranchReq": "required id branch",
+                "IdBranchInv": "invalid id branch",
                 "FlexTable": "Flex table",
                 "SettingAccounts": "Setting accounts",
                 "Product": "Product",
@@ -1684,7 +1693,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "zCb8a8d9": "English language"
+                "5M63284c": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
@@ -2130,7 +2139,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "zCb8a8d9": {
+        "5M63284c": {
             "Site": {
                 "Stories": "Stories",
                 "WorkWithUs": "Work with us",
@@ -2286,6 +2295,9 @@
                 "WithRays": "With work"
             },
             "Branches": {
+                "IdBranch": "Select your branch",
+                "IdBranchReq": "required id branch",
+                "IdBranchInv": "invalid id branch",
                 "FlexTable": "Flex table",
                 "SettingAccounts": "Setting accounts",
                 "Product": "Product",
@@ -2399,7 +2411,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "zCb8a8d9": "English language"
+                "5M63284c": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
