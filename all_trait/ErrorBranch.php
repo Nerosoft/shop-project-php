@@ -70,7 +70,7 @@ trait ErrorBranch{
             ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysAddressRequired());
         else if(strlen($_POST['Address']) < 3)
             ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysAddressLength());
-        else if(!isset($_POST['Follow']) || $_POST['Follow'] === '')
+        else if(!isset($_POST['Follow']))
             ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysFollowRequired());
         else if(!isset($this->getModel2()['SelectBranchBox'][$_POST['Follow']]))
             ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['BranceRaysFollowValue']);
