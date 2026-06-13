@@ -92,7 +92,8 @@ class MyBranch extends AdminMenu implements InterfaceDataView{
             <th>{$this->getBranchFollow()}</th>
         HTML;
     }
-    function makeCreateModal($view, $title, $button, $idModel = 'createModel', $index = null, $myObject = null, $action = 'BranchCreatePost.php'){
+    function makeCreateModal($view, $title, $button){
+        $action = 'BranchCreatePost.php';
         include('all_modal/model_branch.php');
 
             echo<<<HTML
