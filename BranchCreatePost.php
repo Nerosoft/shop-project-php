@@ -7,10 +7,10 @@ class BranchCreatePost extends ValidationId{
     function copyImageFolder($arr){
         if(!is_dir('asset/product/'.$this->keyId))
             mkdir('asset/product/'.$this->keyId);
-        $dir = opendir('asset/product/'.$this->getId());
+        $dir = opendir('asset/product/'.$_POST['selectedBranch']);
         while (false !== ($myFile=readdir($dir)))
             if($myFile != '.' && $myFile != '..' && isset($arr[pathinfo($myFile, PATHINFO_FILENAME)]))
-                copy('asset/product/'.$this->getId().'/'.$myFile, 'asset/product/'.$this->keyId.'/'.$myFile);
+                copy('asset/product/'.$_POST['selectedBranch'].'/'.$myFile, 'asset/product/'.$this->keyId.'/'.$myFile);
         closedir($dir);
     }
     function __construct(){
@@ -25,16 +25,16 @@ class BranchCreatePost extends ValidationId{
             unset($obj['Product']);
 
         //check exist table and user select table
-        if(isset($_POST['flextable']) && isset($this->getModel2()['MyFlexTables'])){
-            foreach ($this->getModel2()['MyFlexTables'] as $keyTable => $value)
-                if(isset($this->getObj()[$keyTable]))
-                    $this->copyImageFolder($this->getObj()[$keyTable]);
+        if(isset($_POST['flextable']) && isset($obj[$obj['Setting']['Language']]['MyFlexTables'])){
+            foreach ($obj[$obj['Setting']['Language']]['MyFlexTables'] as $keyTable => $value)
+                if(isset($obj[$keyTable]))
+                    $this->copyImageFolder($obj[$keyTable]);
         }//check exist table and delete all table
-        else if(isset($this->getModel2()['MyFlexTables']))
-            foreach ($this->getModel2()['MyFlexTables'] as $key => $value){   
+        else if(isset($obj[$obj['Setting']['Language']]['MyFlexTables']))
+            foreach ($obj[$obj['Setting']['Language']]['MyFlexTables'] as $key => $value){   
                 if(isset($obj[$key]))                
                     unset($obj[$key]);
-                foreach ($this->getModel2()['AllNamesLanguage'] as $keylang => $valuelang){
+                foreach ($obj[$obj['Setting']['Language']]['AllNamesLanguage'] as $keylang => $valuelang){
                     unset($obj[$keylang][$key]);
                     if(isset($obj[$keylang]['MyFlexTables']))
                         unset($obj[$keylang]['MyFlexTables']);

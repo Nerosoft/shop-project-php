@@ -112,7 +112,7 @@ class MyBranch extends AdminMenu implements InterfaceDataView{
                         if(isset($view->getFile()[$key]['Users']))
                             $arr['Users'] = $view->getSettingAccounts();
                         if(isset($view->getFile()[$key]['Product']))
-                            $arr['product'] = $view->getProduct();
+                            $arr['Product'] = $view->getProduct();
                         $arr = htmlspecialchars(json_encode($arr));
                         echo <<<HTML
                         <option {$select} data-value="{$arr}" value="{$key}">
