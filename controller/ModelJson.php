@@ -8,8 +8,8 @@ class ModelJson{
     function __construct($IdPage){
         $this->IdPage = $IdPage;
         $this->File = json_decode(file_get_contents('data.json'), true);
-        $this->Language = $IdPage === 'Site' && isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) || isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['Setting']['Language'];
-        $this->StyleFile = $IdPage === 'Site' && isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) ||isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Setting']['Style'];
+        $this->Language = $IdPage === 'Site' && isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) || isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['Setting']['AllNamesLanguage'];
+        $this->StyleFile = $IdPage === 'Site' && isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']]) || isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Setting']['Style'];
     }
     //create and edit
     function getRandomId(){
@@ -57,10 +57,12 @@ class ModelJson{
                 break;
             case 'MyStyle':
                 $view = new MyStyleClass($message, $type);
+                $myStateStyleLang = 'Style';
                 include 'views/ChangeLanguage_view.php';
                 break;
             case 'ChangeLanguage':
                 $view = new MyChangeLanguage($message, $type);
+                $myStateStyleLang ='AllNamesLanguage';
                 include 'views/ChangeLanguage_view.php';
                 break;
             case 'Site':

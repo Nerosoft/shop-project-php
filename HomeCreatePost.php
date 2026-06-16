@@ -8,7 +8,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             function __construct(){
               
                 parent::__construct('Home', function($myFile){
-                    return $this->saveFelxTable($myFile[$myFile['Setting']['Language']]['AllNamesLanguage'], $myFile);
+                    return $this->saveFelxTable($myFile[$myFile['Setting']['AllNamesLanguage']]['AllNamesLanguage'], $myFile);
                 }, 'MessageModelCreate'); 
                 $this->saveModel($this->saveFelxTable($this->getModel2()['AllNamesLanguage'], $this->getObj()));
             }

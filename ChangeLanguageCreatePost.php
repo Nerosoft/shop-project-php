@@ -10,15 +10,15 @@ class ChangeLanguageCreatePost extends ValidationId{
             if(isset($myLanguage['MyFlexTables']))
                 foreach ($myLanguage['MyFlexTables'] as $keyFlexTable => $value)
                     unset($myLanguage[$keyFlexTable]);
-            $myFile = $this->saveNameLanguage($myFile[$myFile['Setting']['Language']]['AllNamesLanguage'], 'AllNamesLanguage', $myFile);
+            $myFile = $this->saveNameLanguage($myFile[$myFile['Setting']['AllNamesLanguage']]['AllNamesLanguage'], 'AllNamesLanguage', $myFile);
             $lang = $myLanguage;
             //reset all name language 
-            $lang['AllNamesLanguage'] = $myFile[$myFile['Setting']['Language']]['AllNamesLanguage'];
+            $lang['AllNamesLanguage'] = $myFile[$myFile['Setting']['AllNamesLanguage']]['AllNamesLanguage'];
             //check if exist flex table inside branch
-            if(isset($myFile[$myFile['Setting']['Language']]['MyFlexTables'])){
-                $lang['MyFlexTables'] = $myFile[$myFile['Setting']['Language']]['MyFlexTables'];
+            if(isset($myFile[$myFile['Setting']['AllNamesLanguage']]['MyFlexTables'])){
+                $lang['MyFlexTables'] = $myFile[$myFile['Setting']['AllNamesLanguage']]['MyFlexTables'];
                 foreach ($lang['MyFlexTables'] as $keyFlex => $value)
-                    $lang[$keyFlex] = $myFile[$myFile['Setting']['Language']][$keyFlex];
+                    $lang[$keyFlex] = $myFile[$myFile['Setting']['AllNamesLanguage']][$keyFlex];
             }
             //add lang inside branch
             $myFile[$this->keyId] = $lang;

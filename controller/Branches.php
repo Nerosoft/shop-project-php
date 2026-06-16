@@ -4,7 +4,7 @@ require 'all_trait/ErrorBranch.php';
 require 'all_trait/ChangeStyleLangBranch.php';
 include 'all_trait/InfoBranch.php';
 require 'interface/InterfaceDataView.php';
-require 'class_object/BranchClass.php';
+// require 'class_object/BranchClass.php';
 class MyBranch extends AdminMenu implements InterfaceDataView{
     use ErrorBranch, ChangeStyleLangBranch, InfoBranch;
     private $BranchStreet;
@@ -49,7 +49,8 @@ class MyBranch extends AdminMenu implements InterfaceDataView{
             $this->BranchAddress = $this->getModelPage()['BranchAddress'];
             $this->BranchCountry = $this->getModelPage()['BranchCountry'];
             $this->BranchFollow = $this->getModelPage()['BranchFollow'];
-            return Branch::fromArray($this->getBranch(), $this->getbranchInputOutput());
+            // return Branch::fromArray($this->getBranch(), $this->getbranchInputOutput());
+            return $this->getMyBranch();
         }, Branch::getKeysObject());
     }
     function getBranchStreet(){
@@ -108,7 +109,7 @@ class MyBranch extends AdminMenu implements InterfaceDataView{
                 foreach($view->getBranch() as $key=>$name){
                         $select = $key === $view->getId()? 'selected' : '';
                         $arr = array();
-                        if(isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['Language']]['MyFlexTables']))
+                        if(isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['AllNamesLanguage']]['MyFlexTables']))
                             $arr['flextable'] = $view->getFlexTable();
                         if(isset($view->getFile()[$key]['Users']))
                             $arr['Users'] = $view->getSettingAccounts();

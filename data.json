@@ -1,8 +1,8 @@
 {
     "admin": {
         "Setting": {
-            "Language": "english",
-            "Style": "default"
+            "AllNamesLanguage": "2p97e2be",
+            "Style": "dark"
         },
         "english": {
             "Site": {
@@ -69,6 +69,14 @@
                 "MyStyle": "Style"
             },
             "Product": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "AllBranches": "All branches",
                 "TitleViewImage": "View image product",
                 "UploadImgInv": "error upload image product",
@@ -118,6 +126,14 @@
                 "HintCategory": "enter Category"
             },
             "Users": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "AllBranches": "All branches",
                 "CheckbooksState": "show password",
                 "MYTITLE": "Setting account",
@@ -160,6 +176,15 @@
                 "WithRays": "With work"
             },
             "Branches": {
+                "AllBranches": "All branches",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "IdBranch": "Select your branch",
                 "IdBranchReq": "required id branch",
                 "IdBranchInv": "invalid id branch",
@@ -236,7 +261,14 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
                 "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "LanguageReq": "Required language",
                 "LanguageInv": "Invalid language",
                 "AllBranches": "All branches",
@@ -276,7 +308,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "5M63284c": "English language"
+                "2p97e2be": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
@@ -455,6 +487,14 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "CreateProjectMessage": "Successfully create project",
                 "LoginMessage": "Successfully login",
                 "ForgetMessage": "Successfully forget and login",
@@ -489,7 +529,14 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
-                "MessageStyleLang": "Successfylly change style",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "AllBranches": "All branches",
                 "MYTITLE": "Style",
                 "IdIsReq": "Id required",
@@ -540,6 +587,14 @@
                 "InfoFiltered": "Showing"
             },
             "TablePage": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "TitleViewImage": "View image product",
                 "TableProductImage": "Image",
                 "Reqimage": "Required image",
@@ -568,7 +623,16 @@
                 "IdIsInv": "your message error id invalid"
             },
             "SystemLang": {
-                "AllBranches": "Change all language system",
+                "LanguageSelectAll": "Change all language system",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
+                "AllBranches": "Change all branch",
                 "ErrorFormInput": "Error server",
                 "MYTITLE": "Edit all word",
                 "TextRequired": "Word required",
@@ -605,6 +669,14 @@
                 "D2b5cb45": "book programming language"
             },
             "D2b5cb45": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "TitleViewImage": "View image product",
                 "TableProductImage": "Image",
                 "Reqimage": "Required image",
@@ -692,7 +764,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithoutRays"
             },
-            "O40cf02c": {
+            "X4c5877e": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
@@ -701,7 +773,7 @@
                 "Street": "menofia - menouf - sirs el laiana",
                 "Building": "Egypt",
                 "Address": "menofia - menouf - sirs el laiana",
-                "Follow": "WithRays"
+                "Follow": "WithoutRays"
             }
         },
         "Product": {
@@ -746,7 +818,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "5M63284c": {
+        "2p97e2be": {
             "Site": {
                 "Stories": "Stories",
                 "WorkWithUs": "Work with us",
@@ -811,6 +883,14 @@
                 "MyStyle": "Style"
             },
             "Product": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "AllBranches": "All branches",
                 "TitleViewImage": "View image product",
                 "UploadImgInv": "error upload image product",
@@ -860,6 +940,14 @@
                 "HintCategory": "enter Category"
             },
             "Users": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "AllBranches": "All branches",
                 "CheckbooksState": "show password",
                 "MYTITLE": "Setting account",
@@ -902,6 +990,15 @@
                 "WithRays": "With work"
             },
             "Branches": {
+                "AllBranches": "All branches",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "IdBranch": "Select your branch",
                 "IdBranchReq": "required id branch",
                 "IdBranchInv": "invalid id branch",
@@ -978,7 +1075,14 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
                 "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "LanguageReq": "Required language",
                 "LanguageInv": "Invalid language",
                 "AllBranches": "All branches",
@@ -1018,7 +1122,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "5M63284c": "English language"
+                "2p97e2be": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
@@ -1197,6 +1301,14 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "CreateProjectMessage": "Successfully create project",
                 "LoginMessage": "Successfully login",
                 "ForgetMessage": "Successfully forget and login",
@@ -1231,7 +1343,14 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
-                "MessageStyleLang": "Successfylly change style",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "AllBranches": "All branches",
                 "MYTITLE": "Style",
                 "IdIsReq": "Id required",
@@ -1282,6 +1401,14 @@
                 "InfoFiltered": "Showing"
             },
             "TablePage": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "TitleViewImage": "View image product",
                 "TableProductImage": "Image",
                 "Reqimage": "Required image",
@@ -1310,7 +1437,16 @@
                 "IdIsInv": "your message error id invalid"
             },
             "SystemLang": {
-                "AllBranches": "Change all language system",
+                "LanguageSelectAll": "Change all language system",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
+                "AllBranches": "Change all branch",
                 "ErrorFormInput": "Error server",
                 "MYTITLE": "Edit all word",
                 "TextRequired": "Word required",
@@ -1347,6 +1483,14 @@
                 "D2b5cb45": "book programming language"
             },
             "D2b5cb45": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "TitleViewImage": "View image product",
                 "TableProductImage": "Image",
                 "Reqimage": "Required image",
@@ -1416,9 +1560,9 @@
             }
         }
     },
-    "O40cf02c": {
+    "X4c5877e": {
         "Setting": {
-            "Language": "english",
+            "AllNamesLanguage": "english",
             "Style": "default"
         },
         "english": {
@@ -1486,6 +1630,14 @@
                 "MyStyle": "Style"
             },
             "Product": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "AllBranches": "All branches",
                 "TitleViewImage": "View image product",
                 "UploadImgInv": "error upload image product",
@@ -1535,6 +1687,14 @@
                 "HintCategory": "enter Category"
             },
             "Users": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "AllBranches": "All branches",
                 "CheckbooksState": "show password",
                 "MYTITLE": "Setting account",
@@ -1577,6 +1737,15 @@
                 "WithRays": "With work"
             },
             "Branches": {
+                "AllBranches": "All branches",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "IdBranch": "Select your branch",
                 "IdBranchReq": "required id branch",
                 "IdBranchInv": "invalid id branch",
@@ -1653,7 +1822,14 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
                 "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "LanguageReq": "Required language",
                 "LanguageInv": "Invalid language",
                 "AllBranches": "All branches",
@@ -1693,7 +1869,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "5M63284c": "English language"
+                "2p97e2be": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
@@ -1872,6 +2048,14 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "CreateProjectMessage": "Successfully create project",
                 "LoginMessage": "Successfully login",
                 "ForgetMessage": "Successfully forget and login",
@@ -1906,7 +2090,14 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
-                "MessageStyleLang": "Successfylly change style",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "AllBranches": "All branches",
                 "MYTITLE": "Style",
                 "IdIsReq": "Id required",
@@ -1957,6 +2148,14 @@
                 "InfoFiltered": "Showing"
             },
             "TablePage": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "TitleViewImage": "View image product",
                 "TableProductImage": "Image",
                 "Reqimage": "Required image",
@@ -1985,7 +2184,16 @@
                 "IdIsInv": "your message error id invalid"
             },
             "SystemLang": {
-                "AllBranches": "Change all language system",
+                "LanguageSelectAll": "Change all language system",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
+                "AllBranches": "Change all branch",
                 "ErrorFormInput": "Error server",
                 "MYTITLE": "Edit all word",
                 "TextRequired": "Word required",
@@ -2022,6 +2230,14 @@
                 "D2b5cb45": "book programming language"
             },
             "D2b5cb45": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "TitleViewImage": "View image product",
                 "TableProductImage": "Image",
                 "Reqimage": "Required image",
@@ -2139,7 +2355,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "5M63284c": {
+        "2p97e2be": {
             "Site": {
                 "Stories": "Stories",
                 "WorkWithUs": "Work with us",
@@ -2204,6 +2420,14 @@
                 "MyStyle": "Style"
             },
             "Product": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "AllBranches": "All branches",
                 "TitleViewImage": "View image product",
                 "UploadImgInv": "error upload image product",
@@ -2253,6 +2477,14 @@
                 "HintCategory": "enter Category"
             },
             "Users": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "AllBranches": "All branches",
                 "CheckbooksState": "show password",
                 "MYTITLE": "Setting account",
@@ -2295,6 +2527,15 @@
                 "WithRays": "With work"
             },
             "Branches": {
+                "AllBranches": "All branches",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "IdBranch": "Select your branch",
                 "IdBranchReq": "required id branch",
                 "IdBranchInv": "invalid id branch",
@@ -2371,7 +2612,14 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
                 "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "LanguageReq": "Required language",
                 "LanguageInv": "Invalid language",
                 "AllBranches": "All branches",
@@ -2411,7 +2659,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "5M63284c": "English language"
+                "2p97e2be": "English language"
             },
             "Register": {
                 "ButtonForgetPassword": "Forget password",
@@ -2590,6 +2838,14 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "CreateProjectMessage": "Successfully create project",
                 "LoginMessage": "Successfully login",
                 "ForgetMessage": "Successfully forget and login",
@@ -2624,7 +2880,14 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
-                "MessageStyleLang": "Successfylly change style",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "AllBranches": "All branches",
                 "MYTITLE": "Style",
                 "IdIsReq": "Id required",
@@ -2675,6 +2938,14 @@
                 "InfoFiltered": "Showing"
             },
             "TablePage": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "TitleViewImage": "View image product",
                 "TableProductImage": "Image",
                 "Reqimage": "Required image",
@@ -2703,7 +2974,16 @@
                 "IdIsInv": "your message error id invalid"
             },
             "SystemLang": {
-                "AllBranches": "Change all language system",
+                "LanguageSelectAll": "Change all language system",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
+                "AllBranches": "Change all branch",
                 "ErrorFormInput": "Error server",
                 "MYTITLE": "Edit all word",
                 "TextRequired": "Word required",
@@ -2740,6 +3020,14 @@
                 "D2b5cb45": "book programming language"
             },
             "D2b5cb45": {
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "TitleViewImage": "View image product",
                 "TableProductImage": "Image",
                 "Reqimage": "Required image",

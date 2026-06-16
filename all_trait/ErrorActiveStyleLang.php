@@ -1,28 +1,29 @@
 <?php
 trait ErrorActiveStyleLang{
     private $ChangeLang;
-    private $ChangeStyle;
     private $ModelTitle;
     private $ModelButton;
+    private $MyLanguage;
+
+    private $ChangeStyle;
     private $ModalTitleStyle;
     private $ModalButtonStyle;
     private $Style;
-    private $MyLanguage;
-    private $BranchLabel;
-    private $ChangeStyleButton;
-    private $ChangeLanguageButton;
+
+    
     function initErrorActiveStyleLang(){
+        $this->ChangeLang = $this->getModelPage()['UsedLanguage'];
         $this->ModelTitle = $this->getModelPage()['ModelTitle'];
         $this->ModelButton = $this->getModelPage()['ModelButton'];
+        $this->MyLanguage = MyLanguage::fromArray($this->getModel2()['AllNamesLanguage']);
+        
+        $this->ChangeStyle = $this->getModelPage()['UsedStyle'];
         $this->ModalTitleStyle = $this->getModelPage()['ModalTitleStyle'];
         $this->ModalButtonStyle = $this->getModelPage()['ModalButtonStyle'];
         $this->Style = MyLanguage::fromArray($this->getModel2()['Style']);
-        $this->MyLanguage = MyLanguage::fromArray($this->getModel2()['AllNamesLanguage']);
-        $this->BranchLabel = $this->getModelPage()['BranchLabel'];
-        $this->ChangeLanguageButton = $this->getModelPage()['ChangeLanguageButton'];
-        $this->ChangeStyleButton = $this->getModelPage()['ChangeStyleButton'];
-        $this->ChangeLang = $this->getModelPage()['UsedLanguage'];
-        $this->ChangeStyle = $this->getModelPage()['UsedStyle'];
+
+        
+       
         $view = $this;
         $idModel = 'lang_modal';
         $style_lang = $this->getLanguage();
@@ -61,15 +62,6 @@ trait ErrorActiveStyleLang{
             });
         </script>
         HTML;
-    }
-    function getBranchLabel(){
-        return $this->BranchLabel;
-    }
-    function getChangeStyleButton(){
-        return $this->ChangeStyleButton;
-    }
-    function getChangeLanguageButton(){
-        return $this->ChangeLanguageButton;
     }
     function getMyLanguage(){
         return $this->MyLanguage;

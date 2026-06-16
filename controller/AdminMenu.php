@@ -1,5 +1,7 @@
 <?php
 require_once 'InformationPage.php';
+require 'class_object/BranchClass.php';
+
 class AdminMenu extends InformationPage
 {
     private $Offcanvas;
@@ -22,6 +24,12 @@ class AdminMenu extends InformationPage
     private $ScreenModelDelete;
     private $messageModelDelete;
     private $buttonModelDelete;
+    function getMyBranch(){
+        return Branch::fromArray($this->getBranch(), $this->getModel2()['SelectBranchBox']);
+    }
+    function getBranchesCompany(){
+        
+    }
     function getScreenModelDelete(){
         return $this->ScreenModelDelete;
     }
@@ -41,14 +49,13 @@ class AdminMenu extends InformationPage
         return $this->DataView;
     }
     function __construct($IdPage, $message, $type, $DataView, $keysTable){
-        parent::__construct($IdPage, $message, $type);
+        parent::__construct($IdPage, $message, $type, 'ChangeLanguagePost.php');
          echo '<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
             <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
             <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';
         $this->DataView = $DataView();
         $this->keysTable = $keysTable??count($this->getModelPage()['TableHead'])+1;
-        if($IdPage !== 'Branches')
-            $this->AllBranches = $this->getModelPage()['AllBranches'];
+        $this->AllBranches = $this->getModelPage()['AllBranches'];
         $this->Ssearch = $this->getModel2()['TableInfo']['Ssearch'];
         $this->InfoEmpty = $this->getModel2()['TableInfo']['InfoEmpty'];
         $this->ZeroRecords = $this->getModel2()['TableInfo']['ZeroRecords'];

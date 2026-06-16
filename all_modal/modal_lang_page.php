@@ -16,7 +16,15 @@
 </div>
 <?php 
 if(count($view->getModel2()['AllNamesLanguage'])>1){
-    include 'AllBranchLanguageInput.php';
+    echo'
+    <div class="col-lg-auto pt-2">
+        <div class="form-check">
+            <input name="Branches"  class="form-check-input branch-check" type="checkbox">
+            <label  class="form-check-label">'
+                .$view->getSelectAll().
+            '</label>
+        </div>
+    </div>';
     foreach($view->getModel2()['AllNamesLanguage'] as $key=>$option)
         if(isset($_GET['lang']) && $_GET['lang'] !== $key)
             echo <<<HTML

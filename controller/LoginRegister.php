@@ -3,9 +3,9 @@ require 'InformationPage.php';
 require 'all_trait/ErrorBranch.php';
 require 'all_trait/InfoBranch.php';
 require 'all_trait/InterEmailPass.php';
-require 'all_trait/ErrorActiveStyleLang.php';
+// require 'all_trait/ErrorActiveStyleLang.php';
 class LoginRegister extends InformationPage{
-    use ErrorBranch, InfoBranch, EmailPassword, ErrorActiveStyleLang;
+    use ErrorBranch, InfoBranch, EmailPassword;
     private $TitleForm;
     private $ButtonName;
     private $dbKeys;
@@ -17,6 +17,21 @@ class LoginRegister extends InformationPage{
     private $ModalButtonProject;
     private $ButtonSetupProject;
     private $RegisterLoginPage;
+
+    private $BranchLabel;
+    private $ChangeStyleButton;
+    private $ChangeLanguageButton;
+    function getBranchLabel(){
+        return $this->BranchLabel;
+    }
+    function getChangeStyleButton(){
+        return $this->ChangeStyleButton;
+    }
+    function getChangeLanguageButton(){
+        return $this->ChangeLanguageButton;
+    }
+
+
     function getModalTitleProject(){
         return $this->ModalTitleProject;
     }
@@ -43,7 +58,9 @@ class LoginRegister extends InformationPage{
     }
     function __construct($message, $type, $IdPage = 'Login', $action = 'LoginPost.php'){
         parent::__construct($IdPage, $message, $type);
-        $this->initErrorActiveStyleLang();
+        $this->BranchLabel = $this->getModelPage()['BranchLabel'];
+        $this->ChangeStyleButton = $this->getModelPage()['ChangeStyleButton'];
+        $this->ChangeLanguageButton = $this->getModelPage()['ChangeLanguageButton'];
         if($IdPage !== 'Site' ){
             echo '<link href="./asset/css/login_register.css" rel="stylesheet"></head><body>';
             $this->initInfoBranch();

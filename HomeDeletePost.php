@@ -10,7 +10,7 @@ class HomeDeletePost extends ValidationId{
         $this->saveModel($this->deleteHome($this->getObj(), $this->getId()));
     }
     function deleteHome($myData, $idSseion){
-        foreach ($myData[$myData['Setting']['Language']]['AllNamesLanguage'] as $key => $value) 
+        foreach ($myData[$myData['Setting']['AllNamesLanguage']]['AllNamesLanguage'] as $key => $value) 
             if(count($myData[$key]['MyFlexTables']) === 1)
                 unset($myData[$key][$this->keyId], $myData[$key]['MyFlexTables']);
             else

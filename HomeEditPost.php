@@ -6,7 +6,7 @@ class HomeEditPost extends ValidationId{
     use ErrorsHome;
     function __construct(){
         parent::__construct('Home', function ($myFile){
-            return $this->editHome($myFile, $myFile[$myFile['Setting']['Language']]['AllNamesLanguage']);
+            return $this->editHome($myFile, $myFile[$myFile['Setting']['AllNamesLanguage']]['AllNamesLanguage']);
         }, 'MessageModelEdit'); 
         $this->saveModel($this->editHome($this->getObj(), $this->getModel2()['AllNamesLanguage']));
     }

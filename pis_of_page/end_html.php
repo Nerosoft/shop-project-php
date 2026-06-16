@@ -35,7 +35,7 @@
             }
         </script>
         HTML;
-    if(isset($_SESSION['userId']) && $view->getUrlName2() !== 'site'){
+    if(isset($_SESSION['userId']) && $view->getUrlName2() !== 'Site'){
         echo<<<HTML
             </tbody>
                 <tfoot>
@@ -80,7 +80,46 @@
                 </script>
         HTML;
     }
+
+    
+        $idModel = 'lang_modal';
+        $style_lang = $view->getLanguage();
+        $error = $view->getChangeLang();
+        $title = $view->getModelTitle();
+        $button = $view->getModelButton();
+        $state = 'AllNamesLanguage';
+        $data = $view->getMyLanguage();
+        include 'all_modal/style_lang_form.php';
+        $idModel = 'style_modal';
+        $style_lang = $view->getStyleFile();
+        $error = $view->getChangeStyle();
+        $title = $view->getModalTitleStyle();
+        $button = $view->getModalButtonStyle();
+        $state = 'Style';
+        $data = $view->getStyle();  
+        include 'all_modal/style_lang_form.php';
 ?>
+        <script type="text/javascript">
+             $('#lang_modal,#style_modal').find('#close_button').on('click', function (){
+                if($('#'+$(this).parent().parent().parent().parent().attr('id')).find('.flexCheck').val() !== $('#'+$(this).parent().parent().parent().parent().attr('id')).find('input[name="id"]:checked').val())
+                    $('#'+$(this).parent().parent().parent().parent().attr('id')).find('.flexCheck').prop('checked', true);
+            });
+            function changeLangStyle(el, style_lang, idModal, error){
+                validForm2(idModal);
+                if(el.value !== style_lang)
+                    $(idModal).find('.flexCheck')[0].setCustomValidity('');
+                else
+                    el.setCustomValidity(error);
+            }
+            $('#lang_modal,#style_modal').find('#click_button').on('click', function(){
+                let idmodal = $(this).parent().parent().parent().parent().parent().attr('id');
+                if(idmodal === 'lang_modal' && $('#lang_modal').find('input[name="id"]:checked').val() === '<?php echo$view->getLanguage()?>'||
+                    idmodal === 'style_modal' && $('#style_modal').find('input[name="id"]:checked').val() === '<?php echo$view->getStyleFile()?>')
+                    $('#'+idmodal).find('input[name="id"]:checked')[0].setCustomValidity(idmodal==='lang_modal'?'<?php echo$view->getChangeLang()?>':'<?php echo$view->getChangeStyle()?>');
+            });
+        </script>
+
+
 <div style="position: fixed; top: 0; right: 10px; z-index: 9999; max-height: 90vh; overflow-y: auto;">
     <div id="toastId" class="toast text-bg-<?php echo $view->getType()?> mt-2">
         <script>

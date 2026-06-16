@@ -1,6 +1,7 @@
 <?php
 include 'AllBranchOption.php';
 if(isset($action) && $action === 'ChangeLanguagePost.php' || 
+  isset($action) && $action === 'ChangeLangPost.php'||
   isset($action) && $action === 'SetupProject.php'||
   isset($action) && $action === 'ChangeLanguageEditPost')
     echo '<input type="hidden" value="'.$view->getUrlName2().'" name="option">';

@@ -1,17 +1,26 @@
 <?php
 include 'auth/SessionAdmin.php';
-if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['option']) && $_POST['option'] === 'ChangeLanguage' || $_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['option']) && $_POST['option'] === 'MyStyle'){
-ModelJson::initView($_POST['option'], 'MessageStyleLang', 'success', function(){
+// print_r($_POST);
+// exit;
+if($_SERVER["REQUEST_METHOD"] === "POST"){
+ModelJson::initView(($_POST['option'] === 'Home' ||
+        $_POST['option'] === 'HomeCreatePost' ||
+        $_POST['option'] === 'Branches' ||
+        $_POST['option'] === 'ChangeLanguage' ||
+        $_POST['option'] === 'Users' ||
+        $_POST['option'] === 'Product' ||
+        $_POST['option'] === 'SystemLang' ||
+        $_POST['option'] === 'MyStyle'? $_POST['option']:'MyFlexTablesView'), $_POST['state'] === 'Style'?'MessageStyleLang2':'MessageStyleLang', 'success', function(){
 
 class ChangeLanguagePost extends ValidationId{
     function __construct(){
-        parent::__construct($_POST['option'], function($myFile){
+        parent::__construct(($_POST['option']), function($myFile){
             return $this->changeLangStylePost($myFile);
         }, 'MessageStyleLang');
         $this->saveModel($this->changeLangStylePost($this->getObj()));
     }
     function changeLangStylePost($myData){
-        $myData['Setting'][$_POST['option'] === 'MyStyle'?'Style':'Language'] = $this->keyId;
+        $myData['Setting'][$_POST['state']] = $this->keyId;
         return $myData;
     }
 }

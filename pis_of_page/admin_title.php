@@ -1,12 +1,35 @@
 <nav class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"><?php echo $this->getAdminDashboard()?></a>
+    <i onclick="openForm('<?php echo'#lang_modal'?>')" class="navbar-brand fa fa-language fa-2x pointer"></i>
+    <i onclick="openForm('<?php echo'#style_modal'?>')" class="navbar-brand fa fa-magic fa-2x pointer"></i>
+    <div class="dropdown">
+            <i class="navbar-brand fa fa-tree fa-2x pointer  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+        
+        <ul class="dropdown-menu dropdown-menu-dark">        
+        <?php
+          foreach ($this->getMyBranch() as $index_branch => $branch_button) {
+            echo <<<HTML
+            <form class="form_branch" method="POST" action="BranchChangePost.php">
+            <input type="hidden" value="{$index_branch}" name="id">
+            <li class="dropdown-item">
+            <button type="submit" class="
+            HTML;
+            echo $index_branch === $this->getId()?'btn btn-danger' : 'btn btn-primary';
+            echo <<<HTML
+                ">{$branch_button->getName()}</button>
+                </li>
+              </form>
+            HTML;
+          }
+        ?>
+        </ul>
+    </div>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="logout.php"><?php echo$this->getLogout()?></a>
+        <a class="nav-link" href="logout.php"><?php echo$this->getLogout()?></a>       
       </li>
     </ul>
-   
   <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
   </button>
@@ -21,7 +44,7 @@
 <?php 
 foreach ($this->getMyMenuApp() as $key => $item) {
     if(is_array($item)){
-        $classActive = isset($_GET['lang']) && $_GET['lang'] === $key || isset($_GET['id']) && isset($this->getModel2()['MyFlexTables'][$_GET['id']]) ? 'my_active':'';
+        $classActive = isset($_GET['lang']) && $_GET['lang'] === $key || isset($_GET['id']) && isset($this->getModel2()['MyFlexTables'][$_GET['id']]) || isset($_POST['option']) && isset($this->getModel2()['MyFlexTables'][$_POST['option']]) ? 'my_active':'';
         $name = array_shift($item);
         echo <<<HTML
             <li class="nav-item dropdown">
@@ -32,7 +55,7 @@ foreach ($this->getMyMenuApp() as $key => $item) {
         HTML;
         foreach ($item as $keyItem=>$myItem){
             $loc = $this->getUrlName2() === 'SystemLang' ? 'view?id='.$this->getUrlName2().'&lang='.$key.'&table='.$keyItem : 'view?id='.$keyItem;
-            $classActive = isset($_GET['table']) && $_GET['table'] === $keyItem && isset($_GET['lang']) && $_GET['lang'] === $key || isset($_GET['id']) && $keyItem === $_GET['id'] && $key === 'MyFlexTables' ? 'my_active':'';
+            $classActive = isset($_GET['table']) && $_GET['table'] === $keyItem && isset($_GET['lang']) && $_GET['lang'] === $key || isset($_GET['id']) && $keyItem === $_GET['id'] && $key === 'MyFlexTables' || isset($_POST['option']) && $keyItem === $_POST['option'] && $key === 'MyFlexTables' ? 'my_active':'';
             echo <<<HTML
                 <li>
                 <a class="dropdown-item icon_font {$this->getIconByKey($keyItem)} {$classActive}" href="{$loc}">

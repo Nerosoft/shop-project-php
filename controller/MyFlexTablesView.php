@@ -1,8 +1,8 @@
 <?php
 require 'AdminMenu.php';
 require 'all_trait/ErrorFlexTable.php';
-if(!isset((new ModelJson($_GET['id']))->getObj()[(new ModelJson($_GET['id']))->getObj()['Setting']['Language']][$_GET['id']]))
-    header("Location:index");
+// if(!isset((new ModelJson($_GET['id']))->getObj()[(new ModelJson($_GET['id']))->getObj()['Setting']['AllNamesLanguage']][$_GET['id']]))
+//     header("Location:index");
 include 'interface/InterfaceDataView.php';
 class MyFlexTablesView extends AdminMenu implements InterfaceDataView{
     use ErrorFlexTable;
@@ -10,13 +10,13 @@ class MyFlexTablesView extends AdminMenu implements InterfaceDataView{
     private $Label;
     private $Hint;
     function __construct($message, $type){
-        parent::__construct($_GET['id'], $message, $type, function(){
+        parent::__construct($_GET['id']??$_POST['option'], $message, $type, function(){
             $this->initErrorFlexTable();
             $this->initImageInfo();
             $this->TableHead = $this->getModelPage()['TableHead'];
             $this->Label = $this->getModelPage()['Label'];
             $this->Hint = $this->getModelPage()['Hint'];
-            return isset($this->getObj()[$_GET['id']])?array_reverse($this->getObj()[$_GET['id']]):array();
+            return isset($this->getObj()[$this->getUrlName2()])?array_reverse($this->getObj()[$this->getUrlName2()]):array();
         }, null);
     }
     function getTableHead(){
@@ -36,7 +36,7 @@ class MyFlexTablesView extends AdminMenu implements InterfaceDataView{
             HTML;
     }
     function makeCreateModal($view, $title, $button, $idModel = 'createModel', $index = null, $myObject = null){
-        $action = 'FlexTablesCreatePost?id='.$_GET['id'];
+        $action = 'FlexTablesCreatePost?id='.$this->getUrlName2();
         include('all_modal/modal_flex.php');
     }
 }

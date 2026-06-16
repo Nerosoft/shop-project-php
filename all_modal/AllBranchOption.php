@@ -1,19 +1,22 @@
 <?php
 if($view->getUrlName2() === 'Login' || $view->getUrlName2() === 'Register' || $view->getUrlName2() === 'Site')
     echo '<input type="hidden" value="'.$view->getId().'"name="superId">';
-else if(isset($index) && $index !== null && count($view->getBranch2()) >= 1 && $view->getUrlName2() !== 'Branches' && $view->getUrlName2() !== 'SystemLang'||
- count($view->getBranch2()) >= 1 && isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()]) && $view->getUrlName2() !== 'Branches' && $view->getUrlName2() !== 'SystemLang'){
-    if(isset($index) && $index !== null)
+else if(isset($index) && $index !== null && count($view->getBranch2()) >= 1 && isset($state) && $state === 'AllNamesLanguage'||
+    isset($index) && $index !== null && count($view->getBranch2()) >= 1 && $view->getUrlName2() !== 'Branches' && $view->getUrlName2() !== 'SystemLang' &&  isset($state) && $state !== 'Style' ||
+ count($view->getBranch2()) >= 1 && isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()]) && $view->getUrlName2() !== 'Branches' && $view->getUrlName2() !== 'SystemLang' && isset($state) && $state !== 'Style'){
+    if(isset($index) && $index !== null && !isset($state))
         include('my_id.php');
     $myCountBranch = 0;
     foreach($view->getBranch2() as $key=>$option){
-        if( $view->getUrlName2() === 'MyStyle' ||
-            $view->getUrlName2() === 'Home' && isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['Language']][$index])||
+        if( 
+            isset($state) && $state === 'AllNamesLanguage' && isset($view->getFile()[$key][$index])||
+            $view->getUrlName2() === 'MyStyle' ||
+            $view->getUrlName2() === 'Home' && isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['AllNamesLanguage']][$index])||
             $view->getUrlName2() === 'ChangeLanguage' && isset($view->getFile()[$key][$index])||
             $view->getUrlName2() === 'Users' && isset($view->getFile()[$key]['Users'][$index])||
             $view->getUrlName2() === 'Product' && isset($view->getFile()[$key]['Product'][$index])||
-            $index !== null && isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['Language']]['MyFlexTables'][$view->getUrlName2()]) && isset($view->getFile()[$key][$view->getUrlName2()][$index])||
-            $index === null && isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['Language']]['MyFlexTables'][$view->getUrlName2()])){
+            $index !== null && isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['AllNamesLanguage']]['MyFlexTables'][$view->getUrlName2()]) && isset($view->getFile()[$key][$view->getUrlName2()][$index])||
+            $index === null && isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['AllNamesLanguage']]['MyFlexTables'][$view->getUrlName2()])){
             ++$myCountBranch;
             echo <<<HTML
                 <div class="col-md-auto">
@@ -32,9 +35,9 @@ else if(isset($index) && $index !== null && count($view->getBranch2()) >= 1 && $
     if($myCountBranch === count($view->getBranch2()))
         include 'AllBranchLanguageInput.php';
 }
-else if(isset($index) && $index !== null && $view->getUrlName2() !== 'SystemLang')
+else if(isset($index) && $index !== null && $view->getUrlName2() !== 'SystemLang' && !isset($state))
     include('my_id.php');
 //make create inside all branch or select and custom branch
-else if(count($view->getBranch2()) >= 1 && $view->getUrlName2() !== 'Branches' && $view->getUrlName2() !== 'SystemLang')
+else if(count($view->getBranch2()) >= 1 && isset($state) && $state === 'Style' || count($view->getBranch2()) >= 1 && $view->getUrlName2() !== 'Branches' && $view->getUrlName2() !== 'SystemLang')
     include 'AllBranchOptionChose.php';
 

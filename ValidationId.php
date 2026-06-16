@@ -86,14 +86,14 @@ class ValidationId extends ModelJson{
                 //use $IdPage only(users and product)
                 //style dont create use getUrlName2
                 else if(isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($myFile[$key][$_GET['id']][$_POST['id']]) ||
-                    !isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_GET['id']]) ||
+                    !isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_GET['id']]) ||
                     
-                    $this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
-                    $this->getSCRIPTFILENAME() === 'ChangeLanguagePost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
+                    $this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
+                    $this->getSCRIPTFILENAME() === 'ChangeLanguagePost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_POST['state']][$_POST['id']]) ||
                     $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && !isset($myFile[$key][$_POST['id']]) ||
                     $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english' ||
-                    $this->getSCRIPTFILENAME() === 'HomeEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['id']]) ||
-                    $this->getSCRIPTFILENAME() === 'HomeDeletePost' && !isset($myFile[$key][$myFile[$key]['Setting']['Language']][$_POST['id']]) ||
+                    $this->getSCRIPTFILENAME() === 'HomeEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_POST['id']]) ||
+                    $this->getSCRIPTFILENAME() === 'HomeDeletePost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_POST['id']]) ||
                   
                 $this->getSCRIPTFILENAME() === 'ProductDeletePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']])||
                 //valid users and flex table getUrlName2
@@ -110,24 +110,22 @@ class ValidationId extends ModelJson{
 
 
         else if(
+            isset($_POST['id']) && isset($_POST['state']) && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
             isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'BranchDeletePost' && $_POST['id'] === $this->getFixedId()||
             isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'BranchDeletePost' && $_POST['id'] === $this->getId()||
-            isset($_POST['id']) && $this->getUrlName2() === 'Branches' && !isset($this->getBranch()[$_POST['id']])||
-            isset($_POST['id']) && $this->getUrlName2() === 'MyStyle' && !isset($this->getModel2()['Style'][$_POST['id']])||
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($this->getObj()[$_GET['id']][$_POST['id']]) ||
+            //check lang name = english (system) and = (select language)
+            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && $_POST['id'] === $this->getLanguage()||
+            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english'||
             //valid users and flex table $_GET['id']
             isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'SettingUsersDeletePost' && !isset($this->getObj()[$_GET['id']][$_POST['id']]) ||
-            isset($_POST['id']) && $this->getUrlName2() === 'Login' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
-            isset($_POST['id']) && $this->getUrlName2() === 'Register' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
-            isset($_POST['id']) && $this->getUrlName2() === 'Site' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
             //work delete add edit user and product and home and change language
-            isset($_POST['id']) && $this->getUrlName2() === 'Users' && !isset($this->getObj()['Users'][$_POST['id']])||
-            isset($_POST['id']) && $this->getUrlName2() === 'Home' && !isset($this->getModel2()['MyFlexTables'][$_POST['id']])||
-            isset($_POST['id']) && $this->getUrlName2() === 'ChangeLanguage' && !isset($this->getModel2()['AllNamesLanguage'][$_POST['id']])||
-            isset($_POST['id']) && $this->getUrlName2() === 'Product' && !isset($this->getObj()['Product'][$_POST['id']])||
-            //check lang name = english (system) and = (select language)
-            isset($_POST['id']) && $this->getUrlName2() === 'ChangeLanguage' && $_POST['id'] === $this->getLanguage() && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost'||
-            isset($_POST['id']) && $this->getUrlName2() === 'ChangeLanguage' && $_POST['id'] === 'english' && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost'
+            !isset($_POST['state']) && isset($_POST['id']) && $this->getUrlName2() === 'Home' && !isset($this->getModel2()['MyFlexTables'][$_POST['id']])||
+            !isset($_POST['state']) && isset($_POST['id']) && $this->getUrlName2() === 'Branches' && !isset($this->getBranch()[$_POST['id']])||
+            !isset($_POST['state']) && isset($_POST['id']) && $this->getUrlName2() === 'ChangeLanguage' && !isset($this->getModel2()['AllNamesLanguage'][$_POST['id']])||
+            !isset($_POST['state']) && isset($_POST['id']) && $this->getUrlName2() === 'Users' && !isset($this->getObj()['Users'][$_POST['id']])||
+            !isset($_POST['state']) && isset($_POST['id']) && $this->getUrlName2() === 'Product' && !isset($this->getObj()['Product'][$_POST['id']])||
+            !isset($_POST['state']) && isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($this->getObj()[$_GET['id']][$_POST['id']]) ||
+            !isset($_POST['state']) && isset($_POST['id']) && $this->getUrlName2() === 'MyStyle' && !isset($this->getModel2()['Style'][$_POST['id']])
         )
             ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['IdIsInv']);
         else if($this->getSCRIPTFILENAME() === 'BranchEditPost' || $this->getSCRIPTFILENAME() === 'BranchCreatePost')

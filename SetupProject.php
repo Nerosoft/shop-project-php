@@ -14,7 +14,7 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
         function getProject(){
             return array(
                 "Setting"=> [
-                    "Language"=> "english",
+                    "AllNamesLanguage"=> "english",
                     "Style"=> "default"
                 ],
                 "english"=> [
@@ -82,6 +82,15 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "MyStyle"=> "Style"
                     ],
                     "Product"=> [
+                        "UsedLanguage"=> "Language is active",
+                        "ModelTitle"=> "welcom in change language",
+                        "ModelButton"=> "Change language",
+                        "UsedStyle"=> "Style is active",
+                        "ModalTitleStyle"=> "welcom in change style",
+                        "ModalButtonStyle"=> "Change style",
+                        "MessageStyleLang"=> "Successfylly change language",
+                        "MessageStyleLang2"=> "Successfylly change style",
+
                         "AllBranches"=> "All branches",
                         "TitleViewImage"=> "View image product",
                         "UploadImgInv"=> "error upload image product",
@@ -131,6 +140,15 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "HintCategory"=> "enter Category"
                     ],
                     "Users"=> [
+                        "UsedLanguage"=> "Language is active",
+                        "ModelTitle"=> "welcom in change language",
+                        "ModelButton"=> "Change language",
+                        "UsedStyle"=> "Style is active",
+                        "ModalTitleStyle"=> "welcom in change style",
+                        "ModalButtonStyle"=> "Change style",
+                        "MessageStyleLang"=> "Successfylly change language",
+                        "MessageStyleLang2"=> "Successfylly change style",
+
                         "AllBranches"=> "All branches",
                         "CheckbooksState"=> "show password",
                         "MYTITLE"=> "Setting account",
@@ -173,6 +191,16 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "WithRays"=> "With work"
                     ],
                     "Branches"=> [
+                        "AllBranches"=> "All branches",
+                        "UsedLanguage"=> "Language is active",
+                        "ModelTitle"=> "welcom in change language",
+                        "ModelButton"=> "Change language",
+                        "UsedStyle"=> "Style is active",
+                        "ModalTitleStyle"=> "welcom in change style",
+                        "ModalButtonStyle"=> "Change style",
+                        "MessageStyleLang"=> "Successfylly change language",
+                        "MessageStyleLang2"=> "Successfylly change style",
+
                         "IdBranch"=> "Select your branch",
                         "IdBranchReq"=> "required id branch",
                         "IdBranchInv"=> "invalid id branch",
@@ -249,7 +277,14 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "Delete"=> "Seccessfully delete branch"
                     ],
                     "ChangeLanguage"=> [
+                        "UsedLanguage"=> "Language is active",
+                        "ModelTitle"=> "welcom in change language",
+                        "ModelButton"=> "Change language",
+                        "UsedStyle"=> "Style is active",
+                        "ModalTitleStyle"=> "welcom in change style",
+                        "ModalButtonStyle"=> "Change style",
                         "MessageStyleLang"=> "Successfylly change language",
+                        "MessageStyleLang2"=> "Successfylly change style",
                         "LanguageReq"=>"Required language",
                         "LanguageInv"=>"Invalid language",
                         "AllBranches"=> "All branches",
@@ -467,6 +502,15 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "BranceRaysFollowValue"=> "Work invalid"
                     ],
                     "Home"=> [
+                        "UsedLanguage"=> "Language is active",
+                        "ModelTitle"=> "welcom in change language",
+                        "ModelButton"=> "Change language",
+                        "UsedStyle"=> "Style is active",
+                        "ModalTitleStyle"=> "welcom in change style",
+                        "ModalButtonStyle"=> "Change style",
+                        "MessageStyleLang"=> "Successfylly change language",
+                        "MessageStyleLang2"=> "Successfylly change style",
+
                         "CreateProjectMessage"=> "Successfully create project",
                         "LoginMessage"=>"Successfully login",
                         "ForgetMessage"=>"Successfully forget and login",
@@ -501,7 +545,15 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "HintInputNumber"=> "Enter input numper"
                     ],
                     "MyStyle"=> [
+                        "UsedLanguage"=> "Language is active",
+                        "ModelTitle"=> "welcom in change language",
+                        "ModelButton"=> "Change language",
+                        "UsedStyle"=> "Style is active",
+                        "ModalTitleStyle"=> "welcom in change style",
+                        "ModalButtonStyle"=> "Change style",
                         "MessageStyleLang"=> "Successfylly change language",
+                        "MessageStyleLang2"=> "Successfylly change style",
+
                         "AllBranches"=> "All branches",
                         "MYTITLE"=> "Style",
                         "IdIsReq"=> "Id required",
@@ -552,6 +604,15 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "InfoFiltered"=> "Showing"
                     ],
                     "TablePage"=> [
+                        "UsedLanguage"=> "Language is active",
+                        "ModelTitle"=> "welcom in change language",
+                        "ModelButton"=> "Change language",
+                        "UsedStyle"=> "Style is active",
+                        "ModalTitleStyle"=> "welcom in change style",
+                        "ModalButtonStyle"=> "Change style",
+                        "MessageStyleLang"=> "Successfylly change language",
+                        "MessageStyleLang2"=> "Successfylly change style",
+
                          "TitleViewImage"=>"View image product",
                         "TableProductImage"=>"Image",
                         "Reqimage"=>"Required image",
@@ -580,7 +641,17 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "IdIsInv"=> "your message error id invalid"
                     ],
                     "SystemLang"=> [
-                        "AllBranches"=>"Change all language system",
+                        "LanguageSelectAll"=>"Change all language system",
+                        "UsedLanguage"=> "Language is active",
+                        "ModelTitle"=> "welcom in change language",
+                        "ModelButton"=> "Change language",
+                        "UsedStyle"=> "Style is active",
+                        "ModalTitleStyle"=> "welcom in change style",
+                        "ModalButtonStyle"=> "Change style",
+                        "MessageStyleLang"=> "Successfylly change language",
+                        "MessageStyleLang2"=> "Successfylly change style",
+
+                        "AllBranches"=>"Change all branch",
                         "ErrorFormInput"=> "Error server",
                         "MYTITLE"=> "Edit all word",
                         "TextRequired"=> "Word required",

@@ -6,7 +6,7 @@ $view->getUrlName2() === 'Home' ||
 $view->getId() !== $index && $index !== $view->getFixedId() && $view->getUrlName2() === 'Branches'||
 isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()])||
 $view->getUrlName2() === 'Users'){
-    $action = $view->getUrlName2() === 'ChangeLanguage'?'ChangeLanguageDeletePost':($view->getUrlName2() === 'Home'?'HomeDeletePost.php':($view->getUrlName2() === 'Branches'?'BranchDeletePost.php':('SettingUsersDeletePost?id='.(isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()])?$_GET['id']:$view->getUrlName2()))));
+    $action = $view->getUrlName2() === 'ChangeLanguage'?'ChangeLanguageDeletePost':($view->getUrlName2() === 'Home'?'HomeDeletePost.php':($view->getUrlName2() === 'Branches'?'BranchDeletePost.php':('SettingUsersDeletePost?id='.(isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()])?$view->getUrlName2():$view->getUrlName2()))));
     include('all_modal/modal_delete.php');
 }
 if($view->getUrlName2() === 'Branches' || $view->getUrlName2() === 'MyStyle' || $view->getUrlName2() === 'ChangeLanguage'){

@@ -6,7 +6,7 @@ class FlexTablesCreatePost extends ValidationId{
     use ErrorFlexTable;
     function __construct(){
         parent::__construct($_GET['id'], function($myFile, $idSseion){
-            return $this->saveFlexTable($myFile, $myFile[$myFile['Setting']['Language']][$_GET['id']]['ErrorsMessageReq'], $idSseion);
+            return $this->saveFlexTable($myFile, $myFile[$myFile['Setting']['AllNamesLanguage']][$_GET['id']]['ErrorsMessageReq'], $idSseion);
 
         }, isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');
         $this->saveModel($this->saveFlexTable($this->getObj(), $this->getErrorsMessageReq(), $this->getId()));

@@ -15,7 +15,6 @@ tr td,
 .modal-title,
 .modal-content label,
 label,
-.fa,
 .pagination .page-link{
     color: white!important;
 }
@@ -86,4 +85,7 @@ div.dt-scroll-body{
 }
 .pagination .active button{
     background-color: #dc3545;
+}
+.fa{
+    color: white;
 }
