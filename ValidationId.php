@@ -110,7 +110,6 @@ class ValidationId extends ModelJson{
 
 
         else if(
-            // isset($_POST['id']) && isset($_POST['state']) && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
             isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ChangeLanguagePost' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
             isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'BranchChangePost' && !isset($this->getBranch()[$_POST['id']])||
             isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'BranchDeletePost' && $_POST['id'] === $this->getFixedId()||
@@ -119,9 +118,7 @@ class ValidationId extends ModelJson{
             isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && $_POST['id'] === $this->getLanguage()||
             isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english'||
             //valid users and flex table $_GET['id']
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() !== 'BranchChangePost' && $this->getSCRIPTFILENAME() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Login' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() !== 'BranchChangePost' && $this->getSCRIPTFILENAME() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Register' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() !== 'BranchChangePost' && $this->getSCRIPTFILENAME() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Site' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
+            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ChangeLangPost' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
             isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'SettingUsersDeletePost' && !isset($this->getObj()[$_GET['id']][$_POST['id']]) ||
             //work delete add edit user and product and home and change language
             isset($_POST['id']) && $this->getSCRIPTFILENAME() !== 'BranchChangePost' && $this->getSCRIPTFILENAME() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Home' && !isset($this->getModel2()['MyFlexTables'][$_POST['id']])||

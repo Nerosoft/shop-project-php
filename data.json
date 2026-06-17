@@ -6,6 +6,7 @@
         },
         "english": {
             "Site": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -72,6 +73,7 @@
                 "MyStyle": "Style"
             },
             "Product": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -132,6 +134,7 @@
                 "HintCategory": "enter Category"
             },
             "Users": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -273,6 +276,7 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -323,9 +327,10 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "qlb9f10a": "English language"
+                "yle2bed6": "English language"
             },
             "Register": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -418,6 +423,7 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Login": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -508,6 +514,7 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -553,6 +560,7 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -614,6 +622,7 @@
                 "InfoFiltered": "Showing"
             },
             "TablePage": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -653,6 +662,7 @@
                 "IdIsInv": "your message error id invalid"
             },
             "SystemLang": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -702,6 +712,7 @@
                 "D2b5cb45": "book programming language"
             },
             "D2b5cb45": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -800,7 +811,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithoutRays"
             },
-            "6ufaaf26": {
+            "Sze5e8fa": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
@@ -809,7 +820,7 @@
                 "Street": "menofia - menouf - sirs el laiana",
                 "Building": "Nero-Soft",
                 "Address": "menofia - menouf - sirs el laiana",
-                "Follow": "WithRays"
+                "Follow": "WithoutRays"
             }
         },
         "Product": {
@@ -854,8 +865,9 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "qlb9f10a": {
+        "yle2bed6": {
             "Site": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -922,6 +934,7 @@
                 "MyStyle": "Style"
             },
             "Product": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -982,6 +995,7 @@
                 "HintCategory": "enter Category"
             },
             "Users": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -1123,6 +1137,7 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -1173,9 +1188,10 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "qlb9f10a": "English language"
+                "yle2bed6": "English language"
             },
             "Register": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -1268,6 +1284,7 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Login": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -1358,6 +1375,7 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -1403,6 +1421,7 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -1464,6 +1483,7 @@
                 "InfoFiltered": "Showing"
             },
             "TablePage": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -1503,6 +1523,7 @@
                 "IdIsInv": "your message error id invalid"
             },
             "SystemLang": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -1552,6 +1573,7 @@
                 "D2b5cb45": "book programming language"
             },
             "D2b5cb45": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -1632,13 +1654,14 @@
             }
         }
     },
-    "6ufaaf26": {
+    "Sze5e8fa": {
         "Setting": {
             "AllNamesLanguage": "english",
             "Style": "default"
         },
         "english": {
             "Site": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -1705,6 +1728,7 @@
                 "MyStyle": "Style"
             },
             "Product": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -1765,6 +1789,7 @@
                 "HintCategory": "enter Category"
             },
             "Users": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -1906,6 +1931,7 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -1956,9 +1982,10 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "qlb9f10a": "English language"
+                "yle2bed6": "English language"
             },
             "Register": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -2051,6 +2078,7 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Login": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -2141,6 +2169,7 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -2186,6 +2215,7 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -2247,6 +2277,7 @@
                 "InfoFiltered": "Showing"
             },
             "TablePage": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -2286,6 +2317,7 @@
                 "IdIsInv": "your message error id invalid"
             },
             "SystemLang": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -2335,6 +2367,7 @@
                 "D2b5cb45": "book programming language"
             },
             "D2b5cb45": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -2463,8 +2496,9 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "qlb9f10a": {
+        "yle2bed6": {
             "Site": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -2531,6 +2565,7 @@
                 "MyStyle": "Style"
             },
             "Product": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -2591,6 +2626,7 @@
                 "HintCategory": "enter Category"
             },
             "Users": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -2732,6 +2768,7 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -2782,9 +2819,10 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "qlb9f10a": "English language"
+                "yle2bed6": "English language"
             },
             "Register": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -2877,6 +2915,7 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Login": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -2967,6 +3006,7 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -3012,6 +3052,7 @@
                 "HintInputNumber": "Enter input numper"
             },
             "MyStyle": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -3073,6 +3114,7 @@
                 "InfoFiltered": "Showing"
             },
             "TablePage": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -3112,6 +3154,7 @@
                 "IdIsInv": "your message error id invalid"
             },
             "SystemLang": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
@@ -3161,6 +3204,7 @@
                 "D2b5cb45": "book programming language"
             },
             "D2b5cb45": {
+                "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
                 "ChangeButtonBranch": "change branch",
