@@ -1,5 +1,5 @@
 <!-- Modal -->
-<i onclick="displayForm('#<?php echo $idModel?>', $('#<?php echo $idModel?>').find('#word'), '<?php echo $myValue?>')" class="fa fa-sliders fa-2x pointer"></i>
+<i onclick="restValue('#<?php echo $idModel?>', '<?php echo $myValue?>')" class="fa fa-sliders fa-2x pointer"></i>
 <?php include('start_model.php');?>
 <div class="input-group input-group">
     <div class="input-group-prepend">
@@ -15,32 +15,6 @@
     type="text" name="word" id="word" value="<?php echo $myValue?>" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
 </div>
 <?php 
-if(count($view->getModel2()['AllNamesLanguage'])>1){
-    echo'
-    <div class="col-lg-auto pt-2">
-        <div class="form-check">
-            <input name="Branches"  class="form-check-input branch-check" type="checkbox">
-            <label  class="form-check-label">'
-                .$view->getSelectAll().
-            '</label>
-        </div>
-    </div>';
-    foreach($view->getModel2()['AllNamesLanguage'] as $key=>$option)
-        if(isset($_GET['lang']) && $_GET['lang'] !== $key)
-            echo <<<HTML
-                <div class="col-md-auto">
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input type="checkbox" id="choices[]" class="form-check-input" name="choices[$key]" value="{$key}">
-                            <label class="form-check-label" for="choices[]">
-                            {$option}
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            HTML;
-}
 include('end_model.php');
 echo '</td></tr>';
 $count++;
-?>

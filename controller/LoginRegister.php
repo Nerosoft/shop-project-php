@@ -3,7 +3,6 @@ require 'InformationPage.php';
 require 'all_trait/ErrorBranch.php';
 require 'all_trait/InfoBranch.php';
 require 'all_trait/InterEmailPass.php';
-// require 'all_trait/ErrorActiveStyleLang.php';
 class LoginRegister extends InformationPage{
     use ErrorBranch, InfoBranch, EmailPassword;
     private $TitleForm;

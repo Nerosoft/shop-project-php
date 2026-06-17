@@ -49,17 +49,20 @@ function changeInputState(id, type){
 }
 function restValue(myId, obj){
     openForm2(myId);
-    for (const key in obj) {
-        let element = $(myId).find('form').find('#'+key);
-        if(element.is('select')){
-            element.find('option').each(function(){                   
-                if($(this).html() === obj[key])
-                    $(this).prop('selected', true);
-            });
+    if(typeof obj === 'string')
+        $(myId).find('#word').val(obj);
+    else
+        for (const key in obj) {
+            let element = $(myId).find('form').find('#'+key);
+            if(element.is('select')){
+                element.find('option').each(function(){                   
+                    if($(this).html() === obj[key])
+                        $(this).prop('selected', true);
+                });
+            }
+            else
+                element.val(obj[key]);
         }
-        else
-            element.val(obj[key]);
-    }
 }
 function resetBranch(el){
     $('#createModel').find('#myOption').empty();

@@ -19,6 +19,9 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                 ],
                 "english"=> [
                     "Site"=> [
+                        "ActiveBranch"=>"this branch is active",
+                        "ChangeTitleBranch"=>"welcome in change branch",
+                        "ChangeButtonBranch"=>"change branch",
                         "Stories"=>"Stories",
                         "WorkWithUs"=>"Work with us",
                         "Privacy"=>"Privacy",
@@ -82,6 +85,10 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "MyStyle"=> "Style"
                     ],
                     "Product"=> [
+                        "ActiveBranch"=>"this branch is active",
+                        "ChangeTitleBranch"=>"welcome in change branch",
+                        "ChangeButtonBranch"=>"change branch",
+
                         "UsedLanguage"=> "Language is active",
                         "ModelTitle"=> "welcom in change language",
                         "ModelButton"=> "Change language",
@@ -140,6 +147,10 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "HintCategory"=> "enter Category"
                     ],
                     "Users"=> [
+                        "ActiveBranch"=>"this branch is active",
+                        "ChangeTitleBranch"=>"welcome in change branch",
+                        "ChangeButtonBranch"=>"change branch",
+
                         "UsedLanguage"=> "Language is active",
                         "ModelTitle"=> "welcom in change language",
                         "ModelButton"=> "Change language",
@@ -191,6 +202,10 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "WithRays"=> "With work"
                     ],
                     "Branches"=> [
+                        "ActiveBranch"=>"this branch is active",
+                        "ChangeTitleBranch"=>"welcome in change branch",
+                        "ChangeButtonBranch"=>"change branch",
+
                         "AllBranches"=> "All branches",
                         "UsedLanguage"=> "Language is active",
                         "ModelTitle"=> "welcom in change language",
@@ -277,6 +292,10 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "Delete"=> "Seccessfully delete branch"
                     ],
                     "ChangeLanguage"=> [
+                        "ActiveBranch"=>"this branch is active",
+                        "ChangeTitleBranch"=>"welcome in change branch",
+                        "ChangeButtonBranch"=>"change branch",
+
                         "UsedLanguage"=> "Language is active",
                         "ModelTitle"=> "welcom in change language",
                         "ModelButton"=> "Change language",
@@ -326,6 +345,10 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "english"=> "engilsh"
                     ],
                     "Register"=> [
+                        "ActiveBranch"=>"this branch is active",
+                        "ChangeTitleBranch"=>"welcome in change branch",
+                        "ChangeButtonBranch"=>"change branch",
+
                         "ButtonForgetPassword"=> "Forget password",
                         "ModalForgetPasswordTitle"=> "Change and forget password",
                         "ModalForgetPasswordButton"=> "login and change password",
@@ -415,6 +438,10 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "BranceRaysFollowValue"=> "Work invalid"
                     ],
                     "Login"=> [
+                        "ActiveBranch"=>"this branch is active",
+                        "ChangeTitleBranch"=>"welcome in change branch",
+                        "ChangeButtonBranch"=>"change branch",
+
                         "RegisterLoginPage"=> "Register account",
                         "CheckbooksState"=> "show password",
                         "UsedStyle"=> " style is active",
@@ -502,6 +529,10 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "BranceRaysFollowValue"=> "Work invalid"
                     ],
                     "Home"=> [
+                        "ActiveBranch"=>"this branch is active",
+                        "ChangeTitleBranch"=>"welcome in change branch",
+                        "ChangeButtonBranch"=>"change branch",
+
                         "UsedLanguage"=> "Language is active",
                         "ModelTitle"=> "welcom in change language",
                         "ModelButton"=> "Change language",
@@ -545,6 +576,10 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "HintInputNumber"=> "Enter input numper"
                     ],
                     "MyStyle"=> [
+                        "ActiveBranch"=>"this branch is active",
+                        "ChangeTitleBranch"=>"welcome in change branch",
+                        "ChangeButtonBranch"=>"change branch",
+
                         "UsedLanguage"=> "Language is active",
                         "ModelTitle"=> "welcom in change language",
                         "ModelButton"=> "Change language",
@@ -604,6 +639,10 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "InfoFiltered"=> "Showing"
                     ],
                     "TablePage"=> [
+                        "ActiveBranch"=>"this branch is active",
+                        "ChangeTitleBranch"=>"welcome in change branch",
+                        "ChangeButtonBranch"=>"change branch",
+
                         "UsedLanguage"=> "Language is active",
                         "ModelTitle"=> "welcom in change language",
                         "ModelButton"=> "Change language",
@@ -641,6 +680,10 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "IdIsInv"=> "your message error id invalid"
                     ],
                     "SystemLang"=> [
+                        "ActiveBranch"=>"this branch is active",
+                        "ChangeTitleBranch"=>"welcome in change branch",
+                        "ChangeButtonBranch"=>"change branch",
+                        
                         "LanguageSelectAll"=>"Change all language system",
                         "UsedLanguage"=> "Language is active",
                         "ModelTitle"=> "welcom in change language",

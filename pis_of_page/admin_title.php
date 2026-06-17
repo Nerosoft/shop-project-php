@@ -3,28 +3,7 @@
     <a class="navbar-brand" href="#"><?php echo $this->getAdminDashboard()?></a>
     <i onclick="openForm('<?php echo'#lang_modal'?>')" class="navbar-brand fa fa-language fa-2x pointer"></i>
     <i onclick="openForm('<?php echo'#style_modal'?>')" class="navbar-brand fa fa-magic fa-2x pointer"></i>
-    <div class="dropdown">
-            <i class="navbar-brand fa fa-tree fa-2x pointer  dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
-        
-        <ul class="dropdown-menu dropdown-menu-dark">        
-        <?php
-          foreach ($this->getMyBranch() as $index_branch => $branch_button) {
-            echo <<<HTML
-            <form class="form_branch" method="POST" action="BranchChangePost.php">
-            <input type="hidden" value="{$index_branch}" name="id">
-            <li class="dropdown-item">
-            <button type="submit" class="
-            HTML;
-            echo $index_branch === $this->getId()?'btn btn-danger' : 'btn btn-primary';
-            echo <<<HTML
-                ">{$branch_button->getName()}</button>
-                </li>
-              </form>
-            HTML;
-          }
-        ?>
-        </ul>
-    </div>
+    <i onclick="openForm('<?php echo'#branch_modal'?>')" class="navbar-brand fa fa-tree fa-2x pointer"></i>
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="logout.php"><?php echo$this->getLogout()?></a>       

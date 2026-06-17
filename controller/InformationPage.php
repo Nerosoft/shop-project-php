@@ -1,8 +1,7 @@
 <?php
 require 'class_object/MyLanguage.php';
-require 'all_trait/ErrorActiveStyleLang.php';
+require 'class_object/BranchClass.php';
 class InformationPage extends ModelJson{
-    use ErrorActiveStyleLang;
     private $Title;
     private $Message;
     private $Type;
@@ -17,6 +16,22 @@ class InformationPage extends ModelJson{
     private $ModalTitleStyle;
     private $ModalButtonStyle;
     private $Style;
+
+    private $ActiveBranch;
+    private $ChangeTitleBranch;
+    private $ChangeButtonBranch;
+    function getActiveBranch(){
+        return $this->ActiveBranch;
+    }
+    function getChangeTitleBranch(){
+        return $this->ChangeTitleBranch;
+    }
+    function getChangeButtonBranch(){
+        return $this->ChangeButtonBranch;
+    }
+    function getMyBranch(){
+        return Branch::fromArray($this->getBranch(), $this->getModel2()['SelectBranchBox']);
+    }
     function getMyLanguage(){
         return $this->MyLanguage;
     }
@@ -51,9 +66,16 @@ class InformationPage extends ModelJson{
     function getActionStyleLang(){
         return $this->styleLangAction;
     }
+    function setActionStyleLang($value){
+        $this->styleLangAction = $value;
+    }
     function __construct($IdPage, $message, $type, $action = 'ChangeLangPost.php'){
         parent::__construct($IdPage);
         $this->styleLangAction = $action;
+        $this->ActiveBranch = $this->getModelPage()['ActiveBranch'];
+        $this->ChangeTitleBranch = $this->getModelPage()['ChangeTitleBranch'];
+        $this->ChangeButtonBranch = $this->getModelPage()['ChangeButtonBranch'];
+        
         $this->ChangeLang = $this->getModelPage()['UsedLanguage'];
         $this->ModelTitle = $this->getModelPage()['ModelTitle'];
         $this->ModelButton = $this->getModelPage()['ModelButton'];
@@ -88,7 +110,6 @@ class InformationPage extends ModelJson{
             //     <link rel="stylesheet" href="./asset/css/owl.theme.default.min.css">
             //     <link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css"></head><body>' : 
             //     '<link href="./asset/css/login_register.css" rel="stylesheet"></head><body>';
-            // $this->initErrorActiveStyleLang();
         }else{
             // echo '<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
             // <script src="./asset/lib/dataTables.js" type="text/javascript"></script>

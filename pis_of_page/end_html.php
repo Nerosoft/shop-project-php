@@ -98,9 +98,18 @@
         $state = 'Style';
         $data = $view->getStyle();  
         include 'all_modal/style_lang_form.php';
+
+        $idModel = 'branch_modal';
+        $style_lang = $view->getId();
+        $error = $view->getActiveBranch();
+        $title = $view->getChangeTitleBranch();
+        $button = $view->getChangeButtonBranch();
+        $data = $view->getMyBranch();
+        $view->setActionStyleLang('BranchChangePost.php');  
+        include 'all_modal/style_lang_form.php';
 ?>
         <script type="text/javascript">
-             $('#lang_modal,#style_modal').find('#close_button').on('click', function (){
+             $('#lang_modal,#style_modal,#branch_modal').find('#close_button').on('click', function (){
                 if($('#'+$(this).parent().parent().parent().parent().attr('id')).find('.flexCheck').val() !== $('#'+$(this).parent().parent().parent().parent().attr('id')).find('input[name="id"]:checked').val())
                     $('#'+$(this).parent().parent().parent().parent().attr('id')).find('.flexCheck').prop('checked', true);
             });
@@ -111,11 +120,12 @@
                 else
                     el.setCustomValidity(error);
             }
-            $('#lang_modal,#style_modal').find('#click_button').on('click', function(){
+            $('#lang_modal,#style_modal,#branch_modal').find('#click_button').on('click', function(){
                 let idmodal = $(this).parent().parent().parent().parent().parent().attr('id');
                 if(idmodal === 'lang_modal' && $('#lang_modal').find('input[name="id"]:checked').val() === '<?php echo$view->getLanguage()?>'||
+                    idmodal === 'branch_modal' && $('#branch_modal').find('input[name="id"]:checked').val() === '<?php echo$view->getId()?>'||
                     idmodal === 'style_modal' && $('#style_modal').find('input[name="id"]:checked').val() === '<?php echo$view->getStyleFile()?>')
-                    $('#'+idmodal).find('input[name="id"]:checked')[0].setCustomValidity(idmodal==='lang_modal'?'<?php echo$view->getChangeLang()?>':'<?php echo$view->getChangeStyle()?>');
+                    $('#'+idmodal).find('input[name="id"]:checked')[0].setCustomValidity(idmodal==='branch_modal'?'<?php echo$view->getActiveBranch()?>':(idmodal==='lang_modal'?'<?php echo$view->getChangeLang()?>':'<?php echo$view->getChangeStyle()?>'));
             });
         </script>
 

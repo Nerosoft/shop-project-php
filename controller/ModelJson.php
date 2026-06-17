@@ -161,7 +161,7 @@ class ModelJson{
         return $this->File[$this->getId()];
     }
     function getBranch(){
-        return $this->File[$this->getFixedId()]['Branches'];
+        return isset($_SESSION['userId'])?$this->File[$this->getFixedId()]['Branches']:$this->getBranch3();
     }
     function getBranch3(){
         foreach ($this->getFile() as $key => $obj)

@@ -1,7 +1,5 @@
 <?php
 require_once 'InformationPage.php';
-require 'class_object/BranchClass.php';
-
 class AdminMenu extends InformationPage
 {
     private $Offcanvas;
@@ -24,9 +22,7 @@ class AdminMenu extends InformationPage
     private $ScreenModelDelete;
     private $messageModelDelete;
     private $buttonModelDelete;
-    function getMyBranch(){
-        return Branch::fromArray($this->getBranch(), $this->getModel2()['SelectBranchBox']);
-    }
+
     function getBranchesCompany(){
         
     }
