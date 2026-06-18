@@ -35,52 +35,7 @@
             }
         </script>
         HTML;
-    if(isset($_SESSION['userId']) && $view->getUrlName2() !== 'Site'){
-        echo<<<HTML
-            </tbody>
-                <tfoot>
-                    <tr>
-                        <th>{$view->getTableId()}</th>
-        HTML;
-        $view->printTableNames();
-        echo<<<HTML
-                        <th>{$view->getTabelEvent()}</th>
-                    </tr>
-                </tfoot>
-            </table>
-            </div>
-                <script type="text/javascript">
-                    let setting = [{ 'searchable': true, className: "text-left" }]
-                    for (let index = 0; index < {$view->getKeysTable()} ; index++) 
-                        setting.push({ 'searchable': true, className: "text-left" });
-                    setting.push({ 'searchable': false });
-                    $(document).ready(function() {
-                        new DataTable('#example',{
-                            "oLanguage": {
-                                "sSearch": "{$view->getSsearch()}",
-                                "sEmptyTable":  "{$view->getZeroRecords()}"
-                            },
-                            "language": {
-                                "lengthMenu": "_MENU_ " + "{$view->getLengthMenu()}",
-                                "info":  "{$view->getInfo()}" + " _MAX_",
-                                "zeroRecords":  "{$view->getZeroRecords()}",
-                                "infoEmpty": "{$view->getInfoEmpty()}",
-                                "infoFiltered": "{$view->getInfoFiltered()}" + " _END_ --- _TOTAL_"
-                            },
-                            pageLength : 10,
-                            lengthMenu: [[10, 20, -1], [10, 20, 'All']],
-                            filter: true,
-                            deferRender: true,
-                            scrollY: '67vh',
-                            scrollCollapse: true,
-                            scroller: true,
-                            columns: setting
-                        });
-                    });  
-                </script>
-        HTML;
-    }
-
+    
     
         $idModel = 'lang_modal';
         $style_lang = $view->getLanguage();
@@ -98,14 +53,62 @@
         $state = 'Style';
         $data = $view->getStyle();  
         include 'all_modal/style_lang_form.php';
+        if(isset($_SESSION['userId']) && $view->getUrlName2() !== 'Site'){
+            echo<<<HTML
+                </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>{$view->getTableId()}</th>
+            HTML;
+            $view->printTableNames();
+            echo<<<HTML
+                            <th>{$view->getTabelEvent()}</th>
+                        </tr>
+                    </tfoot>
+                </table>
+                </div>
+                    <script type="text/javascript">
+                        let setting = [{ 'searchable': true, className: "text-left" }]
+                        for (let index = 0; index < {$view->getKeysTable()} ; index++) 
+                            setting.push({ 'searchable': true, className: "text-left" });
+                        setting.push({ 'searchable': false });
+                        $(document).ready(function() {
+                            new DataTable('#example',{
+                                "oLanguage": {
+                                    "sSearch": "{$view->getSsearch()}",
+                                    "sEmptyTable":  "{$view->getZeroRecords()}"
+                                },
+                                "language": {
+                                    "lengthMenu": "_MENU_ " + "{$view->getLengthMenu()}",
+                                    "info":  "{$view->getInfo()}" + " _MAX_",
+                                    "zeroRecords":  "{$view->getZeroRecords()}",
+                                    "infoEmpty": "{$view->getInfoEmpty()}",
+                                    "infoFiltered": "{$view->getInfoFiltered()}" + " _END_ --- _TOTAL_"
+                                },
+                                pageLength : 10,
+                                lengthMenu: [[10, 20, -1], [10, 20, 'All']],
+                                filter: true,
+                                deferRender: true,
+                                scrollY: '67vh',
+                                scrollCollapse: true,
+                                scroller: true,
+                                columns: setting
+                            });
+                        });  
+                    </script>
+            HTML;
+            $view->setActionStyleLang('BranchChangePost.php');
+        }
+
+    
 
         $idModel = 'branch_modal';
         $style_lang = $view->getId();
         $error = $view->getActiveBranch();
         $title = $view->getChangeTitleBranch();
         $button = $view->getChangeButtonBranch();
+        $state = 'branch';
         $data = $view->getMyBranch();
-        $view->setActionStyleLang('BranchChangePost.php');  
         include 'all_modal/style_lang_form.php';
 ?>
         <script type="text/javascript">

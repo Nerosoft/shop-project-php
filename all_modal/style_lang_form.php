@@ -1,7 +1,7 @@
 <?php
 $action = $view->getActionStyleLang();
 include 'start_model.php';
-if($idModel !== 'branch_modal')
+// if($idModel !== 'branch_modal')
 echo<<<HTML
     <input type="hidden"value="{$state}" name="state">
 HTML;

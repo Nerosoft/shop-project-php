@@ -19,25 +19,25 @@
     </select>
 </div>
 <?php
-    if(!empty($view->getDbBranchKeys())){
-        echo<<<HTML
-        <div class="form-group">
-            <label for="dbkeysBranch">{$view->getAllBranch()}</label>
-            <select
-            title=""
-            class="form-select" id="dbkeysBranch" name="dbkeys"  aria-label="Default select example">
-                <option selected disabled>{$view->getBranchLabel()}</option>
-        HTML;
-        foreach($view->getDbBranchKeys() as $key=>$name){
-            $select = $view->getId() === $key ? 'selected' : '';
-            echo <<<HTML
-            <option {$select} value="{$key}">
-                {$name['Name']}
-            </option>
-            HTML;
-        }
-        echo '</select></div>';
-    }
+    // if(!empty($view->getDbBranchKeys())){
+    //     echo<<<HTML
+    //     <div class="form-group">
+    //         <label for="dbkeysBranch">{$view->getAllBranch()}</label>
+    //         <select
+    //         title=""
+    //         class="form-select" id="dbkeysBranch" name="dbkeys"  aria-label="Default select example">
+    //             <option selected disabled>{$view->getBranchLabel()}</option>
+    //     HTML;
+    //     foreach($view->getDbBranchKeys() as $key=>$name){
+    //         $select = $view->getId() === $key ? 'selected' : '';
+    //         echo <<<HTML
+    //         <option {$select} value="{$key}">
+    //             {$name['Name']}
+    //         </option>
+    //         HTML;
+    //     }
+    //     echo '</select></div>';
+    // }
     include('all_modal/login_register_input.php');
 ?>
 

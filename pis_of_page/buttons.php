@@ -6,6 +6,7 @@ include 'button_valid.php';
 
 <button type="button" onclick="openForm('<?php echo'#lang_modal'?>')" class="btn btn-success"><?php echo $view->getChangeLanguageButton()?></button>
 <button type="button" onclick="openForm('<?php echo'#style_modal'?>')" class="btn btn-info"><?php echo $view->getChangeStyleButton()?></button>
+<button type="button" onclick="openForm('<?php echo'#branch_modal'?>')" class="btn btn-info"><?php echo $view->getBranchLabel()?></button>
 <?php 
     $title = $view->getModalTitleProject();
     $button = $view->getModalButtonProject();

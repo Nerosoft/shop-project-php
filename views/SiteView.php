@@ -31,26 +31,29 @@
                         <li onclick="openForm('#style_modal')" class="nav-item">
                             <a class="nav-link pointer">{$view->getChangeStyleButton()}</a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li onclick="openForm('#branch_modal')" class="nav-item">
+                            <a class="nav-link pointer">{$view->getBranchLabel()}</a>
+                        </li>
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
                                 {$view->getBranchLabel()}
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
+                            <ul class="dropdown-menu dropdown-menu-dark"> -->
                     HTML;
-                                foreach ($view->getBranch3() as $keyItem=>$myBranch){
-                                    $href = ($_SERVER["REQUEST_METHOD"] === "POST"?'/shop/site':'').'?id='.$keyItem;
-                                    $myActive = $view->getId() === $keyItem ? 'my_active':'';
-                                    echo <<<HTML
-                                        <li>
-                                        <a class="dropdown-item {$myActive}" href="{$href}">
-                                            {$myBranch['Name']}
-                                        </a>
-                                        </li>
-                                    HTML;
-                                }
+                                // foreach ($view->getBranch3() as $keyItem=>$myBranch){
+                                //     $href = ($_SERVER["REQUEST_METHOD"] === "POST"?'/shop/site':'').'?id='.$keyItem;
+                                //     $myActive = $view->getId() === $keyItem ? 'my_active':'';
+                                //     echo <<<HTML
+                                //         <li>
+                                //         <a class="dropdown-item {$myActive}" href="{$href}">
+                                //             {$myBranch['Name']}
+                                //         </a>
+                                //         </li>
+                                //     HTML;
+                                // }
                 ?>
-                            </ul>
-                        </li>
+                            <!-- </ul>
+                        </li> -->
 
             </ul>
         </div>
