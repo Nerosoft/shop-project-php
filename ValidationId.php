@@ -1,6 +1,9 @@
 <?php
 class ValidationId extends ModelJson{
     protected $keyId;
+    function getkeyId(){
+        return $this->keyId;
+    }
     function __construct($IdPage, $callback = null, $message = null){
         parent::__construct($IdPage);
         //make id for flex table and user stting and product else make id for all action
@@ -118,8 +121,9 @@ class ValidationId extends ModelJson{
             isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && $_POST['id'] === $this->getLanguage()||
             isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english'||
             //valid users and flex table $_GET['id']
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ChangeLangPost' && $_POST['state'] !== 'branch' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
+            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ChangeLangPost' && $_POST['state'] !== 'branch' && $_POST['state'] !== 'branch2' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
             isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ChangeLangPost' && $_POST['state'] === 'branch' && !isset($this->getBranch()[$_POST['id']])||
+            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ChangeLangPost' && $_POST['state'] === 'branch2' && !isset($this->getFile()[$_POST['id']])||
             isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'SettingUsersDeletePost' && !isset($this->getObj()[$_GET['id']][$_POST['id']]) ||
             //work delete add edit user and product and home and change language
             isset($_POST['id']) && $this->getSCRIPTFILENAME() !== 'BranchChangePost' && $this->getSCRIPTFILENAME() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Home' && !isset($this->getModel2()['MyFlexTables'][$_POST['id']])||

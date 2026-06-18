@@ -123,12 +123,13 @@
                 else
                     el.setCustomValidity(error);
             }
-            $('#lang_modal,#style_modal,#branch_modal').find('#click_button').on('click', function(){
+            $('#lang_modal,#style_modal,#branch_modal,#branch_modal2').find('#click_button').on('click', function(){
                 let idmodal = $(this).parent().parent().parent().parent().parent().attr('id');
                 if(idmodal === 'lang_modal' && $('#lang_modal').find('input[name="id"]:checked').val() === '<?php echo$view->getLanguage()?>'||
                     idmodal === 'branch_modal' && $('#branch_modal').find('input[name="id"]:checked').val() === '<?php echo$view->getId()?>'||
+                    idmodal === 'branch_modal2' && $('#branch_modal2').find('input[name="id"]:checked').val() === '<?php echo$view->getId()?>'||
                     idmodal === 'style_modal' && $('#style_modal').find('input[name="id"]:checked').val() === '<?php echo$view->getStyleFile()?>')
-                    $('#'+idmodal).find('input[name="id"]:checked')[0].setCustomValidity(idmodal==='branch_modal'?'<?php echo$view->getActiveBranch()?>':(idmodal==='lang_modal'?'<?php echo$view->getChangeLang()?>':'<?php echo$view->getChangeStyle()?>'));
+                    $('#'+idmodal).find('input[name="id"]:checked')[0].setCustomValidity(idmodal==='branch_modal'||idmodal==='branch_modal2'?'<?php echo$view->getActiveBranch()?>':(idmodal==='lang_modal'?'<?php echo$view->getChangeLang()?>':'<?php echo$view->getChangeStyle()?>'));
             });
         </script>
 

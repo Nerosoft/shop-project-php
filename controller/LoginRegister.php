@@ -76,9 +76,11 @@ class LoginRegister extends InformationPage{
             $this->RegisterLoginPage = $this->getModelPage()['RegisterLoginPage'];
             foreach ($this->getFile() as $key => $obj)
                 if(isset($obj['Branches'])){
-                    $this->dbKeys[$key] = $obj['Branches'];
-                    if(count($obj['Branches']) > 1 && isset($obj['Branches'][$this->getId()]))
-                        $this->dbBranchKeys = $obj['Branches'];
+                    $this->dbKeys[$key] = new branch($obj['Branches'][$key]['Name']);
+                    // $this->dbKeys[$key] = $obj['Branches'];
+                    if(isset($obj['Branches'][$this->getId()]))
+                        $this->dbBranchKeys = $key;
+                        // $this->dbBranchKeys = $obj['Branches'];
                 }
             echo<<<HTML
                 <div class="container">

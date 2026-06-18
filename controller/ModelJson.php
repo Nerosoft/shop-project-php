@@ -37,8 +37,8 @@ class ModelJson{
             case'LoginMessage':
                 require 'controller/Home.php';
                 if($keyPage === 'CreateProjectMessage' || isset($ModelJson->getFile()[$_POST['superId']]) && isset($ModelJson->getFile()[$_POST['superId']]['Branches'])){
-                    $_SESSION['userId'] = $_POST['superId'];
-                    $_SESSION['staticId'] = $_POST['superId'];
+                    $_SESSION['userId'] = $ModelJson->getkeyId();
+                    $_SESSION['staticId'] = $ModelJson->getkeyId();
                 }
                 else
                     foreach ($ModelJson->getFile() as $key => $obj)
