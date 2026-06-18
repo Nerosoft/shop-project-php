@@ -18,13 +18,12 @@ else if(count($view->getBranch2()) >= 1 && $view->getUrlName2() === 'SystemLang'
                 </div>
             HTML;
 }
-else if(count($view->getBranch2()) >= 1 && isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()]) && !isset($state) || isset($index) && $index !== null && count($view->getBranch2()) >= 1 && $view->getUrlName2() !== 'Branches' && !isset($state) || isset($index) && $index !== null && count($view->getBranch2()) >= 1 && isset($state) && $state === 'AllNamesLanguage'){
-    if(isset($index) && $index !== null && !isset($state))
+else if(count($view->getBranch2()) >= 1 && isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()]) && !isset($state) || isset($index) && $index !== null && count($view->getBranch2()) >= 1 && $view->getUrlName2() !== 'Branches' && !isset($state)){
+    if(isset($index) && $index !== null)
       include('my_id.php');
     $myCountBranch = 0;
     foreach($view->getBranch2() as $key=>$option){
-        if( 
-            isset($state) && $state === 'AllNamesLanguage' && isset($view->getFile()[$key][$index])||
+        if(
             $view->getUrlName2() === 'MyStyle' ||
             $view->getUrlName2() === 'Home' && isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['AllNamesLanguage']][$index])||
             $view->getUrlName2() === 'ChangeLanguage' && isset($view->getFile()[$key][$index])||
@@ -53,7 +52,7 @@ else if(count($view->getBranch2()) >= 1 && isset($view->getModel2()['MyFlexTable
 else if(isset($index) && $index !== null && !isset($state))
     include('my_id.php');
 //make create inside all branch or select and custom branch
-else if($action !== 'BranchChangePost.php' && count($view->getBranch2()) >= 1 && $view->getUrlName2() !== 'Branches' && !isset($state) || $action !== 'BranchChangePost.php' && count($view->getBranch2()) >= 1 && isset($state) && $state === 'Style')
+else if($action !== 'BranchChangePost.php' && count($view->getBranch2()) >= 1 && $view->getUrlName2() !== 'Branches')
     include 'AllBranchOptionChose.php';
 
 
