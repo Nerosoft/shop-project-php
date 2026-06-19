@@ -1,18 +1,17 @@
 <?php
 class ValidationId extends ModelJson{
     protected $keyId;
-    function getkeyId(){
-        return $this->keyId;
-    }
     function __construct($IdPage, $callback = null, $message = null){
         parent::__construct($IdPage);
         //make id for flex table and user stting and product else make id for all action
-        $this->keyId = $this->getSCRIPTFILENAME() !== 'BranchCreatePost' && 
-        $this->getSCRIPTFILENAME() !== 'ChangeLanguageCreatePost' && 
-        $this->getSCRIPTFILENAME() !== 'HomeCreatePost' && 
-        $this->getSCRIPTFILENAME() !== 'SetupProject' && 
-        $this->getSCRIPTFILENAME() !== 'RegisterPost' && 
-        isset($_POST['id'])?$_POST['id']:$this->getRandomId();
+        if($this->getSCRIPTFILENAME() !== 'LoginPost' && $this->getSCRIPTFILENAME() !== 'LoginForgetPasswordPost')
+            $this->keyId = $this->getSCRIPTFILENAME() !== 'BranchCreatePost' && 
+            $this->getSCRIPTFILENAME() !== 'ChangeLanguageCreatePost' && 
+            $this->getSCRIPTFILENAME() !== 'HomeCreatePost' && 
+            $this->getSCRIPTFILENAME() !== 'SetupProject' && 
+            $this->getSCRIPTFILENAME() !== 'RegisterPost' && 
+            isset($_POST['id'])?$_POST['id']:$this->getRandomId();
+
         if($this->getSCRIPTFILENAME()==='LoginForgetPasswordPost' || 
         $this->getSCRIPTFILENAME()==='LoginPost' || 
         $this->getSCRIPTFILENAME() === 'RegisterPost'||

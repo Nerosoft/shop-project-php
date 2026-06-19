@@ -6,11 +6,11 @@
             <i class="fa fa-line-chart"></i>
             <?php echo $view->getNavTitle()?>
         </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <?php include 'pis_of_page/button_langstylebranch.php';?>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
@@ -25,7 +25,7 @@
                         <li class="nav-item">
                             <a href="#contact" class="nav-link">{$view->getContact()}</a>
                         </li>
-                        <li onclick="openForm('#lang_modal')" class="nav-item">
+                        <!-- <li onclick="openForm('#lang_modal')" class="nav-item">
                             <a class="nav-link pointer">{$view->getChangeLanguageButton()}</a>
                         </li>
                         <li onclick="openForm('#style_modal')" class="nav-item">
@@ -33,28 +33,9 @@
                         </li>
                         <li onclick="openForm('#branch_modal')" class="nav-item">
                             <a class="nav-link pointer">{$view->getBranchLabel()}</a>
-                        </li>
-                        <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-                                {$view->getBranchLabel()}
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark"> -->
-                    HTML;
-                                // foreach ($view->getBranch3() as $keyItem=>$myBranch){
-                                //     $href = ($_SERVER["REQUEST_METHOD"] === "POST"?'/shop/site':'').'?id='.$keyItem;
-                                //     $myActive = $view->getId() === $keyItem ? 'my_active':'';
-                                //     echo <<<HTML
-                                //         <li>
-                                //         <a class="dropdown-item {$myActive}" href="{$href}">
-                                //             {$myBranch['Name']}
-                                //         </a>
-                                //         </li>
-                                //     HTML;
-                                // }
-                ?>
-                            <!-- </ul>
                         </li> -->
-
+                    HTML;          
+                ?>        
             </ul>
         </div>
     </div>

@@ -10,6 +10,8 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
             $file = $this->getFile();
             $file[$this->keyId] = $this->getProject();
             $this->saveFile($file);
+            $_SESSION['userId'] = $this->keyId;
+            $_SESSION['staticId'] = $this->keyId;
         }
         function getProject(){
             return array(
@@ -349,6 +351,10 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "english"=> "engilsh"
                     ],
                     "Register"=> [
+                        "BranchProjectTitle"=>"welcome in change project",
+                        "BranchProjectButton"=>"Save project",
+                        "ActiveBranchProject"=> "this project is active",
+
                         "SuccessfullyChangeBranch"=>"Successfully changed branch",
                         "ActiveBranch"=>"this branch is active",
                         "ChangeTitleBranch"=>"welcome in change branch",
@@ -443,6 +449,10 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "BranceRaysFollowValue"=> "Work invalid"
                     ],
                     "Login"=> [
+                        "BranchProjectTitle"=>"welcome in change project",
+                        "BranchProjectButton"=>"Save project",
+                        "ActiveBranchProject"=> "this project is active",
+                        
                         "SuccessfullyChangeBranch"=>"Successfully changed branch",
                         "ActiveBranch"=>"this branch is active",
                         "ChangeTitleBranch"=>"welcome in change branch",

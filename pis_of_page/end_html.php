@@ -98,7 +98,9 @@
                     </script>
             HTML;
             $view->setActionStyleLang('BranchChangePost.php');
-        }
+            $data = $view->getMyBranch();
+        }else
+            $data = $view->getMyBranchProject();
 
     
 
@@ -108,7 +110,7 @@
         $title = $view->getChangeTitleBranch();
         $button = $view->getChangeButtonBranch();
         $state = 'branch';
-        $data = $view->getMyBranch();
+        // $data = (isset($_SESSION['userId'])?$view->getMyBranch():$view->getMyBranchProject());
         include 'all_modal/style_lang_form.php';
 ?>
         <script type="text/javascript">
@@ -129,7 +131,7 @@
                     idmodal === 'branch_modal' && $('#branch_modal').find('input[name="id"]:checked').val() === '<?php echo$view->getId()?>'||
                     idmodal === 'branch_modal2' && $('#branch_modal2').find('input[name="id"]:checked').val() === '<?php echo$view->getId()?>'||
                     idmodal === 'style_modal' && $('#style_modal').find('input[name="id"]:checked').val() === '<?php echo$view->getStyleFile()?>')
-                    $('#'+idmodal).find('input[name="id"]:checked')[0].setCustomValidity(idmodal==='branch_modal'||idmodal==='branch_modal2'?'<?php echo$view->getActiveBranch()?>':(idmodal==='lang_modal'?'<?php echo$view->getChangeLang()?>':'<?php echo$view->getChangeStyle()?>'));
+                    $('#'+idmodal).find('input[name="id"]:checked')[0].setCustomValidity((idmodal==='branch_modal'||idmodal==='branch_modal2'?'<?php echo$view->getActiveBranch()?>':(idmodal==='lang_modal'?'<?php echo$view->getChangeLang()?>':'<?php echo$view->getChangeStyle()?>')));
             });
         </script>
 

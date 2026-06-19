@@ -31,15 +31,13 @@ class ModelJson{
             case 'Product':
                 include 'views/ProductView.php';
             break;
-            case'CreateProjectMessage':
             case'RegisterMessage':
-            case'ForgetMessage':
             case'LoginMessage':
-                require 'controller/Home.php';
-                if($keyPage === 'CreateProjectMessage' || isset($ModelJson->getFile()[$_POST['superId']]) && isset($ModelJson->getFile()[$_POST['superId']]['Branches'])){
-                    $_SESSION['userId'] = $ModelJson->getkeyId();
-                    $_SESSION['staticId'] = $ModelJson->getkeyId();
-                }
+            case'ForgetMessage':
+                if(isset($ModelJson->getFile()[$_POST['superId']]['Branches'])){
+                        $_SESSION['userId'] = $_POST['superId'];
+                        $_SESSION['staticId'] = $_POST['superId'];
+                    }
                 else
                     foreach ($ModelJson->getFile() as $key => $obj)
                         if(isset($obj['Branches']) && in_array($_POST['superId'], array_keys($obj['Branches']))){
@@ -47,6 +45,8 @@ class ModelJson{
                             $_SESSION['staticId'] = $key;
                             break;
                         }   
+            case'CreateProjectMessage':
+                require 'controller/Home.php';         
             case 'Home':                
                 include 'views/home_view.php';
                 break;
