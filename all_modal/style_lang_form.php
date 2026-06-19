@@ -1,7 +1,7 @@
 <?php
 $action = $view->getActionStyleLang();
 include 'start_model.php';
-if($action === 'ChangeLangPost.php')
+if($action === 'ChangeLangPost.php' || $action === 'ChangeLanguagePost.php')
     echo<<<HTML
         <input type="hidden"value="{$state}" name="state">
     HTML;
