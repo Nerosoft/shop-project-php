@@ -107,7 +107,7 @@
         $button = $view->getChangeButtonBranch();
         $state = 'branch';
         $data = $view->getMyBranch();
-        if(isset($_SESSION['userId']) && $view->getUrlName2() !== 'Site')
+        if(isset($_SESSION['userId']))
             $view->setActionStyleLang('BranchChangePost.php');
         include 'all_modal/style_lang_form.php';
 ?>

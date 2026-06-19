@@ -1,11 +1,13 @@
 <?php
 include 'auth/SessionAdmin.php';
+
 if($_SERVER["REQUEST_METHOD"] !== "POST" || !isset($_POST['option']) || !isset($_POST['state']) || isset($_POST['state']) && $_POST['state'] !== 'Style' && $_POST['state'] !== 'AllNamesLanguage')
     header('LOCATION:index');
 else
     ModelJson::initView(($_POST['option'] === 'Home' ||
             $_POST['option'] === 'HomeCreatePost' ||
             $_POST['option'] === 'Branches' ||
+            $_POST['option'] === 'Site' ||
             $_POST['option'] === 'ChangeLanguage' ||
             $_POST['option'] === 'Users' ||
             $_POST['option'] === 'Product' ||
