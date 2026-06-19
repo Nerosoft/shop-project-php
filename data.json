@@ -6,6 +6,11 @@
         },
         "english": {
             "Site": {
+                "LoginButton": "Login",
+                "RegisterButton": "Register",
+                "HomeButton": "Home",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
@@ -327,7 +332,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "mKce9ed0": "English language"
+                "S892d276": "English language"
             },
             "Register": {
                 "BranchProjectTitle": "welcome in change project",
@@ -817,7 +822,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithoutRays"
             },
-            "r40a26a0": {
+            "dk1c6f2d": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
@@ -826,7 +831,7 @@
                 "Street": "menofia - menouf - sirs el laiana",
                 "Building": "Nero-Soft",
                 "Address": "menofia - menouf - sirs el laiana",
-                "Follow": "WithoutRays"
+                "Follow": "WithRays"
             }
         },
         "Product": {
@@ -871,8 +876,13 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "mKce9ed0": {
+        "S892d276": {
             "Site": {
+                "LoginButton": "Login",
+                "RegisterButton": "Register",
+                "HomeButton": "Home",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
@@ -1194,7 +1204,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "mKce9ed0": "English language"
+                "S892d276": "English language"
             },
             "Register": {
                 "BranchProjectTitle": "welcome in change project",
@@ -1666,13 +1676,18 @@
             }
         }
     },
-    "r40a26a0": {
+    "dk1c6f2d": {
         "Setting": {
             "AllNamesLanguage": "english",
             "Style": "default"
         },
         "english": {
             "Site": {
+                "LoginButton": "Login",
+                "RegisterButton": "Register",
+                "HomeButton": "Home",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
@@ -1994,7 +2009,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "mKce9ed0": "English language"
+                "S892d276": "English language"
             },
             "Register": {
                 "BranchProjectTitle": "welcome in change project",
@@ -2514,8 +2529,13 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "mKce9ed0": {
+        "S892d276": {
             "Site": {
+                "LoginButton": "Login",
+                "RegisterButton": "Register",
+                "HomeButton": "Home",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
                 "SuccessfullyChangeBranch": "Successfully changed branch",
                 "ActiveBranch": "this branch is active",
                 "ChangeTitleBranch": "welcome in change branch",
@@ -2837,7 +2857,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "mKce9ed0": "English language"
+                "S892d276": "English language"
             },
             "Register": {
                 "BranchProjectTitle": "welcome in change project",

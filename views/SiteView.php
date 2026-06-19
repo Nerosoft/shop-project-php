@@ -25,17 +25,23 @@
                         <li class="nav-item">
                             <a href="#contact" class="nav-link">{$view->getContact()}</a>
                         </li>
-                        <!-- <li onclick="openForm('#lang_modal')" class="nav-item">
-                            <a class="nav-link pointer">{$view->getChangeLanguageButton()}</a>
-                        </li>
-                        <li onclick="openForm('#style_modal')" class="nav-item">
-                            <a class="nav-link pointer">{$view->getChangeStyleButton()}</a>
-                        </li>
-                        <li onclick="openForm('#branch_modal')" class="nav-item">
-                            <a class="nav-link pointer">{$view->getBranchLabel()}</a>
-                        </li> -->
-                    HTML;          
-                ?>        
+                    HTML;
+                    if(isset($_SESSION['userId']))
+                        echo<<<HTML
+                            <li class="nav-item">
+                                <a href="./"class="nav-link pointer">{$view->getHomeButton()}</a>
+                            </li>
+                        HTML;
+                    else
+                        echo<<<HTML
+                            <li class="nav-item">
+                                <a href="./"class="nav-link pointer">{$view->getLoginButton()}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./register"class="nav-link pointer">{$view->getRegisterButton()}</a>
+                            </li>
+                        HTML;
+                ?>      
             </ul>
         </div>
     </div>

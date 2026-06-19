@@ -34,6 +34,9 @@ class Site extends LoginRegister{
     private $Stories;
     private $WorkWithUs;
     private $Privacy;
+    private $LoginButton;
+    private $HomeButton;
+    private $RegisterButton;
     function __construct($message, $type){
         parent::__construct($message, $type, 'Site');
         $this->DataView = isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
@@ -68,6 +71,9 @@ class Site extends LoginRegister{
         $this->Stories = $this->getModelPage()['Stories'];
         $this->WorkWithUs = $this->getModelPage()['WorkWithUs'];
         $this->Privacy = $this->getModelPage()['Privacy'];
+        $this->LoginButton = $this->getModelPage()['LoginButton'];
+        $this->HomeButton = $this->getModelPage()['HomeButton'];
+        $this->RegisterButton = $this->getModelPage()['RegisterButton'];
     }
     function getStories(){
         return $this->Stories;
@@ -164,5 +170,14 @@ class Site extends LoginRegister{
     }
     function getDataView(){
         return $this->DataView;
+    }
+    function getLoginButton(){
+        return $this->LoginButton;
+    }
+    function getHomeButton(){
+        return $this->HomeButton;
+    }
+    function getRegisterButton(){
+        return $this->RegisterButton;
     }
 }

@@ -2,6 +2,7 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="#"><?php echo $this->getAdminDashboard();?></a>
     <?php include 'pis_of_page/button_langstylebranch.php';?>
+  
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="logout.php"><?php echo$this->getLogout()?></a>       

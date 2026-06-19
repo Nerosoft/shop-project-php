@@ -21,6 +21,11 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                 ],
                 "english"=> [
                     "Site"=> [
+                        "LoginButton"=>"Login",
+                        "HomeButton"=>"Home",
+                        "RegisterButton"=>"Register",
+                        "MessageStyleLang"=> "Successfylly change language",
+                        "MessageStyleLang2"=> "Successfylly change style",
                         "SuccessfullyChangeBranch"=>"Successfully changed branch",
                         "ActiveBranch"=>"this branch is active",
                         "ChangeTitleBranch"=>"welcome in change branch",

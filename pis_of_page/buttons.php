@@ -26,4 +26,4 @@ include 'button_valid.php';
     ?>
 
 <button onclick="openForm('<?php echo'#setupprojectmodal'?>')" type="button" class="btn btn-danger" ><?php echo $view->getButtonSetupProject()?></button>
-<a href="<?php echo ($view->getUrlName2()!=='Login'?'login':'register').'?id='.$view->getId();?>" class="navbutton btn btn-info mt-2"><?php echo $view->getRegisterLoginPage()?></a>
+<a href="<?php echo ($view->getUrlName2()!=='Login'?'login':'register')?>" class="navbutton btn btn-info mt-2"><?php echo $view->getRegisterLoginPage()?></a>
