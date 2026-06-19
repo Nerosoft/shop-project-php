@@ -20,7 +20,6 @@ class LoginRegister extends InformationPage{
     private $BranchLabel;
     private $ChangeStyleButton;
     private $ChangeLanguageButton;
-    private $myBranchProject;
     private $BranchProjectTitle;
     private $BranchProjectButton;
     private $ActiveBranchProject;
@@ -32,9 +31,6 @@ class LoginRegister extends InformationPage{
     }
     function getBranchProjectButton(){
         return $this->BranchProjectButton;
-    }
-    function getMyBranchProject(){
-        return $this->myBranchProject;
     }
     function getBranchLabel(){
         return $this->BranchLabel;
@@ -76,15 +72,16 @@ class LoginRegister extends InformationPage{
         $this->BranchLabel = $this->getModelPage()['BranchLabel'];
         $this->ChangeStyleButton = $this->getModelPage()['ChangeStyleButton'];
         $this->ChangeLanguageButton = $this->getModelPage()['ChangeLanguageButton']; foreach ($this->getFile() as $key => $obj)
-        if(isset($obj['Branches'])){
-            $this->dbKeys[$key] = new branch($obj['Branches'][$key]['Name']);
-            // $this->dbKeys[$key] = $obj['Branches'];
-            if(isset($obj['Branches'][$this->getId()])){
-                $this->dbBranchKeys = $key;
-                $this->myBranchProject = Branch::fromArray($obj['Branches'], $this->getModel2()['SelectBranchBox']);
-            }
-        }
+        if(isset($_GET['id']))
+            setcookie('branchId', $_GET['id'], time()+2628000);
         if($IdPage !== 'Site' ){
+            foreach ($this->getFile() as $key => $obj)
+                if(isset($obj['Branches'])){
+                    $this->dbKeys[$key] = new branch($obj['Branches'][$key]['Name']);
+                    // $this->dbKeys[$key] = $obj['Branches'];
+                    if(isset($obj['Branches'][$this->getId()]))
+                        $this->dbBranchKeys = $key;
+                }
             echo '<link href="./asset/css/login_register.css" rel="stylesheet"></head><body>';
             $this->initInfoBranch();
             $this->initErrorBranch();
@@ -101,6 +98,7 @@ class LoginRegister extends InformationPage{
             $this->ModalButtonProject = $this->getModelPage()['ModalButtonProject'];
             $this->ButtonSetupProject = $this->getModelPage()['ButtonSetupProject'];
             $this->RegisterLoginPage = $this->getModelPage()['RegisterLoginPage'];
+            
             echo<<<HTML
                 <div class="container">
                     <div id="createModel" class="register">

@@ -1,4 +1,3 @@
 <?php
-require 'controller/ModelJson.php';
-require 'controller/LoginRegister.php';
+include 'auth/SessionAuth.php';
 ModelJson::initView('Site');

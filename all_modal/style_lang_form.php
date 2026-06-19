@@ -1,10 +1,10 @@
 <?php
 $action = $view->getActionStyleLang();
 include 'start_model.php';
-if($idModel === 'lang_modal' || $idModel === 'style_modal' || $idModel === 'branch_modal2' || $idModel === 'branch_modal' && !isset($_SESSION['userId']))
-echo<<<HTML
-    <input type="hidden"value="{$state}" name="state">
-HTML;
+if($action === 'ChangeLangPost.php')
+    echo<<<HTML
+        <input type="hidden"value="{$state}" name="state">
+    HTML;
 foreach ($data as $index => $value)
     if($index === $style_lang)
         echo <<<HTML

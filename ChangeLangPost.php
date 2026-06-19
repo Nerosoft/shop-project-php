@@ -16,6 +16,7 @@ else
                     setcookie($this->getId().$_POST['state'], $this->keyId, time()+2628000);
                     $_COOKIE[$this->getId().$_POST['state']] = $this->keyId;
                 }
+                
             }
         }
         new ChangeLangPost();

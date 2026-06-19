@@ -1,7 +1,7 @@
 <?php
 //ignore session changelanguage site
 session_start();
-if(isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] !== "POST"){
+if(isset($_SESSION['userId']) && pathinfo($_SERVER['SCRIPT_FILENAME'])['filename'] !== "site" && pathinfo($_SERVER['SCRIPT_FILENAME'])['filename'] !== "ChangeLangPost"){
     header("Location:index");
     exit;
 }else if(isset($_GET['id']) && !isset(json_decode(file_get_contents('data.json'), true)[$_GET['id']]) ||
