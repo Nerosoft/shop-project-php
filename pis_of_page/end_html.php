@@ -37,22 +37,7 @@
         HTML;
     
     
-        $idModel = 'lang_modal';
-        $style_lang = $view->getLanguage();
-        $error = $view->getChangeLang();
-        $title = $view->getModelTitle();
-        $button = $view->getModelButton();
-        $state = 'AllNamesLanguage';
-        $data = $view->getMyLanguage();
-        include 'all_modal/style_lang_form.php';
-        $idModel = 'style_modal';
-        $style_lang = $view->getStyleFile();
-        $error = $view->getChangeStyle();
-        $title = $view->getModalTitleStyle();
-        $button = $view->getModalButtonStyle();
-        $state = 'Style';
-        $data = $view->getStyle();  
-        include 'all_modal/style_lang_form.php';
+        
         if(isset($_SESSION['userId']) && $view->getUrlName2() !== 'Site'){
             echo<<<HTML
                 </tbody>
@@ -97,12 +82,23 @@
                         });  
                     </script>
             HTML;
-            $view->setActionStyleLang('BranchChangePost.php');
-            $data = $view->getMyBranch();
-        }else
-            $data = $view->getMyBranchProject();
-
-    
+        }
+        $idModel = 'lang_modal';
+        $style_lang = $view->getLanguage();
+        $error = $view->getChangeLang();
+        $title = $view->getModelTitle();
+        $button = $view->getModelButton();
+        $state = 'AllNamesLanguage';
+        $data = $view->getMyLanguage();
+        include 'all_modal/style_lang_form.php';
+        $idModel = 'style_modal';
+        $style_lang = $view->getStyleFile();
+        $error = $view->getChangeStyle();
+        $title = $view->getModalTitleStyle();
+        $button = $view->getModalButtonStyle();
+        $state = 'Style';
+        $data = $view->getStyle();  
+        include 'all_modal/style_lang_form.php';
 
         $idModel = 'branch_modal';
         $style_lang = $view->getId();
@@ -110,6 +106,9 @@
         $title = $view->getChangeTitleBranch();
         $button = $view->getChangeButtonBranch();
         $state = 'branch';
+        $data = $view->getMyBranch();
+        if(isset($_SESSION['userId']) && $view->getUrlName2() !== 'Site')
+            $view->setActionStyleLang('BranchChangePost.php');
         include 'all_modal/style_lang_form.php';
 ?>
         <script type="text/javascript">
