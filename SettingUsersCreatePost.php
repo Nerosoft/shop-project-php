@@ -8,6 +8,7 @@ class SettingUsersCreatePost extends ValidationId{
         parent::__construct('Users', function($myFile){
             return $this->initErrorsKeyPassword2($myFile);
         }, isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');
+        $this->initErrorsEmailPassword3();
         $this->getMyModal()->saveModel($this->initErrorsKeyPassword2($this->getMyModal()->getObj()));
     }
 }

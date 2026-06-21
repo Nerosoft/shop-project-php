@@ -9,6 +9,7 @@ class FlexTablesCreatePost extends ValidationId{
             return $this->saveFlexTable($myFile, $myFile[$myFile['Setting']['AllNamesLanguage']][$_GET['id']]['ErrorsMessageReq'], $idSseion);
 
         }, isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');
+        $this->initErrorFlexTable2();
         $this->saveModel($this->saveFlexTable($this->getObj(), $this->getErrorsMessageReq(), $this->getId()));
     }
     function saveFlexTable($myData, $keysInput, $idSseion){

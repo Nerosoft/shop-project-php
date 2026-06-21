@@ -55,8 +55,8 @@ class ValidationId extends ModelJson{
             isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && is_null($this->initErrorFlexTable2())||
             isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && is_null($this->initErrorFlexTable2())||
 
-            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'ProductCreatePost' && is_null($this->validProductInput($this->getMyModal()))||
-            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ProductCreatePost' && is_null($this->validProductInput($this->getMyModal()))||
+            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'ProductCreatePost' && is_null($this->validProductInput())||
+            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ProductCreatePost' && is_null($this->validProductInput())||
 
             isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3())||
             isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3())||
@@ -138,13 +138,6 @@ class ValidationId extends ModelJson{
             $this->initErrorBranch2();
         else if($this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' || $this->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost')
             $this->validLanguageInput();
-        else if($this->getSCRIPTFILENAME() === 'FlexTablesCreatePost')
-            $this->initErrorFlexTable2();
-        else if($this->getSCRIPTFILENAME() === 'ProductCreatePost')
-            $this->validProductInput($this->getMyModal());
-        else if($this->getSCRIPTFILENAME() === 'SettingUsersCreatePost')
-            $this->initErrorsEmailPassword3();
-        
         else if($this->getSCRIPTFILENAME() === 'HomeCreatePost' || $this->getSCRIPTFILENAME() === 'HomeEditPost')
             $this->validName();
         
