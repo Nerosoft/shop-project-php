@@ -1,8 +1,8 @@
 <?php
 require 'AdminMenu.php';
 require 'all_trait/ErrorFlexTable.php';
-// if(!isset((new ModelJson($_GET['id']))->getObj()[(new ModelJson($_GET['id']))->getObj()['Setting']['AllNamesLanguage']][$_GET['id']]))
-//     header("Location:index");
+if(!isset((new ModelJson($_GET['id']??$_POST['option']))->getObj()[(new ModelJson($_GET['id']??$_POST['option']))->getObj()['Setting']['AllNamesLanguage']][$_GET['id']??$_POST['option']]))
+    header("Location:index");
 include 'interface/InterfaceDataView.php';
 class MyFlexTablesView extends AdminMenu implements InterfaceDataView{
     use ErrorFlexTable;
