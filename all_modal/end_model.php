@@ -1,5 +1,5 @@
 <?php
-if($view->getUrlName2() === 'Login' || $view->getUrlName2() === 'Register' || $view->getUrlName2() === 'Site')
+if($view->getUrlName2() === 'Login' || $view->getUrlName2() === 'Register' || $view->getUrlName2() === 'Site' && !isset($_SESSION['userId']))
     echo '<input type="hidden" value="'.$view->getId().'"name="superId">';
 else if(count($view->getBranch2()) >= 1 && $view->getUrlName2() === 'SystemLang' && !isset($state)){
     include 'AllBranchLanguageInput.php';
