@@ -1,8 +1,7 @@
 <?php
-// require 'InformationPage.php';
+require 'AdminMenu.php';
 require 'class_object/ProductValue.php';
-class Site extends LoginRegister{
-    private $DataView;
+class Site extends AdminMenu{
     private $About;
     private $Product;
     private $Contact;
@@ -38,8 +37,10 @@ class Site extends LoginRegister{
     private $HomeButton;
     private $RegisterButton;
     function __construct($message, $type){
-        parent::__construct($message, $type, 'Site');
-        $this->DataView = isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
+        parent::__construct('Site', $message, $type, function (){
+            return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
+        }, null, 'AdminDashboard2');
+        // parent::__construct($message, $type, 'Site');
         $this->About = $this->getModelPage()['About'];
         $this->Product = $this->getModelPage()['Product'];
         $this->Contact = $this->getModelPage()['Contact'];
@@ -167,9 +168,6 @@ class Site extends LoginRegister{
     }
     function getContact(){
         return $this->Contact;
-    }
-    function getDataView(){
-        return $this->DataView;
     }
     function getLoginButton(){
         return $this->LoginButton;

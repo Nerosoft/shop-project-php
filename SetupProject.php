@@ -21,6 +21,7 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                 ],
                 "english"=> [
                     "Site"=> [
+                        "AllBranches"=> "All branches",
                         "LoginButton"=>"Login",
                         "HomeButton"=>"Home",
                         "RegisterButton"=>"Register",
@@ -90,7 +91,14 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "Users"=> "Setting accounts",
                         "Product"=> "Product",
                         "MyFlexTables"=> "flex table",
-                        "MyStyle"=> "Style"
+                        "MyStyle"=> "Style",
+                        "Site"=> "Delivery Marketing",
+                        "Logout"=> "Logout",
+                        "about"=> "About",
+                        "project"=> "Project",
+                        "contact"=> "Contact",
+                        "Login"=>"Login",
+                        "Register"=>"Register"
                     ],
                     "Product"=> [
                         "SuccessfullyChangeBranch"=>"Successfully changed branch",
@@ -639,6 +647,7 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "Offcanvas"=> "Menu",
                         "Logout"=> "Logout",
                         "AdminDashboard"=> "Welocme in my library",
+                        "AdminDashboard2"=> "Welocme in my library",
                         "BranchMain"=> "Branch main",
                         "AllNamesLanguage"=> "All names language",
                         "MyFlexTables"=> "All names flex tables",

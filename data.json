@@ -6,6 +6,7 @@
         },
         "english": {
             "Site": {
+                "AllBranches": "All branches",
                 "LoginButton": "Login",
                 "RegisterButton": "Register",
                 "HomeButton": "Home",
@@ -75,7 +76,14 @@
                 "Users": "Setting accounts",
                 "Product": "Product",
                 "MyFlexTables": "flex table",
-                "MyStyle": "Style"
+                "MyStyle": "Style",
+                "Site": "Delivery Marketing",
+                "Logout": "Logout",
+                "about": "About",
+                "project": "Project",
+                "contact": "Contact",
+                "Login": "Login",
+                "Register": "Register"
             },
             "Product": {
                 "SuccessfullyChangeBranch": "Successfully changed branch",
@@ -332,7 +340,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "S892d276": "English language"
+                "Idfaa14d": "English language"
             },
             "Register": {
                 "BranchProjectTitle": "welcome in change project",
@@ -610,6 +618,7 @@
                 "Offcanvas": "Menu",
                 "Logout": "Logout",
                 "AdminDashboard": "Welocme in my library",
+                "AdminDashboard2": "Delivery marketing",
                 "BranchMain": "Branch main",
                 "AllNamesLanguage": "All names language",
                 "MyFlexTables": "All names flex tables",
@@ -822,7 +831,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithoutRays"
             },
-            "dk1c6f2d": {
+            "vN0a2a15": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
@@ -831,7 +840,7 @@
                 "Street": "menofia - menouf - sirs el laiana",
                 "Building": "Nero-Soft",
                 "Address": "menofia - menouf - sirs el laiana",
-                "Follow": "WithRays"
+                "Follow": "WithoutRays"
             }
         },
         "Product": {
@@ -876,8 +885,9 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "S892d276": {
+        "Idfaa14d": {
             "Site": {
+                "AllBranches": "All branches",
                 "LoginButton": "Login",
                 "RegisterButton": "Register",
                 "HomeButton": "Home",
@@ -947,7 +957,14 @@
                 "Users": "Setting accounts",
                 "Product": "Product",
                 "MyFlexTables": "flex table",
-                "MyStyle": "Style"
+                "MyStyle": "Style",
+                "Site": "Delivery Marketing",
+                "Logout": "Logout",
+                "about": "About",
+                "project": "Project",
+                "contact": "Contact",
+                "Login": "Login",
+                "Register": "Register"
             },
             "Product": {
                 "SuccessfullyChangeBranch": "Successfully changed branch",
@@ -1204,7 +1221,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "S892d276": "English language"
+                "Idfaa14d": "English language"
             },
             "Register": {
                 "BranchProjectTitle": "welcome in change project",
@@ -1482,6 +1499,7 @@
                 "Offcanvas": "Menu",
                 "Logout": "Logout",
                 "AdminDashboard": "Welocme in my library",
+                "AdminDashboard2": "Delivery marketing",
                 "BranchMain": "Branch main",
                 "AllNamesLanguage": "All names language",
                 "MyFlexTables": "All names flex tables",
@@ -1676,13 +1694,14 @@
             }
         }
     },
-    "dk1c6f2d": {
+    "vN0a2a15": {
         "Setting": {
             "AllNamesLanguage": "english",
             "Style": "default"
         },
         "english": {
             "Site": {
+                "AllBranches": "All branches",
                 "LoginButton": "Login",
                 "RegisterButton": "Register",
                 "HomeButton": "Home",
@@ -1752,7 +1771,14 @@
                 "Users": "Setting accounts",
                 "Product": "Product",
                 "MyFlexTables": "flex table",
-                "MyStyle": "Style"
+                "MyStyle": "Style",
+                "Site": "Delivery Marketing",
+                "Logout": "Logout",
+                "about": "About",
+                "project": "Project",
+                "contact": "Contact",
+                "Login": "Login",
+                "Register": "Register"
             },
             "Product": {
                 "SuccessfullyChangeBranch": "Successfully changed branch",
@@ -2009,7 +2035,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "S892d276": "English language"
+                "Idfaa14d": "English language"
             },
             "Register": {
                 "BranchProjectTitle": "welcome in change project",
@@ -2287,6 +2313,7 @@
                 "Offcanvas": "Menu",
                 "Logout": "Logout",
                 "AdminDashboard": "Welocme in my library",
+                "AdminDashboard2": "Delivery marketing",
                 "BranchMain": "Branch main",
                 "AllNamesLanguage": "All names language",
                 "MyFlexTables": "All names flex tables",
@@ -2529,8 +2556,9 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "S892d276": {
+        "Idfaa14d": {
             "Site": {
+                "AllBranches": "All branches",
                 "LoginButton": "Login",
                 "RegisterButton": "Register",
                 "HomeButton": "Home",
@@ -2600,7 +2628,14 @@
                 "Users": "Setting accounts",
                 "Product": "Product",
                 "MyFlexTables": "flex table",
-                "MyStyle": "Style"
+                "MyStyle": "Style",
+                "Site": "Delivery Marketing",
+                "Logout": "Logout",
+                "about": "About",
+                "project": "Project",
+                "contact": "Contact",
+                "Login": "Login",
+                "Register": "Register"
             },
             "Product": {
                 "SuccessfullyChangeBranch": "Successfully changed branch",
@@ -2857,7 +2892,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "S892d276": "English language"
+                "Idfaa14d": "English language"
             },
             "Register": {
                 "BranchProjectTitle": "welcome in change project",
@@ -3135,6 +3170,7 @@
                 "Offcanvas": "Menu",
                 "Logout": "Logout",
                 "AdminDashboard": "Welocme in my library",
+                "AdminDashboard2": "Delivery marketing",
                 "BranchMain": "Branch main",
                 "AllNamesLanguage": "All names language",
                 "MyFlexTables": "All names flex tables",

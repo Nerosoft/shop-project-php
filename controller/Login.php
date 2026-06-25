@@ -1,4 +1,5 @@
 <?php
+require 'controller/LoginRegister.php';
 class Login extends LoginRegister{
     private $ButtonForgetPassword;
     private $ModalForgetPasswordTitle;

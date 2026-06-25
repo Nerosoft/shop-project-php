@@ -2,7 +2,7 @@
 include 'auth/SessionAdmin.php';
 if(isset($_GET['id']))
     ModelJson::initView(($_GET['id'] === 'Home' ||
-        $_GET['id'] === 'HomeCreatePost' ||
+        $_GET['id'] === 'Site' ||
         $_GET['id'] === 'Branches' ||
         $_GET['id'] === 'ChangeLanguage' ||
         $_GET['id'] === 'Users' ||

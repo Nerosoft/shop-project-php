@@ -1,4 +1,5 @@
 <?php
+require 'controller/LoginRegister.php';
 require 'all_trait/ErrorRegister.php';
 class MyRegister extends LoginRegister{    
     use ErrorRegister;

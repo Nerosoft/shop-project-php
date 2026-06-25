@@ -12,6 +12,10 @@
     // SMOOTH SCROLL
     $(function() {
       $('.nav-link').on('click', function(event) {
+        $('.nav-link').each(function(){                   
+          $(this).removeClass('active');
+        });
+        $(this).addClass('active');
         var $anchor = $(this);
           $('html, body').stop().animate({
             scrollTop: $($anchor.attr('href')).offset().top - 0
@@ -40,7 +44,3 @@
     });
 
   });
-
-
-    
-

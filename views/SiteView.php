@@ -1,54 +1,4 @@
 <?php $view = new Site($message, $type);?>
-<!-- MENU BAR -->
-<nav class="navbar navbar-expand-lg">
-    <div class="container">
-        <a class="navbar-brand" href="web.php">
-            <i class="fa fa-line-chart"></i>
-            <?php echo $view->getNavTitle()?>
-        </a>
-        <?php include 'pis_of_page/button_langstylebranch.php';?>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <?php
-                    echo<<<HTML
-                        <li class="nav-item">
-                        <a href="#about" class="nav-link">{$view->getAbout()}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#project" class="nav-link">{$view->getProduct()}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#contact" class="nav-link">{$view->getContact()}</a>
-                        </li>
-                    HTML;
-                    if(isset($_SESSION['userId']))
-                        echo<<<HTML
-                            <li class="nav-item">
-                                <a href="./"class="nav-link pointer">{$view->getHomeButton()}</a>
-                            </li>
-                        HTML;
-                    else
-                        echo<<<HTML
-                            <li class="nav-item">
-                                <a href="./"class="nav-link pointer">{$view->getLoginButton()}</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./register"class="nav-link pointer">{$view->getRegisterButton()}</a>
-                            </li>
-                        HTML;
-                ?>      
-            </ul>
-        </div>
-    </div>
-</nav>
-
-
-
 <!-- HERO -->
 <section class="hero hero-bg d-flex justify-content-center align-items-center">
     <div class="container">
@@ -122,7 +72,7 @@
 
                     <div class="owl-carousel owl-theme" id="project-slide">
                             <?php
-                                foreach ($view->getDataView() as $index => $myObject)
+                                foreach ($view->getMyDataView() as $index => $myObject)
                                     echo<<<HTML
                                         <div class="item project-wrapper" data-aos="fade-up" data-aos-delay="100">
                                             <img src="./asset/product/{$view->getId()}/{$index}" class="img-fluid" alt="project image">
@@ -248,6 +198,10 @@
 </footer>
 
 
+<link rel="stylesheet" href="./asset/css/aos.css">
+<link rel="stylesheet" href="./asset/css/owl.carousel.min.css">
+<link rel="stylesheet" href="./asset/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css">
 <!-- SCRIPTS -->
 <script src="./asset/js/aos.js"></script>
 <script src="./asset/js/owl.carousel.min.js"></script>

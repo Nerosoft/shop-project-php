@@ -3,11 +3,11 @@
     <a class="navbar-brand" href="#"><?php echo $this->getAdminDashboard();?></a>
     <?php include 'pis_of_page/button_langstylebranch.php';?>
   
-    <ul class="navbar-nav">
+    <!-- <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" href="logout.php"><?php echo$this->getLogout()?></a>       
       </li>
-    </ul>
+    </ul> -->
   <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
   </button>
@@ -45,8 +45,9 @@ foreach ($this->getMyMenuApp() as $key => $item) {
         echo '</ul></li>';
     }else{
         $classActive = $this->getUrlName2() === $key && !isset($_GET['table']) && !isset($_GET['table']) ? 'my_active':'';
+        $loc = ($key === 'Logout'||$key === 'Login'||$key === 'Register'?'./':($key==='about'||$key==='contact'||$key==='project'?'#':'./view?id=')).$key;
         echo <<<HTML
-        <li class="nav-item"><a class="nav-link icon_font {$this->getIconByKey($key)} {$classActive}" aria-current="page" href="view?id={$key}">
+        <li class="nav-item"><a class="nav-link icon_font {$this->getIconByKey($key)} {$classActive}" aria-current="page" href="{$loc}">
                 {$item}
             </a>
             </li>

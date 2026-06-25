@@ -44,13 +44,13 @@ class AdminMenu extends InformationPage
     function getMyDataView(){
         return $this->DataView;
     }
-    function __construct($IdPage, $message, $type, $DataView, $keysTable){
-        parent::__construct($IdPage, $message, $type, 'ChangeLanguagePost.php');
-         echo '<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
-            <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
-            <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';
+    function __construct($IdPage, $message, $type, $DataView, $keysTable, $keyTitle = 'AdminDashboard'){
+        parent::__construct($IdPage, $message, $type, isset($_SESSION['userId'])?'ChangeLanguagePost.php':'ChangeLangPost.php');
+        echo '<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
+        <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
+        <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';
+
         $this->DataView = $DataView();
-        $this->keysTable = $keysTable??count($this->getModelPage()['TableHead'])+1;
         $this->AllBranches = $this->getModelPage()['AllBranches'];
         $this->Ssearch = $this->getModel2()['TableInfo']['Ssearch'];
         $this->InfoEmpty = $this->getModel2()['TableInfo']['InfoEmpty'];
@@ -60,11 +60,10 @@ class AdminMenu extends InformationPage
         $this->InfoFiltered = $this->getModel2()['TableInfo']['InfoFiltered'];
         $this->Offcanvas = $this->getModel2()['AppSettingAdmin']['Offcanvas'];
         $this->Logout = $this->getModel2()['AppSettingAdmin']['Logout'];
-        $this->TableId = $this->getModelPage()['TableId'];
-        $this->TabelEvent = $this->getModelPage()['TabelEvent'];
-        $this->ScreenModelEdit = $this->getModelPage()['ScreenModelEdit'];
-        $this->ButtonModelEdit = $this->getModelPage()['ButtonModelEdit'];
-        $this->AdminDashboard = $this->getModel2()['AppSettingAdmin']['AdminDashboard'];
+
+
+
+        $this->AdminDashboard = $this->getModel2()['AppSettingAdmin'][$keyTitle];
         if($this->getUrlName2() === 'SystemLang'){
             $this->myMenuApp = array('Home'=>$this->getModel2()['Menu']['Home'], 'SystemLang'=>$this->getModel2()['Menu']['SystemLang']);
             foreach ($this->getModel2()['AllNamesLanguage'] as $key => $value){
@@ -72,38 +71,70 @@ class AdminMenu extends InformationPage
                 foreach (array_keys($this->getModel2()) as $key2 => $table) 
                     $this->myMenuApp[$key][$table] = $this?->getModel2()[$table]['MYTITLE']??$this->getModel2()['AppSettingAdmin'][$table];
             }
-        }else if(isset($this->getModel2()['MyFlexTables'])){
+            $this->myMenuApp['Logout'] = $this->getModel2()['Menu']['Logout'];
+        }else if($this->getUrlName2() === 'Site' && !isset($_SESSION['userId'])){
+            $this->myMenuApp = array('about'=>$this->getModel2()['Menu']['about'],
+            'project'=>$this->getModel2()['Menu']['project'],
+            'contact'=>$this->getModel2()['Menu']['contact'],
+            'Login'=>$this->getModel2()['Menu']['Login'],
+            'Register'=>$this->getModel2()['Menu']['Register']);
+        }else if($this->getUrlName2() === 'Site'){
+            $this->myMenuApp = $this->getModel2()['Menu'];
+            unset($this->myMenuApp['Login'], $this->myMenuApp['Register']);
+            if(isset($this->getModel2()['MyFlexTables']))
+                $this->myMenuApp['MyFlexTables'] = array($this->myMenuApp['MyFlexTables'], ...$this->getModel2()['MyFlexTables']);
+            else
+                unset($this->myMenuApp['MyFlexTables']);
+        }
+        else if(isset($this->getModel2()['MyFlexTables'])){
             $this->myMenuApp = $this->getModel2()['Menu'];
             $arr = $this->getModel2()['MyFlexTables'];
             array_unshift($arr, $this->myMenuApp['MyFlexTables']);
             $this->myMenuApp['MyFlexTables'] = $arr;
+            unset($this->myMenuApp['about'], 
+            $this->myMenuApp['project'], 
+            $this->myMenuApp['contact'], 
+            $this->myMenuApp['Login'], 
+            $this->myMenuApp['Register']);
         }else{
             $this->myMenuApp = $this->getModel2()['Menu'];
-            unset($this->myMenuApp['MyFlexTables']);
+            // unset($this->myMenuApp['MyFlexTables']);
+            unset($this->myMenuApp['about'],
+            $this->myMenuApp['MyFlexTables'], 
+            $this->myMenuApp['project'], 
+            $this->myMenuApp['contact'], 
+            $this->myMenuApp['Login'], 
+            $this->myMenuApp['Register']);
         }        
         include 'pis_of_page/admin_title.php';
-        echo '<div class="start-page container">';
-        if($this->getUrlName2() !== 'SystemLang' && $this->getUrlName2() !== 'MyStyle'){
-            $this->ScreenModelDelete = $this->getModelPage()['ScreenModelDelete'];
-            $this->messageModelDelete = $this->getModelPage()['MessageModelDelete'];
-            $this->buttonModelDelete = $this->getModelPage()['ButtonModelDelete'];
-            echo <<<HTML
-                <button onclick="openForm('#createModel')" class="btn btn-primary">{$this->getModelPage()['ButtonModelCreate']}</button>
-            HTML;
-            $this->makeCreateModal($this, $this->getModelPage()['ScreenModelCreate'], $this->getModelPage()['ButtonModelAdd']);
-        }
-        echo'
-            <table id="example" class="table table-striped">
-            <thead>
-                <tr>
-                    <th>'.$this->getTableId().'</th>';
-        $this->printTableNames();
-        echo '<th>'.$this->getTabelEvent().'</th>
-                </tr>
-            </thead>
-            <tbody>';
-        
-
+        if($this->getUrlName2() !== 'Site'){
+            echo '<div class="start-page container">';
+            $this->keysTable = $keysTable??count($this->getModelPage()['TableHead'])+1;
+            $this->TableId = $this->getModelPage()['TableId'];
+            $this->TabelEvent = $this->getModelPage()['TabelEvent'];
+            $this->ScreenModelEdit = $this->getModelPage()['ScreenModelEdit'];
+            $this->ButtonModelEdit = $this->getModelPage()['ButtonModelEdit'];
+            if($this->getUrlName2() !== 'SystemLang' && $this->getUrlName2() !== 'MyStyle'){
+                $this->ScreenModelDelete = $this->getModelPage()['ScreenModelDelete'];
+                $this->messageModelDelete = $this->getModelPage()['MessageModelDelete'];
+                $this->buttonModelDelete = $this->getModelPage()['ButtonModelDelete'];
+                echo <<<HTML
+                    <button onclick="openForm('#createModel')" class="btn btn-primary">{$this->getModelPage()['ButtonModelCreate']}</button>
+                HTML;
+                $this->makeCreateModal($this, $this->getModelPage()['ScreenModelCreate'], $this->getModelPage()['ButtonModelAdd']);
+            }
+            echo'
+                <table id="example" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>'.$this->getTableId().'</th>';
+            $this->printTableNames();
+            echo '<th>'.$this->getTabelEvent().'</th>
+                    </tr>
+                </thead>
+                <tbody>';
+       }else
+            echo '<div class="start-page">';
     }
     function getIconByKey($key){
         if($key === 'Home')
@@ -142,6 +173,14 @@ class AdminMenu extends InformationPage
             return 'fa fa-table';
         else if($key === 'Style')
             return 'fa fa-magic';
+        else if($key === 'contact')
+            return 'fa fa-info';
+        else if($key === 'project')
+            return 'fa fa-tag';
+        else if($key === 'about')
+            return 'fa fa-truck';
+        else if($key === 'Logout')
+            return 'fa fa-archive';
         else if(isset($this->getModel2()['MyFlexTables'][$key]))
             return 'fa fa-table';
         else if(isset($this->getModel2()['AllNamesLanguage'][$key]))

@@ -68,49 +68,42 @@ class LoginRegister extends InformationPage{
         return $this->RegisterLoginPage;
     }
     function __construct($message, $type, $IdPage = 'Login', $action = 'LoginPost.php'){
-        parent::__construct($IdPage, $message, $type, isset($_SESSION['userId'])?'ChangeLanguagePost.php':'ChangeLangPost.php');
+        parent::__construct($IdPage, $message, $type, 'ChangeLangPost.php');
         $this->BranchLabel = $this->getModelPage()['BranchLabel'];
         $this->ChangeStyleButton = $this->getModelPage()['ChangeStyleButton'];
         $this->ChangeLanguageButton = $this->getModelPage()['ChangeLanguageButton']; foreach ($this->getFile() as $key => $obj)
-        if(isset($_GET['id']))
-            setcookie('branchId', $_GET['id'], time()+2628000);
-        if($IdPage !== 'Site' ){
-            foreach ($this->getFile() as $key => $obj)
-                if(isset($obj['Branches'])){
-                    $this->dbKeys[$key] = new branch($obj['Branches'][$key]['Name']);
-                    // $this->dbKeys[$key] = $obj['Branches'];
-                    if(isset($obj['Branches'][$this->getId()]))
-                        $this->dbBranchKeys = $key;
-                }
-            echo '<link href="./asset/css/login_register.css" rel="stylesheet"></head><body>';
-            $this->initInfoBranch();
-            $this->initErrorBranch();
-            $this->initEmailPassword();
-            $this->BranchProjectTitle = $this->getModelPage()['BranchProjectTitle'];
-            $this->BranchProjectButton = $this->getModelPage()['BranchProjectButton'];
-            $this->ActiveBranchProject = $this->getModelPage()['ActiveBranchProject'];
-            $this->TitleForm = $this->getModelPage()['TitleForm'];
-            $this->ButtonName = $this->getModelPage()['ButtonName'];
-            $this->DbKeyLabel = $this->getModelPage()['DbKeyLabel'];
-            $this->AppLabel = $this->getModelPage()['AppLabel'];
-            $this->AllBranch = $this->getModelPage()['AllBranch'];
-            $this->ModalTitleProject = $this->getModelPage()['ModalTitleProject'];
-            $this->ModalButtonProject = $this->getModelPage()['ModalButtonProject'];
-            $this->ButtonSetupProject = $this->getModelPage()['ButtonSetupProject'];
-            $this->RegisterLoginPage = $this->getModelPage()['RegisterLoginPage'];
-            
-            echo<<<HTML
-                <div class="container">
-                    <div id="createModel" class="register">
-                        <form method='POST' action="{$action}">
-            HTML; 
-            $view = $this;
-            include 'pis_of_page/login_form.php';
-        }else
-            echo '<link rel="stylesheet" href="./asset/css/aos.css">
-                <link rel="stylesheet" href="./asset/css/owl.carousel.min.css">
-                <link rel="stylesheet" href="./asset/css/owl.theme.default.min.css">
-                <link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css"></head><body>';
+        foreach ($this->getFile() as $key => $obj)
+            if(isset($obj['Branches'])){
+                $this->dbKeys[$key] = new branch($obj['Branches'][$key]['Name']);
+                // $this->dbKeys[$key] = $obj['Branches'];
+                if(isset($obj['Branches'][$this->getId()]))
+                    $this->dbBranchKeys = $key;
+            }
+        echo '<link href="./asset/css/login_register.css" rel="stylesheet"></head><body>';
+        $this->initInfoBranch();
+        $this->initErrorBranch();
+        $this->initEmailPassword();
+        $this->BranchProjectTitle = $this->getModelPage()['BranchProjectTitle'];
+        $this->BranchProjectButton = $this->getModelPage()['BranchProjectButton'];
+        $this->ActiveBranchProject = $this->getModelPage()['ActiveBranchProject'];
+        $this->TitleForm = $this->getModelPage()['TitleForm'];
+        $this->ButtonName = $this->getModelPage()['ButtonName'];
+        $this->DbKeyLabel = $this->getModelPage()['DbKeyLabel'];
+        $this->AppLabel = $this->getModelPage()['AppLabel'];
+        $this->AllBranch = $this->getModelPage()['AllBranch'];
+        $this->ModalTitleProject = $this->getModelPage()['ModalTitleProject'];
+        $this->ModalButtonProject = $this->getModelPage()['ModalButtonProject'];
+        $this->ButtonSetupProject = $this->getModelPage()['ButtonSetupProject'];
+        $this->RegisterLoginPage = $this->getModelPage()['RegisterLoginPage'];
+        
+        echo<<<HTML
+            <div class="container">
+                <div id="createModel" class="register">
+                    <form method='POST' action="{$action}">
+        HTML; 
+        $view = $this;
+        include 'pis_of_page/login_form.php';
+
     }
     function getDbKeyLabel(){
         return $this->DbKeyLabel;

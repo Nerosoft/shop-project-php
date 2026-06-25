@@ -199,7 +199,7 @@ https://templatemo.com/tm-538-digital-trend
   -----------------------------------------*/
 
   .navbar {
-    background: var(--menu-bg);
+    background: var(--menu-bg) !important;
     z-index: 2;
     top: 0;
     right: 0;
@@ -216,8 +216,8 @@ https://templatemo.com/tm-538-digital-trend
     color: var(--white-color);
     font-size: var(--menu-font-size);
     letter-spacing: 0.4px;
-    margin: 0 1.6em;
-    padding: 0.6em;
+    /* margin: 0 1.6em;
+    padding: 0.6em; */
   }
 
   .nav-link.active,
@@ -695,3 +695,12 @@ https://templatemo.com/tm-538-digital-trend
   }
 
 
+.active{
+  color: orange !important;
+}
+.offcanvas-header{
+  background-color:  var(--menu-bg) !important;
+}
+.offcanvas-body{
+  background-color:  #1b737e !important;
+}

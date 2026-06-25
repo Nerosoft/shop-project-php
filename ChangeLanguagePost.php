@@ -5,7 +5,6 @@ if($_SERVER["REQUEST_METHOD"] !== "POST" || !isset($_POST['option']) || !isset($
     header('LOCATION:index');
 else
     ModelJson::initView(($_POST['option'] === 'Home' ||
-            $_POST['option'] === 'HomeCreatePost' ||
             $_POST['option'] === 'Branches' ||
             $_POST['option'] === 'Site' ||
             $_POST['option'] === 'ChangeLanguage' ||

@@ -10,7 +10,5 @@ $_SERVER["REQUEST_METHOD"] === "POST" && !isset(json_decode(file_get_contents('d
     header("Location:Login");
     exit;
 }
-else{
+else
     require 'controller/ModelJson.php';
-    require 'controller/LoginRegister.php';
-}
