@@ -44,8 +44,8 @@ class AdminMenu extends InformationPage
     function getMyDataView(){
         return $this->DataView;
     }
-    function __construct($IdPage, $message, $type, $DataView, $keysTable, $keyTitle = 'AdminDashboard'){
-        parent::__construct($IdPage, $message, $type, isset($_SESSION['userId'])?'ChangeLanguagePost.php':'ChangeLangPost.php');
+    function __construct($IdPage, $message, $type, $DataView, $keysTable, $keyTitle = 'AdminDashboard', $actionPost = 'ChangeLanguagePost.php'){
+        parent::__construct($IdPage, $message, $type, $actionPost);
         echo '<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
         <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
         <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';
