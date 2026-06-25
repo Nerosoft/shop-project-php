@@ -11,12 +11,18 @@
 
     // SMOOTH SCROLL
     $(function() {
+      //dropdown
       $('.nav-link').on('click', function(event) {
-        $('.nav-link').each(function(){                   
-          $(this).removeClass('active');
-          $(this).removeClass('my_active');
-        });
-        $(this).addClass('active');
+        if(!$(this).hasClass('dropdown-toggle'))
+          $('.nav-link').each(function(){   
+            if($(this) === event)
+              $(this).addClass('active');   
+            else{             
+              $(this).removeClass('active');
+              $(this).removeClass('my_active');
+            }
+          });
+        
         var $anchor = $(this);
           $('html, body').stop().animate({
             scrollTop: $($anchor.attr('href')).offset().top - 0
