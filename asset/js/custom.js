@@ -14,6 +14,7 @@
       $('.nav-link').on('click', function(event) {
         $('.nav-link').each(function(){                   
           $(this).removeClass('active');
+          $(this).removeClass('my_active');
         });
         $(this).addClass('active');
         var $anchor = $(this);
