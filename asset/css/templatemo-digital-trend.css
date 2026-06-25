@@ -701,6 +701,6 @@ https://templatemo.com/tm-538-digital-trend
 .offcanvas-header{
   background-color:  var(--menu-bg) !important;
 }
-.offcanvas-body{
+.offcanvas-body, .dropdown-menu{
   background-color:  #1b737e !important;
 }
