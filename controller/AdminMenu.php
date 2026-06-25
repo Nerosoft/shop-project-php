@@ -86,21 +86,13 @@ class AdminMenu extends InformationPage
             else
                 unset($this->myMenuApp['MyFlexTables']);
         }
-        else if(isset($this->getModel2()['MyFlexTables'])){
+        else{
             $this->myMenuApp = $this->getModel2()['Menu'];
-            $arr = $this->getModel2()['MyFlexTables'];
-            array_unshift($arr, $this->myMenuApp['MyFlexTables']);
-            $this->myMenuApp['MyFlexTables'] = $arr;
-            unset($this->myMenuApp['about'], 
-            $this->myMenuApp['project'], 
-            $this->myMenuApp['contact'], 
-            $this->myMenuApp['Login'], 
-            $this->myMenuApp['Register']);
-        }else{
-            $this->myMenuApp = $this->getModel2()['Menu'];
-            // unset($this->myMenuApp['MyFlexTables']);
+            if(isset($this->getModel2()['MyFlexTables']))
+                $this->myMenuApp['MyFlexTables'] = array($this->myMenuApp['MyFlexTables'], ...$this->getModel2()['MyFlexTables']);
+            else
+                unset($this->myMenuApp['MyFlexTables']);
             unset($this->myMenuApp['about'],
-            $this->myMenuApp['MyFlexTables'], 
             $this->myMenuApp['project'], 
             $this->myMenuApp['contact'], 
             $this->myMenuApp['Login'], 
