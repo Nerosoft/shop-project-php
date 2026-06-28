@@ -5,7 +5,6 @@ require 'all_trait/ErrorsHome.php';
 include 'interface/InterfaceDataView.php';
 class MyHome extends AdminMenu implements InterfaceDataView{
     use ErrorsHome;
-    private $TableName;
     private $LabelInputNumber;
     private $HintInputNumber;
     private $LabelName;
@@ -15,7 +14,6 @@ class MyHome extends AdminMenu implements InterfaceDataView{
             $this->initErrorsHome();
             $this->LabelName = $this->getModelPage()['LabelName'];
             $this->HintName = $this->getModelPage()['HintName'];
-            $this->TableName = $this->getModelPage()['NameTable'];
             $this->LabelInputNumber = $this->getModelPage()['LabelInputNumber'];
             $this->HintInputNumber = $this->getModelPage()['HintInputNumber'];
             return isset($this->getModel2()['MyFlexTables'])?array_reverse(CustomTable::fromArray($this)):array();
@@ -27,19 +25,11 @@ class MyHome extends AdminMenu implements InterfaceDataView{
     function getHintName(){
         return $this->HintName;
     }
-    function getTableName(){
-        return $this->TableName;
-    }
     function getLabelInputNumber(){
         return $this->LabelInputNumber;
     }
     function getHintInputNumber(){
         return $this->HintInputNumber;
-    }
-    function printTableNames(){
-        echo<<<HTML
-        <th>{$this->getTableName()}</th>
-        HTML;
     }
     function makeCreateModal($view, $title, $button){
             $action = 'HomeCreatePost.php';

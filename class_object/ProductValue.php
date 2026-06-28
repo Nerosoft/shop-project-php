@@ -32,6 +32,6 @@ class ProductValue implements DeleteInfoName{
         return json_encode(get_object_vars($this));
     }
     static function getKeysObject(){
-        return count(get_object_vars(new static())) + 1;
+        return array('Image', ...array_keys(get_object_vars(new static())));
     }
 }

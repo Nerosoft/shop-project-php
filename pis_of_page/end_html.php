@@ -39,6 +39,7 @@
     
         
         if(isset($_SESSION['userId']) && $view->getUrlName2() !== 'Site'){
+            $size = count($view->getKeysTable());
             echo<<<HTML
                 </tbody>
                     <tfoot>
@@ -54,7 +55,7 @@
                 </div>
                     <script type="text/javascript">
                         let setting = [{ 'searchable': true, className: "text-left" }]
-                        for (let index = 0; index < {$view->getKeysTable()} ; index++) 
+                        for (let index = 0; index < {$size} ; index++) 
                             setting.push({ 'searchable': true, className: "text-left" });
                         setting.push({ 'searchable': false });
                         $(document).ready(function() {

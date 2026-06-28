@@ -101,6 +101,11 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "Register"=>"Register"
                     ],
                     "Product"=> [
+                        "Name"=>"Name",
+                        "Descreption"=>"Descreption",
+                        "Salary"=>"Salary",
+                        "Category"=>"Category",
+                        "Image"=>"Image",
                         "SuccessfullyChangeBranch"=>"Successfully changed branch",
                         "ActiveBranch"=>"this branch is active",
                         "ChangeTitleBranch"=>"welcome in change branch",
@@ -164,6 +169,9 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "HintCategory"=> "enter Category"
                     ],
                     "Users"=> [
+                        "Email"=>"Email",
+                        "Password"=>"Password",
+                        "Key"=>"Key",
                         "SuccessfullyChangeBranch"=>"Successfully changed branch",
                         "ActiveBranch"=>"this branch is active",
                         "ChangeTitleBranch"=>"welcome in change branch",
@@ -220,6 +228,18 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "WithRays"=> "With work"
                     ],
                     "Branches"=> [
+
+                        "Name"=>"Name",
+                        "Phone"=>"Phone",
+                        "Governments"=>"Governments",
+                        "City"=>"City",
+                        "Street"=>"Street",
+                        "Building"=>"Building", 
+                        "Address"=>"Address", 
+                        "Country"=>"Country", 
+                        "Follow"=>"Follow",
+
+
                         "ActiveBranch"=>"this branch is active",
                         "ChangeTitleBranch"=>"welcome in change branch",
                         "ChangeButtonBranch"=>"change branch",
@@ -310,6 +330,7 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "Delete"=> "Seccessfully delete branch"
                     ],
                     "ChangeLanguage"=> [
+                        "name"=>"Name",
                         "SuccessfullyChangeBranch"=>"Successfully changed branch",
                         "ActiveBranch"=>"this branch is active",
                         "ChangeTitleBranch"=>"welcome in change branch",
@@ -558,6 +579,7 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "BranceRaysFollowValue"=> "Work invalid"
                     ],
                     "Home"=> [
+                        "name"=>"Name",
                         "SuccessfullyChangeBranch"=>"Successfully changed branch",
                         "ActiveBranch"=>"this branch is active",
                         "ChangeTitleBranch"=>"welcome in change branch",
@@ -606,6 +628,7 @@ ModelJson::initView($_POST['option'], 'CreateProjectMessage', 'success', functio
                         "HintInputNumber"=> "Enter input numper"
                     ],
                     "MyStyle"=> [
+                        "name"=>"Name",
                         "SuccessfullyChangeBranch"=>"Successfully changed branch",
                         "ActiveBranch"=>"this branch is active",
                         "ChangeTitleBranch"=>"welcome in change branch",

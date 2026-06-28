@@ -44,11 +44,21 @@ class AdminMenu extends InformationPage
     function getMyDataView(){
         return $this->DataView;
     }
+    function printTableNames(){
+        foreach ($this->getKeysTable() as $index => $key)
+            echo'<th>'.($this->getModelPage()[$key]??$this->getModelPage()['TableHead'][$key]).'</th>';
+    }
     function __construct($IdPage, $message, $type, $DataView, $keysTable, $keyTitle = 'AdminDashboard', $actionPost = 'ChangeLanguagePost.php'){
         parent::__construct($IdPage, $message, $type, $actionPost);
         echo '<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
+        <link rel="stylesheet" href="./asset/css/aos.css">
+        <link rel="stylesheet" href="./asset/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./asset/css/owl.theme.default.min.css">
         <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
-        <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';
+        <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script>';
+        if($this->getUrlName2() === 'Site')
+            echo '<link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css">';
+        echo '</head><body>';
 
         $this->DataView = $DataView();
         $this->AllBranches = $this->getModelPage()['AllBranches'];
@@ -101,7 +111,7 @@ class AdminMenu extends InformationPage
         include 'pis_of_page/admin_title.php';
         if($this->getUrlName2() !== 'Site'){
             echo '<div class="start-page container">';
-            $this->keysTable = $keysTable??count($this->getModelPage()['TableHead'])+1;
+            $this->keysTable = $keysTable??array('TableProductImage', ...array_keys($this->getTableHead()));
             $this->TableId = $this->getModelPage()['TableId'];
             $this->TabelEvent = $this->getModelPage()['TabelEvent'];
             $this->ScreenModelEdit = $this->getModelPage()['ScreenModelEdit'];

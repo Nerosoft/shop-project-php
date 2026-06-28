@@ -65,6 +65,6 @@ class Branch implements DeleteInfoName
         return json_encode(get_object_vars($this));
     }
     static function getKeysObject(){
-        return count(get_object_vars(new static()));
+        return array_keys(get_object_vars(new static()));
     }
 }

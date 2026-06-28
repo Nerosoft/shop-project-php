@@ -28,13 +28,6 @@ class MyFlexTablesView extends AdminMenu implements InterfaceDataView{
     function getHint(){
         return $this->Hint;
     }
-    function printTableNames(){
-        echo'<th>'.$this->getTableProductImage().'</th>';
-        foreach($this->getTableHead() as $index=>$name)
-            echo<<<HTML
-                <th>{$name}</th>
-            HTML;
-    }
     function makeCreateModal($view, $title, $button, $idModel = 'createModel', $index = null, $myObject = null){
         $action = 'FlexTablesCreatePost?id='.$this->getUrlName2();
         include('all_modal/modal_flex.php');

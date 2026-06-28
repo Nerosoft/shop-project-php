@@ -6,24 +6,10 @@ trait InfoChangeLangStyle{
     private $LabelNameLanguage;
     private $HintNewLangName;
     private $NameLangaue;
-    // function InitInfoChangeLangStyle(){
-    //     $this->initErrorChangelanguage();
-    //     // $this->LabelNameLanguage = $this->getModelPage()['LabelCreateLanguage'];
-    //     // $this->HintNewLangName = $this->getModelPage()['HintNewLangName'];
-    //     // $this->NameLangaue = $this->getModelPage()['NameLangaue'];
-    // }
-    function getNameLangaue(){
-        return $this->getModelPage()['NameLangaue'];//$this->NameLangaue;
-    }
     function getHintNewLangName(){
-        return $this->getModelPage()['HintNewLangName'];//$this->HintNewLangName;
+        return $this->getModelPage()['HintNewLangName'];
     }
     function getLabelNameLanguage(){
-        return $this->getModelPage()['LabelCreateLanguage'];//$this->LabelNameLanguage;
-    }
-    function printTableNames(){
-        echo<<<HTML
-            <th>{$this->getNameLangaue()}</th>
-        HTML;
+        return $this->getModelPage()['LabelCreateLanguage'];
     }
 }
