@@ -1,6 +1,5 @@
 <?php
 include 'auth/SessionAuth.php';
-if($_SERVER["REQUEST_METHOD"] === "POST"){
 ModelJson::initView('Login', 'ForgetMessage', 'success', function(){
     class LoginForgetPasswordPost extends ValidationId{
         use ErrorsEmailPassword;
@@ -20,5 +19,3 @@ ModelJson::initView('Login', 'ForgetMessage', 'success', function(){
     }
     return new LoginForgetPasswordPost();
 }, 'ForgetMessage');
-}else
-    header('LOCATION:Login');

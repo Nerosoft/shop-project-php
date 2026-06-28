@@ -1,6 +1,5 @@
 <?php 
 include 'auth/SessionAuth.php';
-if($_SERVER["REQUEST_METHOD"] === "POST"){
 ModelJson::initView('Register', 'RegisterMessage', 'success', function(){
     class RegisterPost extends ValidationId{
         use ErrorRegister, ErrorsEmailPassword;
@@ -12,6 +11,4 @@ ModelJson::initView('Register', 'RegisterMessage', 'success', function(){
         }
     }
     return new RegisterPost();
-}, 'RegisterMessage');    
-}else
-    header('LOCATION:Register');
+}, 'RegisterMessage');
