@@ -144,6 +144,9 @@ class ModelJson{
     function getSCRIPTFILENAME(){
         return pathinfo($_SERVER['SCRIPT_FILENAME'])['filename'];
     }
+    static function getFileName(){
+        return pathinfo($_SERVER['SCRIPT_FILENAME'])['filename'];
+    }
     function getFile(){
         return $this->File;
     }

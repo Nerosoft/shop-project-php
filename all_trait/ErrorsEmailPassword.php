@@ -12,7 +12,7 @@ trait ErrorsEmailPassword{
         $this->InvalidEmail = $this->getModelPage()['InvalidEmail'];
         $this->RequiredPassword = $this->getModelPage()['RequiredPassword'];
         $this->InvalidPassword = $this->getModelPage()['InvalidPassword'];
-        if($this->getSCRIPTFILENAME() !== 'LoginPost'){
+        if(ModelJson::getFileName() !== 'LoginPost'){
             $this->RequiredKeyPassword = $this->getModelPage()['RequiredKeyPassword'];
             $this->InvalidKeyPassword = $this->getModelPage()['InvalidKeyPassword'];
         }
@@ -28,9 +28,9 @@ trait ErrorsEmailPassword{
             ModelJson::initView2($this->getUrlName2(), $this->getRequiredPassword());
         else if(strlen($_POST['Password']) < 8)
             ModelJson::initView2($this->getUrlName2(), $this->getInvalidPassword());
-        else if($this->getSCRIPTFILENAME() !== 'LoginPost' && !isset($_POST['Key']) || $this->getSCRIPTFILENAME() !== 'LoginPost' && $_POST['Key'] === '')
+        else if(ModelJson::getFileName() !== 'LoginPost' && !isset($_POST['Key']) || ModelJson::getFileName() !== 'LoginPost' && $_POST['Key'] === '')
                 ModelJson::initView2($this->getUrlName2(), $this->getRequiredKeyPassword(), 'danger');
-        else if($this->getSCRIPTFILENAME() !== 'LoginPost' && strlen($_POST['Key']) < 8)
+        else if(ModelJson::getFileName() !== 'LoginPost' && strlen($_POST['Key']) < 8)
             ModelJson::initView2($this->getUrlName2(), $this->getInvalidKeyPassword(), 'danger');
     }
     function initErrorsKeyPassword2($myData){

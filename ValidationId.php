@@ -4,22 +4,22 @@ class ValidationId extends ModelJson{
     function __construct($IdPage, $callback = null, $message = null){
         parent::__construct($IdPage);
         //make id for flex table and user stting and product else make id for all action
-        if($this->getSCRIPTFILENAME() !== 'LoginPost' && $this->getSCRIPTFILENAME() !== 'LoginForgetPasswordPost')
-            $this->keyId = $this->getSCRIPTFILENAME() !== 'BranchCreatePost' && 
-            $this->getSCRIPTFILENAME() !== 'ChangeLanguageCreatePost' && 
-            $this->getSCRIPTFILENAME() !== 'HomeCreatePost' && 
-            $this->getSCRIPTFILENAME() !== 'SetupProject' && 
-            $this->getSCRIPTFILENAME() !== 'RegisterPost' && 
+        if(ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'LoginForgetPasswordPost')
+            $this->keyId = ModelJson::getFileName() !== 'BranchCreatePost' && 
+            ModelJson::getFileName() !== 'ChangeLanguageCreatePost' && 
+            ModelJson::getFileName() !== 'HomeCreatePost' && 
+            ModelJson::getFileName() !== 'SetupProject' && 
+            ModelJson::getFileName() !== 'RegisterPost' && 
             isset($_POST['id'])?$_POST['id']:$this->getRandomId();
 
-        if($this->getSCRIPTFILENAME()==='LoginForgetPasswordPost' || 
-        $this->getSCRIPTFILENAME()==='LoginPost' || 
-        $this->getSCRIPTFILENAME() === 'RegisterPost'||
-        $this->getSCRIPTFILENAME() === 'SetupProject')
+        if(ModelJson::getFileName()==='LoginForgetPasswordPost' || 
+        ModelJson::getFileName()==='LoginPost' || 
+        ModelJson::getFileName() === 'RegisterPost'||
+        ModelJson::getFileName() === 'SetupProject')
             $this->initErrorsEmailPassword3();
         //valid id first
-        else if($this->getSCRIPTFILENAME()!=='BranchCreatePost' && $this->getSCRIPTFILENAME()!=='FlexTablesCreatePost' && $this->getSCRIPTFILENAME()!=='HomeCreatePost' && $this->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' && $this->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $this->getSCRIPTFILENAME()!=='ProductCreatePost' && !isset($_POST['id']) ||
-         $this->getSCRIPTFILENAME()!=='BranchCreatePost' && $this->getSCRIPTFILENAME()!=='FlexTablesCreatePost' && $this->getSCRIPTFILENAME()!=='HomeCreatePost' && $this->getSCRIPTFILENAME()!=='ChangeLanguageCreatePost' &&  $this->getSCRIPTFILENAME()!=='SettingUsersCreatePost' && $this->getSCRIPTFILENAME()!=='ProductCreatePost' && $_POST['id'] === '')
+        else if(ModelJson::getFileName()!=='BranchCreatePost' && ModelJson::getFileName()!=='FlexTablesCreatePost' && ModelJson::getFileName()!=='HomeCreatePost' && ModelJson::getFileName()!=='ChangeLanguageCreatePost' && ModelJson::getFileName()!=='SettingUsersCreatePost' && ModelJson::getFileName()!=='ProductCreatePost' && !isset($_POST['id']) ||
+         ModelJson::getFileName()!=='BranchCreatePost' && ModelJson::getFileName()!=='FlexTablesCreatePost' && ModelJson::getFileName()!=='HomeCreatePost' && ModelJson::getFileName()!=='ChangeLanguageCreatePost' &&  ModelJson::getFileName()!=='SettingUsersCreatePost' && ModelJson::getFileName()!=='ProductCreatePost' && $_POST['id'] === '')
             ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['IdIsReq']);
         
         
@@ -44,36 +44,36 @@ class ValidationId extends ModelJson{
             
 
 
-            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'HomeCreatePost' && is_null($this->validName())||
-            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'HomeCreatePost' && is_null($this->validName())||
-            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'HomeEditPost' && is_null($this->validName())||
-            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'HomeEditPost' && is_null($this->validName())||
+            isset($_POST['Branches']) && ModelJson::getFileName() === 'HomeCreatePost' && is_null($this->validName())||
+            isset($_POST['choices']) && ModelJson::getFileName() === 'HomeCreatePost' && is_null($this->validName())||
+            isset($_POST['Branches']) && ModelJson::getFileName() === 'HomeEditPost' && is_null($this->validName())||
+            isset($_POST['choices']) && ModelJson::getFileName() === 'HomeEditPost' && is_null($this->validName())||
 
-            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'HomeDeletePost'||
-            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'HomeDeletePost'||
+            isset($_POST['Branches']) && ModelJson::getFileName() === 'HomeDeletePost'||
+            isset($_POST['choices']) && ModelJson::getFileName() === 'HomeDeletePost'||
 
-            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && is_null($this->initErrorFlexTable2())||
-            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && is_null($this->initErrorFlexTable2())||
+            isset($_POST['Branches']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && is_null($this->initErrorFlexTable2())||
+            isset($_POST['choices']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && is_null($this->initErrorFlexTable2())||
 
-            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'ProductCreatePost' && is_null($this->validProductInput())||
-            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ProductCreatePost' && is_null($this->validProductInput())||
+            isset($_POST['Branches']) && ModelJson::getFileName() === 'ProductCreatePost' && is_null($this->validProductInput())||
+            isset($_POST['choices']) && ModelJson::getFileName() === 'ProductCreatePost' && is_null($this->validProductInput())||
 
-            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3())||
-            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3())||
+            isset($_POST['Branches']) && ModelJson::getFileName() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3())||
+            isset($_POST['choices']) && ModelJson::getFileName() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3())||
             
             //product and uesrs and flextable
-            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'SettingUsersDeletePost'||
-            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'SettingUsersDeletePost'||
+            isset($_POST['Branches']) && ModelJson::getFileName() === 'SettingUsersDeletePost'||
+            isset($_POST['choices']) && ModelJson::getFileName() === 'SettingUsersDeletePost'||
 
 
-            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'ChangeLanguagePost'||
-            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ChangeLanguagePost'||
-            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost'||
-            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost'||
-            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' && is_null($this->validLanguageInput())||
-            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' && is_null($this->validLanguageInput())||
-            isset($_POST['Branches']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost' && is_null($this->validLanguageInput())||
-            isset($_POST['choices']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost' && is_null($this->validLanguageInput())
+            isset($_POST['Branches']) && ModelJson::getFileName() === 'ChangeLanguagePost'||
+            isset($_POST['choices']) && ModelJson::getFileName() === 'ChangeLanguagePost'||
+            isset($_POST['Branches']) && ModelJson::getFileName() === 'ChangeLanguageDeletePost'||
+            isset($_POST['choices']) && ModelJson::getFileName() === 'ChangeLanguageDeletePost'||
+            isset($_POST['Branches']) && ModelJson::getFileName() === 'ChangeLanguageEditPost' && is_null($this->validLanguageInput())||
+            isset($_POST['choices']) && ModelJson::getFileName() === 'ChangeLanguageEditPost' && is_null($this->validLanguageInput())||
+            isset($_POST['Branches']) && ModelJson::getFileName() === 'ChangeLanguageCreatePost' && is_null($this->validLanguageInput())||
+            isset($_POST['choices']) && ModelJson::getFileName() === 'ChangeLanguageCreatePost' && is_null($this->validLanguageInput())
 
 
 
@@ -87,22 +87,22 @@ class ValidationId extends ModelJson{
                 //make text id inside all branch for users and product and home and language (only edit)
                 //use $IdPage only(users and product)
                 //style dont create use getUrlName2
-                else if(isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($myFile[$key][$_GET['id']][$_POST['id']]) ||
-                    !isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_GET['id']]) ||
+                else if(isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($myFile[$key][$_GET['id']][$_POST['id']]) ||
+                    !isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_GET['id']]) ||
                     
-                    $this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
-                    $this->getSCRIPTFILENAME() === 'ChangeLanguagePost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_POST['state']][$_POST['id']]) ||
-                    $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && !isset($myFile[$key][$_POST['id']]) ||
-                    $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english' ||
-                    $this->getSCRIPTFILENAME() === 'HomeEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_POST['id']]) ||
-                    $this->getSCRIPTFILENAME() === 'HomeDeletePost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_POST['id']]) ||
+                    ModelJson::getFileName() === 'ChangeLanguageEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
+                    ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_POST['state']][$_POST['id']]) ||
+                    ModelJson::getFileName() === 'ChangeLanguageDeletePost' && !isset($myFile[$key][$_POST['id']]) ||
+                    ModelJson::getFileName() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english' ||
+                    ModelJson::getFileName() === 'HomeEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_POST['id']]) ||
+                    ModelJson::getFileName() === 'HomeDeletePost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_POST['id']]) ||
                   
-                $this->getSCRIPTFILENAME() === 'ProductDeletePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']])||
+                ModelJson::getFileName() === 'ProductDeletePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']])||
                 //valid users and flex table getUrlName2
-                $this->getSCRIPTFILENAME() === 'SettingUsersDeletePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]) ||
+                ModelJson::getFileName() === 'SettingUsersDeletePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]) ||
                   //ignore create validation account and product
-                  isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ProductCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']])||
-                  isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'SettingUsersCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]))
+                  isset($_POST['id']) && ModelJson::getFileName() === 'ProductCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']])||
+                  isset($_POST['id']) && ModelJson::getFileName() === 'SettingUsersCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]))
                     ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['IdIsInv']);
                 else
                     $myFile[$key] = $callback($myFile[$key], $key);
@@ -112,33 +112,33 @@ class ValidationId extends ModelJson{
 
 
         else if(
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ChangeLanguagePost' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'BranchChangePost' && !isset($this->getBranch()[$_POST['id']])||
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'BranchDeletePost' && $_POST['id'] === $this->getFixedId()||
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'BranchDeletePost' && $_POST['id'] === $this->getId()||
+            isset($_POST['id']) && ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
+            isset($_POST['id']) && ModelJson::getFileName() === 'BranchChangePost' && !isset($this->getBranch()[$_POST['id']])||
+            isset($_POST['id']) && ModelJson::getFileName() === 'BranchDeletePost' && $_POST['id'] === $this->getFixedId()||
+            isset($_POST['id']) && ModelJson::getFileName() === 'BranchDeletePost' && $_POST['id'] === $this->getId()||
             //check lang name = english (system) and = (select language)
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && $_POST['id'] === $this->getLanguage()||
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english'||
+            isset($_POST['id']) && ModelJson::getFileName() === 'ChangeLanguageDeletePost' && $_POST['id'] === $this->getLanguage()||
+            isset($_POST['id']) && ModelJson::getFileName() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english'||
             //valid users and flex table $_GET['id']
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ChangeLangPost' && $_POST['state'] !== 'branch' && $_POST['state'] !== 'branch2' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ChangeLangPost' && $_POST['state'] === 'branch' && !isset($this->getBranch()[$_POST['id']])||
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'ChangeLangPost' && $_POST['state'] === 'branch2' && !isset($this->getFile()[$_POST['id']])||
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'SettingUsersDeletePost' && !isset($this->getObj()[$_GET['id']][$_POST['id']]) ||
+            isset($_POST['id']) && ModelJson::getFileName() === 'ChangeLangPost' && $_POST['state'] !== 'branch' && $_POST['state'] !== 'branch2' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
+            isset($_POST['id']) && ModelJson::getFileName() === 'ChangeLangPost' && $_POST['state'] === 'branch' && !isset($this->getBranch()[$_POST['id']])||
+            isset($_POST['id']) && ModelJson::getFileName() === 'ChangeLangPost' && $_POST['state'] === 'branch2' && !isset($this->getFile()[$_POST['id']])||
+            isset($_POST['id']) && ModelJson::getFileName() === 'SettingUsersDeletePost' && !isset($this->getObj()[$_GET['id']][$_POST['id']]) ||
             //work delete add edit user and product and home and change language
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() !== 'BranchChangePost' && $this->getSCRIPTFILENAME() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Home' && !isset($this->getModel2()['MyFlexTables'][$_POST['id']])||
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() !== 'BranchChangePost' && $this->getSCRIPTFILENAME() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Branches' && !isset($this->getBranch()[$_POST['id']])||
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() !== 'BranchChangePost' && $this->getSCRIPTFILENAME() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'ChangeLanguage' && !isset($this->getModel2()['AllNamesLanguage'][$_POST['id']])||
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() !== 'BranchChangePost' && $this->getSCRIPTFILENAME() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Users' && !isset($this->getObj()['Users'][$_POST['id']])||
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() !== 'BranchChangePost' && $this->getSCRIPTFILENAME() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Product' && !isset($this->getObj()['Product'][$_POST['id']])||
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() === 'FlexTablesCreatePost' && !isset($this->getObj()[$_GET['id']][$_POST['id']]) ||
-            isset($_POST['id']) && $this->getSCRIPTFILENAME() !== 'BranchChangePost' && $this->getSCRIPTFILENAME() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'MyStyle' && !isset($this->getModel2()['Style'][$_POST['id']])
+            isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Home' && !isset($this->getModel2()['MyFlexTables'][$_POST['id']])||
+            isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Branches' && !isset($this->getBranch()[$_POST['id']])||
+            isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'ChangeLanguage' && !isset($this->getModel2()['AllNamesLanguage'][$_POST['id']])||
+            isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Users' && !isset($this->getObj()['Users'][$_POST['id']])||
+            isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Product' && !isset($this->getObj()['Product'][$_POST['id']])||
+            isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($this->getObj()[$_GET['id']][$_POST['id']]) ||
+            isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'MyStyle' && !isset($this->getModel2()['Style'][$_POST['id']])
         )
             ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['IdIsInv']);
-        else if($this->getSCRIPTFILENAME() === 'BranchEditPost' || $this->getSCRIPTFILENAME() === 'BranchCreatePost')
+        else if(ModelJson::getFileName() === 'BranchEditPost' || ModelJson::getFileName() === 'BranchCreatePost')
             $this->initErrorBranch2();
-        else if($this->getSCRIPTFILENAME() === 'ChangeLanguageEditPost' || $this->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost')
+        else if(ModelJson::getFileName() === 'ChangeLanguageEditPost' || ModelJson::getFileName() === 'ChangeLanguageCreatePost')
             $this->validLanguageInput();
-        else if($this->getSCRIPTFILENAME() === 'HomeCreatePost' || $this->getSCRIPTFILENAME() === 'HomeEditPost')
+        else if(ModelJson::getFileName() === 'HomeCreatePost' || ModelJson::getFileName() === 'HomeEditPost')
             $this->validName();
         
     }

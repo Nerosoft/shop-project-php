@@ -7,7 +7,7 @@ trait ErrorsHome{
     function initErrorsHome(){
         $this->NameTableIsReq = $this->getModelPage()['NameTableIsReq'];
         $this->NameTableIsInv = $this->getModelPage()['NameTableIsInv'];
-        if($this->getSCRIPTFILENAME() !== 'HomeEditPost'){
+        if(ModelJson::getFileName() !== 'HomeEditPost'){
             $this->InputNumberTableIsReq = $this->getModelPage()['InputNumberTableIsReq'];
             $this->InputNumberTableIsInv = $this->getModelPage()['InputNumberTableIsInv'];
         }
@@ -18,11 +18,11 @@ trait ErrorsHome{
             ModelJson::initView2($this->getUrlName2(), $this->getNameTableIsReq());
         else if(strlen($_POST['name']) < 3)
             ModelJson::initView2($this->getUrlName2(), $this->getNameTableIsInv());
-        else if($this->getSCRIPTFILENAME() === 'HomeCreatePost' && !isset($_POST['input_number']) || $this->getSCRIPTFILENAME() === 'HomeCreatePost' && $_POST['input_number'] === '')
+        else if(ModelJson::getFileName() === 'HomeCreatePost' && !isset($_POST['input_number']) || ModelJson::getFileName() === 'HomeCreatePost' && $_POST['input_number'] === '')
             ModelJson::initView2($this->getUrlName2(), $this->getInputNumberTableIsReq());
-        else if($this->getSCRIPTFILENAME() === 'HomeCreatePost' && !is_numeric($_POST['input_number']) || $this->getSCRIPTFILENAME() === 'HomeCreatePost' && $_POST['input_number'] > 8)
+        else if(ModelJson::getFileName() === 'HomeCreatePost' && !is_numeric($_POST['input_number']) || ModelJson::getFileName() === 'HomeCreatePost' && $_POST['input_number'] > 8)
             ModelJson::initView2($this->getUrlName2(), $this->getInputNumberTableIsInv());  
-        else if($this->getSCRIPTFILENAME() === 'HomeCreatePost')
+        else if(ModelJson::getFileName() === 'HomeCreatePost')
             for ($i=0; $i < $_POST['input_number']; $i++)
                 array_push($this->keysInput, $this->getRandomId());  
     }

@@ -74,9 +74,9 @@ trait ErrorBranch{
             ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysFollowRequired());
         else if(!isset($this->getModel2()['SelectBranchBox'][$_POST['Follow']]))
             ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['BranceRaysFollowValue']);
-        else if($this->getSCRIPTFILENAME() === 'BranchCreatePost' && !isset($_POST['selectedBranch']))
+        else if(ModelJson::getFileName() === 'BranchCreatePost' && !isset($_POST['selectedBranch']))
             ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['IdBranchReq']);
-        else if($this->getSCRIPTFILENAME() === 'BranchCreatePost' && !isset($this->getBranch()[$_POST['selectedBranch']]))
+        else if(ModelJson::getFileName() === 'BranchCreatePost' && !isset($this->getBranch()[$_POST['selectedBranch']]))
             ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['IdBranchInv']);
     }
     function initErrorBranch2(){

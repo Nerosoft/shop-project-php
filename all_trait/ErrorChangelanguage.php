@@ -28,9 +28,9 @@ trait ErrorChangelanguage{
             ModelJson::initView2($this->getUrlName2(), $this->getNewLangNameRequired());
         else if(strlen($_POST['lang_name']) < 3)
             ModelJson::initView2($this->getUrlName2(), $this->getNewLangNameInvalid());
-        else if($this->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost' && !isset($_POST['selectedLanguage']))
+        else if(ModelJson::getFileName() === 'ChangeLanguageCreatePost' && !isset($_POST['selectedLanguage']))
             ModelJson::initView2($this->getUrlName2(), 'LanguageReq');
-        else if($this->getSCRIPTFILENAME() === 'ChangeLanguageCreatePost' && !isset($this->getallNames()[$_POST['selectedLanguage']]))
+        else if(ModelJson::getFileName() === 'ChangeLanguageCreatePost' && !isset($this->getallNames()[$_POST['selectedLanguage']]))
             ModelJson::initView2($this->getUrlName2(), 'LanguageInv');
     }
 }
