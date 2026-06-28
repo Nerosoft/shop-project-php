@@ -1,6 +1,5 @@
 <?php
 include 'auth/SessionAdmin.php';
-if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_GET['id'])){
 ModelJson::initView($_GET['id'] !== 'Users' && $_GET['id'] !== 'Product' ?'MyFlexTablesView':$_GET['id'], isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate', 'success', function(){
 class SettingUsersDeletePost extends ValidationId{
     function __construct(){
@@ -18,5 +17,3 @@ class SettingUsersDeletePost extends ValidationId{
 }
 new SettingUsersDeletePost();
 });
-}else
-    header('LOCATION:index');

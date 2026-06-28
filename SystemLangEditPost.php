@@ -1,6 +1,5 @@
 <?php
 include 'auth/SessionAdmin.php';
-if($_SERVER["REQUEST_METHOD"] === "POST"){
 ModelJson::initView('SystemLang', 'AllLanguageEdit', 'success', function(){
 class SystemLangEditPost extends ModelJson{
     use ErrorSystemlang;
@@ -44,5 +43,3 @@ class SystemLangEditPost extends ModelJson{
 }
 new SystemLangEditPost();
 });
-}else
-    header('LOCATION:view?id=SystemLang');

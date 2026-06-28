@@ -1,6 +1,5 @@
 <?php
 include 'auth/SessionAdmin.php';
-if($_SERVER["REQUEST_METHOD"] === "POST"){
 ModelJson::initView('Home', 'Delete', 'success', function(){
 class HomeDeletePost extends ValidationId{
     function __construct(){
@@ -25,5 +24,3 @@ class HomeDeletePost extends ValidationId{
 }
 new HomeDeletePost();
 });
-}else
-    header('LOCATION:index');

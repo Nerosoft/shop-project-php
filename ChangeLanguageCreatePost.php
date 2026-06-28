@@ -1,6 +1,5 @@
 <?php
 include 'auth/SessionAdmin.php';
-if($_SERVER["REQUEST_METHOD"] === "POST"){
 ModelJson::initView('ChangeLanguage', 'MessageModelCreate', 'success', function(){
 class ChangeLanguageCreatePost extends ValidationId{
     use ErrorChangelanguage;
@@ -32,5 +31,3 @@ class ChangeLanguageCreatePost extends ValidationId{
 }
 new ChangeLanguageCreatePost();
 });
-}else
-    header('LOCATION:view?id=ChangeLanguage');

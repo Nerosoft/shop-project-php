@@ -1,6 +1,5 @@
 <?php
 include 'auth/SessionAdmin.php';
-if($_SERVER["REQUEST_METHOD"] === "POST"){
 ModelJson::initView('ChangeLanguage', 'Delete', 'success', function(){
 class ChangeLanguageDeletePost extends ValidationId{
     function __construct(){
@@ -24,5 +23,3 @@ class ChangeLanguageDeletePost extends ValidationId{
 }
 new ChangeLanguageDeletePost();
 });
-}else
-    header('LOCATION:view?id=ChangeLanguage');

@@ -1,6 +1,5 @@
 <?php
 include 'auth/SessionAdmin.php';
-if($_SERVER["REQUEST_METHOD"] === "POST"){
 ModelJson::initView('Users', isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate', 'success', function(){
 class SettingUsersCreatePost extends ValidationId{
     use ErrorsEmailPassword;
@@ -14,5 +13,3 @@ class SettingUsersCreatePost extends ValidationId{
 }
 new SettingUsersCreatePost();
 });
-}else
-    header('LOCATION:view?id=Users');

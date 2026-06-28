@@ -1,6 +1,5 @@
 <?php
 include 'auth/SessionAdmin.php';
-if($_SERVER["REQUEST_METHOD"] === "POST"){
 ModelJson::initView('Product', isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate', 'success', function(){
 class ProductCreatePost extends ValidationId{
     use ErrorProduct;
@@ -19,5 +18,3 @@ class ProductCreatePost extends ValidationId{
 }
 new ProductCreatePost();
 });
-}else
-    header('LOCATION:view?id=Product');

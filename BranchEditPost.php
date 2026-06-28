@@ -1,6 +1,5 @@
 <?php
 include 'auth/SessionAdmin.php';
-if($_SERVER["REQUEST_METHOD"] === "POST"){
 ModelJson::initView('Branches', 'MessageModelEdit', 'success', function(){
 class BranchEditPost extends ValidationId{
     use ErrorBranch;
@@ -11,5 +10,3 @@ class BranchEditPost extends ValidationId{
 }
 new BranchEditPost();
 });
-}else
-    header('LOCATION:view?id=Branches');

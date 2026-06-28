@@ -1,6 +1,5 @@
 <?php
 include 'auth/SessionAdmin.php';
-if($_SERVER["REQUEST_METHOD"] === "POST"){
 ModelJson::initView('Home', 'MessageModelEdit', 'success', function(){
 class HomeEditPost extends ValidationId{
     use ErrorsHome;
@@ -18,5 +17,3 @@ class HomeEditPost extends ValidationId{
 }
 new HomeEditPost();
 });
-}else
-    header('LOCATION:index');
