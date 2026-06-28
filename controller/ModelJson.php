@@ -141,9 +141,6 @@ class ModelJson{
     function getUrlName2(){
         return $this->IdPage;
     }
-    function getSCRIPTFILENAME(){
-        return pathinfo($_SERVER['SCRIPT_FILENAME'])['filename'];
-    }
     static function getFileName(){
         return pathinfo($_SERVER['SCRIPT_FILENAME'])['filename'];
     }
