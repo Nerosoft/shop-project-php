@@ -17,11 +17,11 @@ ModelJson::getFileName() === 'SettingUsersDeletePost' && !isset($_GET['id'])||
 ModelJson::getFileName() === 'SettingUsersDeletePost' && $_GET['id'] !== 'Users' && $_GET['id'] !== 'Product' && !isset(json_decode(file_get_contents('data.json'), true)[$_SESSION['userId']][json_decode(file_get_contents('data.json'), true)[$_SESSION['userId']]['Setting']['AllNamesLanguage']]['MyFlexTables'][$_GET['id']])||
 
 ModelJson::getFileName() === 'BranchChangePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-ModelJson::getFileName() === 'BranchChangePost' && ModelJson::getBackPage() !== 'Home' &&
-ModelJson::getBackPage() !== 'Site' && ModelJson::getBackPage() !== 'ChangeLanguage' &&
-ModelJson::getBackPage() !== 'Users' && ModelJson::getBackPage() !== 'Product' && ModelJson::getBackPage() !== 'SystemLang' &&
-ModelJson::getBackPage() !== 'Branches' && ModelJson::getBackPage() !== 'MyStyle' &&
-!preg_match('/MyFlexTables/', ModelJson::getBackPage())||
+// ModelJson::getFileName() === 'BranchChangePost' && ModelJson::getBackPage() !== 'Home' &&
+// ModelJson::getBackPage() !== 'Site' && ModelJson::getBackPage() !== 'ChangeLanguage' &&
+// ModelJson::getBackPage() !== 'Users' && ModelJson::getBackPage() !== 'Product' && ModelJson::getBackPage() !== 'SystemLang' &&
+// ModelJson::getBackPage() !== 'Branches' && ModelJson::getBackPage() !== 'MyStyle' &&
+// !preg_match('/MyFlexTables/', ModelJson::getBackPage())||
 
 ModelJson::getFileName() === 'BranchCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
 ModelJson::getFileName() === 'BranchDeletePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
@@ -37,11 +37,11 @@ ModelJson::getFileName() === 'SystemLangEditPost' && $_SERVER["REQUEST_METHOD"] 
 ModelJson::getFileName() === 'ChangeLanguageEditPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
 
 ModelJson::getFileName() === 'ChangeLanguagePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-ModelJson::getFileName() === 'ChangeLanguagePost' && ModelJson::getBackPage() !== 'Home' &&
-ModelJson::getBackPage() !== 'Site' && ModelJson::getBackPage() !== 'ChangeLanguage' &&
-ModelJson::getBackPage() !== 'Users' && ModelJson::getBackPage() !== 'Product' && ModelJson::getBackPage() !== 'SystemLang' &&
-ModelJson::getBackPage() !== 'Branches' && ModelJson::getBackPage() !== 'MyStyle' &&
-!preg_match('/MyFlexTables/', ModelJson::getBackPage())||
+// ModelJson::getFileName() === 'ChangeLanguagePost' && ModelJson::getBackPage() !== 'Home' &&
+// ModelJson::getBackPage() !== 'Site' && ModelJson::getBackPage() !== 'ChangeLanguage' &&
+// ModelJson::getBackPage() !== 'Users' && ModelJson::getBackPage() !== 'Product' && ModelJson::getBackPage() !== 'SystemLang' &&
+// ModelJson::getBackPage() !== 'Branches' && ModelJson::getBackPage() !== 'MyStyle' &&
+// !preg_match('/MyFlexTables/', ModelJson::getBackPage())||
 
 ModelJson::getFileName() === 'ChangeLanguageEditPost' && ModelJson::getBackPage() !== 'ChangeLanguage' && ModelJson::getBackPage() !== 'MyStyle'||
 ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($_POST['state'])||

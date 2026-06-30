@@ -51,7 +51,10 @@ class ModelJson{
         return pathinfo($_SERVER['SCRIPT_FILENAME'])['filename'];
     }
     static function getBackPage(){
-        return isset($_SERVER['HTTP_REFERER'])?(pathinfo($_SERVER['HTTP_REFERER'])['filename'] === 'shop'||pathinfo($_SERVER['HTTP_REFERER'])['filename'] === 'index'?'Home':ucfirst(pathinfo($_SERVER['HTTP_REFERER'])['filename'])):'Home';
+        return isset($_SESSION['userId']) && isset($_SERVER['HTTP_REFERER']) && 
+        preg_match('/MyFlexTables/', ucfirst(pathinfo($_SERVER['HTTP_REFERER'])['filename'])) &&
+        isset(json_decode(file_get_contents('data.json'), true)[$_SESSION['userId']][json_decode(file_get_contents('data.json'), true)[$_SESSION['userId']]['Setting']['AllNamesLanguage']]['MyFlexTables'][explode('=', pathinfo($_SERVER['HTTP_REFERER'])['filename'])[1]])
+        || isset($_SERVER['HTTP_REFERER']) && isset(json_decode(file_get_contents('data.json'), true)[isset($_SESSION['userId'])?$_SESSION['userId']:$_POST['superId']][json_decode(file_get_contents('data.json'), true)[isset($_SESSION['userId'])?$_SESSION['userId']:$_POST['superId']]['Setting']['AllNamesLanguage']]['Menu'][ucfirst(pathinfo($_SERVER['HTTP_REFERER'])['filename'])])?ucfirst(pathinfo($_SERVER['HTTP_REFERER'])['filename']):(isset($_SESSION['userId'])?'Home':'Login');
     }
     function getFile(){
         return $this->File;

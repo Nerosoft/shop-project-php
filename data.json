@@ -79,9 +79,6 @@
                 "MyStyle": "Style",
                 "Site": "Delivery Marketing",
                 "Logout": "Logout",
-                "about": "About",
-                "project": "Project",
-                "contact": "Contact",
                 "Login": "Login",
                 "Register": "Register"
             },
@@ -358,7 +355,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "eH5a8491": "English language"
+                "wSd2bbeb": "English language"
             },
             "Register": {
                 "CreateProjectMessage": "Successfully create project",
@@ -856,16 +853,16 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithoutRays"
             },
-            "Uqb2ac56": {
+            "zW5be14c": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
                 "Governments": "cairo, egypt",
                 "City": "cairo, egypt",
                 "Street": "menofia - menouf - sirs el laiana",
-                "Building": "Nero-Soft",
+                "Building": "Egypt",
                 "Address": "menofia - menouf - sirs el laiana",
-                "Follow": "WithRays"
+                "Follow": "WithoutRays"
             }
         },
         "Product": {
@@ -910,7 +907,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "eH5a8491": {
+        "wSd2bbeb": {
             "Site": {
                 "AllBranches": "All branches",
                 "LoginButton": "Login",
@@ -985,9 +982,6 @@
                 "MyStyle": "Style",
                 "Site": "Delivery Marketing",
                 "Logout": "Logout",
-                "about": "About",
-                "project": "Project",
-                "contact": "Contact",
                 "Login": "Login",
                 "Register": "Register"
             },
@@ -1264,7 +1258,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "eH5a8491": "English language"
+                "wSd2bbeb": "English language"
             },
             "Register": {
                 "CreateProjectMessage": "Successfully create project",
@@ -1744,7 +1738,7 @@
             }
         }
     },
-    "Uqb2ac56": {
+    "zW5be14c": {
         "Setting": {
             "AllNamesLanguage": "english",
             "Style": "default"
@@ -1824,9 +1818,6 @@
                 "MyStyle": "Style",
                 "Site": "Delivery Marketing",
                 "Logout": "Logout",
-                "about": "About",
-                "project": "Project",
-                "contact": "Contact",
                 "Login": "Login",
                 "Register": "Register"
             },
@@ -2103,7 +2094,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "eH5a8491": "English language"
+                "wSd2bbeb": "English language"
             },
             "Register": {
                 "CreateProjectMessage": "Successfully create project",
@@ -2631,7 +2622,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "eH5a8491": {
+        "wSd2bbeb": {
             "Site": {
                 "AllBranches": "All branches",
                 "LoginButton": "Login",
@@ -2706,9 +2697,6 @@
                 "MyStyle": "Style",
                 "Site": "Delivery Marketing",
                 "Logout": "Logout",
-                "about": "About",
-                "project": "Project",
-                "contact": "Contact",
                 "Login": "Login",
                 "Register": "Register"
             },
@@ -2985,7 +2973,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "eH5a8491": "English language"
+                "wSd2bbeb": "English language"
             },
             "Register": {
                 "CreateProjectMessage": "Successfully create project",

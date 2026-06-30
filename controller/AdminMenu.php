@@ -79,13 +79,16 @@ class AdminMenu extends InformationPage
             }
             $this->myMenuApp['Logout'] = $this->getModel2()['Menu']['Logout'];
         }else if($this->getUrlName2() === 'Site' && !isset($_SESSION['userId'])){
-            $this->myMenuApp = array('about'=>$this->getModel2()['Menu']['about'],
-            'project'=>$this->getModel2()['Menu']['project'],
-            'contact'=>$this->getModel2()['Menu']['contact'],
+            $this->myMenuApp = array('about'=>$this->getModelPage()['About'],
+            'project'=>$this->getModelPage()['Product'],
+            'contact'=>$this->getModelPage()['Contact'],
             'Login'=>$this->getModel2()['Menu']['Login'],
             'Register'=>$this->getModel2()['Menu']['Register']);
         }else if($this->getUrlName2() === 'Site'){
             $this->myMenuApp = $this->getModel2()['Menu'];
+            $this->myMenuApp['about'] = $this->getModelPage()['About'];
+            $this->myMenuApp['project'] = $this->getModelPage()['Product'];
+            $this->myMenuApp['contact'] = $this->getModelPage()['Contact'];
             unset($this->myMenuApp['Login'], $this->myMenuApp['Register']);
             if(isset($this->getModel2()['MyFlexTables']))
                 $this->myMenuApp['MyFlexTables'] = array($this->myMenuApp['MyFlexTables'], ...$this->getModel2()['MyFlexTables']);
@@ -98,10 +101,7 @@ class AdminMenu extends InformationPage
                 $this->myMenuApp['MyFlexTables'] = array($this->myMenuApp['MyFlexTables'], ...$this->getModel2()['MyFlexTables']);
             else
                 unset($this->myMenuApp['MyFlexTables']);
-            unset($this->myMenuApp['about'],
-            $this->myMenuApp['project'], 
-            $this->myMenuApp['contact'], 
-            $this->myMenuApp['Login'], 
+            unset( $this->myMenuApp['Login'], 
             $this->myMenuApp['Register']);
         }        
         include 'pis_of_page/admin_title.php';
