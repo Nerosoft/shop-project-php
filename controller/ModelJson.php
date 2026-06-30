@@ -51,7 +51,7 @@ class ModelJson{
         return pathinfo($_SERVER['SCRIPT_FILENAME'])['filename'];
     }
     static function getBackPage(){
-        return isset($_SERVER['HTTP_REFERER'])?(pathinfo($_SERVER['HTTP_REFERER'])['filename'] === 'shop'||pathinfo($_SERVER['HTTP_REFERER'])['filename'] === 'index'?'Home':ucfirst(pathinfo($_SERVER['HTTP_REFERER'])['filename'])):'index';
+        return isset($_SERVER['HTTP_REFERER'])?(pathinfo($_SERVER['HTTP_REFERER'])['filename'] === 'shop'||pathinfo($_SERVER['HTTP_REFERER'])['filename'] === 'index'?'Home':ucfirst(pathinfo($_SERVER['HTTP_REFERER'])['filename'])):'Home';
     }
     function getFile(){
         return $this->File;
