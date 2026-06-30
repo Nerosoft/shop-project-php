@@ -1,7 +1,7 @@
 <?php
 require 'controller/ModelJson.php';
 session_start();
-if(!isset($_SESSION['userId'])){
+if(!isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] !== "POST" && ModelJson::getFileName() !== 'Login' && ModelJson::getFileName() !== 'Register' && ModelJson::getFileName() !== 'Site'){
     header("Location:login");
     exit;
 }
@@ -21,15 +21,75 @@ ModelJson::getFileName() === 'SystemLangEditPost' && $_SERVER["REQUEST_METHOD"] 
 ModelJson::getFileName() === 'SettingUsersDeletePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
 ModelJson::getFileName() === 'SettingUsersDeletePost' && !isset($_GET['id'])||
 ModelJson::getFileName() === 'ChangeLanguageEditPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-ModelJson::getFileName() === 'ChangeLanguageEditPost' && !isset($_POST['option'])||
-ModelJson::getFileName() === 'ChangeLanguageEditPost' && $_POST['option'] !== 'ChangeLanguage' && $_POST['option'] !== 'MyStyle'||
+// ModelJson::getFileName() === 'ChangeLanguageEditPost' && !isset($_POST['option'])||
+// ModelJson::getFileName() === 'ChangeLanguageEditPost' && $_POST['option'] !== 'ChangeLanguage' && $_POST['option'] !== 'MyStyle'||
 ModelJson::getFileName() === 'ChangeLanguagePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($_POST['option'])||
+// ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($_POST['option'])||
 ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($_POST['state'])||
-ModelJson::getFileName() === 'ChangeLanguagePost' && $_POST['state'] !== 'Style' && $_POST['state'] !== 'AllNamesLanguage'||
-ModelJson::getFileName() === 'BranchChangePost' && !isset($_POST['option'])){
+ModelJson::getFileName() === 'ChangeLanguagePost' && $_POST['state'] !== 'Style' && $_POST['state'] !== 'AllNamesLanguage'
+// ModelJson::getFileName() === 'BranchChangePost' && !isset($_POST['option'])
+
+){
     header("Location:index");
     exit;
-}else if(isset($_POST['option']) && $_POST['option'] === 'Site')
-    require 'controller/LoginRegister.php';
+}
+
+else if(!isset($_SESSION['userId']) && isset($_GET['id']) && !isset(json_decode(file_get_contents('data.json'), true)[$_GET['id']]) ||
+!isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST['superId']) ||
+!isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "POST" && !isset(json_decode(file_get_contents('data.json'), true)[$_POST['superId']])||
+ModelJson::getFileName() === 'ChangeLangPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
+ModelJson::getFileName() === 'LoginPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
+ModelJson::getFileName() === 'RegisterPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
+ModelJson::getFileName() === 'SetupProject' && $_SERVER["REQUEST_METHOD"] !== "POST"||
+ModelJson::getFileName() === 'LoginForgetPasswordPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
+// ModelJson::getFileName() === 'ChangeLangPost' && !isset($_POST['option'])||
+// ModelJson::getFileName() === 'ChangeLangPost' && $_POST['option'] !== 'Login' && $_POST['option'] !== 'Register' && $_POST['option'] !== 'Site'||
+ModelJson::getFileName() === 'ChangeLangPost' && !isset($_POST['state'])||
+ModelJson::getFileName() === 'ChangeLangPost' && $_POST['state'] !== 'AllNamesLanguage' && $_POST['state'] !== 'Style' && $_POST['state'] !== 'branch' && $_POST['state'] !== 'branch2'
+// ModelJson::getFileName() === 'SetupProject' && !isset($_POST['option'])||
+// ModelJson::getFileName() === 'SetupProject' && $_POST['option'] !== 'Login' && $_POST['option'] !== 'Register'
+
+){
+    header("Location:Login");
+    exit;
+}else if(ModelJson::getFileName() === 'SettingUsersCreatePost' || ModelJson::getFileName() === 'Users' || ModelJson::getFileName() === 'Branches' || ModelJson::getFileName() === 'BranchCreatePost' || ModelJson::getFileName() === 'BranchEditPost' || ModelJson::getFileName() === 'SetupProject' || ModelJson::getFileName() === 'LoginForgetPasswordPost' || ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'LoginPost' || ModelJson::getFileName() === 'Register' || ModelJson::getFileName() === 'RegisterPost'){
+    if(ModelJson::getFileName() === 'SettingUsersCreatePost' || ModelJson::getFileName() === 'Users' || ModelJson::getFileName() === 'SetupProject' || ModelJson::getFileName() === 'LoginForgetPasswordPost' || ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'LoginPost' || ModelJson::getFileName() === 'Register' || ModelJson::getFileName() === 'RegisterPost')
+        require 'all_trait/ErrorsEmailPassword.php';
+    if(ModelJson::getFileName() === 'Branches' || ModelJson::getFileName() === 'BranchCreatePost' || ModelJson::getFileName() === 'BranchEditPost' || ModelJson::getFileName() === 'SetupProject' || ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register')
+        require 'all_trait/ErrorBranch.php';
+    if(ModelJson::getFileName() === 'Register' || ModelJson::getFileName() === 'RegisterPost')
+        require 'all_trait/ErrorRegister.php';
+    if(ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register')
+        require 'controller/LoginRegister.php';
+}else if(ModelJson::getFileName() === 'index' || ModelJson::getFileName() === 'Home' || ModelJson::getFileName() === 'HomeCreatePost' || ModelJson::getFileName() === 'HomeEditPost')
+    require 'all_trait/ErrorsHome.php';
+else if(ModelJson::getFileName() === 'ChangeLanguageCreatePost' || ModelJson::getFileName() === 'ChangeLanguageEditPost' || ModelJson::getFileName() === 'ChangeLanguage' || ModelJson::getFileName() === 'MyStyle')
+    require 'all_trait/ErrorChangelanguage.php';
+else if(ModelJson::getFileName() === 'FlexTablesCreatePost' || ModelJson::getFileName() === 'MyFlexTables')
+    require 'all_trait/ErrorFlexTable.php';
+else if(ModelJson::getFileName() === 'ProductCreatePost' || ModelJson::getFileName() === 'Product')
+    require 'all_trait/ErrorProduct.php';
+else if(ModelJson::getFileName() === 'SystemLangEditPost' || ModelJson::getFileName() === 'SystemLang')
+    require 'all_trait/ErrorSystemlang.php';
+
+
+
+
+// else if(ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register'){
+//     require 'controller/LoginRegister.php';
+//     require 'controller/'.ModelJson::getFileName().'.php';
+//     include 'pis_of_page/end_html.php';
+// }
+// else if(ModelJson::getFileName() === 'Site'){
+//     require 'controller/AdminMenu.php';
+//     require 'controller/'.ModelJson::getFileName().'.php';
+//     include 'pis_of_page/end_html.php';
+// }
+// else if($_SERVER["REQUEST_METHOD"] === "GET"){
+//     require 'controller/AdminMenu.php';
+//     $count = 1;
+//     require 'controller/'.(ModelJson::getFileName() === 'index'?'Home':ModelJson::getFileName()).'.php';
+//     include 'pis_of_page/end_html.php';
+// }
+
     

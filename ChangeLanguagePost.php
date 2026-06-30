@@ -1,20 +1,12 @@
 <?php
-include 'auth/SessionAdmin.php';
-ModelJson::initView(($_POST['option'] === 'Home' ||
-        $_POST['option'] === 'Branches' ||
-        $_POST['option'] === 'Site' ||
-        $_POST['option'] === 'ChangeLanguage' ||
-        $_POST['option'] === 'Users' ||
-        $_POST['option'] === 'Product' ||
-        $_POST['option'] === 'SystemLang' ||
-        $_POST['option'] === 'MyStyle'? $_POST['option']:'MyFlexTablesView'), $_POST['state'] === 'Style'?'MessageStyleLang2':'MessageStyleLang', 'success', function(){
-
+include 'auth/SessionPost.php';
 class ChangeLanguagePost extends ValidationId{
     function __construct(){
-        parent::__construct($_POST['option'], function($myFile){
+        parent::__construct(ModelJson::getBackPage(), function($myFile){
             return $this->changeLangStylePost($myFile);
         }, 'MessageStyleLang');
         $this->saveModel($this->changeLangStylePost($this->getObj()));
+        $this->showMessage($_POST['state'] === 'Style'?$this->getModelPage()['MessageStyleLang2']:$this->getModelPage()['MessageStyleLang']);
     }
     function changeLangStylePost($myData){
         $myData['Setting'][$_POST['state']] = $this->keyId;
@@ -22,4 +14,3 @@ class ChangeLanguagePost extends ValidationId{
     }
 }
 new ChangeLanguagePost();
-});

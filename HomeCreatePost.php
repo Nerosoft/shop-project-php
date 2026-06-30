@@ -1,31 +1,31 @@
 <?php
-include 'auth/SessionAdmin.php';
-ModelJson::initView('Home', 'MessageModelCreate', 'success', function(){
-    class HomeCreatePost extends ValidationId{
-        use ErrorsHome;
-        private $keysInput = array();
-        function __construct(){
-            
-            parent::__construct('Home', function($myFile){
-                return $this->saveFelxTable($myFile[$myFile['Setting']['AllNamesLanguage']]['AllNamesLanguage'], $myFile);
-            }, 'MessageModelCreate'); 
-            $this->saveModel($this->saveFelxTable($this->getModel2()['AllNamesLanguage'], $this->getObj()));
-        }
-        function saveFelxTable($AllNamesLanguage, $myData){
-            foreach ($AllNamesLanguage as $code => $value) {
-                $myData[$code]['MyFlexTables'][$this->keyId] = $_POST['name'];
-                $myData[$code][$this->keyId] = $myData[$code]['TablePage'];
-                $myData[$code][$this->keyId]['MYTITLE'] = $_POST['name'];
-                foreach ($this->keysInput as $key2 => $myInputKey){
-                    $myData[$code][$this->keyId]['TableHead'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputNameTable'];
-                    $myData[$code][$this->keyId]['Label'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputLabel'];
-                    $myData[$code][$this->keyId]['Hint'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputHint'];
-                    $myData[$code][$this->keyId]['ErrorsMessageReq'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputErrorsMessageReq'];
-                    $myData[$code][$this->keyId]['ErrorsMessageInv'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputErrorsMessageInv'];
-                }
-            }
-            return $myData;
-        }
+include 'auth/SessionPost.php';
+ class HomeCreatePost extends ValidationId{
+    use ErrorsHome;
+    private $keysInput = array();
+    function __construct(){
+        
+        parent::__construct('Home', function($myFile){
+            return $this->saveFelxTable($myFile[$myFile['Setting']['AllNamesLanguage']]['AllNamesLanguage'], $myFile);
+        }, 'MessageModelCreate'); 
+        $this->saveModel($this->saveFelxTable($this->getModel2()['AllNamesLanguage'], $this->getObj()));
+        $this->showMessage($this->getModelPage()['MessageModelCreate']);
     }
-    new HomeCreatePost();
-});
+    function saveFelxTable($AllNamesLanguage, $myData){
+        foreach ($AllNamesLanguage as $code => $value) {
+            $myData[$code]['MyFlexTables'][$this->keyId] = $_POST['name'];
+            $myData[$code][$this->keyId] = $myData[$code]['TablePage'];
+            $myData[$code][$this->keyId]['MYTITLE'] = $_POST['name'];
+            foreach ($this->keysInput as $key2 => $myInputKey){
+                $myData[$code][$this->keyId]['TableHead'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputNameTable'];
+                $myData[$code][$this->keyId]['Label'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputLabel'];
+                $myData[$code][$this->keyId]['Hint'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputHint'];
+                $myData[$code][$this->keyId]['ErrorsMessageReq'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputErrorsMessageReq'];
+                $myData[$code][$this->keyId]['ErrorsMessageInv'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputErrorsMessageInv'];
+            }
+        }
+        return $myData;
+    }
+}
+new HomeCreatePost();
+

@@ -1,6 +1,6 @@
 <?php
 require 'InformationPage.php';
-require 'all_trait/ErrorBranch.php';
+// require 'all_trait/ErrorBranch.php';
 require 'all_trait/InfoBranch.php';
 require 'all_trait/InterEmailPass.php';
 class LoginRegister extends InformationPage{
@@ -67,8 +67,8 @@ class LoginRegister extends InformationPage{
     function getRegisterLoginPage(){
         return $this->RegisterLoginPage;
     }
-    function __construct($message, $type, $IdPage = 'Login', $action = 'LoginPost.php'){
-        parent::__construct($IdPage, $message, $type, 'ChangeLangPost.php');
+    function __construct($IdPage = 'Login', $action = 'LoginPost.php'){
+        parent::__construct($IdPage, 'ChangeLangPost.php');
         $this->BranchLabel = $this->getModelPage()['BranchLabel'];
         $this->ChangeStyleButton = $this->getModelPage()['ChangeStyleButton'];
         $this->ChangeLanguageButton = $this->getModelPage()['ChangeLanguageButton']; foreach ($this->getFile() as $key => $obj)

@@ -361,6 +361,8 @@
                 "eH5a8491": "English language"
             },
             "Register": {
+                "CreateProjectMessage": "Successfully create project",
+                "RegisterMessage": "Successfully register",
                 "BranchProjectTitle": "welcome in change project",
                 "BranchProjectButton": "Save project",
                 "ActiveBranchProject": "this project is active",
@@ -457,6 +459,9 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Login": {
+                "CreateProjectMessage": "Successfully create project",
+                "ForgetMessage": "Successfully forget and login",
+                "LoginMessage": "Successfully login",
                 "BranchProjectTitle": "welcome in change project",
                 "BranchProjectButton": "Save project",
                 "ActiveBranchProject": "this project is active",
@@ -1262,6 +1267,8 @@
                 "eH5a8491": "English language"
             },
             "Register": {
+                "CreateProjectMessage": "Successfully create project",
+                "RegisterMessage": "Successfully register",
                 "BranchProjectTitle": "welcome in change project",
                 "BranchProjectButton": "Save project",
                 "ActiveBranchProject": "this project is active",
@@ -1358,6 +1365,9 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Login": {
+                "CreateProjectMessage": "Successfully create project",
+                "ForgetMessage": "Successfully forget and login",
+                "LoginMessage": "Successfully login",
                 "BranchProjectTitle": "welcome in change project",
                 "BranchProjectButton": "Save project",
                 "ActiveBranchProject": "this project is active",
@@ -2096,6 +2106,8 @@
                 "eH5a8491": "English language"
             },
             "Register": {
+                "CreateProjectMessage": "Successfully create project",
+                "RegisterMessage": "Successfully register",
                 "BranchProjectTitle": "welcome in change project",
                 "BranchProjectButton": "Save project",
                 "ActiveBranchProject": "this project is active",
@@ -2192,6 +2204,9 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Login": {
+                "CreateProjectMessage": "Successfully create project",
+                "ForgetMessage": "Successfully forget and login",
+                "LoginMessage": "Successfully login",
                 "BranchProjectTitle": "welcome in change project",
                 "BranchProjectButton": "Save project",
                 "ActiveBranchProject": "this project is active",
@@ -2973,6 +2988,8 @@
                 "eH5a8491": "English language"
             },
             "Register": {
+                "CreateProjectMessage": "Successfully create project",
+                "RegisterMessage": "Successfully register",
                 "BranchProjectTitle": "welcome in change project",
                 "BranchProjectButton": "Save project",
                 "ActiveBranchProject": "this project is active",
@@ -3069,6 +3086,9 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Login": {
+                "CreateProjectMessage": "Successfully create project",
+                "ForgetMessage": "Successfully forget and login",
+                "LoginMessage": "Successfully login",
                 "BranchProjectTitle": "welcome in change project",
                 "BranchProjectButton": "Save project",
                 "ActiveBranchProject": "this project is active",

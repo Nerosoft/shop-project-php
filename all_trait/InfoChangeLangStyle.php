@@ -1,5 +1,5 @@
 <?php
-require 'ErrorChangelanguage.php';
+// require 'ErrorChangelanguage.php';
 require 'ChangeStyleLangBranch.php';
 trait InfoChangeLangStyle{
     use ErrorChangelanguage, ChangeStyleLangBranch;

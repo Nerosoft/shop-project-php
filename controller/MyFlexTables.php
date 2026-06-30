@@ -1,16 +1,12 @@
 <?php
-require 'AdminMenu.php';
-require 'all_trait/ErrorFlexTable.php';
-if(!isset((new ModelJson($_GET['id']??$_POST['option']))->getObj()[(new ModelJson($_GET['id']??$_POST['option']))->getObj()['Setting']['AllNamesLanguage']][$_GET['id']??$_POST['option']]))
-    header("Location:index");
 include 'interface/InterfaceDataView.php';
 class MyFlexTablesView extends AdminMenu implements InterfaceDataView{
     use ErrorFlexTable;
     private $TableHead;
     private $Label;
     private $Hint;
-    function __construct($message, $type){
-        parent::__construct($_GET['id']??$_POST['option'], $message, $type, function(){
+    function __construct(){
+        parent::__construct($_GET['id'], function(){
             $this->initErrorFlexTable();
             $this->initImageInfo();
             $this->TableHead = $this->getModelPage()['TableHead'];
@@ -32,4 +28,21 @@ class MyFlexTablesView extends AdminMenu implements InterfaceDataView{
         $action = 'FlexTablesCreatePost?id='.$this->getUrlName2();
         include('all_modal/modal_flex.php');
     }
+}
+$view = new MyFlexTablesView();
+foreach ($view->getMyDataView() as $index => $myObject) {
+    echo <<<HTML
+        <tr>
+            <td>$count</td>
+            <td><img id="preview" src="./asset/product/{$view->getId()}/{$index}" class="avatar-product-view"></td>
+    HTML;
+    foreach ($myObject as $key => $item)
+        echo <<<HTML
+        <td>{$item}</td>
+        HTML;  
+    echo <<<HTML
+        <td>
+        HTML;
+    $nameItem = $myObject[array_key_first($myObject)];
+    include 'pis_of_page/button_edit.php';
 }

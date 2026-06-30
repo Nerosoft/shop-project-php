@@ -1,6 +1,5 @@
 <?php
-include 'auth/SessionAdmin.php';
-ModelJson::initView('Users', isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate', 'success', function(){
+include 'auth/SessionPost.php';
 class SettingUsersCreatePost extends ValidationId{
     use ErrorsEmailPassword;
     function __construct(){
@@ -9,7 +8,7 @@ class SettingUsersCreatePost extends ValidationId{
         }, isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');
         $this->initErrorsEmailPassword3();
         $this->getMyModal()->saveModel($this->initErrorsKeyPassword2($this->getMyModal()->getObj()));
+        $this->showMessage($this->getModelPage()[isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate']);
     }
 }
 new SettingUsersCreatePost();
-});

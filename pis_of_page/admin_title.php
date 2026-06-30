@@ -16,7 +16,7 @@
 <?php 
 foreach ($this->getMyMenuApp() as $key => $item) {
     if(is_array($item)){
-        $classActive = isset($_GET['lang']) && $_GET['lang'] === $key || isset($_GET['id']) && isset($this->getModel2()['MyFlexTables'][$_GET['id']]) || isset($_POST['option']) && isset($this->getModel2()['MyFlexTables'][$_POST['option']]) ? 'my_active':'';
+        $classActive = isset($_GET['lang']) && $_GET['lang'] === $key || isset($_GET['id']) && isset($this->getModel2()['MyFlexTables'][$_GET['id']]) ? 'my_active':'';
         $name = array_shift($item);
         echo <<<HTML
             <li class="nav-item dropdown">
@@ -26,8 +26,8 @@ foreach ($this->getMyMenuApp() as $key => $item) {
             <ul class="dropdown-menu dropdown-menu-dark">
         HTML;
         foreach ($item as $keyItem=>$myItem){
-            $loc = $this->getUrlName2() === 'SystemLang' ? 'view?id='.$this->getUrlName2().'&lang='.$key.'&table='.$keyItem : 'view?id='.$keyItem;
-            $classActive = isset($_GET['table']) && $_GET['table'] === $keyItem && isset($_GET['lang']) && $_GET['lang'] === $key || isset($_GET['id']) && $keyItem === $_GET['id'] && $key === 'MyFlexTables' || isset($_POST['option']) && $keyItem === $_POST['option'] && $key === 'MyFlexTables' ? 'my_active':'';
+            $loc = $this->getUrlName2() === 'SystemLang' ? 'SystemLang?id='.$this->getUrlName2().'&lang='.$key.'&table='.$keyItem : 'MyFlexTables?id='.$keyItem;
+            $classActive = isset($_GET['table']) && $_GET['table'] === $keyItem && isset($_GET['lang']) && $_GET['lang'] === $key || isset($_GET['id']) && $keyItem === $_GET['id'] && $key === 'MyFlexTables' ? 'my_active':'';
             echo <<<HTML
                 <li>
                 <a class="dropdown-item icon_font {$this->getIconByKey($keyItem)} {$classActive}" href="{$loc}">
@@ -39,7 +39,8 @@ foreach ($this->getMyMenuApp() as $key => $item) {
         echo '</ul></li>';
     }else{
         $classActive = $this->getUrlName2() === $key && !isset($_GET['table']) && !isset($_GET['table']) ? 'my_active':'';
-        $loc = ($key === 'Logout'||$key === 'Login'||$key === 'Register'?'./':($key==='about'||$key==='contact'||$key==='project'?'#':'./view?id=')).$key;
+        // $loc = ($key === 'Logout'||$key === 'Login'||$key === 'Register'?'./':($key==='about'||$key==='contact'||$key==='project'?'#':'./view?id=')).$key;
+        $loc = ($key==='about'||$key==='contact'||$key==='project'?'#':'./').$key;
         echo <<<HTML
         <li class="nav-item"><a class="nav-link icon_font {$this->getIconByKey($key)} {$classActive}" aria-current="page" href="{$loc}">
                 {$item}

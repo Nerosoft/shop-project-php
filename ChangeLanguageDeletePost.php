@@ -1,12 +1,12 @@
 <?php
-include 'auth/SessionAdmin.php';
-ModelJson::initView('ChangeLanguage', 'Delete', 'success', function(){
+include 'auth/SessionPost.php';
 class ChangeLanguageDeletePost extends ValidationId{
     function __construct(){
         parent::__construct('ChangeLanguage', function($myFile){
             return $this->deleteLanguage($myFile);
         }, 'Delete');
         $this->saveModel($this->deleteLanguage($this->getObj()));
+        $this->showMessage($this->getModelPage()['Delete']);
     }
     function deleteLanguage($myData){
         //delete language
@@ -22,4 +22,3 @@ class ChangeLanguageDeletePost extends ValidationId{
     }
 }
 new ChangeLanguageDeletePost();
-});

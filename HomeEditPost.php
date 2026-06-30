@@ -1,6 +1,5 @@
 <?php
-include 'auth/SessionAdmin.php';
-ModelJson::initView('Home', 'MessageModelEdit', 'success', function(){
+include 'auth/SessionPost.php';
 class HomeEditPost extends ValidationId{
     use ErrorsHome;
     function __construct(){
@@ -8,6 +7,7 @@ class HomeEditPost extends ValidationId{
             return $this->editHome($myFile, $myFile[$myFile['Setting']['AllNamesLanguage']]['AllNamesLanguage']);
         }, 'MessageModelEdit'); 
         $this->saveModel($this->editHome($this->getObj(), $this->getModel2()['AllNamesLanguage']));
+        $this->showMessage($this->getModelPage()['MessageModelEdit']);
     }
     function editHome($myData, $AllNamesLanguage){
         foreach ($AllNamesLanguage as $code => $value) 
@@ -16,4 +16,3 @@ class HomeEditPost extends ValidationId{
     }
 }
 new HomeEditPost();
-});

@@ -1,12 +1,12 @@
 <?php
-include 'auth/SessionAdmin.php';
-ModelJson::initView('Home', 'Delete', 'success', function(){
+include 'auth/SessionPost.php';
 class HomeDeletePost extends ValidationId{
     function __construct(){
         parent::__construct('Home', function($myFile, $idSseion){
             return $this->deleteHome($myFile, $idSseion);
         }, 'Delete'); 
         $this->saveModel($this->deleteHome($this->getObj(), $this->getId()));
+        $this->showMessage($this->getModelPage()['Delete']);
     }
     function deleteHome($myData, $idSseion){
         foreach ($myData[$myData['Setting']['AllNamesLanguage']]['AllNamesLanguage'] as $key => $value) 
@@ -23,4 +23,3 @@ class HomeDeletePost extends ValidationId{
     }
 }
 new HomeDeletePost();
-});

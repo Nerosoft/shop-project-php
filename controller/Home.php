@@ -1,7 +1,6 @@
 <?php
-require 'AdminMenu.php';
 require 'class_object/CustomTable.php';
-require 'all_trait/ErrorsHome.php';
+// require 'all_trait/ErrorsHome.php';
 include 'interface/InterfaceDataView.php';
 class MyHome extends AdminMenu implements InterfaceDataView{
     use ErrorsHome;
@@ -9,8 +8,8 @@ class MyHome extends AdminMenu implements InterfaceDataView{
     private $HintInputNumber;
     private $LabelName;
     private $HintName;
-    function __construct($message, $type){
-        parent::__construct('Home', $message, $type, function(){
+    function __construct(){
+        parent::__construct('Home', function(){
             $this->initErrorsHome();
             $this->LabelName = $this->getModelPage()['LabelName'];
             $this->HintName = $this->getModelPage()['HintName'];
@@ -49,3 +48,33 @@ class MyHome extends AdminMenu implements InterfaceDataView{
             include('all_modal/end_model.php');
     }
 }
+
+
+$view = new MyHome();
+foreach ($view->getMyDataView() as $index => $myObject) {
+    echo <<<HTML
+        <tr>
+            <td>$count</td>
+            <td>{$myObject->getName()}</td>
+            <td>
+    HTML;
+    $title = $view->getScreenModelEdit();
+    $button = $view->getButtonModelEdit();
+    $action = 'HomeEditPost.php';
+    $idModel = "editModel".$index;
+    include('all_modal/modal_custome_table.php');
+    include('all_modal/end_model.php');
+    include 'pis_of_page/button_edit.php';
+}
+?>                       
+<script type="text/javascript">
+$(document).ready(function(){    
+    $('#input_number').on('input invalid', function() {
+        if (this.validity.valueMissing)
+            this.setCustomValidity('<?php echo$view->getInputNumberTableIsReq()?>');
+        else if (this.value < 1 || this.value > 8)
+            this.setCustomValidity('<?php echo$view->getInputNumberTableIsInv()?>');
+        else
+            this.setCustomValidity('');
+    })});
+</script>

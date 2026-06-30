@@ -1,6 +1,5 @@
 <?php
-include 'auth/SessionAdmin.php';
-ModelJson::initView('ChangeLanguage', 'MessageModelCreate', 'success', function(){
+include 'auth/SessionPost.php';
 class ChangeLanguageCreatePost extends ValidationId{
     use ErrorChangelanguage;
     function __construct(){
@@ -26,8 +25,7 @@ class ChangeLanguageCreatePost extends ValidationId{
         $myData = $this->saveNameLanguage($this->getallNames(), 'AllNamesLanguage', $this->getObj());
         $myData[$this->keyId] = $myData[$_POST['selectedLanguage']];
         $this->saveModel($myData);
-        
+        $this->showMessage($this->getModelPage()['MessageModelCreate']);
     }
 }
 new ChangeLanguageCreatePost();
-});

@@ -11,11 +11,11 @@ trait ErrorRegister{
     function initErrorsRegister2(){
         $this->initErrorsRegister();
         if(!isset($_POST['password_confirmation']) || $_POST['password_confirmation'] === '')
-            ModelJson::initView2($this->getUrlName2(), $this->getRequiredConfirmPassword());
+            $this->showError($this->getRequiredConfirmPassword());
         else if(strlen($_POST['password_confirmation']) < 8)
-            ModelJson::initView2($this->getUrlName2(), $this->getInvalidConfirmPassword());
+            $this->showError($this->getInvalidConfirmPassword());
         else if($_POST['Password'] !== $_POST['password_confirmation'])
-            ModelJson::initView2($this->getUrlName2(), $this->getPasswordDosNotMatch());
+            $this->showError($this->getPasswordDosNotMatch());
 }
     function getPasswordDosNotMatch(){
         return $this->PasswordDosNotMatch;

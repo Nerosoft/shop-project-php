@@ -39,45 +39,45 @@ trait ErrorBranch{
     function validInputs(){
         $this->initErrorBranch();
         if(!isset($_POST['Name']) || $_POST['Name'] === '')
-            ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysNameRequired());
+            $this->showError($this->getBranceRaysNameRequired());
         else if(strlen($_POST['Name']) < 3)
-            ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysNameLength());
+            $this->showError($this->getBranceRaysNameLength());
         else if(!isset($_POST['Phone']) || $_POST['Phone'] === '')
-            ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysPhoneRequired());
+            $this->showError($this->getBranceRaysPhoneRequired());
         else if(!preg_match('/^[0-9]{11}$/', $_POST['Phone']))
-            ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysPhoneLength());
+            $this->showError($this->getBranceRaysPhoneLength());
         else if(!isset($_POST['Country']) || $_POST['Country'] === '')
-            ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysCountryRequired());
+            $this->showError($this->getBranceRaysCountryRequired());
         else if(strlen($_POST['Country']) < 3)
-            ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysCountryLength());
+            $this->showError($this->getBranceRaysCountryLength());
         else if(!isset($_POST['Governments']) || $_POST['Governments'] === '')
-            ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysGovernmentsRequired());
+            $this->showError($this->getBranceRaysGovernmentsRequired());
         else if(strlen($_POST['Governments']) < 3)
-            ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysGovernmentsLength());
+            $this->showError($this->getBranceRaysGovernmentsLength());
         else if(!isset($_POST['City']) || $_POST['City'] === '')
-            ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysCityRequired());
+            $this->showError($this->getBranceRaysCityRequired());
         else if(strlen($_POST['City']) < 3)
-            ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysCityLength());
+            $this->showError($this->getBranceRaysCityLength());
         else if(!isset($_POST['Street']) || $_POST['Street'] === '')
-            ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysStreetRequired());
+            $this->showError($this->getBranceRaysStreetRequired());
         else if(strlen($_POST['Street']) < 3)
-            ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysStreetLength());
+            $this->showError($this->getBranceRaysStreetLength());
         else if(!isset($_POST['Building']) || $_POST['Building'] === '')
-            ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysBuildingRequired());
+            $this->showError($this->getBranceRaysBuildingRequired());
         else if(strlen($_POST['Building']) < 3)
-            ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysBuildingLength());
+            $this->showError($this->getBranceRaysBuildingLength());
         else if(!isset($_POST['Address']) || $_POST['Address'] === '')
-            ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysAddressRequired());
+            $this->showError($this->getBranceRaysAddressRequired());
         else if(strlen($_POST['Address']) < 3)
-            ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysAddressLength());
+            $this->showError($this->getBranceRaysAddressLength());
         else if(!isset($_POST['Follow']))
-            ModelJson::initView2($this->getUrlName2(), $this->getBranceRaysFollowRequired());
+            $this->showError($this->getBranceRaysFollowRequired());
         else if(!isset($this->getModel2()['SelectBranchBox'][$_POST['Follow']]))
-            ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['BranceRaysFollowValue']);
+            $this->showError($this->getModelPage()['BranceRaysFollowValue']);
         else if(ModelJson::getFileName() === 'BranchCreatePost' && !isset($_POST['selectedBranch']))
-            ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['IdBranchReq']);
+            $this->showError($this->getModelPage()['IdBranchReq']);
         else if(ModelJson::getFileName() === 'BranchCreatePost' && !isset($this->getBranch()[$_POST['selectedBranch']]))
-            ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['IdBranchInv']);
+            $this->showError($this->getModelPage()['IdBranchInv']);
     }
     function initErrorBranch2(){
         $this->validInputs();

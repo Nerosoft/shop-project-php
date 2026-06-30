@@ -1,3 +1,2 @@
 <?php
-include 'auth/SessionAuth.php';
-ModelJson::initView('Register');
+include 'auth/SessionView.php';

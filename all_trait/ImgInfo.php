@@ -10,16 +10,16 @@ trait ImgInfo{
         $this->initImageInfo();
         //delete input
         if(!isset($_FILES['avatar']))
-           ModelJson::initView2($this->getUrlName2(), $this->getReqimage());
+           $this->showError($this->getReqimage());
         else if(!isset($_POST['id']) && !is_uploaded_file($_FILES['avatar']['tmp_name']))
-            ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['UploadImgInv']);
+            $this->showError($this->getModelPage()['UploadImgInv']);
         else if(is_uploaded_file($_FILES['avatar']['tmp_name']) && 
         strtolower(pathinfo(basename($_FILES['avatar']['name']), PATHINFO_EXTENSION)) !== 'jpg' &&
         strtolower(pathinfo(basename($_FILES['avatar']['name']), PATHINFO_EXTENSION)) !== 'png'||
         is_uploaded_file($_FILES['avatar']['tmp_name']) && $_FILES['avatar']['size'] > (2 * 1024 * 1024)||
         is_uploaded_file($_FILES['avatar']['tmp_name']) && $_FILES['avatar']['size'] < 2000||
         is_uploaded_file($_FILES['avatar']['tmp_name']) && !getimagesize($_FILES['avatar']['tmp_name']))
-           ModelJson::initView2($this->getUrlName2(), $this->getInvimage());
+           $this->showError($this->getInvimage());
     }
     function saveProductTable($idSseion){
         if(isset($_FILES['avatar']) && is_uploaded_file($_FILES['avatar']['tmp_name']) && is_dir('asset/product/'.$idSseion))

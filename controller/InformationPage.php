@@ -69,7 +69,7 @@ class InformationPage extends ModelJson{
     function setActionStyleLang($value){
         $this->styleLangAction = $value;
     }
-    function __construct($IdPage, $message, $type, $action){
+    function __construct($IdPage, $action){
         parent::__construct($IdPage);
         if(isset($_GET['id']) && !isset($_SESSION['userId']))
             setcookie('branchId', $_GET['id'], time()+2628000);
@@ -88,8 +88,10 @@ class InformationPage extends ModelJson{
         $this->ModalButtonStyle = $this->getModelPage()['ModalButtonStyle'];
         $this->Style = MyLanguage::fromArray($this->getModel2()['Style']);
 
-        $this->Message = $this->getModelPage()[$message]??$message;
-        $this->Type = $type;
+        $this->Message = $_SESSION['error']??($_SESSION['message']??$this->getModelPage()['LoadMessage']);
+        $this->Type = isset($_SESSION['error'])?'danger':'success';
+        if(isset($_SESSION['message']) || isset($_SESSION['error']))
+            unset($_SESSION['message'], $_SESSION['error']);
         $this->Title = $this->getModelPage()['Title'];
         echo<<<HTML
         <html lang="en">

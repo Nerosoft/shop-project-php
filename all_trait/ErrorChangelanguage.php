@@ -25,12 +25,12 @@ trait ErrorChangelanguage{
     function validLanguageInput(){
         //$this->initErrorChangelanguage();
         if(!isset($_POST['lang_name']) || $_POST['lang_name'] === '')
-            ModelJson::initView2($this->getUrlName2(), $this->getNewLangNameRequired());
+            $this->showError($this->getNewLangNameRequired());
         else if(strlen($_POST['lang_name']) < 3)
-            ModelJson::initView2($this->getUrlName2(), $this->getNewLangNameInvalid());
+            $this->showError($this->getNewLangNameInvalid());
         else if(ModelJson::getFileName() === 'ChangeLanguageCreatePost' && !isset($_POST['selectedLanguage']))
-            ModelJson::initView2($this->getUrlName2(), 'LanguageReq');
+            $this->showError($this->getModelPage()['LanguageReq']);
         else if(ModelJson::getFileName() === 'ChangeLanguageCreatePost' && !isset($this->getallNames()[$_POST['selectedLanguage']]))
-            ModelJson::initView2($this->getUrlName2(), 'LanguageInv');
+            $this->showError($this->getModelPage()['LanguageInv']);
     }
 }

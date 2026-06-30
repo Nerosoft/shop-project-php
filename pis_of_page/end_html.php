@@ -136,19 +136,41 @@
 
 
 <div style="position: fixed; top: 0; right: 10px; z-index: 9999; max-height: 90vh; overflow-y: auto;">
-    <div id="toastId" class="toast text-bg-<?php echo $view->getType()?> mt-2">
-        <script>
-            $(document).ready(function(){
-                (new bootstrap.Toast($('#toastId').on("hidden.bs.toast", function () {
-                $(this).remove();
-                }), { delay: 9000 })).show();
-            });
-        </script>
-        <div class="d-flex">
-            <div class="toast-body"><?php echo $view->getMessage()?></div>
-            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
-        </div>
-    </div>
+    <?php
+        // if(is_array($view->getMessage()))
+        //     foreach ($view->getMessage() as $key => $value)
+        //         echo<<<HTML
+        //             <div id="{$key}" class="toast text-bg-danger mt-2">
+        //                 <script>
+        //                     $(document).ready(function(){
+        //                         (new bootstrap.Toast($('#{$key}').on("hidden.bs.toast", function () {
+        //                         $(this).remove();
+        //                         }), { delay: 9000 })).show();
+        //                     });
+        //                 </script>
+        //                 <div class="d-flex">
+        //                     <div class="toast-body">{$value}</div>
+        //                     <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        //                 </div>
+        //             </div>
+        //         HTML;
+        // else
+            echo<<<HTML
+                <div id="toastId" class="toast text-bg-{$view->getType()} mt-2">
+                    <script>
+                        $(document).ready(function(){
+                            (new bootstrap.Toast($('#toastId').on("hidden.bs.toast", function () {
+                            $(this).remove();
+                            }), { delay: 9000 })).show();
+                        });
+                    </script>
+                    <div class="d-flex">
+                        <div class="toast-body">{$view->getMessage()}</div>
+                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                    </div>
+                </div>
+            HTML;
+    ?>
 </div>
 
 </body>

@@ -20,7 +20,7 @@ class ValidationId extends ModelJson{
         //valid id first
         else if(ModelJson::getFileName()!=='BranchCreatePost' && ModelJson::getFileName()!=='FlexTablesCreatePost' && ModelJson::getFileName()!=='HomeCreatePost' && ModelJson::getFileName()!=='ChangeLanguageCreatePost' && ModelJson::getFileName()!=='SettingUsersCreatePost' && ModelJson::getFileName()!=='ProductCreatePost' && !isset($_POST['id']) ||
          ModelJson::getFileName()!=='BranchCreatePost' && ModelJson::getFileName()!=='FlexTablesCreatePost' && ModelJson::getFileName()!=='HomeCreatePost' && ModelJson::getFileName()!=='ChangeLanguageCreatePost' &&  ModelJson::getFileName()!=='SettingUsersCreatePost' && ModelJson::getFileName()!=='ProductCreatePost' && $_POST['id'] === '')
-            ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['IdIsReq']);
+            $this->showError($this->getModelPage()['IdIsReq']);
         
         
         
@@ -32,7 +32,7 @@ class ValidationId extends ModelJson{
             isset($_POST['choices']) && !is_array($_POST['choices']) ||
             isset($_POST['choices']) && count($this->getBranch()) === 1||
             isset($_POST['Branches']) && count($this->getBranch()) === 1)
-            ModelJson::initView2($this->getUrlName2(), $this->getModel2()['AppSettingAdmin']['BranchInv']);
+            $this->showError($this->getModel2()['AppSettingAdmin']['BranchInv']);
 
 
 
@@ -83,14 +83,14 @@ class ValidationId extends ModelJson{
             foreach (isset($_POST['Branches']) ? $this->getBranch() : array(...$_POST['choices'], $this->getId()=>$this->getId()) as $key => $value)
                 //make test id branch if user select choices option
                 if(!isset($_POST['Branches']) && !isset($this->getBranch()[$key]))
-                    ModelJson::initView2($this->getUrlName2(), $this->getModel2()['AppSettingAdmin']['BranchInv']);
+                    $this->showError($this->getModel2()['AppSettingAdmin']['BranchInv']);
                 //make text id inside all branch for users and product and home and language (only edit)
                 //use $IdPage only(users and product)
                 //style dont create use getUrlName2
                 else if(isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($myFile[$key][$_GET['id']][$_POST['id']]) ||
                     !isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_GET['id']]) ||
                     
-                    ModelJson::getFileName() === 'ChangeLanguageEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_POST['option'] === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
+                    ModelJson::getFileName() === 'ChangeLanguageEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$this->getUrlName2() === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
                     ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_POST['state']][$_POST['id']]) ||
                     ModelJson::getFileName() === 'ChangeLanguageDeletePost' && !isset($myFile[$key][$_POST['id']]) ||
                     ModelJson::getFileName() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english' ||
@@ -103,11 +103,11 @@ class ValidationId extends ModelJson{
                   //ignore create validation account and product
                   isset($_POST['id']) && ModelJson::getFileName() === 'ProductCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']])||
                   isset($_POST['id']) && ModelJson::getFileName() === 'SettingUsersCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]))
-                    ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['IdIsInv']);
+                    $this->showError($this->getModelPage()['IdIsInv']);
                 else
                     $myFile[$key] = $callback($myFile[$key], $key);
             $this->saveFile($myFile);
-            ModelJson::initView2($this->getUrlName2(), $message, 'success');
+            $this->showMessage($this->getModelPage()[$message], 'success');
         }
 
 
@@ -133,7 +133,7 @@ class ValidationId extends ModelJson{
             isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($this->getObj()[$_GET['id']][$_POST['id']]) ||
             isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'MyStyle' && !isset($this->getModel2()['Style'][$_POST['id']])
         )
-            ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['IdIsInv']);
+            $this->showError($this->getModelPage()['IdIsInv']);
         else if(ModelJson::getFileName() === 'BranchEditPost' || ModelJson::getFileName() === 'BranchCreatePost')
             $this->initErrorBranch2();
         else if(ModelJson::getFileName() === 'ChangeLanguageEditPost' || ModelJson::getFileName() === 'ChangeLanguageCreatePost')

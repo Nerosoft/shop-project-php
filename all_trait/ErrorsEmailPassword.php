@@ -21,17 +21,17 @@ trait ErrorsEmailPassword{
     function initErrorsEmailPassword3(){
         $this->initErrorsEmailPassword();
         if(!isset($_POST['Email']) || $_POST['Email'] === '')
-            ModelJson::initView2($this->getUrlName2(), $this->getRequiredEmail());
+            $this->showError($this->getRequiredEmail());
         else if(!preg_match('/^[\w]+@[\w]+\.[a-zA-z]{2,6}$/', $_POST['Email']))
-            ModelJson::initView2($this->getUrlName2(), $this->getInvalidEmail());
+            $this->showError($this->getInvalidEmail());
         else if(!isset($_POST['Password']) || $_POST['Password'] === '')
-            ModelJson::initView2($this->getUrlName2(), $this->getRequiredPassword());
+            $this->showError($this->getRequiredPassword());
         else if(strlen($_POST['Password']) < 8)
-            ModelJson::initView2($this->getUrlName2(), $this->getInvalidPassword());
+            $this->showError($this->getInvalidPassword());
         else if(ModelJson::getFileName() !== 'LoginPost' && !isset($_POST['Key']) || ModelJson::getFileName() !== 'LoginPost' && $_POST['Key'] === '')
-                ModelJson::initView2($this->getUrlName2(), $this->getRequiredKeyPassword(), 'danger');
+                $this->showError($this->getRequiredKeyPassword());
         else if(ModelJson::getFileName() !== 'LoginPost' && strlen($_POST['Key']) < 8)
-            ModelJson::initView2($this->getUrlName2(), $this->getInvalidKeyPassword(), 'danger');
+            $this->showError($this->getInvalidKeyPassword());
     }
     function initErrorsKeyPassword2($myData){
        if(isset($myData['Users'][$this->keyId]['Email']) && $_POST['Email'] === $myData['Users'][$this->keyId]['Email'] ||
@@ -43,7 +43,7 @@ trait ErrorsEmailPassword{
                 return $myData;
             //show message email exist
         }else
-            ModelJson::initView2($this->getUrlName2(), $this->getModelPage()['EmailExist']);
+            $this->showError($this->getModelPage()['EmailExist']);
         
     }
     function getRequiredKeyPassword(){

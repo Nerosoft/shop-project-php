@@ -1,6 +1,5 @@
 <?php
-include 'auth/SessionAdmin.php';
-ModelJson::initView('Branches', 'MessageModelCreate', 'success', function(){
+include 'auth/SessionPost.php';
 class BranchCreatePost extends ValidationId{
     use ErrorBranch;
     function copyImageFolder($arr){
@@ -43,7 +42,7 @@ class BranchCreatePost extends ValidationId{
         $myBranch = $this->getFile();
         $myBranch[$this->keyId] = $obj;
         $this->saveFile($myBranch);
+        $this->showMessage($this->getModelPage()['MessageModelCreate']);
     }
 }
 new BranchCreatePost();
-});

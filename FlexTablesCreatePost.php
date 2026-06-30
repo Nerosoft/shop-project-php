@@ -1,6 +1,5 @@
 <?php
-include 'auth/SessionAdmin.php';
-ModelJson::initView('MyFlexTablesView', isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate', 'success', function(){
+include 'auth/SessionPost.php';
 class FlexTablesCreatePost extends ValidationId{
     use ErrorFlexTable;
     function __construct(){
@@ -10,6 +9,7 @@ class FlexTablesCreatePost extends ValidationId{
         }, isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');
         $this->initErrorFlexTable2();
         $this->saveModel($this->saveFlexTable($this->getObj(), $this->getErrorsMessageReq(), $this->getId()));
+        $this->showMessage($this->getModelPage()[isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate']);
     }
     function saveFlexTable($myData, $keysInput, $idSseion){
         foreach ($keysInput as $key => $value)
@@ -19,4 +19,3 @@ class FlexTablesCreatePost extends ValidationId{
     }
 }
 new FlexTablesCreatePost();
-});

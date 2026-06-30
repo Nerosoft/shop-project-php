@@ -1,7 +1,7 @@
 <?php
-include 'auth/SessionAdmin.php';
-ModelJson::initView($_GET['id'] !== 'Users' && $_GET['id'] !== 'Product' ?'MyFlexTablesView':$_GET['id'], isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate', 'success', function(){
+include 'auth/SessionPost.php';
 class SettingUsersDeletePost extends ValidationId{
+    //preg_match('/MyFlexTables/', ModelJson::getBackPage())?explode('=', ModelJson::getBackPage())[1]:ModelJson::getBackPage()
     function __construct(){
         parent::__construct($_GET['id'], function($myFile, $key){
             if($_GET['id'] !== 'Users')
@@ -12,8 +12,7 @@ class SettingUsersDeletePost extends ValidationId{
         $this->saveModel($this->deleteItem($this->getObj()));
         if($_GET['id'] !== 'Users')
             array_map('unlink', glob('asset/product/'.$this->getId().'/'.$this->keyId.'.*'));
-        
+        $this->showMessage($this->getModelPage()['Delete']);
     }
 }
 new SettingUsersDeletePost();
-});

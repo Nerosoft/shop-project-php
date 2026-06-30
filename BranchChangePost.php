@@ -1,18 +1,10 @@
 <?php
-include 'auth/SessionAdmin.php';
-ModelJson::initView(($_POST['option'] === 'Home' ||
-            $_POST['option'] === 'Branches' ||
-            $_POST['option'] === 'Site' ||
-            $_POST['option'] === 'ChangeLanguage' ||
-            $_POST['option'] === 'Users' ||
-            $_POST['option'] === 'Product' ||
-            $_POST['option'] === 'SystemLang' ||
-            $_POST['option'] === 'MyStyle'? $_POST['option']:'MyFlexTablesView'), 'SuccessfullyChangeBranch', 'success', function(){
+include 'auth/SessionPost.php';
 class BranchChangePost extends ValidationId{
     function __construct(){
-        parent::__construct($_POST['option']);
+        parent::__construct(ModelJson::getBackPage());
         $_SESSION['userId'] = $this->keyId;
+        $this->showMessage($this->getModelPage()['SuccessfullyChangeBranch']);
     }
 }
 new BranchChangePost();
-});

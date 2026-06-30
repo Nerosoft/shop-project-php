@@ -56,12 +56,12 @@ else if($action !== 'BranchChangePost.php' && count($view->getBranch2()) >= 1 &&
     include 'AllBranchOptionChose.php';
 
 
-if($action === 'ChangeLanguagePost.php' || 
-  $action === 'ChangeLangPost.php'||
-  $action === 'SetupProject.php'||
-  $action === 'BranchChangePost.php'||
-  $action === 'ChangeLanguageEditPost')
-    echo '<input type="hidden" value="'.$view->getUrlName2().'" name="option">';
+// if($action === 'ChangeLanguagePost.php' || 
+//   $action === 'ChangeLangPost.php'||
+//   $action === 'SetupProject.php'||
+//   $action === 'BranchChangePost.php'||
+//   $action === 'ChangeLanguageEditPost')
+//     echo '<input type="hidden" value="'.$view->getUrlName2().'" name="option">';
 ?>
 </div>
 <div class="modal-footer">

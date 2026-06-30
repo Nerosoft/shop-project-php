@@ -1,6 +1,5 @@
 <?php
-include 'auth/SessionAdmin.php';
-ModelJson::initView('Branches', 'Delete', 'success', function(){
+include 'auth/SessionPost.php';
 class BranchDeletePost extends ValidationId{
     function __construct(){
         parent::__construct('Branches');
@@ -16,7 +15,7 @@ class BranchDeletePost extends ValidationId{
             closedir($dir);
             rmdir('asset/product/'.$this->keyId);
         }
+        $this->showMessage($this->getModelPage()['Delete']);
     }
 }
 new BranchDeletePost();
-});

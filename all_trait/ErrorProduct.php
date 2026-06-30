@@ -25,21 +25,21 @@ trait ErrorProduct{
         $this->initErrorProduct();
         $this->validMyImage();
         if(!isset($_POST['name']) || $_POST['name'] === '')
-           ModelJson::initView2($this->getUrlName2(), $this->getRequiredName());
+           $this->showError($this->getRequiredName());
         else if(strlen($_POST['name']) < 3)
-           ModelJson::initView2($this->getUrlName2(), $this->getInvalidName());
+           $this->showError($this->getInvalidName());
         else if(!isset($_POST['descreption']) || $_POST['descreption'] === '')
-           ModelJson::initView2($this->getUrlName2(), $this->getRequiredDescreption());
+           $this->showError($this->getRequiredDescreption());
         else if(strlen($_POST['descreption']) < 8)
-           ModelJson::initView2($this->getUrlName2(), $this->getInvalidDescreption());
+           $this->showError($this->getInvalidDescreption());
         else if(!isset($_POST['salary']) || $_POST['salary'] === '')
-           ModelJson::initView2($this->getUrlName2(), $this->getRequiredSalary());
+           $this->showError($this->getRequiredSalary());
         else if(!is_numeric($_POST['salary']) || $_POST['salary'] > 1000000)
-           ModelJson::initView2($this->getUrlName2(), $this->getInvalidSalary());
+           $this->showError($this->getInvalidSalary());
         else if(!isset($_POST['category']) || $_POST['category'] === '')
-           ModelJson::initView2($this->getUrlName2(), $this->getRequiredCategory());
+           $this->showError($this->getRequiredCategory());
         else if(strlen($_POST['category']) < 3)
-           ModelJson::initView2($this->getUrlName2(), $this->getInvalidCategory());
+           $this->showError($this->getInvalidCategory());
     }
     function getRequiredName(){
         return $this->RequiredName;

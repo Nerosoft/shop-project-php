@@ -1,5 +1,5 @@
 <?php
-require 'ErrorsEmailPassword.php';
+// require 'ErrorsEmailPassword.php';
 trait EmailPassword{
     use ErrorsEmailPassword;
     private $LabelEmail;
