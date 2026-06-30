@@ -5,35 +5,52 @@ if(!isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] !== "POST" && Model
     header("Location:login");
     exit;
 }
-else if(ModelJson::getFileName() === 'BranchChangePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
+else if(
+ModelJson::getFileName() === 'MyFlexTables' && !isset($_GET['id'])||
+ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($_GET['id'])||
+ModelJson::getFileName() === 'FlexTablesCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
+ModelJson::getFileName() === 'MyFlexTables' && !isset(json_decode(file_get_contents('data.json'), true)[$_SESSION['userId']][json_decode(file_get_contents('data.json'), true)[$_SESSION['userId']]['Setting']['AllNamesLanguage']]['MyFlexTables'][$_GET['id']]) ||
+ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset(json_decode(file_get_contents('data.json'), true)[$_SESSION['userId']][json_decode(file_get_contents('data.json'), true)[$_SESSION['userId']]['Setting']['AllNamesLanguage']]['MyFlexTables'][$_GET['id']]) ||
+
+ModelJson::getFileName() === 'SettingUsersDeletePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
+ModelJson::getFileName() === 'SettingUsersDeletePost' && !isset($_GET['id'])||
+ModelJson::getFileName() === 'SettingUsersDeletePost' && $_GET['id'] !== 'Users' && $_GET['id'] !== 'Product' && !isset(json_decode(file_get_contents('data.json'), true)[$_SESSION['userId']][json_decode(file_get_contents('data.json'), true)[$_SESSION['userId']]['Setting']['AllNamesLanguage']]['MyFlexTables'][$_GET['id']])||
+
+ModelJson::getFileName() === 'BranchChangePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
+ModelJson::getFileName() === 'BranchChangePost' && ModelJson::getBackPage() !== 'Home' &&
+ModelJson::getBackPage() !== 'Site' && ModelJson::getBackPage() !== 'ChangeLanguage' &&
+ModelJson::getBackPage() !== 'Users' && ModelJson::getBackPage() !== 'Product' && ModelJson::getBackPage() !== 'SystemLang' &&
+ModelJson::getBackPage() !== 'Branches' && ModelJson::getBackPage() !== 'MyStyle' &&
+!preg_match('/MyFlexTables/', ModelJson::getBackPage())||
+
 ModelJson::getFileName() === 'BranchCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
 ModelJson::getFileName() === 'BranchDeletePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
 ModelJson::getFileName() === 'BranchEditPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
 ModelJson::getFileName() === 'ChangeLanguageCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
 ModelJson::getFileName() === 'ChangeLanguageDeletePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-ModelJson::getFileName() === 'FlexTablesCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
 ModelJson::getFileName() === 'HomeCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
 ModelJson::getFileName() === 'HomeDeletePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
 ModelJson::getFileName() === 'HomeEditPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
 ModelJson::getFileName() === 'ProductCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
 ModelJson::getFileName() === 'SettingUsersCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
 ModelJson::getFileName() === 'SystemLangEditPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-ModelJson::getFileName() === 'SettingUsersDeletePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-ModelJson::getFileName() === 'SettingUsersDeletePost' && !isset($_GET['id'])||
 ModelJson::getFileName() === 'ChangeLanguageEditPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-// ModelJson::getFileName() === 'ChangeLanguageEditPost' && !isset($_POST['option'])||
-// ModelJson::getFileName() === 'ChangeLanguageEditPost' && $_POST['option'] !== 'ChangeLanguage' && $_POST['option'] !== 'MyStyle'||
+
 ModelJson::getFileName() === 'ChangeLanguagePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-// ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($_POST['option'])||
+ModelJson::getFileName() === 'ChangeLanguagePost' && ModelJson::getBackPage() !== 'Home' &&
+ModelJson::getBackPage() !== 'Site' && ModelJson::getBackPage() !== 'ChangeLanguage' &&
+ModelJson::getBackPage() !== 'Users' && ModelJson::getBackPage() !== 'Product' && ModelJson::getBackPage() !== 'SystemLang' &&
+ModelJson::getBackPage() !== 'Branches' && ModelJson::getBackPage() !== 'MyStyle' &&
+!preg_match('/MyFlexTables/', ModelJson::getBackPage())||
+
+ModelJson::getFileName() === 'ChangeLanguageEditPost' && ModelJson::getBackPage() !== 'ChangeLanguage' && ModelJson::getBackPage() !== 'MyStyle'||
 ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($_POST['state'])||
 ModelJson::getFileName() === 'ChangeLanguagePost' && $_POST['state'] !== 'Style' && $_POST['state'] !== 'AllNamesLanguage'
-// ModelJson::getFileName() === 'BranchChangePost' && !isset($_POST['option'])
 
 ){
     header("Location:index");
     exit;
 }
-
 else if(!isset($_SESSION['userId']) && isset($_GET['id']) && !isset(json_decode(file_get_contents('data.json'), true)[$_GET['id']]) ||
 !isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST['superId']) ||
 !isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "POST" && !isset(json_decode(file_get_contents('data.json'), true)[$_POST['superId']])||
@@ -42,12 +59,10 @@ ModelJson::getFileName() === 'LoginPost' && $_SERVER["REQUEST_METHOD"] !== "POST
 ModelJson::getFileName() === 'RegisterPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
 ModelJson::getFileName() === 'SetupProject' && $_SERVER["REQUEST_METHOD"] !== "POST"||
 ModelJson::getFileName() === 'LoginForgetPasswordPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-// ModelJson::getFileName() === 'ChangeLangPost' && !isset($_POST['option'])||
-// ModelJson::getFileName() === 'ChangeLangPost' && $_POST['option'] !== 'Login' && $_POST['option'] !== 'Register' && $_POST['option'] !== 'Site'||
 ModelJson::getFileName() === 'ChangeLangPost' && !isset($_POST['state'])||
-ModelJson::getFileName() === 'ChangeLangPost' && $_POST['state'] !== 'AllNamesLanguage' && $_POST['state'] !== 'Style' && $_POST['state'] !== 'branch' && $_POST['state'] !== 'branch2'
-// ModelJson::getFileName() === 'SetupProject' && !isset($_POST['option'])||
-// ModelJson::getFileName() === 'SetupProject' && $_POST['option'] !== 'Login' && $_POST['option'] !== 'Register'
+ModelJson::getFileName() === 'ChangeLangPost' && $_POST['state'] !== 'AllNamesLanguage' && $_POST['state'] !== 'Style' && $_POST['state'] !== 'branch' && $_POST['state'] !== 'branch2'||
+ModelJson::getFileName() === 'ChangeLangPost' && ModelJson::getBackPage() !== 'Login' && ModelJson::getBackPage() !== 'Register' && ModelJson::getBackPage() !== 'Site'||
+ModelJson::getFileName() === 'SetupProject' && ModelJson::getBackPage() !== 'Login' && ModelJson::getBackPage() !== 'Register'
 
 ){
     header("Location:Login");
