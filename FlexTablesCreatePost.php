@@ -3,8 +3,8 @@ include 'auth/SessionPost.php';
 class FlexTablesCreatePost extends ValidationId{
     use ErrorFlexTable;
     function __construct(){
-        parent::__construct($_GET['id'], function($myFile, $idSseion){
-            return $this->saveFlexTable($myFile, $myFile[$myFile['Setting']['AllNamesLanguage']][$_GET['id']]['ErrorsMessageReq'], $idSseion);
+        parent::__construct(explode('=', ModelJson::getBackPage())[1], function($myFile, $idSseion){
+            return $this->saveFlexTable($myFile, $myFile[$myFile['Setting']['AllNamesLanguage']][$this->getUrlName2()]['ErrorsMessageReq'], $idSseion);
 
         }, isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');
         $this->initErrorFlexTable2();
@@ -13,7 +13,7 @@ class FlexTablesCreatePost extends ValidationId{
     }
     function saveFlexTable($myData, $keysInput, $idSseion){
         foreach ($keysInput as $key => $value)
-            $myData[$_GET['id']][$this->keyId][$key] = $_POST[$key];
+            $myData[$this->getUrlName2()][$this->keyId][$key] = $_POST[$key];
         $this->saveProductTable($idSseion);
         return $myData;
     }

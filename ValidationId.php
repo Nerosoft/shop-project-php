@@ -87,8 +87,8 @@ class ValidationId extends ModelJson{
                 //make text id inside all branch for users and product and home and language (only edit)
                 //use $IdPage only(users and product)
                 //style dont create use getUrlName2
-                else if(isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($myFile[$key][$_GET['id']][$_POST['id']]) ||
-                    !isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_GET['id']]) ||
+                else if(isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]) ||
+                    !isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$this->getUrlName2()]) ||
                     
                     ModelJson::getFileName() === 'ChangeLanguageEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$this->getUrlName2() === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
                     ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_POST['state']][$_POST['id']]) ||
@@ -130,7 +130,7 @@ class ValidationId extends ModelJson{
             isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'ChangeLanguage' && !isset($this->getModel2()['AllNamesLanguage'][$_POST['id']])||
             isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Users' && !isset($this->getObj()['Users'][$_POST['id']])||
             isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Product' && !isset($this->getObj()['Product'][$_POST['id']])||
-            isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($this->getObj()[$_GET['id']][$_POST['id']]) ||
+            isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($this->getObj()[$this->getUrlName2()][$_POST['id']]) ||
             isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'MyStyle' && !isset($this->getModel2()['Style'][$_POST['id']])
         )
             $this->showError($this->getModelPage()['IdIsInv']);
