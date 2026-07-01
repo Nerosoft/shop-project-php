@@ -2,7 +2,7 @@
 include 'auth/SessionPost.php';
 class ChangeLanguagePost extends ValidationId{
     function __construct(){
-        parent::__construct(preg_match('/MyFlexTables/', ModelJson::getBackPage())?explode('=', ModelJson::getBackPage())[1]:ModelJson::getBackPage(), function($myFile){
+        parent::__construct(preg_match('/SystemLang/', ModelJson::getBackPage())?'SystemLang':(preg_match('/MyFlexTables/', ModelJson::getBackPage())?explode('=', ModelJson::getBackPage())[1]:ModelJson::getBackPage()), function($myFile){
             return $this->changeLangStylePost($myFile);
         }, 'MessageStyleLang');
         $this->saveModel($this->changeLangStylePost($this->getObj()));

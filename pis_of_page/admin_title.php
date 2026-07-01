@@ -26,7 +26,7 @@ foreach ($this->getMyMenuApp() as $key => $item) {
             <ul class="dropdown-menu dropdown-menu-dark">
         HTML;
         foreach ($item as $keyItem=>$myItem){
-            $loc = $this->getUrlName2() === 'SystemLang' ? 'SystemLang?id='.$this->getUrlName2().'&lang='.$key.'&table='.$keyItem : 'MyFlexTables?id='.$keyItem;
+            $loc = $this->getUrlName2() === 'SystemLang' ? 'SystemLang?lang='.$key.'&table='.$keyItem : 'MyFlexTables?id='.$keyItem;
             $classActive = isset($_GET['table']) && $_GET['table'] === $keyItem && isset($_GET['lang']) && $_GET['lang'] === $key || isset($_GET['id']) && $keyItem === $_GET['id'] && $key === 'MyFlexTables' ? 'my_active':'';
             echo <<<HTML
                 <li>
