@@ -13,7 +13,7 @@ ModelJson::getFileName() === 'MyFlexTables' && !isset(json_decode(file_get_conte
 ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset(json_decode(file_get_contents('data.json'), true)[$_SESSION['userId']][json_decode(file_get_contents('data.json'), true)[$_SESSION['userId']]['Setting']['AllNamesLanguage']]['MyFlexTables'][$_GET['id']]) ||
 
 ModelJson::getFileName() === 'SettingUsersDeletePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-ModelJson::getFileName() === 'SettingUsersDeletePost' && ModelJson::getBackPage() !== 'Users' && ModelJson::getBackPage() !== 'Product' && !isset(json_decode(file_get_contents('data.json'), true)[$_SESSION['userId']][json_decode(file_get_contents('data.json'), true)[$_SESSION['userId']]['Setting']['AllNamesLanguage']]['MyFlexTables'][explode('=', ModelJson::getBackPage())[1]??''])||
+ModelJson::getFileName() === 'SettingUsersDeletePost' && ModelJson::getBackPage() !== 'Users' && ModelJson::getBackPage() !== 'Product' && !preg_match('/MyFlexTables/', ModelJson::getBackPage())||
 
 ModelJson::getFileName() === 'BranchChangePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
 
