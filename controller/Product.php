@@ -66,7 +66,6 @@ foreach ($view->getMyDataView() as $index => $myObject) {
             <td>{$myObject->getCategory()}</td>
             <td>
     HTML;
-    // $action = 'SettingUsersDeletePost?id='.$view->getUrlName2();
     include 'pis_of_page/button_edit.php';
 }
 ?>
