@@ -3,7 +3,7 @@ include 'auth/SessionPost.php';
 class SetupProject extends ValidationId{
     use ErrorBranch, ErrorsEmailPassword;
     function __construct(){
-        parent::__construct(ModelJson::getBackPage());
+        parent::__construct();
         $this->validInputs();
         $file = $this->getFile();
         $file[$this->keyId] = $this->getProject();

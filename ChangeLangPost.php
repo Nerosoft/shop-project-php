@@ -2,7 +2,7 @@
 include 'auth/SessionPost.php';
 class ChangeLangPost extends ValidationId{
     function __construct(){  
-        parent::__construct(ModelJson::getBackPage());
+        parent::__construct();
         if($_POST['state'] === 'branch' || $_POST['state'] === 'branch2'){
             setcookie('branchId', $this->keyId, time()+2628000);
             $_COOKIE['branchId'] = $this->keyId;

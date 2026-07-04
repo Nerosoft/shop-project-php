@@ -1,7 +1,7 @@
 <?php
 class ValidationId extends ModelJson{
     protected $keyId;
-    function __construct($IdPage, $callback = null, $message = null){
+    function __construct($IdPage = null, $callback = null, $message = null){
         parent::__construct($IdPage);
         //make id for flex table and user stting and product else make id for all action
         if(ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'LoginForgetPasswordPost')
