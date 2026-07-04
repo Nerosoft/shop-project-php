@@ -1,5 +1,4 @@
 <?php
-require 'InformationPage.php';
 // require 'all_trait/ErrorBranch.php';
 require 'all_trait/InfoBranch.php';
 require 'all_trait/InterEmailPass.php';

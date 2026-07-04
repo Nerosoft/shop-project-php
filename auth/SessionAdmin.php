@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'controller/ModelJson.php';
+require 'controller/InformationPage.php';
 if(!isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] !== "POST" && ModelJson::getFileName() !== 'Login' && ModelJson::getFileName() !== 'Register' && ModelJson::getFileName() !== 'Site'){
     header("Location:login");
     exit;
