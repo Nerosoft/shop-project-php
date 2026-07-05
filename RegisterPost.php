@@ -6,7 +6,7 @@ class RegisterPost extends ValidationId{
         parent::__construct();
         //valid confirm password
         $this->initErrorsRegister2();
-        $this->getMyModal()->saveModel($this->initErrorsKeyPassword2($this->getMyModal()->getObj()));
+        $this->saveModel($this->initErrorsKeyPassword2($this->getObj()));
         $this->loginAdmin('RegisterMessage');
     }
 }

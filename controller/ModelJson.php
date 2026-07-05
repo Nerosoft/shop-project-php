@@ -139,13 +139,12 @@ class ModelJson{
         return $this->File[$this->getId()];
     }
     function getBranch(){
-        return isset($_SESSION['userId'])?$this->File[$this->getFixedId()]['Branches']:$this->getBranch3();
-    }
-    function getBranch3(){
-        foreach ($this->getFile() as $key => $obj)
-            if(isset($obj['Branches']) && in_array(isset($_GET['id'])?$_GET['id']:$this->getId(), array_keys($obj['Branches'])))
-                return $obj['Branches']; 
-     
+        if(isset($_SESSION['userId']))
+            return $this->File[$this->getFixedId()]['Branches'];
+        else
+            foreach ($this->getFile() as $key => $obj)
+                if(isset($obj['Branches']) && in_array(isset($_GET['id'])?$_GET['id']:$this->getId(), array_keys($obj['Branches'])))
+                    return $obj['Branches']; 
     }
     function getBranch2(){
         $myBranch = $this->getBranch();
@@ -164,9 +163,6 @@ class ModelJson{
     }
     function getId(){
         return (isset($_SESSION['userId'])?$_SESSION['userId']:($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['superId'])?$_POST['superId']:(isset($_GET['id'])?$_GET['id']:(isset($_COOKIE['branchId']) && isset($this->getFile()[$_COOKIE['branchId']])?$_COOKIE['branchId']:'admin'))));
-    }
-    function getMyModal(){
-        return $this;
     }
     function showError($error){
         $_SESSION['error'] = $error;

@@ -5,7 +5,7 @@ class MyRegister extends LoginRegister{
     private $LabelConfirmPassword;
     private $HintConfirmPassword;
     function __construct(){
-        parent::__construct('Register', 'RegisterPost.php');
+        parent::__construct('RegisterPost.php');
         $this->initErrorsRegister();
         $this->LabelConfirmPassword = $this->getModelPage()['LabelConfirmPassword'];
         $this->HintConfirmPassword = $this->getModelPage()['HintConfirmPassword'];

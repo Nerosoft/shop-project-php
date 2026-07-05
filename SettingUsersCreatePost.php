@@ -7,7 +7,7 @@ class SettingUsersCreatePost extends ValidationId{
             return $this->initErrorsKeyPassword2($myFile);
         }, isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');
         $this->initErrorsEmailPassword3();
-        $this->getMyModal()->saveModel($this->initErrorsKeyPassword2($this->getMyModal()->getObj()));
+        $this->saveModel($this->initErrorsKeyPassword2($this->getObj()));
         $this->showMessage($this->getModelPage()[isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate']);
     }
 }
