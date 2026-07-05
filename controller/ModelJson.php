@@ -52,20 +52,21 @@ class ModelJson{
             header("Location:Login");
             exit;
         }else if (ModelJson::getFileName() === 'BranchDeletePost' ||  
-        ModelJson::getFileName() === 'SettingUsersCreatePost' || 
-        ModelJson::getFileName() === 'RegisterPost' || 
-        ModelJson::getFileName() === 'LoginPost' || 
-        ModelJson::getFileName() === 'ProductCreatePost' || 
-        ModelJson::getFileName() === 'HomeEditPost' || 
-        ModelJson::getFileName() === 'HomeDeletePost' || 
-        ModelJson::getFileName() === 'HomeCreatePost' || 
-        ModelJson::getFileName() === 'ChangeLanguageDeletePost' || 
-        ModelJson::getFileName() === 'ChangeLanguageCreatePost' || 
-        ModelJson::getFileName() === 'BranchEditPost' || 
-        ModelJson::getFileName() === 'BranchCreatePost' || 
-        ModelJson::getFileName() === 'ChangeLangPost' || 
-        ModelJson::getFileName() === 'SetupProject' || 
-        ModelJson::getFileName() === 'ChangeLanguageEditPost')
+            ModelJson::getFileName() === 'LoginForgetPasswordPost' || 
+            ModelJson::getFileName() === 'SettingUsersCreatePost' || 
+            ModelJson::getFileName() === 'RegisterPost' || 
+            ModelJson::getFileName() === 'LoginPost' || 
+            ModelJson::getFileName() === 'ProductCreatePost' || 
+            ModelJson::getFileName() === 'HomeEditPost' || 
+            ModelJson::getFileName() === 'HomeDeletePost' || 
+            ModelJson::getFileName() === 'HomeCreatePost' || 
+            ModelJson::getFileName() === 'ChangeLanguageDeletePost' || 
+            ModelJson::getFileName() === 'ChangeLanguageCreatePost' || 
+            ModelJson::getFileName() === 'BranchEditPost' || 
+            ModelJson::getFileName() === 'BranchCreatePost' || 
+            ModelJson::getFileName() === 'ChangeLangPost' || 
+            ModelJson::getFileName() === 'SetupProject' || 
+            ModelJson::getFileName() === 'ChangeLanguageEditPost')
             $this->IdPage = $this->getBackPage();
         else if(ModelJson::getFileName() === 'SystemLangEditPost' || ModelJson::getFileName() === 'BranchChangePost' || ModelJson::getFileName() === 'ChangeLanguagePost' || ModelJson::getFileName() === 'SettingUsersDeletePost' || ModelJson::getFileName() === 'FlexTablesCreatePost')
             $this->IdPage = preg_match('/SystemLang/', $this->getBackPage())?'SystemLang':(preg_match('/MyFlexTables/', $this->getBackPage())?explode('=', $this->getBackPage())[1]:$this->getBackPage());
