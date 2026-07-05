@@ -3,7 +3,7 @@ include 'auth/SessionPost.php';
 class LoginPost extends ValidationId{
     use ErrorsEmailPassword;
     function __construct(){
-        parent::__construct('Login');
+        parent::__construct();
         if(isset($this->getObj()['Users']))
             foreach ($this->getObj()['Users'] as $key => $value)
                 if($value['Email'] === $_POST['Email'] && $value['Password'] === $_POST['Password'])

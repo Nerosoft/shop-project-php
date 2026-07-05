@@ -12,7 +12,7 @@ class Product extends AdminMenu implements InterfaceDataView{
     private $LabelCategory;
     private $HintCategory;
     function __construct(){
-        parent::__construct('Product', function(){
+        parent::__construct(function(){
             $this->initErrorProduct();
             $this->LabelName = $this->getModelPage()['LabelName'];
             $this->HintName = $this->getModelPage()['HintName'];

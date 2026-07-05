@@ -3,7 +3,7 @@ require 'all_trait/InfoChangeLangStyle.php';
 class MyStyleClass extends AdminMenu{
    use InfoChangeLangStyle;
     function __construct(){
-        parent::__construct('MyStyle', function(){
+        parent::__construct(function(){
             return array_reverse(MyLanguage::fromArray($this->getModel2()['Style']));
         }, MyLanguage::getKeysObject());
     }

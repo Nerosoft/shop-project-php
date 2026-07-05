@@ -3,19 +3,14 @@ trait ErrorChangelanguage{
     private $NewLangNameRequired;
     private $NewLangNameInvalid;
     private $allNames;
-    // function initErrorChangelanguage(){
-    //     $this->NewLangNameRequired = $this->getModelPage()['NewLangNameRequired'];
-    //     $this->NewLangNameInvalid = $this->getModelPage()['NewLangNameInvalid'];
-    //     $this->allNames = $this->getModel2()['AllNamesLanguage'];
-    // }
     function getallNames(){
-        return $this->getModel2()['AllNamesLanguage'];//$this->allNames;
+        return $this->getModel2()['AllNamesLanguage'];
     }
     function getNewLangNameRequired(){
-        return $this->getModelPage()['NewLangNameRequired'];//$this->NewLangNameRequired;
+        return $this->getModelPage()['NewLangNameRequired'];
     }
     function getNewLangNameInvalid(){
-        return $this->getModelPage()['NewLangNameInvalid'];//$this->NewLangNameInvalid;
+        return $this->getModelPage()['NewLangNameInvalid'];
     }
     function saveNameLanguage($name, $nameKey, $myData){
         foreach ($name as $key=>$value)
@@ -23,7 +18,6 @@ trait ErrorChangelanguage{
         return $myData;
     }
     function validLanguageInput(){
-        //$this->initErrorChangelanguage();
         if(!isset($_POST['lang_name']) || $_POST['lang_name'] === '')
             $this->showError($this->getNewLangNameRequired());
         else if(strlen($_POST['lang_name']) < 3)

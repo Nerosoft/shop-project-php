@@ -3,7 +3,7 @@ include 'auth/SessionPost.php';
 class SettingUsersCreatePost extends ValidationId{
     use ErrorsEmailPassword;
     function __construct(){
-        parent::__construct('Users', function($myFile){
+        parent::__construct(function($myFile){
             return $this->initErrorsKeyPassword2($myFile);
         }, isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');
         $this->initErrorsEmailPassword3();

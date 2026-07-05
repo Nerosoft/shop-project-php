@@ -2,7 +2,7 @@
 include 'auth/SessionPost.php';
 class ChangeLanguagePost extends ValidationId{
     function __construct(){
-        parent::__construct(null, function($myFile){
+        parent::__construct(function($myFile){
             return $this->changeLangStylePost($myFile);
         }, 'MessageStyleLang');
         $this->saveModel($this->changeLangStylePost($this->getObj()));

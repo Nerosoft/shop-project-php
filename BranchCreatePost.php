@@ -12,7 +12,7 @@ class BranchCreatePost extends ValidationId{
         closedir($dir);
     }
     function __construct(){
-        parent::__construct('Branches');
+        parent::__construct();
         $obj = $this->getFile()[$_POST['selectedBranch']];
         unset($obj['Branches']);
         if(!isset($_POST['Users']) && isset($obj['Users']))

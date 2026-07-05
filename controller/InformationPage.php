@@ -69,8 +69,8 @@ class InformationPage extends ModelJson{
     function setActionStyleLang($value){
         $this->styleLangAction = $value;
     }
-    function __construct($IdPage, $action){
-        parent::__construct($IdPage);
+    function __construct($action){
+        parent::__construct();
         if(isset($_GET['id']) && !isset($_SESSION['userId']))
             setcookie('branchId', $_GET['id'], time()+2628000);
         $this->styleLangAction = $action;

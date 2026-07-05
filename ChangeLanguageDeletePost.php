@@ -2,7 +2,7 @@
 include 'auth/SessionPost.php';
 class ChangeLanguageDeletePost extends ValidationId{
     function __construct(){
-        parent::__construct('ChangeLanguage', function($myFile){
+        parent::__construct(function($myFile){
             return $this->deleteLanguage($myFile);
         }, 'Delete');
         $this->saveModel($this->deleteLanguage($this->getObj()));

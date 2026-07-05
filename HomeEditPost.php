@@ -3,7 +3,7 @@ include 'auth/SessionPost.php';
 class HomeEditPost extends ValidationId{
     use ErrorsHome;
     function __construct(){
-        parent::__construct('Home', function ($myFile){
+        parent::__construct(function ($myFile){
             return $this->editHome($myFile, $myFile[$myFile['Setting']['AllNamesLanguage']]['AllNamesLanguage']);
         }, 'MessageModelEdit'); 
         $this->saveModel($this->editHome($this->getObj(), $this->getModel2()['AllNamesLanguage']));

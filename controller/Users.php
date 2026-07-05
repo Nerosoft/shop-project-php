@@ -6,7 +6,7 @@ class MySettingUsers extends AdminMenu implements InterfaceDataView{
     use EmailPassword;
     private $ForgetPasswordHeadTable;
     function __construct(){
-        parent::__construct('Users', function(){
+        parent::__construct(function(){
             $this->initEmailPassword();
             return isset($this->getObj()['Users']) ? array_reverse(Users::fromArray($this->getObj()['Users'])):array();
         }, Users::getKeysObject());

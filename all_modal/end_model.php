@@ -51,7 +51,6 @@ else if(count($view->getBranch2()) >= 1 && isset($view->getModel2()['MyFlexTable
 }
 else if(isset($index) && $index !== null && !isset($state))
     include('my_id.php');
-//make create inside all branch or select and custom branch
 else if($action !== 'BranchChangePost.php' && count($view->getBranch2()) >= 1 && $view->getUrlName2() !== 'Branches' || $action !== 'BranchChangePost.php' && count($view->getBranch2()) >= 1 && $view->getUrlName2() === 'Branches' && isset($state))
     include 'AllBranchOptionChose.php';
 ?>

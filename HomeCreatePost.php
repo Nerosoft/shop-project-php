@@ -5,7 +5,7 @@ include 'auth/SessionPost.php';
     private $keysInput = array();
     function __construct(){
         
-        parent::__construct('Home', function($myFile){
+        parent::__construct(function($myFile){
             return $this->saveFelxTable($myFile[$myFile['Setting']['AllNamesLanguage']]['AllNamesLanguage'], $myFile);
         }, 'MessageModelCreate'); 
         $this->saveModel($this->saveFelxTable($this->getModel2()['AllNamesLanguage'], $this->getObj()));

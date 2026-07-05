@@ -3,7 +3,7 @@ include 'auth/SessionPost.php';
 class ChangeLanguageCreatePost extends ValidationId{
     use ErrorChangelanguage;
     function __construct(){
-        parent::__construct('ChangeLanguage', function ($myFile){
+        parent::__construct(function ($myFile){
             $myLanguage = $this->getObj()[$_POST['selectedLanguage']];
             if(isset($myLanguage['MyFlexTables']))
                 foreach ($myLanguage['MyFlexTables'] as $keyFlexTable => $value)

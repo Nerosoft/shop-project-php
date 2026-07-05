@@ -11,7 +11,7 @@ class MySystemlang extends AdminMenu implements InterfaceDataView{
         return $this->LanguageSelectAll;
     }
     function __construct(){
-        parent::__construct('SystemLang', function(){
+        parent::__construct(function(){
             $this->initErrorSystemlang();
             $this->LanguageSelectAll = $this->getModelPage()['LanguageSelectAll'];
             $this->Text = $this->getModelPage()['Text'];

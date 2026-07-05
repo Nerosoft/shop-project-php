@@ -2,7 +2,7 @@
 include 'auth/SessionPost.php';
 class BranchDeletePost extends ValidationId{
     function __construct(){
-        parent::__construct('Branches');
+        parent::__construct();
         $file = $this->getFile();
         unset($file[$this->getFixedId()]['Branches'][$this->keyId]);
         unset($file[$this->keyId]);

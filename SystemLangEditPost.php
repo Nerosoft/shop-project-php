@@ -11,7 +11,7 @@ class SystemLangEditPost extends ModelJson{
         return true;
     }
     function __construct(){
-        parent::__construct('SystemLang');
+        parent::__construct();
         $this->initErrorSystemlang();
         if(!isset($_POST['word']) || $_POST['word'] === '')
             $this->showError($this->getTextRequired());

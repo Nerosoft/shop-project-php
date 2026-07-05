@@ -2,7 +2,7 @@
 include 'auth/SessionPost.php';
 class SettingUsersDeletePost extends ValidationId{
     function __construct(){
-        parent::__construct(null, function($myFile, $key){
+        parent::__construct(function($myFile, $key){
             if($this->getUrlName2() !== 'Users')
                 //delete image for product
                 array_map('unlink', glob('asset/product/'.$key.'/'.$this->keyId.'.*'));

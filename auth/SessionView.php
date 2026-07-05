@@ -6,5 +6,5 @@ if(ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Registe
 else if(ModelJson::getFileName() !== 'Site')
     $count = 1;
 require 'controller/AdminMenu.php';
-require 'controller/'.(ModelJson::getFileName() === 'index'?'Home':ModelJson::getFileName()).'.php';
+require 'controller/'.ModelJson::getFileName().'.php';
 include 'pis_of_page/end_html.php';

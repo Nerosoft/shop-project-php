@@ -3,7 +3,7 @@ include 'auth/SessionPost.php';
 class ProductCreatePost extends ValidationId{
     use ErrorProduct;
     function __construct(){
-        parent::__construct('Product',  function($myFile, $keyBranch){
+        parent::__construct(function($myFile, $keyBranch){
             return $this->saveProduct($myFile, $keyBranch);
         }, isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');
         $this->validProductInput();

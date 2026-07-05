@@ -43,8 +43,8 @@ class AdminMenu extends InformationPage
         foreach ($this->getKeysTable() as $index => $key)
             echo'<th>'.($this->getModelPage()[$key]??$this->getModelPage()['TableHead'][$key]).'</th>';
     }
-    function __construct($IdPage, $DataView, $keysTable, $keyTitle = 'AdminDashboard', $actionPost = 'ChangeLanguagePost.php'){
-        parent::__construct($IdPage, $actionPost);
+    function __construct($DataView, $keysTable, $keyTitle = 'AdminDashboard', $actionPost = 'ChangeLanguagePost.php'){
+        parent::__construct($actionPost);
         echo '<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
         <link rel="stylesheet" href="./asset/css/aos.css">
         <link rel="stylesheet" href="./asset/css/owl.carousel.min.css">

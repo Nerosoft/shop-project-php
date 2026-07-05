@@ -3,7 +3,7 @@ include 'auth/SessionPost.php';
 class FlexTablesCreatePost extends ValidationId{
     use ErrorFlexTable;
     function __construct(){
-        parent::__construct(null, function($myFile, $idSseion){
+        parent::__construct(function($myFile, $idSseion){
             return $this->saveFlexTable($myFile, $myFile[$myFile['Setting']['AllNamesLanguage']][$this->getUrlName2()]['ErrorsMessageReq'], $idSseion);
 
         }, isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');

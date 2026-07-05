@@ -2,7 +2,7 @@
 include 'auth/SessionPost.php';
 class HomeDeletePost extends ValidationId{
     function __construct(){
-        parent::__construct('Home', function($myFile, $idSseion){
+        parent::__construct(function($myFile, $idSseion){
             return $this->deleteHome($myFile, $idSseion);
         }, 'Delete'); 
         $this->saveModel($this->deleteHome($this->getObj(), $this->getId()));
