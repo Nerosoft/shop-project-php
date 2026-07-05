@@ -8,7 +8,7 @@ if(ModelJson::getFileName() === 'SettingUsersCreatePost' || ModelJson::getFileNa
         require 'all_trait/ErrorBranch.php';
     if(ModelJson::getFileName() === 'Register' || ModelJson::getFileName() === 'RegisterPost')
         require 'all_trait/ErrorRegister.php';
-}else if(ModelJson::getFileName() === 'index' || ModelJson::getFileName() === 'Home' || ModelJson::getFileName() === 'HomeCreatePost' || ModelJson::getFileName() === 'HomeEditPost')
+}else if(ModelJson::getFileName() === 'Home' || ModelJson::getFileName() === 'HomeCreatePost' || ModelJson::getFileName() === 'HomeEditPost')
     require 'all_trait/ErrorsHome.php';
 else if(ModelJson::getFileName() === 'ChangeLanguageCreatePost' || ModelJson::getFileName() === 'ChangeLanguageEditPost' || ModelJson::getFileName() === 'ChangeLanguage' || ModelJson::getFileName() === 'MyStyle')
     require 'all_trait/ErrorChangelanguage.php';
