@@ -9,6 +9,7 @@ class ModelJson{
     function __construct(){
         $this->File = json_decode(file_get_contents('data.json'), true);
         if(
+            //page dont work if user SESSION (only logout) redirect to home
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'Login' || 
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'Register'||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLangPost'||
@@ -44,7 +45,14 @@ class ModelJson{
             header("Location:index");
             exit;
         }else if(
-            !isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "GET" && ModelJson::getFileName() !== 'Login' && ModelJson::getFileName() !== 'Register' && ModelJson::getFileName() !== 'Site'||
+            //page dont work if user not SESSION (firist login) redirect to login
+            !isset($_SESSION['userId']) && ModelJson::getFileName() === 'Branches'||
+            !isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguage'||
+            !isset($_SESSION['userId']) && ModelJson::getFileName() === 'Home'||
+            !isset($_SESSION['userId']) && ModelJson::getFileName() === 'MyStyle'||
+            !isset($_SESSION['userId']) && ModelJson::getFileName() === 'Product'||
+            !isset($_SESSION['userId']) && ModelJson::getFileName() === 'SystemLang'||
+            !isset($_SESSION['userId']) && ModelJson::getFileName() === 'Users'||
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'MyFlexTables'||
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'FlexTablesCreatePost'||
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'SettingUsersDeletePost'||
