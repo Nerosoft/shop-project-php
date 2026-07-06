@@ -84,10 +84,10 @@ class ModelJson{
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'SetupProject' && $this->getBackPage() !== 'Login' && $this->getBackPage() !== 'Register'){
             header("Location:Login");
             exit;
-        }else if($_SERVER["REQUEST_METHOD"] === "GET")
-            $this->IdPage = ModelJson::getFileName();
-        else if(ModelJson::getFileName() === 'MyFlexTables')
+        } else if(ModelJson::getFileName() === 'MyFlexTables')
             $this->IdPage = $_GET['id'];
+        else if($_SERVER["REQUEST_METHOD"] === "GET")
+            $this->IdPage = ModelJson::getFileName();
         else if(ModelJson::getFileName() === 'SystemLangEditPost' || ModelJson::getFileName() === 'BranchChangePost' || ModelJson::getFileName() === 'ChangeLanguagePost' || ModelJson::getFileName() === 'SettingUsersDeletePost' || ModelJson::getFileName() === 'FlexTablesCreatePost')
             $this->IdPage = preg_match('/SystemLang/', $this->getBackPage())?'SystemLang':(preg_match('/MyFlexTables/', $this->getBackPage())?explode('=', $this->getBackPage())[1]:$this->getBackPage());
         else
