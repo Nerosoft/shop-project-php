@@ -84,18 +84,7 @@ class ModelJson{
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'SetupProject' && $this->getBackPage() !== 'Login' && $this->getBackPage() !== 'Register'){
             header("Location:Login");
             exit;
-        }else if(
-            ModelJson::getFileName() === 'Branches'||
-            ModelJson::getFileName() === 'ChangeLanguage'||
-            ModelJson::getFileName() === 'Home'||
-            ModelJson::getFileName() === 'Login'||
-            ModelJson::getFileName() === 'MyStyle'||
-            ModelJson::getFileName() === 'Product'||
-            ModelJson::getFileName() === 'Register'||
-            ModelJson::getFileName() === 'Site'||
-            ModelJson::getFileName() === 'SystemLang'||
-            ModelJson::getFileName() === 'Users'
-            )
+        }else if($_SERVER["REQUEST_METHOD"] === "GET")
             $this->IdPage = ModelJson::getFileName();
         else if(ModelJson::getFileName() === 'MyFlexTables')
             $this->IdPage = $_GET['id'];
@@ -103,8 +92,6 @@ class ModelJson{
             $this->IdPage = preg_match('/SystemLang/', $this->getBackPage())?'SystemLang':(preg_match('/MyFlexTables/', $this->getBackPage())?explode('=', $this->getBackPage())[1]:$this->getBackPage());
         else
             $this->IdPage = $this->getBackPage();
-        // echo !isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLangPost' && $_SERVER["REQUEST_METHOD"] !== "POST"?'yes':'no';
-        // exit;
         $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['Setting']['AllNamesLanguage'];
     }
     function loginAdmin($message = 'LoginMessage'){
@@ -140,15 +127,15 @@ class ModelJson{
         return $this->IdPage;
     }
     static function getFileName(){
-        return pathinfo($_SERVER['SCRIPT_FILENAME'])['filename'] === 'index'?'Home':pathinfo($_SERVER['SCRIPT_FILENAME'])['filename'];
+        return strtolower(pathinfo($_SERVER['SCRIPT_FILENAME'])['filename']) === 'index' || strtolower(pathinfo($_SERVER['SCRIPT_FILENAME'])['filename']) === 'shop'?'Home':pathinfo($_SERVER['SCRIPT_FILENAME'])['filename'];
     }
     function getBackPage(){
-        return isset($_SESSION['userId']) && isset($_SERVER['HTTP_REFERER']) && 
-        preg_match('/SystemLang/', ucfirst(pathinfo($_SERVER['HTTP_REFERER'])['filename'])) ||
-        isset($_SESSION['userId']) && isset($_SERVER['HTTP_REFERER']) && 
-        preg_match('/MyFlexTables/', ucfirst(pathinfo($_SERVER['HTTP_REFERER'])['filename'])) &&
-        isset($this->getFile()[$_SESSION['userId']][$this->getFile()[$_SESSION['userId']]['Setting']['AllNamesLanguage']]['MyFlexTables'][explode('=', pathinfo($_SERVER['HTTP_REFERER'])['filename'])[1]??''])
-        || isset($_SERVER['HTTP_REFERER']) && isset($this->getFile()[isset($_SESSION['userId'])?$_SESSION['userId']:$_POST['superId']][$this->getFile()[isset($_SESSION['userId'])?$_SESSION['userId']:$_POST['superId']]['Setting']['AllNamesLanguage']]['Menu'][ucfirst(pathinfo($_SERVER['HTTP_REFERER'])['filename'])])?ucfirst(pathinfo($_SERVER['HTTP_REFERER'])['filename']):(isset($_SESSION['userId'])?'Home':'Login');
+        if(isset($_SERVER['HTTP_REFERER']))
+            return strtolower(pathinfo($_SERVER['HTTP_REFERER'])['filename']) === 'index' || strtolower(pathinfo($_SERVER['HTTP_REFERER'])['filename']) === 'shop'?'Home':ucfirst(pathinfo($_SERVER['HTTP_REFERER'])['filename']);
+        else{
+            header('Location:index');
+            exit;
+        }
     }
     function getFile(){
         return $this->File;
