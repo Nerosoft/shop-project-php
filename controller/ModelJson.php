@@ -127,7 +127,7 @@ class ModelJson{
         return $this->IdPage;
     }
     static function getFileName(){
-        return strtolower(pathinfo($_SERVER['SCRIPT_FILENAME'])['filename']) === 'index' || strtolower(pathinfo($_SERVER['SCRIPT_FILENAME'])['filename']) === 'shop'?'Home':pathinfo($_SERVER['SCRIPT_FILENAME'])['filename'];
+        return pathinfo($_SERVER['SCRIPT_FILENAME'])['filename'] === 'index'?'Home':pathinfo($_SERVER['SCRIPT_FILENAME'])['filename'];
     }
     function getBackPage(){
         if(isset($_SERVER['HTTP_REFERER']))
