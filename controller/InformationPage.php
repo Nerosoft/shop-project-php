@@ -20,6 +20,10 @@ class InformationPage extends ModelJson{
     private $ActiveBranch;
     private $ChangeTitleBranch;
     private $ChangeButtonBranch;
+    private $StyleFile;
+    function getStyleFile(){
+        return $this->StyleFile;
+    }
     function getActiveBranch(){
         return $this->ActiveBranch;
     }
@@ -71,6 +75,8 @@ class InformationPage extends ModelJson{
     }
     function __construct($action){
         parent::__construct();
+        $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Setting']['Style'];
+
         if(isset($_GET['id']) && !isset($_SESSION['userId']))
             setcookie('branchId', $_GET['id'], time()+2628000);
         $this->styleLangAction = $action;

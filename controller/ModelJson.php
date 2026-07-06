@@ -5,7 +5,6 @@ class ModelJson{
     private $File;
     private $IdPage;
     private $Language;
-    private $StyleFile;
     function __construct(){
         $this->File = json_decode(file_get_contents('data.json'), true);
         if(
@@ -107,7 +106,6 @@ class ModelJson{
         // echo !isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLangPost' && $_SERVER["REQUEST_METHOD"] !== "POST"?'yes':'no';
         // exit;
         $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['Setting']['AllNamesLanguage'];
-        $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Setting']['Style'];
     }
     function loginAdmin($message = 'LoginMessage'){
         $message = $this->getModelPage()[$message];
@@ -125,9 +123,6 @@ class ModelJson{
     }
     function getRandomId(){
         return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 2) . substr(uniqid(), -6);
-    }
-    function getStyleFile(){
-        return $this->StyleFile;
     }
     function getModel2(){
         return $this->getObj()[$this->getLanguage()];
