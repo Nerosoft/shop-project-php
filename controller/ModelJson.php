@@ -116,7 +116,7 @@ class ModelJson{
             exit;
         } else if(ModelJson::getFileName() === 'MyFlexTables' || ModelJson::getFileName() === 'FlexTablesCreatePost' || ModelJson::getFileName() === 'SettingUsersDeletePost' || ModelJson::getFileName() === 'BranchChangePost' || ModelJson::getFileName() === 'ChangeLanguagePost' || ModelJson::getFileName() === 'ChangeLangPost' || ModelJson::getFileName() === 'SetupProject' || ModelJson::getFileName() === 'ChangeLanguageEditPost')
             $this->IdPage = $_GET['id'];
-        else//BranchCreatePost BranchEditPost BranchDeletePost SettingUsersCreatePost ProductCreatePost HomeEditPost HomeDeletePost HomeCreatePost ChangeLanguageDeletePost ChangeLanguageCreatePost
+        else//all view page and LoginForgetPasswordPost LoginPost RegisterPost BranchCreatePost BranchEditPost BranchDeletePost SettingUsersCreatePost ProductCreatePost HomeEditPost HomeDeletePost HomeCreatePost ChangeLanguageDeletePost ChangeLanguageCreatePost
             $this->IdPage = $idPage;
 
            
@@ -186,7 +186,7 @@ class ModelJson{
             return $this->File[$this->getFixedId()]['Branches'];
         else
             foreach ($this->getFile() as $key => $obj)
-                if(isset($obj['Branches']) && in_array(isset($_GET['id'])?$_GET['id']:$this->getId(), array_keys($obj['Branches'])))
+                if(isset($obj['Branches']) && in_array($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id'])?$_GET['id']:$this->getId(), array_keys($obj['Branches'])))
                     return $obj['Branches']; 
     }
     function getBranch2(){
@@ -209,12 +209,12 @@ class ModelJson{
     }
     function showError($error){
         $_SESSION['error'] = $error;
-        header('Location:'.$this->getBackPage());
+        header('Location:'.($this->getModel2()['MyFlexTables'][$this->getUrlName2()] || $this->getUrlName2() === 'SystemLang'?$this->getBackPage():$this->getUrlName2()));
         exit;
     }
     function showMessage($message){
         $_SESSION['message'] = $message;
-        header('Location:'.$this->getBackPage());
+        header('Location:'.($this->getModel2()['MyFlexTables'][$this->getUrlName2()] || $this->getUrlName2() === 'SystemLang'?$this->getBackPage():$this->getUrlName2()));
         exit;
     }
     function showMessageHome($message){
