@@ -4,7 +4,7 @@ class Login extends LoginRegister{
     private $ModalForgetPasswordTitle;
     private $ModalForgetPasswordButton;
     function __construct(){
-        parent::__construct();
+        parent::__construct('Login');
         $this->ButtonForgetPassword = $this->getModelPage()['ButtonForgetPassword'];
         $this->ModalForgetPasswordTitle = $this->getModelPage()['ModalForgetPasswordTitle'];
         $this->ModalForgetPasswordButton = $this->getModelPage()['ModalForgetPasswordButton'];

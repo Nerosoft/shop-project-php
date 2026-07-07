@@ -4,7 +4,7 @@ class MyChangeLanguage extends AdminMenu{
     use InfoChangeLangStyle;
     private $SelectLang;
     function __construct(){
-        parent::__construct(function(){
+        parent::__construct('ChangeLanguage', function(){
             $this->SelectLang = $this->getModelPage()['LanguageSelect'];
             return array_reverse(MyLanguage::fromArray($this->getModel2()['AllNamesLanguage']));
         }, MyLanguage::getKeysObject());

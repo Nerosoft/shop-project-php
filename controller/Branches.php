@@ -22,7 +22,7 @@ class MyBranch extends AdminMenu implements InterfaceDataView{
         return $this->IdBranch;
      }
     function __construct(){
-        parent::__construct(function(){
+        parent::__construct('Branches', function(){
             $this->initInfoBranch();
             $this->initErrorBranch();
             $this->IdBranch = $this->getModelPage()['IdBranch'];

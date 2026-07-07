@@ -3,7 +3,7 @@ include 'auth/SessionPost.php';
 class RegisterPost extends ValidationId{
     use ErrorRegister, ErrorsEmailPassword;
     function __construct(){
-        parent::__construct();
+        parent::__construct(null, null, 'Register');
         //valid confirm password
         $this->initErrorsRegister2();
         $this->saveModel($this->initErrorsKeyPassword2($this->getObj()));

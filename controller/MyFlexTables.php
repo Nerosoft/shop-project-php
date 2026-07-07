@@ -6,7 +6,7 @@ class MyFlexTablesView extends AdminMenu implements InterfaceDataView{
     private $Label;
     private $Hint;
     function __construct(){
-        parent::__construct(function(){
+        parent::__construct($_GET['id']??'', function(){
             $this->initErrorFlexTable();
             $this->initImageInfo();
             $this->TableHead = $this->getModelPage()['TableHead'];

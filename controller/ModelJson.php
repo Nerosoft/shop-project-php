@@ -116,10 +116,10 @@ class ModelJson{
             exit;
         } else if(ModelJson::getFileName() === 'MyFlexTables' || ModelJson::getFileName() === 'FlexTablesCreatePost' || ModelJson::getFileName() === 'SettingUsersDeletePost' || ModelJson::getFileName() === 'BranchChangePost' || ModelJson::getFileName() === 'ChangeLanguagePost' || ModelJson::getFileName() === 'ChangeLangPost' || ModelJson::getFileName() === 'SetupProject' || ModelJson::getFileName() === 'ChangeLanguageEditPost')
             $this->IdPage = $_GET['id'];
-        else if($_SERVER["REQUEST_METHOD"] === "GET")
-            $this->IdPage = ModelJson::getFileName();
         else//BranchCreatePost BranchEditPost BranchDeletePost SettingUsersCreatePost ProductCreatePost HomeEditPost HomeDeletePost HomeCreatePost ChangeLanguageDeletePost ChangeLanguageCreatePost
             $this->IdPage = $idPage;
+
+           
         $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['Setting']['AllNamesLanguage'];
     }
     function loginAdmin($message = 'LoginMessage'){

@@ -9,7 +9,7 @@ class MyHome extends AdminMenu implements InterfaceDataView{
     private $LabelName;
     private $HintName;
     function __construct(){
-        parent::__construct(function(){
+        parent::__construct('Home', function(){
             $this->initErrorsHome();
             $this->LabelName = $this->getModelPage()['LabelName'];
             $this->HintName = $this->getModelPage()['HintName'];

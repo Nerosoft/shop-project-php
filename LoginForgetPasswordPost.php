@@ -3,7 +3,7 @@ include 'auth/SessionPost.php';
 class LoginForgetPasswordPost extends ValidationId{
     use ErrorsEmailPassword;
     function __construct(){
-        parent::__construct();
+        parent::__construct(null, null, 'Login');
         $myData = $this->getObj();
         if(isset($myData['Users']))
             //valid key email and email
