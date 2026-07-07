@@ -3,10 +3,10 @@ include 'auth/SessionPost.php';
 class ChangeLangPost extends ValidationId{
     function __construct(){  
         parent::__construct();
+        //importaint page don change super id refresh page if change branch to rest super id
         if($_POST['state'] === 'branch' || $_POST['state'] === 'branch2'){
             setcookie('branchId', $this->keyId, time()+2628000);
             $_COOKIE['branchId'] = $this->keyId;
-            $_POST['superId'] =  $this->keyId;
         }
         else{
             setcookie($this->getId().$_POST['state'], $this->keyId, time()+2628000);
