@@ -19,10 +19,10 @@ class ModelJson{
             //-----------------------------
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'MyFlexTables' && !isset($_GET['id'])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            isset($_SESSION['userId']) && ModelJson::getFileName() === 'MyFlexTables' && !isset($this->getFile()[$_SESSION['userId']][$this->getFile()[$_SESSION['userId']]['Setting']['AllNamesLanguage']]['MyFlexTables'][$_GET['id']]) ||
-            isset($_SESSION['userId']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !preg_match('/MyFlexTables/', $this->getBackPage()) ||
+            isset($_SESSION['userId']) && ModelJson::getFileName() === 'MyFlexTables' && !isset($this->getObj()[$this->getObj()['Setting']['AllNamesLanguage']]['MyFlexTables'][$_GET['id']]) ||
+            isset($_SESSION['userId']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($this->getObj()[$this->getObj()['Setting']['AllNamesLanguage']]['MyFlexTables'][explode('=', $this->getBackPage())[1]??'']) ||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'SettingUsersDeletePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            isset($_SESSION['userId']) && ModelJson::getFileName() === 'SettingUsersDeletePost' && $this->getBackPage() !== 'Users' && $this->getBackPage() !== 'Product' && !preg_match('/MyFlexTables/', $this->getBackPage())||
+            isset($_SESSION['userId']) && ModelJson::getFileName() === 'SettingUsersDeletePost' && $this->getBackPage() !== 'Users' && $this->getBackPage() !== 'Product' && !isset($this->getObj()[$this->getObj()['Setting']['AllNamesLanguage']]['MyFlexTables'][explode('=', $this->getBackPage())[1]??''])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'BranchChangePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'BranchCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'BranchDeletePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
@@ -89,7 +89,7 @@ class ModelJson{
         else if($_SERVER["REQUEST_METHOD"] === "GET")
             $this->IdPage = ModelJson::getFileName();
         else if(ModelJson::getFileName() === 'SystemLangEditPost' || ModelJson::getFileName() === 'BranchChangePost' || ModelJson::getFileName() === 'ChangeLanguagePost' || ModelJson::getFileName() === 'SettingUsersDeletePost' || ModelJson::getFileName() === 'FlexTablesCreatePost')
-            $this->IdPage = preg_match('/SystemLang/', $this->getBackPage())?'SystemLang':(preg_match('/MyFlexTables/', $this->getBackPage())?explode('=', $this->getBackPage())[1]:$this->getBackPage());
+            $this->IdPage = preg_match('/SystemLang/', $this->getBackPage())?'SystemLang':(isset($this->getObj()[$this->getObj()['Setting']['AllNamesLanguage']]['MyFlexTables'][explode('=', $this->getBackPage())[1]??''])?explode('=', $this->getBackPage())[1]:$this->getBackPage());
         else
             $this->IdPage = $this->getBackPage();
         $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['Setting']['AllNamesLanguage'];
