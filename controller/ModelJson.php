@@ -89,7 +89,7 @@ class ModelJson{
         else if($_SERVER["REQUEST_METHOD"] === "GET")
             $this->IdPage = ModelJson::getFileName();
         else if(ModelJson::getFileName() === 'SystemLangEditPost' || ModelJson::getFileName() === 'BranchChangePost' || ModelJson::getFileName() === 'ChangeLanguagePost' || ModelJson::getFileName() === 'SettingUsersDeletePost' || ModelJson::getFileName() === 'FlexTablesCreatePost')
-            $this->IdPage = preg_match('/SystemLang/', $this->getBackPage())?'SystemLang':(isset($this->getObj()[$this->getObj()['Setting']['AllNamesLanguage']]['MyFlexTables'][explode('=', $this->getBackPage())[1]??''])?explode('=', $this->getBackPage())[1]:$this->getBackPage());
+            $this->IdPage = preg_match('/SystemLang/', $this->getBackPage())?'SystemLang':(isset($this->getObj()[$this->getObj()['Setting']['AllNamesLanguage']]['MyFlexTables'][explode('=', $this->getBackPage())[1]??''])?explode('=', $this->getBackPage())[1]:(preg_match('/MyFlexTables/', $this->getBackPage())?'Home':$this->getBackPage()));
         else
             $this->IdPage = $this->getBackPage();
         $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['Setting']['AllNamesLanguage'];
