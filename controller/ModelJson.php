@@ -24,6 +24,7 @@ class ModelJson{
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'SettingUsersDeletePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'SettingUsersDeletePost' && $this->getBackPage() !== 'Users' && $this->getBackPage() !== 'Product' && !isset($this->getObj()[$this->getObj()['Setting']['AllNamesLanguage']]['MyFlexTables'][explode('=', $this->getBackPage())[1]??''])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'BranchChangePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
+            isset($_SESSION['userId']) && ModelJson::getFileName() === 'BranchChangePost' && preg_match('/MyFlexTables/', $this->getBackPage()) && !isset($this->getObj()[$this->getObj()['Setting']['AllNamesLanguage']]['MyFlexTables'][explode('=', $this->getBackPage())[1]??''])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'BranchCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'BranchDeletePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'BranchEditPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
@@ -36,8 +37,9 @@ class ModelJson{
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'SettingUsersCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'SystemLangEditPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguageEditPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguagePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguageEditPost' && $this->getBackPage() !== 'ChangeLanguage' && $this->getBackPage() !== 'MyStyle'||
+            isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguagePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
+            isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguagePost' && preg_match('/MyFlexTables/', $this->getBackPage()) && !isset($this->getObj()[$this->getObj()['Setting']['AllNamesLanguage']]['MyFlexTables'][explode('=', $this->getBackPage())[1]??''])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($_POST['state'])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguagePost' && $_POST['state'] !== 'Style' && $_POST['state'] !== 'AllNamesLanguage'
             ){
@@ -89,7 +91,7 @@ class ModelJson{
         else if($_SERVER["REQUEST_METHOD"] === "GET")
             $this->IdPage = ModelJson::getFileName();
         else if(ModelJson::getFileName() === 'SystemLangEditPost' || ModelJson::getFileName() === 'BranchChangePost' || ModelJson::getFileName() === 'ChangeLanguagePost' || ModelJson::getFileName() === 'SettingUsersDeletePost' || ModelJson::getFileName() === 'FlexTablesCreatePost')
-            $this->IdPage = preg_match('/SystemLang/', $this->getBackPage())?'SystemLang':(isset($this->getObj()[$this->getObj()['Setting']['AllNamesLanguage']]['MyFlexTables'][explode('=', $this->getBackPage())[1]??''])?explode('=', $this->getBackPage())[1]:(preg_match('/MyFlexTables/', $this->getBackPage())?'Home':$this->getBackPage()));
+            $this->IdPage = preg_match('/SystemLang/', $this->getBackPage())?'SystemLang':(isset($this->getObj()[$this->getObj()['Setting']['AllNamesLanguage']]['MyFlexTables'][explode('=', $this->getBackPage())[1]])?explode('=', $this->getBackPage())[1]:$this->getBackPage());
         else
             $this->IdPage = $this->getBackPage();
         $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['Setting']['AllNamesLanguage'];
