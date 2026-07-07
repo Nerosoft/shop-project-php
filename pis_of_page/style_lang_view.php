@@ -10,7 +10,7 @@ foreach ($view->getMyDataView() as $index => $myObject) {
     $title = $view->getScreenModelEdit();
     $button = $view->getButtonModelEdit();
     $idModel = "editModel".$index;
-    $action = 'ChangeLanguageEditPost';
+    $action = 'ChangeLanguageEditPost?id='.$view->getUrlName2();
     include('all_modal/modal_change_language.php');
     include('all_modal/end_model.php');
     include 'pis_of_page/button_edit.php';

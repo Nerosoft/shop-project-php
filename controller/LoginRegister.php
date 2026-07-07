@@ -67,7 +67,7 @@ class LoginRegister extends InformationPage{
         return $this->RegisterLoginPage;
     }
     function __construct($action = 'LoginPost.php'){
-        parent::__construct('ChangeLangPost.php');
+        parent::__construct('ChangeLangPost?id='.ModelJson::getFileName());
         $this->BranchLabel = $this->getModelPage()['BranchLabel'];
         $this->ChangeStyleButton = $this->getModelPage()['ChangeStyleButton'];
         $this->ChangeLanguageButton = $this->getModelPage()['ChangeLanguageButton']; foreach ($this->getFile() as $key => $obj)

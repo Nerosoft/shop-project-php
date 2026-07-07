@@ -4,7 +4,7 @@ class HomeDeletePost extends ValidationId{
     function __construct(){
         parent::__construct(function($myFile, $idSseion){
             return $this->deleteHome($myFile, $idSseion);
-        }, 'Delete'); 
+        }, 'Delete', 'Home'); 
         $this->saveModel($this->deleteHome($this->getObj(), $this->getId()));
         $this->showMessage($this->getModelPage()['Delete']);
     }

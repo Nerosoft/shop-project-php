@@ -8,7 +8,7 @@ include 'button_valid.php';
 <?php 
     $title = $view->getModalTitleProject();
     $button = $view->getModalButtonProject();
-    $action = 'SetupProject.php';
+    $action = 'SetupProject?id='.$view->getUrlName2();
     $idModel = "setupprojectmodal";   
     include 'all_modal/show_password.php';
     include 'all_modal/model_branch_inputs.php';

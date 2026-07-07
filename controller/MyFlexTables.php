@@ -25,7 +25,7 @@ class MyFlexTablesView extends AdminMenu implements InterfaceDataView{
         return $this->Hint;
     }
     function makeCreateModal($view, $title, $button, $idModel = 'createModel', $index = null, $myObject = null){
-        $action = 'FlexTablesCreatePost';
+        $action = 'FlexTablesCreatePost?id='.$this->getUrlName2();
         include('all_modal/modal_flex.php');
     }
 }

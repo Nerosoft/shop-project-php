@@ -5,7 +5,7 @@ class ProductCreatePost extends ValidationId{
     function __construct(){
         parent::__construct(function($myFile, $keyBranch){
             return $this->saveProduct($myFile, $keyBranch);
-        }, isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');
+        }, isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate', 'Product');
         $this->validProductInput();
         $this->saveModel($this->saveProduct($this->getObj(), $this->getId()));
         $this->showMessage($this->getModelPage()[isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate']);

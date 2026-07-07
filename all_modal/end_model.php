@@ -51,7 +51,7 @@ else if(count($view->getBranch2()) >= 1 && isset($view->getModel2()['MyFlexTable
 }
 else if(isset($index) && $index !== null && !isset($state))
     include('my_id.php');
-else if($action !== 'BranchChangePost.php' && count($view->getBranch2()) >= 1 && $view->getUrlName2() !== 'Branches' || $action !== 'BranchChangePost.php' && count($view->getBranch2()) >= 1 && $view->getUrlName2() === 'Branches' && isset($state))
+else if(!preg_match('/BranchChangePost/', $action) && count($view->getBranch2()) >= 1 && $view->getUrlName2() !== 'Branches' || !preg_match('/BranchChangePost/', $action) && count($view->getBranch2()) >= 1 && $view->getUrlName2() === 'Branches' && isset($state))
     include 'AllBranchOptionChose.php';
 ?>
 </div>

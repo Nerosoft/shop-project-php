@@ -38,7 +38,7 @@ class Site extends AdminMenu{
     function __construct(){
         parent::__construct(function (){
             return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
-        }, null, 'AdminDashboard2', isset($_SESSION['userId'])?'ChangeLanguagePost.php':'ChangeLangPost.php');
+        }, null, 'AdminDashboard2', (isset($_SESSION['userId'])?'ChangeLanguagePost':'ChangeLangPost').'?id='.ModelJson::getFileName());
         $this->About = $this->getModelPage()['About'];
         $this->Product = $this->getModelPage()['Product'];
         $this->Contact = $this->getModelPage()['Contact'];

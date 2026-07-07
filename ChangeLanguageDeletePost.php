@@ -4,7 +4,7 @@ class ChangeLanguageDeletePost extends ValidationId{
     function __construct(){
         parent::__construct(function($myFile){
             return $this->deleteLanguage($myFile);
-        }, 'Delete');
+        }, 'Delete', 'ChangeLanguage');
         $this->saveModel($this->deleteLanguage($this->getObj()));
         $this->showMessage($this->getModelPage()['Delete']);
     }

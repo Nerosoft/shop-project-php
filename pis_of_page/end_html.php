@@ -109,7 +109,7 @@
         $state = 'branch';
         $data = $view->getMyBranch();
         if(isset($_SESSION['userId']))
-            $view->setActionStyleLang('BranchChangePost.php');
+            $view->setActionStyleLang('BranchChangePost?id='.$view->getUrlName2());
         include 'all_modal/style_lang_form.php';
 ?>
         <script type="text/javascript">
