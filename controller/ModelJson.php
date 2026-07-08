@@ -17,6 +17,7 @@ class ModelJson{
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'LoginForgetPasswordPost'||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'SetupProject'||
             //-----------------------------
+            isset($_SESSION['userId']) && ModelJson::getFileName() === 'SystemLang' && isset($_GET['lang']) && isset($_GET['table']) && !isset($this->getObj()[$_GET['lang']][$_GET['table']])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'MyFlexTables' && !isset($_GET['id'])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'MyFlexTables' && !isset($this->getObj()[$this->getObj()['Setting']['AllNamesLanguage']]['MyFlexTables'][$_GET['id']]) ||

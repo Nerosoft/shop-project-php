@@ -16,16 +16,16 @@ class MySystemlang extends AdminMenu implements InterfaceDataView{
             $this->LanguageSelectAll = $this->getModelPage()['LanguageSelectAll'];
             $this->Text = $this->getModelPage()['Text'];
             $this->WordHint = $this->getModelPage()['WordHint'];
-            if(isset($_GET['lang']) && isset($_GET['table']) && isset($this->getObj()[$_GET['lang']][$_GET['table']]))
+            if(isset($_GET['lang']) && isset($_GET['table']))
                 return $this->getObj()[$_GET['lang']][$_GET['table']];
-            else if(!(isset($_GET['lang']) && isset($_GET['table']))){
+            else{
                 $tableData = array();
                 foreach ($this->getModel2()['AllNamesLanguage'] as $key=>$value)
                     $tableData[$key] = $this->getObj()[$key];
                 return $tableData;
             }
-            else
-                return array();
+            // else
+            //     return array();
         }, !(isset($_GET['lang']) && isset($_GET['table']))?array('LanguageName', 'LanguageValue'):array('LanguageValue'));
     }
     function getText(){
