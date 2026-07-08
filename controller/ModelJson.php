@@ -159,7 +159,8 @@ class ModelJson{
         if(isset($_SERVER['HTTP_REFERER']))
             return strtolower(pathinfo($_SERVER['HTTP_REFERER'])['filename']) === 'index' || strtolower(pathinfo($_SERVER['HTTP_REFERER'])['filename']) === 'shop'?'Home':ucfirst(pathinfo($_SERVER['HTTP_REFERER'])['filename']);
         else{
-            header('Location:index');
+            // header('Location:'.(isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()])?('MyFlexTables?id='.$this->getUrlName2()):($this->getUrlName2()==='SystemLang'?(isset($_GET['lang']) && isset($_GET['table'])?('SystemLang?lang='.$_GET['lang'].'&table='.$_GET['table']):'SystemLang'):$this->getUrlName2())));
+            header('Location:'.(isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()])?('MyFlexTables?id='.$this->getUrlName2()):$this->getUrlName2()));
             exit;
         }
     }
@@ -207,12 +208,12 @@ class ModelJson{
     }
     function showError($error){
         $_SESSION['error'] = $error;
-        header('Location:'.($this->getModel2()['MyFlexTables'][$this->getUrlName2()] || $this->getUrlName2() === 'SystemLang'?$this->getBackPage():$this->getUrlName2()));
+        header('Location:'.$this->getBackPage());
         exit;
     }
     function showMessage($message){
         $_SESSION['message'] = $message;
-        header('Location:'.($this->getModel2()['MyFlexTables'][$this->getUrlName2()] || $this->getUrlName2() === 'SystemLang'?$this->getBackPage():$this->getUrlName2()));
+        header('Location:'.$this->getBackPage());
         exit;
     }
     function showMessageHome($message){
