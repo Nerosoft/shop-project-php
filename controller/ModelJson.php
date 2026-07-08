@@ -156,13 +156,10 @@ class ModelJson{
         return pathinfo($_SERVER['SCRIPT_FILENAME'])['filename'] === 'index'?'Home':pathinfo($_SERVER['SCRIPT_FILENAME'])['filename'];
     }
     function getBackPage(){
-        if(isset($_SERVER['HTTP_REFERER']))
-            return strtolower(pathinfo($_SERVER['HTTP_REFERER'])['filename']) === 'index' || strtolower(pathinfo($_SERVER['HTTP_REFERER'])['filename']) === 'shop'?'Home':ucfirst(pathinfo($_SERVER['HTTP_REFERER'])['filename']);
-        else{
-            // header('Location:'.(isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()])?('MyFlexTables?id='.$this->getUrlName2()):($this->getUrlName2()==='SystemLang'?(isset($_GET['lang']) && isset($_GET['table'])?('SystemLang?lang='.$_GET['lang'].'&table='.$_GET['table']):'SystemLang'):$this->getUrlName2())));
-            header('Location:'.(isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()])?('MyFlexTables?id='.$this->getUrlName2()):$this->getUrlName2()));
-            exit;
-        }
+        if($this->getUrlName2() === 'SystemLang' && isset($_SERVER['HTTP_REFERER']) && preg_match('/SystemLang/',pathinfo($_SERVER['HTTP_REFERER'])['filename']))
+            return ucfirst(pathinfo($_SERVER['HTTP_REFERER'])['filename']);
+        else
+            return isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()])?('MyFlexTables?id='.$this->getUrlName2()):$this->getUrlName2();
     }
     function getFile(){
         return $this->File;
