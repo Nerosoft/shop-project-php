@@ -15,10 +15,8 @@ class SetupProject extends ValidationId{
     }
     function getProject(){
         return array(
-            "Setting"=> [
-                "AllNamesLanguage"=> "english",
-                "Style"=> "default"
-            ],
+            "AllNamesLanguage"=> "english",
+            "Style"=> "default",
             "english"=> [
                 "Site"=> [
                     "AllBranches"=> "All branches",
