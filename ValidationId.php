@@ -88,14 +88,14 @@ class ValidationId extends ModelJson{
                 //use $IdPage only(users and product)
                 //style dont create use getUrlName2
                 else if(isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]) ||
-                    !isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$this->getUrlName2()]) ||
+                    !isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$this->getUrlName2()]) ||
                     
-                    ModelJson::getFileName() === 'ChangeLanguageEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$this->getUrlName2() === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
-                    ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_POST['state']][$_POST['id']]) ||
+                    ModelJson::getFileName() === 'ChangeLanguageEditPost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$this->getUrlName2() === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
+                    ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$_POST['state']][$_POST['id']]) ||
                     ModelJson::getFileName() === 'ChangeLanguageDeletePost' && !isset($myFile[$key][$_POST['id']]) ||
                     ModelJson::getFileName() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english' ||
-                    ModelJson::getFileName() === 'HomeEditPost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_POST['id']]) ||
-                    ModelJson::getFileName() === 'HomeDeletePost' && !isset($myFile[$key][$myFile[$key]['Setting']['AllNamesLanguage']][$_POST['id']]) ||
+                    ModelJson::getFileName() === 'HomeEditPost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$_POST['id']]) ||
+                    ModelJson::getFileName() === 'HomeDeletePost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$_POST['id']]) ||
                   
                 ModelJson::getFileName() === 'ProductDeletePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']])||
                 //valid users and flex table getUrlName2

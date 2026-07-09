@@ -6,7 +6,7 @@ include 'auth/SessionPost.php';
     function __construct(){
         
         parent::__construct(function($myFile){
-            return $this->saveFelxTable($myFile[$myFile['Setting']['AllNamesLanguage']]['AllNamesLanguage'], $myFile);
+            return $this->saveFelxTable($myFile[$myFile['AllNamesLanguage']]['AllNamesLanguage'], $myFile);
         }, 'MessageModelCreate', 'Home'); 
         $this->saveModel($this->saveFelxTable($this->getModel2()['AllNamesLanguage'], $this->getObj()));
         $this->showMessage($this->getModelPage()['MessageModelCreate']);

@@ -75,7 +75,7 @@ class InformationPage extends ModelJson{
     }
     function __construct($idPage, $action){
         parent::__construct($idPage);
-        $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Setting']['Style'];
+        $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Style'];
 
         if(isset($_GET['id']) && !isset($_SESSION['userId']) && $this->getBranch()[$_GET['id']])
             setcookie('branchId', $_GET['id'], time()+2628000);

@@ -25,12 +25,12 @@ else if(count($view->getBranch2()) >= 1 && isset($view->getModel2()['MyFlexTable
     foreach($view->getBranch2() as $key=>$option){
         if(
             $view->getUrlName2() === 'MyStyle' ||
-            $view->getUrlName2() === 'Home' && isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['AllNamesLanguage']][$index])||
+            $view->getUrlName2() === 'Home' && isset($view->getFile()[$key][$view->getFile()[$key]['AllNamesLanguage']][$index])||
             $view->getUrlName2() === 'ChangeLanguage' && isset($view->getFile()[$key][$index])||
             $view->getUrlName2() === 'Users' && isset($view->getFile()[$key]['Users'][$index])||
             $view->getUrlName2() === 'Product' && isset($view->getFile()[$key]['Product'][$index])||
-            $index !== null && isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['AllNamesLanguage']]['MyFlexTables'][$view->getUrlName2()]) && isset($view->getFile()[$key][$view->getUrlName2()][$index])||
-            $index === null && isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['AllNamesLanguage']]['MyFlexTables'][$view->getUrlName2()])){
+            $index !== null && isset($view->getFile()[$key][$view->getFile()[$key]['AllNamesLanguage']]['MyFlexTables'][$view->getUrlName2()]) && isset($view->getFile()[$key][$view->getUrlName2()][$index])||
+            $index === null && isset($view->getFile()[$key][$view->getFile()[$key]['AllNamesLanguage']]['MyFlexTables'][$view->getUrlName2()])){
             ++$myCountBranch;
             echo <<<HTML
                 <div class="col-md-auto">

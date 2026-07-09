@@ -54,7 +54,7 @@ class MyBranch extends AdminMenu implements InterfaceDataView{
                 foreach($view->getBranch() as $key=>$name){
                         $select = $key === $view->getId()? 'selected' : '';
                         $arr = array();
-                        if(isset($view->getFile()[$key][$view->getFile()[$key]['Setting']['AllNamesLanguage']]['MyFlexTables']))
+                        if(isset($view->getFile()[$key][$view->getFile()[$key]['AllNamesLanguage']]['MyFlexTables']))
                             $arr['flextable'] = $view->getFlexTable();
                         if(isset($view->getFile()[$key]['Users']))
                             $arr['Users'] = $view->getSettingAccounts();

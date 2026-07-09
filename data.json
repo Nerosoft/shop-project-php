@@ -1,9 +1,7 @@
 {
     "admin": {
-        "Setting": {
-            "AllNamesLanguage": "english",
-            "Style": "default"
-        },
+        "AllNamesLanguage": "english",
+        "Style": "default",
         "english": {
             "Site": {
                 "AllBranches": "All branches",
@@ -1739,10 +1737,8 @@
         }
     },
     "zW5be14c": {
-        "Setting": {
-            "AllNamesLanguage": "english",
-            "Style": "default"
-        },
+        "AllNamesLanguage": "english",
+        "Style": "default",
         "english": {
             "Site": {
                 "AllBranches": "All branches",

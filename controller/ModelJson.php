@@ -20,15 +20,15 @@ class ModelJson{
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'SystemLang' && isset($_GET['lang']) && isset($_GET['table']) && !isset($this->getObj()[$_GET['lang']][$_GET['table']])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'MyFlexTables' && !isset($_GET['id'])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            isset($_SESSION['userId']) && ModelJson::getFileName() === 'MyFlexTables' && !isset($this->getObj()[$this->getObj()['Setting']['AllNamesLanguage']]['MyFlexTables'][$_GET['id']]) ||
-            isset($_SESSION['userId']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($this->getObj()[$this->getObj()['Setting']['AllNamesLanguage']]['MyFlexTables'][$_GET['id']??'']) ||
+            isset($_SESSION['userId']) && ModelJson::getFileName() === 'MyFlexTables' && !isset($this->getObj()[$this->getObj()['AllNamesLanguage']]['MyFlexTables'][$_GET['id']]) ||
+            isset($_SESSION['userId']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($this->getObj()[$this->getObj()['AllNamesLanguage']]['MyFlexTables'][$_GET['id']??'']) ||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'SettingUsersDeletePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'SettingUsersDeletePost' && !isset($_GET['id'])||
-            isset($_SESSION['userId']) && ModelJson::getFileName() === 'SettingUsersDeletePost' && $_GET['id'] !== 'Users' && $_GET['id'] !== 'Product' && !isset($this->getObj()[$this->getObj()['Setting']['AllNamesLanguage']]['MyFlexTables'][$_GET['id']])||
+            isset($_SESSION['userId']) && ModelJson::getFileName() === 'SettingUsersDeletePost' && $_GET['id'] !== 'Users' && $_GET['id'] !== 'Product' && !isset($this->getObj()[$this->getObj()['AllNamesLanguage']]['MyFlexTables'][$_GET['id']])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'BranchChangePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'BranchChangePost' && !isset($_GET['id'])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'BranchChangePost' && 
-            !isset($this->getObj()[$this->getObj()['Setting']['AllNamesLanguage']]['MyFlexTables'][$_GET['id']]) &&
+            !isset($this->getObj()[$this->getObj()['AllNamesLanguage']]['MyFlexTables'][$_GET['id']]) &&
             $_GET['id'] !== 'SystemLang' &&
             $_GET['id'] !== 'Home' && 
             $_GET['id'] !== 'Branches' &&
@@ -54,7 +54,7 @@ class ModelJson{
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguagePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($_GET['id'])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguagePost' && 
-            !isset($this->getObj()[$this->getObj()['Setting']['AllNamesLanguage']]['MyFlexTables'][$_GET['id']]) &&
+            !isset($this->getObj()[$this->getObj()['AllNamesLanguage']]['MyFlexTables'][$_GET['id']]) &&
             $_GET['id'] !== 'SystemLang' &&
             $_GET['id'] !== 'Home' && 
             $_GET['id'] !== 'Branches' &&
@@ -119,7 +119,7 @@ class ModelJson{
             $this->IdPage = $_GET['id'];
         else//all view page and LoginForgetPasswordPost LoginPost RegisterPost BranchCreatePost BranchEditPost BranchDeletePost SettingUsersCreatePost ProductCreatePost HomeEditPost HomeDeletePost HomeCreatePost ChangeLanguageDeletePost ChangeLanguageCreatePost
             $this->IdPage = $idPage;
-        $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['Setting']['AllNamesLanguage'];
+        $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['AllNamesLanguage'];
     }
     function loginAdmin($message = 'LoginMessage'){
         $message = $this->getModelPage()[$message];

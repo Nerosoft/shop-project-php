@@ -23,16 +23,16 @@ class BranchCreatePost extends ValidationId{
             unset($obj['Product']);
 
         //check exist table and user select table
-        if(isset($_POST['flextable']) && isset($obj[$obj['Setting']['AllNamesLanguage']]['MyFlexTables'])){
-            foreach ($obj[$obj['Setting']['AllNamesLanguage']]['MyFlexTables'] as $keyTable => $value)
+        if(isset($_POST['flextable']) && isset($obj[$obj['AllNamesLanguage']]['MyFlexTables'])){
+            foreach ($obj[$obj['AllNamesLanguage']]['MyFlexTables'] as $keyTable => $value)
                 if(isset($obj[$keyTable]))
                     $this->copyImageFolder($obj[$keyTable]);
         }//check exist table and delete all table
-        else if(isset($obj[$obj['Setting']['AllNamesLanguage']]['MyFlexTables']))
-            foreach ($obj[$obj['Setting']['AllNamesLanguage']]['MyFlexTables'] as $key => $value){   
+        else if(isset($obj[$obj['AllNamesLanguage']]['MyFlexTables']))
+            foreach ($obj[$obj['AllNamesLanguage']]['MyFlexTables'] as $key => $value){   
                 if(isset($obj[$key]))                
                     unset($obj[$key]);
-                foreach ($obj[$obj['Setting']['AllNamesLanguage']]['AllNamesLanguage'] as $keylang => $valuelang){
+                foreach ($obj[$obj['AllNamesLanguage']]['AllNamesLanguage'] as $keylang => $valuelang){
                     unset($obj[$keylang][$key]);
                     if(isset($obj[$keylang]['MyFlexTables']))
                         unset($obj[$keylang]['MyFlexTables']);
