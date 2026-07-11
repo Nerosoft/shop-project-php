@@ -411,7 +411,7 @@ class SetupProject extends ValidationId{
                     "AllBranch"=> "All branch",
                     "LoadMessage"=> "Welcome in register",
                     "DbIdInv"=> "invalid database id",
-                    "TitleForm"=> "Login library",
+                    "TitleForm"=> "Register library",
                     "LabelEmail"=> "Email",
                     "HintEmail"=> "Enter your email",
                     "LabelPassword"=> "Password",
