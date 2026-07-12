@@ -5,7 +5,7 @@ class ModelJson{
     private $File;
     private $IdPage;
     private $Language;
-    function __construct($idPage = null){
+    function __construct($idPage = null, $action = null){
         $this->File = json_decode(file_get_contents('data.json'), true);
         if(
             //page dont work if user SESSION (only logout) redirect to home
@@ -120,6 +120,58 @@ class ModelJson{
         else//all view page and LoginForgetPasswordPost LoginPost RegisterPost BranchCreatePost BranchEditPost BranchDeletePost SettingUsersCreatePost ProductCreatePost HomeEditPost HomeDeletePost HomeCreatePost ChangeLanguageDeletePost ChangeLanguageCreatePost
             $this->IdPage = $idPage;
         $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['AllNamesLanguage'];
+
+        if($_SERVER["REQUEST_METHOD"] === "GET"){
+
+            $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Style'];
+
+            if(isset($_GET['id']) && !isset($_SESSION['userId']) && $this->getBranch()[$_GET['id']])
+                setcookie('branchId', $_GET['id'], time()+2628000);
+            $this->styleLangAction = $action;
+            $this->ActiveBranch = $this->getModelPage()['ActiveBranch'];
+            $this->ChangeTitleBranch = $this->getModelPage()['ChangeTitleBranch'];
+            $this->ChangeButtonBranch = $this->getModelPage()['ChangeButtonBranch'];
+            
+            $this->ChangeLang = $this->getModelPage()['UsedLanguage'];
+            $this->ModelTitle = $this->getModelPage()['ModelTitle'];
+            $this->ModelButton = $this->getModelPage()['ModelButton'];
+            $this->MyLanguage = MyLanguage::fromArray($this->getModel2()['AllNamesLanguage']);
+            
+            $this->ChangeStyle = $this->getModelPage()['UsedStyle'];
+            $this->ModalTitleStyle = $this->getModelPage()['ModalTitleStyle'];
+            $this->ModalButtonStyle = $this->getModelPage()['ModalButtonStyle'];
+            $this->Style = MyLanguage::fromArray($this->getModel2()['Style']);
+
+            $this->Message = $_SESSION['error']??($_SESSION['message']??$this->getModelPage()['LoadMessage']);
+            $this->Type = isset($_SESSION['error'])?'danger':'success';
+            if(isset($_SESSION['message']) || isset($_SESSION['error']))
+                unset($_SESSION['message'], $_SESSION['error']);
+            $this->Title = $this->getModelPage()['Title'];
+            echo<<<HTML
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>{$this->getTitle()}</title>
+                <link href="./asset/css/style.css" rel="stylesheet">
+                <link href="./asset/lib/bootstrap.min.css" rel="stylesheet">
+                <script src="./asset/lib/jquery.min.js" type="text/javascript"></script>
+                <script src="./asset/lib/bootstrap.bundle.min.js" type="text/javascript"></script>
+                <script src="./asset/js/script.js" type="text/javascript"></script>
+                <link href="./asset/css/{$this->getStyleFile()}.css" rel="stylesheet">
+                <link rel="stylesheet" href="./asset/css/font-awesome.min.css">
+            HTML;
+
+        }else if(ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'LoginForgetPasswordPost')
+            $this->keyId = ModelJson::getFileName() !== 'BranchCreatePost' && 
+            ModelJson::getFileName() !== 'ChangeLanguageCreatePost' && 
+            ModelJson::getFileName() !== 'HomeCreatePost' && 
+            ModelJson::getFileName() !== 'SetupProject' && 
+            ModelJson::getFileName() !== 'RegisterPost' && 
+            isset($_POST['id'])?$_POST['id']:$this->getRandomId();
+        
+        
+        
     }
     function loginAdmin($message = 'LoginMessage'){
         $message = $this->getModelPage()[$message];
@@ -219,4 +271,86 @@ class ModelJson{
         header('Location:index');
         exit;
     }
+
+    //----------------------------------------------------information page
+
+    private $Title;
+    private $Message;
+    private $Type;
+    private $styleLangAction;
+
+    private $ChangeLang;
+    private $ModelTitle;
+    private $ModelButton;
+    private $MyLanguage;
+
+    private $ChangeStyle;
+    private $ModalTitleStyle;
+    private $ModalButtonStyle;
+    private $Style;
+
+    private $ActiveBranch;
+    private $ChangeTitleBranch;
+    private $ChangeButtonBranch;
+    private $StyleFile;
+     function getStyleFile(){
+        return $this->StyleFile;
+    }
+    function getActiveBranch(){
+        return $this->ActiveBranch;
+    }
+    function getChangeTitleBranch(){
+        return $this->ChangeTitleBranch;
+    }
+    function getChangeButtonBranch(){
+        return $this->ChangeButtonBranch;
+    }
+    function getMyBranch(){
+        return Branch::fromArray($this->getBranch(), $this->getModel2()['SelectBranchBox']);
+    }
+    function getMyLanguage(){
+        return $this->MyLanguage;
+    }
+    function getStyle(){
+        return $this->Style;
+    }
+    function getModalButtonStyle(){
+        return $this->ModalButtonStyle;
+    }
+    function getModalTitleStyle(){
+        return $this->ModalTitleStyle;
+    }
+    function getModelButton(){
+        return $this->ModelButton;
+    }
+    function getModelTitle(){
+        return $this->ModelTitle;
+    }
+    function getChangeLang(){
+        return $this->ChangeLang;
+    }
+    function getChangeStyle(){
+        return $this->ChangeStyle;
+    }
+
+    function getMessage(){
+        return $this->Message;
+    }
+    function getType(){
+        return $this->Type;
+    }
+    function getActionStyleLang(){
+        return $this->styleLangAction;
+    }
+    function setActionStyleLang($value){
+        $this->styleLangAction = $value;
+    }
+
+    function getTitle(){
+        return $this->Title;
+    }
+    function setTitle($title){
+        return $this->Title = $title;
+    }
+
 }

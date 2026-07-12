@@ -1,5 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
+require 'class_object/MyLanguage.php';
+require 'class_object/BranchClass.php';
 require 'controller/InformationPage.php';
 if(ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register')
     require 'controller/LoginRegister.php';

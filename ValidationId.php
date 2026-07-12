@@ -4,13 +4,13 @@ class ValidationId extends ModelJson{
     function __construct($callback = null, $message = null, $idPage = null){
         parent::__construct($idPage);
         //make id for flex table and user stting and product else make id for all action
-        if(ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'LoginForgetPasswordPost')
-            $this->keyId = ModelJson::getFileName() !== 'BranchCreatePost' && 
-            ModelJson::getFileName() !== 'ChangeLanguageCreatePost' && 
-            ModelJson::getFileName() !== 'HomeCreatePost' && 
-            ModelJson::getFileName() !== 'SetupProject' && 
-            ModelJson::getFileName() !== 'RegisterPost' && 
-            isset($_POST['id'])?$_POST['id']:$this->getRandomId();
+        // if(ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'LoginForgetPasswordPost')
+        //     $this->keyId = ModelJson::getFileName() !== 'BranchCreatePost' && 
+        //     ModelJson::getFileName() !== 'ChangeLanguageCreatePost' && 
+        //     ModelJson::getFileName() !== 'HomeCreatePost' && 
+        //     ModelJson::getFileName() !== 'SetupProject' && 
+        //     ModelJson::getFileName() !== 'RegisterPost' && 
+        //     isset($_POST['id'])?$_POST['id']:$this->getRandomId();
 
         if(ModelJson::getFileName()==='LoginForgetPasswordPost' || 
         ModelJson::getFileName()==='LoginPost' || 
