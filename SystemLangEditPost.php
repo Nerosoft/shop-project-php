@@ -2,8 +2,10 @@
 include 'auth/SessionAdmin.php';
 class SystemLangEditPost extends ModelJson{
     use ErrorSystemlang;
+    private $file;
     function __construct(){
         parent::__construct('SystemLang');
+        $this->file = $this->getObj();
         $this->initErrorSystemlang();
         if(!isset($_POST['word']) || $_POST['word'] === '')
             $this->showError($this->getTextRequired());
@@ -13,25 +15,22 @@ class SystemLangEditPost extends ModelJson{
             $this->showError($this->getModelPage()['ErrorFormInput']);
         //check isset all language or name language
         else if(isset($_POST['choices'])){
-            $file = $this->getObj();
             foreach (is_array($_POST['choices'])?array(...$_POST['choices'], $_GET['lang']=>$_GET['lang']):$this->getModel2()['AllNamesLanguage'] as $key => $value)
                 if(is_array($_POST['choices']) && !isset($this->getModel2()['AllNamesLanguage'][$key]))
                     $this->showError($this->getModelPage()['ErrorFormInput']);
-                else if(isset($_GET['array']))
-                    $file[$key][$_GET['table']][$_GET['key']][$_GET['array']] = $_POST['word'];
-                else
-                    $file[$key][$_GET['table']][$_GET['key']] = $_POST['word'];
-            $this->saveModel($file);
+                else  
+                    $this->saveWord($key);
         }
-        else{
-            $file = $this->getObj();
-            if(isset($_GET['array']))
-                $file[$_GET['lang']][$_GET['table']][$_GET['key']][$_GET['array']] = $_POST['word'];
-            else
-                $file[$_GET['lang']][$_GET['table']][$_GET['key']] = $_POST['word'];
-            $this->saveModel($file);
-        }
+        else
+            $this->saveWord($_GET['lang']);
+        $this->saveModel($this->file);
         $this->showMessage($this->getModelPage()['AllLanguageEdit']);
+    }
+    function saveWord($myKeyWord){
+        if(isset($_GET['array']))
+            $this->file[$myKeyWord][$_GET['table']][$_GET['key']][$_GET['array']] = $_POST['word'];
+        else
+            $this->file[$myKeyWord][$_GET['table']][$_GET['key']] = $_POST['word'];
     }
 }
 new SystemLangEditPost();
