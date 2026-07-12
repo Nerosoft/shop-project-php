@@ -3,7 +3,7 @@
 require 'all_trait/ChangeStyleLangBranch.php';
 include 'all_trait/InfoBranch.php';
 require 'interface/InterfaceDataView.php';
-class MyBranch extends AdminMenu implements InterfaceDataView{
+class MyBranch extends ModelJson implements InterfaceDataView{
     use ErrorBranch, ChangeStyleLangBranch, InfoBranch;
     private $FlexTable;
     private $SettingAccounts;

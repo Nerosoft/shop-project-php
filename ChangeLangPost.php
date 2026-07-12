@@ -1,6 +1,6 @@
 <?php
-include 'auth/SessionPost.php';
-class ChangeLangPost extends ValidationId{
+include 'auth/SessionAdmin.php';
+class ChangeLangPost extends ModelJson{
     function __construct(){  
         parent::__construct();
         //importaint page don change super id refresh page if change branch to rest super id

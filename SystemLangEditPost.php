@@ -1,5 +1,5 @@
 <?php
-include 'auth/SessionPost.php';
+include 'auth/SessionAdmin.php';
 class SystemLangEditPost extends ModelJson{
     use ErrorSystemlang;
     function validLanguage(){

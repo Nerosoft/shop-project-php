@@ -1,8 +1,8 @@
 <?php
-include 'auth/SessionPost.php';
-class SettingUsersDeletePost extends ValidationId{
+include 'auth/SessionAdmin.php';
+class SettingUsersDeletePost extends ModelJson{
     function __construct(){
-        parent::__construct(function($myFile, $key){
+        parent::__construct(null, function($myFile, $key){
             if($this->getUrlName2() !== 'Users')
                 //delete image for product
                 array_map('unlink', glob('asset/product/'.$key.'/'.$this->keyId.'.*'));

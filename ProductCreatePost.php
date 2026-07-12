@@ -1,11 +1,11 @@
 <?php
-include 'auth/SessionPost.php';
-class ProductCreatePost extends ValidationId{
+include 'auth/SessionAdmin.php';
+class ProductCreatePost extends ModelJson{
     use ErrorProduct;
     function __construct(){
-        parent::__construct(function($myFile, $keyBranch){
+        parent::__construct('Product', function($myFile, $keyBranch){
             return $this->saveProduct($myFile, $keyBranch);
-        }, isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate', 'Product');
+        }, isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');
         $this->validProductInput();
         $this->saveModel($this->saveProduct($this->getObj(), $this->getId()));
         $this->showMessage($this->getModelPage()[isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate']);

@@ -5,7 +5,7 @@ class ModelJson{
     private $File;
     private $IdPage;
     private $Language;
-    function __construct($idPage = null, $action = null){
+    function __construct($idPage = null, $DataView = null, $keysTable = null, $keyTitle = 'AdminDashboard'){
         $this->File = json_decode(file_get_contents('data.json'), true);
         if(
             //page dont work if user SESSION (only logout) redirect to home
@@ -122,12 +122,11 @@ class ModelJson{
         $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['AllNamesLanguage'];
 
         if($_SERVER["REQUEST_METHOD"] === "GET"){
-
             $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Style'];
-
             if(isset($_GET['id']) && !isset($_SESSION['userId']) && $this->getBranch()[$_GET['id']])
                 setcookie('branchId', $_GET['id'], time()+2628000);
-            $this->styleLangAction = $action;
+            $this->styleLangAction = (isset($_SESSION['userId'])?'ChangeLanguagePost':'ChangeLangPost').'?id='.$idPage;
+            
             $this->ActiveBranch = $this->getModelPage()['ActiveBranch'];
             $this->ChangeTitleBranch = $this->getModelPage()['ChangeTitleBranch'];
             $this->ChangeButtonBranch = $this->getModelPage()['ChangeButtonBranch'];
@@ -162,16 +161,272 @@ class ModelJson{
                 <link rel="stylesheet" href="./asset/css/font-awesome.min.css">
             HTML;
 
-        }else if(ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'LoginForgetPasswordPost')
-            $this->keyId = ModelJson::getFileName() !== 'BranchCreatePost' && 
-            ModelJson::getFileName() !== 'ChangeLanguageCreatePost' && 
-            ModelJson::getFileName() !== 'HomeCreatePost' && 
-            ModelJson::getFileName() !== 'SetupProject' && 
-            ModelJson::getFileName() !== 'RegisterPost' && 
-            isset($_POST['id'])?$_POST['id']:$this->getRandomId();
+            if(ModelJson::getFileName() !== 'Login' && ModelJson::getFileName() !== 'Register'){
+                echo '<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
+                <link rel="stylesheet" href="./asset/css/aos.css">
+                <link rel="stylesheet" href="./asset/css/owl.carousel.min.css">
+                <link rel="stylesheet" href="./asset/css/owl.theme.default.min.css">
+                <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
+                <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script>';
+                if($this->getUrlName2() === 'Site')
+                    echo '<link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css">';
+                echo '</head><body>';
+
+                $this->DataView = $DataView();
+                $this->AllBranches = $this->getModelPage()['AllBranches'];
+                $this->Ssearch = $this->getModel2()['TableInfo']['Ssearch'];
+                $this->InfoEmpty = $this->getModel2()['TableInfo']['InfoEmpty'];
+                $this->ZeroRecords = $this->getModel2()['TableInfo']['ZeroRecords'];
+                $this->Info = $this->getModel2()['TableInfo']['Info'];
+                $this->LengthMenu = $this->getModel2()['TableInfo']['LengthMenu'];
+                $this->InfoFiltered = $this->getModel2()['TableInfo']['InfoFiltered'];
+                $this->Offcanvas = $this->getModel2()['AppSettingAdmin']['Offcanvas'];
+                $this->Logout = $this->getModel2()['AppSettingAdmin']['Logout'];
+
+
+
+                $this->AdminDashboard = $this->getModel2()['AppSettingAdmin'][$keyTitle];
+                if($this->getUrlName2() === 'SystemLang'){
+                    $this->myMenuApp = array('Home'=>$this->getModel2()['Menu']['Home'], 'SystemLang'=>$this->getModel2()['Menu']['SystemLang']);
+                    foreach ($this->getModel2()['AllNamesLanguage'] as $key => $value){
+                        $this->myMenuApp[$key] = array($value);
+                        foreach (array_keys($this->getModel2()) as $key2 => $table) 
+                            $this->myMenuApp[$key][$table] = $this?->getModel2()[$table]['MYTITLE']??$this->getModel2()['AppSettingAdmin'][$table];
+                    }
+                    $this->myMenuApp['Logout'] = $this->getModel2()['Menu']['Logout'];
+                }else if($this->getUrlName2() === 'Site' && !isset($_SESSION['userId'])){
+                    $this->myMenuApp = array('about'=>$this->getModelPage()['About'],
+                    'project'=>$this->getModelPage()['Product'],
+                    'contact'=>$this->getModelPage()['Contact'],
+                    'Login'=>$this->getModel2()['Menu']['Login'],
+                    'Register'=>$this->getModel2()['Menu']['Register']);
+                }else if($this->getUrlName2() === 'Site'){
+                    $this->myMenuApp = $this->getModel2()['Menu'];
+                    $this->myMenuApp['about'] = $this->getModelPage()['About'];
+                    $this->myMenuApp['project'] = $this->getModelPage()['Product'];
+                    $this->myMenuApp['contact'] = $this->getModelPage()['Contact'];
+                    unset($this->myMenuApp['Login'], $this->myMenuApp['Register']);
+                    if(isset($this->getModel2()['MyFlexTables']))
+                        $this->myMenuApp['MyFlexTables'] = array($this->myMenuApp['MyFlexTables'], ...$this->getModel2()['MyFlexTables']);
+                    else
+                        unset($this->myMenuApp['MyFlexTables']);
+                }
+                else{
+                    $this->myMenuApp = $this->getModel2()['Menu'];
+                    if(isset($this->getModel2()['MyFlexTables']))
+                        $this->myMenuApp['MyFlexTables'] = array($this->myMenuApp['MyFlexTables'], ...$this->getModel2()['MyFlexTables']);
+                    else
+                        unset($this->myMenuApp['MyFlexTables']);
+                    unset( $this->myMenuApp['Login'], 
+                    $this->myMenuApp['Register']);
+                }        
+                include 'pis_of_page/admin_title.php';
+                if($this->getUrlName2() !== 'Site'){
+                    echo '<div class="start-page container">';
+                    $this->keysTable = $keysTable??array('TableProductImage', ...array_keys($this->getTableHead()));
+                    $this->TableId = $this->getModelPage()['TableId'];
+                    $this->TabelEvent = $this->getModelPage()['TabelEvent'];
+                    $this->ScreenModelEdit = $this->getModelPage()['ScreenModelEdit'];
+                    $this->ButtonModelEdit = $this->getModelPage()['ButtonModelEdit'];
+                    if($this->getUrlName2() !== 'SystemLang' && $this->getUrlName2() !== 'MyStyle'){
+                        $this->ScreenModelDelete = $this->getModelPage()['ScreenModelDelete'];
+                        $this->messageModelDelete = $this->getModelPage()['MessageModelDelete'];
+                        $this->buttonModelDelete = $this->getModelPage()['ButtonModelDelete'];
+                        echo <<<HTML
+                            <button onclick="openForm('#createModel')" class="btn btn-primary">{$this->getModelPage()['ButtonModelCreate']}</button>
+                        HTML;
+                        $this->makeCreateModal($this, $this->getModelPage()['ScreenModelCreate'], $this->getModelPage()['ButtonModelAdd']);
+                    }
+                    echo'
+                        <table id="example" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>'.$this->getTableId().'</th>';
+                    $this->printTableNames();
+                    echo '<th>'.$this->getTabelEvent().'</th>
+                            </tr>
+                        </thead>
+                        <tbody>';
+                }else
+                        echo '<div class="start-page">';
+            }else{
+                $this->BranchLabel = $this->getModelPage()['BranchLabel'];
+                $this->ChangeStyleButton = $this->getModelPage()['ChangeStyleButton'];
+                $this->ChangeLanguageButton = $this->getModelPage()['ChangeLanguageButton']; foreach ($this->getFile() as $key => $obj)
+                foreach ($this->getFile() as $key => $obj)
+                    if(isset($obj['Branches'])){
+                        $this->dbKeys[$key] = new branch($obj['Branches'][$key]['Name']);
+                        if(isset($obj['Branches'][$this->getId()]))
+                            $this->dbBranchKeys = $key;
+                    }
+                echo '<link href="./asset/css/login_register.css" rel="stylesheet"></head><body>';
+                $this->initInfoBranch();
+                $this->initErrorBranch();
+                $this->initEmailPassword();
+                $this->BranchProjectTitle = $this->getModelPage()['BranchProjectTitle'];
+                $this->BranchProjectButton = $this->getModelPage()['BranchProjectButton'];
+                $this->ActiveBranchProject = $this->getModelPage()['ActiveBranchProject'];
+                $this->TitleForm = $this->getModelPage()['TitleForm'];
+                $this->ButtonName = $this->getModelPage()['ButtonName'];
+                $this->DbKeyLabel = $this->getModelPage()['DbKeyLabel'];
+                $this->AppLabel = $this->getModelPage()['AppLabel'];
+                $this->AllBranch = $this->getModelPage()['AllBranch'];
+                $this->ModalTitleProject = $this->getModelPage()['ModalTitleProject'];
+                $this->ModalButtonProject = $this->getModelPage()['ModalButtonProject'];
+                $this->ButtonSetupProject = $this->getModelPage()['ButtonSetupProject'];
+                $this->RegisterLoginPage = $this->getModelPage()['RegisterLoginPage'];
+                
+                echo<<<HTML
+                    <div class="container">
+                        <div id="createModel" class="register">
+                            <form method='POST' action="{$DataView}">
+                HTML; 
+                $view = $this;
+                include 'pis_of_page/login_form.php';
+            }
+
+        }else {
         
+            if(ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'LoginForgetPasswordPost')
+                $this->keyId = ModelJson::getFileName() !== 'BranchCreatePost' && 
+                ModelJson::getFileName() !== 'ChangeLanguageCreatePost' && 
+                ModelJson::getFileName() !== 'HomeCreatePost' && 
+                ModelJson::getFileName() !== 'SetupProject' && 
+                ModelJson::getFileName() !== 'RegisterPost' && 
+                isset($_POST['id'])?$_POST['id']:$this->getRandomId();
+
+            if(ModelJson::getFileName()==='LoginForgetPasswordPost' || 
+                ModelJson::getFileName()==='LoginPost' || 
+                ModelJson::getFileName() === 'RegisterPost'||
+                ModelJson::getFileName() === 'SetupProject')
+                $this->initErrorsEmailPassword3();
+            //valid id first
+            else if(ModelJson::getFileName()!=='BranchCreatePost' && ModelJson::getFileName()!=='FlexTablesCreatePost' && ModelJson::getFileName()!=='HomeCreatePost' && ModelJson::getFileName()!=='ChangeLanguageCreatePost' && ModelJson::getFileName()!=='SettingUsersCreatePost' && ModelJson::getFileName()!=='ProductCreatePost' && !isset($_POST['id']) ||
+            ModelJson::getFileName()!=='BranchCreatePost' && ModelJson::getFileName()!=='FlexTablesCreatePost' && ModelJson::getFileName()!=='HomeCreatePost' && ModelJson::getFileName()!=='ChangeLanguageCreatePost' &&  ModelJson::getFileName()!=='SettingUsersCreatePost' && ModelJson::getFileName()!=='ProductCreatePost' && $_POST['id'] === '')
+                $this->showError($this->getModelPage()['IdIsReq']);
+            
+            
+            
+            
+            
+            //make valid is array and count branch
+            //make test id session inside array choices
+            else if(isset($_POST['choices']) && is_array($_POST['choices']) && isset($_POST['choices'][$this->getId()])|| 
+                isset($_POST['choices']) && !is_array($_POST['choices']) ||
+                isset($_POST['choices']) && count($this->getBranch()) === 1||
+                isset($_POST['Branches']) && count($this->getBranch()) === 1)
+                $this->showError($this->getModel2()['AppSettingAdmin']['BranchInv']);
+
+
+
+
+
+
+            //make add edit delete for home and language and users and product inside all branch
+            else if(
+                
+
+
+                isset($_POST['Branches']) && ModelJson::getFileName() === 'HomeCreatePost' && is_null($this->validName())||
+                isset($_POST['choices']) && ModelJson::getFileName() === 'HomeCreatePost' && is_null($this->validName())||
+                isset($_POST['Branches']) && ModelJson::getFileName() === 'HomeEditPost' && is_null($this->validName())||
+                isset($_POST['choices']) && ModelJson::getFileName() === 'HomeEditPost' && is_null($this->validName())||
+
+                isset($_POST['Branches']) && ModelJson::getFileName() === 'HomeDeletePost'||
+                isset($_POST['choices']) && ModelJson::getFileName() === 'HomeDeletePost'||
+
+                isset($_POST['Branches']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && is_null($this->initErrorFlexTable2())||
+                isset($_POST['choices']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && is_null($this->initErrorFlexTable2())||
+
+                isset($_POST['Branches']) && ModelJson::getFileName() === 'ProductCreatePost' && is_null($this->validProductInput())||
+                isset($_POST['choices']) && ModelJson::getFileName() === 'ProductCreatePost' && is_null($this->validProductInput())||
+
+                isset($_POST['Branches']) && ModelJson::getFileName() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3())||
+                isset($_POST['choices']) && ModelJson::getFileName() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3())||
+                
+                //product and uesrs and flextable
+                isset($_POST['Branches']) && ModelJson::getFileName() === 'SettingUsersDeletePost'||
+                isset($_POST['choices']) && ModelJson::getFileName() === 'SettingUsersDeletePost'||
+
+
+                isset($_POST['Branches']) && ModelJson::getFileName() === 'ChangeLanguagePost'||
+                isset($_POST['choices']) && ModelJson::getFileName() === 'ChangeLanguagePost'||
+                isset($_POST['Branches']) && ModelJson::getFileName() === 'ChangeLanguageDeletePost'||
+                isset($_POST['choices']) && ModelJson::getFileName() === 'ChangeLanguageDeletePost'||
+                isset($_POST['Branches']) && ModelJson::getFileName() === 'ChangeLanguageEditPost' && is_null($this->validLanguageInput())||
+                isset($_POST['choices']) && ModelJson::getFileName() === 'ChangeLanguageEditPost' && is_null($this->validLanguageInput())||
+                isset($_POST['Branches']) && ModelJson::getFileName() === 'ChangeLanguageCreatePost' && is_null($this->validLanguageInput())||
+                isset($_POST['choices']) && ModelJson::getFileName() === 'ChangeLanguageCreatePost' && is_null($this->validLanguageInput())
+
+
+
+            ){
+                //make declar file if delete item and test id
+                $myFile = $this->getFile();
+                foreach (isset($_POST['Branches']) ? $this->getBranch() : array(...$_POST['choices'], $this->getId()=>$this->getId()) as $key => $value)
+                    //make test id branch if user select choices option
+                    if(!isset($_POST['Branches']) && !isset($this->getBranch()[$key]))
+                        $this->showError($this->getModel2()['AppSettingAdmin']['BranchInv']);
+                    //make text id inside all branch for users and product and home and language (only edit)
+                    //use $IdPage only(users and product)
+                    //style dont create use getUrlName2
+                    else if(isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]) ||
+                        !isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$this->getUrlName2()]) ||
+                        
+                        ModelJson::getFileName() === 'ChangeLanguageEditPost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$this->getUrlName2() === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
+                        ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$_POST['state']][$_POST['id']]) ||
+                        ModelJson::getFileName() === 'ChangeLanguageDeletePost' && !isset($myFile[$key][$_POST['id']]) ||
+                        ModelJson::getFileName() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english' ||
+                        ModelJson::getFileName() === 'HomeEditPost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$_POST['id']]) ||
+                        ModelJson::getFileName() === 'HomeDeletePost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$_POST['id']]) ||
+                    
+                    ModelJson::getFileName() === 'ProductDeletePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']])||
+                    //valid users and flex table getUrlName2
+                    ModelJson::getFileName() === 'SettingUsersDeletePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]) ||
+                    //ignore create validation account and product
+                    isset($_POST['id']) && ModelJson::getFileName() === 'ProductCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']])||
+                    isset($_POST['id']) && ModelJson::getFileName() === 'SettingUsersCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]))
+                        $this->showError($this->getModelPage()['IdIsInv']);
+                    else
+                        $myFile[$key] = $DataView($myFile[$key], $key);
+                $this->saveFile($myFile);
+                $this->showMessage($this->getModelPage()[$keysTable], 'success');
+            }
+
+
+            else if(
+                isset($_POST['id']) && ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
+                isset($_POST['id']) && ModelJson::getFileName() === 'BranchChangePost' && !isset($this->getBranch()[$_POST['id']])||
+                isset($_POST['id']) && ModelJson::getFileName() === 'BranchDeletePost' && $_POST['id'] === $this->getFixedId()||
+                isset($_POST['id']) && ModelJson::getFileName() === 'BranchDeletePost' && $_POST['id'] === $this->getId()||
+                //check lang name = english (system) and = (select language)
+                isset($_POST['id']) && ModelJson::getFileName() === 'ChangeLanguageDeletePost' && $_POST['id'] === $this->getLanguage()||
+                isset($_POST['id']) && ModelJson::getFileName() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english'||
+                //valid users and flex table $_GET['id']
+                isset($_POST['id']) && ModelJson::getFileName() === 'ChangeLangPost' && $_POST['state'] !== 'branch' && $_POST['state'] !== 'branch2' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
+                isset($_POST['id']) && ModelJson::getFileName() === 'ChangeLangPost' && $_POST['state'] === 'branch' && !isset($this->getBranch()[$_POST['id']])||
+                isset($_POST['id']) && ModelJson::getFileName() === 'ChangeLangPost' && $_POST['state'] === 'branch2' && !isset($this->getFile()[$_POST['id']])||
+                isset($_POST['id']) && ModelJson::getFileName() === 'SettingUsersDeletePost' && !isset($this->getObj()[$this->getUrlName2()][$_POST['id']]) ||
+                //work delete add edit user and product and home and change language
+                isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Home' && !isset($this->getModel2()['MyFlexTables'][$_POST['id']])||
+                isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Branches' && !isset($this->getBranch()[$_POST['id']])||
+                isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'ChangeLanguage' && !isset($this->getModel2()['AllNamesLanguage'][$_POST['id']])||
+                isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Users' && !isset($this->getObj()['Users'][$_POST['id']])||
+                isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Product' && !isset($this->getObj()['Product'][$_POST['id']])||
+                isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($this->getObj()[$this->getUrlName2()][$_POST['id']]) ||
+                isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'MyStyle' && !isset($this->getModel2()['Style'][$_POST['id']])
+            )
+                $this->showError($this->getModelPage()['IdIsInv']);
+            else if(ModelJson::getFileName() === 'BranchEditPost' || ModelJson::getFileName() === 'BranchCreatePost')
+                $this->initErrorBranch2();
+            else if(ModelJson::getFileName() === 'ChangeLanguageEditPost' || ModelJson::getFileName() === 'ChangeLanguageCreatePost')
+                $this->validLanguageInput();
+            else if(ModelJson::getFileName() === 'HomeCreatePost' || ModelJson::getFileName() === 'HomeEditPost')
+                $this->validName();
         
-        
+
+        }
+    
     }
     function loginAdmin($message = 'LoginMessage'){
         $message = $this->getModelPage()[$message];
@@ -351,6 +606,228 @@ class ModelJson{
     }
     function setTitle($title){
         return $this->Title = $title;
+    }
+
+    //--------------------------------------admin menu
+        private $Offcanvas;
+    private $Logout;
+    private $AdminDashboard;
+    private $myMenuApp;
+    private $Ssearch;
+    private $ZeroRecords;
+    private $LengthMenu;
+    private $Info;
+    private $InfoEmpty;
+    private $InfoFiltered;
+    private $ScreenModelEdit;
+    private $ButtonModelEdit;
+    private $TableId;
+    private $TabelEvent;
+    private $AllBranches;
+    private $keysTable;
+    private $DataView;
+    private $ScreenModelDelete;
+    private $messageModelDelete;
+    private $buttonModelDelete;
+    function getScreenModelDelete(){
+        return $this->ScreenModelDelete;
+    }
+    function getmessageModelDelete(){
+        return $this->messageModelDelete;
+    }
+    function getbuttonModelDelete(){
+        return $this->buttonModelDelete;
+    }
+    function getKeysTable(){
+        return $this->keysTable;
+    }
+    function getAllBranches(){
+        return $this->AllBranches;
+    }
+    function getMyDataView(){
+        return $this->DataView;
+    }
+    function printTableNames(){
+        foreach ($this->getKeysTable() as $index => $key)
+            echo'<th>'.($this->getModelPage()[$key]??$this->getModelPage()['TableHead'][$key]).'</th>';
+    }
+
+    function getIconByKey($key){
+        if($key === 'Home')
+            return 'fa fa-home';
+        else if($key === 'SystemLang')
+                return 'fa fa-gear';  
+        else if($key === 'ChangeLanguage')
+            return 'fa fa-language';
+        else if($key === 'Branches')
+            return 'fa fa-tree';
+        else if($key === 'Login')
+            return 'fa fa-lock';
+        else if($key === 'Register')
+            return 'fa fa-user-plus';
+        else if($key === 'Menu')
+            return 'fa fa-bars';
+        else if($key === 'TableInfo')
+            return 'fa fa-info';
+        else if($key === 'AppSettingAdmin')
+            return 'fa fa-archive';
+        else if($key === 'SelectBranchBox')
+            return 'fa fa-tree';
+        else if($key === 'AllNamesLanguage')
+            return 'fa fa-globe';
+        else if($key === 'TablePage')
+            return 'fa fa-table';
+        else if($key === 'Users')
+            return 'fa fa-user';
+        else if($key === 'Product')
+            return 'fa fa-tag';
+        else if($key === 'Site')
+            return 'fa fa-truck';
+        else if($key === 'MyStyle')
+            return 'fa fa-magic';
+        else if($key === 'MyFlexTables')
+            return 'fa fa-table';
+        else if($key === 'Style')
+            return 'fa fa-magic';
+        else if($key === 'contact')
+            return 'fa fa-info';
+        else if($key === 'project')
+            return 'fa fa-tag';
+        else if($key === 'about')
+            return 'fa fa-truck';
+        else if($key === 'Logout')
+            return 'fa fa-archive';
+        else if(isset($this->getModel2()['MyFlexTables'][$key]))
+            return 'fa fa-table';
+        else if(isset($this->getModel2()['AllNamesLanguage'][$key]))
+            return 'fa fa-language';
+        else
+            return 'fa fa-inbox';
+    }
+    function getScreenModelEdit(){
+        return $this->ScreenModelEdit;
+    }
+    function getButtonModelEdit(){
+        return $this->ButtonModelEdit;
+    }
+    function getTableId(){
+        return $this->TableId;
+    }
+    function getTabelEvent(){
+        return $this->TabelEvent;
+    }
+    function getSsearch(){
+        return $this->Ssearch;
+    }
+    function getZeroRecords(){
+        return $this->ZeroRecords;
+    }
+    function getLengthMenu(){
+        return $this->LengthMenu;
+    }
+    function getInfo(){
+        return $this->Info;
+    }
+    function getInfoEmpty(){
+        return $this->InfoEmpty;
+    }
+    function getInfoFiltered(){
+        return $this->InfoFiltered;
+    }
+    function getMyMenuApp(){
+        return $this->myMenuApp;
+    }
+    function getOffcanvas(){
+        return $this->Offcanvas;
+    }
+    function getLogout(){
+        return $this->Logout;
+    }
+    function getAdminDashboard(){
+        return $this->AdminDashboard;
+    }
+    //---------------------------------------------login register
+
+    private $TitleForm;
+    private $ButtonName;
+    private $dbKeys;
+    private $dbBranchKeys;
+    private $DbKeyLabel;
+    private $AppLabel;
+    private $AllBranch;
+    private $ModalTitleProject;
+    private $ModalButtonProject;
+    private $ButtonSetupProject;
+    private $RegisterLoginPage;
+
+    private $BranchLabel;
+    private $ChangeStyleButton;
+    private $ChangeLanguageButton;
+    private $BranchProjectTitle;
+    private $BranchProjectButton;
+    private $ActiveBranchProject;
+    function getActiveBranchProject(){
+        return $this->ActiveBranchProject;
+    }
+    function getBranchProjectTitle(){
+        return $this->BranchProjectTitle;
+    }
+    function getBranchProjectButton(){
+        return $this->BranchProjectButton;
+    }
+    function getBranchLabel(){
+        return $this->BranchLabel;
+    }
+    function getChangeStyleButton(){
+        return $this->ChangeStyleButton;
+    }
+    function getChangeLanguageButton(){
+        return $this->ChangeLanguageButton;
+    }
+
+    function getModalTitleProject(){
+        return $this->ModalTitleProject;
+    }
+    function getModalButtonProject(){
+        return $this->ModalButtonProject;
+    }
+    function getButtonSetupProject(){
+        return $this->ButtonSetupProject;
+    }
+    function getAllBranch(){
+        return $this->AllBranch;
+    }
+    function getAppLabel(){
+        return $this->AppLabel;
+    }
+    function getDbKeys(){
+        return $this->dbKeys;
+    }
+    function getDbBranchKeys(){
+        return $this->dbBranchKeys;
+    }
+    function getRegisterLoginPage(){
+        return $this->RegisterLoginPage;
+    }
+
+    function getDbKeyLabel(){
+        return $this->DbKeyLabel;
+    }
+    function getTitleForm(){
+        return $this->TitleForm;
+    }
+    function getButtonName(){
+        return $this->ButtonName;
+    }
+    //------------------valid id
+
+    protected $keyId;
+    function deleteItem($myData){
+        if(count($myData[$this->getUrlName2()]) === 1)
+            unset($myData[$this->getUrlName2()]);
+        else
+            unset($myData[$this->getUrlName2()][$_POST['id']]);
+        return $myData;
     }
 
 }

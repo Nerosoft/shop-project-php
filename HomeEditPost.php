@@ -1,11 +1,11 @@
 <?php
-include 'auth/SessionPost.php';
-class HomeEditPost extends ValidationId{
+include 'auth/SessionAdmin.php';
+class HomeEditPost extends ModelJson{
     use ErrorsHome;
     function __construct(){
-        parent::__construct(function ($myFile){
+        parent::__construct('Home', function ($myFile){
             return $this->editHome($myFile, $myFile[$myFile['AllNamesLanguage']]['AllNamesLanguage']);
-        }, 'MessageModelEdit', 'Home'); 
+        }, 'MessageModelEdit'); 
         $this->saveModel($this->editHome($this->getObj(), $this->getModel2()['AllNamesLanguage']));
         $this->showMessage($this->getModelPage()['MessageModelEdit']);
     }

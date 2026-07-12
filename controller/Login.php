@@ -1,10 +1,11 @@
 <?php
-class Login extends LoginRegister{
+class Login extends ModelJson{
+    use ErrorBranch, InfoBranch, EmailPassword;
     private $ButtonForgetPassword;
     private $ModalForgetPasswordTitle;
     private $ModalForgetPasswordButton;
     function __construct(){
-        parent::__construct('Login');
+        parent::__construct('Login', 'LoginPost');
         $this->ButtonForgetPassword = $this->getModelPage()['ButtonForgetPassword'];
         $this->ModalForgetPasswordTitle = $this->getModelPage()['ModalForgetPasswordTitle'];
         $this->ModalForgetPasswordButton = $this->getModelPage()['ModalForgetPasswordButton'];

@@ -1,7 +1,7 @@
 <?php
 // require 'all_trait/ErrorSystemlang.php';
 include 'interface/InterfaceDataView.php';
-class MySystemlang extends AdminMenu implements InterfaceDataView{
+class MySystemlang extends ModelJson implements InterfaceDataView{
     use ErrorSystemlang;
     private $WordHint;
     private $Text;

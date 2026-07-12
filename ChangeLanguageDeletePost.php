@@ -1,10 +1,10 @@
 <?php
-include 'auth/SessionPost.php';
-class ChangeLanguageDeletePost extends ValidationId{
+include 'auth/SessionAdmin.php';
+class ChangeLanguageDeletePost extends ModelJson{
     function __construct(){
-        parent::__construct(function($myFile){
+        parent::__construct('ChangeLanguage', function($myFile){
             return $this->deleteLanguage($myFile);
-        }, 'Delete', 'ChangeLanguage');
+        }, 'Delete');
         $this->saveModel($this->deleteLanguage($this->getObj()));
         $this->showMessage($this->getModelPage()['Delete']);
     }

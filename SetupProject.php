@@ -1,6 +1,6 @@
 <?php
-include 'auth/SessionPost.php';
-class SetupProject extends ValidationId{
+include 'auth/SessionAdmin.php';
+class SetupProject extends ModelJson{
     use ErrorBranch, ErrorsEmailPassword;
     function __construct(){
         parent::__construct();

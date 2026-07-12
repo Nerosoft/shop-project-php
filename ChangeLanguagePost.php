@@ -1,15 +1,15 @@
 <?php
-include 'auth/SessionPost.php';
-class ChangeLanguagePost extends ValidationId{
+include 'auth/SessionAdmin.php';
+class ChangeLanguagePost extends ModelJson{
     function __construct(){
-        parent::__construct(function($myFile){
+        parent::__construct(null, function($myFile){
             return $this->changeLangStylePost($myFile);
         }, 'MessageStyleLang');
         $this->saveModel($this->changeLangStylePost($this->getObj()));
         $this->showMessage($_POST['state'] === 'Style'?$this->getModelPage()['MessageStyleLang2']:$this->getModelPage()['MessageStyleLang']);
     }
     function changeLangStylePost($myData){
-        $myData['Setting'][$_POST['state']] = $this->keyId;
+        $myData[$_POST['state']] = $this->keyId;
         return $myData;
     }
 }

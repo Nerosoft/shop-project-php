@@ -1,11 +1,11 @@
 <?php
 // require 'all_trait/ErrorRegister.php';
-class MyRegister extends LoginRegister{    
-    use ErrorRegister;
+class MyRegister extends ModelJson{    
+    use ErrorBranch, InfoBranch, EmailPassword, ErrorRegister;
     private $LabelConfirmPassword;
     private $HintConfirmPassword;
     function __construct(){
-        parent::__construct('Register', 'RegisterPost.php');
+        parent::__construct('Register', 'RegisterPost');
         $this->initErrorsRegister();
         $this->LabelConfirmPassword = $this->getModelPage()['LabelConfirmPassword'];
         $this->HintConfirmPassword = $this->getModelPage()['HintConfirmPassword'];

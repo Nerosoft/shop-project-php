@@ -1,13 +1,13 @@
 <?php
-include 'auth/SessionPost.php';
- class HomeCreatePost extends ValidationId{
+include 'auth/SessionAdmin.php';
+ class HomeCreatePost extends ModelJson{
     use ErrorsHome;
     private $keysInput = array();
     function __construct(){
         
-        parent::__construct(function($myFile){
+        parent::__construct('Home', function($myFile){
             return $this->saveFelxTable($myFile[$myFile['AllNamesLanguage']]['AllNamesLanguage'], $myFile);
-        }, 'MessageModelCreate', 'Home'); 
+        }, 'MessageModelCreate'); 
         $this->saveModel($this->saveFelxTable($this->getModel2()['AllNamesLanguage'], $this->getObj()));
         $this->showMessage($this->getModelPage()['MessageModelCreate']);
     }

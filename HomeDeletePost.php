@@ -1,10 +1,10 @@
 <?php
-include 'auth/SessionPost.php';
-class HomeDeletePost extends ValidationId{
+include 'auth/SessionAdmin.php';
+class HomeDeletePost extends ModelJson{
     function __construct(){
-        parent::__construct(function($myFile, $idSseion){
+        parent::__construct('Home', function($myFile, $idSseion){
             return $this->deleteHome($myFile, $idSseion);
-        }, 'Delete', 'Home'); 
+        }, 'Delete'); 
         $this->saveModel($this->deleteHome($this->getObj(), $this->getId()));
         $this->showMessage($this->getModelPage()['Delete']);
     }

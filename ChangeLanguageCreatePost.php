@@ -1,9 +1,9 @@
 <?php
-include 'auth/SessionPost.php';
-class ChangeLanguageCreatePost extends ValidationId{
+include 'auth/SessionAdmin.php';
+class ChangeLanguageCreatePost extends ModelJson{
     use ErrorChangelanguage;
     function __construct(){
-        parent::__construct(function ($myFile){
+        parent::__construct('ChangeLanguage', function ($myFile){
             $myLanguage = $this->getObj()[$_POST['selectedLanguage']];
             if(isset($myLanguage['MyFlexTables']))
                 foreach ($myLanguage['MyFlexTables'] as $keyFlexTable => $value)
@@ -21,7 +21,7 @@ class ChangeLanguageCreatePost extends ValidationId{
             //add lang inside branch
             $myFile[$this->keyId] = $lang;
             return $myFile;
-        }, 'MessageModelCreate', 'ChangeLanguage');
+        }, 'MessageModelCreate');
         $myData = $this->saveNameLanguage($this->getallNames(), 'AllNamesLanguage', $this->getObj());
         $myData[$this->keyId] = $myData[$_POST['selectedLanguage']];
         $this->saveModel($myData);

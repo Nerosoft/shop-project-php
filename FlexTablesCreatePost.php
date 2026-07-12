@@ -1,9 +1,9 @@
 <?php
-include 'auth/SessionPost.php';
-class FlexTablesCreatePost extends ValidationId{
+include 'auth/SessionAdmin.php';
+class FlexTablesCreatePost extends ModelJson{
     use ErrorFlexTable;
     function __construct(){
-        parent::__construct(function($myFile, $idSseion){
+        parent::__construct(null, function($myFile, $idSseion){
             return $this->saveFlexTable($myFile, $myFile[$myFile['AllNamesLanguage']][$this->getUrlName2()]['ErrorsMessageReq'], $idSseion);
 
         }, isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');

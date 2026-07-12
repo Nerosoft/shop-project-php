@@ -2,7 +2,7 @@
 require 'class_object/Users.php';
 require 'all_trait/InterEmailPass.php';
 include 'interface/InterfaceDataView.php';
-class MySettingUsers extends AdminMenu implements InterfaceDataView{
+class MySettingUsers extends ModelJson implements InterfaceDataView{
     use EmailPassword;
     private $ForgetPasswordHeadTable;
     function __construct(){

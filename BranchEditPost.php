@@ -1,9 +1,9 @@
 <?php
-include 'auth/SessionPost.php';
-class BranchEditPost extends ValidationId{
+include 'auth/SessionAdmin.php';
+class BranchEditPost extends ModelJson{
     use ErrorBranch;
     function __construct(){
-        parent::__construct(null, null, 'Branches');
+        parent::__construct('Branches');
         $this->saveMyFile();
         $this->showMessage($this->getModelPage()['MessageModelEdit']);
     }

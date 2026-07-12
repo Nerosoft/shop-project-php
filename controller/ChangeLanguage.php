@@ -1,6 +1,6 @@
 <?php
 require 'all_trait/InfoChangeLangStyle.php';
-class MyChangeLanguage extends AdminMenu{
+class MyChangeLanguage extends ModelJson{
     use InfoChangeLangStyle;
     private $SelectLang;
     function __construct(){

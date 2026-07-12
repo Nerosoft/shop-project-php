@@ -1,6 +1,6 @@
 <?php
 include 'interface/InterfaceDataView.php';
-class MyFlexTablesView extends AdminMenu implements InterfaceDataView{
+class MyFlexTablesView extends ModelJson implements InterfaceDataView{
     use ErrorFlexTable;
     private $TableHead;
     private $Label;

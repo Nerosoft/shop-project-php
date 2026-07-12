@@ -1,6 +1,6 @@
 <?php
-include 'auth/SessionPost.php';
-class BranchChangePost extends ValidationId{
+include 'auth/SessionAdmin.php';
+class BranchChangePost extends ModelJson{
     function __construct(){
         parent::__construct();
         $_SESSION['userId'] = $this->keyId;

@@ -1,8 +1,8 @@
 <?php
-include 'auth/SessionPost.php';
-class BranchDeletePost extends ValidationId{
+include 'auth/SessionAdmin.php';
+class BranchDeletePost extends ModelJson{
     function __construct(){
-        parent::__construct(null, null, 'Branches');
+        parent::__construct('Branches');
         $file = $this->getFile();
         unset($file[$this->getFixedId()]['Branches'][$this->keyId]);
         unset($file[$this->keyId]);

@@ -1,6 +1,6 @@
 <?php
-include 'auth/SessionPost.php';
-class BranchCreatePost extends ValidationId{
+include 'auth/SessionAdmin.php';
+class BranchCreatePost extends ModelJson{
     use ErrorBranch;
     function copyImageFolder($arr){
         if(!is_dir('asset/product/'.$this->keyId))
@@ -12,7 +12,7 @@ class BranchCreatePost extends ValidationId{
         closedir($dir);
     }
     function __construct(){
-        parent::__construct(null, null, "Branches");
+        parent::__construct("Branches");
         $obj = $this->getFile()[$_POST['selectedBranch']];
         unset($obj['Branches']);
         if(!isset($_POST['Users']) && isset($obj['Users']))

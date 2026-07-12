@@ -1,6 +1,6 @@
 <?php
 require 'class_object/ProductValue.php';
-class Site extends AdminMenu{
+class Site extends ModelJson{
     private $About;
     private $Product;
     private $Contact;
@@ -38,7 +38,7 @@ class Site extends AdminMenu{
     function __construct(){
         parent::__construct('Site', function (){
             return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
-        }, null, 'AdminDashboard2', (isset($_SESSION['userId'])?'ChangeLanguagePost':'ChangeLangPost').'?id=Site');
+        }, null, 'AdminDashboard2');
         $this->About = $this->getModelPage()['About'];
         $this->Product = $this->getModelPage()['Product'];
         $this->Contact = $this->getModelPage()['Contact'];

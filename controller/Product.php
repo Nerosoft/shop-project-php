@@ -1,7 +1,7 @@
 <?php
 require 'class_object/ProductValue.php';
 include 'interface/InterfaceDataView.php';
-class Product extends AdminMenu implements InterfaceDataView{
+class Product extends ModelJson implements InterfaceDataView{
     use ErrorProduct;
     private $LabelName;
     private $HintName;
