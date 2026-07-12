@@ -12,7 +12,7 @@ class BranchCreatePost extends ModelJson{
         closedir($dir);
     }
     function __construct(){
-        parent::__construct("Branches");
+        parent::__construct("Branches", null, null, ModelJson::getRandomKey());
         $obj = $this->getFile()[$_POST['selectedBranch']];
         unset($obj['Branches']);
         if(!isset($_POST['Users']) && isset($obj['Users']))

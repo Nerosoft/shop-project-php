@@ -13,7 +13,7 @@ class MyFlexTablesView extends ModelJson implements InterfaceDataView{
             $this->Label = $this->getModelPage()['Label'];
             $this->Hint = $this->getModelPage()['Hint'];
             return isset($this->getObj()[$this->getUrlName2()])?array_reverse($this->getObj()[$this->getUrlName2()]):array();
-        }, null);
+        });
     }
     function getTableHead(){
         return $this->TableHead;

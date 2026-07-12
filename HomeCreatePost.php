@@ -7,7 +7,7 @@ include 'auth/SessionAdmin.php';
         
         parent::__construct('Home', function($myFile){
             return $this->saveFelxTable($myFile[$myFile['AllNamesLanguage']]['AllNamesLanguage'], $myFile);
-        }, 'MessageModelCreate'); 
+        }, 'MessageModelCreate', ModelJson::getRandomKey()); 
         $this->saveModel($this->saveFelxTable($this->getModel2()['AllNamesLanguage'], $this->getObj()));
         $this->showMessage($this->getModelPage()['MessageModelCreate']);
     }

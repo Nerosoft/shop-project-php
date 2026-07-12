@@ -9,7 +9,7 @@ else if(count($view->getBranch2()) >= 1 && $view->getUrlName2() === 'SystemLang'
                 <div class="col-md-auto">
                     <div class="form-group">
                         <div class="form-check">
-                            <input type="checkbox" id="choices[]" class="form-check-input" name="choices[$key]" value="{$key}">
+                            <input type="checkbox" id="choices[]" onchange="optionBranch('all_branch2')" class="all_branch form-check-input" name="choices[$key]" value="{$key}">
                             <label class="form-check-label" for="choices[]">
                             {$option}
                             </label>
@@ -36,7 +36,7 @@ else if(count($view->getBranch2()) >= 1 && isset($view->getModel2()['MyFlexTable
                 <div class="col-md-auto">
                     <div class="form-group">
                         <div class="form-check">
-                            <input type="checkbox" id="choices[]" class="form-check-input branch-check" name="choices[$key]" value="{$key}">
+                            <input type="checkbox" id="choices[]" onchange="optionBranch('all_branch2')" class="all_branch form-check-input branch-check" name="choices[$key]" value="{$key}">
                             <label class="form-check-label" for="choices[]">
                             {$option['Name']}
                             </label>

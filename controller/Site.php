@@ -38,7 +38,7 @@ class Site extends ModelJson{
     function __construct(){
         parent::__construct('Site', function (){
             return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
-        }, null, 'AdminDashboard2');
+        });
         $this->About = $this->getModelPage()['About'];
         $this->Product = $this->getModelPage()['Product'];
         $this->Contact = $this->getModelPage()['Contact'];

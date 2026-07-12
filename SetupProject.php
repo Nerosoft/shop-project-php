@@ -3,7 +3,7 @@ include 'auth/SessionAdmin.php';
 class SetupProject extends ModelJson{
     use ErrorBranch, ErrorsEmailPassword;
     function __construct(){
-        parent::__construct();
+        parent::__construct(null, null, null, ModelJson::getRandomKey());
         $this->validInputs();
         $file = $this->getFile();
         $file[$this->keyId] = $this->getProject();

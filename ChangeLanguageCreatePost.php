@@ -21,7 +21,7 @@ class ChangeLanguageCreatePost extends ModelJson{
             //add lang inside branch
             $myFile[$this->keyId] = $lang;
             return $myFile;
-        }, 'MessageModelCreate');
+        }, 'MessageModelCreate', ModelJson::getRandomKey());
         $myData = $this->saveNameLanguage($this->getallNames(), 'AllNamesLanguage', $this->getObj());
         $myData[$this->keyId] = $myData[$_POST['selectedLanguage']];
         $this->saveModel($myData);

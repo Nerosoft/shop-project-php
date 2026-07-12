@@ -2,14 +2,6 @@
 include 'auth/SessionAdmin.php';
 class SystemLangEditPost extends ModelJson{
     use ErrorSystemlang;
-    function validLanguage(){
-        foreach ($_POST['choices'] as $key => $value)
-            if(!isset($this->getModel2()['AllNamesLanguage'][$key]))
-                return false;
-        //add name language inside array choices
-        $_POST['choices'][$_GET['lang']] = $_GET['lang'];
-        return true;
-    }
     function __construct(){
         parent::__construct('SystemLang');
         $this->initErrorSystemlang();
@@ -20,13 +12,14 @@ class SystemLangEditPost extends ModelJson{
         else if(!isset($_GET['lang']) || !isset($_GET['table']) || !isset($_GET['key']) || !isset($this->getObj()[$_GET['lang']][$_GET['table']][$_GET['key']]) && !isset($_GET['array']) || isset($_GET['array']) && !isset($this->getObj()[$_GET['lang']][$_GET['table']][$_GET['key']][$_GET['array']]))
             $this->showError($this->getModelPage()['ErrorFormInput']);
         //check isset all language or name language
-        else if(isset($_POST['Branches']) || isset($_POST['choices']) && $this->validLanguage()){
+        else if(isset($_POST['choices'])){
             $file = $this->getObj();
-            if(isset($_GET['array']))
-                foreach (isset($_POST['Branches'])?$this->getModel2()['AllNamesLanguage']:$_POST['choices'] as $key => $value)
+            foreach (is_array($_POST['choices'])?array(...$_POST['choices'], $_GET['lang']=>$_GET['lang']):$this->getModel2()['AllNamesLanguage'] as $key => $value)
+                if(is_array($_POST['choices']) && !isset($this->getModel2()['AllNamesLanguage'][$key]))
+                    $this->showError($this->getModelPage()['ErrorFormInput']);
+                else if(isset($_GET['array']))
                     $file[$key][$_GET['table']][$_GET['key']][$_GET['array']] = $_POST['word'];
-            else
-                foreach (isset($_POST['Branches'])?$this->getModel2()['AllNamesLanguage']:$_POST['choices'] as $key => $value)
+                else
                     $file[$key][$_GET['table']][$_GET['key']] = $_POST['word'];
             $this->saveModel($file);
         }
