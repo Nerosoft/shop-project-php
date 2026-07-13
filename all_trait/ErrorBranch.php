@@ -72,7 +72,7 @@ trait ErrorBranch{
             $this->showError($this->getBranceRaysAddressLength());
         else if(!isset($_POST['Follow']))
             $this->showError($this->getBranceRaysFollowRequired());
-        else if(!isset($this->getModel2()['Branches']['SelectBranchBox'][$_POST['Follow']]))
+        else if(!isset($this->getModelPage()['SelectBranchBox'][$_POST['Follow']]))
             $this->showError($this->getModelPage()['BranceRaysFollowValue']);
         else if(ModelJson::getFileName() === 'BranchCreatePost' && !isset($_POST['selectedBranch']))
             $this->showError($this->getModelPage()['IdBranchReq']);

@@ -389,6 +389,10 @@
                 "cA5c3ca3": "English language"
             },
             "Register": {
+                "SelectBranchBox": {
+                    "WithoutRays": "Without work",
+                    "WithRays": "With work"
+                },
                 "CreateProjectMessage": "Successfully create project",
                 "RegisterMessage": "Successfully register",
                 "BranchProjectTitle": "welcome in change project",
@@ -487,6 +491,10 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Login": {
+                "SelectBranchBox": {
+                    "WithoutRays": "Without work",
+                    "WithRays": "With work"
+                },
                 "CreateProjectMessage": "Successfully create project",
                 "ForgetMessage": "Successfully forget and login",
                 "LoginMessage": "Successfully login",

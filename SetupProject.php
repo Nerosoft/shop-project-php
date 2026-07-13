@@ -403,6 +403,10 @@ class SetupProject extends ModelJson{
                     "english"=> "System language"
                 ],
                 "Register"=>[
+                    "SelectBranchBox"=>[
+                        "WithoutRays"=> "Without work",
+                        "WithRays"=> "With work"
+                    ],
                     "CreateProjectMessage"=> "Successfully create project",
                     "RegisterMessage"=> "Successfully register",
                     "BranchProjectTitle"=> "welcome in change project",
@@ -501,6 +505,10 @@ class SetupProject extends ModelJson{
                     "BranceRaysFollowValue"=> "Work invalid"
                 ],
                 "Login"=>[
+                    "SelectBranchBox"=>[
+                        "WithoutRays"=> "Without work",
+                        "WithRays"=> "With work"
+                    ],
                     "CreateProjectMessage"=> "Successfully create project",
                     "ForgetMessage"=> "Successfully forget and login",
                     "LoginMessage"=> "Successfully login",
