@@ -21,7 +21,7 @@ trait InfoBranch{
     private $BranchRaysAddress;
     private $selectBox1;
     function initInfoBranch(){
-        $this->branchInputOutput = $this->getModel2()['SelectBranchBox'];
+        $this->branchInputOutput = $this->getModel2()['Branches']['SelectBranchBox'];
         $this->LabelBranchRaysName = $this->getModelPage()['LabelBranchRaysName'];
         $this->LabelBranchRaysPhone = $this->getModelPage()['LabelBranchRaysPhone'];
         $this->LabelBranchRaysCountry = $this->getModelPage()['LabelBranchRaysCountry'];

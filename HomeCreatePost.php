@@ -14,7 +14,7 @@ include 'auth/SessionAdmin.php';
     function saveFelxTable($AllNamesLanguage, $myData){
         foreach ($AllNamesLanguage as $code => $value) {
             $myData[$code]['MyFlexTables'][$this->keyId] = $_POST['name'];
-            $myData[$code][$this->keyId] = $myData[$code]['TablePage'];
+            $myData[$code][$this->keyId] = $myData[$code]['AppSettingAdmin']['TablePage'];
             $myData[$code][$this->keyId]['MYTITLE'] = $_POST['name'];
             foreach ($this->keysInput as $key2 => $myInputKey){
                 $myData[$code][$this->keyId]['TableHead'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputNameTable'];

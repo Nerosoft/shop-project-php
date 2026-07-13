@@ -172,52 +172,35 @@ class ModelJson{
 
                 $this->DataView = $DataView();
                 $this->AllBranches = $this->getModelPage()['AllBranches'];
-                $this->Ssearch = $this->getModel2()['TableInfo']['Ssearch'];
-                $this->InfoEmpty = $this->getModel2()['TableInfo']['InfoEmpty'];
-                $this->ZeroRecords = $this->getModel2()['TableInfo']['ZeroRecords'];
-                $this->Info = $this->getModel2()['TableInfo']['Info'];
-                $this->LengthMenu = $this->getModel2()['TableInfo']['LengthMenu'];
-                $this->InfoFiltered = $this->getModel2()['TableInfo']['InfoFiltered'];
+                $this->Ssearch = $this->getModelPage()['Ssearch'];
+                $this->InfoEmpty = $this->getModelPage()['InfoEmpty'];
+                $this->ZeroRecords = $this->getModelPage()['ZeroRecords'];
+                $this->Info = $this->getModelPage()['Info'];
+                $this->LengthMenu = $this->getModelPage()['LengthMenu'];
+                $this->InfoFiltered = $this->getModelPage()['InfoFiltered'];
                 $this->Offcanvas = $this->getModel2()['AppSettingAdmin']['Offcanvas'];
-                $this->Logout = $this->getModel2()['AppSettingAdmin']['Logout'];
 
 
 
                 $this->AdminDashboard = $this->getModel2()['AppSettingAdmin']['AdminDashboard'];
-                if($this->getUrlName2() === 'SystemLang'){
-                    $this->myMenuApp = array('Home'=>$this->getModel2()['Menu']['Home'], 'SystemLang'=>$this->getModel2()['Menu']['SystemLang']);
+                if($this->getUrlName2() === 'Site'){
+                    $this->myMenuApp = $this->getModelPage()['AllMenu'];
+                    if(isset($_SESSION['userId'])){
+                        $this->initFlexTable();
+                        unset($this->myMenuApp['Login'], $this->myMenuApp['Register']);
+                    }
+                }else if($this->getUrlName2() === 'SystemLang'){
+                    $this->myMenuApp = array('Home'=>$this->getModelPage()['Home'],
+                    'Logout'=>$this->getModelPage()['Logout'],
+                    'SystemLang'=>$this->getModelPage()['EditAllLang']);
                     foreach ($this->getModel2()['AllNamesLanguage'] as $key => $value){
                         $this->myMenuApp[$key] = array($value);
                         foreach (array_keys($this->getModel2()) as $key2 => $table) 
                             $this->myMenuApp[$key][$table] = $this?->getModel2()[$table]['MYTITLE']??$this->getModel2()['AppSettingAdmin'][$table];
                     }
-                    $this->myMenuApp['Logout'] = $this->getModel2()['Menu']['Logout'];
-                }else if($this->getUrlName2() === 'Site' && !isset($_SESSION['userId'])){
-                    $this->myMenuApp = array('about'=>$this->getModelPage()['About'],
-                    'project'=>$this->getModelPage()['Product'],
-                    'contact'=>$this->getModelPage()['Contact'],
-                    'Login'=>$this->getModel2()['Menu']['Login'],
-                    'Register'=>$this->getModel2()['Menu']['Register']);
-                }else if($this->getUrlName2() === 'Site'){
-                    $this->myMenuApp = $this->getModel2()['Menu'];
-                    $this->myMenuApp['about'] = $this->getModelPage()['About'];
-                    $this->myMenuApp['project'] = $this->getModelPage()['Product'];
-                    $this->myMenuApp['contact'] = $this->getModelPage()['Contact'];
-                    unset($this->myMenuApp['Login'], $this->myMenuApp['Register']);
-                    if(isset($this->getModel2()['MyFlexTables']))
-                        $this->myMenuApp['MyFlexTables'] = array($this->myMenuApp['MyFlexTables'], ...$this->getModel2()['MyFlexTables']);
-                    else
-                        unset($this->myMenuApp['MyFlexTables']);
                 }
-                else{
-                    $this->myMenuApp = $this->getModel2()['Menu'];
-                    if(isset($this->getModel2()['MyFlexTables']))
-                        $this->myMenuApp['MyFlexTables'] = array($this->myMenuApp['MyFlexTables'], ...$this->getModel2()['MyFlexTables']);
-                    else
-                        unset($this->myMenuApp['MyFlexTables']);
-                    unset( $this->myMenuApp['Login'], 
-                    $this->myMenuApp['Register']);
-                }        
+                else
+                    $this->initFlexTable();     
                 include 'pis_of_page/admin_title.php';
                 if($this->getUrlName2() !== 'Site'){
                     echo '<div class="start-page container">';
@@ -395,6 +378,21 @@ class ModelJson{
         }
     
     }
+    function initFlexTable(){
+        foreach (array_keys($this->getModel2()) as $key2 => $table)
+            if(!isset($this->getModel2()['MyFlexTables'][$table])&&
+                $table !== 'AppSettingAdmin' && 
+                $table !== 'Style' && 
+                $table !== 'MyFlexTables' && 
+                $table !== 'Login' && 
+                $table !== 'Register' && 
+                $table !== 'AllNamesLanguage')
+                $this->myMenuApp[$table] = $this->getModel2()[$table]['MYTITLE'];
+
+        $this->myMenuApp['Logout'] = $this->getModelPage()['Logout'];
+        if(isset($this->getModel2()['MyFlexTables']))
+            $this->myMenuApp['MyFlexTables'] = array($this->getModelPage()['MyFlexTables'], ...$this->getModel2()['MyFlexTables']);
+    }
     function loginAdmin($message = 'LoginMessage'){
         $message = $this->getModelPage()[$message];
         $_SESSION['userId'] = $_POST['superId'];
@@ -531,7 +529,7 @@ class ModelJson{
         return $this->ChangeButtonBranch;
     }
     function getMyBranch(){
-        return Branch::fromArray($this->getBranch(), $this->getModel2()['SelectBranchBox']);
+        return Branch::fromArray($this->getBranch(), $this->getModel2()['Branches']['SelectBranchBox']);
     }
     function getMyLanguage(){
         return $this->MyLanguage;
@@ -637,16 +635,10 @@ class ModelJson{
             return 'fa fa-user-plus';
         else if($key === 'Menu')
             return 'fa fa-bars';
-        else if($key === 'TableInfo')
-            return 'fa fa-info';
         else if($key === 'AppSettingAdmin')
             return 'fa fa-archive';
-        else if($key === 'SelectBranchBox')
-            return 'fa fa-tree';
         else if($key === 'AllNamesLanguage')
             return 'fa fa-globe';
-        else if($key === 'TablePage')
-            return 'fa fa-table';
         else if($key === 'Users')
             return 'fa fa-user';
         else if($key === 'Product')
@@ -709,9 +701,6 @@ class ModelJson{
     }
     function getOffcanvas(){
         return $this->Offcanvas;
-    }
-    function getLogout(){
-        return $this->Logout;
     }
     function getAdminDashboard(){
         return $this->AdminDashboard;
