@@ -11,6 +11,9 @@
                     "contact": "Contact",
                     "project": "Our Works"
                 },
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Ssearch": "Quick Search:",
                 "InfoEmpty": "No records available",
                 "ZeroRecords": "No Data Found",
@@ -82,6 +85,9 @@
                 "default": "default"
             },
             "Product": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",
@@ -156,6 +162,9 @@
                 "HintCategory": "enter Category"
             },
             "Users": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",
@@ -217,6 +226,9 @@
                 "HintKeyPassword": "Enter key password"
             },
             "Branches": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "SelectBranchBox": {
@@ -326,6 +338,9 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",
@@ -386,7 +401,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "cA5c3ca3": "English language"
+                "WKc8995c": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -592,6 +607,14 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
+                "InputNameTable": "Name",
+                "InputLabel": "Name",
+                "InputHint": "Enter name value",
+                "InputErrorsMessageReq": "error name reqired",
+                "InputErrorsMessageInv": "error name invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",
@@ -644,70 +667,11 @@
                 "InputNumberTableIsReq": "Input numper table required",
                 "InputNumberTableIsInv": "Input numper table invalid",
                 "LabelInputNumber": "Input numper",
-                "HintInputNumber": "Enter input numper"
-            },
-            "MyStyle": {
-                "Logout": "Logout",
-                "MyFlexTables": "Flex tables",
-                "Ssearch": "Quick Search:",
-                "InfoEmpty": "No records available",
-                "ZeroRecords": "No Data Found",
-                "Info": "Total",
-                "LengthMenu": "records per page",
-                "InfoFiltered": "Showing",
-                "name": "Name",
-                "SuccessfullyChangeBranch": "Successfully changed branch",
-                "ActiveBranch": "this branch is active",
-                "ChangeTitleBranch": "welcome in change branch",
-                "ChangeButtonBranch": "change branch",
-                "UsedLanguage": "Language is active",
-                "ModelTitle": "welcom in change language",
-                "ModelButton": "Change language",
-                "UsedStyle": "Style is active",
-                "ModalTitleStyle": "welcom in change style",
-                "ModalButtonStyle": "Change style",
-                "MessageStyleLang": "Successfylly change language",
-                "MessageStyleLang2": "Successfylly change style",
-                "AllBranches": "All branches",
-                "MYTITLE": "Style",
-                "IdIsReq": "Id required",
-                "IdIsInv": "Id invalid",
-                "NewLangNameRequired": "Name required",
-                "NewLangNameInvalid": "Name invalid",
-                "NameLangaue": "Name",
-                "LabelCreateLanguage": "Name",
-                "HintNewLangName": "Enter name",
-                "Title": "Style",
-                "LoadMessage": "welcome in style",
-                "TableId": "ID",
-                "TabelEvent": "Event",
-                "ScreenModelEdit": "Welcome in edit style",
-                "ButtonModelEdit": "Save",
-                "LabelChangeLanguageMessage": "do you want to change style",
-                "TitleChangeLanguageMessage": "Welcome in change style",
-                "ButtonChangeLanguageMessage": "Change",
-                "MessageStyle": "successfully change style",
-                "MessageModelEdit": "Seccessfully edit style"
-            },
-            "AppSettingAdmin": {
-                "MYTITLE": "App word",
-                "Menu": "Menu",
-                "Offcanvas": "Menu",
-                "AdminDashboard": "Welocme in my library",
-                "AdminDashboard2": "Delivery marketing",
-                "BranchMain": "Branch main",
-                "AllNamesLanguage": "All names language",
-                "MyFlexTables": "All names flex tables",
-                "InputNameTable": "Name",
-                "InputLabel": "Name",
-                "InputHint": "Enter name value",
-                "InputErrorsMessageReq": "error name reqired",
-                "InputErrorsMessageInv": "error name invalid",
-                "SelectBranchBox": "Without work or With work",
-                "Html": "Html",
-                "Style": "Style",
-                "BranchInv": "branch id invalid",
+                "HintInputNumber": "Enter input numper",
                 "TablePage": {
+                    "Offcanvas": "Menu",
+                    "AdminDashboard": "Welocme in my library",
+                    "BranchInv": "branch id invalid",
                     "Logout": "Logout",
                     "MyFlexTables": "Flex tables",
                     "Ssearch": "Quick Search:",
@@ -756,7 +720,58 @@
                     "IdIsInv": "your message error id invalid"
                 }
             },
+            "MyStyle": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
+                "Logout": "Logout",
+                "MyFlexTables": "Flex tables",
+                "Ssearch": "Quick Search:",
+                "InfoEmpty": "No records available",
+                "ZeroRecords": "No Data Found",
+                "Info": "Total",
+                "LengthMenu": "records per page",
+                "InfoFiltered": "Showing",
+                "name": "Name",
+                "SuccessfullyChangeBranch": "Successfully changed branch",
+                "ActiveBranch": "this branch is active",
+                "ChangeTitleBranch": "welcome in change branch",
+                "ChangeButtonBranch": "change branch",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
+                "AllBranches": "All branches",
+                "MYTITLE": "Style",
+                "IdIsReq": "Id required",
+                "IdIsInv": "Id invalid",
+                "NewLangNameRequired": "Name required",
+                "NewLangNameInvalid": "Name invalid",
+                "NameLangaue": "Name",
+                "LabelCreateLanguage": "Name",
+                "HintNewLangName": "Enter name",
+                "Title": "Style",
+                "LoadMessage": "welcome in style",
+                "TableId": "ID",
+                "TabelEvent": "Event",
+                "ScreenModelEdit": "Welcome in edit style",
+                "ButtonModelEdit": "Save",
+                "LabelChangeLanguageMessage": "do you want to change style",
+                "TitleChangeLanguageMessage": "Welcome in change style",
+                "ButtonChangeLanguageMessage": "Change",
+                "MessageStyle": "successfully change style",
+                "MessageModelEdit": "Seccessfully edit style"
+            },
             "SystemLang": {
+                "Style": "Style",
+                "AllNamesLanguage": "All name language",
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "Home": "Home",
                 "EditAllLang": "Edit all language",
@@ -817,6 +832,9 @@
                 "D2b5cb45": "book programming language"
             },
             "D2b5cb45": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",
@@ -924,7 +942,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithoutRays"
             },
-            "xI118247": {
+            "zq518012": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
@@ -978,7 +996,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "cA5c3ca3": {
+        "WKc8995c": {
             "Site": {
                 "AllMenu": {
                     "Login": "Login",
@@ -987,6 +1005,9 @@
                     "contact": "Contact",
                     "project": "Our Works"
                 },
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Ssearch": "Quick Search:",
                 "InfoEmpty": "No records available",
                 "ZeroRecords": "No Data Found",
@@ -1058,6 +1079,9 @@
                 "default": "default"
             },
             "Product": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",
@@ -1132,6 +1156,9 @@
                 "HintCategory": "enter Category"
             },
             "Users": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",
@@ -1193,6 +1220,9 @@
                 "HintKeyPassword": "Enter key password"
             },
             "Branches": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "SelectBranchBox": {
@@ -1302,6 +1332,9 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",
@@ -1362,9 +1395,13 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "cA5c3ca3": "English language"
+                "WKc8995c": "English language"
             },
             "Register": {
+                "SelectBranchBox": {
+                    "WithoutRays": "Without work",
+                    "WithRays": "With work"
+                },
                 "CreateProjectMessage": "Successfully create project",
                 "RegisterMessage": "Successfully register",
                 "BranchProjectTitle": "welcome in change project",
@@ -1463,6 +1500,10 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Login": {
+                "SelectBranchBox": {
+                    "WithoutRays": "Without work",
+                    "WithRays": "With work"
+                },
                 "CreateProjectMessage": "Successfully create project",
                 "ForgetMessage": "Successfully forget and login",
                 "LoginMessage": "Successfully login",
@@ -1560,6 +1601,14 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
+                "InputNameTable": "Name",
+                "InputLabel": "Name",
+                "InputHint": "Enter name value",
+                "InputErrorsMessageReq": "error name reqired",
+                "InputErrorsMessageInv": "error name invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",
@@ -1612,70 +1661,11 @@
                 "InputNumberTableIsReq": "Input numper table required",
                 "InputNumberTableIsInv": "Input numper table invalid",
                 "LabelInputNumber": "Input numper",
-                "HintInputNumber": "Enter input numper"
-            },
-            "MyStyle": {
-                "Logout": "Logout",
-                "MyFlexTables": "Flex tables",
-                "Ssearch": "Quick Search:",
-                "InfoEmpty": "No records available",
-                "ZeroRecords": "No Data Found",
-                "Info": "Total",
-                "LengthMenu": "records per page",
-                "InfoFiltered": "Showing",
-                "name": "Name",
-                "SuccessfullyChangeBranch": "Successfully changed branch",
-                "ActiveBranch": "this branch is active",
-                "ChangeTitleBranch": "welcome in change branch",
-                "ChangeButtonBranch": "change branch",
-                "UsedLanguage": "Language is active",
-                "ModelTitle": "welcom in change language",
-                "ModelButton": "Change language",
-                "UsedStyle": "Style is active",
-                "ModalTitleStyle": "welcom in change style",
-                "ModalButtonStyle": "Change style",
-                "MessageStyleLang": "Successfylly change language",
-                "MessageStyleLang2": "Successfylly change style",
-                "AllBranches": "All branches",
-                "MYTITLE": "Style",
-                "IdIsReq": "Id required",
-                "IdIsInv": "Id invalid",
-                "NewLangNameRequired": "Name required",
-                "NewLangNameInvalid": "Name invalid",
-                "NameLangaue": "Name",
-                "LabelCreateLanguage": "Name",
-                "HintNewLangName": "Enter name",
-                "Title": "Style",
-                "LoadMessage": "welcome in style",
-                "TableId": "ID",
-                "TabelEvent": "Event",
-                "ScreenModelEdit": "Welcome in edit style",
-                "ButtonModelEdit": "Save",
-                "LabelChangeLanguageMessage": "do you want to change style",
-                "TitleChangeLanguageMessage": "Welcome in change style",
-                "ButtonChangeLanguageMessage": "Change",
-                "MessageStyle": "successfully change style",
-                "MessageModelEdit": "Seccessfully edit style"
-            },
-            "AppSettingAdmin": {
-                "MYTITLE": "App word",
-                "Menu": "Menu",
-                "Offcanvas": "Menu",
-                "AdminDashboard": "Welocme in my library",
-                "AdminDashboard2": "Delivery marketing",
-                "BranchMain": "Branch main",
-                "AllNamesLanguage": "All names language",
-                "MyFlexTables": "All names flex tables",
-                "InputNameTable": "Name",
-                "InputLabel": "Name",
-                "InputHint": "Enter name value",
-                "InputErrorsMessageReq": "error name reqired",
-                "InputErrorsMessageInv": "error name invalid",
-                "SelectBranchBox": "Without work or With work",
-                "Html": "Html",
-                "Style": "Style",
-                "BranchInv": "branch id invalid",
+                "HintInputNumber": "Enter input numper",
                 "TablePage": {
+                    "Offcanvas": "Menu",
+                    "AdminDashboard": "Welocme in my library",
+                    "BranchInv": "branch id invalid",
                     "Logout": "Logout",
                     "MyFlexTables": "Flex tables",
                     "Ssearch": "Quick Search:",
@@ -1724,7 +1714,58 @@
                     "IdIsInv": "your message error id invalid"
                 }
             },
+            "MyStyle": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
+                "Logout": "Logout",
+                "MyFlexTables": "Flex tables",
+                "Ssearch": "Quick Search:",
+                "InfoEmpty": "No records available",
+                "ZeroRecords": "No Data Found",
+                "Info": "Total",
+                "LengthMenu": "records per page",
+                "InfoFiltered": "Showing",
+                "name": "Name",
+                "SuccessfullyChangeBranch": "Successfully changed branch",
+                "ActiveBranch": "this branch is active",
+                "ChangeTitleBranch": "welcome in change branch",
+                "ChangeButtonBranch": "change branch",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
+                "AllBranches": "All branches",
+                "MYTITLE": "Style",
+                "IdIsReq": "Id required",
+                "IdIsInv": "Id invalid",
+                "NewLangNameRequired": "Name required",
+                "NewLangNameInvalid": "Name invalid",
+                "NameLangaue": "Name",
+                "LabelCreateLanguage": "Name",
+                "HintNewLangName": "Enter name",
+                "Title": "Style",
+                "LoadMessage": "welcome in style",
+                "TableId": "ID",
+                "TabelEvent": "Event",
+                "ScreenModelEdit": "Welcome in edit style",
+                "ButtonModelEdit": "Save",
+                "LabelChangeLanguageMessage": "do you want to change style",
+                "TitleChangeLanguageMessage": "Welcome in change style",
+                "ButtonChangeLanguageMessage": "Change",
+                "MessageStyle": "successfully change style",
+                "MessageModelEdit": "Seccessfully edit style"
+            },
             "SystemLang": {
+                "Style": "Style",
+                "AllNamesLanguage": "All name language",
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "Home": "Home",
                 "EditAllLang": "Edit all language",
@@ -1785,6 +1826,9 @@
                 "D2b5cb45": "book programming language"
             },
             "D2b5cb45": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",
@@ -1874,7 +1918,7 @@
             }
         }
     },
-    "xI118247": {
+    "zq518012": {
         "AllNamesLanguage": "english",
         "Style": "default",
         "english": {
@@ -1886,6 +1930,9 @@
                     "contact": "Contact",
                     "project": "Our Works"
                 },
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Ssearch": "Quick Search:",
                 "InfoEmpty": "No records available",
                 "ZeroRecords": "No Data Found",
@@ -1957,6 +2004,9 @@
                 "default": "default"
             },
             "Product": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",
@@ -2031,6 +2081,9 @@
                 "HintCategory": "enter Category"
             },
             "Users": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",
@@ -2092,6 +2145,9 @@
                 "HintKeyPassword": "Enter key password"
             },
             "Branches": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "SelectBranchBox": {
@@ -2201,6 +2257,9 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",
@@ -2261,9 +2320,13 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "cA5c3ca3": "English language"
+                "WKc8995c": "English language"
             },
             "Register": {
+                "SelectBranchBox": {
+                    "WithoutRays": "Without work",
+                    "WithRays": "With work"
+                },
                 "CreateProjectMessage": "Successfully create project",
                 "RegisterMessage": "Successfully register",
                 "BranchProjectTitle": "welcome in change project",
@@ -2362,6 +2425,10 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Login": {
+                "SelectBranchBox": {
+                    "WithoutRays": "Without work",
+                    "WithRays": "With work"
+                },
                 "CreateProjectMessage": "Successfully create project",
                 "ForgetMessage": "Successfully forget and login",
                 "LoginMessage": "Successfully login",
@@ -2459,6 +2526,14 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
+                "InputNameTable": "Name",
+                "InputLabel": "Name",
+                "InputHint": "Enter name value",
+                "InputErrorsMessageReq": "error name reqired",
+                "InputErrorsMessageInv": "error name invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",
@@ -2511,70 +2586,11 @@
                 "InputNumberTableIsReq": "Input numper table required",
                 "InputNumberTableIsInv": "Input numper table invalid",
                 "LabelInputNumber": "Input numper",
-                "HintInputNumber": "Enter input numper"
-            },
-            "MyStyle": {
-                "Logout": "Logout",
-                "MyFlexTables": "Flex tables",
-                "Ssearch": "Quick Search:",
-                "InfoEmpty": "No records available",
-                "ZeroRecords": "No Data Found",
-                "Info": "Total",
-                "LengthMenu": "records per page",
-                "InfoFiltered": "Showing",
-                "name": "Name",
-                "SuccessfullyChangeBranch": "Successfully changed branch",
-                "ActiveBranch": "this branch is active",
-                "ChangeTitleBranch": "welcome in change branch",
-                "ChangeButtonBranch": "change branch",
-                "UsedLanguage": "Language is active",
-                "ModelTitle": "welcom in change language",
-                "ModelButton": "Change language",
-                "UsedStyle": "Style is active",
-                "ModalTitleStyle": "welcom in change style",
-                "ModalButtonStyle": "Change style",
-                "MessageStyleLang": "Successfylly change language",
-                "MessageStyleLang2": "Successfylly change style",
-                "AllBranches": "All branches",
-                "MYTITLE": "Style",
-                "IdIsReq": "Id required",
-                "IdIsInv": "Id invalid",
-                "NewLangNameRequired": "Name required",
-                "NewLangNameInvalid": "Name invalid",
-                "NameLangaue": "Name",
-                "LabelCreateLanguage": "Name",
-                "HintNewLangName": "Enter name",
-                "Title": "Style",
-                "LoadMessage": "welcome in style",
-                "TableId": "ID",
-                "TabelEvent": "Event",
-                "ScreenModelEdit": "Welcome in edit style",
-                "ButtonModelEdit": "Save",
-                "LabelChangeLanguageMessage": "do you want to change style",
-                "TitleChangeLanguageMessage": "Welcome in change style",
-                "ButtonChangeLanguageMessage": "Change",
-                "MessageStyle": "successfully change style",
-                "MessageModelEdit": "Seccessfully edit style"
-            },
-            "AppSettingAdmin": {
-                "MYTITLE": "App word",
-                "Menu": "Menu",
-                "Offcanvas": "Menu",
-                "AdminDashboard": "Welocme in my library",
-                "AdminDashboard2": "Delivery marketing",
-                "BranchMain": "Branch main",
-                "AllNamesLanguage": "All names language",
-                "MyFlexTables": "All names flex tables",
-                "InputNameTable": "Name",
-                "InputLabel": "Name",
-                "InputHint": "Enter name value",
-                "InputErrorsMessageReq": "error name reqired",
-                "InputErrorsMessageInv": "error name invalid",
-                "SelectBranchBox": "Without work or With work",
-                "Html": "Html",
-                "Style": "Style",
-                "BranchInv": "branch id invalid",
+                "HintInputNumber": "Enter input numper",
                 "TablePage": {
+                    "Offcanvas": "Menu",
+                    "AdminDashboard": "Welocme in my library",
+                    "BranchInv": "branch id invalid",
                     "Logout": "Logout",
                     "MyFlexTables": "Flex tables",
                     "Ssearch": "Quick Search:",
@@ -2623,7 +2639,58 @@
                     "IdIsInv": "your message error id invalid"
                 }
             },
+            "MyStyle": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
+                "Logout": "Logout",
+                "MyFlexTables": "Flex tables",
+                "Ssearch": "Quick Search:",
+                "InfoEmpty": "No records available",
+                "ZeroRecords": "No Data Found",
+                "Info": "Total",
+                "LengthMenu": "records per page",
+                "InfoFiltered": "Showing",
+                "name": "Name",
+                "SuccessfullyChangeBranch": "Successfully changed branch",
+                "ActiveBranch": "this branch is active",
+                "ChangeTitleBranch": "welcome in change branch",
+                "ChangeButtonBranch": "change branch",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
+                "AllBranches": "All branches",
+                "MYTITLE": "Style",
+                "IdIsReq": "Id required",
+                "IdIsInv": "Id invalid",
+                "NewLangNameRequired": "Name required",
+                "NewLangNameInvalid": "Name invalid",
+                "NameLangaue": "Name",
+                "LabelCreateLanguage": "Name",
+                "HintNewLangName": "Enter name",
+                "Title": "Style",
+                "LoadMessage": "welcome in style",
+                "TableId": "ID",
+                "TabelEvent": "Event",
+                "ScreenModelEdit": "Welcome in edit style",
+                "ButtonModelEdit": "Save",
+                "LabelChangeLanguageMessage": "do you want to change style",
+                "TitleChangeLanguageMessage": "Welcome in change style",
+                "ButtonChangeLanguageMessage": "Change",
+                "MessageStyle": "successfully change style",
+                "MessageModelEdit": "Seccessfully edit style"
+            },
             "SystemLang": {
+                "Style": "Style",
+                "AllNamesLanguage": "All name language",
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "Home": "Home",
                 "EditAllLang": "Edit all language",
@@ -2684,6 +2751,9 @@
                 "D2b5cb45": "book programming language"
             },
             "D2b5cb45": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",
@@ -2821,7 +2891,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "cA5c3ca3": {
+        "WKc8995c": {
             "Site": {
                 "AllMenu": {
                     "Login": "Login",
@@ -2830,6 +2900,9 @@
                     "contact": "Contact",
                     "project": "Our Works"
                 },
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Ssearch": "Quick Search:",
                 "InfoEmpty": "No records available",
                 "ZeroRecords": "No Data Found",
@@ -2901,6 +2974,9 @@
                 "default": "default"
             },
             "Product": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",
@@ -2975,6 +3051,9 @@
                 "HintCategory": "enter Category"
             },
             "Users": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",
@@ -3036,6 +3115,9 @@
                 "HintKeyPassword": "Enter key password"
             },
             "Branches": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "SelectBranchBox": {
@@ -3145,6 +3227,9 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",
@@ -3205,9 +3290,13 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "cA5c3ca3": "English language"
+                "WKc8995c": "English language"
             },
             "Register": {
+                "SelectBranchBox": {
+                    "WithoutRays": "Without work",
+                    "WithRays": "With work"
+                },
                 "CreateProjectMessage": "Successfully create project",
                 "RegisterMessage": "Successfully register",
                 "BranchProjectTitle": "welcome in change project",
@@ -3306,6 +3395,10 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Login": {
+                "SelectBranchBox": {
+                    "WithoutRays": "Without work",
+                    "WithRays": "With work"
+                },
                 "CreateProjectMessage": "Successfully create project",
                 "ForgetMessage": "Successfully forget and login",
                 "LoginMessage": "Successfully login",
@@ -3403,6 +3496,14 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
+                "InputNameTable": "Name",
+                "InputLabel": "Name",
+                "InputHint": "Enter name value",
+                "InputErrorsMessageReq": "error name reqired",
+                "InputErrorsMessageInv": "error name invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",
@@ -3455,70 +3556,11 @@
                 "InputNumberTableIsReq": "Input numper table required",
                 "InputNumberTableIsInv": "Input numper table invalid",
                 "LabelInputNumber": "Input numper",
-                "HintInputNumber": "Enter input numper"
-            },
-            "MyStyle": {
-                "Logout": "Logout",
-                "MyFlexTables": "Flex tables",
-                "Ssearch": "Quick Search:",
-                "InfoEmpty": "No records available",
-                "ZeroRecords": "No Data Found",
-                "Info": "Total",
-                "LengthMenu": "records per page",
-                "InfoFiltered": "Showing",
-                "name": "Name",
-                "SuccessfullyChangeBranch": "Successfully changed branch",
-                "ActiveBranch": "this branch is active",
-                "ChangeTitleBranch": "welcome in change branch",
-                "ChangeButtonBranch": "change branch",
-                "UsedLanguage": "Language is active",
-                "ModelTitle": "welcom in change language",
-                "ModelButton": "Change language",
-                "UsedStyle": "Style is active",
-                "ModalTitleStyle": "welcom in change style",
-                "ModalButtonStyle": "Change style",
-                "MessageStyleLang": "Successfylly change language",
-                "MessageStyleLang2": "Successfylly change style",
-                "AllBranches": "All branches",
-                "MYTITLE": "Style",
-                "IdIsReq": "Id required",
-                "IdIsInv": "Id invalid",
-                "NewLangNameRequired": "Name required",
-                "NewLangNameInvalid": "Name invalid",
-                "NameLangaue": "Name",
-                "LabelCreateLanguage": "Name",
-                "HintNewLangName": "Enter name",
-                "Title": "Style",
-                "LoadMessage": "welcome in style",
-                "TableId": "ID",
-                "TabelEvent": "Event",
-                "ScreenModelEdit": "Welcome in edit style",
-                "ButtonModelEdit": "Save",
-                "LabelChangeLanguageMessage": "do you want to change style",
-                "TitleChangeLanguageMessage": "Welcome in change style",
-                "ButtonChangeLanguageMessage": "Change",
-                "MessageStyle": "successfully change style",
-                "MessageModelEdit": "Seccessfully edit style"
-            },
-            "AppSettingAdmin": {
-                "MYTITLE": "App word",
-                "Menu": "Menu",
-                "Offcanvas": "Menu",
-                "AdminDashboard": "Welocme in my library",
-                "AdminDashboard2": "Delivery marketing",
-                "BranchMain": "Branch main",
-                "AllNamesLanguage": "All names language",
-                "MyFlexTables": "All names flex tables",
-                "InputNameTable": "Name",
-                "InputLabel": "Name",
-                "InputHint": "Enter name value",
-                "InputErrorsMessageReq": "error name reqired",
-                "InputErrorsMessageInv": "error name invalid",
-                "SelectBranchBox": "Without work or With work",
-                "Html": "Html",
-                "Style": "Style",
-                "BranchInv": "branch id invalid",
+                "HintInputNumber": "Enter input numper",
                 "TablePage": {
+                    "Offcanvas": "Menu",
+                    "AdminDashboard": "Welocme in my library",
+                    "BranchInv": "branch id invalid",
                     "Logout": "Logout",
                     "MyFlexTables": "Flex tables",
                     "Ssearch": "Quick Search:",
@@ -3567,7 +3609,58 @@
                     "IdIsInv": "your message error id invalid"
                 }
             },
+            "MyStyle": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
+                "Logout": "Logout",
+                "MyFlexTables": "Flex tables",
+                "Ssearch": "Quick Search:",
+                "InfoEmpty": "No records available",
+                "ZeroRecords": "No Data Found",
+                "Info": "Total",
+                "LengthMenu": "records per page",
+                "InfoFiltered": "Showing",
+                "name": "Name",
+                "SuccessfullyChangeBranch": "Successfully changed branch",
+                "ActiveBranch": "this branch is active",
+                "ChangeTitleBranch": "welcome in change branch",
+                "ChangeButtonBranch": "change branch",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
+                "AllBranches": "All branches",
+                "MYTITLE": "Style",
+                "IdIsReq": "Id required",
+                "IdIsInv": "Id invalid",
+                "NewLangNameRequired": "Name required",
+                "NewLangNameInvalid": "Name invalid",
+                "NameLangaue": "Name",
+                "LabelCreateLanguage": "Name",
+                "HintNewLangName": "Enter name",
+                "Title": "Style",
+                "LoadMessage": "welcome in style",
+                "TableId": "ID",
+                "TabelEvent": "Event",
+                "ScreenModelEdit": "Welcome in edit style",
+                "ButtonModelEdit": "Save",
+                "LabelChangeLanguageMessage": "do you want to change style",
+                "TitleChangeLanguageMessage": "Welcome in change style",
+                "ButtonChangeLanguageMessage": "Change",
+                "MessageStyle": "successfully change style",
+                "MessageModelEdit": "Seccessfully edit style"
+            },
             "SystemLang": {
+                "Style": "Style",
+                "AllNamesLanguage": "All name language",
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "Home": "Home",
                 "EditAllLang": "Edit all language",
@@ -3628,6 +3721,9 @@
                 "D2b5cb45": "book programming language"
             },
             "D2b5cb45": {
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
                 "Logout": "Logout",
                 "MyFlexTables": "Flex tables",
                 "Ssearch": "Quick Search:",

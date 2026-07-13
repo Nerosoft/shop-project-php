@@ -14,14 +14,14 @@ include 'auth/SessionAdmin.php';
     function saveFelxTable($AllNamesLanguage, $myData){
         foreach ($AllNamesLanguage as $code => $value) {
             $myData[$code]['MyFlexTables'][$this->keyId] = $_POST['name'];
-            $myData[$code][$this->keyId] = $myData[$code]['AppSettingAdmin']['TablePage'];
+            $myData[$code][$this->keyId] = $myData[$code]['Home']['TablePage'];
             $myData[$code][$this->keyId]['MYTITLE'] = $_POST['name'];
             foreach ($this->keysInput as $key2 => $myInputKey){
-                $myData[$code][$this->keyId]['TableHead'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputNameTable'];
-                $myData[$code][$this->keyId]['Label'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputLabel'];
-                $myData[$code][$this->keyId]['Hint'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputHint'];
-                $myData[$code][$this->keyId]['ErrorsMessageReq'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputErrorsMessageReq'];
-                $myData[$code][$this->keyId]['ErrorsMessageInv'][$myInputKey] = $myData[$code]['AppSettingAdmin']['InputErrorsMessageInv'];
+                $myData[$code][$this->keyId]['TableHead'][$myInputKey] = $myData[$code]['Home']['InputNameTable'];
+                $myData[$code][$this->keyId]['Label'][$myInputKey] = $myData[$code]['Home']['InputLabel'];
+                $myData[$code][$this->keyId]['Hint'][$myInputKey] = $myData[$code]['Home']['InputHint'];
+                $myData[$code][$this->keyId]['ErrorsMessageReq'][$myInputKey] = $myData[$code]['Home']['InputErrorsMessageReq'];
+                $myData[$code][$this->keyId]['ErrorsMessageInv'][$myInputKey] = $myData[$code]['Home']['InputErrorsMessageInv'];
             }
         }
         return $myData;

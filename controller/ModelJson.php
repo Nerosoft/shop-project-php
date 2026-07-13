@@ -178,11 +178,11 @@ class ModelJson{
                 $this->Info = $this->getModelPage()['Info'];
                 $this->LengthMenu = $this->getModelPage()['LengthMenu'];
                 $this->InfoFiltered = $this->getModelPage()['InfoFiltered'];
-                $this->Offcanvas = $this->getModel2()['AppSettingAdmin']['Offcanvas'];
+
+                $this->Offcanvas = $this->getModelPage()['Offcanvas'];
+                $this->AdminDashboard = $this->getModelPage()['AdminDashboard'];
 
 
-
-                $this->AdminDashboard = $this->getModel2()['AppSettingAdmin']['AdminDashboard'];
                 if($this->getUrlName2() === 'Site'){
                     $this->myMenuApp = $this->getModelPage()['AllMenu'];
                     if(isset($_SESSION['userId'])){
@@ -196,7 +196,7 @@ class ModelJson{
                     foreach ($this->getModel2()['AllNamesLanguage'] as $key => $value){
                         $this->myMenuApp[$key] = array($value);
                         foreach (array_keys($this->getModel2()) as $key2 => $table) 
-                            $this->myMenuApp[$key][$table] = $this?->getModel2()[$table]['MYTITLE']??$this->getModel2()['AppSettingAdmin'][$table];
+                            $this->myMenuApp[$key][$table] = $this?->getModel2()[$table]['MYTITLE']??$this->getModelPage()[$table];
                     }
                 }
                 else
@@ -275,7 +275,7 @@ class ModelJson{
         else if(ModelJson::getFileName()==='SystemLangEditPost' && isset($_POST['choices']) && count($this->getModel2()['AllNamesLanguage']) === 1||
         ModelJson::getFileName()!=='SystemLangEditPost' && isset($_POST['choices']) && is_array($_POST['choices']) && isset($_POST['choices'][$this->getId()])|| 
         ModelJson::getFileName()!=='SystemLangEditPost' && isset($_POST['choices']) && count($this->getBranch()) === 1)
-            $this->showError($this->getModel2()['AppSettingAdmin']['BranchInv']);       
+            $this->showError($this->getModelPage()['BranchInv']);       
          
         
         else if(ModelJson::getFileName()!== 'SystemLangEditPost'){
@@ -283,7 +283,7 @@ class ModelJson{
             $this->keyId = $keyItem??($_POST['id']??ModelJson::getRandomKey());
             if(isset($_POST['choices']) && is_array($_POST['choices']) && isset($_POST['choices'][$this->getId()])|| 
                 isset($_POST['choices']) && count($this->getBranch()) === 1)
-                $this->showError($this->getModel2()['AppSettingAdmin']['BranchInv']);
+                $this->showError($this->getModelPage()['BranchInv']);
             //valid id first
             else if(ModelJson::getFileName()!=='BranchCreatePost' && ModelJson::getFileName()!=='FlexTablesCreatePost' && ModelJson::getFileName()!=='HomeCreatePost' && ModelJson::getFileName()!=='ChangeLanguageCreatePost' && ModelJson::getFileName()!=='SettingUsersCreatePost' && ModelJson::getFileName()!=='ProductCreatePost' && !isset($_POST['id']) ||
                 ModelJson::getFileName()!=='BranchCreatePost' && ModelJson::getFileName()!=='FlexTablesCreatePost' && ModelJson::getFileName()!=='HomeCreatePost' && ModelJson::getFileName()!=='ChangeLanguageCreatePost' &&  ModelJson::getFileName()!=='SettingUsersCreatePost' && ModelJson::getFileName()!=='ProductCreatePost' && $_POST['id'] === '')
@@ -319,7 +319,7 @@ class ModelJson{
                 foreach (is_array($_POST['choices'])?array(...$_POST['choices'], $this->getId()=>$this->getId()):$this->getBranch() as $key => $value)
                     //make test id branch if user select choices option
                     if(is_array($_POST['choices']) && !isset($this->getBranch()[$key]))
-                        $this->showError($this->getModel2()['AppSettingAdmin']['BranchInv']);
+                        $this->showError($this->getModelPage()['BranchInv']);
                   
 
                     else if(isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]) ||
@@ -381,7 +381,6 @@ class ModelJson{
     function initFlexTable(){
         foreach (array_keys($this->getModel2()) as $key2 => $table)
             if(!isset($this->getModel2()['MyFlexTables'][$table])&&
-                $table !== 'AppSettingAdmin' && 
                 $table !== 'Style' && 
                 $table !== 'MyFlexTables' && 
                 $table !== 'Login' && 
@@ -635,8 +634,7 @@ class ModelJson{
             return 'fa fa-user-plus';
         else if($key === 'Menu')
             return 'fa fa-bars';
-        else if($key === 'AppSettingAdmin')
-            return 'fa fa-archive';
+
         else if($key === 'AllNamesLanguage')
             return 'fa fa-globe';
         else if($key === 'Users')
