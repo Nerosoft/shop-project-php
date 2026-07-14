@@ -5,6 +5,13 @@ class ModelJson{
     private $File;
     private $IdPage;
     private $Language;
+    private $count;
+    function getCount(){
+        return $this->count;
+    }
+    function plusCount(){
+        $this->count+=1;
+    }
     function __construct($idPage = null, $DataView = null, $keysTable = null, $keyItem = null){
         $this->File = json_decode(file_get_contents('data.json'), true);
         if(
@@ -169,7 +176,7 @@ class ModelJson{
                 if($this->getUrlName2() === 'Site')
                     echo '<link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css">';
                 echo '</head><body>';
-
+                $this->count = 1;
                 $this->DataView = $DataView();
                 $this->AllBranches = $this->getModelPage()['AllBranches'];
                 $this->Ssearch = $this->getModelPage()['Ssearch'];

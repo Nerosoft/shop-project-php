@@ -33,4 +33,4 @@ else
 ?>
 </td></tr>
 <?php
-++$count;
+$view->plusCount();

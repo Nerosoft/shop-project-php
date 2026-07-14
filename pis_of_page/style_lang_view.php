@@ -3,7 +3,7 @@ foreach ($view->getMyDataView() as $index => $myObject) {
     $image = $index === $view->getLanguage() || $index === $view->getStyleFile()? 'fa fa-toggle-on' : 'fa fa-toggle-off';
     echo <<<HTML
         <tr>
-            <td>$count</td>
+            <td>{$view->getCount()}</td>
             <td>{$myObject->getName()}</td>
             <td>
     HTML;

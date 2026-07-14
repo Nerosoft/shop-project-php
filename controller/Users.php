@@ -16,7 +16,7 @@ $view = new MySettingUsers();
 foreach ($view->getMyDataView() as $index => $myObject) {
     echo <<<HTML
         <tr>
-            <td>$count</td>
+            <td>{$view->getCount()}</td>
             <td>{$myObject->getName()}</td>
             <td>***************</td>
             <td>***************</td>

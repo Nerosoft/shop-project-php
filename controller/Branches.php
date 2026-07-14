@@ -115,7 +115,7 @@ foreach ($view->getMyDataView() as $index => $myObject) {
     $image = $index === $view->getId() ? 'fa fa-toggle-on' : 'fa fa-toggle-off';
     echo <<<HTML
         <tr>
-            <td>$count</td>
+            <td>{$view->getCount()}</td>
             <td>{$myObject->getName()}</td>
             <td>{$myObject->getPhone()}</td>
             <td>{$myObject->getGovernments()}</td>

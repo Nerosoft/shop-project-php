@@ -39,13 +39,13 @@ $view = new MySystemlang();
 if(!(isset($_GET['lang']) && isset($_GET['table'])))
     foreach ($view->getMyDataView() as $keyLanguage => $myValue)
         foreach ($myValue as $keyPage => $table)
-            foreach ($table as $key => $myValue)
+            foreach ($table as $keyabc => $myValue)
                 if(is_array($myValue))
                     foreach ($myValue as $key2 => $myValue)
                     {
                         echo <<<HTML
                             <tr>
-                                <td>{$count}</td>
+                                <td>{$view->getCount()}</td>
                                 <td>{$view->getModel2()['AllNamesLanguage'][$keyLanguage]}</td>
                                 <td>{$myValue}</td>
                                 <td>
@@ -53,14 +53,14 @@ if(!(isset($_GET['lang']) && isset($_GET['table'])))
                         
                         $title = $view->getScreenModelEdit();
                         $button = $view->getButtonModelEdit();
-                        $idModel = "editModel".$count;
-                        $action = 'SystemLangEditPost.php?lang='.$keyLanguage.'&table='.$keyPage.'&key='.$key.'&array='.$key2;
+                        $idModel = "editModel".$view->getCount();
+                        $action = 'SystemLangEditPost.php?lang='.$keyLanguage.'&table='.$keyPage.'&key='.$keyabc.'&array='.$key2;
                         include('all_modal/modal_lang_page.php');
                     }
                 else{
                     echo <<<HTML
                         <tr>
-                            <td>{$count}</td>
+                            <td>{$view->getCount()}</td>
                             <td>{$view->getModel2()['AllNamesLanguage'][$keyLanguage]}</td>
                             <td>{$myValue}</td>
                             <td>
@@ -68,8 +68,8 @@ if(!(isset($_GET['lang']) && isset($_GET['table'])))
                     
                     $title = $view->getScreenModelEdit();
                     $button = $view->getButtonModelEdit();
-                    $idModel = "editModel".$count;
-                    $action = 'SystemLangEditPost.php?lang='.$keyLanguage.'&table='.$keyPage.'&key='.$key;
+                    $idModel = "editModel".$view->getCount();
+                    $action = 'SystemLangEditPost.php?lang='.$keyLanguage.'&table='.$keyPage.'&key='.$keyabc;
                     include('all_modal/modal_lang_page.php');
                 }    
 else
@@ -78,27 +78,27 @@ else
                 foreach ($myValue as $key => $myValue){
                     echo <<<HTML
                         <tr>
-                            <td>{$count}</td>
+                            <td>{$view->getCount()}</td>
                             <td>{$myValue}</td>
                             <td>
                     HTML;
                     
                     $title = $view->getScreenModelEdit();
                     $button = $view->getButtonModelEdit();
-                    $idModel = "editModel".$count;
+                    $idModel = "editModel".$view->getCount();
                     $action = 'SystemLangEditPost.php?lang='.$_GET['lang'].'&table='.$_GET['table'].'&key='.$keyLanguage.'&array='.$key;
                     include('all_modal/modal_lang_page.php');
                 }
             else{
                 echo <<<HTML
                     <tr>
-                        <td>{$count}</td>
+                        <td>{$view->getCount()}</td>
                         <td>{$myValue}</td>
                         <td>
                 HTML;
                 $title = $view->getScreenModelEdit();
                 $button = $view->getButtonModelEdit();
-                $idModel = "editModel".$count;
+                $idModel = "editModel".$view->getCount();
                 $action = 'SystemLangEditPost.php?lang='.$_GET['lang'].'&table='.$_GET['table'].'&key='.$keyLanguage;
                 include('all_modal/modal_lang_page.php');
             }

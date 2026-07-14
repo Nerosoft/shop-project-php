@@ -17,4 +17,4 @@
 <?php 
 include('end_model.php');
 echo '</td></tr>';
-$count++;
+$view->plusCount();

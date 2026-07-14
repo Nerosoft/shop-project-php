@@ -33,7 +33,7 @@ $view = new MyFlexTablesView();
 foreach ($view->getMyDataView() as $index => $myObject) {
     echo <<<HTML
         <tr>
-            <td>$count</td>
+            <td>{$view->getCount()}</td>
             <td><img id="preview" src="./asset/product/{$view->getId()}/{$index}" class="avatar-product-view"></td>
     HTML;
     foreach ($myObject as $key => $item)
