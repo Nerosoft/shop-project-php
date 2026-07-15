@@ -24,7 +24,7 @@ trait ErrorsHome{
             $this->showError($this->getInputNumberTableIsInv());  
         else if(ModelJson::getFileName() === 'HomeCreatePost')
             for ($i=0; $i < $_POST['input_number']; $i++)
-                array_push($this->keysInput, $this->getRandomId());  
+                array_push($this->keysInput, ModelJson::getRandomKey());  
     }
     function getNameTableIsReq(){
         return $this->NameTableIsReq;

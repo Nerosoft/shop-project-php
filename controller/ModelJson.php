@@ -75,7 +75,9 @@ class ModelJson{
             ){
             header("Location:index");
             exit;
-        }else if(
+        }else if(!isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']]))
+                setcookie('branchId', $_GET['id'], time()+2628000);
+        else if(
             //page dont work if user not SESSION (firist login) redirect to login
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'Branches'||
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguage'||
@@ -102,6 +104,7 @@ class ModelJson{
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguagePost'||
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguageEditPost'||
             //------------------------------------------------
+            !isset($_SESSION['userId']) && isset($_COOKIE['branchId']) && !isset($this->getFile()[$_COOKIE['branchId']])||
             !isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && !isset($this->getFile()[$_GET['id']]) ||
             !isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST['superId']) ||
             !isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "POST" && !isset($this->getFile()[$_POST['superId']])||
@@ -121,6 +124,8 @@ class ModelJson{
             $_GET['id'] !== 'Login' && 
             $_GET['id'] !== 'Register'){
             header("Location:Login");
+            if(isset($_COOKIE['branchId']) && !isset($this->getFile()[$_COOKIE['branchId']]))
+                setcookie('branchId', '', time()-3600);
             exit;
         } 
         $this->IdPage = $idPage??$_GET['id'];
@@ -128,8 +133,7 @@ class ModelJson{
 
         if($_SERVER["REQUEST_METHOD"] === "GET"){
             $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Style'];
-            if(isset($_GET['id']) && !isset($_SESSION['userId']) && $this->getBranch()[$_GET['id']])
-                setcookie('branchId', $_GET['id'], time()+2628000);
+            
             $this->styleLangAction = (isset($_SESSION['userId'])?'ChangeLanguagePost':'ChangeLangPost').'?id='.$idPage;
             
             $this->ActiveBranch = $this->getModelPage()['ActiveBranch'];
@@ -413,9 +417,6 @@ class ModelJson{
 
         $this->showMessageHome($message);
     }
-    function getRandomId(){
-        return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 2) . substr(uniqid(), -6);
-    }
     static function getRandomKey(){
         return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 2) . substr(uniqid(), -6);
     }
@@ -483,7 +484,7 @@ class ModelJson{
         return $_SESSION['staticId'];
     }
     function getId(){
-        return (isset($_SESSION['userId'])?$_SESSION['userId']:($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['superId'])?$_POST['superId']:(isset($_GET['id'])?$_GET['id']:(isset($_COOKIE['branchId']) && isset($this->getFile()[$_COOKIE['branchId']])?$_COOKIE['branchId']:'admin'))));
+        return (isset($_SESSION['userId'])?$_SESSION['userId']:($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['superId'])?$_POST['superId']:(isset($_GET['id'])?$_GET['id']:(isset($_COOKIE['branchId'])?$_COOKIE['branchId']:'admin'))));
     }
     function showError($error){
         $_SESSION['error'] = $error;
