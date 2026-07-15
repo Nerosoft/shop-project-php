@@ -14,6 +14,8 @@ class ModelJson{
     }
     function __construct($idPage = null, $DataView = null, $keysTable = null, $keyItem = null){
         $this->File = json_decode(file_get_contents('data.json'), true);
+        $this->IdPage = $idPage??$_GET['id'];
+        $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['AllNamesLanguage'];
         if(
             //page dont work if user SESSION (only logout) redirect to home
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'Login' || 
@@ -75,9 +77,7 @@ class ModelJson{
             ){
             header("Location:index");
             exit;
-        }else if(!isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']]))
-                setcookie('branchId', $_GET['id'], time()+2628000);
-        else if(
+        }else if(
             //page dont work if user not SESSION (firist login) redirect to login
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'Branches'||
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguage'||
@@ -125,12 +125,10 @@ class ModelJson{
             if(isset($_COOKIE['branchId']) && !isset($this->getFile()[$_COOKIE['branchId']]))
                 setcookie('branchId', '', time()-3600);
             exit;
-        } 
-        $this->IdPage = $idPage??$_GET['id'];
-        $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['AllNamesLanguage'];
-        if($_SERVER["REQUEST_METHOD"] === "GET"){
+        }else if($_SERVER["REQUEST_METHOD"] === "GET"){
+            if(!isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']]))
+                setcookie('branchId', $_GET['id'], time()+2628000);
             $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Style'];
-            
             $this->styleLangAction = (isset($_SESSION['userId'])?'ChangeLanguagePost':'ChangeLangPost').'?id='.$idPage;
             
             $this->ActiveBranch = $this->getModelPage()['ActiveBranch'];
@@ -279,13 +277,10 @@ class ModelJson{
                 $this->initErrorsEmailPassword3();
                 if(ModelJson::getFileName() === 'RegisterPost' || ModelJson::getFileName() === 'SetupProject')
                     $this->keyId = $keyItem;
-        }//$this->getModel2()['AllNamesLanguage']
-        else if(ModelJson::getFileName()==='SystemLangEditPost' && isset($_POST['choices']) && count($this->getModel2()['AllNamesLanguage']) === 1||
+        }else if(ModelJson::getFileName()==='SystemLangEditPost' && isset($_POST['choices']) && count($this->getModel2()['AllNamesLanguage']) === 1||
         ModelJson::getFileName()!=='SystemLangEditPost' && isset($_POST['choices']) && is_array($_POST['choices']) && isset($_POST['choices'][$this->getId()])|| 
         ModelJson::getFileName()!=='SystemLangEditPost' && isset($_POST['choices']) && count($this->getBranch()) === 1)
             $this->showError($this->getModelPage()['BranchInv']);       
-         
-        
         else if(ModelJson::getFileName()!== 'SystemLangEditPost'){
             // 'BranchCreatePost'  'ChangeLanguageCreatePost'  'HomeCreatePost'  'SetupProject'  'RegisterPost' 
             $this->keyId = $keyItem??($_POST['id']??ModelJson::getRandomKey());
@@ -478,7 +473,7 @@ class ModelJson{
         return $_SESSION['staticId'];
     }
     function getId(){
-        return (isset($_SESSION['userId'])?$_SESSION['userId']:($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id'])?$_GET['id']:(isset($_COOKIE['branchId'])?$_COOKIE['branchId']:'admin')));
+        return (isset($_SESSION['userId'])?$_SESSION['userId']:($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']])?$_GET['id']:(isset($_COOKIE['branchId']) && isset($this->getFile()[$_COOKIE['branchId']])?$_COOKIE['branchId']:'admin')));
     }
     function showError($error){
         $_SESSION['error'] = $error;
