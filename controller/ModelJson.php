@@ -14,6 +14,9 @@ class ModelJson{
     }
     function __construct($idPage = null, $DataView = null, $keysTable = null, $keyItem = null){
         $this->File = json_decode(file_get_contents('data.json'), true);
+        $this->IdPage = $idPage??$_GET['id'];
+        $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['AllNamesLanguage'];
+
         if(
             //page dont work if user SESSION (only logout) redirect to home
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'Login' || 
@@ -126,10 +129,7 @@ class ModelJson{
                 setcookie('branchId', '', time()-3600);
             exit;
         } 
-        $this->IdPage = $idPage??$_GET['id'];
-        $this->Language = isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['AllNamesLanguage'];
-
-        if($_SERVER["REQUEST_METHOD"] === "GET"){
+        else if($_SERVER["REQUEST_METHOD"] === "GET"){
             $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Style'];
             
             $this->styleLangAction = (isset($_SESSION['userId'])?'ChangeLanguagePost':'ChangeLangPost').'?id='.$idPage;
@@ -423,9 +423,6 @@ class ModelJson{
     }
     function getModelPage(){
         return $this->getObj()[$this->getLanguage()][$this->getUrlName2()];
-    }
-    function setLanguage($lang){
-        $this->Language = $lang;
     }
     function getLanguage(){
         return $this->Language;
