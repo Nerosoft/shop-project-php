@@ -1,7 +1,5 @@
 <?php
-if($view->getUrlName2() === 'Login' || $view->getUrlName2() === 'Register' || $view->getUrlName2() === 'Site' && !isset($_SESSION['userId']))
-    echo '<input type="hidden" value="'.$view->getId().'"name="superId">';
-else if(count($view->getBranch2()) >= 1 && $view->getUrlName2() === 'SystemLang' && !isset($state)){
+if(isset($_SESSION['userId']) && count($view->getBranch2()) >= 1 && $view->getUrlName2() === 'SystemLang' && !isset($state)){
     include 'AllBranchLanguageInput.php';
     foreach($view->getModel2()['AllNamesLanguage'] as $key=>$option)
         if(isset($_GET['lang']) && $_GET['lang'] !== $key)
@@ -18,7 +16,7 @@ else if(count($view->getBranch2()) >= 1 && $view->getUrlName2() === 'SystemLang'
                 </div>
             HTML;
 }
-else if(count($view->getBranch2()) >= 1 && isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()]) && !isset($state) || isset($index) && $index !== null && count($view->getBranch2()) >= 1 && $view->getUrlName2() !== 'Branches' && !isset($state)){
+else if(isset($_SESSION['userId']) && count($view->getBranch2()) >= 1 && isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()]) && !isset($state) || isset($_SESSION['userId']) && isset($index) && $index !== null && count($view->getBranch2()) >= 1 && $view->getUrlName2() !== 'Branches' && !isset($state)){
     if(isset($index) && $index !== null)
       include('my_id.php');
     $myCountBranch = 0;
@@ -51,7 +49,7 @@ else if(count($view->getBranch2()) >= 1 && isset($view->getModel2()['MyFlexTable
 }
 else if(isset($index) && $index !== null && !isset($state))
     include('my_id.php');
-else if(!preg_match('/BranchChangePost/', $action) && count($view->getBranch2()) >= 1 && $view->getUrlName2() !== 'Branches' || !preg_match('/BranchChangePost/', $action) && count($view->getBranch2()) >= 1 && $view->getUrlName2() === 'Branches' && isset($state))
+else if(isset($_SESSION['userId']) && !preg_match('/BranchChangePost/', $action) && count($view->getBranch2()) >= 1 && $view->getUrlName2() !== 'Branches' || isset($_SESSION['userId']) && !preg_match('/BranchChangePost/', $action) && count($view->getBranch2()) >= 1 && $view->getUrlName2() === 'Branches' && isset($state))
     include 'AllBranchOptionChose.php';
 ?>
 </div>

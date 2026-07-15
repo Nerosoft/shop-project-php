@@ -106,8 +106,6 @@ class ModelJson{
             //------------------------------------------------
             !isset($_SESSION['userId']) && isset($_COOKIE['branchId']) && !isset($this->getFile()[$_COOKIE['branchId']])||
             !isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && !isset($this->getFile()[$_GET['id']]) ||
-            !isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "POST" && !isset($_POST['superId']) ||
-            !isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "POST" && !isset($this->getFile()[$_POST['superId']])||
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLangPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'LoginPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'RegisterPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
@@ -405,12 +403,12 @@ class ModelJson{
     }
     function loginAdmin($message = 'LoginMessage'){
         $message = $this->getModelPage()[$message];
-        $_SESSION['userId'] = $_POST['superId'];
-        if(isset($this->getFile()[$_POST['superId']]['Branches']))
-            $_SESSION['staticId'] = $_POST['superId'];
+        $_SESSION['userId'] = $this->getId();
+        if(isset($this->getFile()[$this->getId()]['Branches']))
+            $_SESSION['staticId'] = $this->getId();
         else
             foreach ($this->getFile() as $key => $obj)
-                if(isset($obj['Branches']) && in_array($_POST['superId'], array_keys($obj['Branches']))){
+                if(isset($obj['Branches']) && in_array($this->getId(), array_keys($obj['Branches']))){
                     $_SESSION['staticId'] = $key;
                     break;
                 }
@@ -484,7 +482,7 @@ class ModelJson{
         return $_SESSION['staticId'];
     }
     function getId(){
-        return (isset($_SESSION['userId'])?$_SESSION['userId']:($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['superId'])?$_POST['superId']:(isset($_GET['id'])?$_GET['id']:(isset($_COOKIE['branchId'])?$_COOKIE['branchId']:'admin'))));
+        return (isset($_SESSION['userId'])?$_SESSION['userId']:($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id'])?$_GET['id']:(isset($_COOKIE['branchId'])?$_COOKIE['branchId']:'admin')));
     }
     function showError($error){
         $_SESSION['error'] = $error;
