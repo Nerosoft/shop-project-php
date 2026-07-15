@@ -22,10 +22,4 @@ else if(ModelJson::getFileName() === 'ProductCreatePost' || ModelJson::getFileNa
     require 'all_trait/ErrorProduct.php';
 else if(ModelJson::getFileName() === 'SystemLangEditPost' || ModelJson::getFileName() === 'SystemLang')
     require 'all_trait/ErrorSystemlang.php';
-if($_SERVER["REQUEST_METHOD"] === "GET"){
-    require 'class_object/MyLanguage.php';
-    require 'class_object/BranchClass.php';
-    require 'controller/'.ModelJson::getFileName().'.php';
-    include 'pis_of_page/end_html.php';
-}
     

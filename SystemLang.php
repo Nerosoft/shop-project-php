@@ -1,2 +1,2 @@
-<?php 
-include 'auth/SessionAdmin.php';
+<?php
+require 'auth/view.php';
