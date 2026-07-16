@@ -105,6 +105,8 @@ class ModelJson{
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguageEditPost'||
             //------------------------------------------------
             !isset($_SESSION['userId']) && isset($_COOKIE['branchId']) && !isset($this->getFile()[$_COOKIE['branchId']])||
+            !isset($_SESSION['userId']) && isset($_COOKIE[$this->getId().'AllNamesLanguage']) && !isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']])||
+            !isset($_SESSION['userId']) && isset($_COOKIE[$this->getId().'Style']) && !isset($this->getObj()[$this->getLanguage()]['Style'][$_COOKIE[$this->getId().'Style']])||
             !isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && !isset($this->getFile()[$_GET['id']]) ||
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLangPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'LoginPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
@@ -124,6 +126,10 @@ class ModelJson{
             header("Location:Login");
             if(isset($_COOKIE['branchId']) && !isset($this->getFile()[$_COOKIE['branchId']]))
                 setcookie('branchId', '', time()-3600);
+            else if(isset($_COOKIE[$this->getId().'AllNamesLanguage']) && !isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']]))
+                    setcookie($this->getId().'AllNamesLanguage', '', time()-3600);
+            else if(isset($_COOKIE[$this->getId().'Style']) && !isset($this->getObj()[$this->getLanguage()]['Style'][$_COOKIE[$this->getId().'Style']]))
+                setcookie($this->getId().'Style', '', time()-3600);
             exit;
         }else if($_SERVER["REQUEST_METHOD"] === "GET"){
             if(!isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']]))
