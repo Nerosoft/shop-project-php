@@ -9,6 +9,7 @@ if(ModelJson::getFileName() === 'SettingUsersCreatePost' || ModelJson::getFileNa
     if(ModelJson::getFileName() === 'Register' || ModelJson::getFileName() === 'RegisterPost')
         require 'all_trait/ErrorRegister.php';
     if(ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register'){
+        require 'auth/test_session.php';
         require 'all_trait/InfoBranch.php';
         require 'all_trait/InterEmailPass.php';
     }

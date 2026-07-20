@@ -1,5 +1,6 @@
 <?php
 include 'auth/SessionAdmin.php';
+require 'auth/test_session4.php';
 class SystemLangEditPost extends ModelJson{
     use ErrorSystemlang;
     private $file;

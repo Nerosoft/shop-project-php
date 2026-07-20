@@ -1,4 +1,5 @@
 <?php
+require 'auth/test_session2.php';
 require 'all_trait/InfoChangeLangStyle.php';
 class MyChangeLanguage extends ModelJson{
     use InfoChangeLangStyle;

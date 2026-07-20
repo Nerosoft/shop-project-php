@@ -401,7 +401,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "WKc8995c": "English language"
+                "7f949f5b": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -506,6 +506,7 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Login": {
+                "ErrorServerMessage": "Error server message",
                 "SelectBranchBox": {
                     "WithoutRays": "Without work",
                     "WithRays": "With work"
@@ -607,6 +608,7 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "ErrorServerMessage": "Error server message",
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
                 "BranchInv": "branch id invalid",
@@ -942,7 +944,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithoutRays"
             },
-            "zq518012": {
+            "Dtf33ada": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
@@ -996,7 +998,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "WKc8995c": {
+        "7f949f5b": {
             "Site": {
                 "AllMenu": {
                     "Login": "Login",
@@ -1395,7 +1397,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "WKc8995c": "English language"
+                "7f949f5b": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -1500,6 +1502,7 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Login": {
+                "ErrorServerMessage": "Error server message",
                 "SelectBranchBox": {
                     "WithoutRays": "Without work",
                     "WithRays": "With work"
@@ -1601,6 +1604,7 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "ErrorServerMessage": "Error server message",
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
                 "BranchInv": "branch id invalid",
@@ -1918,7 +1922,7 @@
             }
         }
     },
-    "zq518012": {
+    "Dtf33ada": {
         "AllNamesLanguage": "english",
         "Style": "default",
         "english": {
@@ -2320,7 +2324,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "WKc8995c": "English language"
+                "7f949f5b": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -2425,6 +2429,7 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Login": {
+                "ErrorServerMessage": "Error server message",
                 "SelectBranchBox": {
                     "WithoutRays": "Without work",
                     "WithRays": "With work"
@@ -2526,6 +2531,7 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "ErrorServerMessage": "Error server message",
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
                 "BranchInv": "branch id invalid",
@@ -2891,7 +2897,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "WKc8995c": {
+        "7f949f5b": {
             "Site": {
                 "AllMenu": {
                     "Login": "Login",
@@ -3290,7 +3296,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "WKc8995c": "English language"
+                "7f949f5b": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -3395,6 +3401,7 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Login": {
+                "ErrorServerMessage": "Error server message",
                 "SelectBranchBox": {
                     "WithoutRays": "Without work",
                     "WithRays": "With work"
@@ -3496,6 +3503,7 @@
                 "BranceRaysFollowValue": "Work invalid"
             },
             "Home": {
+                "ErrorServerMessage": "Error server message",
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
                 "BranchInv": "branch id invalid",

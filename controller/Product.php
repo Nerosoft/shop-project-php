@@ -1,4 +1,5 @@
 <?php
+require 'auth/test_session2.php';
 require 'class_object/ProductValue.php';
 include 'interface/InterfaceDataView.php';
 class Product extends ModelJson implements InterfaceDataView{

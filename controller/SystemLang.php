@@ -1,4 +1,5 @@
 <?php
+require 'auth/test_session2.php';
 // require 'all_trait/ErrorSystemlang.php';
 include 'interface/InterfaceDataView.php';
 class MySystemlang extends ModelJson implements InterfaceDataView{

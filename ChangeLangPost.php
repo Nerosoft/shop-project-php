@@ -1,5 +1,6 @@
 <?php
 include 'auth/SessionAdmin.php';
+require 'auth/test_session3.php';
 class ChangeLangPost extends ModelJson{
     function __construct(){  
         parent::__construct();

@@ -1,5 +1,6 @@
 <?php
 include 'auth/SessionAdmin.php';
+require 'auth/test_session4.php';
 class HomeDeletePost extends ModelJson{
     function __construct(){
         parent::__construct('Home', function($myFile, $idSseion){

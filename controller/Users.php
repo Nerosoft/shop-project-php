@@ -1,4 +1,5 @@
 <?php
+require 'auth/test_session2.php';
 require 'class_object/Users.php';
 require 'all_trait/InterEmailPass.php';
 include 'interface/InterfaceDataView.php';

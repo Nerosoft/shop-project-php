@@ -1,5 +1,6 @@
 <?php
 include 'auth/SessionAdmin.php';
+require 'auth/test_session4.php';
 class SettingUsersDeletePost extends ModelJson{
     function __construct(){
         parent::__construct(null, function($myFile, $key){

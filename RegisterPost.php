@@ -1,5 +1,6 @@
 <?php 
 include 'auth/SessionAdmin.php';
+require 'auth/test_session3.php';
 class RegisterPost extends ModelJson{
     use ErrorRegister, ErrorsEmailPassword;
     function __construct(){

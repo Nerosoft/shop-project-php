@@ -1,5 +1,6 @@
 <?php
 include 'auth/SessionAdmin.php';
+require 'auth/test_session4.php';
 class BranchDeletePost extends ModelJson{
     function __construct(){
         parent::__construct('Branches');

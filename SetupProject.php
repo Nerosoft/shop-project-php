@@ -1,5 +1,6 @@
 <?php
 include 'auth/SessionAdmin.php';
+require 'auth/test_session3.php';
 class SetupProject extends ModelJson{
     use ErrorBranch, ErrorsEmailPassword;
     function __construct(){
@@ -520,6 +521,7 @@ class SetupProject extends ModelJson{
                     "BranceRaysFollowValue"=> "Work invalid"
                 ],
                 "Login"=>[
+                    "ErrorServerMessage"=> "Error server message",
                     "SelectBranchBox"=>[
                         "WithoutRays"=> "Without work",
                         "WithRays"=> "With work"
@@ -621,6 +623,7 @@ class SetupProject extends ModelJson{
                     "BranceRaysFollowValue"=> "Work invalid"
                 ],
                 "Home"=>[
+                    "ErrorServerMessage"=> "Error server message",
                     "Offcanvas"=> "Menu",
                     "AdminDashboard"=> "Welocme in my library",
                     "BranchInv"=> "branch id invalid",

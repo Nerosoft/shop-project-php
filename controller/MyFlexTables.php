@@ -1,4 +1,5 @@
 <?php
+require 'auth/test_session2.php';
 include 'interface/InterfaceDataView.php';
 class MyFlexTablesView extends ModelJson implements InterfaceDataView{
     use ErrorFlexTable;

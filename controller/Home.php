@@ -1,4 +1,5 @@
 <?php
+require 'auth/test_session2.php';
 require 'class_object/CustomTable.php';
 // require 'all_trait/ErrorsHome.php';
 include 'interface/InterfaceDataView.php';

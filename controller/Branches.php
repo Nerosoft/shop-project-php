@@ -1,4 +1,5 @@
 <?php
+require 'auth/test_session2.php';
 // require 'all_trait/ErrorBranch.php';
 require 'all_trait/ChangeStyleLangBranch.php';
 include 'all_trait/InfoBranch.php';
