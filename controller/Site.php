@@ -1,4 +1,8 @@
 <?php
+if($_SERVER["REQUEST_METHOD"] !== "GET"){
+    header('Location:site');
+    exit;
+}
 require 'class_object/ProductValue.php';
 class Site extends ModelJson{
     private $About;
