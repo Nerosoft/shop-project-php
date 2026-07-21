@@ -105,9 +105,3 @@ else
             }
         }
 ?>
-<script type="text/javascript">
-    function displayForm(id, inputValue, value){
-        openForm2(id);
-        inputValue.val(value);
-    }
-</script>

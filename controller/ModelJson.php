@@ -242,10 +242,17 @@ class ModelJson{
                     <link href="./asset/css/login_register.css" rel="stylesheet"></head><body>
                     <div class="container">
                         <div id="createModel" class="register">
+                            <h4>
+                HTML;
+                include 'pis_of_page/button_langstylebranch.php';
+                echo<<<HTML
+                                <a href="./site" class="navbar-brand fa fa-truck fa-2x pointer"></a>
+                            </h4>
+                             <h4>{$this->getTitleForm()}</h4>
                             <form method='POST' action="{$DataView}">
                 HTML; 
                 $view = $this;
-                include 'pis_of_page/login_form.php';
+                include('all_modal/login_register_input.php');
             }
 
         }else if(ModelJson::getFileName()==='LoginForgetPasswordPost' || ModelJson::getFileName()==='LoginPost' || 

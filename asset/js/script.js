@@ -47,11 +47,11 @@ function changeInputState(id, type){
     $(id).find('#key').attr('type', type);
     $(id).find('#password').attr('type', type);
 }
+
 function restValue(myId, obj){
     openForm2(myId);
-    if(typeof obj === 'string')
-        $(myId).find('#word').val(obj);
-    else
+    try{
+        obj = JSON.parse(obj);
         for (const key in obj) {
             let element = $(myId).find('form').find('#'+key);
             if(element.is('select')){
@@ -63,6 +63,10 @@ function restValue(myId, obj){
             else
                 element.val(obj[key]);
         }
+    }catch(error){
+        $(myId).find('#word').val(obj);
+    }
+        
 }
 function resetBranch(el){
     $('#createModel').find('#myOption').empty();
