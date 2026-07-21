@@ -1,5 +1,4 @@
 <!-- Modal -->
-<i onclick="restValue('#<?php echo $idModel?>', '<?php echo $myValue?>')" class="fa fa-sliders fa-2x pointer"></i>
 <?php include('start_model.php');?>
 <div class="input-group input-group">
     <div class="input-group-prepend">
@@ -16,5 +15,4 @@
 </div>
 <?php 
 include('end_model.php');
-echo '</td></tr>';
-$view->plusCount();
+include 'pis_of_page/button_edit.php';
