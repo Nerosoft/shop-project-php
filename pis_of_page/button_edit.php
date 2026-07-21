@@ -18,7 +18,7 @@ if($view->getUrlName2() === 'Users' || $view->getUrlName2() === 'Product' || iss
     $view->makeCreateModal($view, $view->getScreenModelEdit(), $view->getButtonModelEdit(), "editModel".$index, $index, $myObject);
  
  
-$valueObj =  htmlspecialchars(isset($myObject)&&is_array($myObject)?json_encode($myObject):($myValue??$myObject->getObj()), ENT_QUOTES, "UTF-8");
+$valueObj =  htmlspecialchars($myValue??(is_array($myObject)?json_encode($myObject):$myObject->getObj()), ENT_QUOTES, "UTF-8");
 if($view->getUrlName2() === 'SystemLang')
     echo<<<HTML
         <i onclick="restValue('#{$idModel}', '{$valueObj}')" class="fa fa-sliders fa-2x pointer"></i>
