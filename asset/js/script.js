@@ -49,6 +49,7 @@ function changeInputState(id, type){
 }
 
 function restValue(myId, obj){
+    console.log(obj);
     openForm2(myId);
     try{
         obj = JSON.parse(obj);
