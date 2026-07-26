@@ -14,6 +14,8 @@ class ModelJson{
     protected $keyId;
     protected $dbKeys;
     protected $styleLangAction;
+    private $MessageServer;
+    private $MessageType;
     function __construct($idPage = null, $DataView = null, $keysTable = null, $keyItem = null){
         $this->File = json_decode(file_get_contents('data.json'), true);
         $this->IdPage = $idPage??($_GET['id']??null);
@@ -80,6 +82,8 @@ class ModelJson{
         }else if($_SERVER["REQUEST_METHOD"] === "GET"){
             if(!isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']]))
                 setcookie('branchId', $_GET['id'], time()+2628000);
+            $this->MessageServer = $_SESSION['error']??($_SESSION['message']??$this->getModelPage()['LoadMessage']);
+            $this->MessageType = isset($_SESSION['error'])?'danger':'success';
             if(isset($_SESSION['message']) || isset($_SESSION['error']))
                 unset($_SESSION['message'], $_SESSION['error']);
             echo<<<HTML
@@ -454,10 +458,10 @@ class ModelJson{
         return $this->getModelPage()['UsedStyle'];
     }
     function getMessage(){
-        return $_SESSION['error']??($_SESSION['message']??$this->getModelPage()['LoadMessage']);
+        return $this->MessageServer;
     }
     function getType(){
-        return isset($_SESSION['error'])?'danger':'success';
+        return $this->MessageType;
     }
     function getActionStyleLang(){
         return (isset($_SESSION['userId'])?'ChangeLanguagePost':'ChangeLangPost').'?id='.$this->getUrlName2();
