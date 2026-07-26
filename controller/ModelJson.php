@@ -86,6 +86,7 @@ class ModelJson{
             $this->MessageType = isset($_SESSION['error'])?'danger':'success';
             if(isset($_SESSION['message']) || isset($_SESSION['error']))
                 unset($_SESSION['message'], $_SESSION['error']);
+            $this->styleLangAction = (isset($_SESSION['userId'])?'ChangeLanguagePost':'ChangeLangPost').'?id='.$this->getUrlName2();
             echo<<<HTML
             <html lang="en">
             <head>
@@ -464,7 +465,7 @@ class ModelJson{
         return $this->MessageType;
     }
     function getActionStyleLang(){
-        return (isset($_SESSION['userId'])?'ChangeLanguagePost':'ChangeLangPost').'?id='.$this->getUrlName2();
+        return $this->styleLangAction;
     }
     function setActionStyleLang($value){
         $this->styleLangAction = $value;
