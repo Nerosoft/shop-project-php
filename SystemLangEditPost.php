@@ -1,13 +1,11 @@
 <?php
 include 'auth/SessionAdmin.php';
-require 'auth/test_session4.php';
+// require 'auth/test_session4.php';
 class SystemLangEditPost extends ModelJson{
-    use ErrorSystemlang;
     private $file;
     function __construct(){
         parent::__construct('SystemLang');
         $this->file = $this->getObj();
-        $this->initErrorSystemlang();
         if(!isset($_POST['word']) || $_POST['word'] === '')
             $this->showError($this->getTextRequired());
         else if(strlen($_POST['word']) < 3 )

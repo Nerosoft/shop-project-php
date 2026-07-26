@@ -1,7 +1,7 @@
 <?php
-if(isset($_SESSION['userId']) && count($view->getBranch2()) >= 1 && $view->getUrlName2() === 'SystemLang' && !isset($state)){
+if(isset($_SESSION['userId']) && count($this->getBranch2()) >= 1 && $this->getUrlName2() === 'SystemLang' && !isset($state)){
     include 'AllBranchLanguageInput.php';
-    foreach($view->getModel2()['AllNamesLanguage'] as $key=>$option)
+    foreach($this->getModel2()['AllNamesLanguage'] as $key=>$option)
         if(isset($_GET['lang']) && $_GET['lang'] !== $key)
             echo <<<HTML
                 <div class="col-md-auto">
@@ -16,19 +16,19 @@ if(isset($_SESSION['userId']) && count($view->getBranch2()) >= 1 && $view->getUr
                 </div>
             HTML;
 }
-else if(isset($_SESSION['userId']) && count($view->getBranch2()) >= 1 && isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()]) && !isset($state) || isset($_SESSION['userId']) && isset($index) && $index !== null && count($view->getBranch2()) >= 1 && $view->getUrlName2() !== 'Branches' && !isset($state)){
+else if(isset($_SESSION['userId']) && count($this->getBranch2()) >= 1 && isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()]) && !isset($state) || isset($_SESSION['userId']) && isset($index) && $index !== null && count($this->getBranch2()) >= 1 && $this->getUrlName2() !== 'Branches' && !isset($state)){
     if(isset($index) && $index !== null)
       include('my_id.php');
     $myCountBranch = 0;
-    foreach($view->getBranch2() as $key=>$option){
+    foreach($this->getBranch2() as $key=>$option){
         if(
-            $view->getUrlName2() === 'MyStyle' ||
-            $view->getUrlName2() === 'Home' && isset($view->getFile()[$key][$view->getFile()[$key]['AllNamesLanguage']][$index])||
-            $view->getUrlName2() === 'ChangeLanguage' && isset($view->getFile()[$key][$index])||
-            $view->getUrlName2() === 'Users' && isset($view->getFile()[$key]['Users'][$index])||
-            $view->getUrlName2() === 'Product' && isset($view->getFile()[$key]['Product'][$index])||
-            $index !== null && isset($view->getFile()[$key][$view->getFile()[$key]['AllNamesLanguage']]['MyFlexTables'][$view->getUrlName2()]) && isset($view->getFile()[$key][$view->getUrlName2()][$index])||
-            $index === null && isset($view->getFile()[$key][$view->getFile()[$key]['AllNamesLanguage']]['MyFlexTables'][$view->getUrlName2()])){
+            $this->getUrlName2() === 'MyStyle' ||
+            $this->getUrlName2() === 'Home' && isset($this->getFile()[$key][$this->getFile()[$key]['AllNamesLanguage']][$index])||
+            $this->getUrlName2() === 'ChangeLanguage' && isset($this->getFile()[$key][$index])||
+            $this->getUrlName2() === 'Users' && isset($this->getFile()[$key]['Users'][$index])||
+            $this->getUrlName2() === 'Product' && isset($this->getFile()[$key]['Product'][$index])||
+            $index !== null && isset($this->getFile()[$key][$this->getFile()[$key]['AllNamesLanguage']]['MyFlexTables'][$this->getUrlName2()]) && isset($this->getFile()[$key][$this->getUrlName2()][$index])||
+            $index === null && isset($this->getFile()[$key][$this->getFile()[$key]['AllNamesLanguage']]['MyFlexTables'][$this->getUrlName2()])){
             ++$myCountBranch;
             echo <<<HTML
                 <div class="col-md-auto">
@@ -44,12 +44,12 @@ else if(isset($_SESSION['userId']) && count($view->getBranch2()) >= 1 && isset($
             HTML;
         }
     }
-    if($myCountBranch === count($view->getBranch2()))
+    if($myCountBranch === count($this->getBranch2()))
         include 'AllBranchLanguageInput.php';
 }
 else if(isset($index) && $index !== null && !isset($state))
     include('my_id.php');
-else if(isset($_SESSION['userId']) && !preg_match('/BranchChangePost/', $action) && count($view->getBranch2()) >= 1 && $view->getUrlName2() !== 'Branches' || isset($_SESSION['userId']) && !preg_match('/BranchChangePost/', $action) && count($view->getBranch2()) >= 1 && $view->getUrlName2() === 'Branches' && isset($state))
+else if(isset($_SESSION['userId']) && !preg_match('/BranchChangePost/', $action) && count($this->getBranch2()) >= 1 && $this->getUrlName2() !== 'Branches' || isset($_SESSION['userId']) && !preg_match('/BranchChangePost/', $action) && count($this->getBranch2()) >= 1 && $this->getUrlName2() === 'Branches' && isset($state))
     include 'AllBranchOptionChose.php';
 ?>
 </div>

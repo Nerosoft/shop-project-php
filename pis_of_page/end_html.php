@@ -1,5 +1,5 @@
 <?php
-    if($view->getUrlName2() === 'Product' || isset($view->getModel2()['MyFlexTables'][$view->getUrlName2()]))
+    if($this->getUrlName2() === 'Product' || isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()]))
         echo<<<HTML
         <script>
             function openImage(avatar){
@@ -8,12 +8,12 @@
             $(document).ready(function(){    
                 $('.avatar').on('invalid', function(){
                 if (this.validity.valueMissing)
-                    this.setCustomValidity("{$view->getReqimage()}");
+                    this.setCustomValidity("{$this->getReqimage()}");
             })});
             function changeImage(file, preview){
                 avatar = file.files[0];
                 if(avatar && !['image/jpeg', 'image/png'].includes(avatar.type)||avatar && avatar.size > (2 * 1024 * 1024)){
-                    file.setCustomValidity('{$view->getInvimage()}');
+                    file.setCustomValidity('{$this->getInvimage()}');
                     preview.attr('src', './asset/img/error_image.png');
                 }else if(avatar){
                     file.setCustomValidity('');
@@ -29,7 +29,7 @@
                     };
                     reader.readAsDataURL(avatar);
                 }else{
-                    file.setCustomValidity('{$view->getInvimage()}');
+                    file.setCustomValidity('{$this->getInvimage()}');
                     preview.attr('src', './asset/img/error_image.png');
                 }
             }
@@ -38,17 +38,17 @@
     
     
         
-        if(isset($_SESSION['userId']) && $view->getUrlName2() !== 'Site'){
-            $size = count($view->getKeysTable());
+        if(isset($_SESSION['userId']) && $this->getUrlName2() !== 'Site'){
+            $size = count($this->getKeysTable());
             echo<<<HTML
                 </tbody>
                     <tfoot>
                         <tr>
-                            <th>{$view->getTableId()}</th>
+                            <th>{$this->getTableId()}</th>
             HTML;
-            $view->printTableNames();
+            $this->printTableNames();
             echo<<<HTML
-                            <th>{$view->getTabelEvent()}</th>
+                            <th>{$this->getTabelEvent()}</th>
                         </tr>
                     </tfoot>
                 </table>
@@ -61,15 +61,15 @@
                         $(document).ready(function() {
                             new DataTable('#example',{
                                 "oLanguage": {
-                                    "sSearch": "{$view->getSsearch()}",
-                                    "sEmptyTable":  "{$view->getZeroRecords()}"
+                                    "sSearch": "{$this->getSsearch()}",
+                                    "sEmptyTable":  "{$this->getZeroRecords()}"
                                 },
                                 "language": {
-                                    "lengthMenu": "_MENU_ " + "{$view->getLengthMenu()}",
-                                    "info":  "{$view->getInfo()}" + " _MAX_",
-                                    "zeroRecords":  "{$view->getZeroRecords()}",
-                                    "infoEmpty": "{$view->getInfoEmpty()}",
-                                    "infoFiltered": "{$view->getInfoFiltered()}" + " _END_ --- _TOTAL_"
+                                    "lengthMenu": "_MENU_ " + "{$this->getLengthMenu()}",
+                                    "info":  "{$this->getInfo()}" + " _MAX_",
+                                    "zeroRecords":  "{$this->getZeroRecords()}",
+                                    "infoEmpty": "{$this->getInfoEmpty()}",
+                                    "infoFiltered": "{$this->getInfoFiltered()}" + " _END_ --- _TOTAL_"
                                 },
                                 pageLength : 10,
                                 lengthMenu: [[10, 20, -1], [10, 20, 'All']],
@@ -85,31 +85,31 @@
             HTML;
         }
         $idModel = 'lang_modal';
-        $style_lang = $view->getLanguage();
-        $error = $view->getChangeLang();
-        $title = $view->getModelTitle();
-        $button = $view->getModelButton();
+        $style_lang = $this->getLanguage();
+        $error = $this->getChangeLang();
+        $title = $this->getModelTitle();
+        $button = $this->getModelButton();
         $state = 'AllNamesLanguage';
-        $data = $view->getMyLanguage();
+        $data = $this->getMyLanguage();
         include 'all_modal/style_lang_form.php';
         $idModel = 'style_modal';
-        $style_lang = $view->getStyleFile();
-        $error = $view->getChangeStyle();
-        $title = $view->getModalTitleStyle();
-        $button = $view->getModalButtonStyle();
+        $style_lang = $this->getStyleFile();
+        $error = $this->getChangeStyle();
+        $title = $this->getModalTitleStyle();
+        $button = $this->getModalButtonStyle();
         $state = 'Style';
-        $data = $view->getStyle();  
+        $data = $this->getStyle();  
         include 'all_modal/style_lang_form.php';
 
         $idModel = 'branch_modal';
-        $style_lang = $view->getId();
-        $error = $view->getActiveBranch();
-        $title = $view->getChangeTitleBranch();
-        $button = $view->getChangeButtonBranch();
+        $style_lang = $this->getId();
+        $error = $this->getActiveBranch();
+        $title = $this->getChangeTitleBranch();
+        $button = $this->getChangeButtonBranch();
         $state = 'branch';
-        $data = $view->getMyBranch();
+        $data = $this->getMyBranch();
         if(isset($_SESSION['userId']))
-            $view->setActionStyleLang('BranchChangePost?id='.$view->getUrlName2());
+            $this->setActionStyleLang('BranchChangePost?id='.$this->getUrlName2());
         include 'all_modal/style_lang_form.php';
 ?>
         <script type="text/javascript">
@@ -126,11 +126,11 @@
             }
             $('#lang_modal,#style_modal,#branch_modal,#branch_modal2').find('#click_button').on('click', function(){
                 let idmodal = $(this).parent().parent().parent().parent().parent().attr('id');
-                if(idmodal === 'lang_modal' && $('#lang_modal').find('input[name="id"]:checked').val() === '<?php echo$view->getLanguage()?>'||
-                    idmodal === 'branch_modal' && $('#branch_modal').find('input[name="id"]:checked').val() === '<?php echo$view->getId()?>'||
-                    idmodal === 'branch_modal2' && $('#branch_modal2').find('input[name="id"]:checked').val() === '<?php echo$view->getId()?>'||
-                    idmodal === 'style_modal' && $('#style_modal').find('input[name="id"]:checked').val() === '<?php echo$view->getStyleFile()?>')
-                    $('#'+idmodal).find('input[name="id"]:checked')[0].setCustomValidity(idmodal==='branch_modal2'?'<?php echo(isset($_SESSION['userId'])||$view->getUrlName2() === 'Site'?'':$view->getActiveBranchProject())?>':(idmodal==='branch_modal'?'<?php echo$view->getActiveBranch()?>':(idmodal==='lang_modal'?'<?php echo$view->getChangeLang()?>':'<?php echo$view->getChangeStyle()?>')));
+                if(idmodal === 'lang_modal' && $('#lang_modal').find('input[name="id"]:checked').val() === '<?php echo$this->getLanguage()?>'||
+                    idmodal === 'branch_modal' && $('#branch_modal').find('input[name="id"]:checked').val() === '<?php echo$this->getId()?>'||
+                    idmodal === 'branch_modal2' && $('#branch_modal2').find('input[name="id"]:checked').val() === '<?php echo$this->getId()?>'||
+                    idmodal === 'style_modal' && $('#style_modal').find('input[name="id"]:checked').val() === '<?php echo$this->getStyleFile()?>')
+                    $('#'+idmodal).find('input[name="id"]:checked')[0].setCustomValidity(idmodal==='branch_modal2'?'<?php echo(isset($_SESSION['userId'])||$this->getUrlName2() === 'Site'?'':$this->getActiveBranchProject())?>':(idmodal==='branch_modal'?'<?php echo$this->getActiveBranch()?>':(idmodal==='lang_modal'?'<?php echo$this->getChangeLang()?>':'<?php echo$this->getChangeStyle()?>')));
             });
         </script>
 
@@ -138,7 +138,7 @@
 <div style="position: fixed; top: 0; right: 10px; z-index: 9999; max-height: 90vh; overflow-y: auto;">
     <?php
             echo<<<HTML
-                <div id="toastId" class="toast text-bg-{$view->getType()} mt-2">
+                <div id="toastId" class="toast text-bg-{$this->getType()} mt-2">
                     <script>
                         $(document).ready(function(){
                             (new bootstrap.Toast($('#toastId').on("hidden.bs.toast", function () {
@@ -147,7 +147,7 @@
                         });
                     </script>
                     <div class="d-flex">
-                        <div class="toast-body">{$view->getMessage()}</div>
+                        <div class="toast-body">{$this->getMessage()}</div>
                         <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
                     </div>
                 </div>

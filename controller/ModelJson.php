@@ -7,17 +7,13 @@ class ModelJson{
     private $Language;
     private $count;
     private $MyIdDb;
-    function getCount(){
-        return $this->count;
-    }
-    function plusCount(){
-        $this->count+=1;
-    }
-    function showErrorServer(){
-        $_SESSION['error'] = $this->getModel2()[isset($_SESSION['userId'])?'Home':'Login']['ErrorServerMessage'];
-        header("Location:".(isset($_SESSION['userId'])?'Home':'Login'));
-        exit;
-    }
+    private $myMenuApp;
+    private $keysTable;
+    private $DataView;
+    private $dbBranchKeys;
+    protected $keyId;
+    protected $dbKeys;
+    protected $styleLangAction;
     function __construct($idPage = null, $DataView = null, $keysTable = null, $keyItem = null){
         $this->File = json_decode(file_get_contents('data.json'), true);
         $this->IdPage = $idPage??($_GET['id']??null);
@@ -28,10 +24,6 @@ class ModelJson{
             !isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && !isset($this->getFile()[$_GET['id']])||
             !isset($_SESSION['userId']) && isset($_COOKIE[$this->getId().'AllNamesLanguage']) && !isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']])||
             !isset($_SESSION['userId']) && isset($_COOKIE[$this->getId().'Style']) && !isset($this->getObj()[$this->getLanguage()]['Style'][$_COOKIE[$this->getId().'Style']])||
-            // !isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLangPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            // !isset($_SESSION['userId']) && ModelJson::getFileName() === 'LoginPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            // !isset($_SESSION['userId']) && ModelJson::getFileName() === 'RegisterPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            // !isset($_SESSION['userId']) && ModelJson::getFileName() === 'SetupProject' && $_SERVER["REQUEST_METHOD"] !== "POST"||
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'LoginForgetPasswordPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLangPost' && !isset($_POST['state'])||
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLangPost' && !isset($_GET['id'])||
@@ -50,13 +42,9 @@ class ModelJson{
             else if(isset($_COOKIE[$this->getId().'Style']) && !isset($this->getObj()[$this->getLanguage()]['Style'][$_COOKIE[$this->getId().'Style']]))
                 setcookie($this->getId().'Style', '', time()-3600);
            $this->showErrorServer();
-        }
-        else if(
+        }else if(
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'SystemLang' && isset($_GET['lang']) && isset($_GET['table']) && !isset($this->getObj()[$_GET['lang']][$_GET['table']])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'MyFlexTables' && !isset($_GET['id'])||
-            // isset($_SESSION['userId']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            // isset($_SESSION['userId']) && ModelJson::getFileName() === 'SettingUsersDeletePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            // isset($_SESSION['userId']) && ModelJson::getFileName() === 'BranchChangePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'MyFlexTables' && !isset($this->getObj()[$this->getObj()['AllNamesLanguage']]['MyFlexTables'][$_GET['id']]) ||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($this->getObj()[$this->getObj()['AllNamesLanguage']]['MyFlexTables'][$_GET['id']??'']) ||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'SettingUsersDeletePost' && !isset($_GET['id'])||
@@ -72,19 +60,6 @@ class ModelJson{
             $_GET['id'] !== 'Product' &&
             $_GET['id'] !== 'MyStyle' &&
             $_GET['id'] !== 'Site'||
-            // isset($_SESSION['userId']) && ModelJson::getFileName() === 'BranchCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            // isset($_SESSION['userId']) && ModelJson::getFileName() === 'BranchDeletePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            // isset($_SESSION['userId']) && ModelJson::getFileName() === 'BranchEditPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            // isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguageCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            // isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguageDeletePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            // isset($_SESSION['userId']) && ModelJson::getFileName() === 'HomeCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            // isset($_SESSION['userId']) && ModelJson::getFileName() === 'HomeDeletePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            // isset($_SESSION['userId']) && ModelJson::getFileName() === 'HomeEditPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            // isset($_SESSION['userId']) && ModelJson::getFileName() === 'ProductCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            // isset($_SESSION['userId']) && ModelJson::getFileName() === 'SettingUsersCreatePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            // isset($_SESSION['userId']) && ModelJson::getFileName() === 'SystemLangEditPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            // isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguageEditPost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
-            // isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguagePost' && $_SERVER["REQUEST_METHOD"] !== "POST"||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguageEditPost' && !isset($_GET['id'])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguageEditPost' && $_GET['id'] !== 'ChangeLanguage' && $_GET['id'] !== 'MyStyle'||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($_GET['id'])||
@@ -105,28 +80,8 @@ class ModelJson{
         }else if($_SERVER["REQUEST_METHOD"] === "GET"){
             if(!isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']]))
                 setcookie('branchId', $_GET['id'], time()+2628000);
-            $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Style'];
-            $this->styleLangAction = (isset($_SESSION['userId'])?'ChangeLanguagePost':'ChangeLangPost').'?id='.$idPage;
-            
-            $this->ActiveBranch = $this->getModelPage()['ActiveBranch'];
-            $this->ChangeTitleBranch = $this->getModelPage()['ChangeTitleBranch'];
-            $this->ChangeButtonBranch = $this->getModelPage()['ChangeButtonBranch'];
-            
-            $this->ChangeLang = $this->getModelPage()['UsedLanguage'];
-            $this->ModelTitle = $this->getModelPage()['ModelTitle'];
-            $this->ModelButton = $this->getModelPage()['ModelButton'];
-            $this->MyLanguage = MyLanguage::fromArray($this->getModel2()['AllNamesLanguage']);
-            
-            $this->ChangeStyle = $this->getModelPage()['UsedStyle'];
-            $this->ModalTitleStyle = $this->getModelPage()['ModalTitleStyle'];
-            $this->ModalButtonStyle = $this->getModelPage()['ModalButtonStyle'];
-            $this->Style = MyLanguage::fromArray($this->getModel2()['Style']);
-
-            $this->Message = $_SESSION['error']??($_SESSION['message']??$this->getModelPage()['LoadMessage']);
-            $this->Type = isset($_SESSION['error'])?'danger':'success';
             if(isset($_SESSION['message']) || isset($_SESSION['error']))
                 unset($_SESSION['message'], $_SESSION['error']);
-            $this->Title = $this->getModelPage()['Title'];
             echo<<<HTML
             <html lang="en">
             <head>
@@ -141,7 +96,6 @@ class ModelJson{
                 <link href="./asset/css/{$this->getStyleFile()}.css" rel="stylesheet">
                 <link rel="stylesheet" href="./asset/css/font-awesome.min.css">
             HTML;
-
             if(ModelJson::getFileName() !== 'Login' && ModelJson::getFileName() !== 'Register'){
                 echo '<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
                 <link rel="stylesheet" href="./asset/css/aos.css">
@@ -153,19 +107,7 @@ class ModelJson{
                     echo '<link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css">';
                 echo '</head><body>';
                 $this->count = 1;
-                $this->DataView = $DataView();
-                $this->AllBranches = $this->getModelPage()['AllBranches'];
-                $this->Ssearch = $this->getModelPage()['Ssearch'];
-                $this->InfoEmpty = $this->getModelPage()['InfoEmpty'];
-                $this->ZeroRecords = $this->getModelPage()['ZeroRecords'];
-                $this->Info = $this->getModelPage()['Info'];
-                $this->LengthMenu = $this->getModelPage()['LengthMenu'];
-                $this->InfoFiltered = $this->getModelPage()['InfoFiltered'];
-
-                $this->Offcanvas = $this->getModelPage()['Offcanvas'];
-                $this->AdminDashboard = $this->getModelPage()['AdminDashboard'];
-
-
+                $this->DataView = ($this->getUrlName2() === 'Branches'?$this->getMyBranch():$DataView());
                 if($this->getUrlName2() === 'Site'){
                     $this->myMenuApp = $this->getModelPage()['AllMenu'];
                     if(isset($_SESSION['userId'])){
@@ -188,18 +130,11 @@ class ModelJson{
                 if($this->getUrlName2() !== 'Site'){
                     echo '<div class="start-page container">';
                     $this->keysTable = $keysTable??array('TableProductImage', ...array_keys($this->getTableHead()));
-                    $this->TableId = $this->getModelPage()['TableId'];
-                    $this->TabelEvent = $this->getModelPage()['TabelEvent'];
-                    $this->ScreenModelEdit = $this->getModelPage()['ScreenModelEdit'];
-                    $this->ButtonModelEdit = $this->getModelPage()['ButtonModelEdit'];
                     if($this->getUrlName2() !== 'SystemLang' && $this->getUrlName2() !== 'MyStyle'){
-                        $this->ScreenModelDelete = $this->getModelPage()['ScreenModelDelete'];
-                        $this->messageModelDelete = $this->getModelPage()['MessageModelDelete'];
-                        $this->buttonModelDelete = $this->getModelPage()['ButtonModelDelete'];
                         echo <<<HTML
                             <button onclick="openForm('#createModel')" class="btn btn-primary">{$this->getModelPage()['ButtonModelCreate']}</button>
                         HTML;
-                        $this->makeCreateModal($this, $this->getModelPage()['ScreenModelCreate'], $this->getModelPage()['ButtonModelAdd']);
+                        $this->makeCreateModal($this->getModelPage()['ScreenModelCreate'], $this->getModelPage()['ButtonModelAdd']);
                     }
                     echo'
                         <table id="example" class="table table-striped">
@@ -213,31 +148,14 @@ class ModelJson{
                         <tbody>';
                 }else
                         echo '<div class="start-page">';
+                $this->getView();
             }else{
-                $this->BranchLabel = $this->getModelPage()['BranchLabel'];
-                $this->ChangeStyleButton = $this->getModelPage()['ChangeStyleButton'];
-                $this->ChangeLanguageButton = $this->getModelPage()['ChangeLanguageButton']; foreach ($this->getFile() as $key => $obj)
                 foreach ($this->getFile() as $key => $obj)
                     if(isset($obj['Branches'])){
                         $this->dbKeys[$key] = new branch($obj['Branches'][$key]['Name']);
                         if(isset($obj['Branches'][$this->getId()]))
                             $this->dbBranchKeys = $key;
                     }
-                $this->initInfoBranch();
-                $this->initErrorBranch();
-                $this->initEmailPassword();
-                $this->BranchProjectTitle = $this->getModelPage()['BranchProjectTitle'];
-                $this->BranchProjectButton = $this->getModelPage()['BranchProjectButton'];
-                $this->ActiveBranchProject = $this->getModelPage()['ActiveBranchProject'];
-                $this->TitleForm = $this->getModelPage()['TitleForm'];
-                $this->ButtonName = $this->getModelPage()['ButtonName'];
-                $this->DbKeyLabel = $this->getModelPage()['DbKeyLabel'];
-                $this->AppLabel = $this->getModelPage()['AppLabel'];
-                $this->AllBranch = $this->getModelPage()['AllBranch'];
-                $this->ModalTitleProject = $this->getModelPage()['ModalTitleProject'];
-                $this->ModalButtonProject = $this->getModelPage()['ModalButtonProject'];
-                $this->ButtonSetupProject = $this->getModelPage()['ButtonSetupProject'];
-                $this->RegisterLoginPage = $this->getModelPage()['RegisterLoginPage'];
                 echo<<<HTML
                     <link href="./asset/css/login_register.css" rel="stylesheet"></head><body>
                     <div class="container">
@@ -248,12 +166,15 @@ class ModelJson{
                 echo<<<HTML
                                 <a href="./site" class="navbar-brand fa fa-truck fa-2x pointer"></a>
                             </h4>
-                             <h4>{$this->getTitleForm()}</h4>
+                                <h4>{$this->getTitleForm()}</h4>
                             <form method='POST' action="{$DataView}">
                 HTML; 
-                $view = $this;
                 include('all_modal/login_register_input.php');
+                if($this->getUrlName2() === 'Register')
+                    include 'view/register_view.php';
+                include 'pis_of_page/buttons.php';
             }
+            include 'pis_of_page/end_html.php';
 
         }else if(ModelJson::getFileName()==='LoginForgetPasswordPost' || ModelJson::getFileName()==='LoginPost' || 
                 ModelJson::getFileName() === 'RegisterPost' || ModelJson::getFileName() === 'SetupProject'){
@@ -364,6 +285,26 @@ class ModelJson{
         }
     
     }
+    function getCount(){
+        return $this->count;
+    }
+    function plusCount(){
+        $this->count+=1;
+    }
+    function showErrorServer(){
+        $_SESSION['error'] = $this->getModel2()[isset($_SESSION['userId'])?'Home':'Login']['ErrorServerMessage'];
+        header("Location:".(isset($_SESSION['userId'])?'Home':'Login'));
+        exit;
+    }
+    function getButtonForgetPassword(){
+        return $this->getModelPage()['ButtonForgetPassword'];
+    }
+    function getModalForgetPasswordTitle(){
+        return $this->getModelPage()['ModalForgetPasswordTitle'];
+    }
+    function getModalForgetPasswordButton(){
+        return $this->getModelPage()['ModalForgetPasswordButton'];
+    }
     function initFlexTable(){
         foreach (array_keys($this->getModel2()) as $key2 => $table)
             if(!isset($this->getModel2()['MyFlexTables'][$table])&&
@@ -457,7 +398,6 @@ class ModelJson{
     }
     function getId(){
         return $this->MyIdDb;
-        // return (isset($_SESSION['userId'])?$_SESSION['userId']:($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']])?$_GET['id']:(isset($_COOKIE['branchId']) && isset($this->getFile()[$_COOKIE['branchId']])?$_COOKIE['branchId']:'admin')));
     }
     function showError($error){
         $_SESSION['error'] = $error;
@@ -474,123 +414,74 @@ class ModelJson{
         header('Location:index');
         exit;
     }
-
-    //----------------------------------------------------information page
-
-    private $Title;
-    private $Message;
-    private $Type;
-    private $styleLangAction;
-
-    private $ChangeLang;
-    private $ModelTitle;
-    private $ModelButton;
-    private $MyLanguage;
-
-    private $ChangeStyle;
-    private $ModalTitleStyle;
-    private $ModalButtonStyle;
-    private $Style;
-
-    private $ActiveBranch;
-    private $ChangeTitleBranch;
-    private $ChangeButtonBranch;
-    private $StyleFile;
-     function getStyleFile(){
-        return $this->StyleFile;
+    function getStyleFile(){
+        return isset($_COOKIE[$this->getId().'Style']) && isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']]) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Style'];
     }
     function getActiveBranch(){
-        return $this->ActiveBranch;
+        return $this->getModelPage()['ActiveBranch'];
     }
     function getChangeTitleBranch(){
-        return $this->ChangeTitleBranch;
+        return $this->getModelPage()['ChangeTitleBranch'];
     }
     function getChangeButtonBranch(){
-        return $this->ChangeButtonBranch;
+        return $this->getModelPage()['ChangeButtonBranch'];
     }
     function getMyBranch(){
         return Branch::fromArray($this->getBranch(), $this->getModel2()['Branches']['SelectBranchBox']);
     }
     function getMyLanguage(){
-        return $this->MyLanguage;
+        return MyLanguage::fromArray($this->getModel2()['AllNamesLanguage']);
     }
     function getStyle(){
-        return $this->Style;
+        return MyLanguage::fromArray($this->getModel2()['Style']);
     }
     function getModalButtonStyle(){
-        return $this->ModalButtonStyle;
+        return $this->getModelPage()['ModalButtonStyle'];
     }
     function getModalTitleStyle(){
-        return $this->ModalTitleStyle;
+        return $this->getModelPage()['ModalTitleStyle'];
     }
     function getModelButton(){
-        return $this->ModelButton;
+        return $this->getModelPage()['ModelButton'];
     }
     function getModelTitle(){
-        return $this->ModelTitle;
+        return $this->getModelPage()['ModelTitle'];
     }
     function getChangeLang(){
-        return $this->ChangeLang;
+        return $this->getModelPage()['UsedLanguage'];
     }
     function getChangeStyle(){
-        return $this->ChangeStyle;
+        return $this->getModelPage()['UsedStyle'];
     }
-
     function getMessage(){
-        return $this->Message;
+        return $_SESSION['error']??($_SESSION['message']??$this->getModelPage()['LoadMessage']);
     }
     function getType(){
-        return $this->Type;
+        return isset($_SESSION['error'])?'danger':'success';
     }
     function getActionStyleLang(){
-        return $this->styleLangAction;
+        return (isset($_SESSION['userId'])?'ChangeLanguagePost':'ChangeLangPost').'?id='.$this->getUrlName2();
     }
     function setActionStyleLang($value){
         $this->styleLangAction = $value;
     }
-
     function getTitle(){
-        return $this->Title;
+        return $this->getModelPage()['Title'];
     }
-    function setTitle($title){
-        return $this->Title = $title;
-    }
-
-    //--------------------------------------admin menu
-        private $Offcanvas;
-    private $Logout;
-    private $AdminDashboard;
-    private $myMenuApp;
-    private $Ssearch;
-    private $ZeroRecords;
-    private $LengthMenu;
-    private $Info;
-    private $InfoEmpty;
-    private $InfoFiltered;
-    private $ScreenModelEdit;
-    private $ButtonModelEdit;
-    private $TableId;
-    private $TabelEvent;
-    private $AllBranches;
-    private $keysTable;
-    private $DataView;
-    private $ScreenModelDelete;
-    private $messageModelDelete;
-    private $buttonModelDelete;
     function getScreenModelDelete(){
-        return $this->ScreenModelDelete;
+        return $this->getModelPage()['ScreenModelDelete'];
     }
     function getmessageModelDelete(){
-        return $this->messageModelDelete;
+        return $this->getModelPage()['MessageModelDelete'];
     }
     function getbuttonModelDelete(){
-        return $this->buttonModelDelete;
+        return $this->getModelPage()['ButtonModelDelete'];
     }
     function getKeysTable(){
         return $this->keysTable;
     }
     function getAllBranches(){
-        return $this->AllBranches;
+        return $this->getModelPage()['AllBranches'];
     }
     function getMyDataView(){
         return $this->DataView;
@@ -599,7 +490,6 @@ class ModelJson{
         foreach ($this->getKeysTable() as $index => $key)
             echo'<th>'.($this->getModelPage()[$key]??$this->getModelPage()['TableHead'][$key]).'</th>';
     }
-
     function getIconByKey($key){
         if($key === 'Home')
             return 'fa fa-home';
@@ -646,97 +536,76 @@ class ModelJson{
             return 'fa fa-inbox';
     }
     function getScreenModelEdit(){
-        return $this->ScreenModelEdit;
+        return $this->getModelPage()['ScreenModelEdit'];
     }
     function getButtonModelEdit(){
-        return $this->ButtonModelEdit;
+        return $this->getModelPage()['ButtonModelEdit'];
     }
     function getTableId(){
-        return $this->TableId;
+        return $this->getModelPage()['TableId'];
     }
     function getTabelEvent(){
-        return $this->TabelEvent;
+        return $this->getModelPage()['TabelEvent'];
     }
     function getSsearch(){
-        return $this->Ssearch;
+        return $this->getModelPage()['Ssearch'];
     }
     function getZeroRecords(){
-        return $this->ZeroRecords;
+        return $this->getModelPage()['ZeroRecords'];
     }
     function getLengthMenu(){
-        return $this->LengthMenu;
+        return $this->getModelPage()['LengthMenu'];
     }
     function getInfo(){
-        return $this->Info;
+        return $this->getModelPage()['Info'];
     }
     function getInfoEmpty(){
-        return $this->InfoEmpty;
+        return $this->getModelPage()['InfoEmpty'];
     }
     function getInfoFiltered(){
-        return $this->InfoFiltered;
+        return $this->getModelPage()['InfoFiltered'];
     }
     function getMyMenuApp(){
         return $this->myMenuApp;
     }
     function getOffcanvas(){
-        return $this->Offcanvas;
+        return $this->getModelPage()['Offcanvas'];
     }
     function getAdminDashboard(){
-        return $this->AdminDashboard;
+        return $this->getModelPage()['AdminDashboard'];
     }
-    //---------------------------------------------login register
-
-    private $TitleForm;
-    private $ButtonName;
-    private $dbKeys;
-    private $dbBranchKeys;
-    private $DbKeyLabel;
-    private $AppLabel;
-    private $AllBranch;
-    private $ModalTitleProject;
-    private $ModalButtonProject;
-    private $ButtonSetupProject;
-    private $RegisterLoginPage;
-
-    private $BranchLabel;
-    private $ChangeStyleButton;
-    private $ChangeLanguageButton;
-    private $BranchProjectTitle;
-    private $BranchProjectButton;
-    private $ActiveBranchProject;
     function getActiveBranchProject(){
-        return $this->ActiveBranchProject;
+        return $this->getModelPage()['ActiveBranchProject'];
     }
     function getBranchProjectTitle(){
-        return $this->BranchProjectTitle;
+        return $this->getModelPage()['BranchProjectTitle'];
     }
     function getBranchProjectButton(){
-        return $this->BranchProjectButton;
+        return $this->getModelPage()['BranchProjectButton'];
     }
     function getBranchLabel(){
-        return $this->BranchLabel;
+        return $this->getModelPage()['BranchLabel'];
     }
     function getChangeStyleButton(){
-        return $this->ChangeStyleButton;
+        return $this->getModelPage()['ChangeStyleButton'];
     }
     function getChangeLanguageButton(){
-        return $this->ChangeLanguageButton;
+        return $this->getModelPage()['ChangeLanguageButton'];
     }
-
     function getModalTitleProject(){
-        return $this->ModalTitleProject;
+        return $this->getModelPage()['ModalTitleProject'];
     }
     function getModalButtonProject(){
-        return $this->ModalButtonProject;
+        return $this->getModelPage()['ModalButtonProject'];
     }
     function getButtonSetupProject(){
-        return $this->ButtonSetupProject;
+        return $this->getModelPage()['ButtonSetupProject'];
     }
     function getAllBranch(){
-        return $this->AllBranch;
+        return $this->getModelPage()['AllBranch'];
     }
     function getAppLabel(){
-        return $this->AppLabel;
+        return $this->getModelPage()['AppLabel'];
     }
     function getDbKeys(){
         return $this->dbKeys;
@@ -745,21 +614,17 @@ class ModelJson{
         return $this->dbBranchKeys;
     }
     function getRegisterLoginPage(){
-        return $this->RegisterLoginPage;
+        return $this->getModelPage()['RegisterLoginPage'];
     }
-
     function getDbKeyLabel(){
-        return $this->DbKeyLabel;
+        return $this->getModelPage()['DbKeyLabel'];
     }
     function getTitleForm(){
-        return $this->TitleForm;
+        return $this->getModelPage()['TitleForm'];
     }
     function getButtonName(){
-        return $this->ButtonName;
+        return $this->getModelPage()['ButtonName'];
     }
-    //------------------valid id
-
-    protected $keyId;
     function deleteItem($myData){
         if(count($myData[$this->getUrlName2()]) === 1)
             unset($myData[$this->getUrlName2()]);
@@ -768,4 +633,440 @@ class ModelJson{
         return $myData;
     }
 
+    //all trait function
+    //ChangeStyleLangBranch
+    function getLabelChangeLanguageMessage(){
+        return $this->getModelPage()['LabelChangeLanguageMessage'];
+    }
+    function getTitleChangeLanguageMessage(){
+        return $this->getModelPage()['TitleChangeLanguageMessage'];
+    }
+    function getButtonChangeLanguageMessage(){
+        return $this->getModelPage()['ButtonChangeLanguageMessage'];
+    }
+    //ErrorBranch
+    function validInputs(){
+        if(!isset($_POST['Name']) || $_POST['Name'] === '')
+            $this->showError($this->getBranceRaysNameRequired());
+        else if(strlen($_POST['Name']) < 3)
+            $this->showError($this->getBranceRaysNameLength());
+        else if(!isset($_POST['Phone']) || $_POST['Phone'] === '')
+            $this->showError($this->getBranceRaysPhoneRequired());
+        else if(!preg_match('/^[0-9]{11}$/', $_POST['Phone']))
+            $this->showError($this->getBranceRaysPhoneLength());
+        else if(!isset($_POST['Country']) || $_POST['Country'] === '')
+            $this->showError($this->getBranceRaysCountryRequired());
+        else if(strlen($_POST['Country']) < 3)
+            $this->showError($this->getBranceRaysCountryLength());
+        else if(!isset($_POST['Governments']) || $_POST['Governments'] === '')
+            $this->showError($this->getBranceRaysGovernmentsRequired());
+        else if(strlen($_POST['Governments']) < 3)
+            $this->showError($this->getBranceRaysGovernmentsLength());
+        else if(!isset($_POST['City']) || $_POST['City'] === '')
+            $this->showError($this->getBranceRaysCityRequired());
+        else if(strlen($_POST['City']) < 3)
+            $this->showError($this->getBranceRaysCityLength());
+        else if(!isset($_POST['Street']) || $_POST['Street'] === '')
+            $this->showError($this->getBranceRaysStreetRequired());
+        else if(strlen($_POST['Street']) < 3)
+            $this->showError($this->getBranceRaysStreetLength());
+        else if(!isset($_POST['Building']) || $_POST['Building'] === '')
+            $this->showError($this->getBranceRaysBuildingRequired());
+        else if(strlen($_POST['Building']) < 3)
+            $this->showError($this->getBranceRaysBuildingLength());
+        else if(!isset($_POST['Address']) || $_POST['Address'] === '')
+            $this->showError($this->getBranceRaysAddressRequired());
+        else if(strlen($_POST['Address']) < 3)
+            $this->showError($this->getBranceRaysAddressLength());
+        else if(!isset($_POST['Follow']))
+            $this->showError($this->getBranceRaysFollowRequired());
+        else if(!isset($this->getModelPage()['SelectBranchBox'][$_POST['Follow']]))
+            $this->showError($this->getModelPage()['BranceRaysFollowValue']);
+        else if(ModelJson::getFileName() === 'BranchCreatePost' && !isset($_POST['selectedBranch']))
+            $this->showError($this->getModelPage()['IdBranchReq']);
+        else if(ModelJson::getFileName() === 'BranchCreatePost' && !isset($this->getBranch()[$_POST['selectedBranch']]))
+            $this->showError($this->getModelPage()['IdBranchInv']);
+    }
+    function initErrorBranch2(){
+        $this->validInputs();
+        $myBranch = $this->getFile();
+        $myBranch[$this->getFixedId()]['Branches'][$this->keyId] = array(
+            "Name"=>$_POST["Name"],
+            "Phone"=>$_POST["Phone"],
+            "Country"=>$_POST["Country"],
+            "Governments"=>$_POST["Governments"],
+            "City"=>$_POST["City"],
+            "Street"=>$_POST["Street"],
+            "Building"=>$_POST["Building"],
+            "Address"=>$_POST["Address"],
+            "Follow"=>$_POST["Follow"]
+        );
+        $this->saveVarFile($myBranch);
+    }
+    function getBranceRaysNameRequired(){
+        return $this->getModelPage()['BranceRaysNameRequired'];
+    }
+    function getBranceRaysPhoneRequired(){
+        return $this->getModelPage()['BranceRaysPhoneRequired'];
+    }
+    function getBranceRaysGovernmentsRequired(){
+        return $this->getModelPage()['BranceRaysGovernmentsRequired'];
+    }
+    function getBranceRaysCityRequired(){
+        return $this->getModelPage()['BranceRaysCityRequired'];
+    }
+    function getBranceRaysStreetRequired(){
+        return $this->getModelPage()['BranceRaysStreetRequired'];
+    }
+    function getBranceRaysBuildingRequired(){
+        return $this->getModelPage()['BranceRaysBuildingRequired'];
+    }
+    function getBranceRaysAddressRequired(){
+        return $this->getModelPage()['BranceRaysAddressRequired'];
+    }
+    function getBranceRaysCountryRequired(){
+        return $this->getModelPage()['BranceRaysCountryRequired'];
+    }
+    function getBranceRaysFollowRequired(){
+        return $this->getModelPage()['BranceRaysFollowRequired'];
+    }
+    function getBranceRaysNameLength(){
+        return $this->getModelPage()['BranceRaysNameLength'];
+    }
+    function getBranceRaysPhoneLength(){
+        return $this->getModelPage()['BranceRaysPhoneLength'];
+    }
+    function getBranceRaysGovernmentsLength(){
+        return $this->getModelPage()['BranceRaysGovernmentsLength'];
+    }
+    function getBranceRaysCityLength(){
+        return $this->getModelPage()['BranceRaysCityLength'];
+    }
+    function getBranceRaysStreetLength(){
+        return $this->getModelPage()['BranceRaysStreetLength'];
+    }
+    function getBranceRaysBuildingLength(){
+        return $this->getModelPage()['BranceRaysBuildingLength'];
+    }
+    function getBranceRaysAddressLength(){
+        return $this->getModelPage()['BranceRaysAddressLength'];
+    }
+    function getBranceRaysCountryLength(){
+        return $this->getModelPage()['BranceRaysCountryLength'];
+    }
+    //ErrorChangelanguage
+    function getallNames(){
+        return $this->getModel2()['AllNamesLanguage'];
+    }
+    function getNewLangNameRequired(){
+        return $this->getModelPage()['NewLangNameRequired'];
+    }
+    function getNewLangNameInvalid(){
+        return $this->getModelPage()['NewLangNameInvalid'];
+    }
+    function saveNameLanguage($name, $nameKey, $myData){
+        foreach ($name as $key=>$value)
+            $myData[$key][$nameKey][$this->keyId] = $_POST['lang_name'];
+        return $myData;
+    }
+    function validLanguageInput(){
+        if(!isset($_POST['lang_name']) || $_POST['lang_name'] === '')
+            $this->showError($this->getNewLangNameRequired());
+        else if(strlen($_POST['lang_name']) < 3)
+            $this->showError($this->getNewLangNameInvalid());
+        else if(ModelJson::getFileName() === 'ChangeLanguageCreatePost' && !isset($_POST['selectedLanguage']))
+            $this->showError($this->getModelPage()['LanguageReq']);
+        else if(ModelJson::getFileName() === 'ChangeLanguageCreatePost' && !isset($this->getallNames()[$_POST['selectedLanguage']]))
+            $this->showError($this->getModelPage()['LanguageInv']);
+    }
+    //ImgInfo
+    function validMyImage(){
+        //delete input
+        if(!isset($_FILES['avatar']))
+           $this->showError($this->getReqimage());
+        else if(!isset($_POST['id']) && !is_uploaded_file($_FILES['avatar']['tmp_name']))
+            $this->showError($this->getModelPage()['UploadImgInv']);
+        else if(is_uploaded_file($_FILES['avatar']['tmp_name']) && 
+        strtolower(pathinfo(basename($_FILES['avatar']['name']), PATHINFO_EXTENSION)) !== 'jpg' &&
+        strtolower(pathinfo(basename($_FILES['avatar']['name']), PATHINFO_EXTENSION)) !== 'png'||
+        is_uploaded_file($_FILES['avatar']['tmp_name']) && $_FILES['avatar']['size'] > (2 * 1024 * 1024)||
+        is_uploaded_file($_FILES['avatar']['tmp_name']) && $_FILES['avatar']['size'] < 2000||
+        is_uploaded_file($_FILES['avatar']['tmp_name']) && !getimagesize($_FILES['avatar']['tmp_name']))
+           $this->showError($this->getInvimage());
+    }
+    function saveProductTable($idSseion){
+        if(isset($_FILES['avatar']) && is_uploaded_file($_FILES['avatar']['tmp_name']) && is_dir('asset/product/'.$idSseion))
+            copy($_FILES['avatar']['tmp_name'], 'asset/product/'.$idSseion.'/'.$this->keyId.'.'.strtolower(pathinfo(basename($_FILES['avatar']['name']), PATHINFO_EXTENSION)));
+        else if(isset($_FILES['avatar']) && is_uploaded_file($_FILES['avatar']['tmp_name']) && is_dir('asset/product')){
+            mkdir('asset/product/'.$idSseion);
+            copy($_FILES['avatar']['tmp_name'], 'asset/product/'.$idSseion.'/'.$this->keyId.'.'.strtolower(pathinfo(basename($_FILES['avatar']['name']), PATHINFO_EXTENSION)));
+        }
+        else if(isset($_FILES['avatar']) && is_uploaded_file($_FILES['avatar']['tmp_name'])){
+            mkdir('asset/product');
+            mkdir('asset/product/'.$idSseion);
+            copy($_FILES['avatar']['tmp_name'], 'asset/product/'.$idSseion.'/'.$this->keyId.'.'.strtolower(pathinfo(basename($_FILES['avatar']['name']), PATHINFO_EXTENSION)));
+        }
+    }
+    function getReqimage(){
+        return $this->getModelPage()['Reqimage'];
+    }
+    function getInvimage(){
+        return $this->getModelPage()['Invimage'];
+    }
+    //TableProductImage use ImgInfo
+    function getTitleViewImage(){
+        return $this->getModelPage()['TitleViewImage'];
+    }
+    function getImgLabel(){
+        return $this->getModelPage()['ImgLabel'];
+    }
+    function getImgButton(){
+        return $this->getModelPage()['ImgButton'];
+    }
+    // ErrorFlexTable use TableProductImage
+    function initErrorFlexTable2(){
+        $this->validMyImage();
+        foreach ($this->getErrorsMessageReq() as $key => $value)
+            if(!isset($_POST[$key]) || $_POST[$key] === '')
+                $this->showError($this->getErrorsMessageReq()[$key]);
+            else if(strlen($_POST[$key]) < 3)
+                $this->showError($this->getErrorsMessageInv()[$key]);
+    }
+    function getErrorsMessageReq(){
+        return $this->getModelPage()['ErrorsMessageReq'];
+    }
+    function getErrorsMessageInv(){
+        return $this->getModelPage()['ErrorsMessageInv'];
+    }
+    //ErrorProduct use TableProductImage
+    function validProductInput(){
+        $this->validMyImage();
+        if(!isset($_POST['name']) || $_POST['name'] === '')
+           $this->showError($this->getRequiredName());
+        else if(strlen($_POST['name']) < 3)
+           $this->showError($this->getInvalidName());
+        else if(!isset($_POST['descreption']) || $_POST['descreption'] === '')
+           $this->showError($this->getRequiredDescreption());
+        else if(strlen($_POST['descreption']) < 8)
+           $this->showError($this->getInvalidDescreption());
+        else if(!isset($_POST['salary']) || $_POST['salary'] === '')
+           $this->showError($this->getRequiredSalary());
+        else if(!is_numeric($_POST['salary']) || $_POST['salary'] > 1000000)
+           $this->showError($this->getInvalidSalary());
+        else if(!isset($_POST['category']) || $_POST['category'] === '')
+           $this->showError($this->getRequiredCategory());
+        else if(strlen($_POST['category']) < 3)
+           $this->showError($this->getInvalidCategory());
+    }
+    function getRequiredName(){
+        return $this->getModelPage()['RequiredName'];
+    }
+    function getRequiredDescreption(){
+        return $this->getModelPage()['RequiredDescreption'];
+    }
+    function getRequiredSalary(){
+        return $this->getModelPage()['RequiredSalary'];
+    }
+    function getRequiredCategory(){
+        return $this->getModelPage()['RequiredCategory'];
+    }
+    function getInvalidName(){
+        return $this->getModelPage()['InvalidName'];
+    }
+    function getInvalidDescreption(){
+        return $this->getModelPage()['InvalidDescreption'];
+    }
+    function getInvalidSalary(){
+        return $this->getModelPage()['InvalidSalary'];
+    }
+    function getInvalidCategory(){
+        return $this->getModelPage()['InvalidCategory'];
+    }
+    //ErrorRegister
+    function initErrorsRegister2(){
+        if(!isset($_POST['password_confirmation']) || $_POST['password_confirmation'] === '')
+            $this->showError($this->getRequiredConfirmPassword());
+        else if(strlen($_POST['password_confirmation']) < 8)
+            $this->showError($this->getInvalidConfirmPassword());
+        else if($_POST['Password'] !== $_POST['password_confirmation'])
+            $this->showError($this->getPasswordDosNotMatch());
+    }
+    function getPasswordDosNotMatch(){
+        return $this->getModelPage()['PasswordDosNotMatch'];
+    }
+    function getRequiredConfirmPassword(){
+        return $this->getModelPage()['RequiredConfirmPassword'];
+    }
+    function getInvalidConfirmPassword(){
+        return $this->getModelPage()['InvalidConfirmPassword'];
+    }
+    //ErrorsEmailPassword
+    function initErrorsEmailPassword3(){
+        if(!isset($_POST['Email']) || $_POST['Email'] === '')
+            $this->showError($this->getRequiredEmail());
+        else if(!preg_match('/^[\w]+@[\w]+\.[a-zA-z]{2,6}$/', $_POST['Email']))
+            $this->showError($this->getInvalidEmail());
+        else if(!isset($_POST['Password']) || $_POST['Password'] === '')
+            $this->showError($this->getRequiredPassword());
+        else if(strlen($_POST['Password']) < 8)
+            $this->showError($this->getInvalidPassword());
+        else if(ModelJson::getFileName() !== 'LoginPost' && !isset($_POST['Key']) || ModelJson::getFileName() !== 'LoginPost' && $_POST['Key'] === '')
+                $this->showError($this->getRequiredKeyPassword());
+        else if(ModelJson::getFileName() !== 'LoginPost' && strlen($_POST['Key']) < 8)
+            $this->showError($this->getInvalidKeyPassword());
+    }
+    function initErrorsKeyPassword2($myData){
+       if(isset($myData['Users'][$this->keyId]['Email']) && $_POST['Email'] === $myData['Users'][$this->keyId]['Email'] ||
+            //make edit create account and check exist email
+            isset($myData['Users']) && !in_array($_POST['Email'], array_map(function($user) {return $user['Email'];}, $myData['Users']))||
+            //check users empty
+            !isset($myData['Users'])){
+                $myData['Users'][$this->keyId] = array("Email"=>$_POST["Email"], "Password"=>$_POST["Password"], "Key"=>$_POST["Key"]);
+                return $myData;
+            //show message email exist
+        }else
+            $this->showError($this->getModelPage()['EmailExist']);
+        
+    }
+    function getRequiredKeyPassword(){
+        return  $this->getModelPage()['RequiredKeyPassword'];
+    }
+    function getInvalidKeyPassword(){
+        return $this->getModelPage()['InvalidKeyPassword'];
+    }
+    function getRequiredEmail(){
+        return $this->getModelPage()['RequiredEmail'];
+    }
+    function getInvalidEmail(){
+        return $this->getModelPage()['InvalidEmail'];
+    }
+    function getRequiredPassword(){
+        return $this->getModelPage()['RequiredPassword'];
+    }
+    function getInvalidPassword(){
+        return $this->getModelPage()['InvalidPassword'];
+    }
+    //ErrorsHome
+    function validName(){
+        if(!isset($_POST['name']) || $_POST['name'] === '')
+            $this->showError($this->getNameTableIsReq());
+        else if(strlen($_POST['name']) < 3)
+            $this->showError($this->getNameTableIsInv());
+        else if(ModelJson::getFileName() === 'HomeCreatePost' && !isset($_POST['input_number']) || ModelJson::getFileName() === 'HomeCreatePost' && $_POST['input_number'] === '')
+            $this->showError($this->getInputNumberTableIsReq());
+        else if(ModelJson::getFileName() === 'HomeCreatePost' && !is_numeric($_POST['input_number']) || ModelJson::getFileName() === 'HomeCreatePost' && $_POST['input_number'] > 8)
+            $this->showError($this->getInputNumberTableIsInv());  
+        else if(ModelJson::getFileName() === 'HomeCreatePost')
+            for ($i=0; $i < $_POST['input_number']; $i++)
+                array_push($this->keysInput, ModelJson::getRandomKey());  
+    }
+    function getNameTableIsReq(){
+        return $this->getModelPage()['NameTableIsReq'];
+    }
+    function getNameTableIsInv(){
+        return $this->getModelPage()['NameTableIsInv'];
+    }
+    function getInputNumberTableIsReq(){
+        return $this->getModelPage()['InputNumberTableIsReq'];
+    }
+    function getInputNumberTableIsInv(){
+        return $this->getModelPage()['InputNumberTableIsInv'];
+    }
+    //ErrorSystemlang
+    function getTextRequired(){
+        return $this->getModelPage()['TextRequired'];
+    }
+    function getTextLenght(){
+        return $this->getModelPage()['TextLenght'];
+    }
+    //InfoBranch
+    function getbranchInputOutput(){
+        return $this->getModelPage()['SelectBranchBox'];
+    }
+    function getLabelBranchRaysName(){
+        return $this->getModelPage()['LabelBranchRaysName'];
+    }
+    function getLabelBranchRaysPhone(){
+        return $this->getModelPage()['LabelBranchRaysPhone'];
+    }
+    function getLabelBranchRaysCountry(){
+        return $this->getModelPage()['LabelBranchRaysCountry'];
+    }
+    function getLabelBranchRaysGovernments(){
+        return $this->getModelPage()['LabelBranchRaysGovernments'];
+    }
+    function getLabelBranchRaysCity(){
+        return $this->getModelPage()['LabelBranchRaysCity'];
+    }
+    function getLabelBranchRaysStreet(){
+        return $this->getModelPage()['LabelBranchRaysStreet'];
+    }
+    function getLabelBranchRaysBuilding(){
+        return $this->getModelPage()['LabelBranchRaysBuilding'];
+    }
+    function getLabelBranchRaysAddress(){
+        return $this->getModelPage()['LabelBranchRaysAddress'];
+    }
+    function getLabelWithRaysOut(){
+        return $this->getModelPage()['LabelWithRaysOut'];
+    }
+    function getBranchRaysName(){
+        return $this->getModelPage()['BranchRaysName'];
+    }
+    function getBranchRaysPhone(){
+        return $this->getModelPage()['BranchRaysPhone'];
+    }
+    function getBranchRaysCountry(){
+        return $this->getModelPage()['BranchRaysCountry'];
+    }
+    function getBranchRaysGovernments(){
+        return $this->getModelPage()['BranchRaysGovernments'];
+    }
+    function getBranchRaysCity(){
+        return $this->getModelPage()['BranchRaysCity'];
+    }
+    function getBranchRaysStreet(){
+        return $this->getModelPage()['BranchRaysStreet'];
+    }
+    function getBranchRaysBuilding(){
+        return $this->getModelPage()['BranchRaysBuilding'];
+    }
+    function getBranchRaysAddress(){
+        return $this->getModelPage()['BranchRaysAddress'];
+    }
+    function getselectBox1(){
+        return $this->getModelPage()['WithRaysOut'];
+    }
+    //InfoChangeLangStyle use ErrorChangelanguage, ChangeStyleLangBranch;
+    function getHintNewLangName(){
+        return $this->getModelPage()['HintNewLangName'];
+    }
+    function getLabelNameLanguage(){
+        return $this->getModelPage()['LabelCreateLanguage'];
+    }
+    //EmailPassword use ErrorsEmailPassword
+    function getCheckbooksState(){
+        return $this->getModelPage()['CheckbooksState'];
+    }
+    function getLabelKeyPassword(){
+        return $this->getModelPage()['LabelKeyPassword'];
+    }
+    function getHintKeyPassword(){
+        return $this->getModelPage()['HintKeyPassword'];
+    }
+    function getLabelEmail(){
+        return $this->getModelPage()['LabelEmail'];
+    }
+    function getHintEmail(){
+        return $this->getModelPage()['HintEmail'];
+    }
+    function getLabelPassword(){
+        return $this->getModelPage()['NewPassword'];
+    }
+    function getHintPassword(){
+        return $this->getModelPage()['NewHintPassword'];
+    }
+    function makeCreateModalForgetPass($title, $button, $idModel, $index, $myObject, $action){
+        include('all_modal/modal_setting_users_table.php');
+    }
 }

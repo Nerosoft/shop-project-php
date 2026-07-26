@@ -1,8 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
-require 'auth/test_session4.php';
+// require 'auth/test_session4.php';
 class ProductCreatePost extends ModelJson{
-    use ErrorProduct;
     function __construct(){
         parent::__construct('Product', function($myFile, $keyBranch){
             return $this->saveProduct($myFile, $keyBranch);

@@ -1,8 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
-require 'auth/test_session3.php';
+// require 'auth/test_session3.php';
 class LoginForgetPasswordPost extends ModelJson{
-    use ErrorsEmailPassword;
     function __construct(){
         parent::__construct('Login');
         $myData = $this->getObj();

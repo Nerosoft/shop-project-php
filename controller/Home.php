@@ -1,81 +1,44 @@
 <?php
-require 'auth/test_session2.php';
+// require 'auth/test_session2.php';
 require 'class_object/CustomTable.php';
-// require 'all_trait/ErrorsHome.php';
 include 'interface/InterfaceDataView.php';
 class MyHome extends ModelJson implements InterfaceDataView{
-    use ErrorsHome;
-    private $LabelInputNumber;
-    private $HintInputNumber;
-    private $LabelName;
-    private $HintName;
     function __construct(){
         parent::__construct('Home', function(){
-            $this->initErrorsHome();
-            $this->LabelName = $this->getModelPage()['LabelName'];
-            $this->HintName = $this->getModelPage()['HintName'];
-            $this->LabelInputNumber = $this->getModelPage()['LabelInputNumber'];
-            $this->HintInputNumber = $this->getModelPage()['HintInputNumber'];
             return isset($this->getModel2()['MyFlexTables'])?array_reverse(CustomTable::fromArray($this)):array();
         }, CustomTable::getKeysObject());
     }
+    function getView(){
+        include 'view/home.php';
+    }
     function getLabelName(){
-        return $this->LabelName;
+        return $this->getModelPage()['LabelName'];
     }
     function getHintName(){
-        return $this->HintName;
+        return $this->getModelPage()['HintName'];
     }
     function getLabelInputNumber(){
-        return $this->LabelInputNumber;
+        return $this->getModelPage()['LabelInputNumber'];
     }
     function getHintInputNumber(){
-        return $this->HintInputNumber;
+        return $this->getModelPage()['HintInputNumber'];
     }
-    function makeCreateModal($view, $title, $button){
+    function makeCreateModal($title, $button){
             $action = 'HomeCreatePost.php';
             include('all_modal/modal_custome_table.php');
             echo <<<HTML
                 <div class="form-group">
                     <i class="fa fa-home fa-2x"></i>
-                    <label for="lang_name" class="form-label">{$view->getLabelInputNumber()}</label>
+                    <label for="lang_name" class="form-label">{$this->getLabelInputNumber()}</label>
                     <input 
-                    title='{$view->getHintInputNumber()}'
+                    title='{$this->getHintInputNumber()}'
                     min="1" 
                     max="8" 
                     required
-                    type="number" name="input_number" id="input_number"  placeholder='{$view->getHintInputNumber()}' class="form-control">
+                    type="number" name="input_number" id="input_number"  placeholder='{$this->getHintInputNumber()}' class="form-control">
                 </div>
             HTML;
             include('all_modal/end_model.php');
     }
 }
-
-
-$view = new MyHome();
-foreach ($view->getMyDataView() as $index => $myObject) {
-    echo <<<HTML
-        <tr>
-            <td>{$view->getCount()}</td>
-            <td>{$myObject->getName()}</td>
-            <td>
-    HTML;
-    $title = $view->getScreenModelEdit();
-    $button = $view->getButtonModelEdit();
-    $action = 'HomeEditPost.php';
-    $idModel = "editModel".$index;
-    include('all_modal/modal_custome_table.php');
-    include('all_modal/end_model.php');
-    include 'pis_of_page/button_edit.php';
-}
-?>                       
-<script type="text/javascript">
-$(document).ready(function(){    
-    $('#input_number').on('input invalid', function() {
-        if (this.validity.valueMissing)
-            this.setCustomValidity('<?php echo$view->getInputNumberTableIsReq()?>');
-        else if (this.value < 1 || this.value > 8)
-            this.setCustomValidity('<?php echo$view->getInputNumberTableIsInv()?>');
-        else
-            this.setCustomValidity('');
-    })});
-</script>
+new MyHome();

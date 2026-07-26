@@ -7,6 +7,6 @@ include('setting_users_iput.php');
 <div class="form-check">
     <input onchange="changeInputState('#<?php echo$idModel??'createModel'?>', $(this).prop('checked')?'text':'password')"  id="mycheckbox" class="form-check-input show-pass" type="checkbox">
     <label  class="form-check-label">
-       <?php echo $view->getCheckbooksState()?>
+       <?php echo $this->getCheckbooksState()?>
     </label>
 </div>

@@ -2,15 +2,15 @@
 <?php include('start_model.php');?>
 <div class="input-group input-group">
     <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-lg"><?php echo $view->getText()?></span>
+        <span class="input-group-text" id="inputGroup-sizing-lg"><?php echo $this->getText()?></span>
     </div>
     <input
-    title="<?php echo $view->getWordHint()?>"
-    placeholder="<?php echo $view->getWordHint()?>"
+    title="<?php echo $this->getWordHint()?>"
+    placeholder="<?php echo $this->getWordHint()?>"
     minlength="3" 
     required
-    oninvalid="handleInput(this ,'<?php echo $view->getTextRequired()?>', '<?php echo $view->getTextLenght()?>')"
-    oninput="handleInput(this ,'<?php echo $view->getTextRequired()?>', '<?php echo $view->getTextLenght()?>')"
+    oninvalid="handleInput(this ,'<?php echo $this->getTextRequired()?>', '<?php echo $this->getTextLenght()?>')"
+    oninput="handleInput(this ,'<?php echo $this->getTextRequired()?>', '<?php echo $this->getTextLenght()?>')"
     type="text" name="word" id="word" value="<?php echo $myValue?>" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
 </div>
 <?php 

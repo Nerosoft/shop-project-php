@@ -1,8 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
-require 'auth/test_session4.php';
+// require 'auth/test_session4.php';
 class ChangeLanguageCreatePost extends ModelJson{
-    use ErrorChangelanguage;
     function __construct(){
         parent::__construct('ChangeLanguage', function ($myFile){
             $myLanguage = $this->getObj()[$_POST['selectedLanguage']];

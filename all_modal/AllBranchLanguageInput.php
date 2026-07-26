@@ -4,7 +4,7 @@ echo'
         <div class="form-check">
             <input onchange="optionBranch()" name="choices"  class="all_branch2 form-check-input branch-check" type="checkbox">
             <label  class="form-check-label">'
-                .($view->getUrlName2() === 'SystemLang' && !isset($state)?$view->getSelectAll():$view->getAllBranches()).
+                .($this->getUrlName2() === 'SystemLang' && !isset($state)?$this->getSelectAll():$this->getAllBranches()).
             '</label>
         </div>
     </div>

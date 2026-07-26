@@ -1,8 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
-require 'auth/test_session4.php';
+// require 'auth/test_session4.php';
 class SettingUsersCreatePost extends ModelJson{
-    use ErrorsEmailPassword;
     function __construct(){
         parent::__construct('Users', function($myFile){
             return $this->initErrorsKeyPassword2($myFile);

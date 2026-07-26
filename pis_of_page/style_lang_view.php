@@ -1,16 +1,16 @@
 <?php
-foreach ($view->getMyDataView() as $index => $myObject) {
-    $image = $index === $view->getLanguage() || $index === $view->getStyleFile()? 'fa fa-toggle-on' : 'fa fa-toggle-off';
+foreach ($this->getMyDataView() as $index => $myObject) {
+    $image = $index === $this->getLanguage() || $index === $this->getStyleFile()? 'fa fa-toggle-on' : 'fa fa-toggle-off';
     echo <<<HTML
         <tr>
-            <td>{$view->getCount()}</td>
+            <td>{$this->getCount()}</td>
             <td>{$myObject->getName()}</td>
             <td>
     HTML;
-    $title = $view->getScreenModelEdit();
-    $button = $view->getButtonModelEdit();
+    $title = $this->getScreenModelEdit();
+    $button = $this->getButtonModelEdit();
     $idModel = "editModel".$index;
-    $action = 'ChangeLanguageEditPost?id='.$view->getUrlName2();
+    $action = 'ChangeLanguageEditPost?id='.$this->getUrlName2();
     include('all_modal/modal_change_language.php');
     include('all_modal/end_model.php');
     include 'pis_of_page/button_edit.php';

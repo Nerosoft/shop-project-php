@@ -1,9 +1,9 @@
 <i onclick="openForm2('#deleteModel<?php echo$index?>')" class="fa fa-trash fa-2x pointer"></i>
 <?php
-$title = $view->getScreenModelDelete();
+$title = $this->getScreenModelDelete();
 $idModel = "deleteModel".$index;
-$button = $view->getbuttonModelDelete();
+$button = $this->getbuttonModelDelete();
 include('start_model.php');
-echo $view->getmessageModelDelete().'<spam>-'.($nameItem??$myObject->getName()).'</spam>';
+echo $this->getmessageModelDelete().'<spam>-'.($nameItem??$myObject->getName()).'</spam>';
 include 'end_model.php';
 ?>

@@ -1,8 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
-require 'auth/test_session4.php';
+// require 'auth/test_session4.php';
 class FlexTablesCreatePost extends ModelJson{
-    use ErrorFlexTable;
     function __construct(){
         parent::__construct(null, function($myFile, $idSseion){
             return $this->saveFlexTable($myFile, $myFile[$myFile['AllNamesLanguage']][$this->getUrlName2()]['ErrorsMessageReq'], $idSseion);

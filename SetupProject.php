@@ -1,8 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
-require 'auth/test_session3.php';
+// require 'auth/test_session3.php';
 class SetupProject extends ModelJson{
-    use ErrorBranch, ErrorsEmailPassword;
     function __construct(){
         parent::__construct(null, null, null, ModelJson::getRandomKey());
         $this->validInputs();

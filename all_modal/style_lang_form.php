@@ -1,5 +1,5 @@
 <?php
-$action = $view->getActionStyleLang();
+$action = $this->getActionStyleLang();
 include 'start_model.php';
 if(preg_match('/ChangeLangPost/', $action) || preg_match('/ChangeLanguagePost/', $action))
     echo<<<HTML

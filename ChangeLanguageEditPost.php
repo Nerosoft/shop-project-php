@@ -1,8 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
-require 'auth/test_session4.php';
+// require 'auth/test_session4.php';
 class ChangeLanguageEditPost extends ModelJson{
-    use ErrorChangelanguage;
     function __construct(){
         parent::__construct(null, function($myFile){
             return $this->saveNameLanguage($myFile[$myFile['AllNamesLanguage']]['AllNamesLanguage'], $this->getBackPage() === 'MyStyle'?'Style':'AllNamesLanguage', $myFile);

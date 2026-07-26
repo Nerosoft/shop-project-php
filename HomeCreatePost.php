@@ -1,8 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
-require 'auth/test_session4.php';
+// require 'auth/test_session4.php';
  class HomeCreatePost extends ModelJson{
-    use ErrorsHome;
     private $keysInput = array();
     function __construct(){
         

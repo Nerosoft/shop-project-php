@@ -1,8 +1,7 @@
 <?php
 include 'auth/SessionAdmin.php';
-require 'auth/test_session4.php';
+// require 'auth/test_session4.php';
 class BranchCreatePost extends ModelJson{
-    use ErrorBranch;
     function copyImageFolder($arr){
         if(!is_dir('asset/product/'.$this->keyId))
             mkdir('asset/product/'.$this->keyId);

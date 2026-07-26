@@ -1,26 +1,37 @@
 <?php
 session_start();
 require 'controller/ModelJson.php';
-if(ModelJson::getFileName() === 'SettingUsersCreatePost' || ModelJson::getFileName() === 'Users' || ModelJson::getFileName() === 'Branches' || ModelJson::getFileName() === 'BranchCreatePost' || ModelJson::getFileName() === 'BranchEditPost' || ModelJson::getFileName() === 'SetupProject' || ModelJson::getFileName() === 'LoginForgetPasswordPost' || ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'LoginPost' || ModelJson::getFileName() === 'Register' || ModelJson::getFileName() === 'RegisterPost'){
-    if(ModelJson::getFileName() === 'SettingUsersCreatePost' || ModelJson::getFileName() === 'Users' || ModelJson::getFileName() === 'SetupProject' || ModelJson::getFileName() === 'LoginForgetPasswordPost' || ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'LoginPost' || ModelJson::getFileName() === 'Register' || ModelJson::getFileName() === 'RegisterPost')
-        require 'all_trait/ErrorsEmailPassword.php';
-    if(ModelJson::getFileName() === 'Branches' || ModelJson::getFileName() === 'BranchCreatePost' || ModelJson::getFileName() === 'BranchEditPost' || ModelJson::getFileName() === 'SetupProject' || ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register')
-        require 'all_trait/ErrorBranch.php';
-    if(ModelJson::getFileName() === 'Register' || ModelJson::getFileName() === 'RegisterPost')
-        require 'all_trait/ErrorRegister.php';
-    if(ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register'){
-        require 'auth/test_session.php';
-        require 'all_trait/InfoBranch.php';
-        require 'all_trait/InterEmailPass.php';
-    }
-}else if(ModelJson::getFileName() === 'Home' || ModelJson::getFileName() === 'HomeCreatePost' || ModelJson::getFileName() === 'HomeEditPost')
-    require 'all_trait/ErrorsHome.php';
-else if(ModelJson::getFileName() === 'ChangeLanguageCreatePost' || ModelJson::getFileName() === 'ChangeLanguageEditPost' || ModelJson::getFileName() === 'ChangeLanguage' || ModelJson::getFileName() === 'MyStyle')
-    require 'all_trait/ErrorChangelanguage.php';
-else if(ModelJson::getFileName() === 'FlexTablesCreatePost' || ModelJson::getFileName() === 'MyFlexTables')
-    require 'all_trait/ErrorFlexTable.php';
-else if(ModelJson::getFileName() === 'ProductCreatePost' || ModelJson::getFileName() === 'Product')
-    require 'all_trait/ErrorProduct.php';
-else if(ModelJson::getFileName() === 'SystemLangEditPost' || ModelJson::getFileName() === 'SystemLang')
-    require 'all_trait/ErrorSystemlang.php';
-    
+if(ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register')
+    require 'auth/test_session.php';
+else if(ModelJson::getFileName() === 'Branches' ||
+ModelJson::getFileName() === 'ChangeLanguage' ||
+ModelJson::getFileName() === 'Home' ||
+ModelJson::getFileName() === 'MyFlexTables' ||
+ModelJson::getFileName() === 'MyStyle' ||
+ModelJson::getFileName() === 'Product' ||
+ModelJson::getFileName() === 'SystemLang' ||
+ModelJson::getFileName() === 'Users')
+require 'auth/test_session2.php';
+else if(ModelJson::getFileName() === 'ChangeLangPost' ||
+ModelJson::getFileName() === 'LoginForgetPasswordPost' ||
+ModelJson::getFileName() === 'LoginPost' ||
+ModelJson::getFileName() === 'RegisterPost' ||
+ModelJson::getFileName() === 'SetupProject')
+require 'auth/test_session3.php';
+else if(ModelJson::getFileName() === 'BranchChangePost' ||
+ModelJson::getFileName() === 'BranchCreatePost' ||
+ModelJson::getFileName() === 'BranchDeletePost' ||
+ModelJson::getFileName() === 'BranchEditPost' ||
+ModelJson::getFileName() === 'ChangeLanguageCreatePost' ||
+ModelJson::getFileName() === 'ChangeLanguageDeletePost' ||
+ModelJson::getFileName() === 'ChangeLanguageEditPost' ||
+ModelJson::getFileName() === 'ChangeLanguagePost' ||
+ModelJson::getFileName() === 'FlexTablesCreatePost' ||
+ModelJson::getFileName() === 'HomeCreatePost' ||
+ModelJson::getFileName() === 'HomeDeletePost' ||
+ModelJson::getFileName() === 'HomeEditPost' ||
+ModelJson::getFileName() === 'ProductCreatePost' ||
+ModelJson::getFileName() === 'SettingUsersCreatePost' ||
+ModelJson::getFileName() === 'SettingUsersDeletePost' ||
+ModelJson::getFileName() === 'SystemLangEditPost' )
+require 'auth/test_session4.php';

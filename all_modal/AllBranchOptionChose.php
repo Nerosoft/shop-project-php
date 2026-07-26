@@ -1,6 +1,6 @@
 <?php
     include 'AllBranchLanguageInput.php';
-    foreach($view->getBranch2() as $key=>$option){
+    foreach($this->getBranch2() as $key=>$option){
         echo <<<HTML
             <div class="col-md-auto">
                 <div class="form-group">
