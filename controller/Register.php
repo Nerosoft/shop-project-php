@@ -5,8 +5,11 @@ class MyRegister extends ModelJson{
     }
     function getView(){
         echo <<<HTML
-        <button onclick="showMessageProg()" type="button" class="btn btn-success btinfo">{$this->getButtonForgetPassword()}</button>
+        <button onclick="showMessageProg()" type="button" class="btn btn-success btinfo">{$this->getButtonForgetPassword2()}</button>
         HTML;
+    }
+    function getButtonForgetPassword2(){
+        return $this->getModelPage()['ButtonForgetPassword'];
     }
     function getLabelConfirmPassword(){
         return $this->getModelPage()['LabelConfirmPassword'];

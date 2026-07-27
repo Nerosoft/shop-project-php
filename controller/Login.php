@@ -9,5 +9,16 @@ class Login extends ModelJson{
         HTML;
         $this->makeCreateModalForgetPass($this->getModalForgetPasswordTitle(), $this->getModalForgetPasswordButton(), "forgetpasswordmodal", null, null, 'LoginForgetPasswordPost.php');
     }
+
+    function getButtonForgetPassword(){
+        return $this->getModelPage()['ButtonForgetPassword'];
+    }
+    function getModalForgetPasswordTitle(){
+        return $this->getModelPage()['ModalForgetPasswordTitle'];
+    }
+    function getModalForgetPasswordButton(){
+        return $this->getModelPage()['ModalForgetPasswordButton'];
+    }
+      
 }
 new Login();

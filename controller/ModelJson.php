@@ -300,15 +300,6 @@ class ModelJson{
         header("Location:".(isset($_SESSION['userId'])?'Home':'Login'));
         exit;
     }
-    function getButtonForgetPassword(){
-        return $this->getModelPage()['ButtonForgetPassword'];
-    }
-    function getModalForgetPasswordTitle(){
-        return $this->getModelPage()['ModalForgetPasswordTitle'];
-    }
-    function getModalForgetPasswordButton(){
-        return $this->getModelPage()['ModalForgetPasswordButton'];
-    }
     function initFlexTable(){
         foreach (array_keys($this->getModel2()) as $key2 => $table)
             if(!isset($this->getModel2()['MyFlexTables'][$table])&&
