@@ -2,7 +2,7 @@
 include 'auth/SessionAdmin.php';
 // require 'auth/test_session4.php';
 class SystemLangEditPost extends ModelJson{
-    private $file;
+    public $file;
     function __construct(){
         parent::__construct('SystemLang');
         $this->file = $this->getObj();

@@ -2,7 +2,7 @@
 include 'auth/SessionAdmin.php';
 // require 'auth/test_session4.php';
  class HomeCreatePost extends ModelJson{
-    private $keysInput = array();
+    public $keysInput = array();
     function __construct(){
         
         parent::__construct('Home', function($myFile){
