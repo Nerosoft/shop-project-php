@@ -431,7 +431,7 @@ class SetupProject extends ModelJson{
                     "ActiveBranch"=> "this branch is active",
                     "ChangeTitleBranch"=> "welcome in change branch",
                     "ChangeButtonBranch"=> "change branch",
-                    "ButtonForgetPassword"=> "Forget password",
+                    "ButtonForgetPassword"=> "Click me",
                     "ModalForgetPasswordTitle"=> "Change and forget password",
                     "ModalForgetPasswordButton"=> "login and change password",
                     "RegisterLoginPage"=> "Login account",

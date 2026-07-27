@@ -2,12 +2,7 @@
 $button = $this->getButtonName();
 include 'button_valid.php';
 echo '</form>';
-if($this->getUrlName2() === 'Login'){
-echo <<<HTML
-<button onclick="openForm('#forgetpasswordmodal')" type="button" class="btn btn-success" >{$this->getButtonForgetPassword()}</button>
-HTML;
-$this->makeCreateModalForgetPass($this->getModalForgetPasswordTitle(), $this->getModalForgetPasswordButton(), "forgetpasswordmodal", null, null, 'LoginForgetPasswordPost.php');
-}
+$this->getView();
 ?>
 <button type="button" onclick="openForm('<?php echo'#branch_modal2'?>')" class="btn btn-info"><?php echo $this->getDbKeyLabel()?></button>
 <button onclick="openForm('<?php echo'#setupprojectmodal'?>')" type="button" class="btn btn-danger" ><?php echo $this->getButtonSetupProject()?></button>

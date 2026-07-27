@@ -89,3 +89,7 @@ function resetBranch(el){
 function optionBranch(key = 'all_branch'){
     $('.'+key).prop('checked', false);
 }
+
+function showMessageProg(){
+    alert('لا تنسونا من صالح دعائكم');
+}

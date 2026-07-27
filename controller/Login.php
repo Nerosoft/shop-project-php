@@ -3,5 +3,11 @@ class Login extends ModelJson{
     function __construct(){
         parent::__construct('Login', 'LoginPost');
     }
+    function getView(){
+        echo <<<HTML
+        <button onclick="openForm('#forgetpasswordmodal')" type="button" class="btn btn-success" >{$this->getButtonForgetPassword()}</button>
+        HTML;
+        $this->makeCreateModalForgetPass($this->getModalForgetPasswordTitle(), $this->getModalForgetPasswordButton(), "forgetpasswordmodal", null, null, 'LoginForgetPasswordPost.php');
+    }
 }
 new Login();
