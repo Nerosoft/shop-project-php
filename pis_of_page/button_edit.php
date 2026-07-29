@@ -14,10 +14,9 @@ if($this->getUrlName2() === 'Branches' || $this->getUrlName2() === 'MyStyle' || 
     include('all_modal/modal_changelanguage_changestyle.php');
 }
 
-$myIndexEdit = 'editModel'.($index??$this->getCount());
+$myIndexEdit = '#editModel'.($index??$this->getCount());
 if($this->getUrlName2() === 'Users' || $this->getUrlName2() === 'Product' || isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()]) )
-    $this->makeCreateModal($this->getScreenModelEdit(), $this->getButtonModelEdit(), $myIndexEdit, $index, $myObject);
-$myIndexEdit = '#'.$myIndexEdit;
+    $this->makeCreateModal($this->getScreenModelEdit(), $this->getButtonModelEdit(), substr($myIndexEdit, 1), $index, $myObject);
  
 $valueObj =  htmlspecialchars($myValue??(is_array($myObject)?json_encode($myObject):$myObject->getObj()), ENT_QUOTES, "UTF-8");
 
