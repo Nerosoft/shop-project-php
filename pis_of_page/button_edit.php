@@ -19,21 +19,24 @@ if($this->getUrlName2() === 'Users' || $this->getUrlName2() === 'Product' || iss
  
  
 $valueObj =  htmlspecialchars($myValue??(is_array($myObject)?json_encode($myObject):$myObject->getObj()), ENT_QUOTES, "UTF-8");
-if($this->getUrlName2() === 'SystemLang')
-    echo<<<HTML
-        <i onclick="restValue('#{$idModel}', '{$valueObj}')" class="fa fa-sliders fa-2x pointer"></i>
-    HTML;
-else if($this->getUrlName2() === 'Product' || isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()])){
+$myIndexEdit = $index??$this->getCount();
+if($this->getUrlName2() === 'Product' || isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()])){
     include('all_modal/ViewImage.php');
     echo <<<HTML
         <i class="fa fa-binoculars fa-2x pointer" onclick="openForm('#imgmodal{$index}')"></i>
-        <i onclick="restValue('#editModel{$index}', '$valueObj');$('#editModel{$index}').find('form').find('img').attr('src', './asset/product/{$this->getId()}/{$index}')" class="fa fa-sliders fa-2x pointer"></i>
     HTML;
 }
-else
-    echo <<<HTML
-        <i onclick="restValue('#editModel{$index}', '$valueObj')" class="fa fa-sliders fa-2x pointer"></i>
+echo <<<HTML
+    <i onclick="restValue('#editModel{$myIndexEdit}', '$valueObj');
+HTML;
+if($this->getUrlName2() === 'Product' || isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()]))
+    echo<<<HTML
+    $('#editModel{$index}').find('form').find('img').attr('src', './asset/product/{$this->getId()}/{$index}')
     HTML;
+echo<<<HTML
+" class="fa fa-sliders fa-2x pointer"></i>
+HTML;
+
 ?>
 </td></tr>
 <?php
