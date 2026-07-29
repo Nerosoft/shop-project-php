@@ -1,31 +1,15 @@
 <?php
-
-if($this->getUrlName2() === 'Product' ||
-$this->getUrlName2() === 'ChangeLanguage' && $index !== $this->getLanguage() && $index !== 'english'||
-$this->getUrlName2() === 'Home' || 
-$this->getUrlName2() === 'Branches' && $this->getId() !== $index && $index !== $this->getFixedId()||
-isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()])||
-$this->getUrlName2() === 'Users'){
-    $action = $this->getUrlName2() === 'ChangeLanguage'?'ChangeLanguageDeletePost':($this->getUrlName2() === 'Home'?'HomeDeletePost.php':($this->getUrlName2() === 'Branches'?'BranchDeletePost.php':('SettingUsersDeletePost?id='.$this->getUrlName2())));
-    include('all_modal/modal_delete.php');
+if($this->getUrlName2() === 'Users' || $this->getUrlName2() === 'Product' || isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()])){
+    $idModel = 'editModel'.$index;
+    $this->makeCreateModal($this->getScreenModelEdit(), $this->getButtonModelEdit(), $idModel, $index, $myObject);
 }
-if($this->getUrlName2() === 'Branches' || $this->getUrlName2() === 'MyStyle' || $this->getUrlName2() === 'ChangeLanguage'){
-    $action = ($this->getUrlName2() === 'Branches'?'BranchChangePost':'ChangeLanguagePost').'?id='.$this->getUrlName2();
-    include('all_modal/modal_changelanguage_changestyle.php');
-}
-
-$myIndexEdit = '#editModel'.($index??$this->getCount());
-if($this->getUrlName2() === 'Users' || $this->getUrlName2() === 'Product' || isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()]) )
-    $this->makeCreateModal($this->getScreenModelEdit(), $this->getButtonModelEdit(), substr($myIndexEdit, 1), $index, $myObject);
- 
 $valueObj =  htmlspecialchars($myValue??(is_array($myObject)?json_encode($myObject):$myObject->getObj()), ENT_QUOTES, "UTF-8");
-
 echo <<<HTML
-    <i class="fa fa-sliders fa-2x pointer" onclick="restValue('{$myIndexEdit}', '$valueObj');
+    <i class="fa fa-sliders fa-2x pointer" onclick="restValue('#{$idModel}', '$valueObj');
 HTML;
 //echo html
 echo ($this->getUrlName2() === 'Product' || isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()]))?<<<HTML
-$('{$myIndexEdit}').find('form').find('img').attr('src', './asset/product/{$this->getId()}/{$index}')"></i>
+$('#{$idModel}').find('form').find('img').attr('src', './asset/product/{$this->getId()}/{$index}')"></i>
     <i class="fa fa-binoculars fa-2x pointer" onclick="openForm('#imgmodal{$index}')"></i>
     <div class="modal fade" id="imgmodal{$index}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -44,6 +28,19 @@ $('{$myIndexEdit}').find('form').find('img').attr('src', './asset/product/{$this
     </div>
 HTML:'"></i>';
 
+if($this->getUrlName2() === 'Product' ||
+$this->getUrlName2() === 'ChangeLanguage' && $index !== $this->getLanguage() && $index !== 'english'||
+$this->getUrlName2() === 'Home' || 
+$this->getUrlName2() === 'Branches' && $this->getId() !== $index && $index !== $this->getFixedId()||
+isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()])||
+$this->getUrlName2() === 'Users'){
+    $action = $this->getUrlName2() === 'ChangeLanguage'?'ChangeLanguageDeletePost':($this->getUrlName2() === 'Home'?'HomeDeletePost.php':($this->getUrlName2() === 'Branches'?'BranchDeletePost.php':('SettingUsersDeletePost?id='.$this->getUrlName2())));
+    include('all_modal/modal_delete.php');
+}
+if($this->getUrlName2() === 'Branches' || $this->getUrlName2() === 'MyStyle' || $this->getUrlName2() === 'ChangeLanguage'){
+    $action = ($this->getUrlName2() === 'Branches'?'BranchChangePost':'ChangeLanguagePost').'?id='.$this->getUrlName2();
+    include('all_modal/modal_changelanguage_changestyle.php');
+}
 ?>
 </td></tr>
 <?php
