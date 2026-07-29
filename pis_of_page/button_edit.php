@@ -23,16 +23,27 @@ $myIndexEdit = $index??$this->getCount();
 echo <<<HTML
     <i onclick="restValue('#editModel{$myIndexEdit}', '$valueObj');
 HTML;
-if($this->getUrlName2() === 'Product' || isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()])){
-    echo<<<HTML
-    $('#editModel{$index}').find('form').find('img').attr('src', './asset/product/{$this->getId()}/{$index}')"class="fa fa-sliders fa-2x pointer"></i>
+//echo html
+echo ($this->getUrlName2() === 'Product' || isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()]))?<<<HTML
+$('#editModel{$index}').find('form').find('img').attr('src', './asset/product/{$this->getId()}/{$index}')"class="fa fa-sliders fa-2x pointer"></i>
     <i class="fa fa-binoculars fa-2x pointer" onclick="openForm('#imgmodal{$index}')"></i>
-    HTML;
-    include('all_modal/ViewImage.php');
-}
-else
-echo<<<HTML
-"class="fa fa-sliders fa-2x pointer"></i>
+    <div class="modal fade" id="imgmodal{$index}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="SettingLanguage">{$this->getTitleViewImage()}</h5>
+                    <button type="button" id="close_button" onclick="closeForm('#imgmodal{$index}')" class="btn btn-dark">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="./asset/product/{$this->getId()}/{$index}" class="product-img-view">
+                </div>
+            </div>
+        </div>
+    </div>
+HTML:<<<HTML
+    "class="fa fa-sliders fa-2x pointer"></i>
 HTML;
 
 ?>
