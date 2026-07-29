@@ -21,11 +21,11 @@ if($this->getUrlName2() === 'Users' || $this->getUrlName2() === 'Product' || iss
 $valueObj =  htmlspecialchars($myValue??(is_array($myObject)?json_encode($myObject):$myObject->getObj()), ENT_QUOTES, "UTF-8");
 $myIndexEdit = $index??$this->getCount();
 echo <<<HTML
-    <i onclick="restValue('#editModel{$myIndexEdit}', '$valueObj');
+    <i class="fa fa-sliders fa-2x pointer" onclick="restValue('#editModel{$myIndexEdit}', '$valueObj');
 HTML;
 //echo html
 echo ($this->getUrlName2() === 'Product' || isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()]))?<<<HTML
-$('#editModel{$index}').find('form').find('img').attr('src', './asset/product/{$this->getId()}/{$index}')"class="fa fa-sliders fa-2x pointer"></i>
+$('#editModel{$index}').find('form').find('img').attr('src', './asset/product/{$this->getId()}/{$index}')"></i>
     <i class="fa fa-binoculars fa-2x pointer" onclick="openForm('#imgmodal{$index}')"></i>
     <div class="modal fade" id="imgmodal{$index}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -43,7 +43,7 @@ $('#editModel{$index}').find('form').find('img').attr('src', './asset/product/{$
         </div>
     </div>
 HTML:<<<HTML
-    "class="fa fa-sliders fa-2x pointer"></i>
+    "></i>
 HTML;
 
 ?>
