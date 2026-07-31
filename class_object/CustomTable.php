@@ -1,5 +1,5 @@
 <?php
-class CustomTable implements DeleteInfoName
+class CustomTable
 {
     /**
      * Create a new class instance.

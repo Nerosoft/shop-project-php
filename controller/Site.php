@@ -1,14 +1,11 @@
 <?php
-if($_SERVER["REQUEST_METHOD"] !== "GET"){
-    header('Location:site');
-    exit;
-}
 require 'class_object/ProductValue.php';
 class Site extends ModelJson{
     function __construct(){
-        parent::__construct('Site', function (){
-            return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
-        }); 
+        parent::__construct('Site'); 
+    }
+    function getMyDataView(){
+        return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
     }
     function getView(){
         include 'view/site.php';
@@ -116,4 +113,4 @@ class Site extends ModelJson{
         return $this->getModelPage()['RegisterButton'];
     }
 }
-new Site();
+$view = new Site();

@@ -1,20 +1,18 @@
 <?php
 // require 'auth/test_session2.php';
-include 'interface/InterfaceDataView.php';
-class MySystemlang extends ModelJson implements InterfaceDataView{
+class MySystemlang extends ModelJson{
     function __construct(){
-        parent::__construct('SystemLang', function(){
-            if(isset($_GET['lang']) && isset($_GET['table']))
-                return $this->getObj()[$_GET['lang']][$_GET['table']];
-            else{
-                $tableData = array();
-                foreach ($this->getModel2()['AllNamesLanguage'] as $key=>$value)
-                    $tableData[$key] = $this->getObj()[$key];
-                return $tableData;
-            }
-            // else
-            //     return array();
-        }, !(isset($_GET['lang']) && isset($_GET['table']))?array('LanguageName', 'LanguageValue'):array('LanguageValue'));
+        parent::__construct('SystemLang', !(isset($_GET['lang']) && isset($_GET['table']))?array('LanguageName', 'LanguageValue'):array('LanguageValue'));
+    }
+    function getMyDataView(){
+        if(isset($_GET['lang']) && isset($_GET['table']))
+            return $this->getObj()[$_GET['lang']][$_GET['table']];
+        else{
+            $tableData = array();
+            foreach ($this->getModel2()['AllNamesLanguage'] as $key=>$value)
+                $tableData[$key] = $this->getObj()[$key];
+            return $tableData;
+        }
     }
     function getView(){
         include 'view/systemlang.php';
@@ -29,4 +27,4 @@ class MySystemlang extends ModelJson implements InterfaceDataView{
         return $this->getModelPage()['WordHint'];
     }
 }
-new MySystemlang();
+$view = new MySystemlang();

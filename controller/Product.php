@@ -1,12 +1,12 @@
 <?php
 // require 'auth/test_session2.php';
 require 'class_object/ProductValue.php';
-include 'interface/InterfaceDataView.php';
-class Product extends ModelJson implements InterfaceDataView{
+class Product extends ModelJson{
     function __construct(){
-        parent::__construct('Product', function(){
-            return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
-        },ProductValue::getKeysObject());
+        parent::__construct('Product', ProductValue::getKeysObject());
+    }
+    function getMyDataView(){
+        return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
     }
     function getView(){
         include 'view/product.php';
@@ -40,4 +40,4 @@ class Product extends ModelJson implements InterfaceDataView{
         include('all_modal/ProductModal.php');
     }
 }
-new Product();
+$view = new Product();

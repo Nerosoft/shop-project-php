@@ -1,0 +1,12 @@
+<?php
+// require 'auth/test_session4.php';
+class BranchChangePost extends ModelJson{
+    function __construct(){
+        parent::__construct();
+    }
+    function getView(){
+        $_SESSION['userId'] = $this->keyId;
+        $this->showMessage($this->getModelPage()['SuccessfullyChangeBranch']);
+    }
+}
+$view = new BranchChangePost();

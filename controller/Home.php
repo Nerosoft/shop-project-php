@@ -1,12 +1,12 @@
 <?php
 // require 'auth/test_session2.php';
 require 'class_object/CustomTable.php';
-include 'interface/InterfaceDataView.php';
-class MyHome extends ModelJson implements InterfaceDataView{
+class MyHome extends ModelJson{
     function __construct(){
-        parent::__construct('Home', function(){
-            return isset($this->getModel2()['MyFlexTables'])?array_reverse(CustomTable::fromArray($this)):array();
-        }, CustomTable::getKeysObject());
+        parent::__construct('Home', CustomTable::getKeysObject());
+    }
+    function getMyDataView(){
+        return isset($this->getModel2()['MyFlexTables'])?array_reverse(CustomTable::fromArray($this)):array();
     }
     function getView(){
         include 'view/home.php';
@@ -41,4 +41,4 @@ class MyHome extends ModelJson implements InterfaceDataView{
             include('all_modal/end_model.php');
     }
 }
-new MyHome();
+$view = new MyHome();

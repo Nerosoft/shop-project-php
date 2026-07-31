@@ -2,9 +2,10 @@
 // require 'auth/test_session2.php';
 class MyChangeLanguage extends ModelJson{
     function __construct(){
-        parent::__construct('ChangeLanguage', function(){
-            return array_reverse(MyLanguage::fromArray($this->getModel2()['AllNamesLanguage']));
-        }, MyLanguage::getKeysObject());
+        parent::__construct('ChangeLanguage', MyLanguage::getKeysObject());
+    }
+    function getMyDataView(){
+        return array_reverse(MyLanguage::fromArray($this->getModel2()['AllNamesLanguage'])); 
     }
     function getView(){
         $myStateStyleLang ='AllNamesLanguage';
@@ -39,4 +40,4 @@ class MyChangeLanguage extends ModelJson{
         include('all_modal/end_model.php');
     }
 }
-new MyChangeLanguage();
+$view = new MyChangeLanguage();

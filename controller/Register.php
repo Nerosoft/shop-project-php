@@ -18,4 +18,4 @@ class MyRegister extends ModelJson{
         return $this->getModelPage()['HintConfirmPassword'];
     }
 }
-new MyRegister();
+$view = new MyRegister();

@@ -1,7 +1,6 @@
 <?php
 // require 'auth/test_session2.php';
-require 'interface/InterfaceDataView.php';
-class MyBranch extends ModelJson implements InterfaceDataView{
+class MyBranch extends ModelJson{
     function getFlexTable(){
         return $this->getModelPage()['FlexTable'];
     }
@@ -15,10 +14,10 @@ class MyBranch extends ModelJson implements InterfaceDataView{
         return $this->getModelPage()['IdBranch'];
      }
     function __construct(){
-        parent::__construct('Branches', null, Branch::getKeysObject());
+        parent::__construct('Branches', Branch::getKeysObject());
     }
     function getView(){
-        foreach ($this->getMyDataView() as $index => $myObject) {
+        foreach ($this->getMyBranch() as $index => $myObject) {
             $image = $index === $this->getId() ? 'fa fa-toggle-on' : 'fa fa-toggle-off';
             echo <<<HTML
                 <tr>
@@ -122,4 +121,4 @@ class MyBranch extends ModelJson implements InterfaceDataView{
             include('all_modal/end_model.php');
     }
 }
-new MyBranch();
+$view = new MyBranch();

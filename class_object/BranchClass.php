@@ -1,6 +1,6 @@
 <?php
 
-class Branch implements DeleteInfoName
+class Branch
 {
     /**
      * Create a new class instance.

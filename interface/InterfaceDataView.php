@@ -1,4 +1,4 @@
 <?php
 interface InterfaceDataView{
-    function getMyDataView();
+    function getView();
 }

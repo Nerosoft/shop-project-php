@@ -21,4 +21,4 @@ class Login extends ModelJson{
     }
       
 }
-new Login();
+$view = new Login();

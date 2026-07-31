@@ -1,12 +1,12 @@
 <?php
 // require 'auth/test_session2.php';
 require 'class_object/Users.php';
-include 'interface/InterfaceDataView.php';
-class MySettingUsers extends ModelJson implements InterfaceDataView{
+class MySettingUsers extends ModelJson{
     function __construct(){
-        parent::__construct('Users', function(){
-            return isset($this->getObj()['Users']) ? array_reverse(Users::fromArray($this->getObj()['Users'])):array();
-        }, Users::getKeysObject());
+        parent::__construct('Users', Users::getKeysObject());
+    }
+    function getMyDataView(){
+        return isset($this->getObj()['Users']) ? array_reverse(Users::fromArray($this->getObj()['Users'])):array();
     }
     function getView(){
         foreach ($this->getMyDataView() as $index => $myObject) {
@@ -25,4 +25,4 @@ class MySettingUsers extends ModelJson implements InterfaceDataView{
         $this->makeCreateModalForgetPass($title, $button, $idModel, $index, $myObject, $action);
     }
 }
-new MySettingUsers();
+$view = new MySettingUsers();

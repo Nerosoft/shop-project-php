@@ -1,11 +1,11 @@
 <?php
 // require 'auth/test_session2.php';
-include 'interface/InterfaceDataView.php';
-class MyFlexTablesView extends ModelJson implements InterfaceDataView{
+class MyFlexTablesView extends ModelJson{
     function __construct(){
-        parent::__construct($_GET['id']??'', function(){
-            return isset($this->getObj()[$this->getUrlName2()])?array_reverse($this->getObj()[$this->getUrlName2()]):array();
-        });
+        parent::__construct($_GET['id']??'');
+    }
+    function getMyDataView(){
+        return isset($this->getObj()[$this->getUrlName2()])?array_reverse($this->getObj()[$this->getUrlName2()]):array();
     }
     function getView(){
         foreach ($this->getMyDataView() as $index => $myObject) {
@@ -25,9 +25,6 @@ class MyFlexTablesView extends ModelJson implements InterfaceDataView{
             include 'pis_of_page/button_edit.php';
         }
     }
-    function getTableHead(){
-        return $this->getModelPage()['TableHead'];
-    }
     function getLabel(){
         return $this->getModelPage()['Label'];
     }
@@ -39,4 +36,4 @@ class MyFlexTablesView extends ModelJson implements InterfaceDataView{
         include('all_modal/modal_flex.php');
     }
 }
-new MyFlexTablesView();
+$view = new MyFlexTablesView();
