@@ -157,7 +157,7 @@ abstract class ModelJson implements InterfaceDataView{
            $this->showErrorServer();
         }else if(ModelJson::getFileName() === 'MyFlexTables')
             $this->keysTable = array('TableProductImage', ...array_keys($this->getTableHead()));
-        else if($this->getUrlName2() === 'Login' || $this->getUrlName2() === 'Register' || $_SERVER["REQUEST_METHOD"] === "GET" && isset($_SESSION['userId']) && $this->getUrlName2() !== 'Site')
+        else if(ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register' || $_SERVER["REQUEST_METHOD"] === "GET" && isset($_SESSION['userId']) && $this->getUrlName2() !== 'Site')
             $this->keysTable = $pram1;
         else if(isset($_POST['choices']) && $_SERVER["REQUEST_METHOD"] === "POST"){
             $this->DataView = $pram1;
