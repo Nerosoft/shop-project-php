@@ -18,6 +18,12 @@ abstract class ModelJson implements InterfaceDataView{
     function getTableHead(){
         return $this->getModelPage()['TableHead'];
     }
+    function getLabelConfirmPassword(){
+        return $this->getModelPage()['LabelConfirmPassword'];
+    }
+    function getHintConfirmPassword(){
+        return $this->getModelPage()['HintConfirmPassword'];
+    }
     function __construct($idPage = null, $pram1 = null, $pram2 = null){
         $this->File = json_decode(file_get_contents('data.json'), true);
         $this->IdPage = $idPage??($_GET['id']??null);

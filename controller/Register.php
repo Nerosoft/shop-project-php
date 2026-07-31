@@ -11,11 +11,5 @@ class MyRegister extends ModelJson{
     function getButtonForgetPassword2(){
         return $this->getModelPage()['ButtonForgetPassword'];
     }
-    function getLabelConfirmPassword(){
-        return $this->getModelPage()['LabelConfirmPassword'];
-    }
-    function getHintConfirmPassword(){
-        return $this->getModelPage()['HintConfirmPassword'];
-    }
 }
 $view = new MyRegister();
