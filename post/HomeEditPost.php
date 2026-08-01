@@ -2,18 +2,11 @@
 // require 'auth/test_session4.php';
 class HomeEditPost extends ModelJson{
     function __construct(){
-        parent::__construct('Home', function ($myFile){
-            return $this->editHome($myFile, $myFile[$myFile['AllNamesLanguage']]['AllNamesLanguage']);
-        }, 'MessageModelEdit'); 
+        parent::__construct('Home', 'MessageModelEdit'); 
     }
     function getView(){
         $this->saveModel($this->editHome($this->getObj(), $this->getModel2()['AllNamesLanguage']));
         $this->showMessage($this->getModelPage()['MessageModelEdit']);
-    }
-    function editHome($myData, $AllNamesLanguage){
-        foreach ($AllNamesLanguage as $code => $value) 
-            $myData[$code]['MyFlexTables'][$this->keyId] = $_POST['name'];
-        return $myData;
     }
 }
 $view = new HomeEditPost();

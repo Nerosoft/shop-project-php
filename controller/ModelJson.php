@@ -78,6 +78,11 @@ abstract class ModelJson implements InterfaceDataView{
         $this->saveProductTable($idSseion);
         return $myData;
     }
+    function editHome($myData, $AllNamesLanguage){
+        foreach ($AllNamesLanguage as $code => $value) 
+            $myData[$code]['MyFlexTables'][$this->keyId] = $_POST['name'];
+        return $myData;
+    }
     function __construct($idPage = null, $pram1 = null){
         $this->File = json_decode(file_get_contents('data.json'), true);
         $this->IdPage = $idPage??($_GET['id']??null);
@@ -299,10 +304,29 @@ abstract class ModelJson implements InterfaceDataView{
                         $myFile[$key] = $this->saveFelxTable($myFile[$key][$myFile[$key]['AllNamesLanguage']]['AllNamesLanguage'], $myFile[$key]);
                     else if(ModelJson::getFileName() === 'HomeDeletePost')
                         $myFile[$key] = $this->deleteHome($myFile[$key], $key);
-                    else if(ModelJson::getFileName() === 'ProductCreatePost')
+                    else if(ModelJson::getFileName() === 'ChangeLanguageCreatePost'){
+                        $myLanguage = $this->getObj()[$_POST['selectedLanguage']];
+                        if(isset($myLanguage['MyFlexTables']))
+                            foreach ($myLanguage['MyFlexTables'] as $keyFlexTable => $value)
+                                unset($myLanguage[$keyFlexTable]);
+                        $myFile[$key] = $this->saveNameLanguage($myFile[$key][$myFile[$key]['AllNamesLanguage']]['AllNamesLanguage'], 'AllNamesLanguage', $myFile[$key]);
+                        $lang = $myLanguage;
+                        //reset all name language 
+                        $lang['AllNamesLanguage'] = $myFile[$key][$myFile[$key]['AllNamesLanguage']]['AllNamesLanguage'];
+                        //check if exist flex table inside branch
+                        if(isset($myFile[$key][$myFile[$key]['AllNamesLanguage']]['MyFlexTables'])){
+                            $lang['MyFlexTables'] = $myFile[$key][$myFile[$key]['AllNamesLanguage']]['MyFlexTables'];
+                            foreach ($lang['MyFlexTables'] as $keyFlex => $value)
+                                $lang[$keyFlex] = $myFile[$key][$myFile[$key]['AllNamesLanguage']][$keyFlex];
+                        }
+                        //add lang inside branch
+                        $myFile[$key][$this->keyId] = $lang;
+                    }else if(ModelJson::getFileName() === 'ProductCreatePost')
                         $myFile[$key] = $this->saveProduct($myFile[$key], $key);
                     else if(ModelJson::getFileName() === 'SettingUsersCreatePost')
                         $myFile[$key] = $this->initErrorsKeyPassword2($myFile[$key]);
+                    else if(ModelJson::getFileName() === 'HomeEditPost')
+                        $myFile[$key] = $this->editHome($myFile[$key], $myFile[$key][$myFile[$key]['AllNamesLanguage']]['AllNamesLanguage']);
                     else if(ModelJson::getFileName() === 'SettingUsersDeletePost'){
                         if($this->getUrlName2() !== 'Users')
                             //delete image for product
