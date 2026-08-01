@@ -14,6 +14,7 @@ abstract class ModelJson implements InterfaceDataView{
     protected $styleLangAction;
     private $MessageServer;
     private $MessageType;
+    public $keysInput = array();
     function getTableHead(){
         return $this->getModelPage()['TableHead'];
     }
