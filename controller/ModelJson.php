@@ -8,7 +8,6 @@ abstract class ModelJson implements InterfaceDataView{
     private $MyIdDb;
     private $myMenuApp;
     private $keysTable;
-    private $DataView;
     private $dbBranchKeys;
     protected $keyId;
     protected $dbKeys;
@@ -24,7 +23,62 @@ abstract class ModelJson implements InterfaceDataView{
     function getHintConfirmPassword(){
         return $this->getModelPage()['HintConfirmPassword'];
     }
-    function __construct($idPage = null, $pram1 = null, $pram2 = null){
+    function deleteLanguage($myData){
+        //delete language
+        unset($myData[$this->keyId]);
+        //check if branch active language
+        if($myData['AllNamesLanguage'] === $this->keyId)
+            $myData['AllNamesLanguage'] = 'english';
+        foreach ($myData[$myData['AllNamesLanguage']]['AllNamesLanguage'] as $key=>$value)
+            //delete name language inside AllNamesLanguage inside my language
+            if($key !== $this->keyId)
+                unset($myData[$key]['AllNamesLanguage'][$this->keyId]);
+        return $myData;
+    }
+    function changeLangStylePost($myData){
+        $myData[$_POST['state']] = $this->keyId;
+        return $myData;
+    }
+    function saveFlexTable($myData, $keysInput, $idSseion){
+        foreach ($keysInput as $key => $value)
+            $myData[$this->getUrlName2()][$this->keyId][$key] = $_POST[$key];
+        $this->saveProductTable($idSseion);
+        return $myData;
+    }
+    function saveFelxTable($AllNamesLanguage, $myData){
+        foreach ($AllNamesLanguage as $code => $value) {
+            $myData[$code]['MyFlexTables'][$this->keyId] = $_POST['name'];
+            $myData[$code][$this->keyId] = $myData[$code]['Home']['TablePage'];
+            $myData[$code][$this->keyId]['MYTITLE'] = $_POST['name'];
+            foreach ($this->keysInput as $key2 => $myInputKey){
+                $myData[$code][$this->keyId]['TableHead'][$myInputKey] = $myData[$code]['Home']['InputNameTable'];
+                $myData[$code][$this->keyId]['Label'][$myInputKey] = $myData[$code]['Home']['InputLabel'];
+                $myData[$code][$this->keyId]['Hint'][$myInputKey] = $myData[$code]['Home']['InputHint'];
+                $myData[$code][$this->keyId]['ErrorsMessageReq'][$myInputKey] = $myData[$code]['Home']['InputErrorsMessageReq'];
+                $myData[$code][$this->keyId]['ErrorsMessageInv'][$myInputKey] = $myData[$code]['Home']['InputErrorsMessageInv'];
+            }
+        }
+        return $myData;
+    }
+    function deleteHome($myData, $idSseion){
+        foreach ($myData[$myData['AllNamesLanguage']]['AllNamesLanguage'] as $key => $value) 
+            if(count($myData[$key]['MyFlexTables']) === 1)
+                unset($myData[$key][$this->keyId], $myData[$key]['MyFlexTables']);
+            else
+                unset($myData[$key][$this->keyId], $myData[$key]['MyFlexTables'][$this->keyId]);
+        if(isset($myData[$this->keyId])){
+            foreach ($myData[$this->keyId] as $key => $value)
+                array_map('unlink', glob('asset/product/'.$idSseion.'/'.$key.'.*'));
+            unset($myData[$this->keyId]);
+        }
+        return $myData;
+    }
+    function saveProduct($myData, $idSseion){
+        $myData['Product'][$this->keyId] = array("Name"=>$_POST["name"], "Descreption"=>$_POST["descreption"], "Salary"=>$_POST["salary"], "Category"=>$_POST["category"]);
+        $this->saveProductTable($idSseion);
+        return $myData;
+    }
+    function __construct($idPage = null, $pram1 = null){
         $this->File = json_decode(file_get_contents('data.json'), true);
         $this->IdPage = $idPage??($_GET['id']??null);
         $this->MyIdDb = (isset($_SESSION['userId'])?$_SESSION['userId']:($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']])?$_GET['id']:(isset($_COOKIE['branchId']) && isset($this->getFile()[$_COOKIE['branchId']])?$_COOKIE['branchId']:'admin')));
@@ -155,14 +209,8 @@ abstract class ModelJson implements InterfaceDataView{
             else if(!isset($_SESSION['userId']) && isset($_COOKIE[$this->getId().'Style']) && !isset($this->getObj()[$this->getLanguage()]['Style'][$_COOKIE[$this->getId().'Style']]))
                 setcookie($this->getId().'Style', '', time()-3600);
            $this->showErrorServer();
-        }else if(ModelJson::getFileName() === 'MyFlexTables')
-            $this->keysTable = array('TableProductImage', ...array_keys($this->getTableHead()));
-        else if(ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register' || $_SERVER["REQUEST_METHOD"] === "GET" && isset($_SESSION['userId']) && ModelJson::getFileName() !== 'Site')
-            $this->keysTable = $pram1;
-        else if(isset($_POST['choices']) && $_SERVER["REQUEST_METHOD"] === "POST"){
-            $this->DataView = $pram1;
-            $this->keysTable = $pram2;
-        }
+        }else if(ModelJson::getFileName() === 'MyFlexTables' || isset($_POST['choices']) && $_SERVER["REQUEST_METHOD"] === "POST" || ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register' || $_SERVER["REQUEST_METHOD"] === "GET" && isset($_SESSION['userId']) && ModelJson::getFileName() !== 'Site')
+            $this->keysTable = ModelJson::getFileName() === 'MyFlexTables'?array('TableProductImage', ...array_keys($this->getTableHead())):$pram1;
     }
     function initActionServer(){
         if(ModelJson::getFileName()==='LoginForgetPasswordPost' || ModelJson::getFileName()==='LoginPost' || 
@@ -239,8 +287,29 @@ abstract class ModelJson implements InterfaceDataView{
                     isset($_POST['id']) && ModelJson::getFileName() === 'ProductCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']])||
                     isset($_POST['id']) && ModelJson::getFileName() === 'SettingUsersCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]))
                         $this->showError($this->getModelPage()['IdIsInv']);
-                    else
-                        $myFile[$key] = $this->getMyDataView()($myFile[$key], $key);
+                    else if(ModelJson::getFileName() === 'ChangeLanguageDeletePost')
+                       $myFile[$key] = $this->deleteLanguage($myFile[$key]);
+                    else if(ModelJson::getFileName() === 'ChangeLanguageEditPost')
+                        $myFile[$key] = $this->saveNameLanguage($myFile[$key][$myFile[$key]['AllNamesLanguage']]['AllNamesLanguage'], $this->getBackPage() === 'MyStyle'?'Style':'AllNamesLanguage', $myFile[$key]);
+                    else if(ModelJson::getFileName() === 'ChangeLanguagePost')
+                        $myFile[$key] = $this->changeLangStylePost($myFile[$key]);
+                    else if(ModelJson::getFileName() === 'FlexTablesCreatePost')
+                        $myFile[$key] = $this->saveFlexTable($myFile[$key], $myFile[$key][$myFile[$key]['AllNamesLanguage']][$this->getUrlName2()]['ErrorsMessageReq'], $key);
+                    else if(ModelJson::getFileName() === 'HomeCreatePost')
+                        $myFile[$key] = $this->saveFelxTable($myFile[$key][$myFile[$key]['AllNamesLanguage']]['AllNamesLanguage'], $myFile[$key]);
+                    else if(ModelJson::getFileName() === 'HomeDeletePost')
+                        $myFile[$key] = $this->deleteHome($myFile[$key], $key);
+                    else if(ModelJson::getFileName() === 'ProductCreatePost')
+                        $myFile[$key] = $this->saveProduct($myFile[$key], $key);
+                    else if(ModelJson::getFileName() === 'SettingUsersCreatePost')
+                        $myFile[$key] = $this->initErrorsKeyPassword2($myFile[$key]);
+                    else if(ModelJson::getFileName() === 'SettingUsersDeletePost'){
+                        if($this->getUrlName2() !== 'Users')
+                            //delete image for product
+                            array_map('unlink', glob('asset/product/'.$key.'/'.$this->keyId.'.*'));
+                        $myFile[$key] = $this->deleteItem($myFile[$key]);
+                    }
+
                 $this->saveFile($myFile);
                 $this->showMessage($this->getModelPage()[$this->getKeysTable()], 'success');
             }
@@ -565,9 +634,6 @@ abstract class ModelJson implements InterfaceDataView{
     }
     function getAllBranches(){
         return $this->getModelPage()['AllBranches'];
-    }
-    function getMyDataView(){
-        return $this->DataView;
     }
     function getKeysTable(){
         return $this->keysTable;

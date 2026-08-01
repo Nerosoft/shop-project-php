@@ -2,9 +2,7 @@
 // require 'auth/test_session4.php';
 class SettingUsersCreatePost extends ModelJson{
     function __construct(){
-        parent::__construct('Users', function($myFile){
-            return $this->initErrorsKeyPassword2($myFile);
-        }, isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');
+        parent::__construct('Users', isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate');
     }
     function getView(){
         $this->initErrorsEmailPassword3();

@@ -2,12 +2,7 @@
 // require 'auth/test_session4.php';
 class SettingUsersDeletePost extends ModelJson{
     function __construct(){
-        parent::__construct(null, function($myFile, $key){
-            if($this->getUrlName2() !== 'Users')
-                //delete image for product
-                array_map('unlink', glob('asset/product/'.$key.'/'.$this->keyId.'.*'));
-            return $this->deleteItem($myFile);
-        }, 'Delete');
+        parent::__construct(null, 'Delete');
     }
     function getView(){
         $this->saveModel($this->deleteItem($this->getObj()));
