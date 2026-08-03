@@ -215,18 +215,22 @@ abstract class ModelJson implements InterfaceDataView{
             else if(!isset($_SESSION['userId']) && isset($_COOKIE[$this->getId().'Style']) && !isset($this->getObj()[$this->getLanguage()]['Style'][$_COOKIE[$this->getId().'Style']]))
                 setcookie($this->getId().'Style', '', time()-3600);
            $this->showErrorServer();
-        }else if(ModelJson::getFileName() === 'MyFlexTables' || isset($_POST['choices']) && $_SERVER["REQUEST_METHOD"] === "POST" || 
-        ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register' ||
-         $_SERVER["REQUEST_METHOD"] === "GET" && isset($_SESSION['userId']) && ModelJson::getFileName() !== 'Site')
-            $this->keysTable = ModelJson::getFileName() === 'MyFlexTables'?array('TableProductImage', ...array_keys($this->getTableHead())):$pram1;
-        else if(!isset($_POST['choices']) && $_SERVER["REQUEST_METHOD"] === "POST" && 
-        ModelJson::getFileName() !== 'LoginForgetPasswordPost' && ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'SystemLangEditPost')
+        }else if(ModelJson::getFileName() === 'MyFlexTables')
+            $this->keysTable = array('TableProductImage', ...array_keys($this->getTableHead()));
+        else if(//keys tables and action login register
+        ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register' || $_SERVER["REQUEST_METHOD"] === "GET" && isset($_SESSION['userId']) && ModelJson::getFileName() !== 'Site')
+            $this->keysTable = $pram1;
+        //id post and message all branch
+        else if($_SERVER["REQUEST_METHOD"] === "POST" && ModelJson::getFileName() !== 'LoginForgetPasswordPost' && ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'SystemLangEditPost'){
             // 'BranchCreatePost'  'ChangeLanguageCreatePost'  'HomeCreatePost'  'SetupProject'  'RegisterPost' 
             $this->keyId = ModelJson::getFileName() === 'BranchCreatePost' ||
             ModelJson::getFileName() === 'ChangeLanguageCreatePost' ||
             ModelJson::getFileName() === 'HomeCreatePost'||
             ModelJson::getFileName() === 'RegisterPost'||
             ModelJson::getFileName() === 'RegisterPost'?ModelJson::getRandomKey():($_POST['id']??ModelJson::getRandomKey());
+            if(!is_null($pram1))
+                $this->keysTable = $pram1;
+        }
     }
     function initActionServer(){
         if(ModelJson::getFileName()==='LoginForgetPasswordPost' || ModelJson::getFileName()==='LoginPost' || 
