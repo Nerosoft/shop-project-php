@@ -240,143 +240,136 @@ abstract class ModelJson implements InterfaceDataView{
         ModelJson::getFileName()!=='SystemLangEditPost' && isset($_POST['choices']) && is_array($_POST['choices']) && isset($_POST['choices'][$this->getId()])|| 
         ModelJson::getFileName()!=='SystemLangEditPost' && isset($_POST['choices']) && count($this->getBranch()) === 1)
             $this->showError($this->getModelPage()['BranchInv']);       
-        else if(ModelJson::getFileName()!== 'SystemLangEditPost'){
+        //valid id first
+        else if( ModelJson::getFileName()!=='SystemLangEditPost' && ModelJson::getFileName()!=='BranchCreatePost' && ModelJson::getFileName()!=='FlexTablesCreatePost' && ModelJson::getFileName()!=='HomeCreatePost' && ModelJson::getFileName()!=='ChangeLanguageCreatePost' && ModelJson::getFileName()!=='SettingUsersCreatePost' && ModelJson::getFileName()!=='ProductCreatePost' && !isset($_POST['id']) ||
+                ModelJson::getFileName()!=='SystemLangEditPost' && ModelJson::getFileName()!=='BranchCreatePost' && ModelJson::getFileName()!=='FlexTablesCreatePost' && ModelJson::getFileName()!=='HomeCreatePost' && ModelJson::getFileName()!=='ChangeLanguageCreatePost' &&  ModelJson::getFileName()!=='SettingUsersCreatePost' && ModelJson::getFileName()!=='ProductCreatePost' && $_POST['id'] === '')
+            $this->showError($this->getModelPage()['IdIsReq']);
+        else if(
+            
 
-            if(isset($_POST['choices']) && is_array($_POST['choices']) && isset($_POST['choices'][$this->getId()])|| 
-                isset($_POST['choices']) && count($this->getBranch()) === 1)
-                $this->showError($this->getModelPage()['BranchInv']);
-            //valid id first
-            else if(ModelJson::getFileName()!=='BranchCreatePost' && ModelJson::getFileName()!=='FlexTablesCreatePost' && ModelJson::getFileName()!=='HomeCreatePost' && ModelJson::getFileName()!=='ChangeLanguageCreatePost' && ModelJson::getFileName()!=='SettingUsersCreatePost' && ModelJson::getFileName()!=='ProductCreatePost' && !isset($_POST['id']) ||
-                ModelJson::getFileName()!=='BranchCreatePost' && ModelJson::getFileName()!=='FlexTablesCreatePost' && ModelJson::getFileName()!=='HomeCreatePost' && ModelJson::getFileName()!=='ChangeLanguageCreatePost' &&  ModelJson::getFileName()!=='SettingUsersCreatePost' && ModelJson::getFileName()!=='ProductCreatePost' && $_POST['id'] === '')
-                $this->showError($this->getModelPage()['IdIsReq']);
-            else if(
+
+            isset($_POST['choices']) && ModelJson::getFileName() === 'HomeCreatePost' && is_null($this->validName())||
+            isset($_POST['choices']) && ModelJson::getFileName() === 'HomeEditPost' && is_null($this->validName())||
+
+            isset($_POST['choices']) && ModelJson::getFileName() === 'HomeDeletePost'||
+
+            isset($_POST['choices']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && is_null($this->initErrorFlexTable2())||
+
+            isset($_POST['choices']) && ModelJson::getFileName() === 'ProductCreatePost' && is_null($this->validProductInput())||
+
+            isset($_POST['choices']) && ModelJson::getFileName() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3())||
+            
+            //product and uesrs and flextable
+            isset($_POST['choices']) && ModelJson::getFileName() === 'SettingUsersDeletePost'||
+
+
+            isset($_POST['choices']) && ModelJson::getFileName() === 'ChangeLanguagePost'||
+            isset($_POST['choices']) && ModelJson::getFileName() === 'ChangeLanguageDeletePost'||
+            isset($_POST['choices']) && ModelJson::getFileName() === 'ChangeLanguageEditPost' && is_null($this->validLanguageInput())||
+            isset($_POST['choices']) && ModelJson::getFileName() === 'ChangeLanguageCreatePost' && is_null($this->validLanguageInput())
+
+
+
+        ){
+            $myFile = $this->getFile();
+            foreach (is_array($_POST['choices'])?array(...$_POST['choices'], $this->getId()=>$this->getId()):$this->getBranch() as $key => $value)
+                //make test id branch if user select choices option
+                if(is_array($_POST['choices']) && !isset($this->getBranch()[$key]))
+                    $this->showError($this->getModelPage()['BranchInv']);
                 
 
-
-                isset($_POST['choices']) && ModelJson::getFileName() === 'HomeCreatePost' && is_null($this->validName())||
-                isset($_POST['choices']) && ModelJson::getFileName() === 'HomeEditPost' && is_null($this->validName())||
-
-                isset($_POST['choices']) && ModelJson::getFileName() === 'HomeDeletePost'||
-
-                isset($_POST['choices']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && is_null($this->initErrorFlexTable2())||
-
-                isset($_POST['choices']) && ModelJson::getFileName() === 'ProductCreatePost' && is_null($this->validProductInput())||
-
-                isset($_POST['choices']) && ModelJson::getFileName() === 'SettingUsersCreatePost' && is_null($this->initErrorsEmailPassword3())||
-                
-                //product and uesrs and flextable
-                isset($_POST['choices']) && ModelJson::getFileName() === 'SettingUsersDeletePost'||
-
-
-                isset($_POST['choices']) && ModelJson::getFileName() === 'ChangeLanguagePost'||
-                isset($_POST['choices']) && ModelJson::getFileName() === 'ChangeLanguageDeletePost'||
-                isset($_POST['choices']) && ModelJson::getFileName() === 'ChangeLanguageEditPost' && is_null($this->validLanguageInput())||
-                isset($_POST['choices']) && ModelJson::getFileName() === 'ChangeLanguageCreatePost' && is_null($this->validLanguageInput())
-
-
-
-            ){
-                $myFile = $this->getFile();
-                foreach (is_array($_POST['choices'])?array(...$_POST['choices'], $this->getId()=>$this->getId()):$this->getBranch() as $key => $value)
-                    //make test id branch if user select choices option
-                    if(is_array($_POST['choices']) && !isset($this->getBranch()[$key]))
-                        $this->showError($this->getModelPage()['BranchInv']);
-                  
-
-                    else if(isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]) ||
-                        !isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$this->getUrlName2()]) ||
-                        
-                        ModelJson::getFileName() === 'ChangeLanguageEditPost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$this->getUrlName2() === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
-                        ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$_POST['state']][$_POST['id']]) ||
-                        ModelJson::getFileName() === 'ChangeLanguageDeletePost' && !isset($myFile[$key][$_POST['id']]) ||
-                        ModelJson::getFileName() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english' ||
-                        ModelJson::getFileName() === 'HomeEditPost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$_POST['id']]) ||
-                        ModelJson::getFileName() === 'HomeDeletePost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$_POST['id']]) ||
+                else if(isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]) ||
+                    !isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$this->getUrlName2()]) ||
                     
-                    ModelJson::getFileName() === 'ProductDeletePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']])||
-                    //valid users and flex table getUrlName2
-                    ModelJson::getFileName() === 'SettingUsersDeletePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]) ||
-                    //ignore create validation account and product
-                    isset($_POST['id']) && ModelJson::getFileName() === 'ProductCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']])||
-                    isset($_POST['id']) && ModelJson::getFileName() === 'SettingUsersCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]))
-                        $this->showError($this->getModelPage()['IdIsInv']);
-                    else if(ModelJson::getFileName() === 'ChangeLanguageDeletePost')
-                       $myFile[$key] = $this->deleteLanguage($myFile[$key]);
-                    else if(ModelJson::getFileName() === 'ChangeLanguageEditPost')
-                        $myFile[$key] = $this->saveNameLanguage($myFile[$key][$myFile[$key]['AllNamesLanguage']]['AllNamesLanguage'], $this->getBackPage() === 'MyStyle'?'Style':'AllNamesLanguage', $myFile[$key]);
-                    else if(ModelJson::getFileName() === 'ChangeLanguagePost')
-                        $myFile[$key] = $this->changeLangStylePost($myFile[$key]);
-                    else if(ModelJson::getFileName() === 'FlexTablesCreatePost')
-                        $myFile[$key] = $this->saveFlexTable($myFile[$key], $myFile[$key][$myFile[$key]['AllNamesLanguage']][$this->getUrlName2()]['ErrorsMessageReq'], $key);
-                    else if(ModelJson::getFileName() === 'HomeCreatePost')
-                        $myFile[$key] = $this->saveFelxTable($myFile[$key][$myFile[$key]['AllNamesLanguage']]['AllNamesLanguage'], $myFile[$key]);
-                    else if(ModelJson::getFileName() === 'HomeDeletePost')
-                        $myFile[$key] = $this->deleteHome($myFile[$key], $key);
-                    else if(ModelJson::getFileName() === 'ChangeLanguageCreatePost'){
-                        $myLanguage = $this->getObj()[$_POST['selectedLanguage']];
-                        if(isset($myLanguage['MyFlexTables']))
-                            foreach ($myLanguage['MyFlexTables'] as $keyFlexTable => $value)
-                                unset($myLanguage[$keyFlexTable]);
-                        $myFile[$key] = $this->saveNameLanguage($myFile[$key][$myFile[$key]['AllNamesLanguage']]['AllNamesLanguage'], 'AllNamesLanguage', $myFile[$key]);
-                        $lang = $myLanguage;
-                        //reset all name language 
-                        $lang['AllNamesLanguage'] = $myFile[$key][$myFile[$key]['AllNamesLanguage']]['AllNamesLanguage'];
-                        //check if exist flex table inside branch
-                        if(isset($myFile[$key][$myFile[$key]['AllNamesLanguage']]['MyFlexTables'])){
-                            $lang['MyFlexTables'] = $myFile[$key][$myFile[$key]['AllNamesLanguage']]['MyFlexTables'];
-                            foreach ($lang['MyFlexTables'] as $keyFlex => $value)
-                                $lang[$keyFlex] = $myFile[$key][$myFile[$key]['AllNamesLanguage']][$keyFlex];
-                        }
-                        //add lang inside branch
-                        $myFile[$key][$this->keyId] = $lang;
-                    }else if(ModelJson::getFileName() === 'ProductCreatePost')
-                        $myFile[$key] = $this->saveProduct($myFile[$key], $key);
-                    else if(ModelJson::getFileName() === 'SettingUsersCreatePost')
-                        $myFile[$key] = $this->initErrorsKeyPassword2($myFile[$key]);
-                    else if(ModelJson::getFileName() === 'HomeEditPost')
-                        $myFile[$key] = $this->editHome($myFile[$key], $myFile[$key][$myFile[$key]['AllNamesLanguage']]['AllNamesLanguage']);
-                    else if(ModelJson::getFileName() === 'SettingUsersDeletePost'){
-                        if($this->getUrlName2() !== 'Users')
-                            //delete image for product
-                            array_map('unlink', glob('asset/product/'.$key.'/'.$this->keyId.'.*'));
-                        $myFile[$key] = $this->deleteItem($myFile[$key]);
+                    ModelJson::getFileName() === 'ChangeLanguageEditPost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$this->getUrlName2() === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
+                    ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$_POST['state']][$_POST['id']]) ||
+                    ModelJson::getFileName() === 'ChangeLanguageDeletePost' && !isset($myFile[$key][$_POST['id']]) ||
+                    ModelJson::getFileName() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english' ||
+                    ModelJson::getFileName() === 'HomeEditPost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$_POST['id']]) ||
+                    ModelJson::getFileName() === 'HomeDeletePost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$_POST['id']]) ||
+                
+                ModelJson::getFileName() === 'ProductDeletePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']])||
+                //valid users and flex table getUrlName2
+                ModelJson::getFileName() === 'SettingUsersDeletePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]) ||
+                //ignore create validation account and product
+                isset($_POST['id']) && ModelJson::getFileName() === 'ProductCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']])||
+                isset($_POST['id']) && ModelJson::getFileName() === 'SettingUsersCreatePost' && !isset($myFile[$key][$this->getUrlName2()][$_POST['id']]))
+                    $this->showError($this->getModelPage()['IdIsInv']);
+                else if(ModelJson::getFileName() === 'ChangeLanguageDeletePost')
+                    $myFile[$key] = $this->deleteLanguage($myFile[$key]);
+                else if(ModelJson::getFileName() === 'ChangeLanguageEditPost')
+                    $myFile[$key] = $this->saveNameLanguage($myFile[$key][$myFile[$key]['AllNamesLanguage']]['AllNamesLanguage'], $this->getBackPage() === 'MyStyle'?'Style':'AllNamesLanguage', $myFile[$key]);
+                else if(ModelJson::getFileName() === 'ChangeLanguagePost')
+                    $myFile[$key] = $this->changeLangStylePost($myFile[$key]);
+                else if(ModelJson::getFileName() === 'FlexTablesCreatePost')
+                    $myFile[$key] = $this->saveFlexTable($myFile[$key], $myFile[$key][$myFile[$key]['AllNamesLanguage']][$this->getUrlName2()]['ErrorsMessageReq'], $key);
+                else if(ModelJson::getFileName() === 'HomeCreatePost')
+                    $myFile[$key] = $this->saveFelxTable($myFile[$key][$myFile[$key]['AllNamesLanguage']]['AllNamesLanguage'], $myFile[$key]);
+                else if(ModelJson::getFileName() === 'HomeDeletePost')
+                    $myFile[$key] = $this->deleteHome($myFile[$key], $key);
+                else if(ModelJson::getFileName() === 'ChangeLanguageCreatePost'){
+                    $myLanguage = $this->getObj()[$_POST['selectedLanguage']];
+                    if(isset($myLanguage['MyFlexTables']))
+                        foreach ($myLanguage['MyFlexTables'] as $keyFlexTable => $value)
+                            unset($myLanguage[$keyFlexTable]);
+                    $myFile[$key] = $this->saveNameLanguage($myFile[$key][$myFile[$key]['AllNamesLanguage']]['AllNamesLanguage'], 'AllNamesLanguage', $myFile[$key]);
+                    $lang = $myLanguage;
+                    //reset all name language 
+                    $lang['AllNamesLanguage'] = $myFile[$key][$myFile[$key]['AllNamesLanguage']]['AllNamesLanguage'];
+                    //check if exist flex table inside branch
+                    if(isset($myFile[$key][$myFile[$key]['AllNamesLanguage']]['MyFlexTables'])){
+                        $lang['MyFlexTables'] = $myFile[$key][$myFile[$key]['AllNamesLanguage']]['MyFlexTables'];
+                        foreach ($lang['MyFlexTables'] as $keyFlex => $value)
+                            $lang[$keyFlex] = $myFile[$key][$myFile[$key]['AllNamesLanguage']][$keyFlex];
                     }
+                    //add lang inside branch
+                    $myFile[$key][$this->keyId] = $lang;
+                }else if(ModelJson::getFileName() === 'ProductCreatePost')
+                    $myFile[$key] = $this->saveProduct($myFile[$key], $key);
+                else if(ModelJson::getFileName() === 'SettingUsersCreatePost')
+                    $myFile[$key] = $this->initErrorsKeyPassword2($myFile[$key]);
+                else if(ModelJson::getFileName() === 'HomeEditPost')
+                    $myFile[$key] = $this->editHome($myFile[$key], $myFile[$key][$myFile[$key]['AllNamesLanguage']]['AllNamesLanguage']);
+                else if(ModelJson::getFileName() === 'SettingUsersDeletePost'){
+                    if($this->getUrlName2() !== 'Users')
+                        //delete image for product
+                        array_map('unlink', glob('asset/product/'.$key.'/'.$this->keyId.'.*'));
+                    $myFile[$key] = $this->deleteItem($myFile[$key]);
+                }
 
-                $this->saveFile($myFile);
-                $this->showMessage($this->getModelPage()[$this->getKeysTable()], 'success');
-            }
+            $this->saveFile($myFile);
+            $this->showMessage($this->getModelPage()[$this->getKeysTable()], 'success');
+        }else if(
+            ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
+            ModelJson::getFileName() === 'BranchChangePost' && !isset($this->getBranch()[$_POST['id']])||
+            ModelJson::getFileName() === 'BranchDeletePost' && $_POST['id'] === $this->getFixedId()||
+            ModelJson::getFileName() === 'BranchDeletePost' && $_POST['id'] === $this->getId()||
+            //check lang name = english (system) and = (select language)
+            ModelJson::getFileName() === 'ChangeLanguageDeletePost' && $_POST['id'] === $this->getLanguage()||
+            ModelJson::getFileName() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english'||
+
+            ModelJson::getFileName() === 'ChangeLangPost' && $_POST['state'] !== 'branch' && $_POST['state'] !== 'branch2' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
+            ModelJson::getFileName() === 'ChangeLangPost' && $_POST['state'] === 'branch' && !isset($this->getBranch()[$_POST['id']])||
+            ModelJson::getFileName() === 'ChangeLangPost' && $_POST['state'] === 'branch2' && !isset($this->getFile()[$_POST['id']])||
             
-            else if(
-                isset($_POST['id']) && ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
-                isset($_POST['id']) && ModelJson::getFileName() === 'BranchChangePost' && !isset($this->getBranch()[$_POST['id']])||
-                isset($_POST['id']) && ModelJson::getFileName() === 'BranchDeletePost' && $_POST['id'] === $this->getFixedId()||
-                isset($_POST['id']) && ModelJson::getFileName() === 'BranchDeletePost' && $_POST['id'] === $this->getId()||
-                //check lang name = english (system) and = (select language)
-                isset($_POST['id']) && ModelJson::getFileName() === 'ChangeLanguageDeletePost' && $_POST['id'] === $this->getLanguage()||
-                isset($_POST['id']) && ModelJson::getFileName() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english'||
-                //valid users and flex table $_GET['id']
-                isset($_POST['id']) && ModelJson::getFileName() === 'ChangeLangPost' && $_POST['state'] !== 'branch' && $_POST['state'] !== 'branch2' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
-                isset($_POST['id']) && ModelJson::getFileName() === 'ChangeLangPost' && $_POST['state'] === 'branch' && !isset($this->getBranch()[$_POST['id']])||
-                isset($_POST['id']) && ModelJson::getFileName() === 'ChangeLangPost' && $_POST['state'] === 'branch2' && !isset($this->getFile()[$_POST['id']])||
-                isset($_POST['id']) && ModelJson::getFileName() === 'SettingUsersDeletePost' && !isset($this->getObj()[$this->getUrlName2()][$_POST['id']]) ||
-                //work delete add edit user and product and home and change language
-                isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Home' && !isset($this->getModel2()['MyFlexTables'][$_POST['id']])||
-                isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Branches' && !isset($this->getBranch()[$_POST['id']])||
-                isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'ChangeLanguage' && !isset($this->getModel2()['AllNamesLanguage'][$_POST['id']])||
-                isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Users' && !isset($this->getObj()['Users'][$_POST['id']])||
-                isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'Product' && !isset($this->getObj()['Product'][$_POST['id']])||
-                isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($this->getObj()[$this->getUrlName2()][$_POST['id']]) ||
-                isset($_POST['id']) && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && $this->getUrlName2() === 'MyStyle' && !isset($this->getModel2()['Style'][$_POST['id']])
-            )
-                $this->showError($this->getModelPage()['IdIsInv']);
-            
-            else if(ModelJson::getFileName() === 'ChangeLanguageEditPost' || ModelJson::getFileName() === 'ChangeLanguageCreatePost')
-                $this->validLanguageInput();
-            else if(ModelJson::getFileName() === 'HomeCreatePost' || ModelJson::getFileName() === 'HomeEditPost')
-                $this->validName();
-            else if(ModelJson::getFileName() === 'BranchEditPost' || ModelJson::getFileName() === 'BranchCreatePost')
-                $this->initErrorBranch2();
-        }
+            ModelJson::getFileName() === 'SettingUsersDeletePost' && !isset($this->getObj()[$this->getUrlName2()][$_POST['id']]) ||
+            ModelJson::getFileName() === 'ChangeLanguageEditPost' && !isset($this->getModel2()[$this->getUrlName2() === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']])||
+            //work getUrlName2 for validation (change delete edit branch, lang home)
+            isset($_POST['id']) && $this->getUrlName2() === 'Home' && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && !isset($this->getModel2()['MyFlexTables'][$_POST['id']])||
+            isset($_POST['id']) && $this->getUrlName2() === 'Branches' && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && !isset($this->getBranch()[$_POST['id']])||
+            isset($_POST['id']) && $this->getUrlName2() === 'ChangeLanguage' && ModelJson::getFileName() !== 'BranchChangePost' && ModelJson::getFileName() !== 'ChangeLanguagePost' && !isset($this->getModel2()['AllNamesLanguage'][$_POST['id']])||
+            isset($_POST['id']) && ModelJson::getFileName() === 'SettingUsersCreatePost' && !isset($this->getObj()['Users'][$_POST['id']])||
+            isset($_POST['id']) && ModelJson::getFileName() === 'ProductCreatePost' && !isset($this->getObj()['Product'][$_POST['id']])||
+            isset($_POST['id']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($this->getObj()[$this->getUrlName2()][$_POST['id']])
+        )
+            $this->showError($this->getModelPage()['IdIsInv']);
+        
+        else if(ModelJson::getFileName() === 'ChangeLanguageEditPost' || ModelJson::getFileName() === 'ChangeLanguageCreatePost')
+            $this->validLanguageInput();
+        else if(ModelJson::getFileName() === 'HomeCreatePost' || ModelJson::getFileName() === 'HomeEditPost')
+            $this->validName();
+        else if(ModelJson::getFileName() === 'BranchEditPost' || ModelJson::getFileName() === 'BranchCreatePost')
+            $this->initErrorBranch2();
         $this->getView();
     }
     function initView(){

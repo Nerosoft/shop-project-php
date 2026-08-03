@@ -5,7 +5,7 @@ class ChangeLanguageEditPost extends ModelJson{
         parent::__construct(null, 'MessageModelEdit'); 
     }
     function getView(){
-        $this->saveModel($this->saveNameLanguage($this->getallNames(), $this->getBackPage() === 'MyStyle'?'Style':'AllNamesLanguage', $this->getObj()));
+        $this->saveModel($this->saveNameLanguage($this->getallNames(), $this->getUrlName2() === 'MyStyle'?'Style':'AllNamesLanguage', $this->getObj()));
         $this->showMessage($this->getModelPage()['MessageModelEdit']);
     }
 }
