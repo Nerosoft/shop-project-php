@@ -215,24 +215,29 @@ abstract class ModelJson implements InterfaceDataView{
             else if(!isset($_SESSION['userId']) && isset($_COOKIE[$this->getId().'Style']) && !isset($this->getObj()[$this->getLanguage()]['Style'][$_COOKIE[$this->getId().'Style']]))
                 setcookie($this->getId().'Style', '', time()-3600);
            $this->showErrorServer();
-        }else if(ModelJson::getFileName() === 'MyFlexTables' || isset($_POST['choices']) && $_SERVER["REQUEST_METHOD"] === "POST" || ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register' || $_SERVER["REQUEST_METHOD"] === "GET" && isset($_SESSION['userId']) && ModelJson::getFileName() !== 'Site')
+        }else if(ModelJson::getFileName() === 'MyFlexTables' || isset($_POST['choices']) && $_SERVER["REQUEST_METHOD"] === "POST" || 
+        ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register' ||
+         $_SERVER["REQUEST_METHOD"] === "GET" && isset($_SESSION['userId']) && ModelJson::getFileName() !== 'Site')
             $this->keysTable = ModelJson::getFileName() === 'MyFlexTables'?array('TableProductImage', ...array_keys($this->getTableHead())):$pram1;
+        else if(!isset($_POST['choices']) && $_SERVER["REQUEST_METHOD"] === "POST" && 
+        ModelJson::getFileName() !== 'LoginForgetPasswordPost' && ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'SystemLangEditPost')
+            // 'BranchCreatePost'  'ChangeLanguageCreatePost'  'HomeCreatePost'  'SetupProject'  'RegisterPost' 
+            $this->keyId = ModelJson::getFileName() === 'BranchCreatePost' ||
+            ModelJson::getFileName() === 'ChangeLanguageCreatePost' ||
+            ModelJson::getFileName() === 'HomeCreatePost'||
+            ModelJson::getFileName() === 'RegisterPost'||
+            ModelJson::getFileName() === 'RegisterPost'?ModelJson::getRandomKey():($_POST['id']??ModelJson::getRandomKey());
     }
     function initActionServer(){
         if(ModelJson::getFileName()==='LoginForgetPasswordPost' || ModelJson::getFileName()==='LoginPost' || 
                 ModelJson::getFileName() === 'RegisterPost' || ModelJson::getFileName() === 'SetupProject'){
                 $this->initErrorsEmailPassword3();
-                if(ModelJson::getFileName() === 'RegisterPost' || ModelJson::getFileName() === 'SetupProject')
-                    $this->keyId = ModelJson::getRandomKey();
         }else if(ModelJson::getFileName()==='SystemLangEditPost' && isset($_POST['choices']) && count($this->getModel2()['AllNamesLanguage']) === 1||
         ModelJson::getFileName()!=='SystemLangEditPost' && isset($_POST['choices']) && is_array($_POST['choices']) && isset($_POST['choices'][$this->getId()])|| 
         ModelJson::getFileName()!=='SystemLangEditPost' && isset($_POST['choices']) && count($this->getBranch()) === 1)
             $this->showError($this->getModelPage()['BranchInv']);       
         else if(ModelJson::getFileName()!== 'SystemLangEditPost'){
-            // 'BranchCreatePost'  'ChangeLanguageCreatePost'  'HomeCreatePost'  'SetupProject'  'RegisterPost' 
-            $this->keyId = ModelJson::getFileName() === 'BranchCreatePost' ||
-            ModelJson::getFileName() === 'ChangeLanguageCreatePost' ||
-            ModelJson::getFileName() === 'HomeCreatePost'?ModelJson::getRandomKey():($_POST['id']??ModelJson::getRandomKey());
+
             if(isset($_POST['choices']) && is_array($_POST['choices']) && isset($_POST['choices'][$this->getId()])|| 
                 isset($_POST['choices']) && count($this->getBranch()) === 1)
                 $this->showError($this->getModelPage()['BranchInv']);
