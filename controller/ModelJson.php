@@ -232,9 +232,7 @@ abstract class ModelJson implements InterfaceDataView{
             // 'BranchCreatePost'  'ChangeLanguageCreatePost'  'HomeCreatePost'  'SetupProject'  'RegisterPost' 
             $this->keyId = ModelJson::getFileName() === 'BranchCreatePost' ||
             ModelJson::getFileName() === 'ChangeLanguageCreatePost' ||
-            ModelJson::getFileName() === 'HomeCreatePost' ||
-            ModelJson::getFileName() === 'SetupProject' ||
-            ModelJson::getFileName() === 'RegisterPost'?ModelJson::getRandomKey():($_POST['id']??ModelJson::getRandomKey());
+            ModelJson::getFileName() === 'HomeCreatePost'?ModelJson::getRandomKey():($_POST['id']??ModelJson::getRandomKey());
             if(isset($_POST['choices']) && is_array($_POST['choices']) && isset($_POST['choices'][$this->getId()])|| 
                 isset($_POST['choices']) && count($this->getBranch()) === 1)
                 $this->showError($this->getModelPage()['BranchInv']);
