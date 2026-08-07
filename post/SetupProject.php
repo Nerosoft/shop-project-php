@@ -9,10 +9,6 @@ class SetupProject extends ModelJson{
         $file = $this->getFile();
         $file[$this->keyId] = $this->getProject();
         $this->saveFile($file);
-        $message = $this->getModelPage()['CreateProjectMessage'];
-        $_SESSION['userId'] = $this->keyId;
-        $_SESSION['staticId'] = $this->keyId;
-        $this->showMessageHome($message);
     }
     function getProject(){
         return array(
@@ -423,6 +419,8 @@ class SetupProject extends ModelJson{
                         "WithoutRays"=> "Without work",
                         "WithRays"=> "With work"
                     ],
+                    "SetupProject"=> "Successfully create project",
+                    "RegisterPost"=> "Successfully register",
                     "CreateProjectMessage"=> "Successfully create project",
                     "RegisterMessage"=> "Successfully register",
                     "BranchProjectTitle"=> "welcome in change project",
@@ -526,6 +524,9 @@ class SetupProject extends ModelJson{
                         "WithoutRays"=> "Without work",
                         "WithRays"=> "With work"
                     ],
+                    "SetupProject"=> "Successfully create project",
+                    "LoginPost"=> "Successfully login",
+                    "LoginForgetPasswordPost"=> "Successfully forget and login",
                     "CreateProjectMessage"=> "Successfully create project",
                     "ForgetMessage"=> "Successfully forget and login",
                     "LoginMessage"=> "Successfully login",

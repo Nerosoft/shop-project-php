@@ -8,6 +8,8 @@ class ChangeLanguageCreatePost extends ModelJson{
         $myData = $this->saveNameLanguage($this->getallNames(), 'AllNamesLanguage', $this->getObj());
         $myData[$this->keyId] = $myData[$_POST['selectedLanguage']];
         $this->saveModel($myData);
+    }
+    function showMessagePost(){
         $this->showMessage($this->getModelPage()['MessageModelCreate']);
     }
 }

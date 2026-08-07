@@ -6,6 +6,8 @@ class ChangeLanguagePost extends ModelJson{
     }
     function getView(){
         $this->saveModel($this->changeLangStylePost($this->getObj()));
+    }
+    function showMessagePost(){
         $this->showMessage($_POST['state'] === 'Style'?$this->getModelPage()['MessageStyleLang2']:$this->getModelPage()['MessageStyleLang']);
     }
 }

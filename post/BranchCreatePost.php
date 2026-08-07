@@ -43,6 +43,8 @@ class BranchCreatePost extends ModelJson{
         $myBranch = $this->getFile();
         $myBranch[$this->keyId] = $obj;
         $this->saveFile($myBranch);
+    }
+    function showMessagePost(){
         $this->showMessage($this->getModelPage()['MessageModelCreate']);
     }
 }

@@ -24,13 +24,15 @@ class SystemLangEditPost extends ModelJson{
         else
             $this->saveWord($_GET['lang']);
         $this->saveModel($this->file);
-        $this->showMessage($this->getModelPage()['AllLanguageEdit']);
     }
     function saveWord($myKeyWord){
         if(isset($_GET['array']))
             $this->file[$myKeyWord][$_GET['table']][$_GET['key']][$_GET['array']] = $_POST['word'];
         else
             $this->file[$myKeyWord][$_GET['table']][$_GET['key']] = $_POST['word'];
+    }
+    function showMessagePost(){
+        $this->showMessage($this->getModelPage()['AllLanguageEdit']);
     }
 }
 $view = new SystemLangEditPost();

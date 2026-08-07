@@ -8,7 +8,6 @@ class RegisterPost extends ModelJson{
         //valid confirm password
         $this->initErrorsRegister2();
         $this->saveModel($this->initErrorsKeyPassword2($this->getObj()));
-        $this->loginAdmin('RegisterMessage');
     }
 }
 $view = new RegisterPost();

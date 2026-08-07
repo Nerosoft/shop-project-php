@@ -401,13 +401,15 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "wI8a4a0d": "English language"
+                "0gea8cdc": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
                     "WithoutRays": "Without work",
                     "WithRays": "With work"
                 },
+                "SetupProject": "Successfully create project",
+                "RegisterPost": "Successfully register",
                 "CreateProjectMessage": "Successfully create project",
                 "RegisterMessage": "Successfully register",
                 "BranchProjectTitle": "welcome in change project",
@@ -511,6 +513,9 @@
                     "WithoutRays": "Without work",
                     "WithRays": "With work"
                 },
+                "SetupProject": "Successfully create project",
+                "LoginPost": "Successfully login",
+                "LoginForgetPasswordPost": "Successfully forget and login",
                 "CreateProjectMessage": "Successfully create project",
                 "ForgetMessage": "Successfully forget and login",
                 "LoginMessage": "Successfully login",
@@ -944,7 +949,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithoutRays"
             },
-            "pddc53cf": {
+            "Mw0daa61": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
@@ -998,7 +1003,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "wI8a4a0d": {
+        "0gea8cdc": {
             "Site": {
                 "AllMenu": {
                     "Login": "Login",
@@ -1397,13 +1402,15 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "wI8a4a0d": "English language"
+                "0gea8cdc": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
                     "WithoutRays": "Without work",
                     "WithRays": "With work"
                 },
+                "SetupProject": "Successfully create project",
+                "RegisterPost": "Successfully register",
                 "CreateProjectMessage": "Successfully create project",
                 "RegisterMessage": "Successfully register",
                 "BranchProjectTitle": "welcome in change project",
@@ -1507,6 +1514,9 @@
                     "WithoutRays": "Without work",
                     "WithRays": "With work"
                 },
+                "SetupProject": "Successfully create project",
+                "LoginPost": "Successfully login",
+                "LoginForgetPasswordPost": "Successfully forget and login",
                 "CreateProjectMessage": "Successfully create project",
                 "ForgetMessage": "Successfully forget and login",
                 "LoginMessage": "Successfully login",
@@ -1922,7 +1932,7 @@
             }
         }
     },
-    "pddc53cf": {
+    "Mw0daa61": {
         "AllNamesLanguage": "english",
         "Style": "default",
         "english": {
@@ -2324,13 +2334,15 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "wI8a4a0d": "English language"
+                "0gea8cdc": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
                     "WithoutRays": "Without work",
                     "WithRays": "With work"
                 },
+                "SetupProject": "Successfully create project",
+                "RegisterPost": "Successfully register",
                 "CreateProjectMessage": "Successfully create project",
                 "RegisterMessage": "Successfully register",
                 "BranchProjectTitle": "welcome in change project",
@@ -2434,6 +2446,9 @@
                     "WithoutRays": "Without work",
                     "WithRays": "With work"
                 },
+                "SetupProject": "Successfully create project",
+                "LoginPost": "Successfully login",
+                "LoginForgetPasswordPost": "Successfully forget and login",
                 "CreateProjectMessage": "Successfully create project",
                 "ForgetMessage": "Successfully forget and login",
                 "LoginMessage": "Successfully login",
@@ -2897,7 +2912,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "wI8a4a0d": {
+        "0gea8cdc": {
             "Site": {
                 "AllMenu": {
                     "Login": "Login",
@@ -3296,13 +3311,15 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "wI8a4a0d": "English language"
+                "0gea8cdc": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
                     "WithoutRays": "Without work",
                     "WithRays": "With work"
                 },
+                "SetupProject": "Successfully create project",
+                "RegisterPost": "Successfully register",
                 "CreateProjectMessage": "Successfully create project",
                 "RegisterMessage": "Successfully register",
                 "BranchProjectTitle": "welcome in change project",
@@ -3406,6 +3423,9 @@
                     "WithoutRays": "Without work",
                     "WithRays": "With work"
                 },
+                "SetupProject": "Successfully create project",
+                "LoginPost": "Successfully login",
+                "LoginForgetPasswordPost": "Successfully forget and login",
                 "CreateProjectMessage": "Successfully create project",
                 "ForgetMessage": "Successfully forget and login",
                 "LoginMessage": "Successfully login",

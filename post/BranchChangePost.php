@@ -6,6 +6,8 @@ class BranchChangePost extends ModelJson{
     }
     function getView(){
         $_SESSION['userId'] = $this->keyId;
+    }
+    function showMessagePost(){
         $this->showMessage($this->getModelPage()['SuccessfullyChangeBranch']);
     }
 }

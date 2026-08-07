@@ -6,6 +6,8 @@ class HomeDeletePost extends ModelJson{
     }
     function getView(){
         $this->saveModel($this->deleteHome($this->getObj(), $this->getId()));
+    }
+    function showMessagePost(){
         $this->showMessage($this->getModelPage()['Delete']);
     }
 }

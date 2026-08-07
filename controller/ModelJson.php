@@ -214,28 +214,30 @@ abstract class ModelJson implements InterfaceDataView{
                 setcookie($this->getId().'AllNamesLanguage', '', time()-3600);
             else if(!isset($_SESSION['userId']) && isset($_COOKIE[$this->getId().'Style']) && !isset($this->getObj()[$this->getLanguage()]['Style'][$_COOKIE[$this->getId().'Style']]))
                 setcookie($this->getId().'Style', '', time()-3600);
-           $this->showErrorServer();
+            $_SESSION['error'] = $this->getModel2()[isset($_SESSION['userId'])?'Home':'Login']['ErrorServerMessage'];
+            header('Location:'.(isset($_SESSION['userId'])?'Home':'Login'));
+            exit;
         }else if(ModelJson::getFileName() === 'MyFlexTables')
             $this->keysTable = array('TableProductImage', ...array_keys($this->getTableHead()));
         else if(//keys tables and action login register
         ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register' || $_SERVER["REQUEST_METHOD"] === "GET" && isset($_SESSION['userId']) && ModelJson::getFileName() !== 'Site')
             $this->keysTable = $pram1;
         //id post and message all branch
-        else if($_SERVER["REQUEST_METHOD"] === "POST" && ModelJson::getFileName() !== 'LoginForgetPasswordPost' && ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'SystemLangEditPost'){
+        else if($_SERVER["REQUEST_METHOD"] === "POST" && ModelJson::getFileName() !== 'LoginForgetPasswordPost' && ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'SystemLangEditPost')
             // 'BranchCreatePost'  'ChangeLanguageCreatePost'  'HomeCreatePost'  'SetupProject'  'RegisterPost' 
             $this->keyId = ModelJson::getFileName() === 'BranchCreatePost' ||
             ModelJson::getFileName() === 'ChangeLanguageCreatePost' ||
             ModelJson::getFileName() === 'HomeCreatePost'||
             ModelJson::getFileName() === 'RegisterPost'||
             ModelJson::getFileName() === 'RegisterPost'?ModelJson::getRandomKey():($_POST['id']??ModelJson::getRandomKey());
-            if(!is_null($pram1))
-                $this->keysTable = $pram1;
-        }
     }
     function initActionServer(){
         if(ModelJson::getFileName()==='LoginForgetPasswordPost' || ModelJson::getFileName()==='LoginPost' || 
                 ModelJson::getFileName() === 'RegisterPost' || ModelJson::getFileName() === 'SetupProject'){
-                $this->initErrorsEmailPassword3();
+            $this->initErrorsEmailPassword3();
+            $this->getView();
+            $this->loginAdmin();
+            return;
         }else if(ModelJson::getFileName()==='SystemLangEditPost' && isset($_POST['choices']) && count($this->getModel2()['AllNamesLanguage']) === 1||
         ModelJson::getFileName()!=='SystemLangEditPost' && isset($_POST['choices']) && is_array($_POST['choices']) && isset($_POST['choices'][$this->getId()])|| 
         ModelJson::getFileName()!=='SystemLangEditPost' && isset($_POST['choices']) && count($this->getBranch()) === 1)
@@ -338,7 +340,6 @@ abstract class ModelJson implements InterfaceDataView{
                 }
 
             $this->saveFile($myFile);
-            $this->showMessage($this->getModelPage()[$this->getKeysTable()], 'success');
         }else if(
             ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
             ModelJson::getFileName() === 'BranchChangePost' && !isset($this->getBranch()[$_POST['id']])||
@@ -480,11 +481,6 @@ abstract class ModelJson implements InterfaceDataView{
     function plusCount(){
         $this->count+=1;
     }
-    function showErrorServer(){
-        $_SESSION['error'] = $this->getModel2()[isset($_SESSION['userId'])?'Home':'Login']['ErrorServerMessage'];
-        header("Location:".(isset($_SESSION['userId'])?'Home':'Login'));
-        exit;
-    }
     function initFlexTable(){
         foreach (array_keys($this->getModel2()) as $key2 => $table)
             if(!isset($this->getModel2()['MyFlexTables'][$table])&&
@@ -499,10 +495,12 @@ abstract class ModelJson implements InterfaceDataView{
         if(isset($this->getModel2()['MyFlexTables']))
             $this->myMenuApp['MyFlexTables'] = array($this->getModelPage()['MyFlexTables'], ...$this->getModel2()['MyFlexTables']);
     }
-    function loginAdmin($message = 'LoginMessage'){
-        $message = $this->getModelPage()[$message];
+    function loginAdmin(){
         $_SESSION['userId'] = $this->getId();
-        if(isset($this->getFile()[$this->getId()]['Branches']))
+        if(ModelJson::getFileName() ===  'SetupProject'){
+            $_SESSION['userId'] = $this->keyId;
+            $_SESSION['staticId'] = $this->keyId;
+        }else if(isset($this->getFile()[$this->getId()]['Branches']))
             $_SESSION['staticId'] = $this->getId();
         else
             foreach ($this->getFile() as $key => $obj)
@@ -510,8 +508,9 @@ abstract class ModelJson implements InterfaceDataView{
                     $_SESSION['staticId'] = $key;
                     break;
                 }
-
-        $this->showMessageHome($message);
+        $_SESSION['message'] = $this->getModelPage()[ModelJson::getFileName()];
+        header('Location:index');
+        exit;
     }
     static function getRandomKey(){
         return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 2) . substr(uniqid(), -6);
@@ -587,11 +586,6 @@ abstract class ModelJson implements InterfaceDataView{
     function showMessage($message){
         $_SESSION['message'] = $message;
         header('Location:'.$this->getBackPage());
-        exit;
-    }
-    function showMessageHome($message){
-        $_SESSION['message'] = $message;
-        header('Location:index');
         exit;
     }
     function getStyleFile(){

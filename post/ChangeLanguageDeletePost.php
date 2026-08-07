@@ -6,8 +6,9 @@ class ChangeLanguageDeletePost extends ModelJson{
     }
     function getView(){
         $this->saveModel($this->deleteLanguage($this->getObj()));
+    }
+    function showMessagePost(){
         $this->showMessage($this->getModelPage()['Delete']);
     }
-
 }
 $view = new ChangeLanguageDeletePost();

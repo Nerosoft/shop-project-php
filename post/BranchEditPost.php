@@ -6,6 +6,8 @@ class BranchEditPost extends ModelJson{
     }
     function getView(){
         $this->saveMyFile();
+    }
+    function showMessagePost(){
         $this->showMessage($this->getModelPage()['MessageModelEdit']);
     }
 }

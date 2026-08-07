@@ -14,6 +14,8 @@ class ChangeLangPost extends ModelJson{
             setcookie($this->getId().$_POST['state'], $this->keyId, time()+2628000);
             $_COOKIE[$this->getId().$_POST['state']] = $this->keyId;
         }
+    }
+    function showMessagePost(){
         $this->showMessage($this->getModelPage()[$_POST['state'] === 'branch' || $_POST['state'] === 'branch2'?'SuccessfullyChangeBranch':($_POST['state'] === 'AllNamesLanguage'?'ChangeLang':'ChangeStyleMessage')]);
     }
 }

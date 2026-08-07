@@ -8,6 +8,8 @@ class SettingUsersDeletePost extends ModelJson{
         $this->saveModel($this->deleteItem($this->getObj()));
         if($this->getUrlName2() !== 'Users')
             array_map('unlink', glob('asset/product/'.$this->getId().'/'.$this->keyId.'.*'));
+    }
+    function showMessagePost(){
         $this->showMessage($this->getModelPage()['Delete']);
     }
 }

@@ -12,7 +12,7 @@ class LoginForgetPasswordPost extends ModelJson{
                 if($user['Email'] === $_POST['Email'] && $user['Key'] === $_POST['Key']){
                     $myData['Users'][$key] = array("Email"=>$user['Email'], "Password"=>$_POST["Password"], "Key"=>$user['Key']);
                     $this->saveModel($myData);
-                    $this->loginAdmin('ForgetMessage');
+                    return;
                 }
         $this->showError($this->getModelPage()['ForgetPasswordMessageInvlid']);
     }

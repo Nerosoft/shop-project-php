@@ -7,6 +7,8 @@ class ProductCreatePost extends ModelJson{
     function getView(){
         $this->validProductInput();
         $this->saveModel($this->saveProduct($this->getObj(), $this->getId()));
+    }
+    function showMessagePost(){
         $this->showMessage($this->getModelPage()[isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate']);
     }
 }

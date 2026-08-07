@@ -17,6 +17,8 @@ class BranchDeletePost extends ModelJson{
             closedir($dir);
             rmdir('asset/product/'.$this->keyId);
         }
+    }
+    function showMessagePost(){
         $this->showMessage($this->getModelPage()['Delete']);
     }
 }
