@@ -221,10 +221,11 @@ abstract class ModelJson implements InterfaceDataView{
         }else if(ModelJson::getFileName() === 'MyFlexTables')
             $this->keysTable = array('TableProductImage', ...array_keys($this->getTableHead()));
         else if(//keys tables and action login register
-        ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register' || $_SERVER["REQUEST_METHOD"] === "GET" && isset($_SESSION['userId']) && ModelJson::getFileName() !== 'Site')
+        ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register' || $_SERVER["REQUEST_METHOD"] === "GET" && isset($_SESSION['userId']) && ModelJson::getFileName() !== 'Site'||
+        ModelJson::getFileName() === 'LoginForgetPasswordPost' || ModelJson::getFileName() === 'LoginPost' || ModelJson::getFileName() === 'SystemLangEditPost')
             $this->keysTable = $pram1;
-        //id post and message all branch
-        else if($_SERVER["REQUEST_METHOD"] === "POST" && ModelJson::getFileName() !== 'LoginForgetPasswordPost' && ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'SystemLangEditPost'){
+        //id post and message
+        else if($_SERVER["REQUEST_METHOD"] === "POST"){
             // 'BranchCreatePost'  'ChangeLanguageCreatePost'  'HomeCreatePost'  'SetupProject'  'RegisterPost' 
             $this->keyId = ModelJson::getFileName() === 'BranchCreatePost' ||
             ModelJson::getFileName() === 'ChangeLanguageCreatePost' ||
@@ -511,9 +512,7 @@ abstract class ModelJson implements InterfaceDataView{
                     $_SESSION['staticId'] = $key;
                     break;
                 }
-        $_SESSION['message'] = $this->getModelPage()[ModelJson::getFileName()];
-        header('Location:index');
-        exit;
+        $this->showMessage('Home');
     }
     static function getRandomKey(){
         return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 2) . substr(uniqid(), -6);
@@ -586,9 +585,9 @@ abstract class ModelJson implements InterfaceDataView{
         header('Location:'.$this->getBackPage());
         exit;
     }
-    function showMessage(){
+    function showMessage($page = null){
         $_SESSION['message'] = $this->getModelPage()[$this->getKeysTable()];
-        header('Location:'.$this->getBackPage());
+        header('Location:'.($page??$this->getBackPage()));
         exit;
     }
     function getStyleFile(){
