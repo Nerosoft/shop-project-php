@@ -9,6 +9,8 @@ class SetupProject extends ModelJson{
         $file = $this->getFile();
         $file[$this->keyId] = $this->getProject();
         $this->saveFile($file);
+        $_SESSION['userId'] = $this->keyId;
+        $_SESSION['staticId'] = $this->keyId;
     }
     function getProject(){
         return array(

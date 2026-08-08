@@ -220,7 +220,7 @@ abstract class ModelJson implements InterfaceDataView{
             exit;
         }else if(ModelJson::getFileName() === 'MyFlexTables')
             $this->keysTable = array('TableProductImage', ...array_keys($this->getTableHead()));
-        else if(//keys tables and action login register
+        else if(//keys tables and action login register and message
         ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register' || $_SERVER["REQUEST_METHOD"] === "GET" && isset($_SESSION['userId']) && ModelJson::getFileName() !== 'Site'||
         ModelJson::getFileName() === 'LoginForgetPasswordPost' || ModelJson::getFileName() === 'LoginPost' || ModelJson::getFileName() === 'SystemLangEditPost')
             $this->keysTable = $pram1;
@@ -240,8 +240,9 @@ abstract class ModelJson implements InterfaceDataView{
                 ModelJson::getFileName() === 'RegisterPost' || ModelJson::getFileName() === 'SetupProject'){
             $this->initErrorsEmailPassword3();
             $this->getView();
-            $this->loginAdmin();
-            return;
+            if(ModelJson::getFileName() !== 'SetupProject')
+                $this->loginAdmin();
+            $this->showMessage('Home');
         }else if(ModelJson::getFileName()==='SystemLangEditPost' && isset($_POST['choices']) && count($this->getModel2()['AllNamesLanguage']) === 1||
         ModelJson::getFileName()!=='SystemLangEditPost' && isset($_POST['choices']) && is_array($_POST['choices']) && isset($_POST['choices'][$this->getId()])|| 
         ModelJson::getFileName()!=='SystemLangEditPost' && isset($_POST['choices']) && count($this->getBranch()) === 1)
@@ -501,10 +502,7 @@ abstract class ModelJson implements InterfaceDataView{
     }
     function loginAdmin(){
         $_SESSION['userId'] = $this->getId();
-        if(ModelJson::getFileName() ===  'SetupProject'){
-            $_SESSION['userId'] = $this->keyId;
-            $_SESSION['staticId'] = $this->keyId;
-        }else if(isset($this->getFile()[$this->getId()]['Branches']))
+        if(isset($this->getFile()[$this->getId()]['Branches']))
             $_SESSION['staticId'] = $this->getId();
         else
             foreach ($this->getFile() as $key => $obj)
@@ -512,7 +510,6 @@ abstract class ModelJson implements InterfaceDataView{
                     $_SESSION['staticId'] = $key;
                     break;
                 }
-        $this->showMessage('Home');
     }
     static function getRandomKey(){
         return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, 2) . substr(uniqid(), -6);
