@@ -7,9 +7,6 @@
     function getView(){
         $this->saveModel($this->saveFelxTable($this->getModel2()['AllNamesLanguage'], $this->getObj()));
     }
-    function showMessagePost(){
-        $this->showMessage($this->getModelPage()['MessageModelCreate']);
-    }
 }
 $view = new HomeCreatePost();
 

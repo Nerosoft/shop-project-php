@@ -7,8 +7,5 @@ class HomeEditPost extends ModelJson{
     function getView(){
         $this->saveModel($this->editHome($this->getObj(), $this->getModel2()['AllNamesLanguage']));
     }
-    function showMessagePost(){
-        $this->showMessage($this->getModelPage()['MessageModelEdit']);
-    }
 }
 $view = new HomeEditPost();

@@ -2,7 +2,7 @@
 // require 'auth/test_session3.php';
 class LoginForgetPasswordPost extends ModelJson{
     function __construct(){
-        parent::__construct('Login');
+        parent::__construct('Login', 'ForgetMessage');
     }
     function getView(){
         $myData = $this->getObj();

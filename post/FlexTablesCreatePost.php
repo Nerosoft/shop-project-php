@@ -8,8 +8,5 @@ class FlexTablesCreatePost extends ModelJson{
         $this->initErrorFlexTable2();
         $this->saveModel($this->saveFlexTable($this->getObj(), $this->getErrorsMessageReq(), $this->getId()));
     }
-    function showMessagePost(){
-        $this->showMessage($this->getModelPage()[isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate']);
-    }
 }
 $view = new FlexTablesCreatePost();

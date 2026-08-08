@@ -3,7 +3,7 @@
 class SystemLangEditPost extends ModelJson{
     public $file;
     function __construct(){
-        parent::__construct('SystemLang');
+        parent::__construct('SystemLang', 'AllLanguageEdit');
     }
     function getView(){
         $this->file = $this->getObj();
@@ -30,9 +30,6 @@ class SystemLangEditPost extends ModelJson{
             $this->file[$myKeyWord][$_GET['table']][$_GET['key']][$_GET['array']] = $_POST['word'];
         else
             $this->file[$myKeyWord][$_GET['table']][$_GET['key']] = $_POST['word'];
-    }
-    function showMessagePost(){
-        $this->showMessage($this->getModelPage()['AllLanguageEdit']);
     }
 }
 $view = new SystemLangEditPost();

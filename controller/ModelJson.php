@@ -85,6 +85,7 @@ abstract class ModelJson implements InterfaceDataView{
         return $myData;
     }
     function __construct($idPage = null, $pram1 = null){
+        //receve message from constractor felexbalty change key message for all action
         $this->File = json_decode(file_get_contents('data.json'), true);
         $this->IdPage = $idPage??($_GET['id']??null);
         $this->MyIdDb = (isset($_SESSION['userId'])?$_SESSION['userId']:($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']])?$_GET['id']:(isset($_COOKIE['branchId']) && isset($this->getFile()[$_COOKIE['branchId']])?$_COOKIE['branchId']:'admin')));
@@ -223,13 +224,15 @@ abstract class ModelJson implements InterfaceDataView{
         ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register' || $_SERVER["REQUEST_METHOD"] === "GET" && isset($_SESSION['userId']) && ModelJson::getFileName() !== 'Site')
             $this->keysTable = $pram1;
         //id post and message all branch
-        else if($_SERVER["REQUEST_METHOD"] === "POST" && ModelJson::getFileName() !== 'LoginForgetPasswordPost' && ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'SystemLangEditPost')
+        else if($_SERVER["REQUEST_METHOD"] === "POST" && ModelJson::getFileName() !== 'LoginForgetPasswordPost' && ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'SystemLangEditPost'){
             // 'BranchCreatePost'  'ChangeLanguageCreatePost'  'HomeCreatePost'  'SetupProject'  'RegisterPost' 
             $this->keyId = ModelJson::getFileName() === 'BranchCreatePost' ||
             ModelJson::getFileName() === 'ChangeLanguageCreatePost' ||
             ModelJson::getFileName() === 'HomeCreatePost'||
             ModelJson::getFileName() === 'RegisterPost'||
             ModelJson::getFileName() === 'RegisterPost'?ModelJson::getRandomKey():($_POST['id']??ModelJson::getRandomKey());
+            $this->keysTable = $pram1;
+        }
     }
     function initActionServer(){
         if(ModelJson::getFileName()==='LoginForgetPasswordPost' || ModelJson::getFileName()==='LoginPost' || 
@@ -583,8 +586,8 @@ abstract class ModelJson implements InterfaceDataView{
         header('Location:'.$this->getBackPage());
         exit;
     }
-    function showMessage($message){
-        $_SESSION['message'] = $message;
+    function showMessage(){
+        $_SESSION['message'] = $this->getModelPage()[$this->getKeysTable()];
         header('Location:'.$this->getBackPage());
         exit;
     }

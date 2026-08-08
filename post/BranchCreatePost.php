@@ -11,7 +11,7 @@ class BranchCreatePost extends ModelJson{
         closedir($dir);
     }
     function __construct(){
-        parent::__construct("Branches");
+        parent::__construct("Branches", 'MessageModelCreate');
     }
     function getView(){
          $obj = $this->getFile()[$_POST['selectedBranch']];
@@ -43,9 +43,6 @@ class BranchCreatePost extends ModelJson{
         $myBranch = $this->getFile();
         $myBranch[$this->keyId] = $obj;
         $this->saveFile($myBranch);
-    }
-    function showMessagePost(){
-        $this->showMessage($this->getModelPage()['MessageModelCreate']);
     }
 }
 $view = new BranchCreatePost();

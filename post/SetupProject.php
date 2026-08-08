@@ -2,7 +2,7 @@
 // require 'auth/test_session3.php';
 class SetupProject extends ModelJson{
     function __construct(){
-        parent::__construct();
+        parent::__construct(null, 'CreateProjectMessage');
     }
     function getView(){
         $this->validInputs();
@@ -415,6 +415,8 @@ class SetupProject extends ModelJson{
                     "english"=> "System language"
                 ],
                 "Register"=>[
+                    "MessageStyleLang2"=>"Successfylly change style",
+                    "MessageStyleLang"=>"Successfylly change language",
                     "SelectBranchBox"=>[
                         "WithoutRays"=> "Without work",
                         "WithRays"=> "With work"
@@ -519,6 +521,8 @@ class SetupProject extends ModelJson{
                     "BranceRaysFollowValue"=> "Work invalid"
                 ],
                 "Login"=>[
+                    "MessageStyleLang2"=>"Successfylly change style",
+                    "MessageStyleLang"=>"Successfylly change language",
                     "ErrorServerMessage"=> "Error server message",
                     "SelectBranchBox"=>[
                         "WithoutRays"=> "Without work",

@@ -2,7 +2,7 @@
 // require 'auth/test_session3.php';
 class LoginPost extends ModelJson{
     function __construct(){
-        parent::__construct('Login');
+        parent::__construct('Login', 'LoginMessage');
     }
     function getView(){
         if(isset($this->getObj()['Users']))

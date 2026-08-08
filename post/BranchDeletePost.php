@@ -2,7 +2,7 @@
 // require 'auth/test_session4.php';
 class BranchDeletePost extends ModelJson{
     function __construct(){
-        parent::__construct('Branches');
+        parent::__construct('Branches', 'Delete');
     }
     function getView(){
         $file = $this->getFile();
@@ -17,9 +17,6 @@ class BranchDeletePost extends ModelJson{
             closedir($dir);
             rmdir('asset/product/'.$this->keyId);
         }
-    }
-    function showMessagePost(){
-        $this->showMessage($this->getModelPage()['Delete']);
     }
 }
 $view = new BranchDeletePost();

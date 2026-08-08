@@ -2,7 +2,7 @@
 // require 'auth/test_session3.php';
 class ChangeLangPost extends ModelJson{
     function __construct(){  
-        parent::__construct();
+        parent::__construct(null, $_POST['state'] === 'branch' || $_POST['state'] === 'branch2'?'SuccessfullyChangeBranch':($_POST['state'] === 'AllNamesLanguage'?'ChangeLang':'ChangeStyleMessage'));
     }
     function getView(){
         //importaint page don change super id refresh page if change branch to rest super id
@@ -14,9 +14,6 @@ class ChangeLangPost extends ModelJson{
             setcookie($this->getId().$_POST['state'], $this->keyId, time()+2628000);
             $_COOKIE[$this->getId().$_POST['state']] = $this->keyId;
         }
-    }
-    function showMessagePost(){
-        $this->showMessage($this->getModelPage()[$_POST['state'] === 'branch' || $_POST['state'] === 'branch2'?'SuccessfullyChangeBranch':($_POST['state'] === 'AllNamesLanguage'?'ChangeLang':'ChangeStyleMessage')]);
     }
 }
 $view = new ChangeLangPost();

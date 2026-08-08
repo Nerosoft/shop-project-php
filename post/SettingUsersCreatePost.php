@@ -8,8 +8,5 @@ class SettingUsersCreatePost extends ModelJson{
         $this->initErrorsEmailPassword3();
         $this->saveModel($this->initErrorsKeyPassword2($this->getObj()));
     }
-    function showMessagePost(){
-        $this->showMessage($this->getModelPage()[isset($_POST['id'])?'MessageModelEdit':'MessageModelCreate']);
-    }
 }
 $view = new SettingUsersCreatePost();
