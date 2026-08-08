@@ -6,6 +6,7 @@
     }
     function getView(){
         $this->saveModel($this->saveFelxTable($this->getModel2()['AllNamesLanguage'], $this->getObj()));
+        $this->showMessage('MyFlexTables?id='.$this->keyId);
     }
 }
 $view = new HomeCreatePost();
