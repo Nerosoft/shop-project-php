@@ -870,6 +870,7 @@ abstract class ModelJson implements InterfaceDataView{
             "Address"=>$_POST["Address"],
             "Follow"=>$_POST["Follow"]
         );
+        $this->File = $myBranch;
     }
     function getBranceRaysNameRequired(){
         return $this->getModelPage()['BranceRaysNameRequired'];
