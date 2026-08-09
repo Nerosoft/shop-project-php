@@ -338,6 +338,11 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "ChangeLanguage": "Change language",
+                "EditAllLang": "Edit all language",
+                "Style": "Style",
+                "AllNamesLanguage": "All name language",
+                "Home": "Home",
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
                 "BranchInv": "branch id invalid",
@@ -401,7 +406,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "873a8434": "English language"
+                "xVd470e3": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -778,6 +783,7 @@
                 "MessageModelEdit": "Seccessfully edit style"
             },
             "SystemLang": {
+                "ChangeLanguage": "Change language",
                 "Style": "Style",
                 "AllNamesLanguage": "All name language",
                 "Offcanvas": "Menu",
@@ -946,7 +952,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithoutRays"
             },
-            "zX65019b": {
+            "rWb31282": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
@@ -1000,7 +1006,14 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "873a8434": {
+        "Users": {
+            "nQc961c4": {
+                "Email": "ggamals7744@yahoo.com",
+                "Password": "ggamals7744@yahoo.com",
+                "Key": "ggamals7744@yahoo.com"
+            }
+        },
+        "xVd470e3": {
             "Site": {
                 "AllMenu": {
                     "Login": "Login",
@@ -1336,6 +1349,11 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "ChangeLanguage": "Change language",
+                "EditAllLang": "Edit all language",
+                "Style": "Style",
+                "AllNamesLanguage": "All name language",
+                "Home": "Home",
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
                 "BranchInv": "branch id invalid",
@@ -1399,7 +1417,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "873a8434": "English language"
+                "xVd470e3": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -1776,6 +1794,7 @@
                 "MessageModelEdit": "Seccessfully edit style"
             },
             "SystemLang": {
+                "ChangeLanguage": "Change language",
                 "Style": "Style",
                 "AllNamesLanguage": "All name language",
                 "Offcanvas": "Menu",
@@ -1931,16 +1950,9 @@
                     "Vmb5cb9d": "Error date invalid"
                 }
             }
-        },
-        "Users": {
-            "nQc961c4": {
-                "Email": "ggamals7744@yahoo.com",
-                "Password": "ggamals7744@yahoo.com",
-                "Key": "ggamals7744@yahoo.com"
-            }
         }
     },
-    "zX65019b": {
+    "rWb31282": {
         "AllNamesLanguage": "english",
         "Style": "default",
         "english": {
@@ -2279,6 +2291,11 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "ChangeLanguage": "Change language",
+                "EditAllLang": "Edit all language",
+                "Style": "Style",
+                "AllNamesLanguage": "All name language",
+                "Home": "Home",
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
                 "BranchInv": "branch id invalid",
@@ -2342,7 +2359,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "873a8434": "English language"
+                "xVd470e3": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -2719,6 +2736,7 @@
                 "MessageModelEdit": "Seccessfully edit style"
             },
             "SystemLang": {
+                "ChangeLanguage": "Change language",
                 "Style": "Style",
                 "AllNamesLanguage": "All name language",
                 "Offcanvas": "Menu",
@@ -2900,7 +2918,7 @@
                 "Salary": "100",
                 "Category": "Race Bicycle"
             },
-            "kod56475": {
+            "GY5d3c5a": {
                 "Name": "Video",
                 "Descreption": "Ultimate HealthCare",
                 "Salary": "100",
@@ -2917,7 +2935,14 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "873a8434": {
+        "Users": {
+            "nQc961c4": {
+                "Email": "ggamals7744@yahoo.com",
+                "Password": "ggamals7744@yahoo.com",
+                "Key": "ggamals7744@yahoo.com"
+            }
+        },
+        "xVd470e3": {
             "Site": {
                 "AllMenu": {
                     "Login": "Login",
@@ -3253,6 +3278,11 @@
                 "Delete": "Seccessfully delete branch"
             },
             "ChangeLanguage": {
+                "ChangeLanguage": "Change language",
+                "EditAllLang": "Edit all language",
+                "Style": "Style",
+                "AllNamesLanguage": "All name language",
+                "Home": "Home",
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
                 "BranchInv": "branch id invalid",
@@ -3316,7 +3346,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "873a8434": "English language"
+                "xVd470e3": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -3693,6 +3723,7 @@
                 "MessageModelEdit": "Seccessfully edit style"
             },
             "SystemLang": {
+                "ChangeLanguage": "Change language",
                 "Style": "Style",
                 "AllNamesLanguage": "All name language",
                 "Offcanvas": "Menu",
@@ -3847,13 +3878,6 @@
                     "ONb5cb93": "Error quantity invalid",
                     "Vmb5cb9d": "Error date invalid"
                 }
-            }
-        },
-        "Users": {
-            "nQc961c4": {
-                "Email": "ggamals7744@yahoo.com",
-                "Password": "ggamals7744@yahoo.com",
-                "Key": "ggamals7744@yahoo.com"
             }
         }
     }

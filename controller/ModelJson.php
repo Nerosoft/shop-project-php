@@ -417,15 +417,16 @@ abstract class ModelJson implements InterfaceDataView{
                     $this->initFlexTable();
                     unset($this->myMenuApp['Login'], $this->myMenuApp['Register']);
                 }
-            }else if($this->getUrlName2() === 'SystemLang'){
+            }else if($this->getUrlName2() === 'SystemLang' || $this->getUrlName2() === 'ChangeLanguage'){
                 $this->myMenuApp = array('Home'=>$this->getModelPage()['Home'],
-                'Logout'=>$this->getModelPage()['Logout'],
+                'ChangeLanguage'=>$this->getModelPage()['ChangeLanguage'],
                 'SystemLang'=>$this->getModelPage()['EditAllLang']);
                 foreach ($this->getModel2()['AllNamesLanguage'] as $key => $value){
                     $this->myMenuApp[$key] = array($value);
                     foreach (array_keys($this->getModel2()) as $key2 => $table) 
                         $this->myMenuApp[$key][$table] = $this?->getModel2()[$table]['MYTITLE']??$this->getModelPage()[$table];
                 }
+                $this->myMenuApp['Logout'] = $this->getModelPage()['Logout'];
             }
             else
                 $this->initFlexTable();     
@@ -493,12 +494,13 @@ abstract class ModelJson implements InterfaceDataView{
                 $table !== 'MyFlexTables' && 
                 $table !== 'Login' && 
                 $table !== 'Register' && 
+                $table !== 'ChangeLanguage' && 
                 $table !== 'AllNamesLanguage')
                 $this->myMenuApp[$table] = $this->getModel2()[$table]['MYTITLE'];
 
-        $this->myMenuApp['Logout'] = $this->getModelPage()['Logout'];
         if(isset($this->getModel2()['MyFlexTables']))
             $this->myMenuApp['MyFlexTables'] = array($this->getModelPage()['MyFlexTables'], ...$this->getModel2()['MyFlexTables']);
+        $this->myMenuApp['Logout'] = $this->getModelPage()['Logout'];
     }
     function loginAdmin(){
         $_SESSION['userId'] = $this->getId();
@@ -533,7 +535,7 @@ abstract class ModelJson implements InterfaceDataView{
         if($this->getUrlName2() === 'SystemLang' && isset($_SERVER['HTTP_REFERER']) && preg_match('/SystemLang/',pathinfo($_SERVER['HTTP_REFERER'])['filename']))
             return ucfirst(pathinfo($_SERVER['HTTP_REFERER'])['filename']);
         else
-            return isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()])?('MyFlexTables?id='.$this->getUrlName2()):$this->getUrlName2();
+            return isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()]) || ModelJson::getFileName() === 'HomeCreatePost'?('MyFlexTables?id='.($this->keyId??$this->getUrlName2())):$this->getUrlName2();
     }
     function getFile(){
         return $this->File;

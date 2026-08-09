@@ -352,6 +352,11 @@ class SetupProject extends ModelJson{
                     "Delete"=> "Seccessfully delete branch"
                 ],
                 "ChangeLanguage"=>[
+                    "ChangeLanguage"=> "Change language",
+                    "EditAllLang"=> "Edit all language",
+                    "Style"=> "Style",
+                    "AllNamesLanguage"=> "All name language",
+                    "Home"=> "Home",
                     "Offcanvas"=> "Menu",
                     "AdminDashboard"=> "Welocme in my library",
                     "BranchInv"=> "branch id invalid",
@@ -786,6 +791,7 @@ class SetupProject extends ModelJson{
                     "MessageModelEdit"=> "Seccessfully edit style"
                 ],
                 "SystemLang"=>[
+                    "ChangeLanguage"=> "Change language",
                     "Offcanvas"=> "Menu",
                     "AdminDashboard"=> "Welocme in my library",
                     "BranchInv"=> "branch id invalid",
