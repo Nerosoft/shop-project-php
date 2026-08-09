@@ -62,11 +62,12 @@ abstract class ModelJson implements InterfaceDataView{
         return $myData;
     }
     function deleteHome($myData, $idSseion){
-        foreach ($myData[$myData['AllNamesLanguage']]['AllNamesLanguage'] as $key => $value) 
+        foreach ($myData[$myData['AllNamesLanguage']]['AllNamesLanguage'] as $key => $value)
             if(count($myData[$key]['MyFlexTables']) === 1)
                 unset($myData[$key][$this->keyId], $myData[$key]['MyFlexTables']);
             else
                 unset($myData[$key][$this->keyId], $myData[$key]['MyFlexTables'][$this->keyId]);
+        
         if(isset($myData[$this->keyId])){
             foreach ($myData[$this->keyId] as $key => $value)
                 array_map('unlink', glob('asset/product/'.$idSseion.'/'.$key.'.*'));
@@ -343,8 +344,8 @@ abstract class ModelJson implements InterfaceDataView{
                         array_map('unlink', glob('asset/product/'.$key.'/'.$this->keyId.'.*'));
                     $myFile[$key] = $this->deleteItem($myFile[$key]);
                 }
-
             $this->saveFile($myFile);
+            return;
         }else if(
             ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($this->getModel2()[$_POST['state']][$_POST['id']])||
             ModelJson::getFileName() === 'BranchChangePost' && !isset($this->getBranch()[$_POST['id']])||
@@ -535,19 +536,15 @@ abstract class ModelJson implements InterfaceDataView{
         if($this->getUrlName2() === 'SystemLang' && isset($_SERVER['HTTP_REFERER']) && preg_match('/SystemLang/',pathinfo($_SERVER['HTTP_REFERER'])['filename']))
             return ucfirst(pathinfo($_SERVER['HTTP_REFERER'])['filename']);
         else
-            return isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()]) || ModelJson::getFileName() === 'HomeCreatePost'?('MyFlexTables?id='.($this->keyId??$this->getUrlName2())):$this->getUrlName2();
+            return isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()]) || ModelJson::getFileName() === 'HomeCreatePost'?('MyFlexTables?id='.(ModelJson::getFileName() === 'HomeCreatePost'?$this->keyId:$this->getUrlName2())):$this->getUrlName2();
     }
     function getFile(){
         return $this->File;
-    }
-    function saveVarFile($file){
-        $this->File = $file;
     }
     function saveMyFile(){
         file_put_contents("data.json", json_encode($this->getFile(), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
     }
     function saveFile($file){
-        $this->File = $file;
         file_put_contents("data.json", json_encode($file, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
     }
     function getObj(){
@@ -873,7 +870,6 @@ abstract class ModelJson implements InterfaceDataView{
             "Address"=>$_POST["Address"],
             "Follow"=>$_POST["Follow"]
         );
-        $this->saveVarFile($myBranch);
     }
     function getBranceRaysNameRequired(){
         return $this->getModelPage()['BranceRaysNameRequired'];
