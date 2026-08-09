@@ -5,7 +5,7 @@ class BranchEditPost extends ModelJson{
         parent::__construct('Branches', 'MessageModelEdit');
     }
     function getView(){
-        $this->saveMyFile();
+        $this->saveFile();
     }
 }
 $view = new BranchEditPost();

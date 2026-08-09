@@ -541,11 +541,8 @@ abstract class ModelJson implements InterfaceDataView{
     function getFile(){
         return $this->File;
     }
-    function saveMyFile(){
-        file_put_contents("data.json", json_encode($this->getFile(), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
-    }
-    function saveFile($file){
-        file_put_contents("data.json", json_encode($file, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+    function saveFile($file = null){
+        file_put_contents("data.json", json_encode($file??$this->getFile(), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
     }
     function getObj(){
         return $this->File[$this->getId()];
