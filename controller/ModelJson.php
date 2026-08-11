@@ -1,5 +1,4 @@
 <?php
-include 'interface/InterfaceDataView.php';
 abstract class ModelJson implements InterfaceDataView{
     private $File;
     private $IdPage;
