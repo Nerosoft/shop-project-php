@@ -19,12 +19,16 @@ $this->getView();
     echo '</div></div>';
     include('all_modal/end_model.php');
 
+    foreach ($this->getFile() as $key => $obj)
+        if(isset($obj['Branches'])){
+            $data[$key] = new Branch($obj['Branches'][$key]['Name']);
+            if(isset($obj['Branches'][$this->getId()]))
+                $style_lang = $key;
+        }
     $idModel = 'branch_modal2';
-    $style_lang = $this->getDbBranchKeys();
     $error = $this->getActiveBranchProject();
     $title = $this->getBranchProjectTitle();
     $button = $this->getBranchProjectButton();
     $state = 'branch2';
-    $data = $this->getDbKeys();
     include 'all_modal/style_lang_form.php';
     ?>

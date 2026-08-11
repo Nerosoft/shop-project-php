@@ -1,3 +1,4 @@
+<div class="start-page">
 <!-- HERO -->
 <section class="hero hero-bg d-flex justify-content-center align-items-center">
     <div class="container">
