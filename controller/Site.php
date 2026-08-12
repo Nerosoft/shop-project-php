@@ -1,7 +1,7 @@
 <?php
 class Site extends ModelJson{
     function __construct(){
-        parent::__construct('Site', ProductValue::getKeysObject()); 
+        parent::__construct('Site'); 
     }
     function getMyDataView(){
         return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();

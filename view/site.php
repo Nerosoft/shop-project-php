@@ -83,11 +83,11 @@
                                                         <i class="fa fa-angle-right project-icon"></i>
                                                     </a>
                                                 </h3>
-                                                <span>{$this->getModelPage()[$this->getKeysTable()[1]]} {$myObject->getName()}</span>
+                                                <span>{$this->getModelPage()['Name']} {$myObject->getName()}</span>
                                                 <br>
-                                                <span>{$this->getModelPage()[$this->getKeysTable()[3]]} {$myObject->getSalary()}</span>
+                                                <span>{$this->getModelPage()['Salary']} {$myObject->getSalary()}</span>
                                                 <br>
-                                                <span>{$this->getModelPage()[$this->getKeysTable()[4]]} {$myObject->getCategory()}</span>
+                                                <span>{$this->getModelPage()['Category']} {$myObject->getCategory()}</span>
                                                 <br>
                                             </div>
                                         </div>

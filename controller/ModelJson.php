@@ -234,6 +234,7 @@ abstract class ModelJson implements InterfaceDataView{
                 $this->initFlexTable();
                 unset($this->myMenuApp['Login'], $this->myMenuApp['Register']);
             }
+            return;
         }else if($_SERVER["REQUEST_METHOD"] === "GET" && ModelJson::getFileName() !== 'Login' && ModelJson::getFileName() !== 'Register')
             $this->initFlexTable();
         //id post and message
