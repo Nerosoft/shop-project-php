@@ -7,11 +7,6 @@ class Site extends ModelJson{
         return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
     }
     function getView(){
-        echo '<link rel="stylesheet" href="./asset/css/aos.css">
-        <link rel="stylesheet" href="./asset/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="./asset/css/owl.theme.default.min.css">
-        <link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css"></head><body>';
-        include 'pis_of_page/admin_title.php';
         include 'view/site.php';
     }
     function getStories(){
