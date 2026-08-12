@@ -1,6 +1,6 @@
 <?php
 // require 'auth/test_session2.php';
-class MyFlexTablesView extends ModelJson{
+class MyFlexTablesView extends ModelJson implements CreateModal{
     function __construct(){
         parent::__construct($_GET['id']??'');
     }

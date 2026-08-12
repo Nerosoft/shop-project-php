@@ -1,6 +1,6 @@
 <?php
 // require 'auth/test_session2.php';
-class MyChangeLanguage extends ModelJson{
+class MyChangeLanguage extends ModelJson implements CreateModal{
     function __construct(){
         parent::__construct('ChangeLanguage', MyLanguage::getKeysObject());
     }

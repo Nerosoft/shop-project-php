@@ -1,7 +1,6 @@
 <?php
 // require 'auth/test_session2.php';
-require 'class_object/ProductValue.php';
-class Product extends ModelJson{
+class Product extends ModelJson implements CreateModal{
     function __construct(){
         parent::__construct('Product', ProductValue::getKeysObject());
     }

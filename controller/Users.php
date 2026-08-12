@@ -1,7 +1,7 @@
 <?php
 // require 'auth/test_session2.php';
 require 'class_object/Users.php';
-class MySettingUsers extends ModelJson{
+class MySettingUsers extends ModelJson implements CreateModal{
     function __construct(){
         parent::__construct('Users', Users::getKeysObject());
     }
