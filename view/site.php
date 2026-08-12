@@ -71,21 +71,24 @@
                 </h2>
 
                     <div class="owl-carousel owl-theme" id="project-slide">
-                            <?php
+                            <?php                                   
                                 foreach ($this->getMyDataView() as $index => $myObject)
                                     echo<<<HTML
                                         <div class="item project-wrapper" data-aos="fade-up" data-aos-delay="100">
                                             <img src="./asset/product/{$this->getId()}/{$index}" class="img-fluid" alt="project image">
-
                                             <div class="project-info">
-                                                <small>{$myObject->getName()}</small>
-
                                                 <h3>
-                                                        <a href="#project">
-                                                            <span>{$myObject->getDescreption()}</span>
-                                                            <i class="fa fa-angle-right project-icon"></i>
-                                                        </a>
+                                                    <a href="#project">
+                                                        <span>{$myObject->getDescreption()}</span>
+                                                        <i class="fa fa-angle-right project-icon"></i>
+                                                    </a>
                                                 </h3>
+                                                <span>{$this->getModelPage()[$this->getKeysTable()[1]]} {$myObject->getName()}</span>
+                                                <br>
+                                                <span>{$this->getModelPage()[$this->getKeysTable()[3]]} {$myObject->getSalary()}</span>
+                                                <br>
+                                                <span>{$this->getModelPage()[$this->getKeysTable()[4]]} {$myObject->getCategory()}</span>
+                                                <br>
                                             </div>
                                         </div>
                                     HTML;

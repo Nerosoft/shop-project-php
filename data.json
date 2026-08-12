@@ -4,6 +4,11 @@
         "Style": "default",
         "english": {
             "Site": {
+                "Name": "Name",
+                "Descreption": "Descreption",
+                "Salary": "Salary",
+                "Category": "Category",
+                "Image": "Image",
                 "AllMenu": {
                     "Login": "Login",
                     "Register": "Register",
@@ -406,7 +411,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "2e333998": "English language"
+                "JX5c0a49": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -952,7 +957,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithoutRays"
             },
-            "iL7dd7e0": {
+            "IYc3bde4": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
@@ -1013,8 +1018,13 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "2e333998": {
+        "JX5c0a49": {
             "Site": {
+                "Name": "Name",
+                "Descreption": "Descreption",
+                "Salary": "Salary",
+                "Category": "Category",
+                "Image": "Image",
                 "AllMenu": {
                     "Login": "Login",
                     "Register": "Register",
@@ -1417,7 +1427,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "2e333998": "English language"
+                "JX5c0a49": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -1952,11 +1962,16 @@
             }
         }
     },
-    "iL7dd7e0": {
+    "IYc3bde4": {
         "AllNamesLanguage": "english",
         "Style": "default",
         "english": {
             "Site": {
+                "Name": "Name",
+                "Descreption": "Descreption",
+                "Salary": "Salary",
+                "Category": "Category",
+                "Image": "Image",
                 "AllMenu": {
                     "Login": "Login",
                     "Register": "Register",
@@ -2359,7 +2374,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "2e333998": "English language"
+                "JX5c0a49": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -2942,8 +2957,13 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "2e333998": {
+        "JX5c0a49": {
             "Site": {
+                "Name": "Name",
+                "Descreption": "Descreption",
+                "Salary": "Salary",
+                "Category": "Category",
+                "Image": "Image",
                 "AllMenu": {
                     "Login": "Login",
                     "Register": "Register",
@@ -3346,7 +3366,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "2e333998": "English language"
+                "JX5c0a49": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
