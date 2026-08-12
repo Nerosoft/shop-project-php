@@ -5,7 +5,7 @@ abstract class ModelJson implements InterfaceDataView{
     private $Language;
     private $count = 1;
     private $MyIdDb;
-    private $myMenuApp;
+    public $myMenuApp;
     private $keysTable;
     protected $keyId;
     protected $styleLangAction;
@@ -379,7 +379,66 @@ abstract class ModelJson implements InterfaceDataView{
             $this->initErrorBranch2();
         $this->getView();
     }
+    function initView2(){
+        echo<<<HTML
+            <link href="./asset/css/login_register.css" rel="stylesheet"></head><body>
+            <div class="container">
+                <div id="createModel" class="register">
+                    <h4>
+        HTML;
+        include 'pis_of_page/button_langstylebranch.php';
+        echo<<<HTML
+                        <a href="./site" class="navbar-brand fa fa-truck fa-2x pointer"></a>
+                    </h4>
+                        <h4>{$this->getTitleForm()}</h4>
+                    <form method='POST' action="{$this->getKeysTable()}">
+        HTML; 
+        include('all_modal/login_register_input.php');
+        if($this->getUrlName2() === 'Register')
+            include 'view/register_view.php';
+        include 'pis_of_page/buttons.php';
+    }
     function initView(){
+        echo '<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
+        <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
+        <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';
+        if($this->getUrlName2() === 'SystemLang' || $this->getUrlName2() === 'ChangeLanguage'){
+            $this->myMenuApp = array('Home'=>$this->getModelPage()['Home'],
+            'ChangeLanguage'=>$this->getModelPage()['ChangeLanguage'],
+            'SystemLang'=>$this->getModelPage()['EditAllLang']);
+            foreach ($this->getModel2()['AllNamesLanguage'] as $key => $value){
+                $this->myMenuApp[$key] = array($value);
+                foreach (array_keys($this->getModel2()) as $key2 => $table) 
+                    $this->myMenuApp[$key][$table] = $this?->getModel2()[$table]['MYTITLE']??$this->getModelPage()[$table];
+            }
+            $this->myMenuApp['Logout'] = $this->getModelPage()['Logout'];
+        }
+        else
+            $this->initFlexTable();
+        include 'pis_of_page/admin_title.php';
+        echo '<div class="start-page container">';
+        if($this->getUrlName2() !== 'SystemLang' && $this->getUrlName2() !== 'MyStyle'){
+            echo <<<HTML
+                <button onclick="openForm('#createModel')" class="btn btn-primary">{$this->getModelPage()['ButtonModelCreate']}</button>
+            HTML;
+            $this->makeCreateModal($this->getModelPage()['ScreenModelCreate'], $this->getModelPage()['ButtonModelAdd']);
+        }
+        echo'
+            <table id="example" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>'.$this->getTableId().'</th>';
+        $this->printTableNames();
+        echo '<th>'.$this->getTabelEvent().'</th>
+                </tr>
+            </thead>
+            <tbody>';
+        $this->getView();
+    }
+    function endPage(){
+        include 'pis_of_page/end_html.php';
+    }
+    function startPage(){
         // if(!isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']]))
         //     setcookie('branchId', $_GET['id'], time()+2628000);
         if(isset($_SESSION['message']) || isset($_SESSION['error']))
@@ -398,78 +457,6 @@ abstract class ModelJson implements InterfaceDataView{
             <link href="./asset/css/{$this->getStyleFile()}.css" rel="stylesheet">
             <link rel="stylesheet" href="./asset/css/font-awesome.min.css">
         HTML;
-        if(ModelJson::getFileName() !== 'Login' && ModelJson::getFileName() !== 'Register'){
-            echo '<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
-            <link rel="stylesheet" href="./asset/css/aos.css">
-            <link rel="stylesheet" href="./asset/css/owl.carousel.min.css">
-            <link rel="stylesheet" href="./asset/css/owl.theme.default.min.css">
-            <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
-            <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script>';
-            if($this->getUrlName2() === 'Site'){
-                echo '<link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css"></head><body>';
-                  $this->myMenuApp = $this->getModelPage()['AllMenu'];
-                if(isset($_SESSION['userId'])){
-                    $this->initFlexTable();
-                    unset($this->myMenuApp['Login'], $this->myMenuApp['Register']);
-                }
-                include 'pis_of_page/admin_title.php';
-            }else{
-                echo '</head><body>';
-                if($this->getUrlName2() === 'SystemLang' || $this->getUrlName2() === 'ChangeLanguage'){
-                    $this->myMenuApp = array('Home'=>$this->getModelPage()['Home'],
-                    'ChangeLanguage'=>$this->getModelPage()['ChangeLanguage'],
-                    'SystemLang'=>$this->getModelPage()['EditAllLang']);
-                    foreach ($this->getModel2()['AllNamesLanguage'] as $key => $value){
-                        $this->myMenuApp[$key] = array($value);
-                        foreach (array_keys($this->getModel2()) as $key2 => $table) 
-                            $this->myMenuApp[$key][$table] = $this?->getModel2()[$table]['MYTITLE']??$this->getModelPage()[$table];
-                    }
-                    $this->myMenuApp['Logout'] = $this->getModelPage()['Logout'];
-                }
-                else
-                    $this->initFlexTable();
-                include 'pis_of_page/admin_title.php';
-                echo '<div class="start-page container">';
-                if($this->getUrlName2() !== 'SystemLang' && $this->getUrlName2() !== 'MyStyle'){
-                    echo <<<HTML
-                        <button onclick="openForm('#createModel')" class="btn btn-primary">{$this->getModelPage()['ButtonModelCreate']}</button>
-                    HTML;
-                    $this->makeCreateModal($this->getModelPage()['ScreenModelCreate'], $this->getModelPage()['ButtonModelAdd']);
-                }
-                echo'
-                    <table id="example" class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>'.$this->getTableId().'</th>';
-                $this->printTableNames();
-                echo '<th>'.$this->getTabelEvent().'</th>
-                        </tr>
-                    </thead>
-                    <tbody>';
-            }
-            $this->getView();
-        }else{
-            echo<<<HTML
-                <link href="./asset/css/login_register.css" rel="stylesheet"></head><body>
-                <div class="container">
-                    <div id="createModel" class="register">
-                        <h4>
-            HTML;
-            include 'pis_of_page/button_langstylebranch.php';
-            echo<<<HTML
-                            <a href="./site" class="navbar-brand fa fa-truck fa-2x pointer"></a>
-                        </h4>
-                            <h4>{$this->getTitleForm()}</h4>
-                        <form method='POST' action="{$this->getKeysTable()}">
-            HTML; 
-            include('all_modal/login_register_input.php');
-            if($this->getUrlName2() === 'Register')
-                include 'view/register_view.php';
-            include 'pis_of_page/buttons.php';
-        }
-        include 'pis_of_page/end_html.php';
-
-        
     }
     function getCount(){
         return $this->count;

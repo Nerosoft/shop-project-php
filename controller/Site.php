@@ -2,12 +2,22 @@
 require 'class_object/ProductValue.php';
 class Site extends ModelJson{
     function __construct(){
-        parent::__construct('Site'); 
+        parent::__construct('Site', ProductValue::getKeysObject()); 
     }
     function getMyDataView(){
         return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
     }
     function getView(){
+        echo '<link rel="stylesheet" href="./asset/css/aos.css">
+        <link rel="stylesheet" href="./asset/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./asset/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css"></head><body>';
+        $this->myMenuApp = $this->getModelPage()['AllMenu'];
+        if(isset($_SESSION['userId'])){
+            $this->initFlexTable();
+            unset($this->myMenuApp['Login'], $this->myMenuApp['Register']);
+        }
+        include 'pis_of_page/admin_title.php';
         include 'view/site.php';
     }
     function getStories(){
