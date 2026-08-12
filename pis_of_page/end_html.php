@@ -84,6 +84,7 @@
                     </script>
             HTML;
         }
+        $action = (isset($_SESSION['userId'])?'ChangeLanguagePost':'ChangeLangPost').'?id='.$this->getUrlName2();
         $idModel = 'lang_modal';
         $style_lang = $this->getLanguage();
         $error = $this->getChangeLang();
@@ -92,6 +93,7 @@
         $state = 'AllNamesLanguage';
         $data = $this->getMyLanguage();
         include 'all_modal/style_lang_form.php';
+
         $idModel = 'style_modal';
         $style_lang = $this->getStyleFile();
         $error = $this->getChangeStyle();
@@ -109,7 +111,7 @@
         $state = 'branch';
         $data = $this->getMyBranch();
         if(isset($_SESSION['userId']))
-            $this->setActionStyleLang('BranchChangePost?id='.$this->getUrlName2());
+            $action = ('BranchChangePost?id='.$this->getUrlName2());
         include 'all_modal/style_lang_form.php';
 ?>
         <script type="text/javascript">

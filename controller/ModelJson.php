@@ -8,7 +8,6 @@ abstract class ModelJson implements InterfaceDataView{
     public $myMenuApp;
     private $keysTable;
     protected $keyId;
-    protected $styleLangAction;
     private $MessageServer;
     private $MessageType;
     private $StyleFile;
@@ -407,22 +406,15 @@ abstract class ModelJson implements InterfaceDataView{
                     <form method='POST' action="{$this->getKeysTable()}">
         HTML; 
         include('all_modal/login_register_input.php');
-        if($this->getUrlName2() === 'Register')
-            include 'view/register_view.php';
-        include 'pis_of_page/buttons.php';
     }
-    function initView(){
+    function initView3(){
         echo '<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
         <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
         <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';
         include 'pis_of_page/admin_title.php';
         echo '<div class="start-page container">';
-        if($this->getUrlName2() !== 'SystemLang' && $this->getUrlName2() !== 'MyStyle'){
-            echo <<<HTML
-                <button onclick="openForm('#createModel')" class="btn btn-primary">{$this->getModelPage()['ButtonModelCreate']}</button>
-            HTML;
-            $this->makeCreateModal($this->getModelPage()['ScreenModelCreate'], $this->getModelPage()['ButtonModelAdd']);
-        }
+    }
+    function initView4(){
         echo'
             <table id="example" class="table table-striped">
             <thead>
@@ -433,15 +425,14 @@ abstract class ModelJson implements InterfaceDataView{
                 </tr>
             </thead>
             <tbody>';
-        $this->getView();
     }
     function endPage(){
+        $this->getView();
         include 'pis_of_page/end_html.php';
     }
     function startPage(){
         $this->MessageServer = $_SESSION['error']??($_SESSION['message']??$this->getModelPage()['LoadMessage']);
         $this->MessageType = isset($_SESSION['error'])?'danger':'success';
-        $this->styleLangAction = (isset($_SESSION['userId'])?'ChangeLanguagePost':'ChangeLangPost').'?id='.$this->getUrlName2();
         $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Style'];
         // if(!isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']]))
         //     setcookie('branchId', $_GET['id'], time()+2628000);
@@ -608,12 +599,6 @@ abstract class ModelJson implements InterfaceDataView{
     }
     function getType(){
         return $this->MessageType;
-    }
-    function getActionStyleLang(){
-        return $this->styleLangAction;
-    }
-    function setActionStyleLang($value){
-        $this->styleLangAction = $value;
     }
     function getTitle(){
         return $this->getModelPage()['Title'];

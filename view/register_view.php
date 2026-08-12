@@ -33,3 +33,4 @@ echo<<<HTML
     </script>
 HTML;
 include('all_modal/setting_users_iput.php');
+include 'pis_of_page/login_register.php';

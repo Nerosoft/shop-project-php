@@ -4,9 +4,11 @@ class MyRegister extends ModelJson{
         parent::__construct('Register', 'RegisterPost');
     }
     function getView(){
+        include 'view/register_view.php';
         echo <<<HTML
         <button onclick="showMessageProg()" type="button" class="btn btn-success btinfo">{$this->getButtonForgetPassword2()}</button>
         HTML;
+        include 'pis_of_page/buttons.php';    
     }
     function getButtonForgetPassword2(){
         return $this->getModelPage()['ButtonForgetPassword'];
