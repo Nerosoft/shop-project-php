@@ -1,2 +1,2 @@
 <?php
-require 'auth/view.php';
+require 'auth/table_edit.php';
