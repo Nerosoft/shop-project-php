@@ -1,2 +1,3 @@
 <?php
-require 'auth/table_edit.php';
+require 'auth/view.php';
+$view->initTable();

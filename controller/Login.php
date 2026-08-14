@@ -2,6 +2,7 @@
 class Login extends ModelJson{
     function __construct(){
         parent::__construct('Login', 'LoginPost');
+        $this->loginRegister();
     }
     function getView(){
         include 'pis_of_page/login_register.php';

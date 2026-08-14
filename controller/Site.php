@@ -7,6 +7,10 @@ class Site extends ModelJson{
             $this->initFlexTable();
             unset($this->myMenuApp['Login'], $this->myMenuApp['Register']);
         }
+        echo '<link rel="stylesheet" href="./asset/css/aos.css">
+        <link rel="stylesheet" href="./asset/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./asset/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css">';
     }
     function getMyDataView(){
         return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();

@@ -217,9 +217,27 @@ abstract class ModelJson implements InterfaceDataView{
             $_SESSION['error'] = $this->getModel2()[isset($_SESSION['userId'])?'Home':'Login']['ErrorServerMessage'];
             header('Location:'.(isset($_SESSION['userId'])?'Home':'Login'));
             exit;
-        }else if($_SERVER["REQUEST_METHOD"] === "GET" && ModelJson::getFileName() !== 'Login' && ModelJson::getFileName() !== 'Register' && ModelJson::getFileName() !== 'Site' && ModelJson::getFileName() !== 'ChangeLanguage' && ModelJson::getFileName() !== 'SystemLang')
-            $this->initFlexTable();
-        else if($_SERVER["REQUEST_METHOD"] === "POST" && ModelJson::getFileName() !== 'LoginForgetPasswordPost' && ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'SystemLangEditPost'){
+        }else if($_SERVER["REQUEST_METHOD"] === "GET"){
+            $this->MessageServer = $_SESSION['error']??($_SESSION['message']??$this->getModelPage()['LoadMessage']);
+            $this->MessageType = isset($_SESSION['error'])?'danger':'success';
+            $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Style'];
+            if(isset($_SESSION['message']) || isset($_SESSION['error']))
+                unset($_SESSION['message'], $_SESSION['error']);
+            echo<<<HTML
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>{$this->getTitle()}</title>
+                <link href="./asset/css/style.css" rel="stylesheet">
+                <link href="./asset/lib/bootstrap.min.css" rel="stylesheet">
+                <script src="./asset/lib/jquery.min.js" type="text/javascript"></script>
+                <script src="./asset/lib/bootstrap.bundle.min.js" type="text/javascript"></script>
+                <script src="./asset/js/script.js" type="text/javascript" defer></script>
+                <link href="./asset/css/{$this->getStyleFile()}.css" rel="stylesheet">
+                <link rel="stylesheet" href="./asset/css/font-awesome.min.css">
+            HTML;
+        }else if($_SERVER["REQUEST_METHOD"] === "POST" && ModelJson::getFileName() !== 'LoginForgetPasswordPost' && ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'SystemLangEditPost'){
             // 'BranchCreatePost'  'ChangeLanguageCreatePost'  'HomeCreatePost'  'SetupProject'  'RegisterPost' 
             $this->keyId = ModelJson::getFileName() === 'BranchCreatePost' ||
             ModelJson::getFileName() === 'ChangeLanguageCreatePost' ||
@@ -382,28 +400,6 @@ abstract class ModelJson implements InterfaceDataView{
         else if(ModelJson::getFileName() === 'BranchEditPost' || ModelJson::getFileName() === 'BranchCreatePost')
             $this->initErrorBranch2();
     }
-    function initView(){
-        $this->MessageServer = $_SESSION['error']??($_SESSION['message']??$this->getModelPage()['LoadMessage']);
-        $this->MessageType = isset($_SESSION['error'])?'danger':'success';
-        $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Style'];
-        if(isset($_SESSION['message']) || isset($_SESSION['error']))
-            unset($_SESSION['message'], $_SESSION['error']);
-        echo<<<HTML
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>{$this->getTitle()}</title>
-            <link href="./asset/css/style.css" rel="stylesheet">
-            <link href="./asset/lib/bootstrap.min.css" rel="stylesheet">
-            <script src="./asset/lib/jquery.min.js" type="text/javascript"></script>
-            <script src="./asset/lib/bootstrap.bundle.min.js" type="text/javascript"></script>
-            <script src="./asset/js/script.js" type="text/javascript" defer></script>
-            <link href="./asset/css/{$this->getStyleFile()}.css" rel="stylesheet">
-            <link rel="stylesheet" href="./asset/css/font-awesome.min.css">
-        HTML;
-
-    }
     function loginRegister(){
         echo<<<HTML
             <link href="./asset/css/login_register.css" rel="stylesheet"></head><body>
@@ -421,7 +417,11 @@ abstract class ModelJson implements InterfaceDataView{
         include('all_modal/login_register_input.php');
         $this->endPage();
     }
-    function setupMenu($cont = 'container'){
+    function setupMenu($cont){
+        if(ModelJson::getFileName() === 'Branches' || ModelJson::getFileName() === 'Home'||
+            ModelJson::getFileName() === 'MyFlexTables' || ModelJson::getFileName() === 'MyStyle'||
+            ModelJson::getFileName() === 'Product' || ModelJson::getFileName() === 'Users')
+            $this->initFlexTable();
         echo'<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
         <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
         <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';

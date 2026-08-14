@@ -1,2 +1,2 @@
 <?php
-require 'auth/login_register.php';
+require 'auth/view.php';
