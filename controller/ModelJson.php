@@ -244,7 +244,7 @@ abstract class ModelJson implements InterfaceDataView{
             ModelJson::getFileName() === 'ChangeLanguageCreatePost' ||
             ModelJson::getFileName() === 'HomeCreatePost'||
             ModelJson::getFileName() === 'RegisterPost'||
-            ModelJson::getFileName() === 'RegisterPost'?ModelJson::getRandomKey():($_POST['id']??'no-id');
+            ModelJson::getFileName() === 'RegisterPost'?ModelJson::getRandomKey():($_POST['id']??ModelJson::getRandomKey());
         }
         $this->keysTable = ModelJson::getFileName() === 'MyFlexTables'?array('TableProductImage', ...array_keys($this->getTableHead())):$pram1;
     }
