@@ -400,6 +400,7 @@ abstract class ModelJson implements InterfaceDataView{
             $this->validName();
         else if(ModelJson::getFileName() === 'BranchEditPost' || ModelJson::getFileName() === 'BranchCreatePost')
             $this->initErrorBranch2();
+        $this->getView();
     }
     function loginRegister(){
         echo<<<HTML
