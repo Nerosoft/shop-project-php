@@ -3,6 +3,7 @@
 class MyChangeLanguage extends ModelJson implements CreateModal{
     function __construct(){
         parent::__construct('ChangeLanguage', MyLanguage::getKeysObject());
+        $this->initMenuSettingLang();
     }
     function getMyDataView(){
         return array_reverse(MyLanguage::fromArray($this->getModel2()['AllNamesLanguage'])); 

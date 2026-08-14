@@ -2,6 +2,11 @@
 class Site extends ModelJson{
     function __construct(){
         parent::__construct('Site'); 
+        $this->myMenuApp = $this->getModelPage()['AllMenu'];
+        if(isset($_SESSION['userId'])){
+            $this->initFlexTable();
+            unset($this->myMenuApp['Login'], $this->myMenuApp['Register']);
+        }
     }
     function getMyDataView(){
         return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();

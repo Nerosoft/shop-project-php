@@ -217,35 +217,28 @@ abstract class ModelJson implements InterfaceDataView{
             $_SESSION['error'] = $this->getModel2()[isset($_SESSION['userId'])?'Home':'Login']['ErrorServerMessage'];
             header('Location:'.(isset($_SESSION['userId'])?'Home':'Login'));
             exit;
-        }else if(ModelJson::getFileName() === 'Site'){
-            $this->myMenuApp = $this->getModelPage()['AllMenu'];
-            if(isset($_SESSION['userId'])){
-                $this->initFlexTable();
-                unset($this->myMenuApp['Login'], $this->myMenuApp['Register']);
-            }
-            return;
-        }else if(ModelJson::getFileName() === 'SystemLang' || ModelJson::getFileName() === 'ChangeLanguage'){
-            $this->myMenuApp = array('Home'=>$this->getModelPage()['Home'],
-            'ChangeLanguage'=>$this->getModelPage()['ChangeLanguage'],
-            'SystemLang'=>$this->getModelPage()['EditAllLang']);
-            foreach ($this->getModel2()['AllNamesLanguage'] as $key => $value){
-                $this->myMenuApp[$key] = array($value);
-                foreach (array_keys($this->getModel2()) as $key2 => $table) 
-                $this->myMenuApp[$key][$table] = $this?->getModel2()[$table]['MYTITLE']??$this->getModelPage()[$table];
-            }
-            $this->myMenuApp['Logout'] = $this->getModelPage()['Logout'];
-        }else if($_SERVER["REQUEST_METHOD"] === "GET" && ModelJson::getFileName() !== 'Login' && ModelJson::getFileName() !== 'Register')
+        }else if($_SERVER["REQUEST_METHOD"] === "GET" && ModelJson::getFileName() !== 'Login' && ModelJson::getFileName() !== 'Register' && ModelJson::getFileName() !== 'Site' && ModelJson::getFileName() !== 'ChangeLanguage' && ModelJson::getFileName() !== 'SystemLang')
             $this->initFlexTable();
-        //$_SERVER["REQUEST_METHOD"] === "POST" && important
-        else if(ModelJson::getFileName() !== 'LoginForgetPasswordPost' && ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'SystemLangEditPost'){
+        else if($_SERVER["REQUEST_METHOD"] === "POST" && ModelJson::getFileName() !== 'LoginForgetPasswordPost' && ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'SystemLangEditPost'){
             // 'BranchCreatePost'  'ChangeLanguageCreatePost'  'HomeCreatePost'  'SetupProject'  'RegisterPost' 
             $this->keyId = ModelJson::getFileName() === 'BranchCreatePost' ||
             ModelJson::getFileName() === 'ChangeLanguageCreatePost' ||
             ModelJson::getFileName() === 'HomeCreatePost'||
             ModelJson::getFileName() === 'RegisterPost'||
-            ModelJson::getFileName() === 'RegisterPost'?ModelJson::getRandomKey():($_POST['id']??ModelJson::getRandomKey());
+            ModelJson::getFileName() === 'RegisterPost'?ModelJson::getRandomKey():($_POST['id']??'no-id');
         }
         $this->keysTable = ModelJson::getFileName() === 'MyFlexTables'?array('TableProductImage', ...array_keys($this->getTableHead())):$pram1;
+    }
+    function initMenuSettingLang(){
+        $this->myMenuApp = array('Home'=>$this->getModelPage()['Home'],
+        'ChangeLanguage'=>$this->getModelPage()['ChangeLanguage'],
+        'SystemLang'=>$this->getModelPage()['EditAllLang']);
+        foreach ($this->getModel2()['AllNamesLanguage'] as $key => $value){
+            $this->myMenuApp[$key] = array($value);
+            foreach (array_keys($this->getModel2()) as $key2 => $table) 
+            $this->myMenuApp[$key][$table] = $this?->getModel2()[$table]['MYTITLE']??$this->getModelPage()[$table];
+        }
+        $this->myMenuApp['Logout'] = $this->getModelPage()['Logout'];
     }
     function makePost(){
         if(ModelJson::getFileName()==='LoginForgetPasswordPost' || ModelJson::getFileName()==='LoginPost' || 

@@ -3,6 +3,7 @@
 class MySystemlang extends ModelJson{
     function __construct(){
         parent::__construct('SystemLang', !(isset($_GET['lang']) && isset($_GET['table']))?array('LanguageName', 'LanguageValue'):array('LanguageValue'));
+        $this->initMenuSettingLang();
     }
     function getMyDataView(){
         if(isset($_GET['lang']) && isset($_GET['table']))
