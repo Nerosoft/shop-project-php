@@ -237,7 +237,8 @@ abstract class ModelJson implements InterfaceDataView{
                 <link href="./asset/css/{$this->getStyleFile()}.css" rel="stylesheet">
                 <link rel="stylesheet" href="./asset/css/font-awesome.min.css">
             HTML;
-        }else if($_SERVER["REQUEST_METHOD"] === "POST" && ModelJson::getFileName() !== 'LoginForgetPasswordPost' && ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'SystemLangEditPost'){
+        }//$_SERVER["REQUEST_METHOD"] === "POST" && important
+        else if(ModelJson::getFileName() !== 'LoginForgetPasswordPost' && ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'SystemLangEditPost'){
             // 'BranchCreatePost'  'ChangeLanguageCreatePost'  'HomeCreatePost'  'SetupProject'  'RegisterPost' 
             $this->keyId = ModelJson::getFileName() === 'BranchCreatePost' ||
             ModelJson::getFileName() === 'ChangeLanguageCreatePost' ||
