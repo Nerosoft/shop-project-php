@@ -83,6 +83,17 @@ abstract class ModelJson implements InterfaceDataView{
         return $myData;
     }
     function __construct($idPage = null, $pram1 = null){
+        if($_SERVER["REQUEST_METHOD"] === "POST" && ModelJson::getFileName() !== 'LoginForgetPasswordPost' || 
+            ModelJson::getFileName() !== 'LoginPost' || ModelJson::getFileName() !== 'SystemLangEditPost'){
+            // 'BranchCreatePost'  'ChangeLanguageCreatePost'  'HomeCreatePost'  'SetupProject'  'RegisterPost' 
+            $this->keyId = ModelJson::getFileName() === 'BranchCreatePost' ||
+            ModelJson::getFileName() === 'ChangeLanguageCreatePost' ||
+            ModelJson::getFileName() === 'HomeCreatePost'||
+            ModelJson::getFileName() === 'RegisterPost'||
+            ModelJson::getFileName() === 'RegisterPost'?ModelJson::getRandomKey():($_POST['id']??ModelJson::getRandomKey());
+            //id post and message
+            $this->keysTable = $pram1;
+        }
         //receve message from constractor felexbalty change key message for all action
         $this->File = json_decode(file_get_contents('data.json'), true);
         $this->IdPage = $idPage??($_GET['id']??null);
@@ -217,39 +228,92 @@ abstract class ModelJson implements InterfaceDataView{
             $_SESSION['error'] = $this->getModel2()[isset($_SESSION['userId'])?'Home':'Login']['ErrorServerMessage'];
             header('Location:'.(isset($_SESSION['userId'])?'Home':'Login'));
             exit;
-        }else if(ModelJson::getFileName() === 'SystemLang' || ModelJson::getFileName() === 'ChangeLanguage'){
-            $this->myMenuApp = array('Home'=>$this->getModelPage()['Home'],
-            'ChangeLanguage'=>$this->getModelPage()['ChangeLanguage'],
-            'SystemLang'=>$this->getModelPage()['EditAllLang']);
-            foreach ($this->getModel2()['AllNamesLanguage'] as $key => $value){
-                $this->myMenuApp[$key] = array($value);
-                foreach (array_keys($this->getModel2()) as $key2 => $table) 
-                    $this->myMenuApp[$key][$table] = $this?->getModel2()[$table]['MYTITLE']??$this->getModelPage()[$table];
+        }
+        else if($_SERVER["REQUEST_METHOD"] === "GET"){
+            $this->MessageServer = $_SESSION['error']??($_SESSION['message']??$this->getModelPage()['LoadMessage']);
+            $this->MessageType = isset($_SESSION['error'])?'danger':'success';
+            $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Style'];
+            // if(!isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']]))
+            //     setcookie('branchId', $_GET['id'], time()+2628000);
+            if(isset($_SESSION['message']) || isset($_SESSION['error']))
+                unset($_SESSION['message'], $_SESSION['error']);
+            echo<<<HTML
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>{$this->getTitle()}</title>
+                <link href="./asset/css/style.css" rel="stylesheet">
+                <link href="./asset/lib/bootstrap.min.css" rel="stylesheet">
+                <script src="./asset/lib/jquery.min.js" type="text/javascript"></script>
+                <script src="./asset/lib/bootstrap.bundle.min.js" type="text/javascript"></script>
+                <script src="./asset/js/script.js" type="text/javascript" defer></script>
+                <link href="./asset/css/{$this->getStyleFile()}.css" rel="stylesheet">
+                <link rel="stylesheet" href="./asset/css/font-awesome.min.css">
+            HTML;
+            if(ModelJson::getFileName() === 'Site'){
+                $this->myMenuApp = $this->getModelPage()['AllMenu'];
+                if(isset($_SESSION['userId'])){
+                    $this->initFlexTable();
+                    unset($this->myMenuApp['Login'], $this->myMenuApp['Register']);
+                }
+                echo '<link rel="stylesheet" href="./asset/css/aos.css">
+                <link rel="stylesheet" href="./asset/css/owl.carousel.min.css">
+                <link rel="stylesheet" href="./asset/css/owl.theme.default.min.css">
+                <link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css">';
+            }else if(ModelJson::getFileName() === 'SystemLang' || ModelJson::getFileName() === 'ChangeLanguage'){
+                $this->myMenuApp = array('Home'=>$this->getModelPage()['Home'],
+                'ChangeLanguage'=>$this->getModelPage()['ChangeLanguage'],
+                'SystemLang'=>$this->getModelPage()['EditAllLang']);
+                foreach ($this->getModel2()['AllNamesLanguage'] as $key => $value){
+                    $this->myMenuApp[$key] = array($value);
+                    foreach (array_keys($this->getModel2()) as $key2 => $table) 
+                        $this->myMenuApp[$key][$table] = $this?->getModel2()[$table]['MYTITLE']??$this->getModelPage()[$table];
+                }
+                $this->myMenuApp['Logout'] = $this->getModelPage()['Logout'];
+            }else if(ModelJson::getFileName() === 'Login' || ModelJson::getFileName() === 'Register'){
+                echo<<<HTML
+                    <link href="./asset/css/login_register.css" rel="stylesheet"></head><body>
+                    <div class="container">
+                        <div id="createModel" class="register">
+                            <h4>
+                HTML;
+                include 'pis_of_page/button_langstylebranch.php';
+                echo<<<HTML
+                                <a href="./site" class="navbar-brand fa fa-truck fa-2x pointer"></a>
+                            </h4>
+                                <h4>{$this->getTitleForm()}</h4>
+                            <form method='POST' action="{$pram1}">
+                HTML; 
+                include('all_modal/login_register_input.php');
+                return;
+            }else 
+               $this->initFlexTable();
+            echo'<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
+            <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
+            <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';
+            include 'pis_of_page/admin_title.php';
+            echo'<div class="start-page '.(ModelJson::getFileName() !== 'Site'? 'container' : '').'">';
+            if(ModelJson::getFileName() !== 'SystemLang' && ModelJson::getFileName() !== 'MyStyle' && ModelJson::getFileName() !== 'Site'){
+                echo <<<HTML
+                <button onclick="openForm('#createModel')" class="btn btn-primary">{$this->getModelPage()['ButtonModelCreate']}</button>
+                HTML;
+                $this->makeCreateModal($this->getModelPage()['ScreenModelCreate'], $this->getModelPage()['ButtonModelAdd']);
             }
-            $this->myMenuApp['Logout'] = $this->getModelPage()['Logout'];
-        }else if(ModelJson::getFileName() === 'Site'){
-            $this->myMenuApp = $this->getModelPage()['AllMenu'];
-            if(isset($_SESSION['userId'])){
-                $this->initFlexTable();
-                unset($this->myMenuApp['Login'], $this->myMenuApp['Register']);
+            if(ModelJson::getFileName() !== 'Site'){
+                $this->keysTable = ModelJson::getFileName() === 'MyFlexTables'?array('TableProductImage', ...array_keys($this->getTableHead())):$pram1;
+                echo'
+                    <table id="example" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>'.$this->getTableId().'</th>';
+                $this->printTableNames();
+                echo '<th>'.$this->getTabelEvent().'</th>
+                        </tr>
+                    </thead>
+                    <tbody>';
             }
-            return;
-        }else if($_SERVER["REQUEST_METHOD"] === "GET" && ModelJson::getFileName() !== 'Login' && ModelJson::getFileName() !== 'Register')
-            $this->initFlexTable();
-        //id post and message
-        else if($_SERVER["REQUEST_METHOD"] === "POST" && ModelJson::getFileName() !== 'LoginForgetPasswordPost' || 
-            ModelJson::getFileName() !== 'LoginPost' || ModelJson::getFileName() !== 'SystemLangEditPost')
-            // 'BranchCreatePost'  'ChangeLanguageCreatePost'  'HomeCreatePost'  'SetupProject'  'RegisterPost' 
-            $this->keyId = ModelJson::getFileName() === 'BranchCreatePost' ||
-            ModelJson::getFileName() === 'ChangeLanguageCreatePost' ||
-            ModelJson::getFileName() === 'HomeCreatePost'||
-            ModelJson::getFileName() === 'RegisterPost'||
-            ModelJson::getFileName() === 'RegisterPost'?ModelJson::getRandomKey():($_POST['id']??ModelJson::getRandomKey());
-        //action login and keys table all page and site and message for all post
-        $this->keysTable = ModelJson::getFileName() === 'MyFlexTables'?array('TableProductImage', ...array_keys($this->getTableHead())):$pram1;
-    }
-    function initActionServer(){
-        if(ModelJson::getFileName()==='LoginForgetPasswordPost' || ModelJson::getFileName()==='LoginPost' || 
+        }else if(ModelJson::getFileName()==='LoginForgetPasswordPost' || ModelJson::getFileName()==='LoginPost' || 
                 ModelJson::getFileName() === 'RegisterPost' || ModelJson::getFileName() === 'SetupProject'){
             $this->initErrorsEmailPassword3();
             $this->getView();
@@ -389,69 +453,10 @@ abstract class ModelJson implements InterfaceDataView{
             $this->validName();
         else if(ModelJson::getFileName() === 'BranchEditPost' || ModelJson::getFileName() === 'BranchCreatePost')
             $this->initErrorBranch2();
-        $this->getView();
-    }
-    function initView2(){
-        echo<<<HTML
-            <link href="./asset/css/login_register.css" rel="stylesheet"></head><body>
-            <div class="container">
-                <div id="createModel" class="register">
-                    <h4>
-        HTML;
-        include 'pis_of_page/button_langstylebranch.php';
-        echo<<<HTML
-                        <a href="./site" class="navbar-brand fa fa-truck fa-2x pointer"></a>
-                    </h4>
-                        <h4>{$this->getTitleForm()}</h4>
-                    <form method='POST' action="{$this->getKeysTable()}">
-        HTML; 
-        include('all_modal/login_register_input.php');
-    }
-    function initView3($cont = 'container'){
-        echo'<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
-        <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
-        <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';
-        include 'pis_of_page/admin_title.php';
-        echo'<div class="start-page '.$cont.'">';
-    }
-    function initView4(){
-        echo'
-            <table id="example" class="table table-striped">
-            <thead>
-                <tr>
-                    <th>'.$this->getTableId().'</th>';
-        $this->printTableNames();
-        echo '<th>'.$this->getTabelEvent().'</th>
-                </tr>
-            </thead>
-            <tbody>';
     }
     function endPage(){
         $this->getView();
         include 'pis_of_page/end_html.php';
-    }
-    function startPage(){
-        $this->MessageServer = $_SESSION['error']??($_SESSION['message']??$this->getModelPage()['LoadMessage']);
-        $this->MessageType = isset($_SESSION['error'])?'danger':'success';
-        $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Style'];
-        // if(!isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']]))
-        //     setcookie('branchId', $_GET['id'], time()+2628000);
-        if(isset($_SESSION['message']) || isset($_SESSION['error']))
-            unset($_SESSION['message'], $_SESSION['error']);
-        echo<<<HTML
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>{$this->getTitle()}</title>
-            <link href="./asset/css/style.css" rel="stylesheet">
-            <link href="./asset/lib/bootstrap.min.css" rel="stylesheet">
-            <script src="./asset/lib/jquery.min.js" type="text/javascript"></script>
-            <script src="./asset/lib/bootstrap.bundle.min.js" type="text/javascript"></script>
-            <script src="./asset/js/script.js" type="text/javascript" defer></script>
-            <link href="./asset/css/{$this->getStyleFile()}.css" rel="stylesheet">
-            <link rel="stylesheet" href="./asset/css/font-awesome.min.css">
-        HTML;
     }
     function getCount(){
         return $this->count;
