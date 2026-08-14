@@ -416,6 +416,7 @@ abstract class ModelJson implements InterfaceDataView{
         HTML; 
         include('all_modal/login_register_input.php');
         $this->endPage();
+        exit;
     }
     function setupMenu($cont){
         if(ModelJson::getFileName() === 'Branches' || ModelJson::getFileName() === 'Home'||
