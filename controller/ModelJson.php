@@ -89,7 +89,6 @@ abstract class ModelJson implements InterfaceDataView{
         $this->MyIdDb = (isset($_SESSION['userId'])?$_SESSION['userId']:(isset($_COOKIE['branchId']) && isset($this->getFile()[$_COOKIE['branchId']])?$_COOKIE['branchId']:'admin'));
         // $this->MyIdDb = (isset($_SESSION['userId'])?$_SESSION['userId']:($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']])?$_GET['id']:(isset($_COOKIE['branchId']) && isset($this->getFile()[$_COOKIE['branchId']])?$_COOKIE['branchId']:'admin')));
         $this->Language = !isset($_SESSION['userId']) && isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['AllNamesLanguage'];
-
         if(
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'Login' ||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'Register'||
@@ -218,13 +217,6 @@ abstract class ModelJson implements InterfaceDataView{
             $_SESSION['error'] = $this->getModel2()[isset($_SESSION['userId'])?'Home':'Login']['ErrorServerMessage'];
             header('Location:'.(isset($_SESSION['userId'])?'Home':'Login'));
             exit;
-        }else if($_SERVER["REQUEST_METHOD"] === "POST" && ModelJson::getFileName() !== 'LoginForgetPasswordPost' && ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'SystemLangEditPost'){
-            // 'BranchCreatePost'  'ChangeLanguageCreatePost'  'HomeCreatePost'  'SetupProject'  'RegisterPost' 
-            $this->keyId = ModelJson::getFileName() === 'BranchCreatePost' ||
-            ModelJson::getFileName() === 'ChangeLanguageCreatePost' ||
-            ModelJson::getFileName() === 'HomeCreatePost'||
-            ModelJson::getFileName() === 'RegisterPost'||
-            ModelJson::getFileName() === 'RegisterPost'?ModelJson::getRandomKey():($_POST['id']??ModelJson::getRandomKey());
         }else if(ModelJson::getFileName() === 'Site'){
             $this->myMenuApp = $this->getModelPage()['AllMenu'];
             if(isset($_SESSION['userId'])){
@@ -244,6 +236,15 @@ abstract class ModelJson implements InterfaceDataView{
             $this->myMenuApp['Logout'] = $this->getModelPage()['Logout'];
         }else if($_SERVER["REQUEST_METHOD"] === "GET" && ModelJson::getFileName() !== 'Login' && ModelJson::getFileName() !== 'Register')
             $this->initFlexTable();
+        //$_SERVER["REQUEST_METHOD"] === "POST" && important
+        else if(ModelJson::getFileName() !== 'LoginForgetPasswordPost' && ModelJson::getFileName() !== 'LoginPost' && ModelJson::getFileName() !== 'SystemLangEditPost'){
+            // 'BranchCreatePost'  'ChangeLanguageCreatePost'  'HomeCreatePost'  'SetupProject'  'RegisterPost' 
+            $this->keyId = ModelJson::getFileName() === 'BranchCreatePost' ||
+            ModelJson::getFileName() === 'ChangeLanguageCreatePost' ||
+            ModelJson::getFileName() === 'HomeCreatePost'||
+            ModelJson::getFileName() === 'RegisterPost'||
+            ModelJson::getFileName() === 'RegisterPost'?ModelJson::getRandomKey():($_POST['id']??ModelJson::getRandomKey());
+        }
         $this->keysTable = ModelJson::getFileName() === 'MyFlexTables'?array('TableProductImage', ...array_keys($this->getTableHead())):$pram1;
     }
     function makePost(){
