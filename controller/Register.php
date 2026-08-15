@@ -4,6 +4,12 @@ class MyRegister extends ModelJson{
         parent::__construct('Register', 'RegisterPost');
         $this->loginRegister();
     }
+    function getLabelConfirmPassword(){
+        return $this->getModelPage()['LabelConfirmPassword'];
+    }
+    function getHintConfirmPassword(){
+        return $this->getModelPage()['HintConfirmPassword'];
+    }
     function getView(){
         include 'view/register_view.php';
         echo <<<HTML

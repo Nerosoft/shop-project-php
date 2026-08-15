@@ -15,12 +15,7 @@ abstract class ModelJson implements InterfaceDataView{
     function getTableHead(){
         return $this->getModelPage()['TableHead'];
     }
-    function getLabelConfirmPassword(){
-        return $this->getModelPage()['LabelConfirmPassword'];
-    }
-    function getHintConfirmPassword(){
-        return $this->getModelPage()['HintConfirmPassword'];
-    }
+
     function deleteLanguage($myData){
         //delete language
         unset($myData[$this->keyId]);
