@@ -412,7 +412,9 @@ abstract class ModelJson implements InterfaceDataView{
                     <form method='POST' action="{$this->getkeysTable()}">
         HTML; 
         include('all_modal/login_register_input.php');
-        $this->endPage();
+        $this->getView();
+        include 'pis_of_page/buttons.php';    
+        include 'pis_of_page/end_html.php';
         exit;
     }
     function setupMenu($cont){
