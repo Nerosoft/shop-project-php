@@ -14,13 +14,12 @@ foreach ($this->getMyDataView() as $index => $myObject) {
 }
 ?>
 <script type="text/javascript">
-    $(document).ready(function(){    
-        $('.mysalary').on('input invalid', function() {
-            if (this.validity.valueMissing)
-                this.setCustomValidity('<?php echo$this->getRequiredSalary()?>');
-            else if (this.value < 1 || this.value >= 1000000)
-                this.setCustomValidity('<?php echo$this->getInvalidSalary()?>');
-            else
-                this.setCustomValidity('');
-    })});
+    $('.mysalary').on('input invalid', function() {
+        if (this.validity.valueMissing)
+            this.setCustomValidity('<?php echo$this->getRequiredSalary()?>');
+        else if (this.value < 1 || this.value >= 1000000)
+            this.setCustomValidity('<?php echo$this->getInvalidSalary()?>');
+        else
+            this.setCustomValidity('');
+    });
 </script>

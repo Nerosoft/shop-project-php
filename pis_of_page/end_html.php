@@ -1,43 +1,5 @@
 <?php
-    if($this->getUrlName2() === 'Product' || isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()]))
-        echo<<<HTML
-        <script>
-            function openImage(avatar){
-                avatar.click();
-            }
-            $(document).ready(function(){    
-                $('.avatar').on('invalid', function(){
-                if (this.validity.valueMissing)
-                    this.setCustomValidity("{$this->getReqimage()}");
-            })});
-            function changeImage(file, preview){
-                avatar = file.files[0];
-                if(avatar && !['image/jpeg', 'image/png'].includes(avatar.type)||avatar && avatar.size > (2 * 1024 * 1024)){
-                    file.setCustomValidity('{$this->getInvimage()}');
-                    preview.attr('src', './asset/img/error_image.png');
-                }else if(avatar){
-                    file.setCustomValidity('');
-                    const reader = new FileReader();
-                    reader.onload = function (e) {
-                        var img = new Image;
-                        img.src = e.target.result; 
-                        preview.attr('src', e.target.result);
-                        img.onload = function() {
-                        preview.data('height', this.height);
-                        preview.data('width', this.width);
-                        };
-                    };
-                    reader.readAsDataURL(avatar);
-                }else{
-                    file.setCustomValidity('{$this->getInvimage()}');
-                    preview.attr('src', './asset/img/error_image.png');
-                }
-            }
-        </script>
-        HTML;
-    
-    
-        
+ 
         if(isset($_SESSION['userId']) && $this->getUrlName2() !== 'Site'){
             $size = count($this->getKeysTable());
             echo<<<HTML
@@ -58,29 +20,27 @@
                         for (let index = 0; index < {$size} ; index++) 
                             setting.push({ 'searchable': true, className: "text-left" });
                         setting.push({ 'searchable': false });
-                        $(document).ready(function() {
-                            new DataTable('#example',{
-                                "oLanguage": {
-                                    "sSearch": "{$this->getSsearch()}",
-                                    "sEmptyTable":  "{$this->getZeroRecords()}"
-                                },
-                                "language": {
-                                    "lengthMenu": "_MENU_ " + "{$this->getLengthMenu()}",
-                                    "info":  "{$this->getInfo()}" + " _MAX_",
-                                    "zeroRecords":  "{$this->getZeroRecords()}",
-                                    "infoEmpty": "{$this->getInfoEmpty()}",
-                                    "infoFiltered": "{$this->getInfoFiltered()}" + " _END_ --- _TOTAL_"
-                                },
-                                pageLength : 10,
-                                lengthMenu: [[10, 20, -1], [10, 20, 'All']],
-                                filter: true,
-                                deferRender: true,
-                                scrollY: '67vh',
-                                scrollCollapse: true,
-                                scroller: true,
-                                columns: setting
-                            });
-                        });  
+                        new DataTable('#example',{
+                            "oLanguage": {
+                                "sSearch": "{$this->getSsearch()}",
+                                "sEmptyTable":  "{$this->getZeroRecords()}"
+                            },
+                            "language": {
+                                "lengthMenu": "_MENU_ " + "{$this->getLengthMenu()}",
+                                "info":  "{$this->getInfo()}" + " _MAX_",
+                                "zeroRecords":  "{$this->getZeroRecords()}",
+                                "infoEmpty": "{$this->getInfoEmpty()}",
+                                "infoFiltered": "{$this->getInfoFiltered()}" + " _END_ --- _TOTAL_"
+                            },
+                            pageLength : 10,
+                            lengthMenu: [[10, 20, -1], [10, 20, 'All']],
+                            filter: true,
+                            deferRender: true,
+                            scrollY: '67vh',
+                            scrollCollapse: true,
+                            scroller: true,
+                            columns: setting
+                        });
                     </script>
             HTML;
         }
@@ -143,11 +103,9 @@
             echo<<<HTML
                 <div id="toastId" class="toast text-bg-{$this->getType()} mt-2">
                     <script>
-                        $(document).ready(function(){
-                            (new bootstrap.Toast($('#toastId').on("hidden.bs.toast", function () {
-                            $(this).remove();
-                            }), { delay: 9000 })).show();
-                        });
+                        (new bootstrap.Toast($('#toastId').on("hidden.bs.toast", function () {
+                        $(this).remove();
+                        }), { delay: 9000 })).show();
                     </script>
                     <div class="d-flex">
                         <div class="toast-body">{$this->getMessage()}</div>

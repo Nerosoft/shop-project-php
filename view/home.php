@@ -16,13 +16,12 @@ foreach ($this->getMyDataView() as $index => $myObject) {
 }
 ?>                       
 <script type="text/javascript">
-$(document).ready(function(){    
-    $('#input_number').on('input invalid', function() {
-        if (this.validity.valueMissing)
-            this.setCustomValidity('<?php echo$this->getInputNumberTableIsReq()?>');
-        else if (this.value < 1 || this.value > 8)
-            this.setCustomValidity('<?php echo$this->getInputNumberTableIsInv()?>');
-        else
-            this.setCustomValidity('');
-    })});
+$('#input_number').on('input invalid', function() {
+    if (this.validity.valueMissing)
+        this.setCustomValidity('<?php echo$this->getInputNumberTableIsReq()?>');
+    else if (this.value < 1 || this.value > 8)
+        this.setCustomValidity('<?php echo$this->getInputNumberTableIsInv()?>');
+    else
+        this.setCustomValidity('');
+});
 </script>
