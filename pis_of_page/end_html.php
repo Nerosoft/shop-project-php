@@ -128,6 +128,7 @@
             }
             $('#lang_modal,#style_modal,#branch_modal,#branch_modal2').find('#click_button').on('click', function(){
                 let idmodal = $(this).parent().parent().parent().parent().parent().attr('id');
+                restLangStyleBranch(idmodal);
                 if(idmodal === 'lang_modal' && $('#lang_modal').find('input[name="id"]:checked').val() === '<?php echo$this->getLanguage()?>'||
                     idmodal === 'branch_modal' && $('#branch_modal').find('input[name="id"]:checked').val() === '<?php echo$this->getId()?>'||
                     idmodal === 'branch_modal2' && $('#branch_modal2').find('input[name="id"]:checked').val() === '<?php echo$this->getId()?>'||

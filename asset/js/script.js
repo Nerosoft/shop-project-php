@@ -17,6 +17,13 @@ function openForm(id){
         $(id).find('form').removeClass('was-validated');
     $(id).modal('show');
 }
+function restLangStyleBranch(id){
+    if(id === '#lang_modal' && $(id).find('.flexCheck').val() !== $(id).find('input[name="id"]:checked').val()||
+        id === '#style_modal' && $(id).find('.flexCheck').val() !== $(id).find('input[name="id"]:checked').val()||
+        id === '#branch_modal' && $(id).find('.flexCheck').val() !== $(id).find('input[name="id"]:checked').val()){
+        $(id).find('.flexCheck').prop('checked', true);
+    }
+}
 function openForm2(id){
     openForm(id);
     $(id).find('.branch-check, .show-pass').each(function(){

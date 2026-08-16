@@ -499,7 +499,7 @@ abstract class ModelJson implements InterfaceDataView{
         if($this->getUrlName2() === 'SystemLang' && isset($_SERVER['HTTP_REFERER']) && preg_match('/SystemLang/',pathinfo($_SERVER['HTTP_REFERER'])['filename']))
             return ucfirst(pathinfo($_SERVER['HTTP_REFERER'])['filename']);
         else
-            return isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()]) || ModelJson::getFileName() === 'HomeCreatePost'?('MyFlexTables?id='.(ModelJson::getFileName() === 'HomeCreatePost'?$this->keyId:$this->getUrlName2())):$this->getUrlName2();
+            return isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()]) || ModelJson::getFileName() === 'HomeCreatePost' && isset($_SESSION['message'])?('MyFlexTables?id='.(ModelJson::getFileName() === 'HomeCreatePost'?$this->keyId:$this->getUrlName2())):$this->getUrlName2();
     }
     function getFile(){
         return $this->File;
@@ -1069,7 +1069,7 @@ abstract class ModelJson implements InterfaceDataView{
         if(!isset($_POST['name']) || $_POST['name'] === '')
             $this->showError($this->getNameTableIsReq());
         else if(strlen($_POST['name']) < 3)
-            $this->showError($this->getNameTableIsInv());
+            $this->showError($this->getModelPage()['NameTableIsReq']);
         else if(ModelJson::getFileName() === 'HomeCreatePost' && !isset($_POST['input_number']) || ModelJson::getFileName() === 'HomeCreatePost' && $_POST['input_number'] === '')
             $this->showError($this->getInputNumberTableIsReq());
         else if(ModelJson::getFileName() === 'HomeCreatePost' && !is_numeric($_POST['input_number']) || ModelJson::getFileName() === 'HomeCreatePost' && $_POST['input_number'] > 8)
