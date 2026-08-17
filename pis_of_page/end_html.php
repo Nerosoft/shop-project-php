@@ -75,10 +75,6 @@
         include 'all_modal/style_lang_form.php';
 ?>
         <script type="text/javascript">
-             $('#lang_modal,#style_modal,#branch_modal').find('#close_button').on('click', function (){
-                if($('#'+$(this).parent().parent().parent().parent().attr('id')).find('.flexCheck').val() !== $('#'+$(this).parent().parent().parent().parent().attr('id')).find('input[name="id"]:checked').val())
-                    $('#'+$(this).parent().parent().parent().parent().attr('id')).find('.flexCheck').prop('checked', true);
-            });
             function changeLangStyle(el, style_lang, idModal, error){
                 validForm2(idModal);
                 if(el.value !== style_lang)
