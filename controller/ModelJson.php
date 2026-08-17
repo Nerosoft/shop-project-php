@@ -172,6 +172,8 @@ abstract class ModelJson implements InterfaceDataView{
             $_GET['id'] !== 'Register'||
             
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'SystemLang' && isset($_GET['lang']) && isset($_GET['table']) && !isset($this->getObj()[$_GET['lang']][$_GET['table']])||
+            isset($_SESSION['userId']) && ModelJson::getFileName() === 'SystemLang' && isset($_GET['lang']) && !isset($_GET['table'])||
+            isset($_SESSION['userId']) && ModelJson::getFileName() === 'SystemLang' && isset($_GET['table']) && !isset($_GET['lang'])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'MyFlexTables' && !isset($_GET['id'])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'MyFlexTables' && !isset($this->getModel2()['MyFlexTables'][$_GET['id']]) ||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'FlexTablesCreatePost' && !isset($this->getModel2()['MyFlexTables'][$_GET['id']??'']) ||
