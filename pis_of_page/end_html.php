@@ -84,8 +84,6 @@ $abc = htmlspecialchars(json_encode($this->getBranch()));
                     el.setCustomValidity(error);
                 if(idModal === '#lang_modal'){
                     $(idModal).find('#allbranchbox').empty();
-                    let allButton = <?php echo json_encode($this->getAllBranches())?>;
-                    let contBranch = '<?php echo count($this->getBranch())?>'
                     allKeyBranch = JSON.parse('<?php echo json_encode($this->getBranchLanguage())?>');
                     for (const key in allKeyBranch) {
                         if(allKeyBranch[key]['lang'][el.value] && key != '<?php echo$this->getId()?>')
@@ -107,7 +105,7 @@ $abc = htmlspecialchars(json_encode($this->getBranch()));
                             <div class="col-lg-auto pt-2">
                                 <div class="form-check">
                                     <input onchange="optionBranch()" name="choices"  class="all_branch2 form-check-input branch-check" type="checkbox">
-                                    <label class="form-check-label">${allButton}</label>
+                                    <label class="form-check-label"><?php echo $this->getAllBranches()?></label>
                                 </div>
                             </div>
                         `);
