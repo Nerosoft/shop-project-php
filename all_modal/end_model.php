@@ -49,7 +49,7 @@ else if(isset($_SESSION['userId']) && count($this->getBranch2()) >= 1 && isset($
 }
 else if(isset($index) && $index !== null && !isset($state))
     include('my_id.php');
-else if(isset($idModel) && $idModel === 'lang_modal')
+else if(isset($_SESSION['userId']) && isset($idModel) && $idModel === 'lang_modal')
     echo '<div id="allbranchbox"></div>';
 else if(isset($_SESSION['userId']) && !preg_match('/BranchChangePost/', $action) && count($this->getBranch2()) >= 1 && $this->getUrlName2() !== 'Branches' || isset($_SESSION['userId']) && count($this->getBranch2()) >= 1 && isset($state) && $state === 'Style')
     include 'AllBranchOptionChose.php';
