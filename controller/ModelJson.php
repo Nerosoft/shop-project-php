@@ -12,10 +12,17 @@ abstract class ModelJson implements InterfaceDataView{
     private $MessageType;
     private $StyleFile;
     public $keysInput;
+    function getBranchLanguage(){
+        $arr = array();
+        foreach ($this->getBranch() as $key => $value){
+            $arr[$key]['Name'] = $value['Name'];
+            $arr[$key]['lang'] = $this->getFile()[$key]['english']['AllNamesLanguage'];
+        }
+        return $arr;
+    }
     function getTableHead(){
         return $this->getModelPage()['TableHead'];
     }
-
     function deleteLanguage($myData){
         //delete language
         unset($myData[$this->keyId]);
@@ -89,7 +96,7 @@ abstract class ModelJson implements InterfaceDataView{
         $this->MyIdDb = (isset($_SESSION['userId'])?$_SESSION['userId']:(isset($_COOKIE['branchId']) && isset($this->getFile()[$_COOKIE['branchId']])?$_COOKIE['branchId']:'admin'));
         // $this->MyIdDb = (isset($_SESSION['userId'])?$_SESSION['userId']:($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']])?$_GET['id']:(isset($_COOKIE['branchId']) && isset($this->getFile()[$_COOKIE['branchId']])?$_COOKIE['branchId']:'admin')));
         $this->Language = !isset($_SESSION['userId']) && isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['AllNamesLanguage'];
-        //valid id and make checkboox language
+        //valid id use httpref and make checkbox language
         if(
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'Login' ||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'Register'||

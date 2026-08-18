@@ -73,6 +73,7 @@
         if(isset($_SESSION['userId']))
             $action = ('BranchChangePost?id='.$this->getUrlName2());
         include 'all_modal/style_lang_form.php';
+$abc = htmlspecialchars(json_encode($this->getBranch()));
 ?>
         <script type="text/javascript">
             function changeLangStyle(el, style_lang, idModal, error){
@@ -81,6 +82,37 @@
                     $(idModal).find('.flexCheck')[0].setCustomValidity('');
                 else
                     el.setCustomValidity(error);
+                if(idModal === '#lang_modal'){
+                    $(idModal).find('#allbranchbox').empty();
+                    let allButton = <?php echo json_encode($this->getAllBranches())?>;
+                    let contBranch = '<?php echo count($this->getBranch())?>'
+                    allKeyBranch = JSON.parse('<?php echo json_encode($this->getBranchLanguage())?>');
+                    for (const key in allKeyBranch) {
+                        if(allKeyBranch[key]['lang'][el.value] && key != '<?php echo$this->getId()?>')
+                            $(idModal).find('#allbranchbox').append(`
+                                <div class="col-md-auto">
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input onchange="optionBranch('all_branch2')" type="checkbox" id="choices[]" class="all_branch form-check-input branch-check" name="choices[${key}]" value="${key}">
+                                            <label class="form-check-label" for="choices[]">
+                                            ${allKeyBranch[key]['Name']}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            `);
+                    }
+                    if(($(idModal).find('#allbranchbox').children().length+1) == '<?php echo count($this->getBranch())?>'){
+                        $(idModal).find('#allbranchbox').prepend(`
+                            <div class="col-lg-auto pt-2">
+                                <div class="form-check">
+                                    <input onchange="optionBranch()" name="choices"  class="all_branch2 form-check-input branch-check" type="checkbox">
+                                    <label class="form-check-label">${allButton}</label>
+                                </div>
+                            </div>
+                        `);
+                    }
+                }
             }
             $('#lang_modal,#style_modal,#branch_modal,#branch_modal2').find('#click_button').on('click', function(){
                 let idmodal = $(this).parent().parent().parent().parent().parent().attr('id');
