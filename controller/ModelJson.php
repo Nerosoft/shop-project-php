@@ -77,6 +77,11 @@ abstract class ModelJson implements InterfaceDataView{
             $myData[$code]['MyFlexTables'][$this->keyId] = $_POST['name'];
         return $myData;
     }
+    function getAllKeyPage(){
+        $keys = $this->getModel2();
+        unset($keys['AllNamesLanguage'], $keys['Style'], $keys['MyFlexTables'], $keys['Login'], $keys['Register']);
+        return array_keys($keys);
+    }
     function __construct($idPage = null, $pram1 = null){
         //receve message from constractor felexbalty change key message for all action
         $this->File = json_decode(file_get_contents('data.json'), true);
@@ -84,6 +89,7 @@ abstract class ModelJson implements InterfaceDataView{
         $this->MyIdDb = (isset($_SESSION['userId'])?$_SESSION['userId']:(isset($_COOKIE['branchId']) && isset($this->getFile()[$_COOKIE['branchId']])?$_COOKIE['branchId']:'admin'));
         // $this->MyIdDb = (isset($_SESSION['userId'])?$_SESSION['userId']:($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']])?$_GET['id']:(isset($_COOKIE['branchId']) && isset($this->getFile()[$_COOKIE['branchId']])?$_COOKIE['branchId']:'admin')));
         $this->Language = !isset($_SESSION['userId']) && isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['AllNamesLanguage'];
+        //valid id and make checkboox language
         if(
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'Login' ||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'Register'||
@@ -167,6 +173,7 @@ abstract class ModelJson implements InterfaceDataView{
             $_GET['id'] !== 'Login' && 
             $_GET['id'] !== 'Register' && 
             $_GET['id'] !== 'Site'||
+            !isset($_SESSION['userId']) && ModelJson::getFileName() === 'SetupProject' && !isset($_GET['id'])||
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'SetupProject' && 
             $_GET['id'] !== 'Login' && 
             $_GET['id'] !== 'Register'||
@@ -180,29 +187,13 @@ abstract class ModelJson implements InterfaceDataView{
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'SettingUsersDeletePost' && !isset($_GET['id'])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'SettingUsersDeletePost' && $_GET['id'] !== 'Users' && $_GET['id'] !== 'Product' && !isset($this->getModel2()['MyFlexTables'][$_GET['id']])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'BranchChangePost' && !isset($_GET['id'])||
-            isset($_SESSION['userId']) && ModelJson::getFileName() === 'BranchChangePost' && 
-            !isset($this->getModel2()['MyFlexTables'][$_GET['id']]) &&
-            $_GET['id'] !== 'SystemLang' &&
-            $_GET['id'] !== 'Home' && 
-            $_GET['id'] !== 'Branches' &&
-            $_GET['id'] !== 'ChangeLanguage' &&
-            $_GET['id'] !== 'Users' &&
-            $_GET['id'] !== 'Product' &&
-            $_GET['id'] !== 'MyStyle' &&
-            $_GET['id'] !== 'Site'||
+            isset($_SESSION['userId']) && ModelJson::getFileName() === 'BranchChangePost' &&
+            !in_array($_GET['id'], $this->getAllKeyPage())||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguageEditPost' && !isset($_GET['id'])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguageEditPost' && $_GET['id'] !== 'ChangeLanguage' && $_GET['id'] !== 'MyStyle'||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($_GET['id'])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguagePost' && 
-            !isset($this->getModel2()['MyFlexTables'][$_GET['id']]) &&
-            $_GET['id'] !== 'SystemLang' &&
-            $_GET['id'] !== 'Home' && 
-            $_GET['id'] !== 'Branches' &&
-            $_GET['id'] !== 'ChangeLanguage' &&
-            $_GET['id'] !== 'Users' &&
-            $_GET['id'] !== 'Product' &&
-            $_GET['id'] !== 'MyStyle' &&
-            $_GET['id'] !== 'Site'||
+            !in_array($_GET['id'], $this->getAllKeyPage())||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($_POST['state'])||
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLanguagePost' && $_POST['state'] !== 'Style' && $_POST['state'] !== 'AllNamesLanguage'){
             if(!isset($_SESSION['userId']) && isset($_COOKIE['branchId']) && !isset($this->getFile()[$_COOKIE['branchId']]))
