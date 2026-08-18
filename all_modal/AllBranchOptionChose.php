@@ -1,4 +1,3 @@
-<div id="allbranchbox">
 <?php
     include 'AllBranchLanguageInput.php';
     foreach($this->getBranch2() as $key=>$option){
@@ -16,4 +15,3 @@
         HTML;
     }
 ?>
-</div>

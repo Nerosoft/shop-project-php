@@ -73,7 +73,6 @@
         if(isset($_SESSION['userId']))
             $action = ('BranchChangePost?id='.$this->getUrlName2());
         include 'all_modal/style_lang_form.php';
-$abc = htmlspecialchars(json_encode($this->getBranch()));
 ?>
         <script type="text/javascript">
             function changeLangStyle(el, style_lang, idModal, error){
