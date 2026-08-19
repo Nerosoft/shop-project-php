@@ -82,7 +82,6 @@
                 else
                     el.setCustomValidity(error);
                 if(idModal === '#lang_modal'){
-                    $(idModal).find('#allbranchbox').removeClass('hidden_style');
                     $(idModal).find('#allbranchbox').empty();
                     allKeyBranch = JSON.parse('<?php echo json_encode($this->getBranchLanguage())?>');
                     for (const key in allKeyBranch) {
