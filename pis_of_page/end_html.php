@@ -109,7 +109,8 @@
                             </div>
                         `);
                     }
-                }
+                }else if(idModal === '#style_modal' && $(idModal).find('#allstyle').hasClass('hidden_style'))
+                    $(idModal).find('#allstyle').removeClass('hidden_style');
             }
             $('#lang_modal,#style_modal,#branch_modal,#branch_modal2').find('#click_button').on('click', function(){
                 let idmodal = $(this).parent().parent().parent().parent().parent().attr('id');
