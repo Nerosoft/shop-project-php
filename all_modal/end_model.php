@@ -52,7 +52,7 @@ else if(isset($index) && $index !== null && !isset($state))
 else if(isset($_SESSION['userId']) && isset($idModel) && $idModel === 'lang_modal')
     echo '<div id="allbranchbox"></div>';
 else if(isset($_SESSION['userId']) && isset($idModel) && $idModel === 'style_modal'){
-    echo '<div id="allstyle" class="hidden_style">';
+    echo '<div id="allbranchbox" class="hidden_style">';
     include 'AllBranchOptionChose.php';
     echo '</div>';
 }

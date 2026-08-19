@@ -31,6 +31,8 @@ function openForm2(id){
             changeInputState(id, 'password');
         $(this).prop('checked', false);
     });
+    if(id === '#lang_modal' || id === '#style_modal')
+        $(id).find('#allbranchbox').addClass('hidden_style');
 }
 function closeForm(id){
     $(id).modal('hide');
