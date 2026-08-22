@@ -1,32 +1,19 @@
 <?php
+$valueObj = htmlspecialchars($myValue??(is_array($myObject)?json_encode($myObject):$myObject->getObj()), ENT_QUOTES, "UTF-8");
 if($this->getUrlName2() === 'Users' || $this->getUrlName2() === 'Product' || isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()])){
     $idModel = 'editModel'.$index;
     $this->makeCreateModal($this->getScreenModelEdit(), $this->getButtonModelEdit(), $idModel, $index, $myObject);
+    if($this->getUrlName2() !== 'Users')
+        include 'pis_of_page/display_image.php';
 }
-$valueObj =  htmlspecialchars($myValue??(is_array($myObject)?json_encode($myObject):$myObject->getObj()), ENT_QUOTES, "UTF-8");
-echo <<<HTML
-    <i class="fa fa-sliders fa-2x pointer" onclick="restValue('#{$idModel}', '$valueObj');
-HTML;
 //echo html
-echo ($this->getUrlName2() === 'Product' || isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()]))?<<<HTML
-$('#{$idModel}').find('form').find('img').attr('src', './asset/product/{$this->getId()}/{$index}')"></i>
-    <i class="fa fa-binoculars fa-2x pointer" onclick="openForm('#imgmodal{$index}')"></i>
-    <div class="modal fade" id="imgmodal{$index}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="SettingLanguage">{$this->getTitleViewImage()}</h5>
-                    <button type="button" id="close_button" onclick="closeForm('#imgmodal{$index}')" class="btn btn-dark">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <img src="./asset/product/{$this->getId()}/{$index}" class="product-img-view">
-                </div>
-            </div>
-        </div>
-    </div>
-HTML:'"></i>';
+echo($this->getUrlName2() === 'Product' || isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()]))?
+<<<HTML
+    <i class="fa fa-sliders fa-2x pointer" onclick="restValue('#{$idModel}', '$valueObj');$('#{$idModel}').find('form').find('img').attr('src', './asset/product/{$this->getId()}/{$index}')"></i>
+HTML: 
+    <<<HTML
+        <i class="fa fa-sliders fa-2x pointer" onclick="restValue('#{$idModel}', '$valueObj');"></i>
+    HTML;
 
 if($this->getUrlName2() === 'Product' ||
 $this->getUrlName2() === 'ChangeLanguage' && $index !== $this->getLanguage() && $index !== 'english'||

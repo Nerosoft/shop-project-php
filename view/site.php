@@ -26,12 +26,10 @@
     </div>
 </section>
 
-
 <!-- ABOUT -->
 <section class="about section-padding pb-0" id="about">
     <div class="container">
         <div class="row">
-
             <div class="col-lg-7 mx-auto col-md-10 col-12">
                     <div class="about-info">
                         <?php 
@@ -57,9 +55,7 @@
 <section class="project section-padding" id="project">
     <div class="container-fluid">
         <div class="row">
-
             <div class="col-lg-12 col-12">
-
                 <h2 class="mb-5 text-center" data-aos="fade-up">
                     <?php
                         echo <<<HTML
@@ -68,38 +64,77 @@
                         HTML;
                     ?>
                 </h2>
-
-                    <div class="owl-carousel owl-theme" id="project-slide">
-                            <?php                                   
-                                foreach ($this->getMyDataView() as $index => $myObject)
-                                    echo<<<HTML
-                                        <div class="item project-wrapper" data-aos="fade-up" data-aos-delay="100">
-                                            <img src="./asset/product/{$this->getId()}/{$index}" class="img-fluid" alt="project image">
-                                            <div class="project-info">
-                                                <h3>
-                                                    <a href="#project">
-                                                        <span>{$myObject->getDescreption()}</span>
-                                                        <i class="fa fa-angle-right project-icon"></i>
-                                                    </a>
-                                                </h3>
-                                                <span>{$this->getModelPage()['Name']} {$myObject->getName()}</span>
-                                                <br>
-                                                <span>{$this->getModelPage()['Salary']} {$myObject->getSalary()}</span>
-                                                <br>
-                                                <span>{$this->getModelPage()['Category']} {$myObject->getCategory()}</span>
-                                                <br>
-                                            </div>
+                <div class="owl-carousel owl-theme" id="project-slide">
+                        <?php                                   
+                            foreach ($this->getMyDataView() as $index => $myObject)
+                                echo<<<HTML
+                                    <div class="item project-wrapper" data-aos="fade-up" data-aos-delay="100">
+                                        <img src="./asset/product/{$this->getId()}/{$index}" class="img-fluid" alt="project image">
+                                        <div class="project-info">
+                                            <h3>
+                                                <a href="#project">
+                                                    <span>{$myObject->getDescreption()}</span>
+                                                    <i class="fa fa-angle-right project-icon"></i>
+                                                </a>
+                                            </h3>
+                                            <span>{$this->getModelPage()['Name']} {$myObject->getName()}</span>
+                                            <br>
+                                            <span>{$this->getModelPage()['Salary']} {$myObject->getSalary()}</span>
+                                            <br>
+                                            <span>{$this->getModelPage()['Category']} {$myObject->getCategory()}</span>
+                                            <br>
                                         </div>
-                                    HTML;
-                            ?>
-                    </div>
+                                    </div>
+                                HTML;
+                        ?>
+                </div>
             </div>
-
         </div>
-        
     </div>
 </section>
+<!-- ABOUT -->
+<section class="table section-padding" id="table">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mx-auto">
+                <h2 class="mb-5 text-center" data-aos="fade-up">
+                    <?php
+                        echo <<<HTML
+                        {$this->getLookTable()}
+                        <strong>{$this->getTrendsTable()}</strong>
+                        HTML;
+                    ?>
+                </h2>
+            </div>
+            <div class="col-lg-12 col-12">
 
+                <?php
+
+                    echo '<div data-aos="fade-up" data-aos-delay="200">';
+                    $this->initTable2();
+                    foreach ($this->getMyDataView() as $index => $myObject) {
+                        echo <<<HTML
+                            <tr>
+                                <td>{$this->getCount()}</td>
+                                <td><img id="preview" src="./asset/product/{$this->getId()}/{$index}" class="avatar-product-view"></td>
+                                <td>{$myObject->getName()}</td>
+                                <td>{$myObject->getDescreption()}</td>
+                                <td>{$myObject->getSalary()}</td>
+                                <td>{$myObject->getCategory()}</td>
+                                <td>
+                        HTML;
+                        include 'pis_of_page/display_image.php';
+                        echo '</td></tr>';
+                        $this->plusCount();
+                    }
+                    echo '</tbody></table></div>';
+                    echo '</div>';
+                ?>
+
+            </div>
+        </div>
+    </div>
+</section>
 <!-- TESTIMONIAL -->
 <section class="testimonial section-padding">
     <div class="container">

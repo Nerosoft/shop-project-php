@@ -18,6 +18,11 @@ class SetupProject extends ModelJson{
             "Style"=> "default",
             "english"=> [
                 "Site"=>[
+                    "LookTable"=> "Please take a look through our table",
+                    "TrendsTable"=> "Delivery Marketing Trends table",
+                    "TitleViewImage"=> "View image product",
+                    "TableId"=> "Id",
+                    "TabelEvent"=> "Event",
                     "Name"=> "Name",
                     "Descreption"=> "Descreption",
                     "Salary"=> "Salary",

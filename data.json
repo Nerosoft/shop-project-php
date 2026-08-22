@@ -4,6 +4,11 @@
         "Style": "default",
         "english": {
             "Site": {
+                "LookTable": "Please take a look through our table",
+                "TrendsTable": "Delivery Marketing Trends table",
+                "TitleViewImage": "View image product",
+                "TableId": "Id",
+                "TabelEvent": "Event",
                 "Name": "Name",
                 "Descreption": "Descreption",
                 "Salary": "Salary",
@@ -411,7 +416,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "JX5c0a49": "English language"
+                "BZ00832a": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -957,7 +962,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithoutRays"
             },
-            "IYc3bde4": {
+            "qa50c960": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
@@ -1018,8 +1023,13 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "JX5c0a49": {
+        "BZ00832a": {
             "Site": {
+                "LookTable": "Please take a look through our table",
+                "TrendsTable": "Delivery Marketing Trends table",
+                "TitleViewImage": "View image product",
+                "TableId": "Id",
+                "TabelEvent": "Event",
                 "Name": "Name",
                 "Descreption": "Descreption",
                 "Salary": "Salary",
@@ -1427,7 +1437,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "JX5c0a49": "English language"
+                "BZ00832a": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -1962,11 +1972,16 @@
             }
         }
     },
-    "IYc3bde4": {
+    "qa50c960": {
         "AllNamesLanguage": "english",
         "Style": "default",
         "english": {
             "Site": {
+                "LookTable": "Please take a look through our table",
+                "TrendsTable": "Delivery Marketing Trends table",
+                "TitleViewImage": "View image product",
+                "TableId": "Id",
+                "TabelEvent": "Event",
                 "Name": "Name",
                 "Descreption": "Descreption",
                 "Salary": "Salary",
@@ -2374,7 +2389,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "JX5c0a49": "English language"
+                "BZ00832a": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -2957,8 +2972,13 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "JX5c0a49": {
+        "BZ00832a": {
             "Site": {
+                "LookTable": "Please take a look through our table",
+                "TrendsTable": "Delivery Marketing Trends table",
+                "TitleViewImage": "View image product",
+                "TableId": "Id",
+                "TabelEvent": "Event",
                 "Name": "Name",
                 "Descreption": "Descreption",
                 "Salary": "Salary",
@@ -3366,7 +3386,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "JX5c0a49": "English language"
+                "BZ00832a": "English language"
             },
             "Register": {
                 "SelectBranchBox": {

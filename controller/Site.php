@@ -2,7 +2,7 @@
 require 'class_object/ProductValue.php';
 class Site extends ModelJson{
     function __construct(){
-        parent::__construct('Site'); 
+        parent::__construct('Site', ProductValue::getKeysObject()); 
         $this->myMenuApp = $this->getModelPage()['AllMenu'];
         if(isset($_SESSION['userId'])){
             $this->initFlexTable();
@@ -78,6 +78,12 @@ class Site extends ModelJson{
     }
     function getLook(){
         return $this->getModelPage()['Look'];
+    }
+    function getTrendsTable(){
+        return $this->getModelPage()['TrendsTable'];
+    }
+    function getLookTable(){
+        return $this->getModelPage()['LookTable'];
     }
     function getAboutMe(){
         return $this->getModelPage()['AboutMe'];

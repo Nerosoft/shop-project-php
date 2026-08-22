@@ -426,12 +426,9 @@ abstract class ModelJson implements InterfaceDataView{
         <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
         <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';
         include 'pis_of_page/admin_title.php';
-        echo'<div class="start-page '.$cont.'">';
-    }
-    function initTable(){
         $size = count($this->getKeysTable());
         echo<<<HTML
-         <script type="text/javascript">
+        <script type="text/javascript">
             $(document).ready(function(){
                 let setting = [{ 'searchable': true, className: "text-left" }]
                 for (let index = 0; index < {$size} ; index++) 
@@ -460,6 +457,11 @@ abstract class ModelJson implements InterfaceDataView{
                 });
             });
         </script>
+        HTML;
+        echo'<div class="start-page '.$cont.'">';
+    }
+    function initTable2(){
+        echo<<<HTML
         <table id="example" class="table table-striped">
         <thead>
             <tr>
@@ -471,13 +473,17 @@ abstract class ModelJson implements InterfaceDataView{
                 </tr>
             </thead>
             <tbody>';
+    }
+    function initTable(){
+        $this->initTable2();
         $this->last(function(){
             echo '</tbody></table></div>';
         });
     }
-    function last($callback){
+    function last($callback = null){
         $this->getView();
-        $callback();
+        if(!is_null($callback))
+            $callback();
         include 'pis_of_page/end_html.php';
         exit;
     }
