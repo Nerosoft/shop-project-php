@@ -1,49 +1,5 @@
 <?php
  
-        if(isset($_SESSION['userId']) && $this->getUrlName2() !== 'Site'){
-            $size = count($this->getKeysTable());
-            echo<<<HTML
-                </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>{$this->getTableId()}</th>
-            HTML;
-            $this->printTableNames();
-            echo<<<HTML
-                            <th>{$this->getTabelEvent()}</th>
-                        </tr>
-                    </tfoot>
-                </table>
-                </div>
-                    <script type="text/javascript">
-                        let setting = [{ 'searchable': true, className: "text-left" }]
-                        for (let index = 0; index < {$size} ; index++) 
-                            setting.push({ 'searchable': true, className: "text-left" });
-                        setting.push({ 'searchable': false });
-                        new DataTable('#example',{
-                            "oLanguage": {
-                                "sSearch": "{$this->getSsearch()}",
-                                "sEmptyTable":  "{$this->getZeroRecords()}"
-                            },
-                            "language": {
-                                "lengthMenu": "_MENU_ " + "{$this->getLengthMenu()}",
-                                "info":  "{$this->getInfo()}" + " _MAX_",
-                                "zeroRecords":  "{$this->getZeroRecords()}",
-                                "infoEmpty": "{$this->getInfoEmpty()}",
-                                "infoFiltered": "{$this->getInfoFiltered()}" + " _END_ --- _TOTAL_"
-                            },
-                            pageLength : 10,
-                            lengthMenu: [[10, 20, -1], [10, 20, 'All']],
-                            filter: true,
-                            deferRender: true,
-                            scrollY: '67vh',
-                            scrollCollapse: true,
-                            scroller: true,
-                            columns: setting
-                        });
-                    </script>
-            HTML;
-        }
         $action = (isset($_SESSION['userId'])?'ChangeLanguagePost':'ChangeLangPost').'?id='.$this->getUrlName2();
         $idModel = 'lang_modal';
         $style_lang = $this->getLanguage();

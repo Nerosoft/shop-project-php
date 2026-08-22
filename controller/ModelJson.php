@@ -405,7 +405,7 @@ abstract class ModelJson implements InterfaceDataView{
         HTML;
         include 'pis_of_page/button_langstylebranch.php';
         echo<<<HTML
-                        <a href="./site" class="navbar-brand fa fa-truck fa-2x pointer"></a>
+                        <a href="./site" class="navbar-brand fa fa-truck fa-2x pointer icon_modal"></a>
                     </h4>
                         <h4>{$this->getTitleForm()}</h4>
                     <form method='POST' action="{$this->getkeysTable()}">
@@ -438,10 +438,49 @@ abstract class ModelJson implements InterfaceDataView{
                 </tr>
             </thead>
             <tbody>';
-        $this->endPage();
-    }
-    function endPage(){
         $this->getView();
+        $size = count($this->getKeysTable());
+        echo<<<HTML
+            </tbody>
+                <tfoot>
+                    <tr>
+                        <th>{$this->getTableId()}</th>
+        HTML;
+        $this->printTableNames();
+        echo<<<HTML
+                        <th>{$this->getTabelEvent()}</th>
+                    </tr>
+                </tfoot>
+            </table>
+            </div>
+                <script type="text/javascript">
+                    let setting = [{ 'searchable': true, className: "text-left" }]
+                    for (let index = 0; index < {$size} ; index++) 
+                        setting.push({ 'searchable': true, className: "text-left" });
+                    setting.push({ 'searchable': false });
+                    new DataTable('#example',{
+                        "oLanguage": {
+                            "sSearch": "{$this->getSsearch()}",
+                            "sEmptyTable":  "{$this->getZeroRecords()}"
+                        },
+                        "language": {
+                            "lengthMenu": "_MENU_ " + "{$this->getLengthMenu()}",
+                            "info":  "{$this->getInfo()}" + " _MAX_",
+                            "zeroRecords":  "{$this->getZeroRecords()}",
+                            "infoEmpty": "{$this->getInfoEmpty()}",
+                            "infoFiltered": "{$this->getInfoFiltered()}" + " _END_ --- _TOTAL_"
+                        },
+                        pageLength : 10,
+                        lengthMenu: [[10, 20, -1], [10, 20, 'All']],
+                        filter: true,
+                        deferRender: true,
+                        scrollY: '67vh',
+                        scrollCollapse: true,
+                        scroller: true,
+                        columns: setting
+                    });
+                </script>
+        HTML;
         include 'pis_of_page/end_html.php';
     }
     function getCount(){

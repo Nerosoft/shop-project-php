@@ -1,3 +1,3 @@
-<i onclick="restLangStyleBranch('#lang_modal');<?php echo isset($_SESSION['userId'])?"$('#lang_modal').find('#allbranchbox').empty();openForm2('#lang_modal');":"openForm('#lang_modal');"?>" class="navbar-brand fa fa-language fa-2x pointer"></i>
-<i onclick="restLangStyleBranch('#style_modal');<?php echo isset($_SESSION['userId'])?"$('#style_modal').find('#allbranchbox').addClass('hidden_style');openForm2('#style_modal');":"openForm('#style_modal');"?>" class="navbar-brand fa fa-magic fa-2x pointer"></i>
-<i onclick="restLangStyleBranch('#branch_modal');openForm('#branch_modal');" class="navbar-brand fa fa-tree fa-2x pointer"></i>
+<i onclick="restLangStyleBranch('#lang_modal');<?php echo isset($_SESSION['userId'])?"$('#lang_modal').find('#allbranchbox').empty();openForm2('#lang_modal');":"openForm('#lang_modal');"?>" class="navbar-brand fa fa-language fa-2x pointer icon_modal"></i>
+<i onclick="restLangStyleBranch('#style_modal');<?php echo isset($_SESSION['userId'])?"$('#style_modal').find('#allbranchbox').addClass('hidden_style');openForm2('#style_modal');":"openForm('#style_modal');"?>" class="navbar-brand fa fa-magic fa-2x pointer icon_modal"></i>
+<i onclick="restLangStyleBranch('#branch_modal');openForm('#branch_modal');" class="navbar-brand fa fa-tree fa-2x pointer icon_modal"></i>

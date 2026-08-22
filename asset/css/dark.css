@@ -89,3 +89,6 @@ div.dt-scroll-body{
 .fa{
     color: white;
 }
+.icon_modal:hover{
+    color: #dc3545!important;
+}
