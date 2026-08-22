@@ -24,7 +24,6 @@ class MyFlexTablesView extends ModelJson{
             $nameItem = $myObject[array_key_first($myObject)];
             include 'pis_of_page/button_edit.php';
         }
-        echo '</tbody></table></div>';
     }
     function getLabel(){
         return $this->getModelPage()['Label'];

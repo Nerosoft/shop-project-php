@@ -17,7 +17,6 @@ class MySystemlang extends ModelJson{
     }
     function getView(){
         include 'view/systemlang.php';
-        echo '</tbody></table></div>';
     }
     function getSelectAll(){
         return $this->getModelPage()['LanguageSelectAll'];

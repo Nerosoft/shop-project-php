@@ -11,7 +11,6 @@ class MyChangeLanguage extends ModelJson{
     function getView(){
         $myStateStyleLang ='AllNamesLanguage';
         include 'pis_of_page/style_lang_view.php';
-        echo '</tbody></table></div>';
     }
     function getSelectLang(){
         return $this->getModelPage()['LanguageSelect'];

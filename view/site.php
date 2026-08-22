@@ -108,7 +108,7 @@
             </div>
             <div class="col-lg-12 col-12">
                 <?php
-                    $this->initNameColume();
+                    include 'pis_of_page/table_colume.php';
                     foreach ($this->getMyDataView() as $index => $myObject) {
                         echo <<<HTML
                             <tr>
@@ -124,10 +124,8 @@
                         echo '</td></tr>';
                         $this->plusCount();
                     }
+                    include 'pis_of_page/part_table.php';
                 ?>
-                </tbody>
-                </table>
-            </div>
         </div>
     </div>
 </section>

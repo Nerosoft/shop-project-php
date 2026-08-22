@@ -10,7 +10,6 @@ class MyHome extends ModelJson{
     }
     function getView(){
         include 'view/home.php';
-        echo '</tbody></table></div>';
     }
     function getLabelName(){
         return $this->getModelPage()['LabelName'];
