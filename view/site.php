@@ -204,6 +204,3 @@
 <script src="./asset/js/aos.js"></script>
 <script src="./asset/js/owl.carousel.min.js"></script>
 <script src="./asset/js/custom.js"></script>
-<?php
-include 'pis_of_page/end_html.php';
-?>

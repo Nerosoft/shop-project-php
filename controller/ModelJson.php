@@ -413,10 +413,9 @@ abstract class ModelJson implements InterfaceDataView{
                     <form method='POST' action="{$this->getkeysTable()}">
         HTML; 
         include('all_modal/login_register_input.php');
-        $this->getView();
-        include 'pis_of_page/buttons.php';    
-        include 'pis_of_page/end_html.php';
-        exit;
+        $this->last(function(){
+            include 'pis_of_page/buttons.php';
+        });
     }
     function setupMenu($cont){
         if(ModelJson::getFileName() === 'Branches' || ModelJson::getFileName() === 'Home'||
@@ -430,52 +429,57 @@ abstract class ModelJson implements InterfaceDataView{
         echo'<div class="start-page '.$cont.'">';
     }
     function initTable(){
-        echo'
+        $size = count($this->getKeysTable());
+        echo<<<HTML
+         <script type="text/javascript">
+            $(document).ready(function(){
+                let setting = [{ 'searchable': true, className: "text-left" }]
+                for (let index = 0; index < {$size} ; index++) 
+                    setting.push({ 'searchable': true, className: "text-left" });
+                setting.push({ 'searchable': false });
+                new DataTable('#example',{
+                    "oLanguage": {
+                        "sSearch": "{$this->getSsearch()}",
+                        "sEmptyTable":  "{$this->getZeroRecords()}"
+                    },
+                    "language": {
+                        "lengthMenu": "_MENU_ " + "{$this->getLengthMenu()}",
+                        "info":  "{$this->getInfo()}" + " _MAX_",
+                        "zeroRecords":  "{$this->getZeroRecords()}",
+                        "infoEmpty": "{$this->getInfoEmpty()}",
+                        "infoFiltered": "{$this->getInfoFiltered()}" + " _END_ --- _TOTAL_"
+                    },
+                    pageLength : 10,
+                    lengthMenu: [[10, 20, -1], [10, 20, 'All']],
+                    filter: true,
+                    deferRender: true,
+                    scrollY: '67vh',
+                    scrollCollapse: true,
+                    scroller: true,
+                    columns: setting
+                });
+            });
+        </script>
         <table id="example" class="table table-striped">
         <thead>
             <tr>
-                <th>'.$this->getTableId().'</th>';
+                <th>{$this->getTableId()}</th>'
+        HTML;
         foreach ($this->getKeysTable() as $index => $key)
             echo'<th>'.($this->getModelPage()[$key]??$this->getTableHead()[$key]).'</th>';
         echo '<th>'.$this->getTabelEvent().'</th>
                 </tr>
             </thead>
             <tbody>';
+        $this->last(function(){
+            echo '</tbody></table></div>';
+        });
+    }
+    function last($callback){
         $this->getView();
-        $size = count($this->getKeysTable());
-        echo<<<HTML
-        </tbody>
-            </table>
-            </div>
-                <script type="text/javascript">
-                    let setting = [{ 'searchable': true, className: "text-left" }]
-                    for (let index = 0; index < {$size} ; index++) 
-                        setting.push({ 'searchable': true, className: "text-left" });
-                    setting.push({ 'searchable': false });
-                    new DataTable('#example',{
-                        "oLanguage": {
-                            "sSearch": "{$this->getSsearch()}",
-                            "sEmptyTable":  "{$this->getZeroRecords()}"
-                        },
-                        "language": {
-                            "lengthMenu": "_MENU_ " + "{$this->getLengthMenu()}",
-                            "info":  "{$this->getInfo()}" + " _MAX_",
-                            "zeroRecords":  "{$this->getZeroRecords()}",
-                            "infoEmpty": "{$this->getInfoEmpty()}",
-                            "infoFiltered": "{$this->getInfoFiltered()}" + " _END_ --- _TOTAL_"
-                        },
-                        pageLength : 10,
-                        lengthMenu: [[10, 20, -1], [10, 20, 'All']],
-                        filter: true,
-                        deferRender: true,
-                        scrollY: '67vh',
-                        scrollCollapse: true,
-                        scroller: true,
-                        columns: setting
-                    });
-                </script>
-        HTML;
+        $callback();
         include 'pis_of_page/end_html.php';
+        exit;
     }
     function getCount(){
         return $this->count;
