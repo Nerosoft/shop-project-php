@@ -107,10 +107,7 @@
                 </h2>
             </div>
             <div class="col-lg-12 col-12">
-
                 <?php
-
-                    echo '<div data-aos="fade-up" data-aos-delay="200">';
                     $this->initTable2();
                     foreach ($this->getMyDataView() as $index => $myObject) {
                         echo <<<HTML
@@ -127,10 +124,9 @@
                         echo '</td></tr>';
                         $this->plusCount();
                     }
-                    echo '</tbody></table></div>';
-                    echo '</div>';
                 ?>
-
+                </tbody>
+                </table>
             </div>
         </div>
     </div>
