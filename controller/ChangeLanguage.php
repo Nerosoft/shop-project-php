@@ -1,6 +1,6 @@
 <?php
 // require 'auth/test_session2.php';
-class MyChangeLanguage extends ModelJson implements CreateModal{
+class MyChangeLanguage extends ModelJson{
     function __construct(){
         parent::__construct('ChangeLanguage', MyLanguage::getKeysObject());
         $this->initMenuSettingLang();

@@ -1,4 +1,6 @@
 <?php
+session_start();
+include 'interface/InterfaceDataView.php';
 abstract class ModelJson implements InterfaceDataView{
     private $File;
     private $IdPage;
@@ -433,7 +435,8 @@ abstract class ModelJson implements InterfaceDataView{
         <thead>
             <tr>
                 <th>'.$this->getTableId().'</th>';
-        $this->printTableNames();
+        foreach ($this->getKeysTable() as $index => $key)
+            echo'<th>'.($this->getModelPage()[$key]??$this->getTableHead()[$key]).'</th>';
         echo '<th>'.$this->getTabelEvent().'</th>
                 </tr>
             </thead>
@@ -441,16 +444,7 @@ abstract class ModelJson implements InterfaceDataView{
         $this->getView();
         $size = count($this->getKeysTable());
         echo<<<HTML
-            </tbody>
-                <tfoot>
-                    <tr>
-                        <th>{$this->getTableId()}</th>
-        HTML;
-        $this->printTableNames();
-        echo<<<HTML
-                        <th>{$this->getTabelEvent()}</th>
-                    </tr>
-                </tfoot>
+        </tbody>
             </table>
             </div>
                 <script type="text/javascript">
@@ -647,10 +641,6 @@ abstract class ModelJson implements InterfaceDataView{
     }
     function getKeysTable(){
         return $this->keysTable;
-    }
-    function printTableNames(){
-        foreach ($this->getKeysTable() as $index => $key)
-            echo'<th>'.($this->getModelPage()[$key]??$this->getTableHead()[$key]).'</th>';
     }
     function getIconByKey($key){
         if($key === 'Home')

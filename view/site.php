@@ -199,7 +199,7 @@
         </div>
     </div>
 </footer>
-
+</div>
 <!-- SCRIPTS -->
 <script src="./asset/js/aos.js"></script>
 <script src="./asset/js/owl.carousel.min.js"></script>

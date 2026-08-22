@@ -1,5 +1,5 @@
 <?php
-require 'auth/SessionAdmin.php';
+require 'controller/ModelJson.php';
 require 'class_object/MyLanguage.php';
 require 'class_object/BranchClass.php';
 require 'controller/'.ModelJson::getFileName().'.php';

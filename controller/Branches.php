@@ -1,6 +1,6 @@
 <?php
 // require 'auth/test_session2.php';
-class MyBranch extends ModelJson implements CreateModal{
+class MyBranch extends ModelJson{
     function getFlexTable(){
         return $this->getModelPage()['FlexTable'];
     }

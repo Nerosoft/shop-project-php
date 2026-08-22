@@ -1,4 +1,5 @@
 <?php
+require 'class_object/ProductValue.php';
 class Site extends ModelJson{
     function __construct(){
         parent::__construct('Site'); 

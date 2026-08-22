@@ -1,7 +1,7 @@
 <?php
 // require 'auth/test_session2.php';
 require 'class_object/CustomTable.php';
-class MyHome extends ModelJson implements CreateModal{
+class MyHome extends ModelJson{
     function __construct(){
         parent::__construct('Home', CustomTable::getKeysObject());
     }
