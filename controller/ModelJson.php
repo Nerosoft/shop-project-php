@@ -413,9 +413,10 @@ abstract class ModelJson implements InterfaceDataView{
                     <form method='POST' action="{$this->getkeysTable()}">
         HTML; 
         include('all_modal/login_register_input.php');
-        $this->last(function(){
-            include 'pis_of_page/buttons.php';
-        });
+        $this->getView();
+        include 'pis_of_page/buttons.php';
+        include 'pis_of_page/end_html.php';
+        exit;
     }
     function setupMenu($cont){
         if(ModelJson::getFileName() === 'Branches' || ModelJson::getFileName() === 'Home'||
@@ -460,12 +461,12 @@ abstract class ModelJson implements InterfaceDataView{
         HTML;
         echo'<div class="start-page '.$cont.'">';
     }
-    function initTable2(){
+    function initNameColume(){
         echo<<<HTML
         <table id="example" class="table table-striped">
         <thead>
             <tr>
-                <th>{$this->getTableId()}</th>'
+                <th>{$this->getTableId()}</th>
         HTML;
         foreach ($this->getKeysTable() as $index => $key)
             echo'<th>'.($this->getModelPage()[$key]??$this->getTableHead()[$key]).'</th>';
@@ -473,19 +474,12 @@ abstract class ModelJson implements InterfaceDataView{
                 </tr>
             </thead>
             <tbody>';
+        
     }
     function initTable(){
-        $this->initTable2();
-        $this->last(function(){
-            echo '</tbody></table></div>';
-        });
-    }
-    function last($callback = null){
+        $this->initNameColume();
         $this->getView();
-        if(!is_null($callback))
-            $callback();
         include 'pis_of_page/end_html.php';
-        exit;
     }
     function getCount(){
         return $this->count;

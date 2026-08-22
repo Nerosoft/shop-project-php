@@ -108,7 +108,7 @@
             </div>
             <div class="col-lg-12 col-12">
                 <?php
-                    $this->initTable2();
+                    $this->initNameColume();
                     foreach ($this->getMyDataView() as $index => $myObject) {
                         echo <<<HTML
                             <tr>

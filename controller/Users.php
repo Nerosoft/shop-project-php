@@ -20,6 +20,7 @@ class MySettingUsers extends ModelJson{
                 HTML;
             include 'pis_of_page/button_edit.php';
         }
+        echo '</tbody></table></div>';
     }
     function makeCreateModal($title, $button, $idModel = 'createModel', $index = null, $myObject = null, $action = 'SettingUsersCreatePost.php'){
         $this->makeCreateModalForgetPass($title, $button, $idModel, $index, $myObject, $action);

@@ -1,3 +1,3 @@
 <?php
 require 'auth/view.php';
-$view->last();
+$view->getView();

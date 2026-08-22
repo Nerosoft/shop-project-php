@@ -10,6 +10,7 @@ class MyStyleClass extends ModelJson{
     function getView(){
         $myStateStyleLang = 'Style';
         include 'pis_of_page/style_lang_view.php';
+        echo '</tbody></table></div>';
     }
 }
 $view = new MyStyleClass();

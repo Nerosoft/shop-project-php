@@ -10,6 +10,7 @@ class Product extends ModelJson{
     }
     function getView(){
         include 'view/product.php';
+        echo '</tbody></table></div>';
     }
     function getLabelName(){
         return $this->getModelPage()['LabelName'];

@@ -18,6 +18,7 @@ class Site extends ModelJson{
     }
     function getView(){
         include 'view/site.php';
+        include 'pis_of_page/end_html.php';
     }
     function getStories(){
         return $this->getModelPage()['Stories'];

@@ -42,6 +42,7 @@ class MyBranch extends ModelJson{
             include('all_modal/end_model.php');
             include 'pis_of_page/button_edit.php';
         }
+        echo '</tbody></table></div>';
     }
     function getBranchStreet(){
         return $this->BranchStreet;
