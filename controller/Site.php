@@ -13,9 +13,6 @@ class Site extends ModelJson{
         <link rel="stylesheet" href="./asset/css/owl.theme.default.min.css">
         <link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css">';
     }
-    function getMyDataView(){
-        return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
-    }
     function getView(){
         include 'view/site.php';
         include 'pis_of_page/end_html.php';

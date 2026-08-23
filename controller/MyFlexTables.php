@@ -18,10 +18,7 @@ class MyFlexTablesView extends ModelJson{
                 echo <<<HTML
                 <td>{$item}</td>
                 HTML;  
-            echo <<<HTML
-                <td>
-                HTML;
-            $nameItem = $myObject[array_key_first($myObject)];
+            include 'pis_of_page/display_image.php';
             include 'pis_of_page/button_edit.php';
         }
     }

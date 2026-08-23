@@ -14,6 +14,9 @@ abstract class ModelJson implements InterfaceDataView{
     private $MessageType;
     private $StyleFile;
     public $keysInput;
+    function getMyDataViewProduct(){
+        return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
+    }
     function getBranchLanguage(){
         $arr = array();
         foreach ($this->getBranch() as $key => $value){

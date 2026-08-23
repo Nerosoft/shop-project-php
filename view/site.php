@@ -66,23 +66,18 @@
                 </h2>
                 <div class="owl-carousel owl-theme" id="project-slide">
                         <?php                                   
-                            foreach ($this->getMyDataView() as $index => $myObject)
+                            foreach ($this->getMyDataViewProduct() as $index => $myObject)
                                 echo<<<HTML
                                     <div class="item project-wrapper" data-aos="fade-up" data-aos-delay="100">
                                         <img src="./asset/product/{$this->getId()}/{$index}" class="img-fluid" alt="project image">
                                         <div class="project-info">
                                             <h3>
                                                 <a href="#project">
-                                                    <span>{$myObject->getDescreption()}</span>
+                                                    <span>{$myObject->getName()}</span>
                                                     <i class="fa fa-angle-right project-icon"></i>
                                                 </a>
                                             </h3>
-                                            <span>{$this->getModelPage()['Name']} {$myObject->getName()}</span>
-                                            <br>
-                                            <span>{$this->getModelPage()['Salary']} {$myObject->getSalary()}</span>
-                                            <br>
-                                            <span>{$this->getModelPage()['Category']} {$myObject->getCategory()}</span>
-                                            <br>
+                                            <span>{$myObject->getDescreption()}</span>
                                         </div>
                                     </div>
                                 HTML;
@@ -109,18 +104,8 @@
             <div class="col-lg-12 col-12">
                 <?php
                     include 'pis_of_page/table_colume.php';
-                    foreach ($this->getMyDataView() as $index => $myObject) {
-                        echo <<<HTML
-                            <tr>
-                                <td>{$this->getCount()}</td>
-                                <td><img id="preview" src="./asset/product/{$this->getId()}/{$index}" class="avatar-product-view"></td>
-                                <td>{$myObject->getName()}</td>
-                                <td>{$myObject->getDescreption()}</td>
-                                <td>{$myObject->getSalary()}</td>
-                                <td>{$myObject->getCategory()}</td>
-                                <td>
-                        HTML;
-                        include 'pis_of_page/display_image.php';
+                    foreach ($this->getMyDataViewProduct() as $index => $myObject) {
+                        include 'pis_of_page/product_part.php';
                         echo '</td></tr>';
                         $this->plusCount();
                     }

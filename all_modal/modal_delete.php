@@ -4,6 +4,6 @@ $title = $this->getScreenModelDelete();
 $idModel = "deleteModel".$index;
 $button = $this->getbuttonModelDelete();
 include('start_model.php');
-echo $this->getmessageModelDelete().'<spam>-'.($nameItem??$myObject->getName()).'</spam>';
+echo $this->getmessageModelDelete().'<spam>-'.(ModelJson::getFileName() === 'MyFlexTables'?$myObject[array_key_first($myObject)]:$myObject->getName()).'</spam>';
 include 'end_model.php';
 ?>

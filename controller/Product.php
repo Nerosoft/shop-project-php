@@ -5,9 +5,6 @@ class Product extends ModelJson{
     function __construct(){
         parent::__construct('Product', ProductValue::getKeysObject());
     }
-    function getMyDataView(){
-        return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
-    }
     function getView(){
         include 'view/product.php';
     }
