@@ -417,7 +417,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "6afe0d32": "English language"
+                "hlc73262": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -859,11 +859,12 @@
                 "ButtonModelEdit": "save"
             },
             "MyFlexTables": {
-                "8g03a095": "book programming language"
+                "8g03a095": "book programming language",
+                "SYbabd0b": "Games"
             },
             "8g03a095": {
-                "LookTable": "Please take a look through our table",
-                "TrendsTable": "Delivery Marketing Trends table",
+                "LookTable": "Please take a look through our table book",
+                "TrendsTable": "Delivery Marketing Trends table book",
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
                 "BranchInv": "branch id invalid",
@@ -953,6 +954,109 @@
                     "ONb5cb93": "Error quantity invalid",
                     "Vmb5cb9d": "Error date invalid"
                 }
+            },
+            "SYbabd0b": {
+                "LookTable": "Please take a look through our table games",
+                "TrendsTable": "Delivery Marketing Trends table games",
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
+                "Logout": "Logout",
+                "MyFlexTables": "Flex tables",
+                "Ssearch": "Quick Search:",
+                "InfoEmpty": "No records available",
+                "ZeroRecords": "No Data Found",
+                "Info": "Total",
+                "LengthMenu": "records per page",
+                "InfoFiltered": "Showing",
+                "SuccessfullyChangeBranch": "Successfully changed branch",
+                "ActiveBranch": "this branch is active",
+                "ChangeTitleBranch": "welcome in change branch",
+                "ChangeButtonBranch": "change branch",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
+                "TitleViewImage": "View image product",
+                "TableProductImage": "Image",
+                "Reqimage": "Required image",
+                "Invimage": "Invalid image",
+                "UploadImgInv": "error upload image",
+                "ImgLabel": "your image",
+                "ImgButton": "Select your image",
+                "AllBranches": "All branches",
+                "MYTITLE": "book programming language",
+                "LoadMessage": "Welcome in book programing language",
+                "ScreenModelDelete": "Welcome in delete book",
+                "MessageModelDelete": "do you want to delete book",
+                "ButtonModelDelete": "Delete",
+                "Title": "book programming language",
+                "ScreenModelCreate": "Welcome in create new book",
+                "ScreenModelEdit": "Welcome in edit book",
+                "ButtonModelCreate": "Create book",
+                "ButtonModelAdd": "Create",
+                "ButtonModelEdit": "Save",
+                "TableId": "My id ",
+                "TabelEvent": "Event",
+                "MessageModelCreate": "Successfully create book",
+                "MessageModelEdit": "Successfully edit book",
+                "Delete": "Successfully delete book",
+                "IdIsReq": "Id required",
+                "IdIsInv": "Id invalid",
+                "TableHead": {
+                    "Jfbabe24": "Name",
+                    "MZbabe31": "Publisher",
+                    "H6babe3f": "Language",
+                    "jgbabe48": "Paperback",
+                    "Ysbabe51": "ISBN-10",
+                    "Subabe5b": "ISBN-13",
+                    "bnbabe64": "Item Weight",
+                    "RSbabe6e": "Dimensions"
+                },
+                "Label": {
+                    "Jfbabe24": "Name",
+                    "MZbabe31": "Publisher",
+                    "H6babe3f": "Language",
+                    "jgbabe48": "Paperback",
+                    "Ysbabe51": "ISBN-10",
+                    "Subabe5b": "ISBN-13",
+                    "bnbabe64": "Item Weight",
+                    "RSbabe6e": "Dimensions"
+                },
+                "Hint": {
+                    "Jfbabe24": "Enter name",
+                    "MZbabe31": "Enter Publisher",
+                    "H6babe3f": "Enter Language",
+                    "jgbabe48": "Enter Language",
+                    "Ysbabe51": "Enter ISBN-10",
+                    "Subabe5b": "Enter ISBN-1",
+                    "bnbabe64": "Enter Item Weight",
+                    "RSbabe6e": "Enter Dimensions"
+                },
+                "ErrorsMessageReq": {
+                    "Jfbabe24": "Error name reqired",
+                    "MZbabe31": "Error Publisher reqired",
+                    "H6babe3f": "Error Language reqired",
+                    "jgbabe48": "Error Language reqired",
+                    "Ysbabe51": "Error ISBN-10 reqired",
+                    "Subabe5b": "Error ISBN-1 reqired",
+                    "bnbabe64": "Error Item Weight reqired",
+                    "RSbabe6e": "Error Dimensions reqired"
+                },
+                "ErrorsMessageInv": {
+                    "Jfbabe24": "Error name invalid",
+                    "MZbabe31": "Error Publisher invalid",
+                    "H6babe3f": "Error Language invalid",
+                    "jgbabe48": "Error Language invalid",
+                    "Ysbabe51": "Error ISBN-10 invalid",
+                    "Subabe5b": "Error ISBN-1 invalid",
+                    "bnbabe64": "Error Item Weight invalid",
+                    "RSbabe6e": "Error Dimensions invalid"
+                }
             }
         },
         "Branches": {
@@ -967,7 +1071,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithoutRays"
             },
-            "bK07a136": {
+            "fl31f842": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
@@ -1026,9 +1130,47 @@
                 "kCb5cb86": "100",
                 "ONb5cb93": "13 book",
                 "Vmb5cb9d": "2026"
+            },
+            "GNf0f7b5": {
+                "gYb5cb65": "Php",
+                "s5b5cb73": "Abdullah",
+                "lgb5cb7d": "200",
+                "kCb5cb86": "200",
+                "ONb5cb93": "13 book",
+                "Vmb5cb9d": "2026"
+            },
+            "EC90ddf7": {
+                "gYb5cb65": "Android",
+                "s5b5cb73": "Abdullah",
+                "lgb5cb7d": "200",
+                "kCb5cb86": "300",
+                "ONb5cb93": "13 book",
+                "Vmb5cb9d": "2030"
             }
         },
-        "6afe0d32": {
+        "SYbabd0b": {
+            "ZW5d80a1": {
+                "Jfbabe24": "Blueprints Visual Scripting for Unreal Engine",
+                "MZbabe31": "Packt Publishing (July 28, 2015)",
+                "H6babe3f": "English",
+                "jgbabe48": "188 pages",
+                "Ysbabe51": "1785286013",
+                "Subabe5b": "978-1785286018",
+                "bnbabe64": "11.7 ounces",
+                "RSbabe6e": "7.5 x 0.43 x 9.25 inches"
+            },
+            "D6dd9ae0": {
+                "Jfbabe24": "Unreal Engine Blueprints Visual Scripting Projects",
+                "MZbabe31": "Packt Publishing (February 28, 2019)",
+                "H6babe3f": "English",
+                "jgbabe48": "528 pages",
+                "Ysbabe51": "1789532426",
+                "Subabe5b": "978-1789532425",
+                "bnbabe64": "1.95 pounds",
+                "RSbabe6e": "7.5 x 1.19 x 9.25 inches"
+            }
+        },
+        "hlc73262": {
             "Site": {
                 "LookTable": "Please take a look through our table",
                 "TrendsTable": "Delivery Marketing Trends table",
@@ -1443,7 +1585,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "6afe0d32": "English language"
+                "hlc73262": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -1885,11 +2027,12 @@
                 "ButtonModelEdit": "save"
             },
             "MyFlexTables": {
-                "8g03a095": "book programming language"
+                "8g03a095": "book programming language",
+                "SYbabd0b": "Games"
             },
             "8g03a095": {
-                "LookTable": "Please take a look through our table",
-                "TrendsTable": "Delivery Marketing Trends table",
+                "LookTable": "Please take a look through our table book",
+                "TrendsTable": "Delivery Marketing Trends table book",
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
                 "BranchInv": "branch id invalid",
@@ -1979,10 +2122,113 @@
                     "ONb5cb93": "Error quantity invalid",
                     "Vmb5cb9d": "Error date invalid"
                 }
+            },
+            "SYbabd0b": {
+                "LookTable": "Please take a look through our table games",
+                "TrendsTable": "Delivery Marketing Trends table games",
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
+                "Logout": "Logout",
+                "MyFlexTables": "Flex tables",
+                "Ssearch": "Quick Search:",
+                "InfoEmpty": "No records available",
+                "ZeroRecords": "No Data Found",
+                "Info": "Total",
+                "LengthMenu": "records per page",
+                "InfoFiltered": "Showing",
+                "SuccessfullyChangeBranch": "Successfully changed branch",
+                "ActiveBranch": "this branch is active",
+                "ChangeTitleBranch": "welcome in change branch",
+                "ChangeButtonBranch": "change branch",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
+                "TitleViewImage": "View image product",
+                "TableProductImage": "Image",
+                "Reqimage": "Required image",
+                "Invimage": "Invalid image",
+                "UploadImgInv": "error upload image",
+                "ImgLabel": "your image",
+                "ImgButton": "Select your image",
+                "AllBranches": "All branches",
+                "MYTITLE": "book programming language",
+                "LoadMessage": "Welcome in book programing language",
+                "ScreenModelDelete": "Welcome in delete book",
+                "MessageModelDelete": "do you want to delete book",
+                "ButtonModelDelete": "Delete",
+                "Title": "book programming language",
+                "ScreenModelCreate": "Welcome in create new book",
+                "ScreenModelEdit": "Welcome in edit book",
+                "ButtonModelCreate": "Create book",
+                "ButtonModelAdd": "Create",
+                "ButtonModelEdit": "Save",
+                "TableId": "My id ",
+                "TabelEvent": "Event",
+                "MessageModelCreate": "Successfully create book",
+                "MessageModelEdit": "Successfully edit book",
+                "Delete": "Successfully delete book",
+                "IdIsReq": "Id required",
+                "IdIsInv": "Id invalid",
+                "TableHead": {
+                    "Jfbabe24": "Name",
+                    "MZbabe31": "Publisher",
+                    "H6babe3f": "Language",
+                    "jgbabe48": "Paperback",
+                    "Ysbabe51": "ISBN-10",
+                    "Subabe5b": "ISBN-13",
+                    "bnbabe64": "Item Weight",
+                    "RSbabe6e": "Dimensions"
+                },
+                "Label": {
+                    "Jfbabe24": "Name",
+                    "MZbabe31": "Publisher",
+                    "H6babe3f": "Language",
+                    "jgbabe48": "Paperback",
+                    "Ysbabe51": "ISBN-10",
+                    "Subabe5b": "ISBN-13",
+                    "bnbabe64": "Item Weight",
+                    "RSbabe6e": "Dimensions"
+                },
+                "Hint": {
+                    "Jfbabe24": "Enter name",
+                    "MZbabe31": "Enter Publisher",
+                    "H6babe3f": "Enter Language",
+                    "jgbabe48": "Enter Language",
+                    "Ysbabe51": "Enter ISBN-10",
+                    "Subabe5b": "Enter ISBN-1",
+                    "bnbabe64": "Enter Item Weight",
+                    "RSbabe6e": "Enter Dimensions"
+                },
+                "ErrorsMessageReq": {
+                    "Jfbabe24": "Error name reqired",
+                    "MZbabe31": "Error Publisher reqired",
+                    "H6babe3f": "Error Language reqired",
+                    "jgbabe48": "Error Language reqired",
+                    "Ysbabe51": "Error ISBN-10 reqired",
+                    "Subabe5b": "Error ISBN-1 reqired",
+                    "bnbabe64": "Error Item Weight reqired",
+                    "RSbabe6e": "Error Dimensions reqired"
+                },
+                "ErrorsMessageInv": {
+                    "Jfbabe24": "Error name invalid",
+                    "MZbabe31": "Error Publisher invalid",
+                    "H6babe3f": "Error Language invalid",
+                    "jgbabe48": "Error Language invalid",
+                    "Ysbabe51": "Error ISBN-10 invalid",
+                    "Subabe5b": "Error ISBN-1 invalid",
+                    "bnbabe64": "Error Item Weight invalid",
+                    "RSbabe6e": "Error Dimensions invalid"
+                }
             }
         }
     },
-    "bK07a136": {
+    "fl31f842": {
         "AllNamesLanguage": "english",
         "Style": "default",
         "english": {
@@ -2400,7 +2646,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "6afe0d32": "English language"
+                "hlc73262": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -2842,11 +3088,12 @@
                 "ButtonModelEdit": "save"
             },
             "MyFlexTables": {
-                "8g03a095": "book programming language"
+                "8g03a095": "book programming language",
+                "SYbabd0b": "Games"
             },
             "8g03a095": {
-                "LookTable": "Please take a look through our table",
-                "TrendsTable": "Delivery Marketing Trends table",
+                "LookTable": "Please take a look through our table book",
+                "TrendsTable": "Delivery Marketing Trends table book",
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
                 "BranchInv": "branch id invalid",
@@ -2936,6 +3183,109 @@
                     "ONb5cb93": "Error quantity invalid",
                     "Vmb5cb9d": "Error date invalid"
                 }
+            },
+            "SYbabd0b": {
+                "LookTable": "Please take a look through our table games",
+                "TrendsTable": "Delivery Marketing Trends table games",
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
+                "Logout": "Logout",
+                "MyFlexTables": "Flex tables",
+                "Ssearch": "Quick Search:",
+                "InfoEmpty": "No records available",
+                "ZeroRecords": "No Data Found",
+                "Info": "Total",
+                "LengthMenu": "records per page",
+                "InfoFiltered": "Showing",
+                "SuccessfullyChangeBranch": "Successfully changed branch",
+                "ActiveBranch": "this branch is active",
+                "ChangeTitleBranch": "welcome in change branch",
+                "ChangeButtonBranch": "change branch",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
+                "TitleViewImage": "View image product",
+                "TableProductImage": "Image",
+                "Reqimage": "Required image",
+                "Invimage": "Invalid image",
+                "UploadImgInv": "error upload image",
+                "ImgLabel": "your image",
+                "ImgButton": "Select your image",
+                "AllBranches": "All branches",
+                "MYTITLE": "book programming language",
+                "LoadMessage": "Welcome in book programing language",
+                "ScreenModelDelete": "Welcome in delete book",
+                "MessageModelDelete": "do you want to delete book",
+                "ButtonModelDelete": "Delete",
+                "Title": "book programming language",
+                "ScreenModelCreate": "Welcome in create new book",
+                "ScreenModelEdit": "Welcome in edit book",
+                "ButtonModelCreate": "Create book",
+                "ButtonModelAdd": "Create",
+                "ButtonModelEdit": "Save",
+                "TableId": "My id ",
+                "TabelEvent": "Event",
+                "MessageModelCreate": "Successfully create book",
+                "MessageModelEdit": "Successfully edit book",
+                "Delete": "Successfully delete book",
+                "IdIsReq": "Id required",
+                "IdIsInv": "Id invalid",
+                "TableHead": {
+                    "Jfbabe24": "Name",
+                    "MZbabe31": "Publisher",
+                    "H6babe3f": "Language",
+                    "jgbabe48": "Paperback",
+                    "Ysbabe51": "ISBN-10",
+                    "Subabe5b": "ISBN-13",
+                    "bnbabe64": "Item Weight",
+                    "RSbabe6e": "Dimensions"
+                },
+                "Label": {
+                    "Jfbabe24": "Name",
+                    "MZbabe31": "Publisher",
+                    "H6babe3f": "Language",
+                    "jgbabe48": "Paperback",
+                    "Ysbabe51": "ISBN-10",
+                    "Subabe5b": "ISBN-13",
+                    "bnbabe64": "Item Weight",
+                    "RSbabe6e": "Dimensions"
+                },
+                "Hint": {
+                    "Jfbabe24": "Enter name",
+                    "MZbabe31": "Enter Publisher",
+                    "H6babe3f": "Enter Language",
+                    "jgbabe48": "Enter Language",
+                    "Ysbabe51": "Enter ISBN-10",
+                    "Subabe5b": "Enter ISBN-1",
+                    "bnbabe64": "Enter Item Weight",
+                    "RSbabe6e": "Enter Dimensions"
+                },
+                "ErrorsMessageReq": {
+                    "Jfbabe24": "Error name reqired",
+                    "MZbabe31": "Error Publisher reqired",
+                    "H6babe3f": "Error Language reqired",
+                    "jgbabe48": "Error Language reqired",
+                    "Ysbabe51": "Error ISBN-10 reqired",
+                    "Subabe5b": "Error ISBN-1 reqired",
+                    "bnbabe64": "Error Item Weight reqired",
+                    "RSbabe6e": "Error Dimensions reqired"
+                },
+                "ErrorsMessageInv": {
+                    "Jfbabe24": "Error name invalid",
+                    "MZbabe31": "Error Publisher invalid",
+                    "H6babe3f": "Error Language invalid",
+                    "jgbabe48": "Error Language invalid",
+                    "Ysbabe51": "Error ISBN-10 invalid",
+                    "Subabe5b": "Error ISBN-1 invalid",
+                    "bnbabe64": "Error Item Weight invalid",
+                    "RSbabe6e": "Error Dimensions invalid"
+                }
             }
         },
         "Product": {
@@ -2985,9 +3335,47 @@
                 "kCb5cb86": "100",
                 "ONb5cb93": "13 book",
                 "Vmb5cb9d": "2026"
+            },
+            "GNf0f7b5": {
+                "gYb5cb65": "Php",
+                "s5b5cb73": "Abdullah",
+                "lgb5cb7d": "200",
+                "kCb5cb86": "200",
+                "ONb5cb93": "13 book",
+                "Vmb5cb9d": "2026"
+            },
+            "EC90ddf7": {
+                "gYb5cb65": "Android",
+                "s5b5cb73": "Abdullah",
+                "lgb5cb7d": "200",
+                "kCb5cb86": "300",
+                "ONb5cb93": "13 book",
+                "Vmb5cb9d": "2030"
             }
         },
-        "6afe0d32": {
+        "SYbabd0b": {
+            "ZW5d80a1": {
+                "Jfbabe24": "Blueprints Visual Scripting for Unreal Engine",
+                "MZbabe31": "Packt Publishing (July 28, 2015)",
+                "H6babe3f": "English",
+                "jgbabe48": "188 pages",
+                "Ysbabe51": "1785286013",
+                "Subabe5b": "978-1785286018",
+                "bnbabe64": "11.7 ounces",
+                "RSbabe6e": "7.5 x 0.43 x 9.25 inches"
+            },
+            "D6dd9ae0": {
+                "Jfbabe24": "Unreal Engine Blueprints Visual Scripting Projects",
+                "MZbabe31": "Packt Publishing (February 28, 2019)",
+                "H6babe3f": "English",
+                "jgbabe48": "528 pages",
+                "Ysbabe51": "1789532426",
+                "Subabe5b": "978-1789532425",
+                "bnbabe64": "1.95 pounds",
+                "RSbabe6e": "7.5 x 1.19 x 9.25 inches"
+            }
+        },
+        "hlc73262": {
             "Site": {
                 "LookTable": "Please take a look through our table",
                 "TrendsTable": "Delivery Marketing Trends table",
@@ -3402,7 +3790,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "6afe0d32": "English language"
+                "hlc73262": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -3844,11 +4232,12 @@
                 "ButtonModelEdit": "save"
             },
             "MyFlexTables": {
-                "8g03a095": "book programming language"
+                "8g03a095": "book programming language",
+                "SYbabd0b": "Games"
             },
             "8g03a095": {
-                "LookTable": "Please take a look through our table",
-                "TrendsTable": "Delivery Marketing Trends table",
+                "LookTable": "Please take a look through our table book",
+                "TrendsTable": "Delivery Marketing Trends table book",
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
                 "BranchInv": "branch id invalid",
@@ -3937,6 +4326,109 @@
                     "kCb5cb86": "Error salary invalid",
                     "ONb5cb93": "Error quantity invalid",
                     "Vmb5cb9d": "Error date invalid"
+                }
+            },
+            "SYbabd0b": {
+                "LookTable": "Please take a look through our table games",
+                "TrendsTable": "Delivery Marketing Trends table games",
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
+                "Logout": "Logout",
+                "MyFlexTables": "Flex tables",
+                "Ssearch": "Quick Search:",
+                "InfoEmpty": "No records available",
+                "ZeroRecords": "No Data Found",
+                "Info": "Total",
+                "LengthMenu": "records per page",
+                "InfoFiltered": "Showing",
+                "SuccessfullyChangeBranch": "Successfully changed branch",
+                "ActiveBranch": "this branch is active",
+                "ChangeTitleBranch": "welcome in change branch",
+                "ChangeButtonBranch": "change branch",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
+                "TitleViewImage": "View image product",
+                "TableProductImage": "Image",
+                "Reqimage": "Required image",
+                "Invimage": "Invalid image",
+                "UploadImgInv": "error upload image",
+                "ImgLabel": "your image",
+                "ImgButton": "Select your image",
+                "AllBranches": "All branches",
+                "MYTITLE": "book programming language",
+                "LoadMessage": "Welcome in book programing language",
+                "ScreenModelDelete": "Welcome in delete book",
+                "MessageModelDelete": "do you want to delete book",
+                "ButtonModelDelete": "Delete",
+                "Title": "book programming language",
+                "ScreenModelCreate": "Welcome in create new book",
+                "ScreenModelEdit": "Welcome in edit book",
+                "ButtonModelCreate": "Create book",
+                "ButtonModelAdd": "Create",
+                "ButtonModelEdit": "Save",
+                "TableId": "My id ",
+                "TabelEvent": "Event",
+                "MessageModelCreate": "Successfully create book",
+                "MessageModelEdit": "Successfully edit book",
+                "Delete": "Successfully delete book",
+                "IdIsReq": "Id required",
+                "IdIsInv": "Id invalid",
+                "TableHead": {
+                    "Jfbabe24": "Name",
+                    "MZbabe31": "Publisher",
+                    "H6babe3f": "Language",
+                    "jgbabe48": "Paperback",
+                    "Ysbabe51": "ISBN-10",
+                    "Subabe5b": "ISBN-13",
+                    "bnbabe64": "Item Weight",
+                    "RSbabe6e": "Dimensions"
+                },
+                "Label": {
+                    "Jfbabe24": "Name",
+                    "MZbabe31": "Publisher",
+                    "H6babe3f": "Language",
+                    "jgbabe48": "Paperback",
+                    "Ysbabe51": "ISBN-10",
+                    "Subabe5b": "ISBN-13",
+                    "bnbabe64": "Item Weight",
+                    "RSbabe6e": "Dimensions"
+                },
+                "Hint": {
+                    "Jfbabe24": "Enter name",
+                    "MZbabe31": "Enter Publisher",
+                    "H6babe3f": "Enter Language",
+                    "jgbabe48": "Enter Language",
+                    "Ysbabe51": "Enter ISBN-10",
+                    "Subabe5b": "Enter ISBN-1",
+                    "bnbabe64": "Enter Item Weight",
+                    "RSbabe6e": "Enter Dimensions"
+                },
+                "ErrorsMessageReq": {
+                    "Jfbabe24": "Error name reqired",
+                    "MZbabe31": "Error Publisher reqired",
+                    "H6babe3f": "Error Language reqired",
+                    "jgbabe48": "Error Language reqired",
+                    "Ysbabe51": "Error ISBN-10 reqired",
+                    "Subabe5b": "Error ISBN-1 reqired",
+                    "bnbabe64": "Error Item Weight reqired",
+                    "RSbabe6e": "Error Dimensions reqired"
+                },
+                "ErrorsMessageInv": {
+                    "Jfbabe24": "Error name invalid",
+                    "MZbabe31": "Error Publisher invalid",
+                    "H6babe3f": "Error Language invalid",
+                    "jgbabe48": "Error Language invalid",
+                    "Ysbabe51": "Error ISBN-10 invalid",
+                    "Subabe5b": "Error ISBN-1 invalid",
+                    "bnbabe64": "Error Item Weight invalid",
+                    "RSbabe6e": "Error Dimensions invalid"
                 }
             }
         }
