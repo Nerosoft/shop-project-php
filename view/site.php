@@ -72,12 +72,12 @@
                                         <img src="./asset/product/{$this->getId()}/{$index}" class="img-fluid" alt="project image">
                                         <div class="project-info">
                                             <h3>
-                                                <a href="#project">
+                                                <a target="_blank" href="{$myObject->getDescreption()}">
                                                     <span>{$myObject->getName()}</span>
                                                     <i class="fa fa-angle-right project-icon"></i>
                                                 </a>
                                             </h3>
-                                            <span>{$myObject->getDescreption()}</span>
+                                            <span>{$myObject->getCategory()}</span>
                                         </div>
                                     </div>
                                 HTML;
