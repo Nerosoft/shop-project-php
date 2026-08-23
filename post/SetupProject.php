@@ -33,7 +33,8 @@ class SetupProject extends ModelJson{
                         "Register"=> "Register",
                         "about"=> "About",
                         "contact"=> "Contact",
-                        "project"=> "Our Works"
+                        "project"=> "Our Works",
+                        "product"=> "Table product"
                     ],
                     "Offcanvas"=> "Menu",
                     "AdminDashboard"=> "Welocme in my library",
@@ -703,6 +704,8 @@ class SetupProject extends ModelJson{
                     "LabelInputNumber"=> "Input numper",
                     "HintInputNumber"=> "Enter input numper",
                     "TablePage"=>[
+                        "LookTable"=> "Please take a look through our table",
+                        "TrendsTable"=> "Delivery Marketing Trends table",
                         "Offcanvas"=> "Menu",
                         "AdminDashboard"=> "Welocme in my library",
                         "BranchInv"=> "branch id invalid",

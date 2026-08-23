@@ -19,7 +19,8 @@
                     "Register": "Register",
                     "about": "About",
                     "contact": "Contact",
-                    "project": "Our Works"
+                    "project": "Our Works",
+                    "product": "Table product"
                 },
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
@@ -416,7 +417,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "BZ00832a": "English language"
+                "6afe0d32": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -695,6 +696,8 @@
                 "LabelInputNumber": "Input numper",
                 "HintInputNumber": "Enter input numper",
                 "TablePage": {
+                    "LookTable": "Please take a look through our table",
+                    "TrendsTable": "Delivery Marketing Trends table",
                     "Offcanvas": "Menu",
                     "AdminDashboard": "Welocme in my library",
                     "BranchInv": "branch id invalid",
@@ -859,6 +862,8 @@
                 "8g03a095": "book programming language"
             },
             "8g03a095": {
+                "LookTable": "Please take a look through our table",
+                "TrendsTable": "Delivery Marketing Trends table",
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
                 "BranchInv": "branch id invalid",
@@ -962,7 +967,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithoutRays"
             },
-            "qa50c960": {
+            "bK07a136": {
                 "Name": "shpeen",
                 "Phone": "01204299614",
                 "Country": "Egypt",
@@ -1023,7 +1028,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "BZ00832a": {
+        "6afe0d32": {
             "Site": {
                 "LookTable": "Please take a look through our table",
                 "TrendsTable": "Delivery Marketing Trends table",
@@ -1040,7 +1045,8 @@
                     "Register": "Register",
                     "about": "About",
                     "contact": "Contact",
-                    "project": "Our Works"
+                    "project": "Our Works",
+                    "product": "Table product"
                 },
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
@@ -1437,7 +1443,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "BZ00832a": "English language"
+                "6afe0d32": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -1716,6 +1722,8 @@
                 "LabelInputNumber": "Input numper",
                 "HintInputNumber": "Enter input numper",
                 "TablePage": {
+                    "LookTable": "Please take a look through our table",
+                    "TrendsTable": "Delivery Marketing Trends table",
                     "Offcanvas": "Menu",
                     "AdminDashboard": "Welocme in my library",
                     "BranchInv": "branch id invalid",
@@ -1880,6 +1888,8 @@
                 "8g03a095": "book programming language"
             },
             "8g03a095": {
+                "LookTable": "Please take a look through our table",
+                "TrendsTable": "Delivery Marketing Trends table",
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
                 "BranchInv": "branch id invalid",
@@ -1972,7 +1982,7 @@
             }
         }
     },
-    "qa50c960": {
+    "bK07a136": {
         "AllNamesLanguage": "english",
         "Style": "default",
         "english": {
@@ -1992,7 +2002,8 @@
                     "Register": "Register",
                     "about": "About",
                     "contact": "Contact",
-                    "project": "Our Works"
+                    "project": "Our Works",
+                    "product": "Table product"
                 },
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
@@ -2389,7 +2400,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "BZ00832a": "English language"
+                "6afe0d32": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -2668,6 +2679,8 @@
                 "LabelInputNumber": "Input numper",
                 "HintInputNumber": "Enter input numper",
                 "TablePage": {
+                    "LookTable": "Please take a look through our table",
+                    "TrendsTable": "Delivery Marketing Trends table",
                     "Offcanvas": "Menu",
                     "AdminDashboard": "Welocme in my library",
                     "BranchInv": "branch id invalid",
@@ -2832,6 +2845,8 @@
                 "8g03a095": "book programming language"
             },
             "8g03a095": {
+                "LookTable": "Please take a look through our table",
+                "TrendsTable": "Delivery Marketing Trends table",
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
                 "BranchInv": "branch id invalid",
@@ -2972,7 +2987,7 @@
                 "Vmb5cb9d": "2026"
             }
         },
-        "BZ00832a": {
+        "6afe0d32": {
             "Site": {
                 "LookTable": "Please take a look through our table",
                 "TrendsTable": "Delivery Marketing Trends table",
@@ -2989,7 +3004,8 @@
                     "Register": "Register",
                     "about": "About",
                     "contact": "Contact",
-                    "project": "Our Works"
+                    "project": "Our Works",
+                    "product": "Table product"
                 },
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
@@ -3386,7 +3402,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "BZ00832a": "English language"
+                "6afe0d32": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -3665,6 +3681,8 @@
                 "LabelInputNumber": "Input numper",
                 "HintInputNumber": "Enter input numper",
                 "TablePage": {
+                    "LookTable": "Please take a look through our table",
+                    "TrendsTable": "Delivery Marketing Trends table",
                     "Offcanvas": "Menu",
                     "AdminDashboard": "Welocme in my library",
                     "BranchInv": "branch id invalid",
@@ -3829,6 +3847,8 @@
                 "8g03a095": "book programming language"
             },
             "8g03a095": {
+                "LookTable": "Please take a look through our table",
+                "TrendsTable": "Delivery Marketing Trends table",
                 "Offcanvas": "Menu",
                 "AdminDashboard": "Welocme in my library",
                 "BranchInv": "branch id invalid",

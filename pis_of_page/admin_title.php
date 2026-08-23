@@ -39,7 +39,7 @@ foreach ($this->getMyMenuApp() as $key => $item) {
         echo '</ul></li>';
     }else{
         $classActive = $this->getUrlName2() === $key && !isset($_GET['table']) && !isset($_GET['table']) ? 'my_active':'';
-        $loc = ($key==='about'||$key==='contact'||$key==='project'?'#':'./').$key;
+        $loc = (isset($this->getModel2()['MyFlexTables'][$key])||$key==='product'||$key==='about'||$key==='contact'||$key==='project'?'#':'./').$key;
         echo <<<HTML
         <li class="nav-item"><a class="nav-link icon_font {$this->getIconByKey($key)} {$classActive}" aria-current="page" href="{$loc}">
                 {$item}

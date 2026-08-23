@@ -4,6 +4,9 @@ class Site extends ModelJson{
     function __construct(){
         parent::__construct('Site', ProductValue::getKeysObject()); 
         $this->myMenuApp = $this->getModelPage()['AllMenu'];
+        if(isset($this->getModel2()['MyFlexTables']))
+            foreach ($this->getModel2()['MyFlexTables'] as $key => $value)
+                $this->myMenuApp[$key] = $value;
         if(isset($_SESSION['userId'])){
             $this->initFlexTable();
             unset($this->myMenuApp['Login'], $this->myMenuApp['Register']);
