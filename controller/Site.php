@@ -16,6 +16,17 @@ class Site extends ModelJson{
         <link rel="stylesheet" href="./asset/css/owl.theme.default.min.css">
         <link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css">';
     }
+    function makeTableSite($vlaueTable, $path = 'product_part.php', $keyabc = null){
+        include 'pis_of_page/table_colume.php';
+        foreach ($vlaueTable as $index => $myObject) {
+            include 'pis_of_page/'.$path;
+            echo '</td></tr>';
+            $this->plusCount();
+        }
+        $this->count = 1;
+        include 'pis_of_page/part_table.php';
+        echo'</div></div></section>';
+    }
     function getView(){
         include 'view/site.php';
         include 'pis_of_page/end_html.php';

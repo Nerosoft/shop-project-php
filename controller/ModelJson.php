@@ -5,7 +5,7 @@ abstract class ModelJson implements InterfaceDataView{
     private $File;
     private $IdPage;
     private $Language;
-    private $count = 1;
+    protected $count = 1;
     private $MyIdDb;
     public $myMenuApp;
     private $keysTable;
@@ -14,17 +14,6 @@ abstract class ModelJson implements InterfaceDataView{
     private $MessageType;
     private $StyleFile;
     public $keysInput;
-    function makeTableSite($vlaueTable, $path = 'product_part.php', $keyabc = null){
-        include 'pis_of_page/table_colume.php';
-        foreach ($vlaueTable as $index => $myObject) {
-            include 'pis_of_page/'.$path;
-            echo '</td></tr>';
-            $this->plusCount();
-        }
-        $this->count = 1;
-        include 'pis_of_page/part_table.php';
-        echo'</div></div></section>';
-    }
     function getMyDataViewProduct(){
         return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
     }
