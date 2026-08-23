@@ -426,7 +426,6 @@ abstract class ModelJson implements InterfaceDataView{
         <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
         <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';
         include 'pis_of_page/admin_title.php';
-        $size = count($this->getKeysTable());
         $id = 'example';
         include 'pis_of_page/table_script.php';
         echo'<div class="start-page '.$cont.'">';
