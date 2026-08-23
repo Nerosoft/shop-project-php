@@ -4,6 +4,9 @@ class MyFlexTablesView extends ModelJson{
     function __construct(){
         parent::__construct($_GET['id']??'');
     }
+    function getTableHead(){
+        return $this->getModelPage()['TableHead'];
+    }
     function getMyDataView(){
         return isset($this->getObj()[$this->getUrlName2()])?array_reverse($this->getObj()[$this->getUrlName2()]):array();
     }

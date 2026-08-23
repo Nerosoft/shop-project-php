@@ -25,9 +25,6 @@ abstract class ModelJson implements InterfaceDataView{
         }
         return $arr;
     }
-    function getTableHead(){
-        return $this->getModelPage()['TableHead'];
-    }
     function deleteLanguage($myData){
         //delete language
         unset($myData[$this->keyId]);
@@ -245,7 +242,7 @@ abstract class ModelJson implements InterfaceDataView{
             ModelJson::getFileName() === 'RegisterPost'||
             ModelJson::getFileName() === 'RegisterPost'?ModelJson::getRandomKey():($_POST['id']??ModelJson::getRandomKey());
         }
-        $this->keysTable = ModelJson::getFileName() === 'MyFlexTables'?array('TableProductImage', ...array_keys($this->getTableHead())):$pram1;
+        $this->keysTable = $pram1;
     }
     function initMenuSettingLang(){
         $this->myMenuApp = array('Home'=>$this->getModelPage()['Home'],
@@ -426,7 +423,7 @@ abstract class ModelJson implements InterfaceDataView{
         <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
         <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';
         include 'pis_of_page/admin_title.php';
-        $id = 'example';
+        $id = 'exampletable';
         include 'pis_of_page/table_script.php';
         echo'<div class="start-page '.$cont.'">';
     }
@@ -652,12 +649,6 @@ abstract class ModelJson implements InterfaceDataView{
     }
     function getButtonModelEdit(){
         return $this->getModelPage()['ButtonModelEdit'];
-    }
-    function getTableId(){
-        return $this->getModelPage()['TableId'];
-    }
-    function getTabelEvent(){
-        return $this->getModelPage()['TabelEvent'];
     }
     function getSsearch(){
         return $this->getModelPage()['Ssearch'];

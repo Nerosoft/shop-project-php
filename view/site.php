@@ -128,18 +128,8 @@ foreach ($this->getModel2()['MyFlexTables'] as $keyabc => $value) {
                     </h2>
                 </div>
                 <div class="col-lg-12 col-12">
-                    <table id="{$keyabc}table" class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>{$this->getTableId()}</th>
-                                <th>{$this->getModel2()[$keyabc]['TableProductImage']}</th>
     HTML;
-                    foreach (array_keys($this->getModel2()[$keyabc]['TableHead']) as $index => $key)
-                            echo'<th>'.($this->getModel2()[$keyabc]['TableHead'][$key]).'</th>';
-                        echo '<th>'.$this->getTabelEvent().'</th>
-                                </tr>
-                            </thead>
-                            <tbody>';
+                    include 'pis_of_page/table_colume.php';
                     foreach ($this->getObj()[$keyabc] as $index => $myObject) {
                         include 'pis_of_page/flextable_part.php';
                         echo '</td></tr>';
@@ -147,7 +137,6 @@ foreach ($this->getModel2()['MyFlexTables'] as $keyabc => $value) {
                     }
                     include 'pis_of_page/part_table.php';
 echo'</div></div></section>';
-$size = count(array_keys($this->getModel2()[$keyabc]['TableHead']))+1;
 $id = $keyabc.'table';
 include 'pis_of_page/table_script.php';
 }
