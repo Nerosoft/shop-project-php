@@ -102,20 +102,9 @@
                 </h2>
             </div>
             <div class="col-lg-12 col-12">
-                <?php
-                    include 'pis_of_page/table_colume.php';
-                    foreach ($this->getMyDataViewProduct() as $index => $myObject) {
-                        include 'pis_of_page/product_part.php';
-                        echo '</td></tr>';
-                        $this->plusCount();
-                    }
-                    include 'pis_of_page/part_table.php';
-                ?>
-        </div>
-    </div>
-</section>
 <!-- ABOUT ------------------------------------------------------------>
 <?php
+$this->makeTableSite($this->getMyDataViewProduct());
 if(isset($this->getModel2()['MyFlexTables']))
     foreach ($this->getModel2()['MyFlexTables'] as $keyabc => $value) {
         echo<<<HTML
@@ -130,16 +119,7 @@ if(isset($this->getModel2()['MyFlexTables']))
                     </div>
                     <div class="col-lg-12 col-12">
         HTML;
-                        include 'pis_of_page/table_colume.php';
-                        foreach ($this->getObj()[$keyabc] as $index => $myObject) {
-                            include 'pis_of_page/flextable_part.php';
-                            echo '</td></tr>';
-                            $this->plusCount();
-                        }
-                        include 'pis_of_page/part_table.php';
-    echo'</div></div></section>';
-    $id = $keyabc.'table';
-    include 'pis_of_page/table_script.php';
+        $this->makeTableSite($this->getObj()[$keyabc], 'flextable_part.php', $keyabc);
     }
 ?>
 

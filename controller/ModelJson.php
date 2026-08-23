@@ -14,6 +14,16 @@ abstract class ModelJson implements InterfaceDataView{
     private $MessageType;
     private $StyleFile;
     public $keysInput;
+    function makeTableSite($vlaueTable, $path = 'product_part.php', $keyabc = null){
+        include 'pis_of_page/table_colume.php';
+        foreach ($vlaueTable as $index => $myObject) {
+            include 'pis_of_page/'.$path;
+            echo '</td></tr>';
+            $this->plusCount();
+        }
+        include 'pis_of_page/part_table.php';
+        echo'</div></div></section>';
+    }
     function getMyDataViewProduct(){
         return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
     }
@@ -423,8 +433,6 @@ abstract class ModelJson implements InterfaceDataView{
         <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
         <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';
         include 'pis_of_page/admin_title.php';
-        $id = 'exampletable';
-        include 'pis_of_page/table_script.php';
         echo'<div class="start-page '.$cont.'">';
     }
     function initTable($file = 'pis_of_page/table_colume.php', $file2 = 'pis_of_page/part_table.php'){
