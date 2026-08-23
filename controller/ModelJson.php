@@ -21,6 +21,7 @@ abstract class ModelJson implements InterfaceDataView{
             echo '</td></tr>';
             $this->plusCount();
         }
+        $this->count = 1;
         include 'pis_of_page/part_table.php';
         echo'</div></div></section>';
     }
