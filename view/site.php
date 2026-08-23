@@ -116,30 +116,31 @@
 </section>
 <!-- ABOUT ------------------------------------------------------------>
 <?php
-foreach ($this->getModel2()['MyFlexTables'] as $keyabc => $value) {
-    echo<<<HTML
-        <section class="table section-padding" id="{$keyabc}">
-        <div class="container">
-            <div class="row">
-                <div class="col-6 mx-auto">
-                    <h2 class="mb-5 text-center" data-aos="fade-up">
-                        {$this->getModel2()[$keyabc]['LookTable']}
-                        <strong>{$this->getModel2()[$keyabc]['TrendsTable']}</strong>
-                    </h2>
-                </div>
-                <div class="col-lg-12 col-12">
-    HTML;
-                    include 'pis_of_page/table_colume.php';
-                    foreach ($this->getObj()[$keyabc] as $index => $myObject) {
-                        include 'pis_of_page/flextable_part.php';
-                        echo '</td></tr>';
-                        $this->plusCount();
-                    }
-                    include 'pis_of_page/part_table.php';
-echo'</div></div></section>';
-$id = $keyabc.'table';
-include 'pis_of_page/table_script.php';
-}
+if(isset($this->getModel2()['MyFlexTables']))
+    foreach ($this->getModel2()['MyFlexTables'] as $keyabc => $value) {
+        echo<<<HTML
+            <section class="table section-padding" id="{$keyabc}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6 mx-auto">
+                        <h2 class="mb-5 text-center" data-aos="fade-up">
+                            {$this->getModel2()[$keyabc]['LookTable']}
+                            <strong>{$this->getModel2()[$keyabc]['TrendsTable']}</strong>
+                        </h2>
+                    </div>
+                    <div class="col-lg-12 col-12">
+        HTML;
+                        include 'pis_of_page/table_colume.php';
+                        foreach ($this->getObj()[$keyabc] as $index => $myObject) {
+                            include 'pis_of_page/flextable_part.php';
+                            echo '</td></tr>';
+                            $this->plusCount();
+                        }
+                        include 'pis_of_page/part_table.php';
+    echo'</div></div></section>';
+    $id = $keyabc.'table';
+    include 'pis_of_page/table_script.php';
+    }
 ?>
 
 <!-- TESTIMONIAL -->
