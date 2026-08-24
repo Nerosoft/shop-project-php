@@ -16,7 +16,20 @@ class Site extends ModelJson{
         <link rel="stylesheet" href="./asset/css/owl.theme.default.min.css">
         <link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css">';
     }
-    function makeTableSite($vlaueTable, $path = 'product_part.php', $keyabc = null){
+    function makeTableSite($vlaueTable, $look, $trends, $path = 'product_part.php', $keyabc = null){
+        echo '<section class="table section-padding" id="'.$keyabc??'product';
+        echo<<<HTML
+                ">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6 mx-auto">
+                            <h2 class="mb-5 text-center" data-aos="fade-up">
+                                {$look}
+                                <strong>{$trends}</strong>
+                            </h2>
+                        </div>
+                        <div class="col-lg-12 col-12">
+        HTML;
         include 'pis_of_page/table_colume.php';
         foreach ($vlaueTable as $index => $myObject) {
             include 'pis_of_page/'.$path;

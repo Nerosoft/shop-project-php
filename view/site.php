@@ -87,40 +87,12 @@
         </div>
     </div>
 </section>
-<!-- ABOUT -->
-<section class="table section-padding" id="product">
-    <div class="container">
-        <div class="row">
-            <div class="col-6 mx-auto">
-                <h2 class="mb-5 text-center" data-aos="fade-up">
-                    <?php
-                        echo <<<HTML
-                        {$this->getLookTable()}
-                        <strong>{$this->getTrendsTable()}</strong>
-                        HTML;
-                    ?>
-                </h2>
-            </div>
-            <div class="col-lg-12 col-12">
-<!-- ABOUT ------------------------------------------------------------>
+
 <?php
-$this->makeTableSite($this->getMyDataViewProduct());
+$this->makeTableSite($this->getMyDataViewProduct(), $this->getLookTable(), $this->getTrendsTable());
 if(isset($this->getModel2()['MyFlexTables']))
-    foreach ($this->getModel2()['MyFlexTables'] as $keyabc => $value) {
-        echo<<<HTML
-            <section class="table section-padding" id="{$keyabc}">
-            <div class="container">
-                <div class="row">
-                    <div class="col-6 mx-auto">
-                        <h2 class="mb-5 text-center" data-aos="fade-up">
-                            {$this->getModel2()[$keyabc]['LookTable']}
-                            <strong>{$this->getModel2()[$keyabc]['TrendsTable']}</strong>
-                        </h2>
-                    </div>
-                    <div class="col-lg-12 col-12">
-        HTML;
-        $this->makeTableSite($this->getObj()[$keyabc], 'flextable_part.php', $keyabc);
-    }
+    foreach ($this->getModel2()['MyFlexTables'] as $keyabc => $value) 
+        $this->makeTableSite($this->getObj()[$keyabc], $this->getModel2()[$keyabc]['LookTable'], $this->getModel2()[$keyabc]['TrendsTable'], 'flextable_part.php', $keyabc);
 ?>
 
 <!-- TESTIMONIAL -->
