@@ -510,8 +510,8 @@ abstract class ModelJson implements InterfaceDataView{
             return $this->File[$this->getFixedId()]['Branches'];
         else
             foreach ($this->getFile() as $key => $obj)
-                // if(isset($obj['Branches']) && in_array($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id'])?$_GET['id']:$this->getId(), array_keys($obj['Branches'])))
-                if(isset($obj['Branches']) && in_array($this->getId(), array_keys($obj['Branches'])))
+                if(isset($obj['Branches']) && in_array($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id'])?$_GET['id']:$this->getId(), array_keys($obj['Branches'])))
+                // if(isset($obj['Branches']) && in_array($this->getId(), array_keys($obj['Branches'])))
                     return $obj['Branches']; 
     }
     function getBranch2(){
