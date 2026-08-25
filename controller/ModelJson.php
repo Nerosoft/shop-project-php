@@ -421,6 +421,7 @@ abstract class ModelJson implements InterfaceDataView{
                 $this->myMenuApp['MyFlexTables'] = array($this->getModelPage()['MyFlexTables'], ...$this->getModel2()['MyFlexTables']);
             else if(isset($_SESSION['userId']) && $table === 'Home'||
                 isset($_SESSION['userId']) && $table === 'SystemLang'||
+                ModelJson::getFileName() !== 'Site' && $table === 'Site'||
                 ModelJson::getFileName() === 'SystemLang' && $table === 'ChangeLanguage'||
                 ModelJson::getFileName() === 'ChangeLanguage' && $table === 'ChangeLanguage'||
                 
