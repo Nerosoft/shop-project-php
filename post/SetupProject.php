@@ -29,8 +29,6 @@ class SetupProject extends ModelJson{
                     "Category"=> "Category",
                     "Image"=> "Image",
                     "AllMenu"=>[
-                        "Login"=> "Login",
-                        "Register"=> "Register",
                         "about"=> "About",
                         "contact"=> "Contact",
                         "project"=> "Our Works",

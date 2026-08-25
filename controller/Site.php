@@ -4,22 +4,14 @@ class Site extends ModelJson{
     function __construct(){
         parent::__construct('Site', ProductValue::getKeysObject()); 
         $this->myMenuApp = $this->getModelPage()['AllMenu'];
-        if(isset($this->getModel2()['MyFlexTables']))
-            foreach ($this->getModel2()['MyFlexTables'] as $key => $value)
-                $this->myMenuApp[$key] = $value;
-        if(isset($_SESSION['userId'])){
-            $this->initFlexTable();
-            unset($this->myMenuApp['Login'], $this->myMenuApp['Register']);
-        }
         echo '<link rel="stylesheet" href="./asset/css/aos.css">
         <link rel="stylesheet" href="./asset/css/owl.carousel.min.css">
         <link rel="stylesheet" href="./asset/css/owl.theme.default.min.css">
         <link rel="stylesheet" href="./asset/css/templatemo-digital-trend.css">';
     }
     function makeTableSite($vlaueTable, $look, $trends, $path = 'product_part.php', $keyabc = null){
-        echo '<section class="table section-padding" id="'.$keyabc??'product';
+        echo '<section class="table section-padding" id="'.($keyabc??'product').'">';
         echo<<<HTML
-                ">
                 <div class="container">
                     <div class="row">
                         <div class="col-6 mx-auto">

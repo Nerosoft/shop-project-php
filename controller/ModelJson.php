@@ -245,13 +245,11 @@ abstract class ModelJson implements InterfaceDataView{
         $this->keysTable = $pram1;
     }
     function initMenuSettingLang(){
-        $this->myMenuApp = array('Home'=>$this->getModelPage()['Home'],
-        'ChangeLanguage'=>$this->getModelPage()['ChangeLanguage'],
-        'SystemLang'=>$this->getModelPage()['EditAllLang']);
+        $this->myMenuApp = array();
         foreach ($this->getModel2()['AllNamesLanguage'] as $key => $value){
             $this->myMenuApp[$key] = array($value);
             foreach (array_keys($this->getModel2()) as $key2 => $table) 
-            $this->myMenuApp[$key][$table] = $this?->getModel2()[$table]['MYTITLE']??$this->getModelPage()[$table];
+                $this->myMenuApp[$key][$table] = $this?->getModel2()[$table]['MYTITLE']??$this->getModelPage()[$table];
         }
         $this->myMenuApp['Logout'] = $this->getModelPage()['Logout'];
     }
@@ -415,10 +413,32 @@ abstract class ModelJson implements InterfaceDataView{
         $this->initTable('all_modal/login_register_input.php', 'pis_of_page/buttons.php');
     }
     function setupMenu($cont){
-        if(ModelJson::getFileName() === 'Branches' || ModelJson::getFileName() === 'Home'||
-            ModelJson::getFileName() === 'MyFlexTables' || ModelJson::getFileName() === 'MyStyle'||
-            ModelJson::getFileName() === 'Product' || ModelJson::getFileName() === 'Users')
-            $this->initFlexTable();
+        foreach (array_keys($this->getModel2()) as $key2 => $table)
+            if(ModelJson::getFileName() === 'Site' && $table === 'Site' && isset($this->getModel2()['MyFlexTables']))
+                foreach ($this->getModel2()['MyFlexTables'] as $key => $value)
+                    $this->myMenuApp[$key] = $value;
+            else if(isset($_SESSION['userId']) && ModelJson::getFileName() !== 'ChangeLanguage' && ModelJson::getFileName() !== 'SystemLang' && $table === 'MyFlexTables' && isset($this->getModel2()['MyFlexTables']))
+                $this->myMenuApp['MyFlexTables'] = array($this->getModelPage()['MyFlexTables'], ...$this->getModel2()['MyFlexTables']);
+            else if(isset($_SESSION['userId']) && $table === 'Home'||
+                isset($_SESSION['userId']) && $table === 'SystemLang'||
+                ModelJson::getFileName() === 'SystemLang' && $table === 'ChangeLanguage'||
+                ModelJson::getFileName() === 'ChangeLanguage' && $table === 'ChangeLanguage'||
+                
+                !isset($_SESSION['userId']) && $table === 'Login'||
+                !isset($_SESSION['userId']) && $table === 'Register'||
+
+                isset($_SESSION['userId']) && 
+                ModelJson::getFileName() !== 'ChangeLanguage' && 
+                ModelJson::getFileName() !== 'SystemLang'&&
+                !isset($this->getModel2()['MyFlexTables'][$table])&&
+                $table !== 'Style' && 
+                $table !== 'MyFlexTables' && 
+                $table !== 'Login' && 
+                $table !== 'Register' && 
+                $table !== 'ChangeLanguage' && 
+                $table !== 'AllNamesLanguage')
+                $this->myMenuApp[$table] = $this->getModel2()[$table]['MYTITLE'];
+        $this->myMenuApp['Logout'] = $this->getModelPage()['Logout'];
         echo'<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">
         <script src="./asset/lib/dataTables.js" type="text/javascript"></script>
         <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';
@@ -437,21 +457,6 @@ abstract class ModelJson implements InterfaceDataView{
     }
     function plusCount(){
         $this->count+=1;
-    }
-    function initFlexTable(){
-        foreach (array_keys($this->getModel2()) as $key2 => $table)
-            if(!isset($this->getModel2()['MyFlexTables'][$table])&&
-                $table !== 'Style' && 
-                $table !== 'MyFlexTables' && 
-                $table !== 'Login' && 
-                $table !== 'Register' && 
-                $table !== 'ChangeLanguage' && 
-                $table !== 'AllNamesLanguage')
-                $this->myMenuApp[$table] = $this->getModel2()[$table]['MYTITLE'];
-
-        if(isset($this->getModel2()['MyFlexTables']))
-            $this->myMenuApp['MyFlexTables'] = array($this->getModelPage()['MyFlexTables'], ...$this->getModel2()['MyFlexTables']);
-        $this->myMenuApp['Logout'] = $this->getModelPage()['Logout'];
     }
     function loginAdmin(){
         $_SESSION['userId'] = $this->getId();
