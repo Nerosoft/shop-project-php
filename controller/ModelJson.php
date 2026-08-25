@@ -95,8 +95,8 @@ abstract class ModelJson implements InterfaceDataView{
         //receve message from constractor felexbalty change key message for all action
         $this->File = json_decode(file_get_contents('data.json'), true);
         $this->IdPage = $idPage??($_GET['id']??null);
-        $this->MyIdDb = (isset($_SESSION['userId'])?$_SESSION['userId']:(isset($_COOKIE['branchId']) && isset($this->getFile()[$_COOKIE['branchId']])?$_COOKIE['branchId']:'admin'));
-        // $this->MyIdDb = (isset($_SESSION['userId'])?$_SESSION['userId']:($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']])?$_GET['id']:(isset($_COOKIE['branchId']) && isset($this->getFile()[$_COOKIE['branchId']])?$_COOKIE['branchId']:'admin')));
+        // $this->MyIdDb = (isset($_SESSION['userId'])?$_SESSION['userId']:(isset($_COOKIE['branchId']) && isset($this->getFile()[$_COOKIE['branchId']])?$_COOKIE['branchId']:'admin'));
+        $this->MyIdDb = (isset($_SESSION['userId'])?$_SESSION['userId']:($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']])?$_GET['id']:(isset($_COOKIE['branchId']) && isset($this->getFile()[$_COOKIE['branchId']])?$_COOKIE['branchId']:'admin')));
         $this->Language = !isset($_SESSION['userId']) && isset($_COOKIE[$this->getId().'AllNamesLanguage']) && isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']])?$_COOKIE[$this->getId().'AllNamesLanguage']:$this->getObj()['AllNamesLanguage'];
         if(
             isset($_SESSION['userId']) && ModelJson::getFileName() === 'Login' ||
@@ -171,7 +171,7 @@ abstract class ModelJson implements InterfaceDataView{
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'SystemLangEditPost'||
 
             !isset($_SESSION['userId']) && isset($_COOKIE['branchId']) && !isset($this->getFile()[$_COOKIE['branchId']])||
-            // !isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && !isset($this->getFile()[$_GET['id']])||
+            !isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && !isset($this->getFile()[$_GET['id']])||
             !isset($_SESSION['userId']) && isset($_COOKIE[$this->getId().'AllNamesLanguage']) && !isset($this->getObj()[$_COOKIE[$this->getId().'AllNamesLanguage']])||
             !isset($_SESSION['userId']) && isset($_COOKIE[$this->getId().'Style']) && !isset($this->getModel2()['Style'][$_COOKIE[$this->getId().'Style']])||
             !isset($_SESSION['userId']) && ModelJson::getFileName() === 'ChangeLangPost' && !isset($_POST['state'])||
@@ -219,6 +219,8 @@ abstract class ModelJson implements InterfaceDataView{
             $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Style'];
             if(isset($_SESSION['message']) || isset($_SESSION['error']))
                 unset($_SESSION['message'], $_SESSION['error']);
+            else if(!isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']]))
+                setcookie('branchId', $_GET['id'], time()+2628000);
             echo<<<HTML
             <html lang="en">
             <head>
