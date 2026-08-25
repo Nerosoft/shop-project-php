@@ -219,7 +219,7 @@ abstract class ModelJson implements InterfaceDataView{
             $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Style'];
             if(isset($_SESSION['message']) || isset($_SESSION['error']))
                 unset($_SESSION['message'], $_SESSION['error']);
-            else if(!isset($_SESSION['userId']) && $_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id']) && isset($this->getFile()[$_GET['id']]))
+            else if(!isset($_SESSION['userId']) && isset($_GET['id']))
                 setcookie('branchId', $_GET['id'], time()+2628000);
             echo<<<HTML
             <html lang="en">
@@ -510,8 +510,7 @@ abstract class ModelJson implements InterfaceDataView{
             return $this->File[$this->getFixedId()]['Branches'];
         else
             foreach ($this->getFile() as $key => $obj)
-                if(isset($obj['Branches']) && in_array($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['id'])?$_GET['id']:$this->getId(), array_keys($obj['Branches'])))
-                // if(isset($obj['Branches']) && in_array($this->getId(), array_keys($obj['Branches'])))
+                if(isset($obj['Branches']) && in_array($this->getId(), array_keys($obj['Branches'])))
                     return $obj['Branches']; 
     }
     function getBranch2(){
