@@ -7,7 +7,9 @@
   </button>
     <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><?php echo $this->getOffcanvas()?></h5>
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+            <img src="./asset/img/female-avatar.png" class="img-menu" alt="office">    
+            <?php echo $this->getOffcanvas()?></h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
@@ -21,7 +23,7 @@ foreach ($this->getMyMenuApp() as $key => $item) {
         echo <<<HTML
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle icon_font {$this->getIconByKey($key)} {$classActive}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {$name}
+                <span class="span-link">{$name}</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark">
         HTML;
@@ -31,7 +33,7 @@ foreach ($this->getMyMenuApp() as $key => $item) {
             echo <<<HTML
                 <li>
                 <a class="dropdown-item icon_font {$this->getIconByKey($keyItem)} {$classActive}" href="{$loc}">
-                    {$myItem}
+                    <span class="span-link">{$myItem}</span>
                 </a>
                 </li>
             HTML;
@@ -42,7 +44,7 @@ foreach ($this->getMyMenuApp() as $key => $item) {
         $loc = (isset($this->getModel2()['MyFlexTables'][$key])||$key==='product'||$key==='about'||$key==='contact'||$key==='project'?'#':'./').$key;
         echo <<<HTML
         <li class="nav-item"><a class="nav-link icon_font {$this->getIconByKey($key)} {$classActive}" aria-current="page" href="{$loc}">
-                {$item}
+                <span class="span-link">{$item}</span>
             </a>
             </li>
         HTML;

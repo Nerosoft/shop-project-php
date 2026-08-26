@@ -55,13 +55,32 @@
     width: 100%;
     height: 100%;
 }
-.my_active, .nav-link:hover, .dropdown-item:hover, .navbar-brand:hover{
-    color: orange !important;
-}
+
 .btinfo{
     margin-right: 3px!important;
     background-color: #673ab7 !important;
 }
 .hidden_style{
     display: none!important;
+}
+.span-link{
+    margin-left: 10px;
+}
+.fa:before{
+    font-size: 25px!important;
+}
+.img-menu{
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+.offcanvas-title{
+    display: flex;
+    align-items: center;
+}
+.offcanvas-header{
+    border-bottom: 0.1px solid hsl(0deg 0% 46.27%); 
+}
+.nav-link{
+    padding-left: 10px!important;
 }
