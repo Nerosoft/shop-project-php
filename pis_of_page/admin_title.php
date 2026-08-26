@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark fixed-top">
+<nav class="navbar fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"><?php echo $this->getAdminDashboard();?></a>
     <?php include 'pis_of_page/button_langstylebranch.php';?>

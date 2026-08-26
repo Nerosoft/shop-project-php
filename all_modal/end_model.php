@@ -49,9 +49,9 @@ else if(isset($_SESSION['userId']) && count($this->getBranch2()) >= 1 && isset($
 }
 else if(isset($index) && $index !== null && !isset($state))
     include('my_id.php');
-else if(isset($_SESSION['userId']) && isset($idModel) && $idModel === 'lang_modal')
+else if(isset($_SESSION['userId']) && isset($idModel) && $idModel === 'lang_modal' && count($this->getBranch2()) >= 1)
     echo '<div id="allbranchbox"></div>';
-else if(isset($_SESSION['userId']) && isset($idModel) && $idModel === 'style_modal'){
+else if(isset($_SESSION['userId']) && isset($idModel) && $idModel === 'style_modal' && count($this->getBranch2()) >= 1){
     echo '<div id="allbranchbox" class="hidden_style">';
     include 'AllBranchOptionChose.php';
     echo '</div>';

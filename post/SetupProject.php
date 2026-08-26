@@ -104,8 +104,11 @@ class SetupProject extends ModelJson{
                     "Design"=> "Design => Nero-Soft"
                 ],
                 "Style"=>[
+                    "default"=> "default",
                     "dark"=> "dark",
-                    "default"=> "default"
+                    "pink"=> "pink",
+                    "cosmic"=> "cosmic",
+                    "blue"=> "blue"
                 ],
                 "Product"=>[
                     "Offcanvas"=> "Menu",

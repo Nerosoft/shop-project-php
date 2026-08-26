@@ -9,12 +9,8 @@
     font-size: 20px !important;
     margin-top: 20px!important;
 }
-.offcanvas-body, .offcanvas-body .dropdown-menu{
-    background-color: gray;
-}
-.dropdown-item:hover{
-    background-color: transparent !important;
-    width: 90%;
+.dropdown-menu{
+    background-color: transparent!important;
 }
 .start-page{
     margin-top: 73px;
@@ -59,7 +55,7 @@
     width: 100%;
     height: 100%;
 }
-.my_active, .nav-link:hover, .dropdown-item:hover{
+.my_active, .nav-link:hover, .dropdown-item:hover, .navbar-brand:hover{
     color: orange !important;
 }
 .btinfo{

@@ -199,7 +199,7 @@ https://templatemo.com/tm-538-digital-trend
   -----------------------------------------*/
 
   .navbar {
-    background: var(--menu-bg) !important;
+    background: var(--menu-bg);
     z-index: 999;
     top: 0;
     right: 0;
@@ -256,6 +256,7 @@ https://templatemo.com/tm-538-digital-trend
     width: 30px;
     height: 35px;
     outline: none;
+    background-color: transparent!important;
   }
 
   .navbar-toggler:focus {
@@ -699,11 +700,15 @@ https://templatemo.com/tm-538-digital-trend
   color: orange !important;
 }
 .offcanvas-header{
-  background-color:  var(--menu-bg) !important;
+  background-color:  var(--menu-bg);
 }
 .offcanvas-body, .dropdown-menu{
-  background-color:  #1b737e !important;
+  background-color:  #1b737e;
 }
 .project-info span{
   color: #1b737e;
+}
+
+.nav-link, .offcanvas-header{
+    color: white!important;
 }

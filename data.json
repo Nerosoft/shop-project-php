@@ -90,8 +90,11 @@
                 "Design": "Design : Nero-Soft"
             },
             "Style": {
+                "default": "default",
                 "dark": "dark",
-                "default": "default"
+                "pink": "pink",
+                "cosmic": "cosmic",
+                "blue": "blue"
             },
             "Product": {
                 "Offcanvas": "Menu",
@@ -415,7 +418,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "hlc73262": "English language"
+                "fp1e69c1": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -1069,8 +1072,8 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithoutRays"
             },
-            "fl31f842": {
-                "Name": "shpeen",
+            "C09cd153": {
+                "Name": "Shebin",
                 "Phone": "01204299614",
                 "Country": "Egypt",
                 "Governments": "cairo, egypt",
@@ -1168,7 +1171,7 @@
                 "RSbabe6e": "7.5 x 1.19 x 9.25 inches"
             }
         },
-        "hlc73262": {
+        "fp1e69c1": {
             "Site": {
                 "LookTable": "Please take a look through our table",
                 "TrendsTable": "Delivery Marketing Trends table",
@@ -1256,8 +1259,11 @@
                 "Design": "Design : Nero-Soft"
             },
             "Style": {
+                "default": "default",
                 "dark": "dark",
-                "default": "default"
+                "pink": "pink",
+                "cosmic": "cosmic",
+                "blue": "blue"
             },
             "Product": {
                 "Offcanvas": "Menu",
@@ -1581,7 +1587,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "hlc73262": "English language"
+                "fp1e69c1": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -2224,7 +2230,7 @@
             }
         }
     },
-    "fl31f842": {
+    "C09cd153": {
         "AllNamesLanguage": "english",
         "Style": "default",
         "english": {
@@ -2315,8 +2321,11 @@
                 "Design": "Design : Nero-Soft"
             },
             "Style": {
+                "default": "default",
                 "dark": "dark",
-                "default": "default"
+                "pink": "pink",
+                "cosmic": "cosmic",
+                "blue": "blue"
             },
             "Product": {
                 "Offcanvas": "Menu",
@@ -2640,7 +2649,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "hlc73262": "English language"
+                "fp1e69c1": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -3369,7 +3378,7 @@
                 "RSbabe6e": "7.5 x 1.19 x 9.25 inches"
             }
         },
-        "hlc73262": {
+        "fp1e69c1": {
             "Site": {
                 "LookTable": "Please take a look through our table",
                 "TrendsTable": "Delivery Marketing Trends table",
@@ -3457,8 +3466,11 @@
                 "Design": "Design : Nero-Soft"
             },
             "Style": {
+                "default": "default",
                 "dark": "dark",
-                "default": "default"
+                "pink": "pink",
+                "cosmic": "cosmic",
+                "blue": "blue"
             },
             "Product": {
                 "Offcanvas": "Menu",
@@ -3782,7 +3794,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "hlc73262": "English language"
+                "fp1e69c1": "English language"
             },
             "Register": {
                 "SelectBranchBox": {

@@ -1,4 +1,10 @@
-/* .button-select-branch{
-    background-color: #000;
-    border-color: #6e585b;
-} */
+.offcanvas-header{
+    background-color: white;
+    color: black;
+}
+.nav-link, .dropdown-menu a{
+    color: black !important;
+}
+.offcanvas-body{
+    background-color: white;
+}
