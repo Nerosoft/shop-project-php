@@ -38,6 +38,7 @@ class MyHome extends ModelJson{
                     type="number" name="input_number" id="input_number"  placeholder='{$this->getHintInputNumber()}' class="form-control">
                 </div>
             HTML;
+            include "pis_of_page/input_language.php";
             include('all_modal/end_model.php');
     }
 }

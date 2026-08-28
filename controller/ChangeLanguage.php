@@ -5,39 +5,14 @@ class MyChangeLanguage extends ModelJson{
         parent::__construct('ChangeLanguage', MyLanguage::getKeysObject());
         $this->initMenuSettingLang();
     }
-    function getMyDataView(){
-        return array_reverse(MyLanguage::fromArray($this->getModel2()['AllNamesLanguage'])); 
-    }
     function getView(){
         $myStateStyleLang ='AllNamesLanguage';
         include 'pis_of_page/style_lang_view.php';
     }
-    function getSelectLang(){
-        return $this->getModelPage()['LanguageSelect'];
-    }
     function makeCreateModal($title, $button){
         $action = 'ChangeLanguageCreatePost.php';
         include('all_modal/modal_change_language.php');
-        echo <<<HTML
-            <div class="form-group">
-                <i class="fa fa-language fa-2x"></i>
-                <label for="selectedLanguage">{$this->getSelectLang()}</label>
-                <select
-                title=""
-                class="form-select" name="selectedLanguage"  aria-label="Default select example">
-        HTML;
-                foreach($this->getMyDataView() as $key=>$name){
-                        $select = $key === $this->getLanguage()? 'selected' : '';
-                        echo <<<HTML
-                        <option {$select} value="{$key}">
-                            {$name->getName()}
-                        </option>
-                        HTML;
-                    }
-        echo <<<HTML
-                </select>
-            </div>
-        HTML;
+        include "pis_of_page/input_language.php";
         include('all_modal/end_model.php');
     }
 }

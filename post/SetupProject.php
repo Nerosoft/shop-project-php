@@ -647,6 +647,9 @@ class SetupProject extends ModelJson{
                     "BranceRaysFollowValue"=> "Work invalid"
                 ],
                 "Home"=>[
+                    "LanguageReq"=> "Required language",
+                    "LanguageInv"=> "Invalid language",
+                    "LanguageSelect"=> "Select a language",
                     "ErrorServerMessage"=> "Error server message",
                     "Offcanvas"=> "Menu",
                     "AdminDashboard"=> "Welocme in my library",

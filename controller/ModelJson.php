@@ -14,6 +14,9 @@ abstract class ModelJson implements InterfaceDataView{
     private $MessageType;
     private $StyleFile;
     public $keysInput;
+    function getSelectLang(){
+        return $this->getModelPage()['LanguageSelect'];
+    }
     function getMyDataViewProduct(){
         return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
     }
@@ -49,15 +52,18 @@ abstract class ModelJson implements InterfaceDataView{
     }
     function saveFelxTable($AllNamesLanguage, $myData){
         foreach ($AllNamesLanguage as $code => $value) {
+            //name table
             $myData[$code]['MyFlexTables'][$this->keyId] = $_POST['name'];
-            $myData[$code][$this->keyId] = $myData[$code]['Home']['TablePage'];
+            //select table using language
+            $myData[$code][$this->keyId] = $myData[$_POST['selectedLanguage']]['Home']['TablePage'];
+            //change table name
             $myData[$code][$this->keyId]['MYTITLE'] = $_POST['name'];
             foreach ($this->keysInput as $key2 => $myInputKey){
-                $myData[$code][$this->keyId]['TableHead'][$myInputKey] = $myData[$code]['Home']['InputNameTable'];
-                $myData[$code][$this->keyId]['Label'][$myInputKey] = $myData[$code]['Home']['InputLabel'];
-                $myData[$code][$this->keyId]['Hint'][$myInputKey] = $myData[$code]['Home']['InputHint'];
-                $myData[$code][$this->keyId]['ErrorsMessageReq'][$myInputKey] = $myData[$code]['Home']['InputErrorsMessageReq'];
-                $myData[$code][$this->keyId]['ErrorsMessageInv'][$myInputKey] = $myData[$code]['Home']['InputErrorsMessageInv'];
+                $myData[$code][$this->keyId]['TableHead'][$myInputKey] = $myData[$_POST['selectedLanguage']]['Home']['InputNameTable'];
+                $myData[$code][$this->keyId]['Label'][$myInputKey] = $myData[$_POST['selectedLanguage']]['Home']['InputLabel'];
+                $myData[$code][$this->keyId]['Hint'][$myInputKey] = $myData[$_POST['selectedLanguage']]['Home']['InputHint'];
+                $myData[$code][$this->keyId]['ErrorsMessageReq'][$myInputKey] = $myData[$_POST['selectedLanguage']]['Home']['InputErrorsMessageReq'];
+                $myData[$code][$this->keyId]['ErrorsMessageInv'][$myInputKey] = $myData[$_POST['selectedLanguage']]['Home']['InputErrorsMessageInv'];
             }
         }
         return $myData;
@@ -310,6 +316,7 @@ abstract class ModelJson implements InterfaceDataView{
                     
                     ModelJson::getFileName() === 'ChangeLanguageEditPost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$this->getUrlName2() === 'MyStyle'?'Style':'AllNamesLanguage'][$_POST['id']]) ||
                     ModelJson::getFileName() === 'ChangeLanguagePost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$_POST['state']][$_POST['id']]) ||
+                    ModelJson::getFileName() === 'HomeCreatePost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']]['AllNamesLanguage'][$_POST['selectedLanguage']]) ||
                     ModelJson::getFileName() === 'ChangeLanguageDeletePost' && !isset($myFile[$key][$_POST['id']]) ||
                     ModelJson::getFileName() === 'ChangeLanguageDeletePost' && $_POST['id'] === 'english' ||
                     ModelJson::getFileName() === 'HomeEditPost' && !isset($myFile[$key][$myFile[$key]['AllNamesLanguage']][$_POST['id']]) ||
@@ -392,8 +399,9 @@ abstract class ModelJson implements InterfaceDataView{
         
         else if(ModelJson::getFileName() === 'ChangeLanguageEditPost' || ModelJson::getFileName() === 'ChangeLanguageCreatePost')
             $this->validLanguageInput();
-        else if(ModelJson::getFileName() === 'HomeCreatePost' || ModelJson::getFileName() === 'HomeEditPost')
+        else if(ModelJson::getFileName() === 'HomeCreatePost' || ModelJson::getFileName() === 'HomeEditPost'){
             $this->validName();
+        }
         else if(ModelJson::getFileName() === 'BranchEditPost' || ModelJson::getFileName() === 'BranchCreatePost')
             $this->initErrorBranch2();
         $this->getView();
@@ -1058,6 +1066,10 @@ abstract class ModelJson implements InterfaceDataView{
             $this->showError($this->getInputNumberTableIsReq());
         else if(ModelJson::getFileName() === 'HomeCreatePost' && !is_numeric($_POST['input_number']) || ModelJson::getFileName() === 'HomeCreatePost' && $_POST['input_number'] > 8)
             $this->showError($this->getInputNumberTableIsInv());  
+        else if(ModelJson::getFileName() === 'HomeCreatePost' && !isset($_POST['selectedLanguage']))
+            $this->showError($this->getModelPage()['LanguageReq']);
+        else if(ModelJson::getFileName() === 'HomeCreatePost' && !isset($this->getallNames()[$_POST['selectedLanguage']]))
+            $this->showError($this->getModelPage()['LanguageInv']);
         else if(ModelJson::getFileName() === 'HomeCreatePost')
             for ($i=0; $i < $_POST['input_number']; $i++)
                 $this->keysInput[$i] = ModelJson::getRandomKey();
