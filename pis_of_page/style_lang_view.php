@@ -1,5 +1,5 @@
 <?php
-foreach ($valueDataView??$this->getMyLanguage() as $index => $myObject) {
+foreach (array_reverse($valueDataView??$this->getMyLanguage()) as $index => $myObject) {
     $image = $index === $this->getLanguage() || $index === $this->getStyleFile()? 'fa fa-toggle-on' : 'fa fa-toggle-off';
     echo <<<HTML
         <tr>

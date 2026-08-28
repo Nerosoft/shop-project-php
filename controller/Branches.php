@@ -17,7 +17,7 @@ class MyBranch extends ModelJson{
         parent::__construct('Branches', Branch::getKeysObject());
     }
     function getView(){
-        foreach ($this->getMyBranch() as $index => $myObject) {
+        foreach (array_reverse($this->getMyBranch()) as $index => $myObject) {
             $image = $index === $this->getId() ? 'fa fa-toggle-on' : 'fa fa-toggle-off';
             echo <<<HTML
                 <tr>
@@ -62,7 +62,7 @@ class MyBranch extends ModelJson{
                 title=""
                 class="form-select" name="selectedBranch"  aria-label="Default select example">
             HTML;
-                foreach($this->getBranch() as $key=>$name){
+                foreach(array_reverse($this->getBranch()) as $key=>$name){
                         $select = $key === $this->getId()? 'selected' : '';
                         $arr = array();
                         if(isset($this->getFile()[$key][$this->getFile()[$key]['AllNamesLanguage']]['MyFlexTables']))

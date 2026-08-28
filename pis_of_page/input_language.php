@@ -5,7 +5,7 @@
         title=""
         class="form-select" name="selectedLanguage"  aria-label="Default select example">
 <?php
-    foreach($valueDataView??$this->getMyLanguage() as $key=>$name){
+    foreach(array_reverse($valueDataView??$this->getMyLanguage()) as $key=>$name){
             $select = $key === $this->getLanguage()? 'selected' : '';
             echo <<<HTML
             <option {$select} value="{$key}">

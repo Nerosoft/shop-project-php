@@ -92,7 +92,7 @@
 $this->makeTableSite($this->getMyDataViewProduct(), $this->getLookTable(), $this->getTrendsTable());
 if(isset($this->getModel2()['MyFlexTables']))
     foreach ($this->getModel2()['MyFlexTables'] as $keyabc => $value) 
-        $this->makeTableSite($this->getObj()[$keyabc], $this->getModel2()[$keyabc]['LookTable'], $this->getModel2()[$keyabc]['TrendsTable'], 'flextable_part.php', $keyabc);
+        $this->makeTableSite(array_reverse($this->getObj()[$keyabc]), $this->getModel2()[$keyabc]['LookTable'], $this->getModel2()[$keyabc]['TrendsTable'], 'flextable_part.php', $keyabc);
 ?>
 
 <!-- TESTIMONIAL -->

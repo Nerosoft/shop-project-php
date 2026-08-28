@@ -18,7 +18,7 @@ abstract class ModelJson implements InterfaceDataView{
         return $this->getModelPage()['LanguageSelect'];
     }
     function getMyDataViewProduct(){
-        return isset($this->getObj()['Product'])?ProductValue::fromArray($this->getObj()['Product']):array();
+        return isset($this->getObj()['Product'])?array_reverse(ProductValue::fromArray($this->getObj()['Product'])):array();
     }
     function getBranchLanguage(){
         $arr = array();
