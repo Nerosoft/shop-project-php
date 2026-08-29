@@ -59,11 +59,11 @@ abstract class ModelJson implements InterfaceDataView{
             //change table name
             $myData[$code][$this->keyId]['MYTITLE'] = $_POST['name'];
             foreach ($this->keysInput as $key2 => $myInputKey){
-                $myData[$code][$this->keyId]['TableHead'][$myInputKey] = $myData[$_POST['selectedLanguage']]['Home']['InputNameTable'];
-                $myData[$code][$this->keyId]['Label'][$myInputKey] = $myData[$_POST['selectedLanguage']]['Home']['InputLabel'];
-                $myData[$code][$this->keyId]['Hint'][$myInputKey] = $myData[$_POST['selectedLanguage']]['Home']['InputHint'];
-                $myData[$code][$this->keyId]['ErrorsMessageReq'][$myInputKey] = $myData[$_POST['selectedLanguage']]['Home']['InputErrorsMessageReq'];
-                $myData[$code][$this->keyId]['ErrorsMessageInv'][$myInputKey] = $myData[$_POST['selectedLanguage']]['Home']['InputErrorsMessageInv'];
+                $myData[$code][$this->keyId]['TableHead'][$myInputKey] = $myData[$_POST['selectedLanguage']]['Home']['InputNameTable'].$myInputKey;
+                $myData[$code][$this->keyId]['Label'][$myInputKey] = $myData[$_POST['selectedLanguage']]['Home']['InputLabel'].$myInputKey;
+                $myData[$code][$this->keyId]['Hint'][$myInputKey] = $myData[$_POST['selectedLanguage']]['Home']['InputHint'].$myInputKey;
+                $myData[$code][$this->keyId]['ErrorsMessageReq'][$myInputKey] = $myData[$_POST['selectedLanguage']]['Home']['InputErrorsMessageReq'].$myInputKey;
+                $myData[$code][$this->keyId]['ErrorsMessageInv'][$myInputKey] = $myData[$_POST['selectedLanguage']]['Home']['InputErrorsMessageInv'].$myInputKey;
             }
         }
         return $myData;

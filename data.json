@@ -418,7 +418,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "fp1e69c1": "English language"
+                "ky2b41da": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -700,8 +700,8 @@
                 "LabelInputNumber": "Input numper",
                 "HintInputNumber": "Enter input numper",
                 "TablePage": {
-                    "LookTable": "Please take a look through our table",
-                    "TrendsTable": "Delivery Marketing Trends table",
+                    "LookTable": "Please take a look through our table book",
+                    "TrendsTable": "Delivery Marketing Trends table book",
                     "Offcanvas": "Menu",
                     "AdminDashboard": "Welocme in my library",
                     "BranchInv": "branch id invalid",
@@ -733,24 +733,24 @@
                     "ImgLabel": "your image",
                     "ImgButton": "Select your image",
                     "AllBranches": "All branches",
-                    "MYTITLE": "your name table",
-                    "LoadMessage": "your message loade page",
-                    "ScreenModelDelete": "your title delete modal",
-                    "MessageModelDelete": "your message do you want to delete table",
-                    "ButtonModelDelete": "your name button delete table",
-                    "Title": "your title page",
-                    "ScreenModelCreate": "your title create new modal",
-                    "ScreenModelEdit": "your title edit modal",
-                    "ButtonModelCreate": "your name button create table",
-                    "ButtonModelAdd": "your name button create table",
-                    "ButtonModelEdit": "your name button edit table",
-                    "TableId": "your name table Id",
-                    "TabelEvent": "your name table event",
-                    "MessageModelCreate": "your message successfully create table",
-                    "MessageModelEdit": "your message successfully edit table",
-                    "Delete": "your message successfully delete table",
-                    "IdIsReq": "your message error id required",
-                    "IdIsInv": "your message error id invalid"
+                    "MYTITLE": "book programming language",
+                    "LoadMessage": "Welcome in book programing language",
+                    "ScreenModelDelete": "Welcome in delete book",
+                    "MessageModelDelete": "do you want to delete book",
+                    "ButtonModelDelete": "Delete",
+                    "Title": "book programming language",
+                    "ScreenModelCreate": "Welcome in create new book",
+                    "ScreenModelEdit": "Welcome in edit book",
+                    "ButtonModelCreate": "Create book",
+                    "ButtonModelAdd": "Create",
+                    "ButtonModelEdit": "Save",
+                    "TableId": "My id ",
+                    "TabelEvent": "Event",
+                    "MessageModelCreate": "Successfully create book",
+                    "MessageModelEdit": "Successfully edit book",
+                    "Delete": "Successfully delete book",
+                    "IdIsReq": "Id required",
+                    "IdIsInv": "Id invalid"
                 }
             },
             "MyStyle": {
@@ -864,7 +864,8 @@
             },
             "MyFlexTables": {
                 "8g03a095": "book programming language",
-                "SYbabd0b": "Games"
+                "SYbabd0b": "Games",
+                "cC1b5a0d": "Test"
             },
             "8g03a095": {
                 "LookTable": "Please take a look through our table book",
@@ -1061,6 +1062,74 @@
                     "bnbabe64": "Error Item Weight invalid",
                     "RSbabe6e": "Error Dimensions invalid"
                 }
+            },
+            "cC1b5a0d": {
+                "LookTable": "Please take a look through our table book",
+                "TrendsTable": "Delivery Marketing Trends table book",
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
+                "Logout": "Logout",
+                "MyFlexTables": "Flex tables",
+                "Ssearch": "Quick Search:",
+                "InfoEmpty": "No records available",
+                "ZeroRecords": "No Data Found",
+                "Info": "Total",
+                "LengthMenu": "records per page",
+                "InfoFiltered": "Showing",
+                "SuccessfullyChangeBranch": "Successfully changed branch",
+                "ActiveBranch": "this branch is active",
+                "ChangeTitleBranch": "welcome in change branch",
+                "ChangeButtonBranch": "change branch",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
+                "TitleViewImage": "View image product",
+                "TableProductImage": "Image",
+                "Reqimage": "Required image",
+                "Invimage": "Invalid image",
+                "UploadImgInv": "error upload image",
+                "ImgLabel": "your image",
+                "ImgButton": "Select your image",
+                "AllBranches": "All branches",
+                "MYTITLE": "Test",
+                "LoadMessage": "Welcome in book programing language",
+                "ScreenModelDelete": "Welcome in delete book",
+                "MessageModelDelete": "do you want to delete book",
+                "ButtonModelDelete": "Delete",
+                "Title": "book programming language",
+                "ScreenModelCreate": "Welcome in create new book",
+                "ScreenModelEdit": "Welcome in edit book",
+                "ButtonModelCreate": "Create book",
+                "ButtonModelAdd": "Create",
+                "ButtonModelEdit": "Save",
+                "TableId": "My id ",
+                "TabelEvent": "Event",
+                "MessageModelCreate": "Successfully create book",
+                "MessageModelEdit": "Successfully edit book",
+                "Delete": "Successfully delete book",
+                "IdIsReq": "Id required",
+                "IdIsInv": "Id invalid",
+                "TableHead": {
+                    "p01b5c45": "Namep01b5c45"
+                },
+                "Label": {
+                    "p01b5c45": "Namep01b5c45"
+                },
+                "Hint": {
+                    "p01b5c45": "Enter name valuep01b5c45"
+                },
+                "ErrorsMessageReq": {
+                    "p01b5c45": "error name reqiredp01b5c45"
+                },
+                "ErrorsMessageInv": {
+                    "p01b5c45": "error name invalidp01b5c45"
+                }
             }
         },
         "Branches": {
@@ -1075,7 +1144,7 @@
                 "Address": "menofia - menouf - sirs el laiana",
                 "Follow": "WithoutRays"
             },
-            "C09cd153": {
+            "N12da5f4": {
                 "Name": "Shebin",
                 "Phone": "01204299614",
                 "Country": "Egypt",
@@ -1174,7 +1243,7 @@
                 "RSbabe6e": "7.5 x 1.19 x 9.25 inches"
             }
         },
-        "fp1e69c1": {
+        "ky2b41da": {
             "Site": {
                 "LookTable": "Please take a look through our table",
                 "TrendsTable": "Delivery Marketing Trends table",
@@ -1590,7 +1659,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "fp1e69c1": "English language"
+                "ky2b41da": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -1872,8 +1941,8 @@
                 "LabelInputNumber": "Input numper",
                 "HintInputNumber": "Enter input numper",
                 "TablePage": {
-                    "LookTable": "Please take a look through our table",
-                    "TrendsTable": "Delivery Marketing Trends table",
+                    "LookTable": "Please take a look through our table book",
+                    "TrendsTable": "Delivery Marketing Trends table book",
                     "Offcanvas": "Menu",
                     "AdminDashboard": "Welocme in my library",
                     "BranchInv": "branch id invalid",
@@ -1905,24 +1974,24 @@
                     "ImgLabel": "your image",
                     "ImgButton": "Select your image",
                     "AllBranches": "All branches",
-                    "MYTITLE": "your name table",
-                    "LoadMessage": "your message loade page",
-                    "ScreenModelDelete": "your title delete modal",
-                    "MessageModelDelete": "your message do you want to delete table",
-                    "ButtonModelDelete": "your name button delete table",
-                    "Title": "your title page",
-                    "ScreenModelCreate": "your title create new modal",
-                    "ScreenModelEdit": "your title edit modal",
-                    "ButtonModelCreate": "your name button create table",
-                    "ButtonModelAdd": "your name button create table",
-                    "ButtonModelEdit": "your name button edit table",
-                    "TableId": "your name table Id",
-                    "TabelEvent": "your name table event",
-                    "MessageModelCreate": "your message successfully create table",
-                    "MessageModelEdit": "your message successfully edit table",
-                    "Delete": "your message successfully delete table",
-                    "IdIsReq": "your message error id required",
-                    "IdIsInv": "your message error id invalid"
+                    "MYTITLE": "book programming language",
+                    "LoadMessage": "Welcome in book programing language",
+                    "ScreenModelDelete": "Welcome in delete book",
+                    "MessageModelDelete": "do you want to delete book",
+                    "ButtonModelDelete": "Delete",
+                    "Title": "book programming language",
+                    "ScreenModelCreate": "Welcome in create new book",
+                    "ScreenModelEdit": "Welcome in edit book",
+                    "ButtonModelCreate": "Create book",
+                    "ButtonModelAdd": "Create",
+                    "ButtonModelEdit": "Save",
+                    "TableId": "My id ",
+                    "TabelEvent": "Event",
+                    "MessageModelCreate": "Successfully create book",
+                    "MessageModelEdit": "Successfully edit book",
+                    "Delete": "Successfully delete book",
+                    "IdIsReq": "Id required",
+                    "IdIsInv": "Id invalid"
                 }
             },
             "MyStyle": {
@@ -2036,7 +2105,8 @@
             },
             "MyFlexTables": {
                 "8g03a095": "book programming language",
-                "SYbabd0b": "Games"
+                "SYbabd0b": "Games",
+                "cC1b5a0d": "Test"
             },
             "8g03a095": {
                 "LookTable": "Please take a look through our table book",
@@ -2233,10 +2303,78 @@
                     "bnbabe64": "Error Item Weight invalid",
                     "RSbabe6e": "Error Dimensions invalid"
                 }
+            },
+            "cC1b5a0d": {
+                "LookTable": "Please take a look through our table book",
+                "TrendsTable": "Delivery Marketing Trends table book",
+                "Offcanvas": "Menu",
+                "AdminDashboard": "Welocme in my library",
+                "BranchInv": "branch id invalid",
+                "Logout": "Logout",
+                "MyFlexTables": "Flex tables",
+                "Ssearch": "Quick Search:",
+                "InfoEmpty": "No records available",
+                "ZeroRecords": "No Data Found",
+                "Info": "Total",
+                "LengthMenu": "records per page",
+                "InfoFiltered": "Showing",
+                "SuccessfullyChangeBranch": "Successfully changed branch",
+                "ActiveBranch": "this branch is active",
+                "ChangeTitleBranch": "welcome in change branch",
+                "ChangeButtonBranch": "change branch",
+                "UsedLanguage": "Language is active",
+                "ModelTitle": "welcom in change language",
+                "ModelButton": "Change language",
+                "UsedStyle": "Style is active",
+                "ModalTitleStyle": "welcom in change style",
+                "ModalButtonStyle": "Change style",
+                "MessageStyleLang": "Successfylly change language",
+                "MessageStyleLang2": "Successfylly change style",
+                "TitleViewImage": "View image product",
+                "TableProductImage": "Image",
+                "Reqimage": "Required image",
+                "Invimage": "Invalid image",
+                "UploadImgInv": "error upload image",
+                "ImgLabel": "your image",
+                "ImgButton": "Select your image",
+                "AllBranches": "All branches",
+                "MYTITLE": "Test",
+                "LoadMessage": "Welcome in book programing language",
+                "ScreenModelDelete": "Welcome in delete book",
+                "MessageModelDelete": "do you want to delete book",
+                "ButtonModelDelete": "Delete",
+                "Title": "book programming language",
+                "ScreenModelCreate": "Welcome in create new book",
+                "ScreenModelEdit": "Welcome in edit book",
+                "ButtonModelCreate": "Create book",
+                "ButtonModelAdd": "Create",
+                "ButtonModelEdit": "Save",
+                "TableId": "My id ",
+                "TabelEvent": "Event",
+                "MessageModelCreate": "Successfully create book",
+                "MessageModelEdit": "Successfully edit book",
+                "Delete": "Successfully delete book",
+                "IdIsReq": "Id required",
+                "IdIsInv": "Id invalid",
+                "TableHead": {
+                    "p01b5c45": "Namep01b5c45"
+                },
+                "Label": {
+                    "p01b5c45": "Namep01b5c45"
+                },
+                "Hint": {
+                    "p01b5c45": "Enter name valuep01b5c45"
+                },
+                "ErrorsMessageReq": {
+                    "p01b5c45": "error name reqiredp01b5c45"
+                },
+                "ErrorsMessageInv": {
+                    "p01b5c45": "error name invalidp01b5c45"
+                }
             }
         }
     },
-    "C09cd153": {
+    "N12da5f4": {
         "AllNamesLanguage": "english",
         "Style": "default",
         "english": {
@@ -2655,7 +2793,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "fp1e69c1": "English language"
+                "ky2b41da": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -2937,8 +3075,8 @@
                 "LabelInputNumber": "Input numper",
                 "HintInputNumber": "Enter input numper",
                 "TablePage": {
-                    "LookTable": "Please take a look through our table",
-                    "TrendsTable": "Delivery Marketing Trends table",
+                    "LookTable": "Please take a look through our table book",
+                    "TrendsTable": "Delivery Marketing Trends table book",
                     "Offcanvas": "Menu",
                     "AdminDashboard": "Welocme in my library",
                     "BranchInv": "branch id invalid",
@@ -2970,24 +3108,24 @@
                     "ImgLabel": "your image",
                     "ImgButton": "Select your image",
                     "AllBranches": "All branches",
-                    "MYTITLE": "your name table",
-                    "LoadMessage": "your message loade page",
-                    "ScreenModelDelete": "your title delete modal",
-                    "MessageModelDelete": "your message do you want to delete table",
-                    "ButtonModelDelete": "your name button delete table",
-                    "Title": "your title page",
-                    "ScreenModelCreate": "your title create new modal",
-                    "ScreenModelEdit": "your title edit modal",
-                    "ButtonModelCreate": "your name button create table",
-                    "ButtonModelAdd": "your name button create table",
-                    "ButtonModelEdit": "your name button edit table",
-                    "TableId": "your name table Id",
-                    "TabelEvent": "your name table event",
-                    "MessageModelCreate": "your message successfully create table",
-                    "MessageModelEdit": "your message successfully edit table",
-                    "Delete": "your message successfully delete table",
-                    "IdIsReq": "your message error id required",
-                    "IdIsInv": "your message error id invalid"
+                    "MYTITLE": "book programming language",
+                    "LoadMessage": "Welcome in book programing language",
+                    "ScreenModelDelete": "Welcome in delete book",
+                    "MessageModelDelete": "do you want to delete book",
+                    "ButtonModelDelete": "Delete",
+                    "Title": "book programming language",
+                    "ScreenModelCreate": "Welcome in create new book",
+                    "ScreenModelEdit": "Welcome in edit book",
+                    "ButtonModelCreate": "Create book",
+                    "ButtonModelAdd": "Create",
+                    "ButtonModelEdit": "Save",
+                    "TableId": "My id ",
+                    "TabelEvent": "Event",
+                    "MessageModelCreate": "Successfully create book",
+                    "MessageModelEdit": "Successfully edit book",
+                    "Delete": "Successfully delete book",
+                    "IdIsReq": "Id required",
+                    "IdIsInv": "Id invalid"
                 }
             },
             "MyStyle": {
@@ -3387,7 +3525,7 @@
                 "RSbabe6e": "7.5 x 1.19 x 9.25 inches"
             }
         },
-        "fp1e69c1": {
+        "ky2b41da": {
             "Site": {
                 "LookTable": "Please take a look through our table",
                 "TrendsTable": "Delivery Marketing Trends table",
@@ -3803,7 +3941,7 @@
             },
             "AllNamesLanguage": {
                 "english": "System language",
-                "fp1e69c1": "English language"
+                "ky2b41da": "English language"
             },
             "Register": {
                 "SelectBranchBox": {
@@ -4085,8 +4223,8 @@
                 "LabelInputNumber": "Input numper",
                 "HintInputNumber": "Enter input numper",
                 "TablePage": {
-                    "LookTable": "Please take a look through our table",
-                    "TrendsTable": "Delivery Marketing Trends table",
+                    "LookTable": "Please take a look through our table book",
+                    "TrendsTable": "Delivery Marketing Trends table book",
                     "Offcanvas": "Menu",
                     "AdminDashboard": "Welocme in my library",
                     "BranchInv": "branch id invalid",
@@ -4118,24 +4256,24 @@
                     "ImgLabel": "your image",
                     "ImgButton": "Select your image",
                     "AllBranches": "All branches",
-                    "MYTITLE": "your name table",
-                    "LoadMessage": "your message loade page",
-                    "ScreenModelDelete": "your title delete modal",
-                    "MessageModelDelete": "your message do you want to delete table",
-                    "ButtonModelDelete": "your name button delete table",
-                    "Title": "your title page",
-                    "ScreenModelCreate": "your title create new modal",
-                    "ScreenModelEdit": "your title edit modal",
-                    "ButtonModelCreate": "your name button create table",
-                    "ButtonModelAdd": "your name button create table",
-                    "ButtonModelEdit": "your name button edit table",
-                    "TableId": "your name table Id",
-                    "TabelEvent": "your name table event",
-                    "MessageModelCreate": "your message successfully create table",
-                    "MessageModelEdit": "your message successfully edit table",
-                    "Delete": "your message successfully delete table",
-                    "IdIsReq": "your message error id required",
-                    "IdIsInv": "your message error id invalid"
+                    "MYTITLE": "book programming language",
+                    "LoadMessage": "Welcome in book programing language",
+                    "ScreenModelDelete": "Welcome in delete book",
+                    "MessageModelDelete": "do you want to delete book",
+                    "ButtonModelDelete": "Delete",
+                    "Title": "book programming language",
+                    "ScreenModelCreate": "Welcome in create new book",
+                    "ScreenModelEdit": "Welcome in edit book",
+                    "ButtonModelCreate": "Create book",
+                    "ButtonModelAdd": "Create",
+                    "ButtonModelEdit": "Save",
+                    "TableId": "My id ",
+                    "TabelEvent": "Event",
+                    "MessageModelCreate": "Successfully create book",
+                    "MessageModelEdit": "Successfully edit book",
+                    "Delete": "Successfully delete book",
+                    "IdIsReq": "Id required",
+                    "IdIsInv": "Id invalid"
                 }
             },
             "MyStyle": {
