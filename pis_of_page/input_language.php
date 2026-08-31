@@ -14,5 +14,3 @@
             HTML;
         }
 ?>
-        </select>
-    </div>

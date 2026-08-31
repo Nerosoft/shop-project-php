@@ -1,12 +1,12 @@
 <?php
-if(isset($_SESSION['userId']) && count($this->getBranch2()) >= 1 && $this->getUrlName2() === 'SystemLang' && !isset($state)){
+if($this->getUrlName2() === 'SystemLang' && !isset($state)){
     include 'AllBranchLanguageInput.php';
     foreach($this->getModel2()['AllNamesLanguage'] as $key=>$option)
         if(isset($_GET['lang']) && $_GET['lang'] !== $key)
             echo <<<HTML
                 <div class="col-md-auto">
                     <div class="form-group">
-                        <div class="form-check">
+                        <div class="form-group">
                             <input type="checkbox" id="choices[]" onchange="optionBranch('all_branch2')" class="all_branch form-check-input" name="choices[$key]" value="{$key}">
                             <label class="form-check-label" for="choices[]">
                             {$option}
@@ -33,7 +33,7 @@ else if(isset($_SESSION['userId']) && count($this->getBranch2()) >= 1 && isset($
             echo <<<HTML
                 <div class="col-md-auto">
                     <div class="form-group">
-                        <div class="form-check">
+                        <div class="form-group">
                             <input type="checkbox" id="choices[]" onchange="optionBranch('all_branch2')" class="all_branch form-check-input branch-check" name="choices[$key]" value="{$key}">
                             <label class="form-check-label" for="choices[]">
                             {$option['Name']}

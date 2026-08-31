@@ -14,7 +14,7 @@ HTML:
     HTML;
 
 if($this->getUrlName2() === 'Product' ||
-$this->getUrlName2() === 'ChangeLanguage' && $index !== $this->getLanguage() && $index !== 'english'||
+$this->getUrlName2() === 'ChangeLanguage' && $index !== $this->getLanguage() && $index !== 'english' && $index !== 'arabic'||
 $this->getUrlName2() === 'Home' || 
 $this->getUrlName2() === 'Branches' && $this->getId() !== $index && $index !== $this->getFixedId()||
 isset($this->getModel2()['MyFlexTables'][$this->getUrlName2()])||

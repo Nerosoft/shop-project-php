@@ -1,0 +1,8 @@
+.dt-container .justify-content-between{
+    flex-direction: row-reverse;
+   
+}
+.dt-length{
+    display: flex;
+    flex-direction: row-reverse;
+}

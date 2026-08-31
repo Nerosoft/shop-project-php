@@ -80,7 +80,7 @@ function resetBranch(el){
     let array = $(el).find('option:selected').data('value');
     for (const key in array) {
          $('#createModel').find('#myOption').append(`<div class="col-lg-auto pt-2">
-                <div class="form-check">
+                <div class="form-group">
                     <input name="${key}"  class="form-check-input" value="${key}" type="checkbox">
                     <label  class="form-check-label">
                         ${array[key]}

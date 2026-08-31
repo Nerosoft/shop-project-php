@@ -26,7 +26,7 @@ https://templatemo.com/tm-538-digital-trend
     --font-bold-family:     'Inter', sans-serif;
     --font-weight-bold:     bold;
 
-    --h1-font-size:         42px;
+    --h1-font-size:         29px;
     --h2-font-size:         32px;
     --h3-font-size:         24px;
     --p-font-size:          18px;
@@ -380,9 +380,9 @@ https://templatemo.com/tm-538-digital-trend
   }
 
   .project-icon {
-    position: absolute;
+    /* position: absolute;
     right: 30px;
-    top: 40px;
+    top: 40px; */
     background: var(--dark-color);
     border-radius: var(--border-radius-large);
     color: var(--white-color);
@@ -709,6 +709,14 @@ https://templatemo.com/tm-538-digital-trend
   color: #1b737e;
 }
 
-.nav-link, .offcanvas-header{
+.nav-link, .offcanvas-header, .dropdown-menu a {
     color: white!important;
+}
+
+
+.block-slid{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
 }

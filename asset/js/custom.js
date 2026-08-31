@@ -34,6 +34,7 @@
 
     // PROJECT SLIDE
     $('#project-slide').owlCarousel({
+      rtl:true,
       loop: true,
       center: true,
       autoplayHoverPause: false,

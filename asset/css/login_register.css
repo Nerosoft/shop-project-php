@@ -21,9 +21,10 @@ body {
 }
 h4{
     text-align: center;
-    color: #333;
 }
-
+h4 .fa{
+    color: #333 !important;
+}
 .register button{
     margin-top: 10px;
 }

@@ -45,7 +45,7 @@
                             $(idModal).find('#allbranchbox').append(`
                                 <div class="col-md-auto">
                                     <div class="form-group">
-                                        <div class="form-check">
+                                        <div class="form-group">
                                             <input onchange="optionBranch('all_branch2')" type="checkbox" id="choices[]" class="all_branch form-check-input branch-check" name="choices[${key}]" value="${key}">
                                             <label class="form-check-label" for="choices[]">
                                             ${allKeyBranch[key]['Name']}
@@ -58,7 +58,7 @@
                     if(($(idModal).find('#allbranchbox').children().length+1) == '<?php echo count($this->getBranch())?>'){
                         $(idModal).find('#allbranchbox').prepend(`
                             <div class="col-lg-auto pt-2">
-                                <div class="form-check">
+                                <div class="form-group">
                                     <input onchange="optionBranch()" name="choices"  class="all_branch2 form-check-input branch-check" type="checkbox">
                                     <label class="form-check-label"><?php echo $this->getAllBranches()?></label>
                                 </div>
@@ -89,9 +89,9 @@
                         $(this).remove();
                         }), { delay: 9000 })).show();
                     </script>
-                    <div class="d-flex">
+                    <div class="tost-message">
                         <div class="toast-body">{$this->getMessage()}</div>
-                        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
                     </div>
                 </div>
             HTML;

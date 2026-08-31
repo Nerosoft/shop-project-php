@@ -39,6 +39,11 @@ class MyHome extends ModelJson{
                 </div>
             HTML;
             include "pis_of_page/input_language.php";
+            echo <<<HTML
+                <option value="" selected>{$this->getModelPage()['ALLMyLangSystem']}</option>
+                </select>
+                </div>
+            HTML;
             include('all_modal/end_model.php');
     }
 }

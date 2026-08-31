@@ -13,6 +13,7 @@ class MyChangeLanguage extends ModelJson{
         $action = 'ChangeLanguageCreatePost.php';
         include('all_modal/modal_change_language.php');
         include "pis_of_page/input_language.php";
+        echo '</select></div>';
         include('all_modal/end_model.php');
     }
 }

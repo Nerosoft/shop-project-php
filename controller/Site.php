@@ -126,23 +126,5 @@ class Site extends ModelJson{
     function getNavTitle(){
         return $this->NavTitle;
     }
-    function getAbout(){
-        return $this->getModelPage()['About'];
-    }
-    function getProduct(){
-        return $this->getModelPage()['NavTitle'];
-    }
-    function getContact(){
-        return $this->getModelPage()['Contact'];
-    }
-    function getLoginButton(){
-        return $this->getModelPage()['LoginButton'];
-    }
-    function getHomeButton(){
-        return $this->getModelPage()['HomeButton'];
-    }
-    function getRegisterButton(){
-        return $this->getModelPage()['RegisterButton'];
-    }
 }
 $view = new Site();

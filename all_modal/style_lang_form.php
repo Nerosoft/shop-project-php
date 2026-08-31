@@ -7,7 +7,7 @@ if(preg_match('/ChangeLangPost/', $action) || preg_match('/ChangeLanguagePost/',
 foreach ($data as $index => $value)
     if($index === $style_lang)
         echo <<<HTML
-            <div class="form-check">
+            <div class="form-groub">
             <input name="id" onchange="changeLangStyle(this, '{$style_lang}', '#{$idModel}', '{$error}')" class="form-check-input flexCheck" value="{$index}" checked type="radio">
             <label  class="form-check-label">
             {$value->getName()}
@@ -16,7 +16,7 @@ foreach ($data as $index => $value)
         HTML;
     else
         echo <<<HTML
-            <div class="form-check">
+            <div class="form-groub">
             <input name="id" onchange="changeLangStyle(this, '{$style_lang}', '#{$idModel}', '{$error}')" class="form-check-input" value="{$index}" type="radio">
             <label  class="form-check-label">
             {$value->getName()}

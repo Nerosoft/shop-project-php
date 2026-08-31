@@ -86,7 +86,7 @@ class MyBranch extends ModelJson{
                 if(isset($this->getModel2()['MyFlexTables']))
                     echo <<<HTML
                         <div class="col-lg-auto pt-2">
-                            <div class="form-check">
+                            <div class="form-group">
                                 <input name="flextable"  class="form-check-input" value="flextable" type="checkbox">
                                 <label  class="form-check-label">
                                     {$this->getFlexTable()}
@@ -98,7 +98,7 @@ class MyBranch extends ModelJson{
                 if(isset($this->getObj()['Users']))
                     echo <<<HTML
                         <div class="col-lg-auto pt-2">
-                            <div class="form-check">
+                            <div class="form-group">
                                 <input name="Users"  class="form-check-input" value="Users" type="checkbox">
                                 <label  class="form-check-label">
                                     {$this->getSettingAccounts()}
@@ -109,7 +109,7 @@ class MyBranch extends ModelJson{
                 if(isset($this->getObj()['Product']))
                     echo <<<HTML
                         <div class="col-lg-auto pt-2">
-                            <div class="form-check">
+                            <div class="form-group">
                                 <input name="Product"  class="form-check-input" value="Product" type="checkbox">
                                 <label  class="form-check-label">
                                     {$this->getProduct()}

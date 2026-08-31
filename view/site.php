@@ -72,12 +72,14 @@
                                         <img src="./asset/product/{$this->getId()}/{$index}" class="img-fluid" alt="project image">
                                         <div class="project-info">
                                             <h3>
-                                                <a target="_blank" href="{$myObject->getDescreption()}">
-                                                    <span>{$myObject->getName()}</span>
+                                                <a class="block-slid" target="_blank" href="{$myObject->getDescreption()}">
+                                                <div class="text-left">    
+                                                    <div>{$myObject->getName()}</div>
+                                                    <div>{$myObject->getCategory()}</div>
+                                                </div>
                                                     <i class="fa fa-angle-right project-icon"></i>
                                                 </a>
                                             </h3>
-                                            <span>{$myObject->getCategory()}</span>
                                         </div>
                                     </div>
                                 HTML;
@@ -91,8 +93,9 @@
 <?php
 $this->makeTableSite($this->getMyDataViewProduct(), $this->getLookTable(), $this->getTrendsTable());
 if(isset($this->getModel2()['MyFlexTables']))
-    foreach ($this->getModel2()['MyFlexTables'] as $keyabc => $value) 
-        $this->makeTableSite(array_reverse($this->getObj()[$keyabc]), $this->getModel2()[$keyabc]['LookTable'], $this->getModel2()[$keyabc]['TrendsTable'], 'flextable_part.php', $keyabc);
+    foreach ($this->getModel2()['MyFlexTables'] as $keyabc => $value)
+        if(isset($this->getObj()[$keyabc]))
+            $this->makeTableSite(array_reverse($this->getObj()[$keyabc]), $this->getModel2()[$keyabc]['LookTable'], $this->getModel2()[$keyabc]['TrendsTable'], 'flextable_part.php', $keyabc);
 ?>
 
 <!-- TESTIMONIAL -->
@@ -183,10 +186,10 @@ if(isset($this->getModel2()['MyFlexTables']))
 
                     <div class="col-lg-3 mx-lg-auto col-md-6 col-12" data-aos="fade-up" data-aos-delay="600">
                         <ul class="social-icon">
-                            <li><a href="#" class="fa fa-instagram"></a></li>
-                            <li><a href="https://x.com/minthu" class="fa fa-twitter" target="_blank"></a></li>
-                            <li><a href="#" class="fa fa-dribbble"></a></li>
-                            <li><a href="#" class="fa fa-behance"></a></li>
+                            <li><a href="#" class="fa fa-instagram" target="_blank"></a></li>
+                            <li><a href="#" class="fa fa-twitter" target="_blank"></a></li>
+                            <li><a href="#" class="fa fa-dribbble" target="_blank"></a></li>
+                            <li><a href="#" class="fa fa-behance" target="_blank"></a></li>
                         </ul>
                     </div>
                 HTML;
