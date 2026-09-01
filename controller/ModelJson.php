@@ -710,9 +710,6 @@ abstract class ModelJson implements InterfaceDataView{
     function getBranchProjectButton(){
         return $this->getModelPage()['BranchProjectButton'];
     }
-    function getChangeStyleButton(){
-        return $this->getModelPage()['ChangeStyleButton'];
-    }
     function getModalTitleProject(){
         return $this->getModelPage()['ModalTitleProject'];
     }
@@ -721,9 +718,6 @@ abstract class ModelJson implements InterfaceDataView{
     }
     function getButtonSetupProject(){
         return $this->getModelPage()['ButtonSetupProject'];
-    }
-    function getAllBranch(){
-        return $this->getModelPage()['AllBranch'];
     }
     function getRegisterLoginPage(){
         return $this->getModelPage()['RegisterLoginPage'];
