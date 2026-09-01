@@ -17,7 +17,7 @@
     border-radius: 5px;
     color: white!important;
 }
-.nav-link:hover, .dropdown-item:hover{
+.nav-link:hover, .dropdown-item:hover, .dropdown-item:focus{
     background-color: #392bdd;
     width: 95%;
     border-radius: 5px;
