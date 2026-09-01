@@ -102,5 +102,5 @@
     align-items: center;
 }
 .table thead tr th, .table tbody tr td{
-    text-align: center!important;
+    text-align: left!important;
 }

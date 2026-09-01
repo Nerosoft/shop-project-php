@@ -14,6 +14,10 @@ abstract class ModelJson implements InterfaceDataView{
     private $MessageType;
     private $StyleFile;
     public $keysInput;
+    private $direction;
+    function getDirection(){
+        return $this->direction;
+    }
     function getSelectLang(){
         return $this->getModelPage()['LanguageSelect'];
     }
@@ -94,7 +98,7 @@ abstract class ModelJson implements InterfaceDataView{
     }
     function getAllKeyPage(){
         $keys = $this->getModel2();
-        unset($keys['AllNamesLanguage'], $keys['Style'], $keys['MyFlexTables'], $keys['Login'], $keys['Register']);
+        unset($keys['direction'], $keys['AllNamesLanguage'], $keys['Style'], $keys['MyFlexTables'], $keys['Login'], $keys['Register']);
         return array_keys($keys);
     }
     function __construct($idPage = null, $pram1 = null){
@@ -220,7 +224,7 @@ abstract class ModelJson implements InterfaceDataView{
             header('Location:'.(isset($_SESSION['userId'])?'Home':'Login'));
             exit;
         }else if($_SERVER["REQUEST_METHOD"] === "GET"){
-            $dir = $this->getLanguage() === 'arabic'?'rtl':'ltr';
+            $this->direction = $this->getModel2()['direction']['dir'];
             $this->MessageServer = $_SESSION['error']??($_SESSION['message']??$this->getModelPage()['LoadMessage']);
             $this->MessageType = isset($_SESSION['error'])?'danger':'success';
             $this->StyleFile = isset($_COOKIE[$this->getId().'Style']) && !isset($_SESSION['userId'])?$_COOKIE[$this->getId().'Style']:$this->getObj()['Style'];
@@ -229,7 +233,7 @@ abstract class ModelJson implements InterfaceDataView{
             else if(!isset($_SESSION['userId']) && isset($_GET['id']))
                 setcookie('branchId', $_GET['id'], time()+2628000);
             echo<<<HTML
-            <html lang="en" dir="{$dir}">
+            <html lang="en" dir="{$this->getDirection()}">
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -447,6 +451,7 @@ abstract class ModelJson implements InterfaceDataView{
                 !isset($this->getModel2()['MyFlexTables'][$table])&&
                 $table !== 'Style' && 
                 $table !== 'MyFlexTables' && 
+                $table !== 'direction' && 
                 $table !== 'Login' && 
                 $table !== 'Register' && 
                 $table !== 'ChangeLanguage' && 
@@ -455,7 +460,7 @@ abstract class ModelJson implements InterfaceDataView{
         if(isset($_SESSION['userId']))
             $this->myMenuApp['Logout'] = $this->getModelPage()['Logout'];
         echo'<link href="./asset/lib/dataTables.bootstrap5.css" rel="stylesheet">'
-        .($this->getLanguage() === 'arabic'?'<link href="./asset/css/arabic.css" rel="stylesheet">':'').
+        .($this->getDirection() === 'rtl'?'<link href="./asset/css/arabic.css" rel="stylesheet">':'').
         '<script src="./asset/lib/dataTables.js" type="text/javascript"></script>
         <script src="./asset/lib/dataTables.bootstrap5.js" type="text/javascript"></script></head><body>';
         include 'pis_of_page/admin_title.php';

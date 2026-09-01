@@ -5,7 +5,7 @@
   <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
   </button>
-    <div class="offcanvas offcanvas-<?php echo $this->getLanguage() === 'arabic'?'end':'start'?> text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+    <div class="offcanvas offcanvas-<?php echo $this->getDirection() === 'rtl'?'end':'start'?> text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
             <img src="./asset/img/female-avatar.png" class="img-menu" alt="office">    

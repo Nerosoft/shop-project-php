@@ -6,3 +6,6 @@
     display: flex;
     flex-direction: row-reverse;
 }
+.table thead tr th, .table tbody tr td{
+    text-align: right!important;
+}

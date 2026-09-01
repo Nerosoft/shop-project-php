@@ -17,6 +17,10 @@ class SetupProject extends ModelJson{
             "AllNamesLanguage"=> "english",
             "Style"=> "default",
             "english"=>[
+                "direction"=> [
+                    "dir"=>"ltr",
+                    "MYTITLE"=>"Direction"
+                ],
                 "Site"=> [
                     "LookTable"=> "Please take a look through our table",
                     "TrendsTable"=> "Delivery Marketing Trends table",
@@ -799,6 +803,10 @@ class SetupProject extends ModelJson{
                 ]
             ],
             "arabic"=> [
+                "direction"=> [
+                    "dir"=>"rtl",
+                    "MYTITLE"=>"اتجاه الصفحة"
+                ],
                 "Site"=> [
                     "LookTable"=> "نقدم لكم مجموعة مختارة بعناية من المنتجات التي تجمع بين الجودة والاناقة والقيمة.",
                     "TrendsTable"=> "اكتشفوا منتجات مميزة صممت لتلبي احتياجتكم وتمنحكم تجربة تستحقها ثقتكم.",
