@@ -78,7 +78,7 @@
                 "Design": "Design : Nero-Soft"
             },
             "Style": {
-                "default": "default",
+                "default": "اللون الافتراضي",
                 "dark": "dark",
                 "pink": "pink",
                 "cosmic": "cosmic",
@@ -1761,7 +1761,7 @@
                 "ImgLabel": "الصورة",
                 "ImgButton": "اختار الصورة",
                 "AllBranches": "كل الفروع",
-                "MYTITLE": "book programming language",
+                "MYTITLE": "جدول كتب البرمجة",
                 "LoadMessage": "اهلا بك في جدول لغات البرمجة",
                 "ScreenModelDelete": "نافذة مسح الكتاب",
                 "MessageModelDelete": "هل تريد مسح الكتاب",
@@ -1911,7 +1911,7 @@
                 "Design": "Design : Nero-Soft"
             },
             "Style": {
-                "default": "default",
+                "default": "اللون الافتراضي",
                 "dark": "dark",
                 "pink": "pink",
                 "cosmic": "cosmic",
