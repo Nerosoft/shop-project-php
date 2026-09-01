@@ -9,8 +9,6 @@ class ChangeLangPost extends ModelJson{
         if($_POST['state'] === 'branch' || $_POST['state'] === 'branch2'){
             setcookie('branchId', $this->keyId, time()+2628000);
             $_COOKIE['branchId'] = $this->keyId;
-            $this->MyIdDb = $this->keyId;
-            $this->Language = $_COOKIE[$this->getId().'AllNamesLanguage']??$this->getObj()['AllNamesLanguage'];
         }
         else{
             setcookie($this->getId().$_POST['state'], $this->keyId, time()+2628000);
